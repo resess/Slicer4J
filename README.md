@@ -15,10 +15,6 @@ Contributions to this repo are most welcome!
 1. [Pre-requisites](#pre-requisites)
 2. [Building The Tool](#Building-The-Tool)
 3. [Using The Tool](#Using-The-Tool)
-    1. [Instrumenting](#Instrumenting)
-    2. [Running apps](#Running-apps)
-    3. [Generating ICDG](#Generating-icdg)
-    4. [Slicing](#Slicing)
 
 ---
 
