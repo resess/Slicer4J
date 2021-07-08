@@ -19,7 +19,9 @@ Contributions to this repo are most welcome!
 ---
 
 
-## Pre-requisites
+## Requirements
+
+* Runs on Windows, Linux, and Mac OS
 
 * Install python3
 
@@ -28,6 +30,9 @@ Contributions to this repo are most welcome!
     * Windows: https://docs.python.org/3/using/windows.html
 
 * Clone the dynamic slicing core: https://github.com/resess/DynamicSlicingCore
+
+
+* Requires Java Runtime Environment version 9 or above. 
 
 ---
 
@@ -61,6 +66,10 @@ java -cp "Mandoline/target/mandoline-jar-with-dependencies.jar:Mandoline/target/
 A simpler method to use Slicer4J is by using the wrapper python script: `scripts/slicer4j.py`
 
 You can list the script options using: `python3 slicer4j.py -h`
+
+
+Slicer4J uses up to 8GB of RAM. The tool will crash with `OutOfMemoryError` exception if the trace size is greater than 8GB.
+In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E21764_01/web.1111/e13814/jvm_tuning.htm#PERFM161) allocated to Slicer4J by changing the -Xmx8g to a higher value (e.g. -Xmx16g).
 
 ---
 
@@ -144,7 +153,7 @@ You can list the script options using: `python3 slicer4j.py -h`
 
 ## User-defined method models: 
 
-The following is an example for defining your own  method models. 
+The following is an example for defining your own method models. 
 
 For the methods in this class:
 ```Java
