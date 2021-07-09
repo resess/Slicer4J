@@ -3,7 +3,7 @@ This document describes the structure of Slicer4J's benchmarks, and how to run t
 
 ## Table of Contents
 1. [Benchmarks structure](#Benchmarks-structure)
-2. [Building the Tool](#Building-the-Tool)
+2. [Running the Benchmarks](#Running-the-Benchmarks)
 
 ---
 ---
