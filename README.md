@@ -9,15 +9,33 @@ Slicer4J relies on soot which currently supports instrumenting programs compiled
 Contributions to this repo are most welcome!
 
 
+<b>If you use this tool, please cite:</b>
+
+Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java.](). The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. 
+
+```bibtex
+@inproceedings{Ahmed:Lis:Rubin:Slicer4J:FSE:2021,
+  author    = {Khaled Ahmed and
+               Mieszko Lis and
+               Julia Rubin},
+  title     = {{Slicer4J: A Dynamic Slicer for Java}},
+  booktitle = {The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)},
+  year      = {2021},
+}
+```
+
+<b>Also, please checkout our [video demonstration](https://resess.github.io/artifacts/Slicer4J/Demo/index.html) of Slicer4J </b>
 
 
 ## Table of Contents
 1. [Pre-requisites](#pre-requisites)
-2. [Building The Tool](#Building-The-Tool)
-3. [Using The Tool](#Using-The-Tool)
+2. [Building the Tool](#Building-the-Tool)
+3. [Using the Tool](#Using-the-Tool)
+4. [Inspecting the Output](#Inspecting-the-Output)
+5. [Evaluation Benchmarks](#Evaluation-Benchmarks)
 
 ---
-
+---
 
 ## Requirements
 
@@ -35,12 +53,13 @@ Contributions to this repo are most welcome!
 * Requires Java Runtime Environment version 9 or above. 
 
 ---
+---
 
-## Building The Tool
+## Building the Tool
 
 Build and install the dynamic slicing core, go to the core's repo: (https://github.com/resess/DynamicSlicingCore)
 
-```
+```bash
 cd core/
 mvn -Dmaven.test.skip=true clean install
 cd -
@@ -48,24 +67,25 @@ cd -
 
 
 Build Slicer4J, go back to Slicer4J's repo
-```
+```bash
 cd Slicer4J/
 mvn -Dmaven.test.skip=true clean install
 cd -
 ```
 
 ---
+---
 
-## Using The Tool
+## Using the Tool
 
 
-Display the command line options using:
+Display the command line parameters using:
 ```
 java -cp "Mandoline/target/mandoline-jar-with-dependencies.jar:Mandoline/target/lib/*" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -h
 ```
 A simpler method to use Slicer4J is by using the wrapper python script: `scripts/slicer4j.py`
 
-You can list the script options using: `python3 slicer4j.py -h`
+You can list the script parameters using: `python3 slicer4j.py -h`
 
 
 Slicer4J uses up to 8GB of RAM. The tool will crash with `OutOfMemoryError` exception if the trace size is greater than 8GB.
@@ -73,13 +93,13 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-## Slicer4J Mandatory Options: 
+### Slicer4J Mandatory Command Line Parameters: 
 
 
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-73oq">Option<br></th>
+    <th class="tg-73oq">Parameter<br></th>
     <th class="tg-73oq">Description</th>
   </tr>
 </thead>
@@ -104,15 +124,16 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 </table>
 
 <br>
-<br>
 
-## Slicer4J Optional Options: 
+---
+
+### Slicer4J Optional Command Line Parameters: 
 
 
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-73oq">Option<br></th>
+    <th class="tg-73oq">Parameter<br></th>
     <th class="tg-73oq">Description</th>
   </tr>
 </thead>
@@ -149,9 +170,10 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 </table>
 
 <br>
-<br>
 
-## User-defined method models: 
+---
+
+### User-defined method models: 
 
 The following is an example for defining your own method models. 
 
@@ -169,7 +191,7 @@ class MyClass extends MyOtherClass{
 }
 ```
 
-create an XML file named "com.myproject.MyClass.xml" and place it in a folder containing your method models, this is the folder we pass to Slicer4J using the `-mod` option
+create an XML file named "com.myproject.MyClass.xml" and place it in a folder containing your method models, this is the folder we pass to Slicer4J using the `-mod` parameter
 
 For example, here's the model for the above class
 ```xml
@@ -210,9 +232,111 @@ Each flow is specified with it `sourceSinkType` as `Parameter`, `Field`, or `Ret
 For parameters, we also need `ParameterIndex` to specify which parameter (first, second, etc.).
 For fields, we specify the signature of the field in `AccessPath` and its type in `AccessPathTypes`.
 
+---
+---
+## Inspecting the Output:
+
+You can view the output of Slicer4J in 3 different formats: [Source Map](#Source-Map), [Raw Slice](#Raw-Slice), and [#Graph](Graph).
+
+Let's see the output of slicing the `SliceMe` program (found under `benchmarks/SliceMe`): 
+
+```Java
+ 1. public class SliceMe {
+ 2.    public static void main(String[] args) {
+ 3.        int [] parsed;
+ 4.        if (args.length > 0){
+ 5.            parsed = parse(args);
+ 6.        } else {
+ 7.            parsed = null;
+ 8.        }
+ 9.        System.out.println(parsed.length);
+10.    }
+11.    private static int[] parse(String[] str) {
+12.        String fullString = String.join(", ", str);
+13.        int [] arr = new int[fullString.length()];
+14.        for (int i = 0; i< fullString.length(); i++) {
+15.          arr[i] = fullString.charAt(i)-'0';
+16.        }
+17.        return arr;
+18.    }
+20. }
+```
+If we run this program using `java -jar sliceme-1.0.0.jar SliceMe` without providing any arguments to the main method)
+
+```bash
+cd scripts
+python3 slicer4j.py -j ../benchmarks/SliceMe/target/sliceme-1.0.0.jar -o sliceme_slice/ -b SliceMe:9 -m "SliceMe"
+```
+
+In this example, we slice from line 9 in the `SliceMe.java` file: `System.out.println(parsed.length);`
+
+---
 
 
+### Source Map:
+This output is only generated if the JAR is compiled with debug information.
+Slicer4J outputs a list of `files-name: source-code-line-number` for each statement that compose the slice. 
+This output is stored in the output folder in a file called `slice.log`
 
+For the example, `slice.log` contains:
+```
+SliceMe:4
+SliceMe:7
+SliceMe:9
+```
+Which indicates that the slice is: 
+```Java
+ 4.        if (args.length > 0){
+ 7.            parsed = null;
+ 9.        System.out.println(parsed.length);
+```
+
+---
+### Raw Slice:
+
+Slicer4J outputs a list of Jimple statements with a unique Id for each statement, which we use as our intermediate format, together with the thread id of the thread they are execute in, with the source map of file and line numbers for jars that are compiled with debug information.
+
+Every element in the list is in the format `files-name: source-code-line-number   thread    statement-id:jimple-statement`
+
+This output is stored in the output folder in a file called `raw-slice.log`
+
+For the example, `raw-slice.log` contains:
+
+```
+SliceMe:4    1    0:$stack2 = lengthof args
+SliceMe:4    1    1:if $stack2 <= 0 goto parsed = null
+SliceMe:7    1    2:parsed = null
+SliceMe:9    1    3:$stack4 = <java.lang.System: java.io.PrintStream out>
+SliceMe:9    1    4:$stack3 = lengthof parsed
+SliceMe:9    1    5:virtualinvoke $stack4.<java.io.PrintStream: void println(int)>($stack3)
+```
+Here we see that all statements are within the same thread (thread #1), and we see how each line is represented in Jimple (`if (args.length > 0)` in the code maps to `$stack2 = lengthof args` and `if $stack2 <= 0 goto parsed = null` in Jimple)
+
+---
+### Graph:
+
+Slicer4J outputs a [dot graph](https://graphviz.org/doc/info/lang.html)  whose nodes are statements in the slice and edges are data and control dependencies between the statements. 
+
+This output is stored in the output folder in a file called `slice-graph.pdf`
+
+
+For the example, `slice-graph.pdf` contents is shown here:
+
+<img src="img/slice.png" alt="drawing" width="400"/>
+
+Here we see the control dependencies (dashed edges) and data flow-dependencies (solid edges) between the Jimple statements from the raw slice.
+
+For example, `$stack3 = lengthof parsed` is data-flow dependent on `parsed = null` through the variable `parsed`, which is written on the edge. 
+Also, `parsed = null` is control dependent on `if $stack2 <= 0 goto parsed = null`.
+
+---
+---
+## Evaluation Benchmarks
+
+The evaluation benchmarks are stored under `benchmarks`, please check there for instructions on how to run them.
+
+---
+---
 # Contact
 
 If you experience any issues, please submit an issue or contact us at khaledea@ece.ubc.ca
