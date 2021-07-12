@@ -11,7 +11,7 @@ Contributions to this repo are most welcome!
 
 <b>If you use this tool, please cite:</b>
 
-Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java.](https://people.ece.ubc.ca/mjulia/publications/Slicer4J_2021.pdf). The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. [\<bibtex>](slicer4j.bib)
+Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java](https://people.ece.ubc.ca/mjulia/publications/Slicer4J_2021.pdf). The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. [\<bibtex>](slicer4j.bib)
 
 
 <b>Also, please check out our [video demonstration](https://youtu.be/mn7z6I-WyH4) of Slicer4J </b>
