@@ -11,20 +11,10 @@ Contributions to this repo are most welcome!
 
 <b>If you use this tool, please cite:</b>
 
-Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java.](). The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. 
+Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java.](https://people.ece.ubc.ca/mjulia/publications/Slicer4J_2021.pdf). The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE), 2021. [\<bibtex>](slicer4j.bib)
 
-```bibtex
-@inproceedings{Ahmed:Lis:Rubin:Slicer4J:FSE:2021,
-  author    = {Khaled Ahmed and
-               Mieszko Lis and
-               Julia Rubin},
-  title     = {{Slicer4J: A Dynamic Slicer for Java}},
-  booktitle = {The ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)},
-  year      = {2021},
-}
-```
 
-<b>Also, please checkout our [video demonstration](https://youtu.be/mn7z6I-WyH4) of Slicer4J </b>
+<b>Also, please check out our [video demonstration](https://youtu.be/mn7z6I-WyH4) of Slicer4J </b>
 
 
 ## Table of Contents
@@ -333,7 +323,7 @@ Also, `parsed = null` is control dependent on `if $stack2 <= 0 goto parsed = nul
 ---
 ## Evaluation Benchmarks
 
-The evaluation benchmarks are stored under `benchmarks`, please check there for instructions on how to run them.
+The evaluation benchmarks are stored under [benchmarks](benchmarks/README.md), please check there for instructions on how to run them.
 
 ---
 ---
