@@ -168,35 +168,34 @@ for idx, project in enumerate(benchmarks_input):
     project_arg = benchmarks_input[project][1]
     sc_file = benchmarks_input[project][2]
     slice_line = benchmarks_input[project][3]
-    if idx == 7:
-        print(f"====================")
-        print(f"Benchmark: {project}")
-        build_jar(project)
-        print(f"********************")
-        run_original(project, jar_name, project_arg, "")
-        print(f"********************")
-        print(f"Running Slicer4J")
-        run_slicer4j(project, jar_name, project_arg, "", "", "")
-        print(f"********************")
-        print(f"Running JavaSlicer")
-        run_javaslicer(project, jar_name, project_arg, "", sc_file, slice_line, "main")
+    print(f"====================")
+    print(f"Benchmark: {project}")
+    build_jar(project)
+    print(f"********************")
+    run_original(project, jar_name, project_arg, "")
+    print(f"********************")
+    print(f"Running Slicer4J")
+    run_slicer4j(project, jar_name, project_arg, "", "", "")
+    print(f"********************")
+    print(f"Running JavaSlicer")
+    run_javaslicer(project, jar_name, project_arg, "", sc_file, slice_line, "main")
 
 
-# for idx, project in enumerate(defects4j_benchmarks):
-#     jar_name = f"{project}/"+defects4j_benchmarks[project][0]
-#     project_arg = defects4j_benchmarks[project][1]
-#     sc_file = defects4j_benchmarks[project][2]
-#     slice_line = defects4j_benchmarks[project][3]
-#     slice_method = defects4j_benchmarks[project][4]
-#     extra_libs = defects4j_benchmarks[project][5]
-#     print(f"====================")
-#     print(f"Benchmark: {project}")
-#     build_jar(project)
-#     print(f"********************")
-#     run_original(project, jar_name, project_arg, extra_libs)
-#     print(f"********************")
-#     print(f"Running Slicer4J")
-#     run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line)
-#     print(f"********************")
-#     print(f"Running JavaSlicer")
-#     run_javaslicer(project, jar_name, project_arg, extra_libs, sc_file, slice_line, slice_method)
+for idx, project in enumerate(defects4j_benchmarks):
+    jar_name = f"{project}/"+defects4j_benchmarks[project][0]
+    project_arg = defects4j_benchmarks[project][1]
+    sc_file = defects4j_benchmarks[project][2]
+    slice_line = defects4j_benchmarks[project][3]
+    slice_method = defects4j_benchmarks[project][4]
+    extra_libs = defects4j_benchmarks[project][5]
+    print(f"====================")
+    print(f"Benchmark: {project}")
+    build_jar(project)
+    print(f"********************")
+    run_original(project, jar_name, project_arg, extra_libs)
+    print(f"********************")
+    print(f"Running Slicer4J")
+    run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line)
+    print(f"********************")
+    print(f"Running JavaSlicer")
+    run_javaslicer(project, jar_name, project_arg, extra_libs, sc_file, slice_line, slice_method)
