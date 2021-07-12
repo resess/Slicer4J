@@ -25,15 +25,15 @@ This document describes the structure of Slicer4J's benchmarks, and how to run t
     <tbody>
         <tr>
             <td class="tg-73oq">Intra-procedural</td>
-            <td class="tg-73oq">bench-javaslicer-simple1</td>
+            <td class="tg-73oq">javaslicer-bench1-intra-procedural</td>
         </tr>
         <tr>
             <td class="tg-73oq">Inter-procedural</td>
-            <td class="tg-73oq">bench-javaslicer-method1</td>
+            <td class="tg-73oq">javaslicer-bench2-inter-procedural</td>
         </tr>
         <tr>
             <td class="tg-73oq">Exceptions</td>
-            <td class="tg-73oq">bench-javaslicer-exception1</td>
+            <td class="tg-73oq">javaslicer-bench3-exceptions</td>
         </tr>
     </tbody>
 </table>
@@ -52,23 +52,23 @@ This document describes the structure of Slicer4J's benchmarks, and how to run t
     <tbody>
         <tr>
             <td class="tg-73oq">Multiple threads</td>
-            <td class="tg-73oq">bench3-threads</td>
+            <td class="tg-73oq">slicer4j-bench1-multiple-threads</td>
         </tr>
         <tr>
             <td class="tg-73oq">Native methods</td>
-            <td class="tg-73oq">bench2-nativeframework</td>
+            <td class="tg-73oq">slicer4j-bench2-native-framework</td>
         </tr>
         <tr>
             <td class="tg-73oq">Java 9 constructs</td>
-            <td class="tg-73oq">bench1-lambda</td>
+            <td class="tg-73oq">slicer4j-bench3-java-9-constructs</td>
         </tr>
         <tr>
             <td class="tg-73oq">Instrumentation classes</td>
-            <td class="tg-73oq">bench4-tracerclasses</td>
+            <td class="tg-73oq">slicer4j-bench4-instrumentation-classes</td>
         </tr>
         <tr>
             <td class="tg-73oq">Static Constructor</td>
-            <td class="tg-73oq">bench5-staticconstructor</td>
+            <td class="tg-73oq">slicer4j-bench5-static-constructor</td>
         </tr>
     </tbody>
 </table>
