@@ -66,10 +66,12 @@ public class SliceJava extends SliceMethod{
     }
 
     private StatementSet staticFieldDef(StatementInstance iu, AccessPath ap) {
+        AnalysisLogger.log(Constants.DEBUG, "Getting static heap def for {}", iu);
         StatementSet aliasPath = new StatementSet();
         BackwardStaticFieldAnalysis bw = new BackwardStaticFieldAnalysis(icdg, iu, ap, aliasPath);
         bw.run();
         StatementList orderedPath = new StatementList();
+        AnalysisLogger.log(Constants.DEBUG, "Alias path is {}", aliasPath);
         for (StatementInstance pathElem : aliasPath) {
             if (pathElem.getLineNo() < iu.getLineNo() || ap.isStaticField()) {
                 orderedPath.add(pathElem);

@@ -168,6 +168,12 @@ public class Slicer {
                 throwParseException("Mode not provided / invalid mode");
             }
             Slicer slicer = new Slicer();
+
+            String debug = commands.get("debug");
+            if (debug != null) {
+                slicer.setDebug(true);
+            }
+
             slicer.setPathJar(commands.get("j"));
             throwParseExceptionIfNull(slicer.pathJar, "JAR path not provided");
 

@@ -62,7 +62,7 @@ public class JavaInstrumenter extends Instrumenter {
     private boolean threadTracking = false;
     private boolean timeTracking = false;
     private boolean isOriginal = false;
-    private Long appSize = 0L;
+    private Long jarSize = 0L;
     JSONObject staticLog = new JSONObject();
     InstrumentationCounter globalLineCounter = new InstrumentationCounter();
     Chain<SootClass> libClasses = null;
@@ -74,7 +74,7 @@ public class JavaInstrumenter extends Instrumenter {
     }
 
 
-    void initialize(String apkPath, String loggerJar) {
+    void initialize(String jarPath, String loggerJar) {
         AnalysisLogger.log(true, "Initializing Instrumenter");
         createInstrumentationPackagesList();
         Scene.v().addBasicClass("java.io.PrintStream",SootClass.SIGNATURES);
@@ -89,7 +89,7 @@ public class JavaInstrumenter extends Instrumenter {
         Options.v().set_exclude(excludePackagesList);
         Options.v().set_no_bodies_for_excluded(true);
         Options.v().set_allow_phantom_refs(true);
-        Options.v().set_process_dir(Arrays.asList(apkPath, loggerJar));
+        Options.v().set_process_dir(Arrays.asList(jarPath, loggerJar));
         Options.v().set_output_format(Options.output_format_class);
         Options.v().set_output_dir(Slicer.SOOT_OUTPUT_STRING);
         Options.v().setPhaseOption("jb", "use-original-names:true");
@@ -185,8 +185,8 @@ public class JavaInstrumenter extends Instrumenter {
                     }
                     
                 }
-                synchronized (appSize) {
-                    appSize += methodSize;
+                synchronized (jarSize) {
+                    jarSize += methodSize;
                 }
                 JSONObject job = new JSONObject();
                 String key = "";
@@ -398,7 +398,7 @@ public class JavaInstrumenter extends Instrumenter {
     }
 
     @Override
-    public void start (String options, String staticLogFile, String apkPath, String loggerJar) {
+    public void start (String options, String staticLogFile, String jarPath, String loggerJar) {
         soot.G.reset();
         if (options.contains("field")) {
             this.fieldTracking = true;
@@ -413,7 +413,7 @@ public class JavaInstrumenter extends Instrumenter {
             this.isOriginal = true;
         }
 
-        initialize(apkPath, loggerJar);
+        initialize(jarPath, loggerJar);
         runMethodTransformationPack();
         Scene.v().loadNecessaryClasses();
         AnalysisLogger.log(true, "Running packs ... ");
@@ -432,17 +432,9 @@ public class JavaInstrumenter extends Instrumenter {
             throw new Error("Failed to write static log file");
         }
 
-        AnalysisLogger.log(true, "Writing size file ... ");
-        File sizeFile = new File("apk-size.txt");
-        try {
-            sizeFile.delete();
-            FileUtils.writeStringToFile(sizeFile, "Number of Jimple statements (apkSize): " + appSize.toString(), "UTF-8", true);
-            
-        } catch (IOException e) {
-            throw new Error("Failed to write static log file");
-        }
 
-        AnalysisLogger.log(true, "Number of Jimple statements (apkSize): {}", appSize.toString());
+
+        AnalysisLogger.log(true, "Number of Jimple statements (jarSize): {}", jarSize.toString());
         AnalysisLogger.log(true, "Writing JAR");
         try {
             AnalysisLogger.log(true, "Soot file: {}", new File(Slicer.SOOT_OUTPUT_STRING));
@@ -450,12 +442,23 @@ public class JavaInstrumenter extends Instrumenter {
             if (new File(Slicer.SOOT_OUTPUT_STRING).isDirectory()) {
                 // File unzipDir = new File("unzip_dir");
                 // unzipDir.mkdir();
-                unzipTo(new File(apkPath), new File(Slicer.SOOT_OUTPUT_STRING));
+                unzipTo(new File(jarPath), new File(Slicer.SOOT_OUTPUT_STRING));
 
                 File dir = new File(jarName).getParentFile();
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
+
+
+                AnalysisLogger.log(true, "Writing size file ... ");
+                File sizeFile = new File(dir.getAbsolutePath() + "/jar-size.txt");
+                try {
+                    sizeFile.delete();
+                    FileUtils.writeStringToFile(sizeFile, "Number of Jimple statements (jarSize): " + jarSize.toString(), "UTF-8", true);
+                } catch (IOException e) {
+                    throw new Error("Failed to write jar-size file");
+                }
+
                 List<String> instrumentedClasses = new ArrayList<>();
                 listDirectory(new File(Slicer.SOOT_OUTPUT_STRING).getAbsolutePath()+1, Slicer.SOOT_OUTPUT_STRING, 0, instrumentedClasses);
 

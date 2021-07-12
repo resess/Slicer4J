@@ -24,7 +24,7 @@ Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java
 }
 ```
 
-<b>Also, please checkout our [video demonstration](https://resess.github.io/artifacts/Slicer4J/Demo/index.html) of Slicer4J </b>
+<b>Also, please checkout our [video demonstration](https://youtu.be/mn7z6I-WyH4) of Slicer4J </b>
 
 
 ## Table of Contents

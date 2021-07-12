@@ -32,6 +32,7 @@ public class CommandParser {
         options.addOption("data", "data-only", false, "Track data-flow dependence only"); // data
         options.addOption("ctrl", "Control-only", false, "Track control dependence only"); // data
         options.addOption("f", "framework", true, "Path to folder with extra framework methods"); // path of extra framework methods
+        options.addOption("d", "debug", false, "Enable debug"); // data
     }
 
 
@@ -60,6 +61,9 @@ public class CommandParser {
             }
             if (cmd.hasOption("ctrl")) {
                 parsed.put("ctrl", "True");
+            }
+            if (cmd.hasOption("d")) {
+                parsed.put("debug", "True");
             }
         } catch (ParseException e) {
             HelpFormatter formatter = new HelpFormatter();
