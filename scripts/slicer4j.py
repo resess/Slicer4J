@@ -100,18 +100,20 @@ def run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_c
 
 def dynamic_slice(jar_file=None, out_dir=None, backward_criterion=None, variables=None, extra_options=""):
     slice_file = "slice-file.log"
+    graph_file = "graph-debug.log"
     if variables:
         print(f"Slicing from line {backward_criterion} with variables {variables}", flush=True)
     else:
         print(f"Slicing from line {backward_criterion}", flush=True)
-    graph_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m g -j {jar_file} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static_log.log -sd {slicer4j_dir}/FlowDroid/soot-infoflow-summaries/summariesManual -tw {slicer4j_dir}/FlowDroid/soot-infoflow/EasyTaintWrapperSource.txt > /dev/null 2>&1"
+    graph_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m g -j {jar_file} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static_log.log -sd {slicer4j_dir}/FlowDroid/soot-infoflow-summaries/summariesManual -tw {slicer4j_dir}/FlowDroid/soot-infoflow/EasyTaintWrapperSource.txt > {out_dir}/{graph_file} 2>&1"
     os.system(graph_cmd)
 
     clazz, lineno = backward_criterion.split(":")
     # clazz = clazz.rsplit(".", 1)[0]
+    check_str = f":LINENO:{lineno}:FILE:{clazz}"
     with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
         for line in f:
-            if f":LINENO:{lineno}:FILE:{clazz}" in line:
+            if check_str in line:
                 sc = line.rstrip()
 
     line = sc.split(", ")[0]
