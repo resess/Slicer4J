@@ -71,7 +71,7 @@ cd -
 
 Display the command line parameters using:
 ```
-java -cp "Mandoline/target/mandoline-jar-with-dependencies.jar:Mandoline/target/lib/*" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -h
+java -cp "Slicer4J/target/slicer4j-jar-with-dependencies.jar:Slicer4J/target/lib/*" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -h
 ```
 A simpler method to use Slicer4J is by using the wrapper python script: `scripts/slicer4j.py`
 
