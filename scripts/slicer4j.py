@@ -69,8 +69,9 @@ def main():
 
 
 def instrument(jar_file: str, out_dir: str) -> str:
+    instr_file = "instr-debug.log"
     print("Instrumenting the JAR", flush=True)
-    instr_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m i -j {jar_file} -o {out_dir}/ -sl {out_dir}/static_log.log -lc {logger_jar} > /dev/null 2>&1"
+    instr_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m i -j {jar_file} -o {out_dir}/ -sl {out_dir}/static_log.log -lc {logger_jar} > {out_dir}/{instr_file} 2>&1"
     os.system(instr_cmd)
     instrumented_jar = os.path.basename(jar_file).replace(".jar", "_i.jar")
     return out_dir + os.sep + instrumented_jar
@@ -79,13 +80,14 @@ def instrument(jar_file: str, out_dir: str) -> str:
 def run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_class_args):
     print("Running the instrumented JAR", flush=True)
     if main_class_args is None:
-        cmd = f"java -Xmx8g -cp \"{script_dir}/SingleJUnitTestRunner.jar:{script_dir}/junit-4.8.2.jar:{instrumented_jar}:{dependencies}/*\" SingleJUnitTestRunner {test_class}#{test_method} | grep \"SLICING\" > {out_dir}/trace.log"
+        cmd = f"java -Xmx8g -cp \"{script_dir}/SingleJUnitTestRunner.jar:{script_dir}/junit-4.8.2.jar:{instrumented_jar}:{dependencies}/*\" SingleJUnitTestRunner {test_class}#{test_method} > {out_dir}/trace_full.log"
     else:
-        cmd = f"java -Xmx8g -cp \"{instrumented_jar}:{dependencies}/*\" {main_class_args} | grep \"SLICING\" > {out_dir}/trace.log"
+        cmd = f"java -Xmx8g -cp \"{instrumented_jar}:{dependencies}/*\" {main_class_args} > {out_dir}/trace_full.log"
     print(f"Running instrumented JAR", flush=True)
     print(f"------------------------------------")
     os.system(cmd)
     print(f"------------------------------------")
+    os.system(f"cat {out_dir}/trace_full.log | grep \"SLICING\" > {out_dir}/trace.log")
     trace = list()
     with open(f"{out_dir}/trace.log", 'r') as f:
         for line in f:
