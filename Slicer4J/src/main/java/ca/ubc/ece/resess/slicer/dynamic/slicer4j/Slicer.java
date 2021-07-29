@@ -29,7 +29,7 @@ import ca.ubc.ece.resess.slicer.dynamic.core.exceptions.InvalidCommandsException
 import ca.ubc.ece.resess.slicer.dynamic.core.framework.FrameworkModel;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.Parser;
-import ca.ubc.ece.resess.slicer.dynamic.core.graph.Traces;
+import ca.ubc.ece.resess.slicer.dynamic.core.graph.TraceStatement;
 import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.Instrumenter;
 
 import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.JimpleWriter;
@@ -208,7 +208,7 @@ public class Slicer {
                 String tw = commands.get("tw");
                 throwParseExceptionIfNull(tw, "Taint-wrapper path not provided");
             }
-            List <Traces> trs = Parser.readFile(slicer.fileToParse, slicer.staticLogFile);
+            List<TraceStatement> trs = Parser.readFile(slicer.fileToParse, slicer.staticLogFile);
 
             slicer.prepare();
             Slicer.instance = slicer;
@@ -249,7 +249,7 @@ public class Slicer {
                 FrameworkModel.setExtraPath(frameworkPath);
             }
 
-            StatementInstance stmt = icdg.getMapKeyUnits().get(icdg.getMapNoKey().get(slicer.backwardSlicePos));
+            StatementInstance stmt = icdg.mapNoUnits(slicer.backwardSlicePos);
             
             List<String> variables = new ArrayList<>();
             if (!slicer.variableString.equals("*")) {
@@ -272,8 +272,8 @@ public class Slicer {
             }
 
             AnalysisLogger.log(Constants.DEBUG, "Slicing criterion: (" + slicer.backwardSlicePos + ", " + variables + ")");
-            AnalysisLogger.log(Constants.DEBUG, "size of the trace after loading:"+icdg.getMapKeyNo().keySet().size());
-            AnalysisLogger.log(Constants.DEBUG, "Slicing from statement:"+ icdg.getMapNoKey().get(slicer.backwardSlicePos));
+            AnalysisLogger.log(Constants.DEBUG, "size of the trace after loading:"+icdg.getMapNumberUnits().keySet().size());
+            AnalysisLogger.log(Constants.DEBUG, "Slicing from statement:"+ icdg.mapNoUnits(slicer.backwardSlicePos));
 
 
             slicer.setWorkingSet(new SlicingWorkingSet(false));
@@ -300,11 +300,15 @@ public class Slicer {
     private void printGraph(DynamicControlFlowGraph icdg) {
         AnalysisLogger.log(Constants.DEBUG, "Printing graph...");
         List <String> listTOPrint = new ArrayList<>();
-        Iterator<Entry<String, Integer>> entries = icdg.getMapKeyNo().entrySet().iterator();
+        Iterator<Entry<Integer, StatementInstance>> entries = icdg.getMapNumberUnits().entrySet().iterator();
         while (entries.hasNext()) {
-            Entry<String, Integer> thisEntry = entries.next();
-            String key = thisEntry.getKey();
-            listTOPrint.add(key + ":PRED:"+Graphs.predecessorListOf(icdg.getGraph(), thisEntry.getValue())+ ":SUCC:"+Graphs.successorListOf(icdg.getGraph(), thisEntry.getValue()) + ":TID:"+icdg.getMapKeyUnits().get(key).getThreadID());
+            Entry<Integer, StatementInstance> thisEntry = entries.next();
+            Integer lineNumber = thisEntry.getKey();
+            StatementInstance statementInstance = thisEntry.getValue(); 
+            listTOPrint.add(statementInstance.toString() 
+                    + ":PRED:"+icdg.predecessorListOf(lineNumber) 
+                    + ":SUCC:"+icdg.successorListOf(lineNumber) 
+                    + ":TID:"+statementInstance.getThreadID());
         }
         printList(listTOPrint, outFile);
         AnalysisLogger.log(Constants.DEBUG, "Printing Complete.");
