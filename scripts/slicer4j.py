@@ -66,6 +66,7 @@ def main():
     print(f"Slice source code lines: {out_dir}/slice.log")
     print(f"Raw slice: {out_dir}/raw-slice.log")
     print(f"Slice graph: {slice_graph}")
+    print(f"Slice with dependencies: {out_dir}/slice-dependencies.log")
 
 
 def instrument(jar_file: str, out_dir: str) -> str:

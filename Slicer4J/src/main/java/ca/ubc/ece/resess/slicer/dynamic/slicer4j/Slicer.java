@@ -284,6 +284,7 @@ public class Slicer {
             SlicePrinter.printDotGraph(slicer.outDir, dynamicSlice);
             SlicePrinter.printSliceLines(slicer.outDir, dynamicSlice);
             SlicePrinter.printRawSlice(slicer.outDir, dynamicSlice);
+            SlicePrinter.printSliceWithDependencies(slicer.outDir, dynamicSlice);
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
             LocalDateTime now = LocalDateTime.now();
             String resultFileName = slicer.outDir + File.separator + "result_" +mode+"_"+ dtf.format(now) + ".csv";
