@@ -75,6 +75,29 @@ public class ProgramTests {
         System.out.println(++i + " " + readline);
     }
 
+    Path instrUnzip = Paths.get(slicerPath.toString(), "/testTempDir/unzipped/");
+    Path instr = Paths.get(slicerPath.toString(), "/testTempDir/test1-issue-1.0.0_i.jar");
+
+    instrUnzip.toFile().mkdir();
+    pb = new ProcessBuilder("unzip", instr.toFile().toString());
+    pb.directory(instrUnzip.toFile());
+    p = pb.start();
+    p.waitFor();
+    reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    i = 0;
+    while ((readline = reader.readLine()) != null) {
+        System.out.println(++i + " " + readline);
+    }
+    reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+    while ((readline = reader.readLine()) != null) {
+        System.out.println(++i + " " + readline);
+    }
+    System.out.println("Unzipped: ");
+    Files.walk(instrUnzip)
+      .sorted(Comparator.reverseOrder())
+      .map(Path::toFile)
+      .forEach(System.out::println);
+
     Path outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
     List<String> out = Files.readAllLines(outputPath);
     System.out.println(out);
