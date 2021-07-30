@@ -90,6 +90,7 @@ def run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_c
         cmd = f"java -Xmx8g -cp \"{instrumented_jar}:{dependencies}/*\" {main_class_args} > {out_dir}/trace_full.log"
     print(f"Running instrumented JAR", flush=True)
     print(f"------------------------------------")
+    print(cmd)
     os.system(cmd)
     print(f"------------------------------------")
     os.system(f"cat {out_dir}/trace_full.log | grep \"SLICING\" > {out_dir}/trace.log")
