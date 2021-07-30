@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Build
+name: Test
 
 on:
   push:
@@ -20,10 +20,11 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    - name: Build with Maven
+    - name: Test with Maven
       run: |
         git clone https://github.com/resess/DynamicSlicingCore
         cd DynamicSlicingCore/core
         mvn -DskipTests -B package install --file pom.xml
         cd ../../Slicer4J
         mvn -DskipTests -B package install --file pom.xml
+        mvn test
