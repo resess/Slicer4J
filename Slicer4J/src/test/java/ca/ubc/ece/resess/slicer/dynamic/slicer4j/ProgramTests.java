@@ -35,14 +35,15 @@ public class ProgramTests {
   @Test
   void issue1() throws IOException, InterruptedException {
     Path root = Paths.get(".").normalize().toAbsolutePath();
-    Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue2");
+    Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue1");
     Process p = null;
     ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
     pb.directory(testPath.toFile());
     p = pb.start();
     p.waitFor();
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
-    pb = new ProcessBuilder("python3", "slicer4j.py", "-j", "../benchmarks/test-issue1/target/test1-issue-1.0.0.jar", "-debug", "-o", "testTempDir", "-b", "Main:9", "-m", "\"Main\"");
+    String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test1-issue-1.0.0.jar").toString();
+    pb = new ProcessBuilder("python3", "slicer4j.py", "-j", jarPath, "-debug", "-o", "testTempDir", "-b", "Main:9", "-m", "\"Main\"");
     pb.directory(slicerPath.toFile());
     p = pb.start();
     p.waitFor();
@@ -81,7 +82,8 @@ public class ProgramTests {
     p = pb.start();
     p.waitFor();
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
-    pb = new ProcessBuilder("python3", "slicer4j.py", "-j", "../benchmarks/test-issue2/target/test2-issue-1.0.0.jar", "-debug", "-o", "testTempDir", "-b", "Main:11", "-m", "\"Main something\"");
+    String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test2-issue-1.0.0.jar").toString();
+    pb = new ProcessBuilder("python3", "slicer4j.py", "-j", jarPath, "-debug", "-o", "testTempDir", "-b", "Main:11", "-m", "\"Main something\"");
     pb.directory(slicerPath.toFile());
     p = pb.start();
     p.waitFor();
