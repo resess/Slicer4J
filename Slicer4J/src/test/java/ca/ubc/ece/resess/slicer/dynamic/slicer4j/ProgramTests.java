@@ -43,6 +43,16 @@ public class ProgramTests {
     pb.directory(testPath.toFile());
     p = pb.start();
     p.waitFor();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    String readline;
+    int i = 0;
+    while ((readline = reader.readLine()) != null) {
+        System.out.println(++i + " " + readline);
+    }
+    reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+    while ((readline = reader.readLine()) != null) {
+        System.out.println(++i + " " + readline);
+    }
     Files.walk(testPath)
       .sorted(Comparator.reverseOrder())
       .map(Path::toFile)
@@ -55,9 +65,8 @@ public class ProgramTests {
     pb.directory(slicerPath.toFile());
     p = pb.start();
     p.waitFor();
-    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-    String readline;
-    int i = 0;
+    reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    i = 0;
     while ((readline = reader.readLine()) != null) {
         System.out.println(++i + " " + readline);
     }
