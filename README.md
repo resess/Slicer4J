@@ -1,6 +1,6 @@
 # Slicer4J
 
-
+![example workflow](https://github.com/resess/Slicer4J/actions/workflows/maven.yml/badge.svg)
 <img align="right" src="img/slicer4j_logo.png" alt="drawing" width="250"/>
 
 This repository hosts Slicer4J, an accurate, low-overhead dynamic slicer for Java programs. 
