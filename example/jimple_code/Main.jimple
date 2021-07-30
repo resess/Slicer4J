@@ -1,0 +1,74 @@
+public class Main extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        Main r0;
+
+        r0 := @this: Main;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        int[] $r0, r5;
+        java.io.PrintStream $r1;
+        java.lang.String $r2;
+        java.lang.String[] r3;
+
+        r3 := @parameter0: java.lang.String[];
+
+        $r0 = newarray (int)[2];
+
+        $r0[0] = 0;
+
+        $r0[1] = 1;
+
+        r5 = staticinvoke <Main: int[] addAndReturn(int[])>($r0);
+
+        staticinvoke <Main: void add(int[])>(r5);
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+
+        $r2 = staticinvoke <java.util.Arrays: java.lang.String toString(int[])>(r5);
+
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>($r2);
+
+        return;
+    }
+
+    public static void add(int[])
+    {
+        int[] r0;
+        int $i0, $i1;
+
+        r0 := @parameter0: int[];
+
+        $i0 = r0[0];
+
+        $i1 = $i0 + 1;
+
+        r0[0] = $i1;
+
+        return;
+    }
+
+    public static int[] addAndReturn(int[])
+    {
+        int[] r0;
+        int $i0, $i1;
+
+        r0 := @parameter0: int[];
+
+        $i0 = r0[0];
+
+        $i1 = $i0 + 1;
+
+        r0[0] = $i1;
+
+        return r0;
+    }
+}

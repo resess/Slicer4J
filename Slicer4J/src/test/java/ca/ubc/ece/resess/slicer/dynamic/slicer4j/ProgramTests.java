@@ -98,9 +98,18 @@ public class ProgramTests {
       .map(Path::toFile)
       .forEach(System.out::println);
 
-    Path outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
+
+    Path  outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "instr-debug.log");
     List<String> out = Files.readAllLines(outputPath);
+    System.out.println("Instr debug");
     System.out.println(out);
+    
+    outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
+    out = Files.readAllLines(outputPath);
+    System.out.println(out);
+
+
+
     assertEquals(Arrays.asList(
                             "Main:6",
                             "Main:7",
