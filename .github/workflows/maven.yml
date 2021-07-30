@@ -22,8 +22,9 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: |
+        cd ../
         git clone https://github.com/resess/DynamicSlicingCore
         cd DynamicSlicingCore/core
         mvn -DskipTests -B package install --file pom.xml
-        cd ../../Slicer4J
+        cd ../../Slicer4J/Slicer4J
         mvn -DskipTests -B package install --file pom.xml
