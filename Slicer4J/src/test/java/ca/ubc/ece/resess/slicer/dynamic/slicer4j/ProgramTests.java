@@ -36,6 +36,9 @@ public class ProgramTests {
   void issue1() throws IOException, InterruptedException {
     Path root = Paths.get(".").normalize().toAbsolutePath();
     Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue1");
+    if (!testPath.toFile().isDirectory()) {
+      testPath = Paths.get(root.getParent().toString(), ".." + File.separator + "benchmarks" + File.separator + "test-issue1");
+    }
     Process p = null;
     ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
     pb.directory(testPath.toFile());
@@ -77,6 +80,9 @@ public class ProgramTests {
   void issue2() throws IOException, InterruptedException {
     Path root = Paths.get(".").normalize().toAbsolutePath();
     Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue2");
+    if (!testPath.toFile().isDirectory()) {
+      testPath = Paths.get(root.getParent().toString(), ".." + File.separator + "benchmarks" + File.separator + "test-issue2");
+    }
     Process p = null;
     ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
     pb.directory(testPath.toFile());
