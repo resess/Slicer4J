@@ -43,6 +43,7 @@ public class ProgramTests {
     p.waitFor();
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
     String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test1-issue-1.0.0.jar").toString();
+    System.out.println("Jar Path:" + jarPath);
     pb = new ProcessBuilder("python3", "slicer4j.py", "-j", jarPath, "-debug", "-o", "testTempDir", "-b", "Main:9", "-m", "\"Main\"");
     pb.directory(slicerPath.toFile());
     p = pb.start();
@@ -83,6 +84,7 @@ public class ProgramTests {
     p.waitFor();
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
     String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test2-issue-1.0.0.jar").toString();
+    System.out.println("Jar Path:" + jarPath);
     pb = new ProcessBuilder("python3", "slicer4j.py", "-j", jarPath, "-debug", "-o", "testTempDir", "-b", "Main:11", "-m", "\"Main something\"");
     pb.directory(slicerPath.toFile());
     p = pb.start();
