@@ -38,15 +38,15 @@ public class ProgramTests {
     System.out.println("Root:" + root.toString());
     Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue1");
     System.out.println("Test path:" + testPath.toString());
-    if (!testPath.toFile().isDirectory()) {
-      testPath = Paths.get(root.getParent().toString(), ".." + File.separator + "benchmarks" + File.separator + "test-issue1");
-      System.out.println("Test path mod:" + testPath.toString());
-    }
     Process p = null;
     ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
     pb.directory(testPath.toFile());
     p = pb.start();
     p.waitFor();
+    Files.walk(testPath)
+      .sorted(Comparator.reverseOrder())
+      .map(Path::toFile)
+      .forEach(System.out::println);
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
     System.out.println("Slicer path:" + slicerPath.toString());
     String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test1-issue-1.0.0.jar").toString();
