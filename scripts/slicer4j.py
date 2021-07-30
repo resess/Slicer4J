@@ -44,6 +44,8 @@ def main():
     framework_models = options["framework_models"]
 
     extra_options = ""
+    if options["debug"]:
+        extra_options += "-d "
     if options["data_only"]:
         extra_options += "-data "
     if options["ctrl_only"]:
@@ -83,6 +85,8 @@ def run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_c
     if main_class_args is None:
         cmd = f"java -Xmx8g -cp \"{script_dir}/SingleJUnitTestRunner.jar:{script_dir}/junit-4.8.2.jar:{instrumented_jar}:{dependencies}/*\" SingleJUnitTestRunner {test_class}#{test_method} > {out_dir}/trace_full.log"
     else:
+        if main_class_args.startswith("\"") and main_class_args.endswith("\""):
+            main_class_args = main_class_args[1:-1]
         cmd = f"java -Xmx8g -cp \"{instrumented_jar}:{dependencies}/*\" {main_class_args} > {out_dir}/trace_full.log"
     print(f"Running instrumented JAR", flush=True)
     print(f"------------------------------------")
@@ -146,6 +150,8 @@ def parse():
     parser.add_argument("-mod", "--models", dest="framework_models",
                         help="Folder containing user-defined method models", metavar="user defined framework models",
                         required=False)
+    parser.add_argument("-debug", "--debug", dest="debug",
+                        help="Enable debug", action='store_true', required=False)
     parser.add_argument("-d", "--data", dest="data_only",
                         help="Slice with data-flow dependencies only", action='store_true', required=False)
     parser.add_argument("-c", "--control", dest="ctrl_only",
@@ -163,7 +169,7 @@ def parse():
         "jar_file": args.jar_file, "out_dir": args.out_dir, "backward_criterion": args.backward_criterion,
         "variables": args.variables, "data_only": args.data_only, "ctrl_only": args.ctrl_only,
         "test_class": args.test_class, "test_method": args.test_method, "main_class_args": args.main_class_args,
-        "dependencies": args.dependencies, "framework_models": args.framework_models
+        "dependencies": args.dependencies, "framework_models": args.framework_models, "debug": args.debug
     }
 
 
