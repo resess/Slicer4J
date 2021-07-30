@@ -22,5 +22,9 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      working-directory: Slicer4J
-      run: mvn -B package --file pom.xml
+      run: |
+        git clone https://github.com/resess/DynamicSlicingCore
+        cd DynamicSlicingCore
+        mvn -B package --file pom.xml
+        cd ../Slicer4J
+        mvn -B package --file pom.xml
