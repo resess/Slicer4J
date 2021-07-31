@@ -19,7 +19,7 @@ Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java
 
 
 ## Table of Contents
-1. [Pre-requisites](#pre-requisites)
+1. [Requirements](#Requirements)
 2. [Building the Tool](#Building-the-Tool)
 3. [Using the Tool](#Using-the-Tool)
 4. [Inspecting the Output](#Inspecting-the-Output)
@@ -156,6 +156,10 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
   <tr>
     <td class="tg-0lax">-c</td>
     <td class="tg-0lax">Slice with control dependencies only</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">-once</td>
+    <td class="tg-0lax">Get only the immediate data-flow and control dependencies of the slicing criteria</td>
   </tr>
 </tbody>
 </table>
