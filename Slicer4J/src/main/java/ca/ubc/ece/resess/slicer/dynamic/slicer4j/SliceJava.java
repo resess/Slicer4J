@@ -32,8 +32,8 @@ import soot.toolkits.scalar.Pair;
 
 public class SliceJava extends SliceMethod{
 
-    public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, SlicingWorkingSet workingSet) {
-        super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, workingSet);
+    public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet) {
+        super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet);
     }
 
     @Override

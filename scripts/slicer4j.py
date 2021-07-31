@@ -50,6 +50,8 @@ def main():
         extra_options += "-data "
     if options["ctrl_only"]:
         extra_options += "-ctrl "
+    if options["once"]:
+        extra_options += "-once "
     if options["data_only"] and options["ctrl_only"]:
         print("Conflicting arguments: data-only and control-only!")
         return
@@ -156,6 +158,8 @@ def parse():
                         help="Slice with data-flow dependencies only", action='store_true', required=False)
     parser.add_argument("-c", "--control", dest="ctrl_only",
                         help="Slice with control dependencies only", action='store_true', required=False)
+    parser.add_argument("-once", "--once", dest="once",
+                        help="Slice for first statement only then stop", action='store_true', required=False)
     parser.add_argument("-tc", "--test-class", dest="test_class",
                         help="Test class to run", metavar="name", required=False)
     parser.add_argument("-tm", "--test-method", dest="test_method",
@@ -169,7 +173,7 @@ def parse():
         "jar_file": args.jar_file, "out_dir": args.out_dir, "backward_criterion": args.backward_criterion,
         "variables": args.variables, "data_only": args.data_only, "ctrl_only": args.ctrl_only,
         "test_class": args.test_class, "test_method": args.test_method, "main_class_args": args.main_class_args,
-        "dependencies": args.dependencies, "framework_models": args.framework_models, "debug": args.debug
+        "dependencies": args.dependencies, "framework_models": args.framework_models, "debug": args.debug, "once": args.once
     }
 
 

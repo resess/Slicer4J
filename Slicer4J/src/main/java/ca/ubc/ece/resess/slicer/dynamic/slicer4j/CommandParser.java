@@ -33,6 +33,7 @@ public class CommandParser {
         options.addOption("ctrl", "Control-only", false, "Track control dependence only"); // data
         options.addOption("f", "framework", true, "Path to folder with extra framework methods"); // path of extra framework methods
         options.addOption("d", "debug", false, "Enable debug"); // data
+        options.addOption("once", "once", false, "Slice one step only"); // data
     }
 
 
@@ -61,6 +62,9 @@ public class CommandParser {
             }
             if (cmd.hasOption("ctrl")) {
                 parsed.put("ctrl", "True");
+            }
+            if (cmd.hasOption("once")) {
+                parsed.put("once", "True");
             }
             if (cmd.hasOption("d")) {
                 parsed.put("debug", "True");

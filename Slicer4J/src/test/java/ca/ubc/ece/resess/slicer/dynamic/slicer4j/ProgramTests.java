@@ -231,6 +231,101 @@ public class ProgramTests {
                 out);
   }
 
+
+  @Test
+  void sliceOnce() throws IOException, InterruptedException {
+    Path root = Paths.get(".").normalize().toAbsolutePath();
+    System.out.println("Root:" + root.toString());
+    Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue1");
+    String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test1-issue-1.0.0.jar").toString();
+    System.out.println("Test path:" + testPath.toString());
+    Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
+    Path outDir = Paths.get(slicerPath.toString(), "testTempDir");
+    Path sliceLogger = Paths.get(root.getParent().getParent().toString(), "DynamicSlicingCore" + File.separator + "DynamicSlicingLoggingClasses" + File.separator + "DynamicSlicingLogger.jar");
+    Process p = null;
+    ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
+    pb.directory(testPath.toFile());
+    p = pb.start();
+    p.waitFor();
+    
+    String [] args = {
+      "-m", 
+      "i",
+      "-j",
+      jarPath,
+      "-o",
+      outDir.toString(), 
+      "-sl", 
+      outDir.toString() + File.separator + "static_log.log",
+      "-lc",
+      sliceLogger.toString()
+    };
+    Slicer.main(args);
+
+    pb = new ProcessBuilder("/bin/sh", "-c", "java -Xmx8g -cp " + outDir.toString() + File.separator + "test1-issue-1.0.0_i.jar Main | grep \"SLICING\"");
+    System.out.println(pb.command());
+    p = pb.start();
+    p.waitFor();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    
+    BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"));
+    String readline;
+    while ((readline = reader.readLine()) != null) {
+        writer.write(readline);
+        writer.write("\n");
+    }
+    writer.close();
+    reader.close();
+
+    args = new String [] {
+      "-m", 
+      "g",
+      "-j",
+      jarPath,
+      "-o",
+      outDir.toString(), 
+      "-t",
+      outDir.toString() + File.separator + "trace.log",
+      "-sl", 
+      outDir.toString() + File.separator + "static_log.log",
+      "-sd",
+      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      "-tw",
+      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt"
+    };
+    Slicer.main(args);
+
+    args = new String [] {
+      "-m", 
+      "s",
+      "-j",
+      jarPath,
+      "-o",
+      outDir.toString(), 
+      "-t",
+      outDir.toString() + File.separator + "trace.log",
+      "-sl", 
+      outDir.toString() + File.separator + "static_log.log",
+      "-sd",
+      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      "-tw",
+      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt",
+      "-sp",
+      "15",
+      "-once"
+    };
+    Slicer.main(args);
+
+    Path outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
+    List<String> out = Files.readAllLines(outputPath);
+    System.out.println(out);
+
+    assertEquals(Arrays.asList(
+                            "Main:13",
+                            "Main:9"), 
+                out);
+  }
+
   static void cleanWorkingDirectory() throws IOException {
     Path root = Paths.get(".").normalize().toAbsolutePath();
     Path workingDirPath = Paths.get(root.getParent().toString(), "scripts" + File.separator + "testTempDir");
