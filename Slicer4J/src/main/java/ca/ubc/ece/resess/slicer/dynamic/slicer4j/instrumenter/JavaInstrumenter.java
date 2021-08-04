@@ -159,7 +159,6 @@ public class JavaInstrumenter extends Instrumenter {
                     stmtSwitch.setTimeTracking(timeTracking);
                 } else {
                     flags.timeTracking = false;
-                    flags.threadTracking = false;
                 }
 
 
