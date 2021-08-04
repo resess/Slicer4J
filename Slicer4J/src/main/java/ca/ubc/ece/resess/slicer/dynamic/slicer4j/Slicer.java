@@ -1,7 +1,13 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -26,9 +32,11 @@ import org.jgrapht.Graphs;
 
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
 import ca.ubc.ece.resess.slicer.dynamic.core.exceptions.InvalidCommandsException;
+import ca.ubc.ece.resess.slicer.dynamic.core.exceptions.TraceFileException;
 import ca.ubc.ece.resess.slicer.dynamic.core.framework.FrameworkModel;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.Parser;
+import ca.ubc.ece.resess.slicer.dynamic.core.graph.Trace;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.TraceStatement;
 import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.Instrumenter;
 
@@ -66,11 +74,14 @@ public class Slicer {
     private String staticLogFile;
     private String loggerJar;
     private String fileToParse;
+    private String stubDroidPath;
+    private String taintWrapperPath;
     private String outFile;
     private int backwardSlicePos;
     private String variableString;
     private List<String> variables = new ArrayList<>();
     private SlicingWorkingSet workingSet;
+    private DynamicControlFlowGraph graph;
 
 
     public Slicer(){
@@ -88,6 +99,13 @@ public class Slicer {
         this.pathJar = pathJar;
     }
 
+    public void setStubDroidPath(String stubDroidPath) {
+        this.stubDroidPath = stubDroidPath;
+    }
+
+    public void setTaintWrapperPath(String taintWrapperPath) {
+        this.taintWrapperPath = taintWrapperPath;
+    }
 
     public void setOutDir(String outDir) {
         this.outDir = outDir;
@@ -103,6 +121,10 @@ public class Slicer {
     public void setFileToParse(String fileToParse) {
         this.fileToParse = fileToParse;
         this.outFile = fileToParse+"_icdg.log";
+    }
+
+    public String getFileToParse() {
+        return fileToParse;
     }
 
     public void setBackwardSlicePos(int backwardSlicePos) {
@@ -158,6 +180,44 @@ public class Slicer {
         }
     }
 
+    public String instrument() {
+        return instrument("i");
+    }
+
+    public DynamicControlFlowGraph prepareGraph() {
+        Trace trs = Parser.readFile(getFileToParse(), getStaticLogFile());
+        AnalysisLogger.log(true, "trace size: {}", trs.size());
+        prepare();
+        graph = new DynamicControlFlowGraph();
+        graph.createDCFG(trs);
+        return graph;
+    }
+
+    public DynamicSlice directStatementDependency(StatementInstance start, boolean dataFlowsOnly, boolean controlFlowsOnly) {
+        if (dataFlowsOnly == controlFlowsOnly) {
+            throw new IllegalArgumentException("dataFlowsOnly and controlFlow must be oppsite booolean values");
+        }
+        setWorkingSet(new SlicingWorkingSet(false));
+        return slice(graph, true, dataFlowsOnly, controlFlowsOnly, true, start, new HashSet<>(), getWorkingSet());
+    }
+
+    public void runInstrumentedJarFromMain(String pathToJar, String mainClass, String mainArguments) throws IOException, InterruptedException {
+        ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", "java -Xmx8g -cp " + pathToJar + " " + mainClass + " " + mainArguments+ " | grep \"SLICING\"");
+        Process p = pb.start();
+        p.waitFor();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"));
+        String readline;
+        while ((readline = reader.readLine()) != null) {
+            writer.write(readline);
+            writer.write("\n");
+        }
+        writer.close();
+        reader.close();
+    }
+
+
+
     public static void main(String [] args) {
             long startTime = System.nanoTime();
             boolean justTrace = false;
@@ -180,16 +240,13 @@ public class Slicer {
             slicer.setOutDir(commands.get("o"));
             throwParseExceptionIfNull(slicer.outDir, "Output directory path not provided");
 
-            boolean instrumented = false;
+
             if(mode.equals("i")) {
                 slicer.setLoggerJar(commands.get("lc"));
                 if (slicer.loggerJar == null) {
                     throwParseExceptionIfNull(slicer.loggerJar, "logger jar path not provided");
                 }
-                instrumented = slicer.instrument(mode);
-            }
-
-            if (instrumented) {
+                slicer.instrument(mode);
                 terminate(slicer.outDir, mode, startTime);
                 return;
             }
@@ -227,8 +284,8 @@ public class Slicer {
             if (slicer.variableString == null) {
                 slicer.variableString = "*";
             }
-            String stubDroidPath = commands.get("sd");
-            String taintWrapperPath = commands.get("tw");
+            slicer.setStubDroidPath(commands.get("sd"));
+            slicer.setTaintWrapperPath(commands.get("tw"));
 
             boolean frameworkModel = true;
             boolean dataFlowsOnly = false;
@@ -247,8 +304,8 @@ public class Slicer {
             String frameworkPath = commands.get("f");
 
             
-            FrameworkModel.setStubDroidPath(stubDroidPath);
-            FrameworkModel.setTaintWrapperFile(taintWrapperPath);
+            FrameworkModel.setStubDroidPath(slicer.stubDroidPath);
+            FrameworkModel.setTaintWrapperFile(slicer.taintWrapperPath);
             if (frameworkPath != null) {
                 FrameworkModel.setExtraPath(frameworkPath);
             }
@@ -302,7 +359,7 @@ public class Slicer {
     }
 
 
-    private void printGraph(DynamicControlFlowGraph icdg) {
+    public void printGraph(DynamicControlFlowGraph icdg) {
         AnalysisLogger.log(Constants.DEBUG, "Printing graph...");
         List <String> listTOPrint = new ArrayList<>();
         Iterator<Entry<Integer, StatementInstance>> entries = icdg.getMapNumberUnits().entrySet().iterator();
@@ -319,9 +376,8 @@ public class Slicer {
         AnalysisLogger.log(Constants.DEBUG, "Printing Complete.");
     }
 
-    private boolean instrument(String mode) {
-        boolean shouldTerminate = false;
-        
+    private String instrument(String mode) {
+
         if (new File(SOOT_OUTPUT_STRING).isDirectory()) {
             deleteFolder(new File(SOOT_OUTPUT_STRING));
         }
@@ -341,8 +397,8 @@ public class Slicer {
         String jarName = outDir + File.separator + new File(pathJar).getName().replace(".jar", "_" +mode + ".jar");
         Instrumenter instrumenter = new JavaInstrumenter(jarName);
         instrumenter.start(instrumentOptions, staticLogFile, pathJar, loggerJar);
-        shouldTerminate = true;
-        return shouldTerminate;
+        
+        return jarName;
     }
 
 
