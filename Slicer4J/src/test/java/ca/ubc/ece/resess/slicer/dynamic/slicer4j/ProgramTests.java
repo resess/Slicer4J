@@ -92,9 +92,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt"
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt"
     };
     Slicer.main(args);
 
@@ -110,9 +110,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt",
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
       "-sp",
       "15"
     };
@@ -190,9 +190,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt"
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt"
     };
     Slicer.main(args);
 
@@ -208,9 +208,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt",
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
       "-sp",
       "16"
     };
@@ -289,9 +289,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt"
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt"
     };
     Slicer.main(args);
 
@@ -307,9 +307,9 @@ public class ProgramTests {
       "-sl", 
       outDir.toString() + File.separator + "static_log.log",
       "-sd",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow-summaries" + File.separator + "summariesManual",
+      root.getParent().toString() + File.separator + "models" + File.separator + "summariesManual",
       "-tw",
-      root.getParent().toString() + File.separator + "FlowDroid" + File.separator + "soot-infoflow" + File.separator + "EasyTaintWrapperSource.txt",
+      root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
       "-sp",
       "15",
       "-once"
