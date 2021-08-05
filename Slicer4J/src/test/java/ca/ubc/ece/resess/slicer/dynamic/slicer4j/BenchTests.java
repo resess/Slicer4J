@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 
 
-public class Benchmarks {
+public class BenchTests {
 
     Path root = Paths.get(".").normalize().toAbsolutePath();
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
