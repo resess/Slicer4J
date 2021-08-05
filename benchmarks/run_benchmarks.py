@@ -120,7 +120,7 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
             f.write(t+"\n")
     run_time = time.time()
     print(f"Execution time (s): {run_time-instr_time}")
-    graph_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m g -j {jar_name} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/FlowDroid/soot-infoflow-summaries/summariesManual -tw {slicer4j_dir}/FlowDroid/soot-infoflow/EasyTaintWrapperSource.txt > /dev/null 2>&1"
+    graph_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m g -j {jar_name} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/../models/summariesManual -tw {slicer4j_dir}/../models/EasyTaintWrapperSource.txt > /dev/null 2>&1"
     # print(graph_cmd)
     os.system(graph_cmd)
     sc = None
@@ -137,7 +137,7 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
                 if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
-    slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -j {jar_name} -m s -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/FlowDroid/soot-infoflow-summaries/summariesManual -tw {slicer4j_dir}/FlowDroid/soot-infoflow/EasyTaintWrapperSource.txt -sp {line} -d > {out_dir}/{slice_file}_{line}.log 2>&1"
+    slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -j {jar_name} -m s -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/../models/summariesManual -tw {slicer4j_dir}/../models/EasyTaintWrapperSource.txt -sp {line} -d > {out_dir}/{slice_file}_{line}.log 2>&1"
     os.system(slice_cmd)
     slice_time = time.time()
     print(f"Slice time (s): {slice_time-run_time}")

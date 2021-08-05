@@ -194,8 +194,8 @@ public class Slicer {
     }
 
     public DynamicSlice directStatementDependency(StatementInstance start, boolean dataFlowsOnly, boolean controlFlowsOnly) {
-        if (dataFlowsOnly == controlFlowsOnly) {
-            throw new IllegalArgumentException("dataFlowsOnly and controlFlow must be oppsite booolean values");
+        if (dataFlowsOnly && controlFlowsOnly) {
+            throw new IllegalArgumentException("dataFlowsOnly and controlFlow cannot both be true");
         }
         setWorkingSet(new SlicingWorkingSet(false));
         return slice(graph, true, dataFlowsOnly, controlFlowsOnly, true, start, new HashSet<>(), getWorkingSet());
