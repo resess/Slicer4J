@@ -1,7 +1,9 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,6 +53,19 @@ public class TestUtils {
         pb.directory(testPath.toFile());
         p = pb.start();
         p.waitFor();
+        System.out.println("Out stream: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String readline;
+        while ((readline = reader.readLine()) != null) {
+            System.out.println(readline);
+        }
+        reader.close();
+        System.out.println("Error stream: ");
+        reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+        while ((readline = reader.readLine()) != null) {
+            System.out.println(readline);
+        }
+        reader.close();
     }
     
     protected static void cleanWorkingDirectory() throws IOException {
