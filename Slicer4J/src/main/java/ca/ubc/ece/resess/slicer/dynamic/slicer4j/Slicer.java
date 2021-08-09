@@ -360,21 +360,30 @@ public class Slicer {
     }
 
 
-    public void printGraph(DynamicControlFlowGraph icdg) {
+    public List<String> printGraph(DynamicControlFlowGraph icdg) {
         AnalysisLogger.log(Constants.DEBUG, "Printing graph...");
-        List <String> listTOPrint = new ArrayList<>();
+        List <String> listToPrint = new ArrayList<>();
         Iterator<Entry<Integer, StatementInstance>> entries = icdg.getMapNumberUnits().entrySet().iterator();
         while (entries.hasNext()) {
             Entry<Integer, StatementInstance> thisEntry = entries.next();
             Integer lineNumber = thisEntry.getKey();
             StatementInstance statementInstance = thisEntry.getValue(); 
-            listTOPrint.add(statementInstance.toString() 
-                    + ":PRED:"+icdg.predecessorListOf(lineNumber) 
-                    + ":SUCC:"+icdg.successorListOf(lineNumber) 
+            List<String> preds = new ArrayList<>();
+            for (int vertex: icdg.predecessorListOf(lineNumber)) {
+                preds.add(vertex + " (" + icdg.getEdge(vertex, lineNumber).getEdgeType() + ")");
+            }
+            List<String> nexts = new ArrayList<>();
+            for (int vertex: icdg.successorListOf(lineNumber)) {
+                nexts.add(vertex + " (" + icdg.getEdge(lineNumber, vertex).getEdgeType() + ")");
+            }
+            listToPrint.add(statementInstance.toString() 
+                    + ":PRED:"+preds
+                    + ":SUCC:"+nexts
                     + ":TID:"+statementInstance.getThreadID());
         }
-        printList(listTOPrint, outFile);
+        printList(listToPrint, outFile);
         AnalysisLogger.log(Constants.DEBUG, "Printing Complete.");
+        return listToPrint;
     }
 
     private String instrument(String mode) {

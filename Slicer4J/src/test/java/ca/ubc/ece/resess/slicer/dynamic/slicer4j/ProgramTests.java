@@ -14,7 +14,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -301,6 +303,50 @@ public class ProgramTests {
         "Main:13",
         "Main:9"), 
         out);
+    }
+
+
+    @Test
+    void issue5() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue5");
+        String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test-issue5-1.0.0.jar").toString();
+        
+        TestUtils.buildJar(testPath);
+        
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        slicer.setDebug(true);
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "TreeAdd", "-l 2");
+        
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        
+        Integer tracePositionToSliceFrom = 107;
+        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+
+        Set<String> expected = new HashSet<>(Arrays.asList(
+            "TreeAdd:68",
+            "TreeNode:50",
+            "TreeNode:102",
+            "TreeAdd:67",
+            "TreeNode:60",
+            "TreeNode:101",
+            "TreeNode:104",
+            "TreeAdd:36",
+            "TreeNode:103",
+            "TreeNode:106",
+            "TreeNode:105",
+            "TreeAdd:70",
+            "TreeAdd:62",
+            "TreeNode:49",
+            "TreeAdd:40",
+            "TreeAdd:72",
+            "TreeNode:59",
+            "TreeAdd:53",
+            "TreeAdd:33",
+            "TreeAdd:65"));
+
+        assertEquals(expected, sliceLines);
     }
     
     @Test
