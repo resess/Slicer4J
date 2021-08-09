@@ -7,6 +7,7 @@ import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.Traversal;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementSet;
+import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.Constants;
 import soot.Unit;
@@ -19,9 +20,9 @@ import soot.jimple.Stmt;
 public class DynamicHeapAnalysis {
     private DynamicControlFlowGraph icdg;
     private Traversal traversal;
-    public DynamicHeapAnalysis(DynamicControlFlowGraph icdg) {
+    public DynamicHeapAnalysis(DynamicControlFlowGraph icdg, AnalysisCache analysisCache) {
         this.icdg = icdg;
-        this.traversal = new Traversal(icdg);
+        this.traversal = new Traversal(icdg, analysisCache);
     }
 
     public StatementSet reachingDefinitions(StatementInstance si, AccessPath ap) {

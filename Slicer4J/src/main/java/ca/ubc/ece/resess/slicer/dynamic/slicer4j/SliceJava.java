@@ -16,6 +16,7 @@ import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementList;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementMap;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementSet;
+import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisUtils;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.Constants;
@@ -32,8 +33,8 @@ import soot.toolkits.scalar.Pair;
 
 public class SliceJava extends SliceMethod{
 
-    public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet) {
-        super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet);
+    public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet, AnalysisCache analysisCache) {
+        super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet, analysisCache);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class SliceJava extends SliceMethod{
             }
         } else {
             AnalysisLogger.log(Constants.DEBUG, "Getting dynamic heap def of {}", var);
-            def = (new DynamicHeapAnalysis(icdg)).reachingDefinitions(stmt, var);
+            def = (new DynamicHeapAnalysis(icdg, analysisCache)).reachingDefinitions(stmt, var);
             AnalysisLogger.log(Constants.DEBUG, "Dynamic heap def of {} is {}", var, def);
         }
         if (!usedVars.isEmpty() && def != null) {

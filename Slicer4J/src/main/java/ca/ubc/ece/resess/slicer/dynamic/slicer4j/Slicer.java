@@ -80,7 +80,8 @@ public class Slicer {
     private int backwardSlicePos;
     private String variableString;
     private List<String> variables = new ArrayList<>();
-    private SlicingWorkingSet workingSet;
+    private AnalysisCache analysisCache = new AnalysisCache();
+    private SlicingWorkingSet workingSet = new SlicingWorkingSet(false);
     private DynamicControlFlowGraph graph;
 
 
@@ -355,7 +356,7 @@ public class Slicer {
     }
     public DynamicSlice slice(DynamicControlFlowGraph icdg,
             boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, StatementInstance start, Set<AccessPath> variables, SlicingWorkingSet workingSet) {
-        return new SliceJava(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet).slice(start, variables);
+        return new SliceJava(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet, analysisCache).slice(start, variables);
     }
 
 
@@ -446,7 +447,6 @@ public class Slicer {
     }
 
     public void prepare() {
-        AnalysisCache.reset();
         if (pathJar.endsWith(".jar")) {
             prepareProcessingJAR(pathJar);
         } else {
