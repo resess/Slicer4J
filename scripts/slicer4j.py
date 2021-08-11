@@ -120,17 +120,18 @@ def dynamic_slice(jar_file=None, out_dir=None, backward_criterion=None, variable
     clazz, lineno = backward_criterion.split(":")
     # clazz = clazz.rsplit(".", 1)[0]
     check_str = f":LINENO:{lineno}:FILE:{clazz}"
+    slice_line = ""
     with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
         for line in f:
             if check_str in line:
-                sc = line.rstrip()
-
-    line = sc.split(", ")[0]
+                if slice_line:
+                    slice_line = slice_line + "-"
+                slice_line = slice_line + line.rstrip().split(", ")[0]
 
     if variables:
         extra_options += "-sv " + str(variables)
 
-    slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m s -j {jar_file} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static_log.log -sd {slicer4j_dir}/models/summariesManual -tw {slicer4j_dir}/models/EasyTaintWrapperSource.txt -sp {line} {extra_options} > {out_dir}/{slice_file} 2>&1"
+    slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/Slicer4J/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/Slicer4J/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m s -j {jar_file} -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static_log.log -sd {slicer4j_dir}/models/summariesManual -tw {slicer4j_dir}/models/EasyTaintWrapperSource.txt -sp {slice_line} {extra_options} > {out_dir}/{slice_file} 2>&1"
     os.system(slice_cmd)
     arr = [x for x in os.listdir(out_dir) if x.startswith("result_md")]
     for a in arr:

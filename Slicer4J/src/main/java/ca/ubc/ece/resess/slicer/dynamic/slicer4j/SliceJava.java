@@ -2,6 +2,7 @@ package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -10,6 +11,7 @@ import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AliasSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.datadependence.BackwardStaticFieldAnalysis;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
+import ca.ubc.ece.resess.slicer.dynamic.core.slicer.DynamicSlice;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SliceMethod;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SlicingWorkingSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
@@ -35,6 +37,15 @@ public class SliceJava extends SliceMethod{
 
     public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet, AnalysisCache analysisCache) {
         super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet, analysisCache);
+    }
+
+    public DynamicSlice slice(List<StatementInstance> start, Set<AccessPath> variables) {
+        DynamicSlice dynamicSlice = new DynamicSlice();
+        for (StatementInstance si: start) {
+            DynamicSlice newSlice = slice(si, variables);
+            dynamicSlice = dynamicSlice.union(newSlice);
+        }
+        return dynamicSlice;
     }
 
     @Override
