@@ -102,10 +102,12 @@ public class Slicer {
 
     public void setStubDroidPath(String stubDroidPath) {
         this.stubDroidPath = stubDroidPath;
+        FrameworkModel.setStubDroidPath(stubDroidPath);
     }
 
     public void setTaintWrapperPath(String taintWrapperPath) {
         this.taintWrapperPath = taintWrapperPath;
+        FrameworkModel.setTaintWrapperFile(taintWrapperPath);
     }
 
     public void setOutDir(String outDir) {

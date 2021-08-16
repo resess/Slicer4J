@@ -42,8 +42,8 @@ public class ProgramTests {
     void postCleanUp() throws IOException {
         TestUtils.cleanWorkingDirectory();
     }
-    
-    
+
+
     @Test
     void issue1() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue1");
@@ -374,5 +374,37 @@ public class ProgramTests {
         expected.put(dcfg.mapNoUnits(11), "data, varaible:a, source:14");
 
         assertEquals(expected, slideDeps);
+    }
+
+
+    @Test
+    void testFieldsFramework() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-fields-framework");
+        String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test-fields-framework-1.0.0.jar").toString();
+        
+        TestUtils.buildJar(testPath);
+        
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        slicer.setDebug(true);
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "Main", "");
+        
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        
+        Integer tracePositionToSliceFrom = 21;
+        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+
+        Set<String> expected = new HashSet<>(Arrays.asList(
+            "Main:18",
+            "Main:17",
+            "Main:9",
+            "Main:8",
+            "Main:13",
+            "Main:7",
+            "Main:5"
+            ));
+
+        assertEquals(expected, sliceLines);
     }
 }

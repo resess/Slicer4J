@@ -6,6 +6,7 @@ import ca.ubc.ece.resess.slicer.dynamic.core.framework.FrameworkModel;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.Traversal;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
+import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementMap;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
@@ -30,17 +31,15 @@ public class DynamicHeapAnalysis {
         Long fieldId = si.getFieldId();
         String fieldName = ap.getField();
         int pos = si.getLineNo()-1;
-        StatementInstance prev = null;
         StatementInstance possibleIu = null;
         AnalysisLogger.log(true, "Getting heap def of {}", si);
         while (pos >= 0 && def == null) {
-            prev = possibleIu;
             possibleIu = icdg.mapNoUnits(pos);
             if (possibleIu != null && possibleIu.getMethod().getDeclaringClass().getName().startsWith(Constants.ANDROID_LIBS)) {
                 pos--;
                 continue;
             }
-            def = matchFieldAddress(si, possibleIu, prev, fieldId, fieldName);
+            def = matchFieldAddress(si, possibleIu, fieldId, fieldName);
             pos--;
         }
 
@@ -49,7 +48,7 @@ public class DynamicHeapAnalysis {
         return ret;
     }
 
-    private StatementInstance matchFieldAddress(StatementInstance si, StatementInstance possibleIu, StatementInstance prev, Long fieldId, String fieldName) {
+    private StatementInstance matchFieldAddress(StatementInstance si, StatementInstance possibleIu, Long fieldId, String fieldName) {
         StatementInstance def = null;
         if (possibleIu != null && possibleIu.getFieldId() != null && possibleIu.getFieldId().equals(fieldId)) {
             Unit u = possibleIu.getUnit();
@@ -60,24 +59,31 @@ public class DynamicHeapAnalysis {
                 if (left instanceof FieldRef) {
                     def = matchFieldDefintion(possibleIu, fieldName, def, left);
                 } else if (right instanceof FieldRef) {
-                    def = matchReferenceVaraibleDefintion(si, prev, fieldName, def, left, right);
+                    def = matchReferenceVaraibleDefintion(si, possibleIu, fieldName, def, left, right);
                 }
             }
         }
         return def;
     }
 
-    private StatementInstance matchReferenceVaraibleDefintion(StatementInstance si, StatementInstance prev,
+    private StatementInstance matchReferenceVaraibleDefintion(StatementInstance si, StatementInstance possibleIu,
             String fieldName, StatementInstance def, Value left, Value right) {
         String usedField = ((FieldRef) right).getField().getName();
-        if (usedField.equals(fieldName) && prev != null) {
-            Stmt prevStmt = (Stmt) prev.getUnit();
-            if (prevStmt.containsInvokeExpr() && traversal.isFrameworkMethod(prev)) {
-                InvokeExpr expr = prevStmt.getInvokeExpr();
-                if (expr instanceof InstanceInvokeExpr) {
-                    AccessPath instance = new AccessPath(left.toString(), left.getType(), si.getLineNo(), si.getLineNo(), si);
-                    if (FrameworkModel.definesInstance(prev, instance)) {
-                        def = prev;
+        StatementMap chunk = traversal.getForwardChunk(possibleIu.getLineNo());
+        for (StatementInstance prev: chunk.values()) {
+            if (prev.getLineNo() <= possibleIu.getLineNo()) {
+                continue;
+            }
+            if (usedField.equals(fieldName)) {
+                Stmt prevStmt = (Stmt) prev.getUnit();
+                if (prevStmt.containsInvokeExpr() && traversal.isFrameworkMethod(prev)) {
+                    InvokeExpr expr = prevStmt.getInvokeExpr();
+                    if (expr instanceof InstanceInvokeExpr) {
+                        AccessPath instance = new AccessPath(left.toString(), left.getType(), si.getLineNo(), si.getLineNo(), si);
+                        if (FrameworkModel.definesInstance(prev, instance)) {
+                            def = prev;
+                            break;
+                        }
                     }
                 }
             }
