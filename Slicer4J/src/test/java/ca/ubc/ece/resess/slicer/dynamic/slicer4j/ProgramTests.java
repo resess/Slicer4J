@@ -407,4 +407,32 @@ public class ProgramTests {
 
         assertEquals(expected, sliceLines);
     }
+
+
+    @Test
+    void issue10() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-issue10");
+        String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test-issue10-1.0.0.jar").toString();
+        
+        TestUtils.buildJar(testPath);
+        
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        slicer.setDebug(true);
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "Issue", "");
+        
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        
+        Integer tracePositionToSliceFrom = 10;
+        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+
+        Set<String> expected = new HashSet<>(Arrays.asList(
+            "Issue:10",
+            "Issue:9",
+            "Issue:6"));
+
+        assertEquals(expected, sliceLines);
+    }
+    
 }
