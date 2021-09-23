@@ -1,6 +1,5 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j.datadependence;
 
-import soot.Value;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
 import ca.ubc.ece.resess.slicer.dynamic.core.framework.FrameworkModel;
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
@@ -12,15 +11,13 @@ import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.Constants;
 import soot.Unit;
-import soot.jimple.AssignStmt;
-import soot.jimple.FieldRef;
-import soot.jimple.InstanceInvokeExpr;
-import soot.jimple.InvokeExpr;
-import soot.jimple.Stmt;
+import soot.Value;
+import soot.jimple.*;
 
 public class DynamicHeapAnalysis {
-    private DynamicControlFlowGraph icdg;
-    private Traversal traversal;
+    private final DynamicControlFlowGraph icdg;
+    private final Traversal traversal;
+
     public DynamicHeapAnalysis(DynamicControlFlowGraph icdg, AnalysisCache analysisCache) {
         this.icdg = icdg;
         this.traversal = new Traversal(icdg, analysisCache);
@@ -30,7 +27,7 @@ public class DynamicHeapAnalysis {
         StatementInstance def = null;
         Long fieldId = si.getFieldId();
         String fieldName = ap.getField();
-        int pos = si.getLineNo()-1;
+        int pos = si.getLineNo() - 1;
         StatementInstance possibleIu = null;
         AnalysisLogger.log(true, "Getting heap def of {}", si);
         while (pos >= 0 && def == null) {
@@ -67,10 +64,10 @@ public class DynamicHeapAnalysis {
     }
 
     private StatementInstance matchReferenceVaraibleDefintion(StatementInstance si, StatementInstance possibleIu,
-            String fieldName, StatementInstance def, Value left, Value right) {
+                                                              String fieldName, StatementInstance def, Value left, Value right) {
         String usedField = ((FieldRef) right).getField().getName();
         StatementMap chunk = traversal.getForwardChunk(possibleIu.getLineNo());
-        for (StatementInstance prev: chunk.values()) {
+        for (StatementInstance prev : chunk.values()) {
             if (prev.getLineNo() <= possibleIu.getLineNo()) {
                 continue;
             }
@@ -92,7 +89,7 @@ public class DynamicHeapAnalysis {
     }
 
     private StatementInstance matchFieldDefintion(StatementInstance possibleIu, String fieldName, StatementInstance def,
-            Value left) {
+                                                  Value left) {
         String definedField = ((FieldRef) left).getField().getName();
         if (definedField.equals(fieldName)) {
             def = possibleIu;

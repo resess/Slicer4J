@@ -365,13 +365,13 @@ public class ProgramTests {
         slicer.printGraph(dcfg);
         
         Integer tracePositionToSliceFrom = 15;
-        Map<StatementInstance, String> slideDeps = TestUtils.sliceAndGetDirectDepdendeincesMap(slicer, dcfg, tracePositionToSliceFrom);
+        Map<StatementInstance, String> slideDeps = TestUtils.sliceAndGetDirectDependenciesMap(slicer, dcfg, tracePositionToSliceFrom);
         
         Map<StatementInstance, String> expected = new HashMap<>();
         expected.put(dcfg.mapNoUnits(15), "start");
-        expected.put(dcfg.mapNoUnits(14), "data, varaible:stack5, source:15");
-        expected.put(dcfg.mapNoUnits(13), "data, varaible:stack4, source:15");
-        expected.put(dcfg.mapNoUnits(11), "data, varaible:a, source:14");
+        expected.put(dcfg.mapNoUnits(14), "data, variable:stack5, source:15");
+        expected.put(dcfg.mapNoUnits(13), "data, variable:stack4, source:15");
+        expected.put(dcfg.mapNoUnits(11), "data, variable:a, source:14");
 
         assertEquals(expected, slideDeps);
     }

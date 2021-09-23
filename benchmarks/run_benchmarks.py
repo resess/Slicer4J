@@ -26,7 +26,7 @@ defects4j_benchmarks = {
 
 def count_lines_slice_slicer4j(trace):
     trace_list = list()
-    with open(trace + os.path.sep + "trace.log_icdg.log", 'r') as f:
+    with open(trace + os.path.sep + "trace.log", 'r') as f:
         for line in f:
             trace_list.append(line.rstrip())
     print(f"Length of trace (Jimple LoC): {len(trace_list)}")
@@ -125,14 +125,14 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
     os.system(graph_cmd)
     sc = None
     if not sc_file:
-        with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
+        with open(f"{out_dir}/trace.log", 'r') as f:
             for l in f:
                 if f"println" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
     else:
         print(f"looking for LINENO:{slice_line}:FILE:{sc_file}")
-        with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
+        with open(f"{out_dir}/trace.log", 'r') as f:
             for l in f:
                 if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
@@ -175,7 +175,7 @@ for idx, project in enumerate(benchmarks_input):
     run_original(project, jar_name, project_arg, "")
     print(f"********************")
     print(f"Running Slicer4J")
-    run_slicer4j(project, jar_name, project_arg, "", "", "")
+    run_slicer4j(project, jar_name, project_arg, "", sc_file, slice_line)
     print(f"********************")
     print(f"Running JavaSlicer")
     run_javaslicer(project, jar_name, project_arg, "", sc_file, slice_line, "main")

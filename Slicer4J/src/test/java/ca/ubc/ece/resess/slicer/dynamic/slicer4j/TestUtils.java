@@ -31,7 +31,7 @@ public class TestUtils {
         return slicer;
     }
     
-    protected static Map<StatementInstance, String> sliceAndGetDirectDepdendeincesMap(Slicer slicer, DynamicControlFlowGraph dcfg, Integer tracePositionToSliceFrom) {
+    protected static Map<StatementInstance, String> sliceAndGetDirectDependenciesMap(Slicer slicer, DynamicControlFlowGraph dcfg, Integer tracePositionToSliceFrom) {
         StatementInstance stmt = dcfg.mapNoUnits(tracePositionToSliceFrom);
         DynamicSlice dynamicSlice = slicer.directStatementDependency(stmt, true, false);
         Map<StatementInstance, String> sliceDeps = dynamicSlice.getSliceDependenciesAsMap();
