@@ -84,7 +84,7 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### Slicer4J Mandatory Command Line Parameters: 
+### Slicer4J Mandatory Command Line Parameters
 
 
 <table class="tg">
@@ -118,8 +118,7 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### Slicer4J Optional Command Line Parameters: 
-
+### Slicer4J Optional Command Line Parameters
 
 <table class="tg">
 <thead>
@@ -168,7 +167,7 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### User-defined method models: 
+### User-defined method models
 
 The following is an example for defining your own method models. 
 
@@ -229,7 +228,8 @@ For fields, we specify the signature of the field in `AccessPath` and its type i
 
 ---
 ---
-## Inspecting the Output:
+
+## Inspecting the Output
 
 You can view the output of Slicer4J in 3 different formats: [Source Map](#Source-Map), [Raw Slice](#Raw-Slice), and [#Graph](Graph).
 
@@ -267,8 +267,8 @@ In this example, we slice from line 9 in the `SliceMe.java` file: `System.out.pr
 
 ---
 
+### Source Map
 
-### Source Map:
 This output is only generated if the JAR is compiled with debug information.
 Slicer4J outputs a list of `files-name: source-code-line-number` for each statement that compose the slice. 
 This output is stored in the output folder in a file called `slice.log`
@@ -287,7 +287,7 @@ Which indicates that the slice is:
 ```
 
 ---
-### Raw Slice:
+### Raw Slice
 
 Slicer4J outputs a list of Jimple statements with a unique Id for each statement, which we use as our intermediate format, together with the thread id of the thread they are execute in, with the source map of file and line numbers for jars that are compiled with debug information.
 
@@ -308,7 +308,7 @@ SliceMe:9    1    5:virtualinvoke $stack4.<java.io.PrintStream: void println(int
 Here we see that all statements are within the same thread (thread #1), and we see how each line is represented in Jimple (`if (args.length > 0)` in the code maps to `$stack2 = lengthof args` and `if $stack2 <= 0 goto parsed = null` in Jimple)
 
 ---
-### Graph:
+### Graph
 
 Slicer4J outputs a [dot graph](https://graphviz.org/doc/info/lang.html)  whose nodes are statements in the slice and edges are data and control dependencies between the statements. 
 

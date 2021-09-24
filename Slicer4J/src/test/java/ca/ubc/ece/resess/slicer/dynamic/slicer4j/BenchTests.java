@@ -1,21 +1,19 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
-import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class BenchTests {
@@ -25,12 +23,12 @@ public class BenchTests {
     Path outDir = Paths.get(slicerPath.toString(), "testTempDir");
     Path sliceLogger = Paths.get(root.getParent().getParent().toString(), "DynamicSlicingCore" + File.separator + "DynamicSlicingLoggingClasses" + File.separator + "DynamicSlicingLogger.jar");
 
-    @BeforeAll 
+    @BeforeAll
     static void preCleanUp() throws IOException {
         TestUtils.cleanWorkingDirectory();
     }
-    
-    @AfterEach 
+
+    @AfterEach
     void postCleanUp() throws IOException {
         TestUtils.cleanWorkingDirectory();
     }
@@ -40,17 +38,17 @@ public class BenchTests {
     void javaslicer_bench1() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "javaslicer-bench1-intra-procedural");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "javaslicer-bench1-intra-procedural-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
-        
+
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "2");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 7;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -63,17 +61,17 @@ public class BenchTests {
     void javaslicer_bench2() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "javaslicer-bench2-inter-procedural");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "javaslicer-bench2-inter-procedural-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
-        
+
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "2");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 10;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -86,17 +84,17 @@ public class BenchTests {
     void javaslicer_bench3() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "javaslicer-bench3-exceptions");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "javaslicer-bench3-exceptions-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 21;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -109,17 +107,17 @@ public class BenchTests {
     void slicer4j_bench1() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "slicer4j-bench1-multiple-threads");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "slicer4j-bench1-multiple-threads-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 38;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -132,17 +130,17 @@ public class BenchTests {
     void slicer4j_bench2() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "slicer4j-bench2-native-framework");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "slicer4j-bench2-native-framework-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "0 4");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 21;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -155,17 +153,17 @@ public class BenchTests {
     void slicer4j_bench3() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "slicer4j-bench3-java-9-constructs");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "slicer4j-bench3-java-9-constructs-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "3 4");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 23;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -178,17 +176,17 @@ public class BenchTests {
     void slicer4j_bench4() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "slicer4j-bench4-instrumentation-classes");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "slicer4j-bench4-instrumentation-classes-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "22");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 11;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
@@ -201,17 +199,17 @@ public class BenchTests {
     void slicer4j_bench5() throws IOException, InterruptedException {
         Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "slicer4j-bench5-static-constructor");
         String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "slicer4j-bench5-static-constructor-1.0.0.jar").toString();
-        
+
         TestUtils.buildJar(testPath);
-        
+
         Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
         slicer.setDebug(true);
         String instrumentedJar = slicer.instrument();
         slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "22");
-        
+
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
-        
+
         Integer tracePositionToSliceFrom = 12;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 

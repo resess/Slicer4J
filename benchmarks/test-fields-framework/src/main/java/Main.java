@@ -14,8 +14,8 @@ public class Main {
     }
     
     private void printArray() {
-        for (int i = 0; i < array.size(); i++ ) {
-            System.out.println(array.get(i));
+        for (Long aLong : array) {
+            System.out.println(aLong);
         }
     }
 
