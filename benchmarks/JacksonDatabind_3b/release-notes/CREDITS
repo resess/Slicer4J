@@ -1,0 +1,139 @@
+Here are people who have contributed to the development of Jackson JSON processor
+databind core component, version 2.x
+(version numbers in brackets indicate release in which the problem was fixed)
+
+(note: for older credits, check out release notes for 1.x versions)
+
+Tatu Saloranta, tatu.saloranta@iki.fi: author
+
+Pascal Glinas:
+  * Contributed fixes to 'MappingIterator' handling (Pull#58 and Pull#59)
+   (2.1.0)
+  * Reported #220: ContainerNode missing 'createNumber(BigInteger)'
+   (2.2.2)
+
+Joern Huxhorn:
+  * Suggested [JACKSON-636]: Add 'SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS' to allow
+    forced sorting of Maps during serialization
+   (2.0.0)
+
+James Roper:
+ * Requested [JACKSON-732]: Allow 'AnnotationIntrospector.findContentDeserializer()'
+    (and similar) to return instance, not just Class<?> for instance
+  (2.0.0)
+ * Suggested [JACKSON-800]: Adding a method for letting modules register
+    DeserializationProblemHandlers
+  (2.0.0)
+
+Casey Lucas:
+ * Reported [JACKSON-798]: Problem with external type id, creators
+  (2.0.0)
+
+Tammo van Lessen:
+ * Reported [JACKSON-811]: Problems with @JsonIdentityInfo, abstract types
+  (2.0.0)
+ * Reported [JACKSON-814]: Parsing RFC822/RFC1123 dates failes on non-US locales
+  (2.0.0)
+
+Raymond Myers:
+ * Suggested [JACKSON-810]: Deserialization Feature: Allow unknown Enum values via
+    'DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL'
+  (2.0.0)
+
+Ryan Gardner:
+ * Contributed #5 -- Add support for maps with java.util.Locale keys
+    to the set of StdKeyDeserializers
+  (2.0.1)
+
+Razvan Dragut:
+ * Suggested [JACKSON-850]: Allow use of zero-arg factory methods as "default creator"
+  (2.1.0)
+
+Duncan Atkinson:
+ * Reported [JACKSON-851]: State corruption with ObjectWriter, DefaultPrettyPrinter
+  (2.1.0)
+
+Mark Wolfe:
+ * Suggested #45: Add `@JsonNaming()` for per-class naming strategy overrides
+  (2.1.0)
+
+Dmitry Katsubo:
+ * Contributed patch for #65: Add getters to `ObjectMapper`, DeserializationContext,
+   DeserializationFactory.
+  (2.1.0)
+
+Francis Galiegue:
+ * Reported #93 (and suggested fix): bug in `ObjectMapper.setAll(...)'
+  implementation
+  (2.1.1)
+ * Reported #433: `ObjectMapper`'s `.valueToTree()` wraps `JsonSerializable` objects
+  into a POJONode
+  (2.3.3)
+ * Contributed #434: Ensure that DecimalNodes with mathematically equal values are equal
+  (2.4.0)
+
+kelaneren@github:
+ * Reported #157, contributed unit test: NPE when registering same module twice.
+  (2.1.4)
+
+Eric Tschetter (cheddar@github):
+  * Reported issues #166, #167, #170 (regressions from 1.9.x to 2.x)
+   (2.1.4)
+
+Thierry D (thierryd@github)
+  * Reported #214: Problem with LICENSE, NOTICE, Android packaging
+   (2.2.2)
+
+Luke G-H (lukegh@github)
+  * Reported #223: Duplicated nulls with @JsonFormat(shape=Shape.ARRAY)
+   (2.2.2)
+
+Karl Moore (karldmoore@github)
+  * Reported #217: JsonProcessingExceptions not all wrapped as expected
+   (2.2.2)
+
+David Phillips:
+  * Requested #308: Improve serialization and deserialization speed of `java.util.UUID`
+   (2.3.0)
+
+Seth Pellegrino (jivesoft):
+  * Contributed #317: Fix `JsonNode` support for nulls bound to	`ObjectNode`, `ArrayNode`
+   (2.3.0)
+
+Florian Schoppmann (fschopp@github)
+  * Reported #358: `IterableSerializer` ignoring	annotated content serializer
+   (2.3.1)
+  * Reported #359: Converted object not using explicitly annotated serializer
+   (2.4.0)
+
+Martin Traverso:
+  * Reported #406: Cannot use external type id + @JsonTypeIdResolver
+   (2.3.2)
+
+Matthew Morrissette:
+  * Contributed #381: Allow inlining/unwrapping of value from single-component JSON array
+   (2.4.0)
+
+Will Palmeri: (wpalmeri@github)
+  * Contributed #407: Make array and Collection serializers use configured value null handler
+   (2.4.0)
+
+Cemalettin Koc: (cemo@github)
+  * Reported #353: Problems with polymorphic types, `JsonNode` (related to #88)
+   (2.4.0)
+
+Ben Fagin: (UnquietCode@github)
+  * Suggested #442: Make `@JsonUnwrapped` indicate property inclusion
+   (2.4.0)
+  * Contributed #81/#455: Allow use of @JsonUnwrapped with typed (@JsonTypeInfo) classes,
+    provided that (new) feature `SerializationFeature.FAIL_ON_UNWRAPPED_TYPE_IDENTIFIERS`
+    is disabled
+   (2.4.0)
+
+Chris Cleveland:
+  * Suggested #463: Add 'JsonNode.asText(String defaultValue)`
+   (2.4.0)
+
+Benson Margulies:
+  * Reported #467: Unwanted POJO's embedded in tree via serialization to tree
+   (2.4.0)

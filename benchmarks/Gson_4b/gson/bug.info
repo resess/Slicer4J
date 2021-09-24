@@ -1,0 +1,44 @@
+Determine revision date.................................................... OK
+Summary of configuration for Project: Gson
+--------------------------------------------------------------------------------
+    Script dir: /data/khaledea/defects4j/framework
+      Base dir: /data/khaledea/defects4j
+    Major root: /data/khaledea/defects4j/major
+      Repo dir: /data/khaledea/defects4j/project_repos
+--------------------------------------------------------------------------------
+    Project ID: Gson
+       Program: gson
+    Build file: /data/khaledea/defects4j/framework/projects/Gson/Gson.build.xml
+--------------------------------------------------------------------------------
+           Vcs: Vcs::Git
+    Repository: /data/khaledea/defects4j/project_repos/gson.git
+     Commit db: /data/khaledea/defects4j/framework/projects/Gson/active-bugs.csv
+Number of bugs: 18
+--------------------------------------------------------------------------------
+
+Summary for Bug: Gson-4
+--------------------------------------------------------------------------------
+Revision ID (fixed version):
+af68d70cd55826fa7149effd7397d64667ca264c
+--------------------------------------------------------------------------------
+Revision date (fixed version):
+2016-01-18 15:16:01 -0500
+--------------------------------------------------------------------------------
+Bug report id:
+773
+--------------------------------------------------------------------------------
+Bug report url:
+https://github.com/google/gson/pull/773
+--------------------------------------------------------------------------------
+Root cause in triggering tests:
+ - com.google.gson.stream.JsonReaderTest::testTopLevelValueTypeWithSkipValue
+   --> com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 1 path $
+ - com.google.gson.stream.JsonReaderTest::testTopLevelValueTypes
+   --> com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 1 path $
+ - com.google.gson.stream.JsonWriterTest::testTopLevelValueTypes
+   --> java.lang.IllegalStateException: JSON must start with an array or an object.
+--------------------------------------------------------------------------------
+List of modified sources:
+ - com.google.gson.stream.JsonReader
+ - com.google.gson.stream.JsonWriter
+--------------------------------------------------------------------------------
