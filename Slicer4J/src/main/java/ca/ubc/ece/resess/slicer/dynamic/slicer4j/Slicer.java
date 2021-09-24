@@ -20,17 +20,35 @@ import ca.ubc.ece.resess.slicer.dynamic.slicer4j.instrumenter.JavaInstrumenter;
 import com.google.common.base.Optional;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.io.FileUtils;
-import soot.*;
+import soot.ModuleScene;
+import soot.PackManager;
+import soot.Scene;
+import soot.SootClass;
+import soot.SootMethod;
+import soot.Type;
+import soot.Unit;
 import soot.options.Options;
 import soot.toolkits.scalar.Pair;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 
 public class Slicer {
@@ -356,9 +374,9 @@ public class Slicer {
                 nexts.add(vertex + " (" + icdg.getEdge(lineNumber, vertex).getEdgeType() + ")");
             }
             listToPrint.add(statementInstance.toString()
-                    + ":PRED:" + preds
-                    + ":SUCC:" + nexts
-                    + ":TID:" + statementInstance.getThreadID());
+                + ":PRED:" + preds
+                + ":SUCC:" + nexts
+                + ":TID:" + statementInstance.getThreadID());
         }
         printList(listToPrint, outFile);
         AnalysisLogger.log(Constants.DEBUG, "Printing Complete.");

@@ -1,13 +1,28 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j.instrumenter;
 
 
-import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.*;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.AddedLocals;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.Flags;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.InstrumentationCounter;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.Instrumenter;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.InstrumenterUtils;
+import ca.ubc.ece.resess.slicer.dynamic.core.instrumenter.StmtSwitch;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer;
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import soot.*;
+import soot.Body;
+import soot.BodyTransformer;
+import soot.PackManager;
+import soot.PatchingChain;
+import soot.Scene;
+import soot.SceneTransformer;
+import soot.SootClass;
+import soot.SootMethod;
+import soot.Transform;
+import soot.Trap;
+import soot.Unit;
 import soot.jimple.IdentityStmt;
 import soot.jimple.ReturnStmt;
 import soot.jimple.ReturnVoidStmt;
@@ -19,7 +34,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -138,8 +161,8 @@ public class JavaInstrumenter extends Instrumenter {
                     final Unit u = iter.next();
                     if (!(u instanceof IdentityStmt)) {
                         instrumentedFirst = InstrumenterUtils.basicBlockInstrument(b, cls, mtd, isOnDestroy, addedLocals, flags, units,
-                                instrumentedUnits, instrumentedFirst, unitNumMap, taggedUnits, u, traps,
-                                globalLineCounter, threadMethods, libClasses);
+                            instrumentedUnits, instrumentedFirst, unitNumMap, taggedUnits, u, traps,
+                            globalLineCounter, threadMethods, libClasses);
                         methodSize += 1;
                     }
 

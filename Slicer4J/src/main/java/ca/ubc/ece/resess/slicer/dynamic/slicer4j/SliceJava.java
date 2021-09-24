@@ -20,7 +20,11 @@ import soot.SootField;
 import soot.Type;
 import soot.Unit;
 import soot.Value;
-import soot.jimple.*;
+import soot.jimple.AssignStmt;
+import soot.jimple.FieldRef;
+import soot.jimple.InstanceInvokeExpr;
+import soot.jimple.InvokeExpr;
+import soot.jimple.Stmt;
 import soot.toolkits.scalar.Pair;
 
 import java.util.HashSet;
@@ -115,7 +119,7 @@ public class SliceJava extends SliceMethod {
     }
 
     private boolean matchReferenceToVariable(StatementList orderedPath, boolean found, StatementInstance si)
-            throws Error {
+        throws Error {
         Value base = ((InstanceInvokeExpr) AnalysisUtils.getCallerExp(si)).getBase();
         StatementMap chunk = traversal.getChunk(si.getLineNo());
         if (chunk != null) {
