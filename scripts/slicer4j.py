@@ -64,7 +64,7 @@ def main():
     instrumented_jar = instrument(jar_file=jar_file, out_dir=out_dir)
     print(f"Instrumented jar is at: {instrumented_jar}", flush=True)
     run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_class_args)
-    log_file, slice_graph = dynamic_slice(jar_file=jar_file, out_dir=out_dir, backward_criterion=backward_criterion,
+    log_file, slice_graph = dynamic_slice(jar_file=jar_file, out_dir=out_dir, backward_criterion=backward_criterion, variables=options['variables'],
                                           extra_options=extra_options)
 
     print(f"Slice source code lines: {out_dir}/slice.log")
