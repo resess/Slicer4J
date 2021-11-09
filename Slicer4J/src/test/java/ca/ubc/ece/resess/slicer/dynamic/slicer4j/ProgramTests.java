@@ -11,10 +11,12 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -371,7 +373,7 @@ public class ProgramTests {
         expected.put(dcfg.mapNoUnits(15), "start");
         expected.put(dcfg.mapNoUnits(14), "data, varaible:stack5, source:15");
         expected.put(dcfg.mapNoUnits(13), "data, varaible:stack4, source:15");
-        expected.put(dcfg.mapNoUnits(11), "data, varaible:a, source:14");
+        expected.put(dcfg.mapNoUnits(11), "data, varaible:stack3, source:14");
 
         assertEquals(expected, slideDeps);
     }
@@ -469,6 +471,60 @@ public class ProgramTests {
             "PairSet:23",
             "PairSet:19",
             "PairSet:18"));
+
+        assertEquals(expected, sliceLines);
+    }
+
+
+    @Test
+    void sliceMe_test() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "SliceMe");
+        String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "SliceMe-1.0.0.jar").toString();
+        
+        TestUtils.buildJar(testPath);
+        
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "SliceMe", "");
+        
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        
+        Integer tracePositionToSliceFrom = 5;
+        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+
+        Set<String> expected = new HashSet<>(Arrays.asList("SliceMe:9", "SliceMe:7", "SliceMe:4"));
+
+        assertEquals(expected, sliceLines);
+    }
+
+
+
+
+    @Test
+    void conditions() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "test-conditions");
+        String jarPath = Paths.get(testPath.toString(), "target" + File.separator + "test-conditions-1.0.0.jar").toString();
+        
+        TestUtils.buildJar(testPath);
+        
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
+        
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        
+        Integer tracePositionToSliceFrom = 83;
+        List<String> sliceLines = new ArrayList<>(TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom)).stream()
+                                                .sorted((a, b) -> a.compareTo(b))
+                                                .collect(Collectors.toList());
+
+        List<String> expected = Arrays.asList("Bench:29", "Bench:26", "Bench:25", "Bench:22", "Bench:21", "Bench:17", "Bench:16", "Bench:18", "Bench:15", "Bench:10", "Bench:7", "Bench:4").stream()
+                                                .sorted((a, b) -> a.compareTo(b))
+                                                .collect(Collectors.toList());
 
         assertEquals(expected, sliceLines);
     }

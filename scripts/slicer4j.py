@@ -32,9 +32,6 @@ def main():
     out_dir = os.path.abspath(out_dir)
 
     dependencies = options["dependencies"]
-    if dependencies and not os.path.isdir(dependencies):
-        print(f"Dependencies directory doesn't exist")
-        return
     if dependencies:
         dependencies = os.path.abspath(options["dependencies"])
 

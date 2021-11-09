@@ -9,7 +9,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.HashSet;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -51,7 +53,7 @@ public class BenchTests {
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
         
-        Integer tracePositionToSliceFrom = 7;
+        Integer tracePositionToSliceFrom = 8;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
         Set<String> expected = new HashSet<>(Arrays.asList("Bench:5", "Bench:4", "Bench:7", "Bench:6", "Bench:8"));
@@ -74,7 +76,7 @@ public class BenchTests {
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
         
-        Integer tracePositionToSliceFrom = 10;
+        Integer tracePositionToSliceFrom = 12;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
         Set<String> expected = new HashSet<>(Arrays.asList("Bench:12", "Bench:4", "Bench:7", "Bench:6", "Bench:8"));
@@ -97,7 +99,7 @@ public class BenchTests {
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
         
-        Integer tracePositionToSliceFrom = 21;
+        Integer tracePositionToSliceFrom = 20;
         Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
 
         Set<String> expected = new HashSet<>(Arrays.asList("Bench:33", "Bench:19", "Bench:29", "Bench:4", "Bench:17", "Bench:28"));
@@ -167,9 +169,13 @@ public class BenchTests {
         slicer.printGraph(dcfg);
         
         Integer tracePositionToSliceFrom = 23;
-        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+        List<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom).stream()
+                                    .sorted((a, b) -> a.compareTo(b))
+                                    .collect(Collectors.toList());
 
-        Set<String> expected = new HashSet<>(Arrays.asList("Bench$lambda_main_0__1:-1", "Bench:13", "Bench:5", "Bench:7", "Bench:6", "Bench:9", "Bench:8"));
+        List<String> expected = Arrays.asList("Bench:13", "Bench:5", "Bench:7", "Bench:6", "Bench:9", "Bench:8").stream()
+                                    .sorted((a, b) -> a.compareTo(b))
+                                    .collect(Collectors.toList());
 
         assertEquals(expected, sliceLines);
     }
@@ -212,10 +218,14 @@ public class BenchTests {
         DynamicControlFlowGraph dcfg = slicer.prepareGraph();
         slicer.printGraph(dcfg);
         
-        Integer tracePositionToSliceFrom = 12;
-        Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+        Integer tracePositionToSliceFrom = 14;
+        List<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom).stream()
+                                    .sorted((a, b) -> a.compareTo(b))
+                                    .collect(Collectors.toList());
 
-        Set<String> expected = new HashSet<>(Arrays.asList("Bench:12", "Bench:2", "Bench:4", "Bench:7", "Bench:6", "Bench:8"));
+        List<String> expected = Arrays.asList("Bench:12", "Bench:2", "Bench:4", "Bench:7", "Bench:6", "Bench:8").stream()
+                                    .sorted((a, b) -> a.compareTo(b))
+                                    .collect(Collectors.toList());
 
         assertEquals(expected, sliceLines);
     }

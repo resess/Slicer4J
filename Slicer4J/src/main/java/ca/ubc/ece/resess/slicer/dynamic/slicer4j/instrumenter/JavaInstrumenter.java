@@ -67,6 +67,7 @@ public class JavaInstrumenter extends Instrumenter {
     InstrumentationCounter globalLineCounter = new InstrumentationCounter();
     Chain<SootClass> libClasses = null;
     String jarName;
+    private Set<String> instrumentedClasses = new HashSet<>();
 
     public JavaInstrumenter(String jarName) {
         // this.threadMethods.addAll(tc.values());
@@ -132,7 +133,8 @@ public class JavaInstrumenter extends Instrumenter {
                     return;
                 }
 
-                
+                instrumentedClasses.add(cls.getName());
+
                 Long methodSize = 0L;
                 SootMethod mtd = b.getMethod();
 
@@ -249,6 +251,24 @@ public class JavaInstrumenter extends Instrumenter {
         Scene.v().loadNecessaryClasses();
         AnalysisLogger.log(true, "Running packs ... ");
         PackManager.v().runPacks();
+
+
+        AnalysisLogger.log(true, "Writing names of instrumented classes ... ");
+        File classesFile = new File(new File(jarName).getParentFile().getAbsolutePath() + "/instr-classes.txt");
+        try {
+            classesFile.delete();
+            StringBuilder instrClasses = new StringBuilder();
+            List<String> orderedClasses = new ArrayList<>(instrumentedClasses);
+            orderedClasses.sort((a, b) -> a.compareTo(b));
+            for (String className : orderedClasses) {
+                instrClasses.append(className);
+                instrClasses.append("\n");
+            }
+            FileUtils.writeStringToFile(classesFile, instrClasses.toString(), "UTF-8", true);
+        } catch (IOException e) {
+            throw new Error("Failed to write instrumented file");
+        }
+
         AnalysisLogger.log(true, "Writing output ... ");
         PackManager.v().writeOutput();
         AnalysisLogger.log(true, "Output written ... ");
