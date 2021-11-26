@@ -220,6 +220,63 @@ public class Slicer {
         reader.close();
     }
 
+    public void logApiForIdePlugin() {
+        List<TraceStatement> trs = Parser.readFile(fileToParse, staticLogFile);
+
+        prepare();
+        DynamicControlFlowGraph icdg = new DynamicControlFlowGraph();
+        icdg.createDCFG(trs);
+        printGraph(icdg);
+
+        if (variableString == null) {
+            variableString = "*";
+        }
+        FrameworkModel.setStubDroidPath(stubDroidPath);
+        FrameworkModel.setTaintWrapperFile(taintWrapperPath);
+
+        List<StatementInstance> stmts = new ArrayList<>();
+        for (Integer backSlicePos: backwardSlicePositions) {
+            stmts.add(icdg.mapNoUnits(backSlicePos));
+        }
+
+        List<String> variables = new ArrayList<>();
+        if (!variableString.equals("*")) {
+            String[] split = variableString.split("-");
+            for (String s : split) {
+                variables.add("$" + s);
+            }
+        }
+        setVariables(variables);
+
+        Set<AccessPath> accessPaths = new HashSet<>();
+        for (String v: variables) {
+            for (StatementInstance stmt: stmts) {
+                accessPaths.add(new AccessPath(v, new Type(){
+                    private static final long serialVersionUID = 1L;
+                    @Override
+                    public String toString() {
+                        return "SlicingCriterionType";
+                    }
+                }, stmt.getLineNo(), AccessPath.NOT_DEFINED, stmt));
+            }
+        }
+
+        setWorkingSet(new SlicingWorkingSet(false));
+        DynamicSlice dynamicSlice = slice(icdg, true, false, false, false, stmts, accessPaths, getWorkingSet());
+//        dynamicPrint = new LinkedHashSet<>();
+//        SlicePrinter.printSlices(dynamicSlice);
+//        SlicePrinter.printSliceGraph(dynamicSlice);
+//        SlicePrinter.printDotGraph(outDir, dynamicSlice);
+//        SlicePrinter.printSliceLines(outDir, dynamicSlice);
+//        SlicePrinter.printRawSlice(outDir, dynamicSlice);
+        SlicePrinter.printSliceWithDependencies(outDir, dynamicSlice);
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
+//        LocalDateTime now = LocalDateTime.now();
+//        String resultFileName = outDir + File.separator + "result_" +mode+"_"+ dtf.format(now) + ".csv";
+//        SlicePrinter.printToCSV(resultFileName, dynamicSlice);
+
+    }
+
     public static void main(String [] args) {
         long startTime = System.nanoTime();
         boolean justTrace = false;

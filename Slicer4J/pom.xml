@@ -130,12 +130,12 @@
     </plugins>
   </build>
 
-  <repositories>
+  <!--<repositories>
     <repository>
       <id>localrepository</id>
       <url>file://${project.basedir}/libs</url>
     </repository>
-  </repositories>
+  </repositories>-->
   <dependencies>
     <dependency>
       <groupId>ca.ubc.ece.resess</groupId>
@@ -148,11 +148,21 @@
       <version>0.18.1</version>
     </dependency>
     <dependency>
+      <groupId>org.soot-oss</groupId>
+      <artifactId>soot</artifactId>
+      <version>[4.2.1]</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>de.tud.sse</groupId>
       <artifactId>soot-infoflow</artifactId>
       <version>2.9.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/soot-infoflow-cmd-2.9.0-jar-with-dependencies.jar</systemPath>
+      <exclusions>
+        <exclusion>
+          <groupId>org.soot-oss</groupId>
+          <artifactId>soot</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
   <!-- https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest -->
     <dependency>
