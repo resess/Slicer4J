@@ -7,6 +7,11 @@ slicer4j_dir = file_path + os.path.sep + ".." + os.path.sep + "Slicer4J" + os.pa
 dynamic_slicing_core = file_path + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "DynamicSlicingCore" + os.path.sep
 javaslicer_dir = file_path + os.path.sep + ".." + os.path.sep + ".." + os.path.sep + "javaslicer" + os.path.sep
 
+if not os.path.isdir(javaslicer_dir):
+    print(f'Attempted to look for javaslicer in {javaslicer_dir}')
+    print('Please setup install javaslicer in the parent directory of Slicer4J, or modify its directory in the javaslicer_dir variable')
+    exit(0)
+
 benchmarks_input = {
     "javaslicer-bench1-intra-procedural" : ("target/javaslicer-bench1-intra-procedural-1.0.0.jar", "Bench 2 ", "Bench", 8),
     "javaslicer-bench2-inter-procedural" : ("target/javaslicer-bench2-inter-procedural-1.0.0.jar", "Bench 2 4 ", "Bench", 8),
