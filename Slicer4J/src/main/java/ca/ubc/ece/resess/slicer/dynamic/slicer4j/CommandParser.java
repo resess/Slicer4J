@@ -48,7 +48,7 @@ public class CommandParser {
             if (cmd.hasOption("h")) {
                 HelpFormatter formatter = new HelpFormatter();
                 formatter.printHelp(CMD_LINE_SYNTAX, options);
-                return parsed;
+                System.exit(0);
             }
             String[] optionTags = {"m", "j", "p", "c", "lc", "t", "sp", "sv", "o", "sd", "tw", "sl", "fw", "f"};
             for (String opt: Arrays.asList(optionTags)) {
@@ -72,7 +72,8 @@ public class CommandParser {
         } catch (ParseException e) {
             HelpFormatter formatter = new HelpFormatter();
             formatter.printHelp(CMD_LINE_SYNTAX, options);
-            throw new InvalidCommandsException(e);
+            System.exit(0);
+            // throw new InvalidCommandsException(e);
         }
         return parsed;
     }
