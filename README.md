@@ -41,7 +41,7 @@ Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java
 * Clone the dynamic slicing core: https://github.com/resess/DynamicSlicingCore
 
 
-* Requires Java Runtime Environment version 9 or above. 
+* Requires Java Runtime Environment version 8. 
 
 ---
 ---
