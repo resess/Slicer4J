@@ -256,11 +256,19 @@ Let's see the output of slicing the `SliceMe` program (found under `benchmarks/S
 18.    }
 20. }
 ```
-If we run this program using `java -jar sliceme-1.0.0.jar SliceMe` without providing any arguments to the main method)
+
+If we run this program using `java -cp "SliceMe-1.0.0.jar" SliceMe` (without providing any arguments to the main method), the output should be
+
+```bash
+Exception in thread "main" java.lang.NullPointerException
+	at SliceMe.main(SliceMe.java:9)
+```
+
+We can use Slicer4J to slie from the `NullPointerException` at line 9.
 
 ```bash
 cd scripts
-python3 slicer4j.py -j ../benchmarks/SliceMe/target/sliceme-1.0.0.jar -o sliceme_slice/ -b SliceMe:9 -m "SliceMe"
+python3 slicer4j.py -j ../benchmarks/SliceMe/target/SliceMe-1.0.0.jar -o sliceme_slice/ -b SliceMe:9 -m "SliceMe"
 ```
 
 In this example, we slice from line 9 in the `SliceMe.java` file: `System.out.println(parsed.length);`
