@@ -131,6 +131,7 @@ public class Slicer {
     }
 
     public void setBackwardSlicePositions(String backwardSlicePositions) {
+        AnalysisLogger.log(true, "backwardSlicePositions: {}", backwardSlicePositions);
         this.backwardSlicePositions = new ArrayList<>();
         for (String s: backwardSlicePositions.split("-")) {
             this.backwardSlicePositions.add(Integer.valueOf(s));
@@ -221,6 +222,7 @@ public class Slicer {
     }
 
     public static void main(String [] args) {
+        AnalysisLogger.log(true, "Started Slicer4J");
         long startTime = System.nanoTime();
         boolean justTrace = false;
         Map<String, String> commands = CommandParser.parse(args);
@@ -265,20 +267,43 @@ public class Slicer {
             String tw = commands.get("tw");
             throwParseExceptionIfNull(tw, "Taint-wrapper path not provided");
         }
+        AnalysisLogger.log(true, "Reading trace");
         List<TraceStatement> trs = Parser.readFile(slicer.fileToParse, slicer.staticLogFile);
 
         slicer.prepare();
         Slicer.instance = slicer;
+        AnalysisLogger.log(true, "Started graph construction");
         DynamicControlFlowGraph icdg = new DynamicControlFlowGraph();
         icdg.createDCFG(trs);
         slicer.printGraph(icdg);
+        AnalysisLogger.log(true,"Finished graph construction");
 
         if(justTrace) {
             terminate(slicer.outDir, mode, startTime);
             return;
         }
 
-        slicer.setBackwardSlicePositions(commands.get("sp"));
+        if (commands.get("sp").contains(":")) {
+            String [] clazzLineNo = commands.get("sp").split(":");
+            String clazz = clazzLineNo[0];
+            Integer lineNo = Integer.valueOf(clazzLineNo[1]);
+            
+            String sliceLine = "";
+            for (StatementInstance statementInstance : icdg.getTraceList()) {
+                if (lineNo.equals(statementInstance.getJavaSourceLineNo()) && clazz.equals(statementInstance.getJavaSourceFile())) {
+                    if (!sliceLine.isEmpty()) {
+                        sliceLine = sliceLine + "-";
+                    }
+                    sliceLine = sliceLine + statementInstance.getLineNo();
+                }
+            }
+            slicer.setBackwardSlicePositions(sliceLine);
+        } else {
+            slicer.setBackwardSlicePositions(commands.get("sp"));
+        }
+        
+
+        
         slicer.setVariableString(commands.get("sv"));
         if (slicer.variableString == null) {
             slicer.variableString = "*";
