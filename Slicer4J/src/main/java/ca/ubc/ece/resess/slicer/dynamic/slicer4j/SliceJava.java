@@ -1,11 +1,11 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
+import ca.ubc.ece.resess.slicer.dynamic.core.graph.Traversal;
+import ca.ubc.ece.resess.slicer.dynamic.core.statements.*;
 import ca.ubc.ece.resess.slicer.dynamic.slicer4j.datadependence.DynamicHeapAnalysis;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AliasSet;
@@ -14,10 +14,6 @@ import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.DynamicSlice;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SliceMethod;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SlicingWorkingSet;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementList;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementMap;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisUtils;
@@ -33,26 +29,32 @@ import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
 import soot.toolkits.scalar.Pair;
 
-public class SliceJava extends SliceMethod{
+public class SliceJava extends SliceMethod {
 
     public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet, AnalysisCache analysisCache) {
         super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet, analysisCache);
     }
 
+
     public DynamicSlice slice(List<StatementInstance> start, Set<AccessPath> variables) {
         DynamicSlice dynamicSlice = new DynamicSlice();
+        HashSet<Pair<Pair<StatementInstance, AccessPath>, Pair<StatementInstance, AccessPath>>> uniques = new HashSet<>();
         for (StatementInstance si: start) {
-            DynamicSlice newSlice = slice(si, variables);
-            dynamicSlice = dynamicSlice.union(newSlice);
+            System.out.println("next slice: " + si);
+            System.out.println("cur size: " + workingSet.getDynamicSlice().size());
+            slice(si, variables);
         }
+
+        uniques.addAll(workingSet.getDynamicSlice());
+        dynamicSlice.addAll(uniques);
         return dynamicSlice;
     }
 
     @Override
     public StatementSet getDataDependence(SlicingWorkingSet workingSet, Pair<StatementInstance, AccessPath> p,
-            StatementInstance stmt, AccessPath var, StatementMap chunk, StatementSet def, AliasSet usedVars) {
+            StatementInstance stmt, AccessPath var, LazyStatementMap lazyChunk, StatementSet def, AliasSet usedVars) {
         if (var.getField().equals("")) {
-            def = localReachingDef(stmt, var, chunk, usedVars, frameworkModel);
+            def = localReachingDefLazy(stmt, var, lazyChunk, usedVars, frameworkModel);
             AnalysisLogger.log(Constants.DEBUG, "Local def {}", def);
         } else if (var.isStaticField()) {
             AnalysisLogger.log(Constants.DEBUG, "Getting static heap def of {}-{}", var, var.getClassPath());
@@ -70,7 +72,9 @@ public class SliceJava extends SliceMethod{
         if (!usedVars.isEmpty() && def != null) {
             for (StatementInstance iu: def) {
                 for (AccessPath usedVar: usedVars) {
-                    workingSet.add(iu, usedVar, p, "data");
+                    if(usedVar.getUsedLine() == iu.getLineNo()){
+                        workingSet.add(iu, usedVar, p, "data");
+                    }
                 }
             }
         }
@@ -122,9 +126,12 @@ public class SliceJava extends SliceMethod{
     private boolean matchReferenceToVariable(StatementList orderedPath, boolean found, StatementInstance si)
         throws Error {
         Value base = ((InstanceInvokeExpr) AnalysisUtils.getCallerExp(si)).getBase();
-        StatementMap chunk = traversal.getChunk(si.getLineNo());
+        LazyStatementMap chunk = traversal.getLazyChunk(si.getLineNo());
         if (chunk != null) {
-            for (StatementInstance sii: chunk.values()) {
+            for (StatementInstance sii: chunk) {
+                if(sii == null){
+                    break;
+                }
                 if (sii.isAssign() && (((AssignStmt) sii.getUnit()).getLeftOp().equals(base))) {
                     orderedPath.add(sii);
                     found = true;

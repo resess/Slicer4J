@@ -315,6 +315,7 @@ public class Slicer {
         boolean dataFlowsOnly = false;
         boolean controlFlowOnly = false;
         boolean sliceOnce = false;
+        boolean noprint = false;
         if (commands.containsKey("data")) {
             dataFlowsOnly = true;
         }
@@ -323,6 +324,9 @@ public class Slicer {
         }
         if (commands.containsKey("once")) {
             sliceOnce = true;
+        }
+        if (commands.containsKey("noprint")) {
+            noprint = true;
         }
 
         String frameworkPath = commands.get("f");
@@ -367,7 +371,9 @@ public class Slicer {
         slicer.setWorkingSet(new SlicingWorkingSet(false));
         DynamicSlice dynamicSlice = slicer.slice(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, stmts, accessPaths, slicer.getWorkingSet());
         slicer.dynamicPrint = new LinkedHashSet<>();
-        SlicePrinter.printSlices(dynamicSlice);
+        if(!noprint){
+            SlicePrinter.printSlices(dynamicSlice);
+        }
         SlicePrinter.printSliceGraph(dynamicSlice);
         SlicePrinter.printDotGraph(slicer.outDir, dynamicSlice);
         SlicePrinter.printSliceLines(slicer.outDir, dynamicSlice);

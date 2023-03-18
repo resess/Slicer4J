@@ -34,6 +34,7 @@ public class ProgramTests {
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
     Path outDir = Paths.get(slicerPath.toString(), "testTempDir");
     Path sliceLogger = Paths.get(root.getParent().getParent().toString(), "DynamicSlicingCore" + File.separator + "DynamicSlicingLoggingClasses" + File.separator + "DynamicSlicingLogger.jar");
+    boolean useSets = true;
 
     @BeforeAll 
     static void preCleanUp() throws IOException {
@@ -122,16 +123,28 @@ public class ProgramTests {
         Path outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
-        
-        assertEquals(Arrays.asList(
-        "Main:6",
-        "Main:7",
-        "Main:17",
-        "Main:18",
-        "Main:8",
-        "Main:13",
-        "Main:9"), 
-        out);
+
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                            "Main:6",
+                            "Main:7",
+                            "Main:17",
+                            "Main:18",
+                            "Main:8",
+                            "Main:13",
+                            "Main:9")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:6",
+                            "Main:7",
+                            "Main:17",
+                            "Main:18",
+                            "Main:8",
+                            "Main:13",
+                            "Main:9"),
+                            out);
+        }
     }
     
     @Test
@@ -211,15 +224,27 @@ public class ProgramTests {
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
         
-        assertEquals(Arrays.asList(
-        "Main:6",
-        "Main:15",
-        "Main:16",
-        "Main:19",
-        "Main:8",
-        "Main:9",
-        "Main:11"), 
-        out);
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                    "Main:6",
+                    "Main:15",
+                    "Main:16",
+                    "Main:19",
+                    "Main:8",
+                    "Main:9",
+                    "Main:11")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:6",
+                            "Main:15",
+                            "Main:16",
+                            "Main:19",
+                            "Main:8",
+                            "Main:9",
+                            "Main:11"),
+                    out);
+        }
     }
     
     
@@ -301,10 +326,17 @@ public class ProgramTests {
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
         
-        assertEquals(Arrays.asList(
-        "Main:13",
-        "Main:9"), 
-        out);
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                    "Main:13",
+                    "Main:9")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:13",
+                            "Main:9"),
+                    out);
+        }
     }
 
 
