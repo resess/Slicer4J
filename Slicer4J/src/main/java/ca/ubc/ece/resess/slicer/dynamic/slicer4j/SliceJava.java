@@ -47,7 +47,7 @@ public class SliceJava extends SliceMethod {
 
         uniques.addAll(workingSet.getDynamicSlice());
         dynamicSlice.addAll(uniques);
-        return dynamicSlice;
+        return dynamicSlice.traceOrder();
     }
 
     @Override
