@@ -72,9 +72,9 @@ public class SliceJava extends SliceMethod {
         if (!usedVars.isEmpty() && def != null) {
             for (StatementInstance iu: def) {
                 for (AccessPath usedVar: usedVars) {
-                    if(usedVar.getUsedLine() == iu.getLineNo()){
+                    //if(usedVar.getUsedLine() == iu.getLineNo()){
                         workingSet.add(iu, usedVar, p, "data");
-                    }
+                    //}
                 }
             }
         }
