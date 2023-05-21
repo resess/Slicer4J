@@ -37,9 +37,13 @@ public class SliceJava extends SliceMethod {
 
 
     public DynamicSlice slice(List<StatementInstance> start, Set<AccessPath> variables) {
+        processed.clear();
         DynamicSlice dynamicSlice = new DynamicSlice();
         HashSet<Pair<Pair<StatementInstance, AccessPath>, Pair<StatementInstance, AccessPath>>> uniques = new HashSet<>();
         for (StatementInstance si: start) {
+            if(si == null){
+                continue;
+            }
             System.out.println("next slice: " + si);
             System.out.println("cur size: " + workingSet.getDynamicSlice().size());
             slice(si, variables);
@@ -50,11 +54,13 @@ public class SliceJava extends SliceMethod {
         return dynamicSlice.traceOrder();
     }
 
+    static HashSet<StatementInstance> seenDefs = new HashSet<>();
     @Override
     public StatementSet getDataDependence(SlicingWorkingSet workingSet, Pair<StatementInstance, AccessPath> p,
             StatementInstance stmt, AccessPath var, LazyStatementMap lazyChunk, StatementSet def, AliasSet usedVars) {
         if (var.getField().equals("")) {
-            def = localReachingDefLazy(stmt, var, lazyChunk, usedVars, frameworkModel);
+            def = localReachingDefLazyCached(stmt, var, lazyChunk, usedVars, frameworkModel);
+            //def = localReachingDefLazy(stmt, var, lazyChunk, usedVars, frameworkModel);
             AnalysisLogger.log(Constants.DEBUG, "Local def {}", def);
         } else if (var.isStaticField()) {
             AnalysisLogger.log(Constants.DEBUG, "Getting static heap def of {}-{}", var, var.getClassPath());
@@ -66,23 +72,42 @@ public class SliceJava extends SliceMethod {
             }
         } else {
             AnalysisLogger.log(Constants.DEBUG, "Getting dynamic heap def of {}", var);
-            def = (new DynamicHeapAnalysis(icdg, analysisCache)).reachingDefinitions(stmt, var);
+            //def = (new DynamicHeapAnalysis(icdg, analysisCache, workingSet)).reachingDefinitions(stmt, var);
+            def = (new DynamicHeapAnalysis(icdg, analysisCache, workingSet)).reachingDefinitionsNew(stmt, var);
             AnalysisLogger.log(Constants.DEBUG, "Dynamic heap def of {} is {}", var, def);
         }
         if (!usedVars.isEmpty() && def != null) {
             for (StatementInstance iu: def) {
                 for (AccessPath usedVar: usedVars) {
-                    //if(usedVar.getUsedLine() == iu.getLineNo()){
+                    if(usedVar.isUsedIn(iu)){
                         workingSet.add(iu, usedVar, p, "data");
-                    //}
+                    }
                 }
             }
         }
         return def;
     }
 
+    static HashMap<String, Pair<StatementInstance, StatementSet>> staticDefs = new HashMap<>();
     private StatementSet staticFieldDef(StatementInstance iu, AccessPath ap) {
         AnalysisLogger.log(Constants.DEBUG, "Getting static heap def for {}", iu);
+        boolean usableDef = true;
+        if(staticDefs.containsKey(ap.getPathString())){
+            StatementInstance from = staticDefs.get(ap.getPathString()).getO1();
+            StatementSet defs = staticDefs.get(ap.getPathString()).getO2();
+            if(iu.getLineNo() > from.getLineNo()){
+                usableDef = false;
+            }
+            for(StatementInstance ins : defs){
+                if (ins.getLineNo() > iu.getLineNo()) {
+                    usableDef = false;
+                    break;
+                }
+            }
+            if(usableDef){
+                return defs;
+            }
+        }
         StatementSet aliasPath = new StatementSet();
         BackwardStaticFieldAnalysis bw = new BackwardStaticFieldAnalysis(icdg, iu, ap, aliasPath, analysisCache);
         bw.run();
@@ -108,7 +133,8 @@ public class SliceJava extends SliceMethod {
             int index = orderedPath.indexOf(defSubSig);
             ret.addAll(orderedPath.subList(index, index+1));
         }
-        return lastDefined(ret);
+        staticDefs.put(ap.getPathString(), new Pair<>(iu, lastDefined(ret)));
+        return staticDefs.get(ap.getPathString()).getO2();
     }
 
     private void addInstances(StatementList orderedPath) {

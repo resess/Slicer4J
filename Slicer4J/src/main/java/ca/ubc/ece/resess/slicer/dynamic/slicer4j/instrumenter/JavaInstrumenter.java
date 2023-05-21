@@ -19,6 +19,7 @@ import org.apache.commons.io.FileUtils;
 
 import soot.Body;
 import soot.BodyTransformer;
+import soot.JastAddJ.Opt;
 import soot.PackManager;
 import soot.PatchingChain;
 import soot.Scene;
@@ -67,7 +68,6 @@ public class JavaInstrumenter extends Instrumenter {
     InstrumentationCounter globalLineCounter = new InstrumentationCounter();
     Chain<SootClass> libClasses = null;
     String jarName;
-    private Set<String> instrumentedClasses = new HashSet<>();
 
     public JavaInstrumenter(String jarName) {
         // this.threadMethods.addAll(tc.values());
@@ -94,6 +94,7 @@ public class JavaInstrumenter extends Instrumenter {
         Options.v().set_output_format(Options.output_format_class);
         Options.v().set_output_dir(Slicer.SOOT_OUTPUT_STRING);
         Options.v().setPhaseOption("jb", "use-original-names:true");
+        Options.v().set_keep_line_number(true);
         libClasses = Scene.v().getLibraryClasses();
         AnalysisLogger.log(true, "Initialization done");
     }
@@ -133,7 +134,6 @@ public class JavaInstrumenter extends Instrumenter {
                     return;
                 }
 
-                instrumentedClasses.add(cls.getName());
 
                 Long methodSize = 0L;
                 SootMethod mtd = b.getMethod();
@@ -148,7 +148,7 @@ public class JavaInstrumenter extends Instrumenter {
                     isOnDestroy = true;
                 }
                 StmtSwitch stmtSwitch = new StmtSwitch();
-                
+
                 stmtSwitch.setOriginal(isOriginal);
                 AddedLocals addedLocals = new AddedLocals();
                 Flags flags = new Flags(timeTracking, threadTracking, fieldTracking, false, false, isOriginal);
@@ -164,12 +164,12 @@ public class JavaInstrumenter extends Instrumenter {
                 }
 
 
-                
+
                 List<String> traps = new ArrayList<>();
                 for (Trap trap: mtd.getActiveBody().getTraps()) {
                     traps.add(trap.getBeginUnit().toString());
                 }
-                // AnalysisLogger.log(true, "Traps of {} are {}", mtd, traps); 
+                // AnalysisLogger.log(true, "Traps of {} are {}", mtd, traps);
 
                 final PatchingChain<Unit> units = b.getUnits();
                 Set<Unit> instrumentedUnits = new HashSet<>();
@@ -181,11 +181,11 @@ public class JavaInstrumenter extends Instrumenter {
                     final Unit u = (Unit) iter.next();
                     if (!(u instanceof IdentityStmt)) {
                         instrumentedFirst = InstrumenterUtils.basicBlockInstrument(b, cls, mtd, isOnDestroy, addedLocals, flags, units,
-                                                                instrumentedUnits, instrumentedFirst, unitNumMap, taggedUnits, u, traps,
-                                                                globalLineCounter, threadMethods, libClasses);
+                                instrumentedUnits, instrumentedFirst, unitNumMap, taggedUnits, u, traps,
+                                globalLineCounter, threadMethods, libClasses);
                         methodSize += 1;
                     }
-                    
+
                 }
                 synchronized (jarSize) {
                     jarSize += methodSize;
@@ -216,18 +216,19 @@ public class JavaInstrumenter extends Instrumenter {
                         }
                     }
                     jArray.add(u.toString());
+                    jArray.add(u.getJavaSourceStartLineNumber());
                     prevU = u;
                 }
                 if (!key.equals("")) {
                     job.put(key, jArray);
                 }
-                
+
                 synchronized(staticLog){
                     staticLog.put(b.getMethod().getSignature(), job);
                 }
             }
         }));
-        
+
     }
 
     @Override
@@ -251,24 +252,6 @@ public class JavaInstrumenter extends Instrumenter {
         Scene.v().loadNecessaryClasses();
         AnalysisLogger.log(true, "Running packs ... ");
         PackManager.v().runPacks();
-
-
-        AnalysisLogger.log(true, "Writing names of instrumented classes ... ");
-        File classesFile = new File(new File(jarName).getParentFile().getAbsolutePath() + "/instr-classes.txt");
-        try {
-            classesFile.delete();
-            StringBuilder instrClasses = new StringBuilder();
-            List<String> orderedClasses = new ArrayList<>(instrumentedClasses);
-            orderedClasses.sort((a, b) -> a.compareTo(b));
-            for (String className : orderedClasses) {
-                instrClasses.append(className);
-                instrClasses.append("\n");
-            }
-            FileUtils.writeStringToFile(classesFile, instrClasses.toString(), "UTF-8", true);
-        } catch (IOException e) {
-            throw new Error("Failed to write instrumented file");
-        }
-
         AnalysisLogger.log(true, "Writing output ... ");
         PackManager.v().writeOutput();
         AnalysisLogger.log(true, "Output written ... ");
@@ -278,7 +261,7 @@ public class JavaInstrumenter extends Instrumenter {
         try {
             logFile.delete();
             FileUtils.writeStringToFile(logFile, staticLog.toString(), "UTF-8", true);
-            
+
         } catch (IOException e) {
             throw new Error("Failed to write static log file");
         }
@@ -317,7 +300,7 @@ public class JavaInstrumenter extends Instrumenter {
                 int numFiles = 100;
                 for (int i = 0; i < instrumentedClasses.size(); i+=numFiles){
                     // String clazzFile = instrumentedClasses.get(i);
-                    
+
                     int minIndex = Math.min(i+numFiles, instrumentedClasses.size());
                     String clazzFile = String.join(" ", instrumentedClasses.subList(i, minIndex));
                     String jarOptions;
@@ -364,13 +347,13 @@ public class JavaInstrumenter extends Instrumenter {
             }
             zipEntry = zis.getNextEntry();
         }
-        
+
         zis.closeEntry();
         zis.close();
-	}
+    }
 
 
-	public void listDirectory(String base, String dirPath, int level, List<String> files) {
+    public void listDirectory(String base, String dirPath, int level, List<String> files) {
         File dir = new File(dirPath);
         File[] firstLevelFiles = dir.listFiles();
         if (firstLevelFiles != null && firstLevelFiles.length > 0) {

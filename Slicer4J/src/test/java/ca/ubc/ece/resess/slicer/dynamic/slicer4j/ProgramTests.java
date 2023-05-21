@@ -116,7 +116,8 @@ public class ProgramTests {
             "-tw",
             root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
             "-sp",
-            "15"
+            "15",
+                "-d"
         };
         Slicer.main(args);
         
@@ -216,7 +217,8 @@ public class ProgramTests {
             "-tw",
             root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
             "-sp",
-            "16"
+            "16",
+                "-d"
         };
         Slicer.main(args);
         
@@ -559,5 +561,23 @@ public class ProgramTests {
                                                 .collect(Collectors.toList());
 
         assertEquals(expected, sliceLines);
+    }
+
+    @Test
+    void inpressDCFGAssertionTest() throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "inpress-case8");
+        String jarPath = Paths.get(testPath.toString(), "results" + File.separator + "new" + File.separator + "program.jar").toString();
+        String depPath = Paths.get(testPath.toString(), "bug" + File.separator + "lib").toString();
+
+        TestUtils.buildJar(testPath);
+
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+
+        String instrumentedJar = slicer.instrument();
+        TestUtils.runInstrumentedJarFromTest(instrumentedJar, depPath, "org.apache.commons.lang3.time.FastDatePrinterTest", "testCalendarTimezoneRespected", String.valueOf(outDir));
+
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        assert !dcfg.predecessorListOf(69243).isEmpty();
     }
 }
