@@ -1,0 +1,355 @@
+public class org.apache.commons.lang3.concurrent.ConcurrentUtils extends java.lang.Object
+{
+
+    private void <init>()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtils this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)
+    {
+        java.util.concurrent.ExecutionException ex;
+        java.lang.Throwable $stack1, $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack2;
+        java.lang.String $stack3;
+
+        ex := @parameter0: java.util.concurrent.ExecutionException;
+
+        if ex == null goto label1;
+
+        $stack1 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        if $stack1 != null goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void throwCause(java.util.concurrent.ExecutionException)>(ex);
+
+        $stack2 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        $stack3 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.String getMessage()>();
+
+        $stack4 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.String,java.lang.Throwable)>($stack3, $stack4);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)
+    {
+        java.util.concurrent.ExecutionException ex;
+        java.lang.Throwable $stack1, $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack2;
+        java.lang.String $stack3;
+
+        ex := @parameter0: java.util.concurrent.ExecutionException;
+
+        if ex == null goto label1;
+
+        $stack1 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        if $stack1 != null goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void throwCause(java.util.concurrent.ExecutionException)>(ex);
+
+        $stack2 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        $stack3 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.String getMessage()>();
+
+        $stack4 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.String,java.lang.Throwable)>($stack3, $stack4);
+
+        return $stack2;
+    }
+
+    public static void handleCause(java.util.concurrent.ExecutionException) throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.concurrent.ExecutionException ex;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack2;
+
+        ex := @parameter0: java.util.concurrent.ExecutionException;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>(ex);
+
+        if $stack2 == null goto label1;
+
+        throw $stack2;
+
+     label1:
+        return;
+    }
+
+    public static void handleCauseUnchecked(java.util.concurrent.ExecutionException)
+    {
+        java.util.concurrent.ExecutionException ex;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack2;
+
+        ex := @parameter0: java.util.concurrent.ExecutionException;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>(ex);
+
+        if $stack2 == null goto label1;
+
+        throw $stack2;
+
+     label1:
+        return;
+    }
+
+    static java.lang.Throwable checkedException(java.lang.Throwable)
+    {
+        java.lang.Throwable ex;
+        java.lang.IllegalArgumentException $stack1;
+        java.lang.StringBuilder $stack2, $stack3, $stack4;
+        java.lang.String $stack5;
+        boolean $stack6, $stack9;
+
+        ex := @parameter0: java.lang.Throwable;
+
+        if ex == null goto label1;
+
+        $stack6 = ex instanceof java.lang.RuntimeException;
+
+        if $stack6 != 0 goto label1;
+
+        $stack9 = ex instanceof java.lang.Error;
+
+        if $stack9 != 0 goto label1;
+
+        return ex;
+
+     label1:
+        $stack1 = new java.lang.IllegalArgumentException;
+
+        $stack2 = new java.lang.StringBuilder;
+
+        specialinvoke $stack2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Not a checked exception: ");
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(ex);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack1;
+    }
+
+    private static void throwCause(java.util.concurrent.ExecutionException)
+    {
+        java.lang.Throwable $stack1, $stack3, $stack5, $stack7;
+        java.lang.Error $stack6;
+        java.lang.RuntimeException $stack8;
+        java.util.concurrent.ExecutionException ex;
+        boolean $stack2, $stack4;
+
+        ex := @parameter0: java.util.concurrent.ExecutionException;
+
+        $stack1 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        $stack2 = $stack1 instanceof java.lang.RuntimeException;
+
+        if $stack2 == 0 goto label1;
+
+        $stack7 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        $stack8 = (java.lang.RuntimeException) $stack7;
+
+        throw $stack8;
+
+     label1:
+        $stack3 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        $stack4 = $stack3 instanceof java.lang.Error;
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = virtualinvoke ex.<java.util.concurrent.ExecutionException: java.lang.Throwable getCause()>();
+
+        $stack6 = (java.lang.Error) $stack5;
+
+        throw $stack6;
+
+     label2:
+        return;
+    }
+
+    public static java.lang.Object initialize(org.apache.commons.lang3.concurrent.ConcurrentInitializer) throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer initializer;
+
+        initializer := @parameter0: org.apache.commons.lang3.concurrent.ConcurrentInitializer;
+
+        if initializer == null goto label1;
+
+        $stack1 = interfaceinvoke initializer.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        goto label2;
+
+     label1:
+        $stack1 = null;
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.Object initializeUnchecked(org.apache.commons.lang3.concurrent.ConcurrentInitializer)
+    {
+        java.lang.Throwable $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack3;
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer initializer;
+
+        initializer := @parameter0: org.apache.commons.lang3.concurrent.ConcurrentInitializer;
+
+     label1:
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initialize(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(initializer);
+
+     label2:
+        return $stack2;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        $stack4 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.Throwable)>($stack5);
+
+        throw $stack4;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+    }
+
+    public static java.lang.Object putIfAbsent(java.util.concurrent.ConcurrentMap, java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object key, value, $stack4, $stack5;
+        java.util.concurrent.ConcurrentMap map;
+
+        map := @parameter0: java.util.concurrent.ConcurrentMap;
+
+        key := @parameter1: java.lang.Object;
+
+        value := @parameter2: java.lang.Object;
+
+        if map != null goto label1;
+
+        return null;
+
+     label1:
+        $stack4 = interfaceinvoke map.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>(key, value);
+
+        if $stack4 == null goto label2;
+
+        $stack5 = $stack4;
+
+        goto label3;
+
+     label2:
+        $stack5 = value;
+
+     label3:
+        return $stack5;
+    }
+
+    public static java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap, java.lang.Object, org.apache.commons.lang3.concurrent.ConcurrentInitializer) throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object key, $stack4, $stack5, $stack6;
+        java.util.concurrent.ConcurrentMap map;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        map := @parameter0: java.util.concurrent.ConcurrentMap;
+
+        key := @parameter1: java.lang.Object;
+
+        init := @parameter2: org.apache.commons.lang3.concurrent.ConcurrentInitializer;
+
+        if map == null goto label1;
+
+        if init != null goto label2;
+
+     label1:
+        return null;
+
+     label2:
+        $stack4 = interfaceinvoke map.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(key);
+
+        if $stack4 != null goto label3;
+
+        $stack5 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object putIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)>(map, key, $stack5);
+
+        return $stack6;
+
+     label3:
+        return $stack4;
+    }
+
+    public static java.lang.Object createIfAbsentUnchecked(java.util.concurrent.ConcurrentMap, java.lang.Object, org.apache.commons.lang3.concurrent.ConcurrentInitializer)
+    {
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack6;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack5;
+        java.lang.Object key, $stack4;
+        java.util.concurrent.ConcurrentMap map;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        map := @parameter0: java.util.concurrent.ConcurrentMap;
+
+        key := @parameter1: java.lang.Object;
+
+        init := @parameter2: org.apache.commons.lang3.concurrent.ConcurrentInitializer;
+
+     label1:
+        $stack4 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(map, key, init);
+
+     label2:
+        return $stack4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack6 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        specialinvoke $stack6.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.Throwable)>($stack7);
+
+        throw $stack6;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+    }
+
+    public static java.util.concurrent.Future constantFuture(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.commons.lang3.concurrent.ConcurrentUtils$ConstantFuture $stack1;
+
+        value := @parameter0: java.lang.Object;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentUtils$ConstantFuture;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentUtils$ConstantFuture: void <init>(java.lang.Object)>(value);
+
+        return $stack1;
+    }
+}

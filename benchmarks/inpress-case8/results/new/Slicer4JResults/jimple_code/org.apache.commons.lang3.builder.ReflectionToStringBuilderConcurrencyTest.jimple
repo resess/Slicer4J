@@ -1,0 +1,172 @@
+public class org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest extends java.lang.Object
+{
+    private static final int DATA_SIZE;
+    private static final int REPEAT;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testLinkedList() throws java.lang.InterruptedException, java.util.concurrent.ExecutionException
+    {
+        java.util.LinkedList $stack2;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder;
+
+        $stack2 = new java.util.LinkedList;
+
+        specialinvoke $stack2.<java.util.LinkedList: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder: void <init>(java.util.Collection)>($stack2);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest: void testConcurrency(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder)>($stack1);
+
+        return;
+    }
+
+    public void testArrayList() throws java.lang.InterruptedException, java.util.concurrent.ExecutionException
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder $stack1;
+        java.util.ArrayList $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder;
+
+        $stack2 = new java.util.ArrayList;
+
+        specialinvoke $stack2.<java.util.ArrayList: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder: void <init>(java.util.Collection)>($stack2);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest: void testConcurrency(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder)>($stack1);
+
+        return;
+    }
+
+    public void testCopyOnWriteArrayList() throws java.lang.InterruptedException, java.util.concurrent.ExecutionException
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder $stack1;
+        java.util.concurrent.CopyOnWriteArrayList $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder;
+
+        $stack2 = new java.util.concurrent.CopyOnWriteArrayList;
+
+        specialinvoke $stack2.<java.util.concurrent.CopyOnWriteArrayList: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder: void <init>(java.util.Collection)>($stack2);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest: void testConcurrency(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder)>($stack1);
+
+        return;
+    }
+
+    private void testConcurrency(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder) throws java.lang.InterruptedException, java.util.concurrent.ExecutionException
+    {
+        java.lang.Integer $stack23, $stack26;
+        java.util.ArrayList $stack14;
+        java.util.concurrent.Future future;
+        int $stack24, i;
+        java.util.concurrent.ExecutorService $stack11;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this;
+        boolean $stack19;
+        java.util.Iterator $stack18;
+        java.util.Collection $stack10;
+        java.util.List list, $stack17;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2 $stack13;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1 $stack12;
+        java.lang.Object $stack20, $stack22;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder holder;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        holder := @parameter0: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder;
+
+        $stack10 = holder.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder: java.util.Collection collection>;
+
+        list = (java.util.List) $stack10;
+
+        i = 0;
+
+     label1:
+        if i >= 100000 goto label2;
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i);
+
+        interfaceinvoke list.<java.util.List: boolean add(java.lang.Object)>($stack26);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack11 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool(int)>(2);
+
+        $stack12 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest,org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder)>(this, holder);
+
+        $stack13 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest,java.util.List)>(this, list);
+
+        $stack14 = new java.util.ArrayList;
+
+        specialinvoke $stack14.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack14.<java.util.Collection: boolean add(java.lang.Object)>($stack12);
+
+        interfaceinvoke $stack14.<java.util.Collection: boolean add(java.lang.Object)>($stack13);
+
+        $stack17 = interfaceinvoke $stack11.<java.util.concurrent.ExecutorService: java.util.List invokeAll(java.util.Collection)>($stack14);
+
+        $stack18 = interfaceinvoke $stack17.<java.util.List: java.util.Iterator iterator()>();
+
+     label3:
+        $stack19 = interfaceinvoke $stack18.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack19 == 0 goto label4;
+
+        $stack20 = interfaceinvoke $stack18.<java.util.Iterator: java.lang.Object next()>();
+
+        future = (java.util.concurrent.Future) $stack20;
+
+        $stack22 = interfaceinvoke future.<java.util.concurrent.Future: java.lang.Object get()>();
+
+        $stack23 = (java.lang.Integer) $stack22;
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Integer: int intValue()>();
+
+        staticinvoke <junit.framework.Assert: void assertEquals(int,int)>(100, $stack24);
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest: int REPEAT> = 100;
+
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest: int DATA_SIZE> = 100000;
+
+        return;
+    }
+}

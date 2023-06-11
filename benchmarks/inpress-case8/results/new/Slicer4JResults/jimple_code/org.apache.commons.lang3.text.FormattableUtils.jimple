@@ -1,0 +1,231 @@
+public class org.apache.commons.lang3.text.FormattableUtils extends java.lang.Object
+{
+    private static final java.lang.String SIMPLEST_FORMAT;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.FormattableUtils this;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String toString(java.util.Formattable)
+    {
+        java.util.Formattable formattable;
+        java.lang.Object[] $stack1;
+        java.lang.String $stack2;
+
+        formattable := @parameter0: java.util.Formattable;
+
+        $stack1 = newarray (java.lang.Object)[1];
+
+        $stack1[0] = formattable;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%s", $stack1);
+
+        return $stack2;
+    }
+
+    public static java.util.Formatter append(java.lang.CharSequence, java.util.Formatter, int, int, int)
+    {
+        java.lang.CharSequence seq;
+        int flags, width, precision;
+        java.util.Formatter formatter, $stack5;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        formatter := @parameter1: java.util.Formatter;
+
+        flags := @parameter2: int;
+
+        width := @parameter3: int;
+
+        precision := @parameter4: int;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>(seq, formatter, flags, width, precision, 32, null);
+
+        return $stack5;
+    }
+
+    public static java.util.Formatter append(java.lang.CharSequence, java.util.Formatter, int, int, int, char)
+    {
+        java.lang.CharSequence seq;
+        int flags, width, precision;
+        char padChar;
+        java.util.Formatter formatter, $stack6;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        formatter := @parameter1: java.util.Formatter;
+
+        flags := @parameter2: int;
+
+        width := @parameter3: int;
+
+        precision := @parameter4: int;
+
+        padChar := @parameter5: char;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>(seq, formatter, flags, width, precision, padChar, null);
+
+        return $stack6;
+    }
+
+    public static java.util.Formatter append(java.lang.CharSequence, java.util.Formatter, int, int, int, java.lang.CharSequence)
+    {
+        java.lang.CharSequence seq, ellipsis;
+        int flags, width, precision;
+        java.util.Formatter formatter, $stack6;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        formatter := @parameter1: java.util.Formatter;
+
+        flags := @parameter2: int;
+
+        width := @parameter3: int;
+
+        precision := @parameter4: int;
+
+        ellipsis := @parameter5: java.lang.CharSequence;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>(seq, formatter, flags, width, precision, 32, ellipsis);
+
+        return $stack6;
+    }
+
+    public static java.util.Formatter append(java.lang.CharSequence, java.util.Formatter, int, int, int, char, java.lang.CharSequence)
+    {
+        java.lang.Object[] $stack10, $stack19;
+        java.lang.Integer $stack14;
+        java.util.Formatter formatter;
+        int precision, flags, width, $stack29, $stack34, $stack35, $stack36, $stack39, $stack16, i, $stack24;
+        java.lang.String $stack18, $stack37;
+        boolean $stack11, $stack27, _ellipsis#12;
+        java.lang.CharSequence ellipsis, seq, _ellipsis;
+        char padChar;
+        java.lang.StringBuilder $stack15;
+        java.lang.Object $stack33;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        formatter := @parameter1: java.util.Formatter;
+
+        flags := @parameter2: int;
+
+        width := @parameter3: int;
+
+        precision := @parameter4: int;
+
+        padChar := @parameter5: char;
+
+        ellipsis := @parameter6: java.lang.CharSequence;
+
+        if ellipsis == null goto label01;
+
+        if precision < 0 goto label01;
+
+        $stack39 = interfaceinvoke ellipsis.<java.lang.CharSequence: int length()>();
+
+        if $stack39 > precision goto label02;
+
+     label01:
+        $stack11 = 1;
+
+        goto label03;
+
+     label02:
+        $stack11 = 0;
+
+     label03:
+        $stack10 = newarray (java.lang.Object)[2];
+
+        $stack10[0] = ellipsis;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(precision);
+
+        $stack10[1] = $stack14;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack11, "Specified ellipsis \'%1$s\' exceeds precision of %2$s", $stack10);
+
+        $stack15 = new java.lang.StringBuilder;
+
+        specialinvoke $stack15.<java.lang.StringBuilder: void <init>(java.lang.CharSequence)>(seq);
+
+        if precision < 0 goto label04;
+
+        $stack29 = interfaceinvoke seq.<java.lang.CharSequence: int length()>();
+
+        if precision >= $stack29 goto label04;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object defaultIfNull(java.lang.Object,java.lang.Object)>(ellipsis, "");
+
+        _ellipsis = (java.lang.CharSequence) $stack33;
+
+        $stack34 = interfaceinvoke _ellipsis.<java.lang.CharSequence: int length()>();
+
+        $stack35 = precision - $stack34;
+
+        $stack36 = interfaceinvoke seq.<java.lang.CharSequence: int length()>();
+
+        $stack37 = interfaceinvoke _ellipsis.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder replace(int,int,java.lang.String)>($stack35, $stack36, $stack37);
+
+     label04:
+        $stack16 = flags & 1;
+
+        if $stack16 != 1 goto label05;
+
+        $stack27 = 1;
+
+        goto label06;
+
+     label05:
+        $stack27 = 0;
+
+     label06:
+        _ellipsis#12 = $stack27;
+
+        i = virtualinvoke $stack15.<java.lang.StringBuilder: int length()>();
+
+     label07:
+        if i >= width goto label10;
+
+        if _ellipsis#12 == 0 goto label08;
+
+        $stack24 = i;
+
+        goto label09;
+
+     label08:
+        $stack24 = 0;
+
+     label09:
+        virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder insert(int,char)>($stack24, padChar);
+
+        i = i + 1;
+
+        goto label07;
+
+     label10:
+        $stack18 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack19 = newarray (java.lang.Object)[0];
+
+        virtualinvoke formatter.<java.util.Formatter: java.util.Formatter format(java.lang.String,java.lang.Object[])>($stack18, $stack19);
+
+        return formatter;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.FormattableUtils: java.lang.String SIMPLEST_FORMAT> = "%s";
+
+        return;
+    }
+}

@@ -1,0 +1,1508 @@
+public class org.apache.commons.lang3.time.DateUtilsFragmentTest extends java.lang.Object
+{
+    private static final int months;
+    private static final int days;
+    private static final int hours;
+    private static final int minutes;
+    private static final int seconds;
+    private static final int millis;
+    private java.util.Date aDate;
+    private java.util.Calendar aCalendar;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp()
+    {
+        java.util.Calendar $stack1, $stack2, $stack3, $stack4;
+        java.util.Date $stack5;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar> = $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        virtualinvoke $stack2.<java.util.Calendar: void set(int,int,int,int,int,int)>(2005, 7, 23, 19, 53, 47);
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int)>(14, 991);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack5 = virtualinvoke $stack4.<java.util.Calendar: java.util.Date getTime()>();
+
+        this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate> = $stack5;
+
+        return;
+    }
+
+    public void testNullDate()
+    {
+        java.lang.IllegalArgumentException $stack12, $stack13, $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack19 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack16 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack13 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack12 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+    }
+
+    public void testNullCalendar()
+    {
+        java.lang.IllegalArgumentException $stack12, $stack13, $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack19 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack16 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack13 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>(null, 14);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack12 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+    }
+
+    public void testInvalidFragmentWithDate()
+    {
+        java.util.Date $stack2, $stack4, $stack6, $stack8, $stack10;
+        java.lang.IllegalArgumentException $stack12, $stack13, $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack2, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack4, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack19 := @caughtexception;
+
+     label07:
+        $stack6 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack6, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack16 := @caughtexception;
+
+     label10:
+        $stack8 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack8, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack13 := @caughtexception;
+
+     label13:
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack10, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack12 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+    }
+
+    public void testInvalidFragmentWithCalendar()
+    {
+        java.lang.IllegalArgumentException $stack12, $stack13, $stack16, $stack19, $stack22;
+        java.util.Calendar $stack2, $stack4, $stack6, $stack8, $stack10;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack2, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack4, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack19 := @caughtexception;
+
+     label07:
+        $stack6 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack6, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack16 := @caughtexception;
+
+     label10:
+        $stack8 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack8, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack13 := @caughtexception;
+
+     label13:
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack10, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack12 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+    }
+
+    public void testMillisecondFragmentInLargerUnitWithDate()
+    {
+        java.util.Date $stack1, $stack4, $stack7, $stack10, $stack13;
+        long $stack3, $stack6, $stack9, $stack12, $stack15;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack1, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack4, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack7, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack10, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack13, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testMillisecondFragmentInLargerUnitWithCalendar()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15;
+        java.util.Calendar $stack1, $stack4, $stack7, $stack10, $stack13;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack1, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack4, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack7, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack10, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack13, 14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testSecondFragmentInLargerUnitWithDate()
+    {
+        java.util.Date $stack1, $stack4, $stack7, $stack10;
+        long $stack3, $stack6, $stack9, $stack12;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack1, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack4, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack7, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack10, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        return;
+    }
+
+    public void testSecondFragmentInLargerUnitWithCalendar()
+    {
+        long $stack3, $stack6, $stack9, $stack12;
+        java.util.Calendar $stack1, $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack1, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack4, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack7, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack10, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        return;
+    }
+
+    public void testMinuteFragmentInLargerUnitWithDate()
+    {
+        java.util.Date $stack1, $stack4, $stack7;
+        long $stack3, $stack6, $stack9;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack1, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack4, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack7, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        return;
+    }
+
+    public void testMinuteFragmentInLargerUnitWithCalendar()
+    {
+        java.util.Calendar $stack1, $stack4, $stack7;
+        long $stack3, $stack6, $stack9;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack1, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack4, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack7, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        return;
+    }
+
+    public void testHourOfDayFragmentInLargerUnitWithDate()
+    {
+        java.util.Date $stack1, $stack4;
+        long $stack3, $stack6;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack1, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack4, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        return;
+    }
+
+    public void testHourOfDayFragmentInLargerUnitWithCalendar()
+    {
+        java.util.Calendar $stack1, $stack4;
+        long $stack3, $stack6;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack1, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack4, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        return;
+    }
+
+    public void testDayOfYearFragmentInLargerUnitWithDate()
+    {
+        long $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack1;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack1, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        return;
+    }
+
+    public void testDayOfYearFragmentInLargerUnitWithCalendar()
+    {
+        long $stack3;
+        java.util.Calendar $stack1;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack1, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        return;
+    }
+
+    public void testDateFragmentInLargerUnitWithDate()
+    {
+        long $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack1;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Date,int)>($stack1, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        return;
+    }
+
+    public void testDateFragmentInLargerUnitWithCalendar()
+    {
+        long $stack3;
+        java.util.Calendar $stack1;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInDays(java.util.Calendar,int)>($stack1, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        return;
+    }
+
+    public void testMillisecondsOfSecondWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack3, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(991L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfSecondWithCalendar()
+    {
+        java.util.Calendar $stack3, $stack5;
+        int $stack6;
+        long $stack4, $stack7;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack3, 13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(991L, $stack4);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(14);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack7, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfMinuteWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack3, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(47991L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfMinuteWithCalender()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack3, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(47991L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsofMinuteWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack3, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(47L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsofMinuteWithCalendar()
+    {
+        java.util.Calendar $stack3, $stack5;
+        int $stack6;
+        long $stack4, $stack7;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack3, 12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(47L, $stack4);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(13);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack7, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfHourWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3227991L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfHourWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3227991L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsofHourWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3227L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsofHourWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3227L, $stack4);
+
+        return;
+    }
+
+    public void testMinutesOfHourWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(53L, $stack4);
+
+        return;
+    }
+
+    public void testMinutesOfHourWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack3, 11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(53L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfDayWithDate()
+    {
+        java.util.Date $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627991L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627991L, $stack8);
+
+        return;
+    }
+
+    public void testMillisecondsOfDayWithCalendar()
+    {
+        java.util.Calendar $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627991L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627991L, $stack8);
+
+        return;
+    }
+
+    public void testSecondsOfDayWithDate()
+    {
+        java.util.Date $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627L, $stack8);
+
+        return;
+    }
+
+    public void testSecondsOfDayWithCalendar()
+    {
+        java.util.Calendar $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(71627L, $stack8);
+
+        return;
+    }
+
+    public void testMinutesOfDayWithDate()
+    {
+        java.util.Date $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1193L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1193L, $stack8);
+
+        return;
+    }
+
+    public void testMinutesOfDayWithCalendar()
+    {
+        java.util.Calendar $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1193L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1193L, $stack8);
+
+        return;
+    }
+
+    public void testHoursOfDayWithDate()
+    {
+        java.util.Date $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(19L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(19L, $stack8);
+
+        return;
+    }
+
+    public void testHoursOfDayWithCalendar()
+    {
+        java.util.Calendar $stack5, $stack7;
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack5, 5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(19L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack7, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(19L, $stack8);
+
+        return;
+    }
+
+    public void testMillisecondsOfMonthWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2058827991L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfMonthWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2058827991L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsOfMonthWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2058827L, $stack4);
+
+        return;
+    }
+
+    public void testSecondsOfMonthWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2058827L, $stack4);
+
+        return;
+    }
+
+    public void testMinutesOfMonthWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(34313L, $stack4);
+
+        return;
+    }
+
+    public void testMinutesOfMonthWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(34313L, $stack4);
+
+        return;
+    }
+
+    public void testHoursOfMonthWithDate()
+    {
+        long $stack4;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+        java.util.Date $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(571L, $stack4);
+
+        return;
+    }
+
+    public void testHoursOfMonthWithCalendar()
+    {
+        long $stack4;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack3, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(571L, $stack4);
+
+        return;
+    }
+
+    public void testMillisecondsOfYearWithDate()
+    {
+        java.util.Date $stack4, $stack7;
+        long $stack5, $stack10, $stack11, $stack12;
+        java.util.Calendar $stack6;
+        int $stack9;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Date,int)>($stack4, 1);
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        virtualinvoke $stack6.<java.util.Calendar: void setTime(java.util.Date)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(6);
+
+        $stack10 = (long) $stack9;
+
+        $stack11 = $stack10 * 86400000L;
+
+        $stack12 = 71627991L + $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack12, $stack5);
+
+        return;
+    }
+
+    public void testMillisecondsOfYearWithCalendar()
+    {
+        long $stack4, $stack8, $stack9, $stack10;
+        java.util.Calendar $stack3, $stack5;
+        int $stack7;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMilliseconds(java.util.Calendar,int)>($stack3, 1);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack7 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(6);
+
+        $stack8 = (long) $stack7;
+
+        $stack9 = $stack8 * 86400000L;
+
+        $stack10 = 71627991L + $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack10, $stack4);
+
+        return;
+    }
+
+    public void testSecondsOfYearWithDate()
+    {
+        java.util.Date $stack4, $stack7;
+        long $stack5, $stack11, $stack12, $stack13, $stack14, $stack15;
+        java.util.Calendar $stack6;
+        int $stack10;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Date,int)>($stack4, 1);
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        virtualinvoke $stack6.<java.util.Calendar: void setTime(java.util.Date)>($stack7);
+
+        $stack10 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(6);
+
+        $stack11 = (long) $stack10;
+
+        $stack12 = $stack11 * 86400000L;
+
+        $stack13 = 71580000L + $stack12;
+
+        $stack14 = $stack13 / 1000L;
+
+        $stack15 = 47L + $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack5);
+
+        return;
+    }
+
+    public void testSecondsOfYearWithCalendar()
+    {
+        long $stack4, $stack9, $stack10, $stack11, $stack12, $stack13;
+        java.util.Calendar $stack3, $stack5;
+        int $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInSeconds(java.util.Calendar,int)>($stack3, 1);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(6);
+
+        $stack9 = (long) $stack8;
+
+        $stack10 = $stack9 * 86400000L;
+
+        $stack11 = 71580000L + $stack10;
+
+        $stack12 = $stack11 / 1000L;
+
+        $stack13 = 47L + $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack4);
+
+        return;
+    }
+
+    public void testMinutesOfYearWithDate()
+    {
+        java.util.Date $stack4, $stack7;
+        long $stack5, $stack11, $stack12, $stack13, $stack14, $stack15;
+        java.util.Calendar $stack6;
+        int $stack10;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Date,int)>($stack4, 1);
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        virtualinvoke $stack6.<java.util.Calendar: void setTime(java.util.Date)>($stack7);
+
+        $stack10 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(6);
+
+        $stack11 = (long) $stack10;
+
+        $stack12 = $stack11 * 86400000L;
+
+        $stack13 = 68400000L + $stack12;
+
+        $stack14 = $stack13 / 60000L;
+
+        $stack15 = 53L + $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack5);
+
+        return;
+    }
+
+    public void testMinutesOfYearWithCalendar()
+    {
+        long $stack4, $stack9, $stack10, $stack11, $stack12, $stack13;
+        java.util.Calendar $stack3, $stack5;
+        int $stack8;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInMinutes(java.util.Calendar,int)>($stack3, 1);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack8 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(6);
+
+        $stack9 = (long) $stack8;
+
+        $stack10 = $stack9 * 86400000L;
+
+        $stack11 = 68400000L + $stack10;
+
+        $stack12 = $stack11 / 60000L;
+
+        $stack13 = 53L + $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack4);
+
+        return;
+    }
+
+    public void testHoursOfYearWithDate()
+    {
+        java.util.Date $stack4, $stack7;
+        long $stack5, $stack10, $stack11, $stack12, $stack13;
+        java.util.Calendar $stack6;
+        int $stack9;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Date,int)>($stack4, 1);
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Date aDate>;
+
+        virtualinvoke $stack6.<java.util.Calendar: void setTime(java.util.Date)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(6);
+
+        $stack10 = (long) $stack9;
+
+        $stack11 = $stack10 * 86400000L;
+
+        $stack12 = $stack11 / 3600000L;
+
+        $stack13 = 19L + $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack5);
+
+        return;
+    }
+
+    public void testHoursOfYearWithCalendar()
+    {
+        long $stack4, $stack8, $stack9, $stack10, $stack11;
+        java.util.Calendar $stack3, $stack5;
+        int $stack7;
+        org.apache.commons.lang3.time.DateUtilsFragmentTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsFragmentTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragmentInHours(java.util.Calendar,int)>($stack3, 1);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsFragmentTest: java.util.Calendar aCalendar>;
+
+        $stack7 = virtualinvoke $stack5.<java.util.Calendar: int get(int)>(6);
+
+        $stack8 = (long) $stack7;
+
+        $stack9 = $stack8 * 86400000L;
+
+        $stack10 = $stack9 / 3600000L;
+
+        $stack11 = 19L + $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack11, $stack4);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int millis> = 991;
+
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int seconds> = 47;
+
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int minutes> = 53;
+
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int hours> = 19;
+
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int days> = 23;
+
+        <org.apache.commons.lang3.time.DateUtilsFragmentTest: int months> = 7;
+
+        return;
+    }
+}

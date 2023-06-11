@@ -1,0 +1,264 @@
+public class org.apache.commons.lang3.CharEncodingTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharEncodingTest this;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void assertSupportedEncoding(java.lang.String)
+    {
+        java.lang.StringBuilder $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.CharEncodingTest this;
+        java.lang.String name, $stack5;
+        boolean $stack6;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        name := @parameter0: java.lang.String;
+
+        $stack2 = new java.lang.StringBuilder;
+
+        specialinvoke $stack2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Encoding should be supported: ");
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(name);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>(name);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack5, $stack6);
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.CharEncodingTest this;
+        org.apache.commons.lang3.CharEncoding $stack1;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = new org.apache.commons.lang3.CharEncoding;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharEncoding: void <init>()>();
+
+        return;
+    }
+
+    public void testMustBeSupportedJava1_3_1()
+    {
+        org.apache.commons.lang3.JavaVersion $stack1;
+        org.apache.commons.lang3.CharEncodingTest this;
+        java.lang.StringBuilder $stack3, $stack4, $stack6;
+        java.lang.String $stack5, $stack7;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_3>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack1);
+
+        if $stack2 == 0 goto label1;
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("ISO-8859-1");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("US-ASCII");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-16");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-16BE");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-16LE");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-8");
+
+        goto label2;
+
+     label1:
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Java 1.3 tests not run since the current version is ");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.CharEncodingTest: void warn(java.lang.String)>($stack7);
+
+     label2:
+        return;
+    }
+
+    public void testSupported()
+    {
+        org.apache.commons.lang3.CharEncodingTest this;
+        boolean $stack1, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("UTF8");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("UTF-8");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("ASCII");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        return;
+    }
+
+    public void testNotSupported()
+    {
+        org.apache.commons.lang3.CharEncodingTest this;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>(" ");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("\t\r\n");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("DOESNOTEXIST");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.CharEncoding: boolean isSupported(java.lang.String)>("this is not a valid encoding name");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void testWorksOnJava1_1_8()
+    {
+        org.apache.commons.lang3.JavaVersion $stack1;
+        org.apache.commons.lang3.CharEncodingTest this;
+        java.lang.StringBuilder $stack3, $stack4, $stack6;
+        java.lang.String $stack5, $stack7;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_1>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack1);
+
+        if $stack2 == 0 goto label1;
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("ISO-8859-1");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("US-ASCII");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-8");
+
+        goto label2;
+
+     label1:
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Java 1.1 tests not run since the current version is ");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.CharEncodingTest: void warn(java.lang.String)>($stack7);
+
+     label2:
+        return;
+    }
+
+    public void testWorksOnJava1_2_2()
+    {
+        org.apache.commons.lang3.JavaVersion $stack1;
+        org.apache.commons.lang3.CharEncodingTest this;
+        java.lang.StringBuilder $stack3, $stack4, $stack6;
+        java.lang.String $stack5, $stack7;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        $stack1 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_2>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack1);
+
+        if $stack2 == 0 goto label1;
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("ISO-8859-1");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("US-ASCII");
+
+        specialinvoke this.<org.apache.commons.lang3.CharEncodingTest: void assertSupportedEncoding(java.lang.String)>("UTF-8");
+
+        goto label2;
+
+     label1:
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Java 1.2 tests not run since the current version is ");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.CharEncodingTest: void warn(java.lang.String)>($stack7);
+
+     label2:
+        return;
+    }
+
+    void warn(java.lang.String)
+    {
+        java.io.PrintStream $stack2;
+        org.apache.commons.lang3.CharEncodingTest this;
+        java.lang.String msg;
+
+        this := @this: org.apache.commons.lang3.CharEncodingTest;
+
+        msg := @parameter0: java.lang.String;
+
+        $stack2 = <java.lang.System: java.io.PrintStream err>;
+
+        virtualinvoke $stack2.<java.io.PrintStream: void println(java.lang.String)>(msg);
+
+        return;
+    }
+}

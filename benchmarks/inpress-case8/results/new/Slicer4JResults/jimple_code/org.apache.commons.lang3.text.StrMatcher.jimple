@@ -1,0 +1,325 @@
+public abstract class org.apache.commons.lang3.text.StrMatcher extends java.lang.Object
+{
+    private static final org.apache.commons.lang3.text.StrMatcher COMMA_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher TAB_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher SPACE_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher SPLIT_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher TRIM_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher SINGLE_QUOTE_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher DOUBLE_QUOTE_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher QUOTE_MATCHER;
+    private static final org.apache.commons.lang3.text.StrMatcher NONE_MATCHER;
+
+    public static org.apache.commons.lang3.text.StrMatcher commaMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher COMMA_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher tabMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher TAB_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher spaceMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SPACE_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher splitMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SPLIT_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher trimMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher TRIM_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher singleQuoteMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SINGLE_QUOTE_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher DOUBLE_QUOTE_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher quoteMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher QUOTE_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher noneMatcher()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher NONE_MATCHER>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher charMatcher(char)
+    {
+        char ch;
+        org.apache.commons.lang3.text.StrMatcher$CharMatcher $stack1;
+
+        ch := @parameter0: char;
+
+        $stack1 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(ch);
+
+        return $stack1;
+    }
+
+    public static transient org.apache.commons.lang3.text.StrMatcher charSetMatcher(char[])
+    {
+        org.apache.commons.lang3.text.StrMatcher$CharMatcher $stack5;
+        org.apache.commons.lang3.text.StrMatcher$CharSetMatcher $stack4;
+        int $stack2, $stack3;
+        char[] chars;
+        char $stack6;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        chars := @parameter0: char[];
+
+        if chars == null goto label1;
+
+        $stack2 = lengthof chars;
+
+        if $stack2 != 0 goto label2;
+
+     label1:
+        $stack1 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher NONE_MATCHER>;
+
+        return $stack1;
+
+     label2:
+        $stack3 = lengthof chars;
+
+        if $stack3 != 1 goto label3;
+
+        $stack5 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        $stack6 = chars[0];
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>($stack6);
+
+        return $stack5;
+
+     label3:
+        $stack4 = new org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: void <init>(char[])>(chars);
+
+        return $stack4;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher charSetMatcher(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrMatcher$CharMatcher $stack5;
+        char $stack6;
+        org.apache.commons.lang3.text.StrMatcher $stack7;
+        org.apache.commons.lang3.text.StrMatcher$CharSetMatcher $stack3;
+        int $stack2;
+        char[] $stack4;
+        java.lang.String chars;
+        boolean $stack1;
+
+        chars := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(chars);
+
+        if $stack1 == 0 goto label1;
+
+        $stack7 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher NONE_MATCHER>;
+
+        return $stack7;
+
+     label1:
+        $stack2 = virtualinvoke chars.<java.lang.String: int length()>();
+
+        if $stack2 != 1 goto label2;
+
+        $stack5 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        $stack6 = virtualinvoke chars.<java.lang.String: char charAt(int)>(0);
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>($stack6);
+
+        return $stack5;
+
+     label2:
+        $stack3 = new org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        $stack4 = virtualinvoke chars.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: void <init>(char[])>($stack4);
+
+        return $stack3;
+    }
+
+    public static org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)
+    {
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrMatcher$StringMatcher $stack2;
+        boolean $stack1;
+        org.apache.commons.lang3.text.StrMatcher $stack3;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack1 == 0 goto label1;
+
+        $stack3 = <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher NONE_MATCHER>;
+
+        return $stack3;
+
+     label1:
+        $stack2 = new org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher$StringMatcher: void <init>(java.lang.String)>(str);
+
+        return $stack2;
+    }
+
+    protected void <init>()
+    {
+        org.apache.commons.lang3.text.StrMatcher this;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract int isMatch(char[], int, int, int);
+
+    public int isMatch(char[], int)
+    {
+        int pos, $stack3, $stack4;
+        char[] buffer;
+        org.apache.commons.lang3.text.StrMatcher this;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher;
+
+        buffer := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        $stack3 = lengthof buffer;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(buffer, pos, 0, $stack3);
+
+        return $stack4;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.text.StrMatcher$CharMatcher $stack0, $stack1, $stack2, $stack7, $stack8;
+        org.apache.commons.lang3.text.StrMatcher$NoMatcher $stack12;
+        org.apache.commons.lang3.text.StrMatcher$TrimMatcher $stack6;
+        org.apache.commons.lang3.text.StrMatcher$CharSetMatcher $stack3, $stack9;
+        char[] $stack5, $stack11;
+        java.lang.String $stack4, $stack10;
+
+        $stack0 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(44);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher COMMA_MATCHER> = $stack0;
+
+        $stack1 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(9);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher TAB_MATCHER> = $stack1;
+
+        $stack2 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(32);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SPACE_MATCHER> = $stack2;
+
+        $stack3 = new org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        $stack4 = " \t\n\r\f";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: void <init>(char[])>($stack5);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SPLIT_MATCHER> = $stack3;
+
+        $stack6 = new org.apache.commons.lang3.text.StrMatcher$TrimMatcher;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrMatcher$TrimMatcher: void <init>()>();
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher TRIM_MATCHER> = $stack6;
+
+        $stack7 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(39);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher SINGLE_QUOTE_MATCHER> = $stack7;
+
+        $stack8 = new org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrMatcher$CharMatcher: void <init>(char)>(34);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher DOUBLE_QUOTE_MATCHER> = $stack8;
+
+        $stack9 = new org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        $stack10 = "\'\"";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack9.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: void <init>(char[])>($stack11);
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher QUOTE_MATCHER> = $stack9;
+
+        $stack12 = new org.apache.commons.lang3.text.StrMatcher$NoMatcher;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.text.StrMatcher$NoMatcher: void <init>()>();
+
+        <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher NONE_MATCHER> = $stack12;
+
+        return;
+    }
+}

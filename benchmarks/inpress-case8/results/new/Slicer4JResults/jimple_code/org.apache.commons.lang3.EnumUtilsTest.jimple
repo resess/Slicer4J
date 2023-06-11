@@ -1,0 +1,2082 @@
+public class org.apache.commons.lang3.EnumUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructable()
+    {
+        org.apache.commons.lang3.EnumUtils $stack1;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.EnumUtils;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.EnumUtils: void <init>()>();
+
+        return;
+    }
+
+    public void test_getEnumMap()
+    {
+        long $stack8;
+        org.apache.commons.lang3.Traffic $stack10, $stack13, $stack16;
+        java.util.Map $stack2;
+        int $stack7;
+        java.lang.Object $stack11, $stack14, $stack17;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.EnumUtilsTest this;
+        boolean $stack9, $stack12, $stack15, $stack18;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.Map getEnumMap(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack5 = virtualinvoke $stack2.<java.lang.Object: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("getEnumMap not created correctly", "{RED=RED, AMBER=AMBER, GREEN=GREEN}", $stack5);
+
+        $stack7 = interfaceinvoke $stack2.<java.util.Map: int size()>();
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack8);
+
+        $stack9 = interfaceinvoke $stack2.<java.util.Map: boolean containsKey(java.lang.Object)>("RED");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack11 = interfaceinvoke $stack2.<java.util.Map: java.lang.Object get(java.lang.Object)>("RED");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = interfaceinvoke $stack2.<java.util.Map: boolean containsKey(java.lang.Object)>("AMBER");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack14 = interfaceinvoke $stack2.<java.util.Map: java.lang.Object get(java.lang.Object)>("AMBER");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = interfaceinvoke $stack2.<java.util.Map: boolean containsKey(java.lang.Object)>("GREEN");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack17 = interfaceinvoke $stack2.<java.util.Map: java.lang.Object get(java.lang.Object)>("GREEN");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        $stack18 = interfaceinvoke $stack2.<java.util.Map: boolean containsKey(java.lang.Object)>("PURPLE");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        return;
+    }
+
+    public void test_getEnumList()
+    {
+        long $stack5;
+        java.util.List $stack2;
+        org.apache.commons.lang3.Traffic $stack6, $stack8, $stack10;
+        int $stack4;
+        java.lang.Object $stack7, $stack9, $stack11;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.List getEnumList(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack4 = interfaceinvoke $stack2.<java.util.List: int size()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack5);
+
+        $stack6 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack7 = interfaceinvoke $stack2.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack9 = interfaceinvoke $stack2.<java.util.List: java.lang.Object get(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        $stack10 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack11 = interfaceinvoke $stack2.<java.util.List: java.lang.Object get(int)>(2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        return;
+    }
+
+    public void test_isEnum()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "RED");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "AMBER");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "GREEN");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "PURPLE");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        return;
+    }
+
+    public void test_isEnum_nullClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: boolean isValidEnum(java.lang.Class,java.lang.String)>(null, "PURPLE");
+
+        return;
+    }
+
+    public void test_getEnum()
+    {
+        org.apache.commons.lang3.Traffic $stack1, $stack3, $stack5;
+        java.lang.Enum $stack2, $stack4, $stack6, $stack8, $stack10;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "RED");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack2);
+
+        $stack3 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "AMBER");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack5 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "GREEN");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", "PURPLE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/Traffic;", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack10);
+
+        return;
+    }
+
+    public void test_getEnum_nullClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Enum getEnum(java.lang.Class,java.lang.String)>(null, "PURPLE");
+
+        return;
+    }
+
+    public void test_generateBitVector_nullClass()
+    {
+        org.apache.commons.lang3.Traffic $stack1;
+        java.util.EnumSet $stack3;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack3 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack1);
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(null, $stack3);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullClass()
+    {
+        org.apache.commons.lang3.Traffic $stack1;
+        java.util.EnumSet $stack3;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack3 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack1);
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(null, $stack3);
+
+        return;
+    }
+
+    public void test_generateBitVector_nullIterable()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", null);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullIterable()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(null, null);
+
+        return;
+    }
+
+    public void test_generateBitVector_nullElement()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        java.util.List $stack4;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        $stack1[1] = null;
+
+        $stack4 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack1);
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack4);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullElement()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        java.util.List $stack4;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        $stack1[1] = null;
+
+        $stack4 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack1);
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack4);
+
+        return;
+    }
+
+    public void test_generateBitVector_nullClassWithArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(null, $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullClassWithArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(null, $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVector_nullArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = (org.apache.commons.lang3.Traffic[]) null;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = (org.apache.commons.lang3.Traffic[]) null;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVector_nullArrayElement()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        $stack1[1] = null;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nullArrayElement()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1;
+        org.apache.commons.lang3.Traffic $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack2 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack1[0] = $stack2;
+
+        $stack1[1] = null;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVector_longClass()
+    {
+        org.apache.commons.lang3.TooMany $stack1;
+        java.util.EnumSet $stack3;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A1>;
+
+        $stack3 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack1);
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/TooMany;", $stack3);
+
+        return;
+    }
+
+    public void test_generateBitVector_longClassWithArray()
+    {
+        org.apache.commons.lang3.TooMany $stack2;
+        org.apache.commons.lang3.TooMany[] $stack1;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.TooMany)[1];
+
+        $stack2 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A1>;
+
+        $stack1[0] = $stack2;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack1);
+
+        return;
+    }
+
+    public void test_generateBitVector_nonEnumClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Ljava/lang/Object;", $stack3);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nonEnumClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Ljava/lang/Object;", $stack3);
+
+        return;
+    }
+
+    public void test_generateBitVector_nonEnumClassWithArray()
+    {
+        java.lang.Enum[] $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = newarray (java.lang.Enum)[0];
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Ljava/lang/Object;", $stack2);
+
+        return;
+    }
+
+    public void test_generateBitVectors_nonEnumClassWithArray()
+    {
+        java.lang.Enum[] $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = newarray (java.lang.Enum)[0];
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Ljava/lang/Object;", $stack2);
+
+        return;
+    }
+
+    public void test_generateBitVector()
+    {
+        long $stack4, $stack9, $stack14, $stack19, $stack25, $stack31, $stack37, $stack44;
+        java.util.EnumSet $stack3, $stack8, $stack13, $stack18, $stack24, $stack30, $stack36, $stack43;
+        org.apache.commons.lang3.Traffic $stack5, $stack10, $stack15, $stack20, $stack21, $stack26, $stack27, $stack32, $stack33, $stack38, $stack39, $stack40;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack3 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack4);
+
+        $stack5 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack8 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack5);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack9);
+
+        $stack10 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack13 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack10);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack18 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack15);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack18);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack19);
+
+        $stack21 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack20 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack24 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack21, $stack20);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack25);
+
+        $stack27 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack26 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack30 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack27, $stack26);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack30);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack31);
+
+        $stack33 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack32 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack36 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack33, $stack32);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack36);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack37);
+
+        $stack40 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack39 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack38 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack43 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack40, $stack39, $stack38);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack43);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack44);
+
+        return;
+    }
+
+    public void test_generateBitVectors()
+    {
+        java.util.EnumSet $stack2, $stack7, $stack12, $stack17, $stack23, $stack29, $stack35, $stack42;
+        org.apache.commons.lang3.Traffic $stack5, $stack10, $stack15, $stack20, $stack21, $stack26, $stack27, $stack32, $stack33, $stack38, $stack39, $stack40;
+        long[] $stack3, $stack4, $stack8, $stack9, $stack13, $stack14, $stack18, $stack19, $stack24, $stack25, $stack30, $stack31, $stack36, $stack37, $stack43, $stack44;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack2);
+
+        $stack4 = newarray (long)[1];
+
+        $stack4[0] = 0L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack3, $stack4);
+
+        $stack5 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack7 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack5);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack7);
+
+        $stack9 = newarray (long)[1];
+
+        $stack9[0] = 1L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack8, $stack9);
+
+        $stack10 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack12 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack10);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack12);
+
+        $stack14 = newarray (long)[1];
+
+        $stack14[0] = 2L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack13, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack17 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack15);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack17);
+
+        $stack19 = newarray (long)[1];
+
+        $stack19[0] = 4L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack18, $stack19);
+
+        $stack21 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack20 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack23 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack21, $stack20);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack23);
+
+        $stack25 = newarray (long)[1];
+
+        $stack25[0] = 3L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack24, $stack25);
+
+        $stack27 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack26 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack29 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack27, $stack26);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack29);
+
+        $stack31 = newarray (long)[1];
+
+        $stack31[0] = 5L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack30, $stack31);
+
+        $stack33 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack32 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack35 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack33, $stack32);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack35);
+
+        $stack37 = newarray (long)[1];
+
+        $stack37[0] = 6L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack36, $stack37);
+
+        $stack40 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack39 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack38 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack42 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack40, $stack39, $stack38);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Iterable)>(class "Lorg/apache/commons/lang3/Traffic;", $stack42);
+
+        $stack44 = newarray (long)[1];
+
+        $stack44[0] = 7L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack43, $stack44);
+
+        return;
+    }
+
+    public void test_generateBitVectorFromArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1, $stack4, $stack8, $stack12, $stack16, $stack21, $stack26, $stack31, $stack37;
+        org.apache.commons.lang3.Traffic $stack5, $stack9, $stack13, $stack17, $stack18, $stack22, $stack23, $stack27, $stack28, $stack32, $stack33, $stack34, $stack38, $stack39, $stack40, $stack41;
+        long $stack3, $stack7, $stack11, $stack15, $stack20, $stack25, $stack30, $stack36, $stack43;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[0];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack5 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack4[0] = $stack5;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack7);
+
+        $stack8 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack9 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack8[0] = $stack9;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack11);
+
+        $stack12 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack13 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack12[0] = $stack13;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack15);
+
+        $stack16 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack17 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack16[0] = $stack17;
+
+        $stack18 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack16[1] = $stack18;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack20);
+
+        $stack21 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack22 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack21[0] = $stack22;
+
+        $stack23 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack21[1] = $stack23;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack25);
+
+        $stack26 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack27 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack26[0] = $stack27;
+
+        $stack28 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack26[1] = $stack28;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack26);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack30);
+
+        $stack31 = newarray (org.apache.commons.lang3.Traffic)[3];
+
+        $stack32 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack31[0] = $stack32;
+
+        $stack33 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack31[1] = $stack33;
+
+        $stack34 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack31[2] = $stack34;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack31);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack36);
+
+        $stack37 = newarray (org.apache.commons.lang3.Traffic)[4];
+
+        $stack38 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack37[0] = $stack38;
+
+        $stack39 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack37[1] = $stack39;
+
+        $stack40 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack37[2] = $stack40;
+
+        $stack41 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack37[3] = $stack41;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack37);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack43);
+
+        return;
+    }
+
+    public void test_generateBitVectorsFromArray()
+    {
+        org.apache.commons.lang3.Traffic[] $stack1, $stack4, $stack8, $stack12, $stack16, $stack21, $stack26, $stack31, $stack37;
+        org.apache.commons.lang3.Traffic $stack5, $stack9, $stack13, $stack17, $stack18, $stack22, $stack23, $stack27, $stack28, $stack32, $stack33, $stack34, $stack38, $stack39, $stack40, $stack41;
+        long[] $stack2, $stack3, $stack6, $stack7, $stack10, $stack11, $stack14, $stack15, $stack19, $stack20, $stack24, $stack25, $stack29, $stack30, $stack35, $stack36, $stack42, $stack43;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = newarray (org.apache.commons.lang3.Traffic)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack1);
+
+        $stack3 = newarray (long)[1];
+
+        $stack3[0] = 0L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack2, $stack3);
+
+        $stack4 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack5 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack4[0] = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack4);
+
+        $stack7 = newarray (long)[1];
+
+        $stack7[0] = 1L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack6, $stack7);
+
+        $stack8 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack9 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack8[0] = $stack9;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack8);
+
+        $stack11 = newarray (long)[1];
+
+        $stack11[0] = 2L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack10, $stack11);
+
+        $stack12 = newarray (org.apache.commons.lang3.Traffic)[1];
+
+        $stack13 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack12[0] = $stack13;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack12);
+
+        $stack15 = newarray (long)[1];
+
+        $stack15[0] = 4L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack14, $stack15);
+
+        $stack16 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack17 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack16[0] = $stack17;
+
+        $stack18 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack16[1] = $stack18;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack16);
+
+        $stack20 = newarray (long)[1];
+
+        $stack20[0] = 3L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack19, $stack20);
+
+        $stack21 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack22 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack21[0] = $stack22;
+
+        $stack23 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack21[1] = $stack23;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack21);
+
+        $stack25 = newarray (long)[1];
+
+        $stack25[0] = 5L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack24, $stack25);
+
+        $stack26 = newarray (org.apache.commons.lang3.Traffic)[2];
+
+        $stack27 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack26[0] = $stack27;
+
+        $stack28 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack26[1] = $stack28;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack26);
+
+        $stack30 = newarray (long)[1];
+
+        $stack30[0] = 6L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack29, $stack30);
+
+        $stack31 = newarray (org.apache.commons.lang3.Traffic)[3];
+
+        $stack32 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack31[0] = $stack32;
+
+        $stack33 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack31[1] = $stack33;
+
+        $stack34 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack31[2] = $stack34;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack31);
+
+        $stack36 = newarray (long)[1];
+
+        $stack36[0] = 7L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack35, $stack36);
+
+        $stack37 = newarray (org.apache.commons.lang3.Traffic)[4];
+
+        $stack38 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack37[0] = $stack38;
+
+        $stack39 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack37[1] = $stack39;
+
+        $stack40 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack37[2] = $stack40;
+
+        $stack41 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack37[3] = $stack41;
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.EnumUtils: long[] generateBitVectors(java.lang.Class,java.lang.Enum[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack37);
+
+        $stack43 = newarray (long)[1];
+
+        $stack43[0] = 7L;
+
+        specialinvoke this.<org.apache.commons.lang3.EnumUtilsTest: void assertArrayEquals(long[],long[])>($stack42, $stack43);
+
+        return;
+    }
+
+    private transient void assertArrayEquals(long[], long[])
+    {
+        long[] expected, actual;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        actual := @parameter0: long[];
+
+        expected := @parameter1: long[];
+
+        staticinvoke <org.junit.Assert: void assertArrayEquals(long[],long[])>(expected, actual);
+
+        return;
+    }
+
+    public void test_processBitVector_nullClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(null, 0L);
+
+        return;
+    }
+
+    public void test_processBitVectors_nullClass()
+    {
+        long[] $stack2;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack2 = newarray (long)[1];
+
+        $stack2[0] = 0L;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(null, $stack2);
+
+        return;
+    }
+
+    public void test_processBitVector()
+    {
+        java.util.EnumSet $stack1, $stack2, $stack4, $stack5, $stack7, $stack8, $stack11, $stack12, $stack14, $stack15, $stack18, $stack19, $stack22, $stack23, $stack27, $stack28;
+        org.apache.commons.lang3.Traffic $stack3, $stack6, $stack9, $stack10, $stack13, $stack16, $stack17, $stack20, $stack21, $stack24, $stack25, $stack26;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 0L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack2);
+
+        $stack3 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack4 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 1L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        $stack6 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack7 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 2L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack10 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack9 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack11 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack10, $stack9);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 3L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack13 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack14 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 4L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        $stack17 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack16 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack18 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack17, $stack16);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 5L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack21 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack20 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack22 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack21, $stack20);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 6L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+        $stack26 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack25 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack24 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack27 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack26, $stack25, $stack24);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/Traffic;", 7L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        return;
+    }
+
+    public void test_processBitVectors()
+    {
+        java.util.EnumSet $stack1, $stack3, $stack5, $stack7, $stack9, $stack11, $stack14, $stack16, $stack18, $stack20, $stack23, $stack25, $stack28, $stack30, $stack34, $stack36, $stack37, $stack39, $stack41, $stack43, $stack45, $stack47, $stack50, $stack52, $stack54, $stack56, $stack59, $stack61, $stack64, $stack66, $stack70, $stack72, $stack73, $stack75, $stack77, $stack79, $stack81, $stack83, $stack86, $stack88, $stack90, $stack92, $stack95, $stack97, $stack100, $stack102, $stack106, $stack108;
+        org.apache.commons.lang3.EnumUtilsTest this;
+        org.apache.commons.lang3.Traffic $stack4, $stack8, $stack12, $stack13, $stack17, $stack21, $stack22, $stack26, $stack27, $stack31, $stack32, $stack33, $stack40, $stack44, $stack48, $stack49, $stack53, $stack57, $stack58, $stack62, $stack63, $stack67, $stack68, $stack69, $stack76, $stack80, $stack84, $stack85, $stack89, $stack93, $stack94, $stack98, $stack99, $stack103, $stack104, $stack105;
+        long[] $stack2, $stack6, $stack10, $stack15, $stack19, $stack24, $stack29, $stack35, $stack38, $stack42, $stack46, $stack51, $stack55, $stack60, $stack65, $stack71, $stack74, $stack78, $stack82, $stack87, $stack91, $stack96, $stack101, $stack107;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack2 = newarray (long)[1];
+
+        $stack2[0] = 0L;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack5 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack4);
+
+        $stack6 = newarray (long)[1];
+
+        $stack6[0] = 1L;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack9 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack8);
+
+        $stack10 = newarray (long)[1];
+
+        $stack10[0] = 2L;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack11);
+
+        $stack13 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack12 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack14 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack13, $stack12);
+
+        $stack15 = newarray (long)[1];
+
+        $stack15[0] = 3L;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack18 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack17);
+
+        $stack19 = newarray (long)[1];
+
+        $stack19[0] = 4L;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack20);
+
+        $stack22 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack21 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack23 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack22, $stack21);
+
+        $stack24 = newarray (long)[1];
+
+        $stack24[0] = 5L;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack25);
+
+        $stack27 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack26 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack28 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack27, $stack26);
+
+        $stack29 = newarray (long)[1];
+
+        $stack29[0] = 6L;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack29);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+        $stack33 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack32 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack31 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack34 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack33, $stack32, $stack31);
+
+        $stack35 = newarray (long)[1];
+
+        $stack35[0] = 7L;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack35);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack36);
+
+        $stack37 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack38 = newarray (long)[2];
+
+        $stack38[0] = 0L;
+
+        $stack38[1] = 0L;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack38);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack39);
+
+        $stack40 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack41 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack40);
+
+        $stack42 = newarray (long)[2];
+
+        $stack42[0] = 0L;
+
+        $stack42[1] = 1L;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack42);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack41, $stack43);
+
+        $stack44 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack45 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack44);
+
+        $stack46 = newarray (long)[2];
+
+        $stack46[0] = 0L;
+
+        $stack46[1] = 2L;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack46);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack47);
+
+        $stack49 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack48 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack50 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack49, $stack48);
+
+        $stack51 = newarray (long)[2];
+
+        $stack51[0] = 0L;
+
+        $stack51[1] = 3L;
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack51);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack50, $stack52);
+
+        $stack53 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack54 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack53);
+
+        $stack55 = newarray (long)[2];
+
+        $stack55[0] = 0L;
+
+        $stack55[1] = 4L;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack55);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack54, $stack56);
+
+        $stack58 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack57 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack59 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack58, $stack57);
+
+        $stack60 = newarray (long)[2];
+
+        $stack60[0] = 0L;
+
+        $stack60[1] = 5L;
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack60);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack59, $stack61);
+
+        $stack63 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack62 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack64 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack63, $stack62);
+
+        $stack65 = newarray (long)[2];
+
+        $stack65[0] = 0L;
+
+        $stack65[1] = 6L;
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack65);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack64, $stack66);
+
+        $stack69 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack68 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack67 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack70 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack69, $stack68, $stack67);
+
+        $stack71 = newarray (long)[2];
+
+        $stack71[0] = 0L;
+
+        $stack71[1] = 7L;
+
+        $stack72 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack70, $stack72);
+
+        $stack73 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/Traffic;");
+
+        $stack74 = newarray (long)[2];
+
+        $stack74[0] = 666L;
+
+        $stack74[1] = 0L;
+
+        $stack75 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack74);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack73, $stack75);
+
+        $stack76 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack77 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack76);
+
+        $stack78 = newarray (long)[2];
+
+        $stack78[0] = 666L;
+
+        $stack78[1] = 1L;
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack78);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack77, $stack79);
+
+        $stack80 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack81 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack80);
+
+        $stack82 = newarray (long)[2];
+
+        $stack82[0] = 666L;
+
+        $stack82[1] = 2L;
+
+        $stack83 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack82);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack81, $stack83);
+
+        $stack85 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack84 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack86 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack85, $stack84);
+
+        $stack87 = newarray (long)[2];
+
+        $stack87[0] = 666L;
+
+        $stack87[1] = 3L;
+
+        $stack88 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack87);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack86, $stack88);
+
+        $stack89 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack90 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack89);
+
+        $stack91 = newarray (long)[2];
+
+        $stack91[0] = 666L;
+
+        $stack91[1] = 4L;
+
+        $stack92 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack91);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack90, $stack92);
+
+        $stack94 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack93 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack95 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack94, $stack93);
+
+        $stack96 = newarray (long)[2];
+
+        $stack96[0] = 666L;
+
+        $stack96[1] = 5L;
+
+        $stack97 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack96);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack95, $stack97);
+
+        $stack99 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack98 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack100 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack99, $stack98);
+
+        $stack101 = newarray (long)[2];
+
+        $stack101[0] = 666L;
+
+        $stack101[1] = 6L;
+
+        $stack102 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack101);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack100, $stack102);
+
+        $stack105 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic RED>;
+
+        $stack104 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic AMBER>;
+
+        $stack103 = <org.apache.commons.lang3.Traffic: org.apache.commons.lang3.Traffic GREEN>;
+
+        $stack106 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack105, $stack104, $stack103);
+
+        $stack107 = newarray (long)[2];
+
+        $stack107[0] = 666L;
+
+        $stack107[1] = 7L;
+
+        $stack108 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/Traffic;", $stack107);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack106, $stack108);
+
+        return;
+    }
+
+    public void test_processBitVector_longClass()
+    {
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVector(java.lang.Class,long)>(class "Lorg/apache/commons/lang3/TooMany;", 0L);
+
+        return;
+    }
+
+    public void test_processBitVectors_longClass()
+    {
+        java.util.EnumSet $stack1, $stack3, $stack5, $stack7, $stack9, $stack11, $stack14, $stack16, $stack18, $stack20, $stack23, $stack25, $stack28, $stack30, $stack34, $stack36, $stack37, $stack39, $stack41, $stack43, $stack45, $stack47, $stack50, $stack52, $stack54, $stack56, $stack59, $stack61, $stack64, $stack66, $stack70, $stack72, $stack76, $stack78, $stack80, $stack82, $stack85, $stack87, $stack90, $stack92, $stack96, $stack98, $stack101, $stack103, $stack107, $stack109, $stack113, $stack115, $stack120, $stack122, $stack127, $stack129, $stack131, $stack133, $stack136, $stack138, $stack141, $stack143, $stack147, $stack149, $stack152, $stack154, $stack158, $stack160, $stack164, $stack166, $stack171, $stack173, $stack178, $stack180;
+        org.apache.commons.lang3.TooMany $stack4, $stack8, $stack12, $stack13, $stack17, $stack21, $stack22, $stack26, $stack27, $stack31, $stack32, $stack33, $stack40, $stack44, $stack48, $stack49, $stack53, $stack57, $stack58, $stack62, $stack63, $stack67, $stack68, $stack69, $stack73, $stack74, $stack75, $stack79, $stack83, $stack84, $stack88, $stack89, $stack93, $stack94, $stack95, $stack99, $stack100, $stack104, $stack105, $stack106, $stack110, $stack111, $stack112, $stack116, $stack117, $stack118, $stack119, $stack123, $stack124, $stack125, $stack126, $stack130, $stack134, $stack135, $stack139, $stack140, $stack144, $stack145, $stack146, $stack150, $stack151, $stack155, $stack156, $stack157, $stack161, $stack162, $stack163, $stack167, $stack168, $stack169, $stack170, $stack174, $stack175, $stack176, $stack177;
+        long[] $stack2, $stack6, $stack10, $stack15, $stack19, $stack24, $stack29, $stack35, $stack38, $stack42, $stack46, $stack51, $stack55, $stack60, $stack65, $stack71, $stack77, $stack81, $stack86, $stack91, $stack97, $stack102, $stack108, $stack114, $stack121, $stack128, $stack132, $stack137, $stack142, $stack148, $stack153, $stack159, $stack165, $stack172, $stack179;
+        org.apache.commons.lang3.EnumUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.EnumUtilsTest;
+
+        $stack1 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/TooMany;");
+
+        $stack2 = newarray (long)[1];
+
+        $stack2[0] = 0L;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack5 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack4);
+
+        $stack6 = newarray (long)[1];
+
+        $stack6[0] = 1L;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack9 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack8);
+
+        $stack10 = newarray (long)[1];
+
+        $stack10[0] = 2L;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack11);
+
+        $stack13 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack12 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack14 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack13, $stack12);
+
+        $stack15 = newarray (long)[1];
+
+        $stack15[0] = 3L;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack18 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack17);
+
+        $stack19 = newarray (long)[1];
+
+        $stack19[0] = 4L;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack20);
+
+        $stack22 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack21 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack23 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack22, $stack21);
+
+        $stack24 = newarray (long)[1];
+
+        $stack24[0] = 5L;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack25);
+
+        $stack27 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack26 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack28 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack27, $stack26);
+
+        $stack29 = newarray (long)[1];
+
+        $stack29[0] = 6L;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack29);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+        $stack33 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack32 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack31 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack34 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack33, $stack32, $stack31);
+
+        $stack35 = newarray (long)[1];
+
+        $stack35[0] = 7L;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack35);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack36);
+
+        $stack37 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(class "Lorg/apache/commons/lang3/TooMany;");
+
+        $stack38 = newarray (long)[2];
+
+        $stack38[0] = 0L;
+
+        $stack38[1] = 0L;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack38);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack39);
+
+        $stack40 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack41 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack40);
+
+        $stack42 = newarray (long)[2];
+
+        $stack42[0] = 0L;
+
+        $stack42[1] = 1L;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack42);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack41, $stack43);
+
+        $stack44 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack45 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack44);
+
+        $stack46 = newarray (long)[2];
+
+        $stack46[0] = 0L;
+
+        $stack46[1] = 2L;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack46);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack47);
+
+        $stack49 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack48 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack50 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack49, $stack48);
+
+        $stack51 = newarray (long)[2];
+
+        $stack51[0] = 0L;
+
+        $stack51[1] = 3L;
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack51);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack50, $stack52);
+
+        $stack53 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack54 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack53);
+
+        $stack55 = newarray (long)[2];
+
+        $stack55[0] = 0L;
+
+        $stack55[1] = 4L;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack55);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack54, $stack56);
+
+        $stack58 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack57 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack59 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack58, $stack57);
+
+        $stack60 = newarray (long)[2];
+
+        $stack60[0] = 0L;
+
+        $stack60[1] = 5L;
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack60);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack59, $stack61);
+
+        $stack63 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack62 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack64 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack63, $stack62);
+
+        $stack65 = newarray (long)[2];
+
+        $stack65[0] = 0L;
+
+        $stack65[1] = 6L;
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack65);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack64, $stack66);
+
+        $stack69 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack68 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack67 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack70 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack69, $stack68, $stack67);
+
+        $stack71 = newarray (long)[2];
+
+        $stack71[0] = 0L;
+
+        $stack71[1] = 7L;
+
+        $stack72 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack70, $stack72);
+
+        $stack75 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack74 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack73 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack76 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack75, $stack74, $stack73);
+
+        $stack77 = newarray (long)[2];
+
+        $stack77[0] = 0L;
+
+        $stack77[1] = 7L;
+
+        $stack78 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack77);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack76, $stack78);
+
+        $stack79 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack80 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack79);
+
+        $stack81 = newarray (long)[2];
+
+        $stack81[0] = 1L;
+
+        $stack81[1] = 0L;
+
+        $stack82 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack81);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack80, $stack82);
+
+        $stack84 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack83 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack85 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack84, $stack83);
+
+        $stack86 = newarray (long)[2];
+
+        $stack86[0] = 1L;
+
+        $stack86[1] = 1L;
+
+        $stack87 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack86);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack85, $stack87);
+
+        $stack89 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack88 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack90 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack89, $stack88);
+
+        $stack91 = newarray (long)[2];
+
+        $stack91[0] = 1L;
+
+        $stack91[1] = 2L;
+
+        $stack92 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack91);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack90, $stack92);
+
+        $stack95 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack94 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack93 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack96 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack95, $stack94, $stack93);
+
+        $stack97 = newarray (long)[2];
+
+        $stack97[0] = 1L;
+
+        $stack97[1] = 3L;
+
+        $stack98 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack97);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack96, $stack98);
+
+        $stack100 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack99 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack101 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack100, $stack99);
+
+        $stack102 = newarray (long)[2];
+
+        $stack102[0] = 1L;
+
+        $stack102[1] = 4L;
+
+        $stack103 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack102);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack101, $stack103);
+
+        $stack106 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack105 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack104 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack107 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack106, $stack105, $stack104);
+
+        $stack108 = newarray (long)[2];
+
+        $stack108[0] = 1L;
+
+        $stack108[1] = 5L;
+
+        $stack109 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack108);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack107, $stack109);
+
+        $stack112 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack111 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack110 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack113 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack112, $stack111, $stack110);
+
+        $stack114 = newarray (long)[2];
+
+        $stack114[0] = 1L;
+
+        $stack114[1] = 6L;
+
+        $stack115 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack114);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack113, $stack115);
+
+        $stack119 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack118 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack117 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack116 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack120 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack119, $stack118, $stack117, $stack116);
+
+        $stack121 = newarray (long)[2];
+
+        $stack121[0] = 1L;
+
+        $stack121[1] = 7L;
+
+        $stack122 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack121);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack120, $stack122);
+
+        $stack126 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack125 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack124 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack123 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack127 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack126, $stack125, $stack124, $stack123);
+
+        $stack128 = newarray (long)[2];
+
+        $stack128[0] = 1L;
+
+        $stack128[1] = 7L;
+
+        $stack129 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack128);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack127, $stack129);
+
+        $stack130 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack131 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum)>($stack130);
+
+        $stack132 = newarray (long)[2];
+
+        $stack132[0] = 9L;
+
+        $stack132[1] = 0L;
+
+        $stack133 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack132);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack131, $stack133);
+
+        $stack135 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack134 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack136 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack135, $stack134);
+
+        $stack137 = newarray (long)[2];
+
+        $stack137[0] = 9L;
+
+        $stack137[1] = 1L;
+
+        $stack138 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack137);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack136, $stack138);
+
+        $stack140 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack139 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack141 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack140, $stack139);
+
+        $stack142 = newarray (long)[2];
+
+        $stack142[0] = 9L;
+
+        $stack142[1] = 2L;
+
+        $stack143 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack142);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack141, $stack143);
+
+        $stack146 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack145 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack144 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack147 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack146, $stack145, $stack144);
+
+        $stack148 = newarray (long)[2];
+
+        $stack148[0] = 9L;
+
+        $stack148[1] = 3L;
+
+        $stack149 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack148);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack147, $stack149);
+
+        $stack151 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack150 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack152 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum)>($stack151, $stack150);
+
+        $stack153 = newarray (long)[2];
+
+        $stack153[0] = 9L;
+
+        $stack153[1] = 4L;
+
+        $stack154 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack153);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack152, $stack154);
+
+        $stack157 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack156 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack155 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack158 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack157, $stack156, $stack155);
+
+        $stack159 = newarray (long)[2];
+
+        $stack159[0] = 9L;
+
+        $stack159[1] = 5L;
+
+        $stack160 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack159);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack158, $stack160);
+
+        $stack163 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack162 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack161 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack164 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack163, $stack162, $stack161);
+
+        $stack165 = newarray (long)[2];
+
+        $stack165[0] = 9L;
+
+        $stack165[1] = 6L;
+
+        $stack166 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack165);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack164, $stack166);
+
+        $stack170 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack169 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack168 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack167 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack171 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack170, $stack169, $stack168, $stack167);
+
+        $stack172 = newarray (long)[2];
+
+        $stack172[0] = 9L;
+
+        $stack172[1] = 7L;
+
+        $stack173 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack172);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack171, $stack173);
+
+        $stack177 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany A>;
+
+        $stack176 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany B>;
+
+        $stack175 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany C>;
+
+        $stack174 = <org.apache.commons.lang3.TooMany: org.apache.commons.lang3.TooMany M2>;
+
+        $stack178 = staticinvoke <java.util.EnumSet: java.util.EnumSet of(java.lang.Enum,java.lang.Enum,java.lang.Enum,java.lang.Enum)>($stack177, $stack176, $stack175, $stack174);
+
+        $stack179 = newarray (long)[2];
+
+        $stack179[0] = 9L;
+
+        $stack179[1] = 7L;
+
+        $stack180 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(class "Lorg/apache/commons/lang3/TooMany;", $stack179);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack178, $stack180);
+
+        return;
+    }
+}

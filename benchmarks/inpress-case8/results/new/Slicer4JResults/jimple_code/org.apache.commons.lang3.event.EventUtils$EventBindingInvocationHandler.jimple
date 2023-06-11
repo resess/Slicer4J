@@ -1,0 +1,137 @@
+class org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler extends java.lang.Object implements java.lang.reflect.InvocationHandler
+{
+    private final java.lang.Object target;
+    private final java.lang.String methodName;
+    private final java.util.Set eventTypes;
+
+    void <init>(java.lang.Object, java.lang.String, java.lang.String[])
+    {
+        java.util.HashSet $stack4;
+        java.util.List $stack5;
+        org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler this;
+        java.lang.Object target;
+        java.lang.String[] eventTypes;
+        java.lang.String methodName;
+
+        this := @this: org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler;
+
+        target := @parameter0: java.lang.Object;
+
+        methodName := @parameter1: java.lang.String;
+
+        eventTypes := @parameter2: java.lang.String[];
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.Object target> = target;
+
+        this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.String methodName> = methodName;
+
+        $stack4 = new java.util.HashSet;
+
+        $stack5 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>(eventTypes);
+
+        specialinvoke $stack4.<java.util.HashSet: void <init>(java.util.Collection)>($stack5);
+
+        this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.util.Set eventTypes> = $stack4;
+
+        return;
+    }
+
+    public java.lang.Object invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable
+    {
+        java.lang.Object[] $stack7, parameters;
+        org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler this;
+        java.lang.String $stack8, $stack11, $stack15;
+        java.lang.reflect.Method method;
+        boolean $stack5, $stack6, $stack16;
+        java.util.Set $stack4, $stack14;
+        java.lang.Object $stack9, $stack10, $stack12, $stack13, proxy;
+
+        this := @this: org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler;
+
+        proxy := @parameter0: java.lang.Object;
+
+        method := @parameter1: java.lang.reflect.Method;
+
+        parameters := @parameter2: java.lang.Object[];
+
+        $stack4 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.util.Set eventTypes>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.Set: boolean isEmpty()>();
+
+        if $stack5 != 0 goto label1;
+
+        $stack14 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.util.Set eventTypes>;
+
+        $stack15 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack16 = interfaceinvoke $stack14.<java.util.Set: boolean contains(java.lang.Object)>($stack15);
+
+        if $stack16 == 0 goto label3;
+
+     label1:
+        $stack6 = specialinvoke this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: boolean hasMatchingParametersMethod(java.lang.reflect.Method)>(method);
+
+        if $stack6 == 0 goto label2;
+
+        $stack12 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.Object target>;
+
+        $stack11 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.String methodName>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack12, $stack11, parameters);
+
+        return $stack13;
+
+     label2:
+        $stack9 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.Object target>;
+
+        $stack8 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.String methodName>;
+
+        $stack7 = newarray (java.lang.Object)[0];
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack9, $stack8, $stack7);
+
+        return $stack10;
+
+     label3:
+        return null;
+    }
+
+    private boolean hasMatchingParametersMethod(java.lang.reflect.Method)
+    {
+        java.lang.Class[] $stack5;
+        org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler this;
+        java.lang.Object $stack2;
+        java.lang.Class $stack3;
+        java.lang.String $stack4;
+        java.lang.reflect.Method method, $stack6;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler;
+
+        method := @parameter0: java.lang.reflect.Method;
+
+        $stack2 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.Object target>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack4 = this.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: java.lang.String methodName>;
+
+        $stack5 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.Class,java.lang.String,java.lang.Class[])>($stack3, $stack4, $stack5);
+
+        if $stack6 == null goto label1;
+
+        $stack7 = 1;
+
+        goto label2;
+
+     label1:
+        $stack7 = 0;
+
+     label2:
+        return $stack7;
+    }
+}

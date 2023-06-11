@@ -1,0 +1,300 @@
+public class org.apache.commons.lang3.math.IEEE754rUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.math.IEEE754rUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.math.IEEE754rUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testLang381()
+    {
+        double[] $stack19, $stack24;
+        float[] $stack29, $stack36;
+        double $stack6, $stack8, $stack9, $stack13, $stack16, $stack21, $stack23, $stack26, $stack28, $stack32, $stack35, $stack39, $stack42;
+        boolean $stack10, $stack18;
+        float $stack12, $stack15, $stack17, $stack31, $stack34, $stack38, $stack41;
+        org.apache.commons.lang3.math.IEEE754rUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.math.IEEE754rUtilsTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double,double,double)>(1.2, 2.5, #NaN);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2, $stack6, 0.01);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double,double,double)>(1.2, 2.5, #NaN);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(2.5, $stack8, 0.01);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double,double,double)>(#NaN, #NaN, #NaN);
+
+        $stack10 = staticinvoke <java.lang.Double: boolean isNaN(double)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float,float,float)>(1.2F, 2.5F, #NaNF);
+
+        $stack13 = (double) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2000000476837158, $stack13, 0.01);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float,float,float)>(1.2F, 2.5F, #NaNF);
+
+        $stack16 = (double) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(2.5, $stack16, 0.01);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float,float,float)>(#NaNF, #NaNF, #NaNF);
+
+        $stack18 = staticinvoke <java.lang.Float: boolean isNaN(float)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = newarray (double)[6];
+
+        $stack19[0] = 1.2;
+
+        $stack19[1] = #NaN;
+
+        $stack19[2] = 3.7;
+
+        $stack19[3] = 27.0;
+
+        $stack19[4] = 42.0;
+
+        $stack19[5] = #NaN;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double[])>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(42.0, $stack21, 0.01);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double[])>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2, $stack23, 0.01);
+
+        $stack24 = newarray (double)[7];
+
+        $stack24[0] = #NaN;
+
+        $stack24[1] = 1.2;
+
+        $stack24[2] = #NaN;
+
+        $stack24[3] = 3.7;
+
+        $stack24[4] = 27.0;
+
+        $stack24[5] = 42.0;
+
+        $stack24[6] = #NaN;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double[])>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(42.0, $stack26, 0.01);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double[])>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2, $stack28, 0.01);
+
+        $stack29 = newarray (float)[6];
+
+        $stack29[0] = 1.2F;
+
+        $stack29[1] = #NaNF;
+
+        $stack29[2] = 3.7F;
+
+        $stack29[3] = 27.0F;
+
+        $stack29[4] = 42.0F;
+
+        $stack29[5] = #NaNF;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float[])>($stack29);
+
+        $stack32 = (double) $stack31;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2000000476837158, $stack32, 0.01);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float[])>($stack29);
+
+        $stack35 = (double) $stack34;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(42.0, $stack35, 0.01);
+
+        $stack36 = newarray (float)[7];
+
+        $stack36[0] = #NaNF;
+
+        $stack36[1] = 1.2F;
+
+        $stack36[2] = #NaNF;
+
+        $stack36[3] = 3.7F;
+
+        $stack36[4] = 27.0F;
+
+        $stack36[5] = 42.0F;
+
+        $stack36[6] = #NaNF;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float[])>($stack36);
+
+        $stack39 = (double) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.2000000476837158, $stack39, 0.01);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float[])>($stack36);
+
+        $stack42 = (double) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(42.0, $stack42, 0.01);
+
+        return;
+    }
+
+    public void testEnforceExceptions()
+    {
+        double[] $stack10, $stack12, $stack14, $stack16;
+        float[] $stack2, $stack4, $stack6, $stack8;
+        java.lang.IllegalArgumentException $stack18, $stack19, $stack22, $stack25, $stack28, $stack31, $stack34, $stack37;
+        org.apache.commons.lang3.math.IEEE754rUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.math.IEEE754rUtilsTest;
+
+     label01:
+        $stack2 = (float[]) null;
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float[])>($stack2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for null input");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack37 := @caughtexception;
+
+     label04:
+        $stack4 = newarray (float)[0];
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float[])>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for empty input");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack34 := @caughtexception;
+
+     label07:
+        $stack6 = (float[]) null;
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float[])>($stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for null input");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack31 := @caughtexception;
+
+     label10:
+        $stack8 = newarray (float)[0];
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float[])>($stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for empty input");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack28 := @caughtexception;
+
+     label13:
+        $stack10 = (double[]) null;
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for null input");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack25 := @caughtexception;
+
+     label16:
+        $stack12 = newarray (double)[0];
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double[])>($stack12);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for empty input");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack22 := @caughtexception;
+
+     label19:
+        $stack14 = (double[]) null;
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double[])>($stack14);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for null input");
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack19 := @caughtexception;
+
+     label22:
+        $stack16 = newarray (double)[0];
+
+        staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double[])>($stack16);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected for empty input");
+
+     label23:
+        goto label25;
+
+     label24:
+        $stack18 := @caughtexception;
+
+     label25:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+        catch java.lang.IllegalArgumentException from label22 to label23 with label24;
+    }
+
+    public void testConstructorExists()
+    {
+        org.apache.commons.lang3.math.IEEE754rUtils $stack1;
+        org.apache.commons.lang3.math.IEEE754rUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.math.IEEE754rUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.math.IEEE754rUtils;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.math.IEEE754rUtils: void <init>()>();
+
+        return;
+    }
+}

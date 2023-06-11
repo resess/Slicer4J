@@ -1,0 +1,1922 @@
+public class org.apache.commons.lang3.exception.ExceptionUtilsTest extends java.lang.Object
+{
+    private org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested;
+    private java.lang.Throwable withCause;
+    private java.lang.Throwable withoutCause;
+    private java.lang.Throwable jdkNoCause;
+    private org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp()
+    {
+        java.lang.Throwable $stack3, $stack5;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack6, $stack9, $stack10, $stack11;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack4, $stack7;
+        java.lang.NullPointerException $stack8;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable createExceptionWithoutCause()>();
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause> = $stack3;
+
+        $stack4 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException;
+
+        $stack5 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException: void <init>(java.lang.Throwable)>($stack5);
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested> = $stack4;
+
+        $stack6 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>($stack7);
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause> = $stack6;
+
+        $stack8 = new java.lang.NullPointerException;
+
+        specialinvoke $stack8.<java.lang.NullPointerException: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause> = $stack8;
+
+        $stack9 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>(null);
+
+        $stack10 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>($stack9);
+
+        virtualinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void setCause(java.lang.Throwable)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>($stack9);
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause> = $stack11;
+
+        return;
+    }
+
+    public void tearDown() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause> = null;
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested> = null;
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause> = null;
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause> = null;
+
+        this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause> = null;
+
+        return;
+    }
+
+    private java.lang.Throwable createExceptionWithoutCause()
+    {
+        java.lang.Throwable $stack3;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithoutCause $stack2;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+     label1:
+        $stack2 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithoutCause;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithoutCause: void <init>(org.apache.commons.lang3.exception.ExceptionUtilsTest$1)>(null);
+
+        throw $stack2;
+
+     label2:
+        $stack3 := @caughtexception;
+
+        return $stack3;
+
+        catch java.lang.Throwable from label1 to label2 with label2;
+    }
+
+    private java.lang.Throwable createExceptionWithCause()
+    {
+        java.lang.Throwable $stack3, $stack4, $stack5;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack2, $stack6;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+     label1:
+        $stack2 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable createExceptionWithoutCause()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>($stack3);
+
+        throw $stack2;
+
+     label2:
+        $stack5 := @caughtexception;
+
+        $stack6 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.Throwable)>($stack5);
+
+        throw $stack6;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return $stack4;
+
+        catch java.lang.Throwable from label1 to label2 with label2;
+        catch java.lang.Throwable from label1 to label3 with label3;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        org.apache.commons.lang3.exception.ExceptionUtils $stack2;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.exception.ExceptionUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/exception/ExceptionUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/exception/ExceptionUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/exception/ExceptionUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testGetCause_Throwable()
+    {
+        java.lang.Throwable $stack2, $stack3, $stack5, $stack7, $stack8, $stack9, $stack11, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack25, $stack27, $stack29, $stack31, $stack32;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack15, $stack17, $stack19, $stack21, $stack23, $stack26, $stack28, $stack30;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack6, $stack10;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>(null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack6 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack10 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack17 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack16, $stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack21 = (org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause) $stack20;
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack22, $stack25);
+
+        $stack26 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack28 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack29 = virtualinvoke $stack28.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack30 = (org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause) $stack29;
+
+        $stack31 = virtualinvoke $stack30.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack27, $stack32);
+
+        return;
+    }
+
+    public void testGetCause_ThrowableArray()
+    {
+        java.lang.Throwable $stack2, $stack5, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39;
+        java.lang.String[] $stack3, $stack9, $stack13, $stack17, $stack24, $stack28, $stack32, $stack36;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack7, $stack19;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>(null, $stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack6 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack6, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack10 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack9 = newarray (java.lang.String)[0];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack10, $stack9);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack12);
+
+        $stack14 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = null;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack14, $stack13);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack16);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack18 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "getCause";
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack18, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+        $stack21 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack21, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack23);
+
+        $stack25 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack24 = newarray (java.lang.String)[0];
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack25, $stack24);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack27);
+
+        $stack29 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack28 = newarray (java.lang.String)[1];
+
+        $stack28[0] = null;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack29, $stack28);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack31);
+
+        $stack33 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack32 = newarray (java.lang.String)[1];
+
+        $stack32[0] = "getCause";
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack33, $stack32);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack35);
+
+        $stack37 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack36 = newarray (java.lang.String)[1];
+
+        $stack36[0] = "getTargetException";
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>($stack37, $stack36);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack39);
+
+        return;
+    }
+
+    public void testGetRootCause_Throwable()
+    {
+        java.lang.Throwable $stack2, $stack3, $stack5, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack14, $stack16, $stack18, $stack20;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack15, $stack17, $stack19;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack6;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>(null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack6 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack10 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack17 = (org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause) $stack16;
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack18, $stack20);
+
+        return;
+    }
+
+    public void testGetThrowableCount_Throwable()
+    {
+        java.lang.Throwable $stack4, $stack12, $stack16;
+        long $stack3, $stack7, $stack11, $stack15, $stack19, $stack23;
+        int $stack2, $stack6, $stack10, $stack14, $stack18, $stack22;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack20;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack8;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>(null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>($stack4);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>($stack8);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>($stack12);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack15);
+
+        $stack16 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>($stack16);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack19);
+
+        $stack20 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int getThrowableCount(java.lang.Throwable)>($stack20);
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack23);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_null()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.Throwable[] $stack2;
+        int $stack3;
+        long $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>(null);
+
+        $stack3 = lengthof $stack2;
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack4);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_withoutCause()
+    {
+        java.lang.Throwable $stack2, $stack6, $stack7;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.Throwable[] $stack3;
+        int $stack4;
+        long $stack5;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>($stack2);
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack6 = $stack3[0];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack6);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_nested()
+    {
+        java.lang.Throwable $stack6, $stack8, $stack9;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack2, $stack7;
+        long $stack5;
+        java.lang.Throwable[] $stack3;
+        int $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>($stack2);
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack6 = $stack3[0];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack6);
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack8 = $stack3[1];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack8);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_withCause()
+    {
+        java.lang.Throwable $stack2, $stack6, $stack7, $stack8, $stack10, $stack11;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack9;
+        long $stack5;
+        java.lang.Throwable[] $stack3;
+        int $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>($stack2);
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack6 = $stack3[0];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack6);
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack8 = $stack3[1];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack8);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack10 = $stack3[2];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack10);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_jdkNoCause()
+    {
+        java.lang.Throwable $stack2, $stack6, $stack7;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.Throwable[] $stack3;
+        int $stack4;
+        long $stack5;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>($stack2);
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack6 = $stack3[0];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack6);
+
+        return;
+    }
+
+    public void testGetThrowables_Throwable_recursiveCause()
+    {
+        java.lang.Throwable $stack6, $stack9, $stack10, $stack12, $stack14, $stack15;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack2, $stack7, $stack8, $stack11, $stack13;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        long $stack5;
+        java.lang.Throwable[] $stack3;
+        int $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>($stack2);
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack6 = $stack3[0];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack10 = $stack3[1];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack13 = (org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause) $stack12;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack15 = $stack3[2];
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_null()
+    {
+        java.util.List $stack2;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        int $stack4;
+        long $stack5;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>(null);
+
+        $stack4 = interfaceinvoke $stack2.<java.util.List: int size()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack5);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_withoutCause()
+    {
+        java.lang.Throwable $stack2, $stack7;
+        java.util.List $stack3;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        int $stack5;
+        long $stack6;
+        java.lang.Object $stack8;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>($stack2);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack8 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_nested()
+    {
+        java.lang.Throwable $stack9;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack2, $stack7;
+        long $stack6;
+        java.util.List $stack3;
+        int $stack5;
+        java.lang.Object $stack8, $stack10;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>($stack2);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack8 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack10 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_withCause()
+    {
+        java.lang.Throwable $stack2, $stack7, $stack11;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack9;
+        long $stack6;
+        java.util.List $stack3;
+        int $stack5;
+        java.lang.Object $stack8, $stack10, $stack12;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>($stack2);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack8 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack10 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack12 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_jdkNoCause()
+    {
+        java.lang.Throwable $stack2, $stack7;
+        java.util.List $stack3;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        int $stack5;
+        long $stack6;
+        java.lang.Object $stack8;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>($stack2);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable jdkNoCause>;
+
+        $stack8 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        return;
+    }
+
+    public void testGetThrowableList_Throwable_recursiveCause()
+    {
+        java.lang.Throwable $stack10, $stack13, $stack15;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack2, $stack7, $stack9, $stack12, $stack14;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        long $stack6;
+        java.util.List $stack3;
+        int $stack5;
+        java.lang.Object $stack8, $stack11, $stack16;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>($stack2);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack8 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack11 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause cyclicCause>;
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack14 = (org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause) $stack13;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: java.lang.Throwable getCause()>();
+
+        $stack16 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        return;
+    }
+
+    public void testIndexOf_ThrowableClass()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack23, $stack27, $stack31, $stack35;
+        java.lang.Throwable $stack7, $stack11, $stack15, $stack19, $stack39, $stack43, $stack47, $stack51, $stack55;
+        long $stack3, $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54, $stack58;
+        int $stack2, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53, $stack57;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>(null, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack7, null);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack11, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack15, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack19, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack23, null);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack26);
+
+        $stack27 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack27, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack31, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack34);
+
+        $stack35 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack35, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack39, null);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack43, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack46);
+
+        $stack47 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack47, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack50 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack50);
+
+        $stack51 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack51, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack54);
+
+        $stack55 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack55, class "Ljava/lang/Exception;");
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack58);
+
+        return;
+    }
+
+    public void testIndexOf_ThrowableClassInt()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack23, $stack27, $stack31, $stack35;
+        java.lang.Throwable $stack7, $stack11, $stack15, $stack19, $stack39, $stack43, $stack47, $stack51, $stack55, $stack59, $stack63, $stack67, $stack71;
+        long $stack3, $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54, $stack58, $stack62, $stack66, $stack70, $stack74;
+        int $stack2, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53, $stack57, $stack61, $stack65, $stack69, $stack73, $i0;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>(null, null, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>(null, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack7, null);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack11, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack15, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack19, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack23, null, 0);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack26);
+
+        $stack27 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack27, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack31, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack34);
+
+        $stack35 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack35, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class)>($stack39, null);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack43, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack46);
+
+        $stack47 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack47, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack50 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack50);
+
+        $stack51 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack51, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack54);
+
+        $stack55 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $i0 = (int) -1;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack55, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", $i0);
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack58);
+
+        $stack59 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack59, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack62 = (long) $stack61;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack62);
+
+        $stack63 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack63, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 1);
+
+        $stack66 = (long) $stack65;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack66);
+
+        $stack67 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack67, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 9);
+
+        $stack70 = (long) $stack69;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack70);
+
+        $stack71 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfThrowable(java.lang.Throwable,java.lang.Class,int)>($stack71, class "Ljava/lang/Exception;", 0);
+
+        $stack74 = (long) $stack73;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack74);
+
+        return;
+    }
+
+    public void testIndexOfType_ThrowableClass()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack23, $stack27, $stack31, $stack35;
+        java.lang.Throwable $stack7, $stack11, $stack15, $stack19, $stack39, $stack43, $stack47, $stack51, $stack55;
+        long $stack3, $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54, $stack58;
+        int $stack2, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53, $stack57;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>(null, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack7, null);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack11, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack15, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack19, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack23, null);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack26);
+
+        $stack27 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack27, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack31, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack34);
+
+        $stack35 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack35, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack39, null);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack43, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;");
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack46);
+
+        $stack47 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack47, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;");
+
+        $stack50 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack50);
+
+        $stack51 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack51, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;");
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack54);
+
+        $stack55 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack55, class "Ljava/lang/Exception;");
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack58);
+
+        return;
+    }
+
+    public void testIndexOfType_ThrowableClassInt()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException $stack23, $stack27, $stack31, $stack35;
+        java.lang.Throwable $stack7, $stack11, $stack15, $stack19, $stack39, $stack43, $stack47, $stack51, $stack55, $stack59, $stack63, $stack67, $stack71;
+        long $stack3, $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54, $stack58, $stack62, $stack66, $stack70, $stack74;
+        int $stack2, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53, $stack57, $stack61, $stack65, $stack69, $stack73, $i0;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>(null, null, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>(null, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack7, null);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack11, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack15, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack19, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack23, null, 0);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack26);
+
+        $stack27 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack27, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack31, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack34);
+
+        $stack35 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: org.apache.commons.lang3.exception.ExceptionUtilsTest$NestableException nested>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack35, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class)>($stack39, null);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack43, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack46);
+
+        $stack47 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack47, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$NestableException;", 0);
+
+        $stack50 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack50);
+
+        $stack51 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack51, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithoutCause;", 0);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack54);
+
+        $stack55 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $i0 = (int) -1;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack55, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", $i0);
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack58);
+
+        $stack59 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack59, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 0);
+
+        $stack62 = (long) $stack61;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack62);
+
+        $stack63 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack63, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 1);
+
+        $stack66 = (long) $stack65;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack66);
+
+        $stack67 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack67, class "Lorg/apache/commons/lang3/exception/ExceptionUtilsTest$ExceptionWithCause;", 9);
+
+        $stack70 = (long) $stack69;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack70);
+
+        $stack71 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOfType(java.lang.Throwable,java.lang.Class,int)>($stack71, class "Ljava/lang/Exception;", 0);
+
+        $stack74 = (long) $stack73;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack74);
+
+        return;
+    }
+
+    public void testPrintRootCauseStackTrace_Throwable() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable)>(null);
+
+        return;
+    }
+
+    public void testPrintRootCauseStackTrace_ThrowableStream() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack14, $stack16, $stack22;
+        java.io.ByteArrayOutputStream $u0, $u2, $u3, $u5;
+        long $stack11;
+        int $stack10, $stack19, $stack24, $i0, $i1;
+        java.lang.String $stack9, $stack18, $stack23;
+        boolean $stack26, $stack25;
+        java.io.PrintStream $u1, $u4, $u6;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.IllegalArgumentException $stack34;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $u0 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $u0.<java.io.ByteArrayOutputStream: void <init>(int)>(1024);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>(null, null);
+
+        $u1 = new java.io.PrintStream;
+
+        specialinvoke $u1.<java.io.PrintStream: void <init>(java.io.OutputStream)>($u0);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>(null, $u1);
+
+        $stack9 = virtualinvoke $u0.<java.io.ByteArrayOutputStream: java.lang.String toString()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.String: int length()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $u2 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $u2.<java.io.ByteArrayOutputStream: void <init>(int)>(1024);
+
+     label1:
+        $stack14 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>($stack14, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack34 := @caughtexception;
+
+     label4:
+        $u3 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $u3.<java.io.ByteArrayOutputStream: void <init>(int)>(1024);
+
+        $stack16 = specialinvoke this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable createExceptionWithCause()>();
+
+        $u4 = new java.io.PrintStream;
+
+        specialinvoke $u4.<java.io.PrintStream: void <init>(java.io.OutputStream)>($u3);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>($stack16, $u4);
+
+        $stack18 = virtualinvoke $u3.<java.io.ByteArrayOutputStream: java.lang.String toString()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.String: int indexOf(java.lang.String)>(" [wrapped] ");
+
+        $i0 = (int) -1;
+
+        if $stack19 == $i0 goto label5;
+
+        $stack26 = 1;
+
+        goto label6;
+
+     label5:
+        $stack26 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $u5 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $u5.<java.io.ByteArrayOutputStream: void <init>(int)>(1024);
+
+        $stack22 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $u6 = new java.io.PrintStream;
+
+        specialinvoke $u6.<java.io.PrintStream: void <init>(java.io.OutputStream)>($u5);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>($stack22, $u6);
+
+        $stack23 = virtualinvoke $u5.<java.io.ByteArrayOutputStream: java.lang.String toString()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.String: int indexOf(java.lang.String)>(" [wrapped] ");
+
+        $i1 = (int) -1;
+
+        if $stack24 != $i1 goto label7;
+
+        $stack25 = 1;
+
+        goto label8;
+
+     label7:
+        $stack25 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testPrintRootCauseStackTrace_ThrowableWriter() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack14, $stack16, $stack22;
+        long $stack11;
+        java.lang.StringBuffer $stack9;
+        int $stack10, $stack19, $stack24, $i0, $i1;
+        java.lang.String $stack18, $stack23;
+        boolean $stack26, $stack25;
+        java.io.PrintWriter $u1, $u4, $u6;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.io.StringWriter $u0, $u2, $u3, $u5;
+        java.lang.IllegalArgumentException $stack34;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $u0 = new java.io.StringWriter;
+
+        specialinvoke $u0.<java.io.StringWriter: void <init>(int)>(1024);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter)>(null, null);
+
+        $u1 = new java.io.PrintWriter;
+
+        specialinvoke $u1.<java.io.PrintWriter: void <init>(java.io.Writer)>($u0);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter)>(null, $u1);
+
+        $stack9 = virtualinvoke $u0.<java.io.StringWriter: java.lang.StringBuffer getBuffer()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuffer: int length()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $u2 = new java.io.StringWriter;
+
+        specialinvoke $u2.<java.io.StringWriter: void <init>(int)>(1024);
+
+     label1:
+        $stack14 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withCause>;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter)>($stack14, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack34 := @caughtexception;
+
+     label4:
+        $u3 = new java.io.StringWriter;
+
+        specialinvoke $u3.<java.io.StringWriter: void <init>(int)>(1024);
+
+        $stack16 = specialinvoke this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable createExceptionWithCause()>();
+
+        $u4 = new java.io.PrintWriter;
+
+        specialinvoke $u4.<java.io.PrintWriter: void <init>(java.io.Writer)>($u3);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter)>($stack16, $u4);
+
+        $stack18 = virtualinvoke $u3.<java.io.StringWriter: java.lang.String toString()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.String: int indexOf(java.lang.String)>(" [wrapped] ");
+
+        $i0 = (int) -1;
+
+        if $stack19 == $i0 goto label5;
+
+        $stack26 = 1;
+
+        goto label6;
+
+     label5:
+        $stack26 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $u5 = new java.io.StringWriter;
+
+        specialinvoke $u5.<java.io.StringWriter: void <init>(int)>(1024);
+
+        $stack22 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $u6 = new java.io.PrintWriter;
+
+        specialinvoke $u6.<java.io.PrintWriter: void <init>(java.io.Writer)>($u5);
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter)>($stack22, $u6);
+
+        $stack23 = virtualinvoke $u5.<java.io.StringWriter: java.lang.String toString()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.String: int indexOf(java.lang.String)>(" [wrapped] ");
+
+        $i1 = (int) -1;
+
+        if $stack24 != $i1 goto label7;
+
+        $stack25 = 1;
+
+        goto label8;
+
+     label7:
+        $stack25 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testGetRootCauseStackTrace_Throwable() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack12, $stack14;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.String[] $stack9, $stack13, $stack15;
+        long $stack11;
+        int $stack10, $stack28, len$, i$;
+        java.lang.String element;
+        boolean $stack16, $stack20, match;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)>(null);
+
+        $stack10 = lengthof $stack9;
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $stack12 = specialinvoke this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable createExceptionWithCause()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)>($stack12);
+
+        match = 0;
+
+        len$ = lengthof $stack13;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        element = $stack13[i$];
+
+        $stack20 = virtualinvoke element.<java.lang.String: boolean startsWith(java.lang.String)>(" [wrapped] ");
+
+        if $stack20 == 0 goto label2;
+
+        match = 1;
+
+        goto label3;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>(match);
+
+        $stack14 = this.<org.apache.commons.lang3.exception.ExceptionUtilsTest: java.lang.Throwable withoutCause>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)>($stack14);
+
+        match = 0;
+
+        $stack28 = lengthof $stack15;
+
+        i$ = 0;
+
+     label4:
+        if i$ >= $stack28 goto label6;
+
+        element = $stack15[i$];
+
+        $stack16 = virtualinvoke element.<java.lang.String: boolean startsWith(java.lang.String)>(" [wrapped] ");
+
+        if $stack16 == 0 goto label5;
+
+        match = 1;
+
+        goto label6;
+
+     label5:
+        i$ = i$ + 1;
+
+        goto label4;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>(match);
+
+        return;
+    }
+
+    public void testRemoveCommonFrames_ListList() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void removeCommonFrames(java.util.List,java.util.List)>(null, null);
+
+        return;
+    }
+
+    public void test_getMessage_Throwable()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack7;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.String $stack3, $stack6, $stack9;
+        java.lang.IllegalArgumentException $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getMessage(java.lang.Throwable)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack3);
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Base");
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getMessage(java.lang.Throwable)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("IllegalArgumentException: Base", $stack6);
+
+        $stack7 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.String,java.lang.Throwable)>("Wrapper", $stack4);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getMessage(java.lang.Throwable)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ExceptionUtilsTest.ExceptionWithCause: Wrapper", $stack9);
+
+        return;
+    }
+
+    public void test_getRootCauseMessage_Throwable()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause $stack7;
+        org.apache.commons.lang3.exception.ExceptionUtilsTest this;
+        java.lang.String $stack3, $stack6, $stack9;
+        java.lang.IllegalArgumentException $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getRootCauseMessage(java.lang.Throwable)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack3);
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Base");
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getRootCauseMessage(java.lang.Throwable)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("IllegalArgumentException: Base", $stack6);
+
+        $stack7 = new org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.exception.ExceptionUtilsTest$ExceptionWithCause: void <init>(java.lang.String,java.lang.Throwable)>("Wrapper", $stack4);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getRootCauseMessage(java.lang.Throwable)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("IllegalArgumentException: Base", $stack9);
+
+        return;
+    }
+}

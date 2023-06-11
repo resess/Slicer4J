@@ -1,0 +1,706 @@
+public class org.apache.commons.lang3.builder.ReflectionToStringBuilder extends org.apache.commons.lang3.builder.ToStringBuilder
+{
+    private boolean appendStatics;
+    private boolean appendTransients;
+    protected java.lang.String[] excludeFieldNames;
+    private java.lang.Class upToClass;
+
+    public static java.lang.String toString(java.lang.Object)
+    {
+        java.lang.Object object;
+        java.lang.String $stack1;
+
+        object := @parameter0: java.lang.Object;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class)>(object, null, 0, 0, null);
+
+        return $stack1;
+    }
+
+    public static java.lang.String toString(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        java.lang.String $stack2;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class)>(object, style, 0, 0, null);
+
+        return $stack2;
+    }
+
+    public static java.lang.String toString(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle, boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        java.lang.String $stack3;
+        boolean outputTransients;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        outputTransients := @parameter2: boolean;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class)>(object, style, outputTransients, 0, null);
+
+        return $stack3;
+    }
+
+    public static java.lang.String toString(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle, boolean, boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        java.lang.String $stack4;
+        boolean outputTransients, outputStatics;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        outputTransients := @parameter2: boolean;
+
+        outputStatics := @parameter3: boolean;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class)>(object, style, outputTransients, outputStatics, null);
+
+        return $stack4;
+    }
+
+    public static java.lang.String toString(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle, boolean, boolean, java.lang.Class)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder $stack5;
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        java.lang.Class reflectUpToClass;
+        java.lang.String $stack6;
+        boolean outputTransients, outputStatics;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        outputTransients := @parameter2: boolean;
+
+        outputStatics := @parameter3: boolean;
+
+        reflectUpToClass := @parameter4: java.lang.Class;
+
+        $stack5 = new org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void <init>(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,java.lang.StringBuffer,java.lang.Class,boolean,boolean)>(object, style, null, reflectUpToClass, outputTransients, outputStatics);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString()>();
+
+        return $stack6;
+    }
+
+    public static java.lang.String toStringExclude(java.lang.Object, java.util.Collection)
+    {
+        java.util.Collection excludeFieldNames;
+        java.lang.Object object;
+        java.lang.String[] $stack2;
+        java.lang.String $stack3;
+
+        object := @parameter0: java.lang.Object;
+
+        excludeFieldNames := @parameter1: java.util.Collection;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] toNoNullStringArray(java.util.Collection)>(excludeFieldNames);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>(object, $stack2);
+
+        return $stack3;
+    }
+
+    static java.lang.String[] toNoNullStringArray(java.util.Collection)
+    {
+        java.lang.Object[] $stack1;
+        java.util.Collection collection;
+        java.lang.String[] $stack2, $stack3;
+
+        collection := @parameter0: java.util.Collection;
+
+        if collection != null goto label1;
+
+        $stack3 = <org.apache.commons.lang3.ArrayUtils: java.lang.String[] EMPTY_STRING_ARRAY>;
+
+        return $stack3;
+
+     label1:
+        $stack1 = interfaceinvoke collection.<java.util.Collection: java.lang.Object[] toArray()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] toNoNullStringArray(java.lang.Object[])>($stack1);
+
+        return $stack2;
+    }
+
+    static java.lang.String[] toNoNullStringArray(java.lang.Object[])
+    {
+        java.lang.Object[] array, $stack9;
+        java.lang.String[] $stack8, $stack10;
+        java.util.ArrayList $stack6;
+        int $stack7, len$, i$;
+        java.lang.Object e;
+        java.lang.String $stack13;
+
+        array := @parameter0: java.lang.Object[];
+
+        $stack6 = new java.util.ArrayList;
+
+        $stack7 = lengthof array;
+
+        specialinvoke $stack6.<java.util.ArrayList: void <init>(int)>($stack7);
+
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        e = array[i$];
+
+        if e == null goto label2;
+
+        $stack13 = virtualinvoke e.<java.lang.Object: java.lang.String toString()>();
+
+        interfaceinvoke $stack6.<java.util.List: boolean add(java.lang.Object)>($stack13);
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = <org.apache.commons.lang3.ArrayUtils: java.lang.String[] EMPTY_STRING_ARRAY>;
+
+        $stack9 = interfaceinvoke $stack6.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack8);
+
+        $stack10 = (java.lang.String[]) $stack9;
+
+        return $stack10;
+    }
+
+    public static transient java.lang.String toStringExclude(java.lang.Object, java.lang.String[])
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder $stack2, $stack3;
+        java.lang.Object object;
+        java.lang.String[] excludeFieldNames;
+        java.lang.String $stack4;
+
+        object := @parameter0: java.lang.Object;
+
+        excludeFieldNames := @parameter1: java.lang.String[];
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void <init>(java.lang.Object)>(object);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: org.apache.commons.lang3.builder.ReflectionToStringBuilder setExcludeFieldNames(java.lang.String[])>(excludeFieldNames);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString()>();
+
+        return $stack4;
+    }
+
+    public void <init>(java.lang.Object)
+    {
+        java.lang.Object object;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        object := @parameter0: java.lang.Object;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>(object);
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass> = null;
+
+        return;
+    }
+
+    public void <init>(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle)>(object, style);
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass> = null;
+
+        return;
+    }
+
+    public void <init>(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle, java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter2: java.lang.StringBuffer;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,java.lang.StringBuffer)>(object, style, buffer);
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass> = null;
+
+        return;
+    }
+
+    public void <init>(java.lang.Object, org.apache.commons.lang3.builder.ToStringStyle, java.lang.StringBuffer, java.lang.Class, boolean, boolean)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle style;
+        java.lang.Object object;
+        java.lang.Class reflectUpToClass;
+        boolean outputTransients, outputStatics;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        object := @parameter0: java.lang.Object;
+
+        style := @parameter1: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter2: java.lang.StringBuffer;
+
+        reflectUpToClass := @parameter3: java.lang.Class;
+
+        outputTransients := @parameter4: boolean;
+
+        outputStatics := @parameter5: boolean;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,java.lang.StringBuffer)>(object, style, buffer);
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients> = 0;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass> = null;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void setUpToClass(java.lang.Class)>(reflectUpToClass);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void setAppendTransients(boolean)>(outputTransients);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void setAppendStatics(boolean)>(outputStatics);
+
+        return;
+    }
+
+    protected boolean accept(java.lang.reflect.Field)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.String[] $stack8, $stack9;
+        java.lang.reflect.Field field;
+        int $stack3, $stack4, $stack6, $stack11, $i0;
+        java.lang.String $stack2, $stack10;
+        boolean $stack5, $stack7, $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        field := @parameter0: java.lang.reflect.Field;
+
+        $stack2 = virtualinvoke field.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.String: int indexOf(int)>(36);
+
+        $i0 = (int) -1;
+
+        if $stack3 == $i0 goto label1;
+
+        return 0;
+
+     label1:
+        $stack4 = virtualinvoke field.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack5 = staticinvoke <java.lang.reflect.Modifier: boolean isTransient(int)>($stack4);
+
+        if $stack5 == 0 goto label2;
+
+        $stack15 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean isAppendTransients()>();
+
+        if $stack15 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $stack6 = virtualinvoke field.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack7 = staticinvoke <java.lang.reflect.Modifier: boolean isStatic(int)>($stack6);
+
+        if $stack7 == 0 goto label3;
+
+        $stack13 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean isAppendStatics()>();
+
+        if $stack13 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames>;
+
+        if $stack8 == null goto label4;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames>;
+
+        $stack10 = virtualinvoke field.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack11 = staticinvoke <java.util.Arrays: int binarySearch(java.lang.Object[],java.lang.Object)>($stack9, $stack10);
+
+        if $stack11 < 0 goto label4;
+
+        return 0;
+
+     label4:
+        return 1;
+    }
+
+    protected void appendFieldsIn(java.lang.Class)
+    {
+        int len$, i$;
+        java.lang.InternalError $stack20;
+        java.lang.String $stack11, $stack23, $stack25;
+        boolean $stack9, $stack12;
+        java.lang.IllegalAccessException $stack19;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.reflect.Field field;
+        java.lang.reflect.Field[] $stack10;
+        java.lang.Class clazz;
+        java.lang.Object $stack15, $stack17;
+        java.lang.StringBuilder $stack21, $stack22, $stack24;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        clazz := @parameter0: java.lang.Class;
+
+        $stack9 = virtualinvoke clazz.<java.lang.Class: boolean isArray()>();
+
+        if $stack9 == 0 goto label1;
+
+        $stack17 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getObject()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: org.apache.commons.lang3.builder.ReflectionToStringBuilder reflectionAppendArray(java.lang.Object)>($stack17);
+
+        return;
+
+     label1:
+        $stack10 = virtualinvoke clazz.<java.lang.Class: java.lang.reflect.Field[] getDeclaredFields()>();
+
+        staticinvoke <java.lang.reflect.AccessibleObject: void setAccessible(java.lang.reflect.AccessibleObject[],boolean)>($stack10, 1);
+
+        len$ = lengthof $stack10;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label7;
+
+        field = $stack10[i$];
+
+        $stack11 = virtualinvoke field.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack12 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean accept(java.lang.reflect.Field)>(field);
+
+        if $stack12 == 0 goto label6;
+
+     label3:
+        $stack15 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getValue(java.lang.reflect.Field)>(field);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>($stack11, $stack15);
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack19 := @caughtexception;
+
+        $stack20 = new java.lang.InternalError;
+
+        $stack21 = new java.lang.StringBuilder;
+
+        specialinvoke $stack21.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected IllegalAccessException: ");
+
+        $stack23 = virtualinvoke $stack19.<java.lang.IllegalAccessException: java.lang.String getMessage()>();
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack20.<java.lang.InternalError: void <init>(java.lang.String)>($stack25);
+
+        throw $stack20;
+
+     label6:
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label7:
+        return;
+
+        catch java.lang.IllegalAccessException from label3 to label4 with label5;
+    }
+
+    public java.lang.String[] getExcludeFieldNames()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.String[] $stack1, $stack3;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Object: java.lang.Object clone()>();
+
+        $stack3 = (java.lang.String[]) $stack2;
+
+        return $stack3;
+    }
+
+    public java.lang.Class getUpToClass()
+    {
+        java.lang.Class $stack1;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass>;
+
+        return $stack1;
+    }
+
+    protected java.lang.Object getValue(java.lang.reflect.Field) throws java.lang.IllegalArgumentException, java.lang.IllegalAccessException
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.Object $stack2, $stack3;
+        java.lang.reflect.Field field;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        field := @parameter0: java.lang.reflect.Field;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getObject()>();
+
+        $stack3 = virtualinvoke field.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack2);
+
+        return $stack3;
+    }
+
+    public boolean isAppendStatics()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics>;
+
+        return $stack1;
+    }
+
+    public boolean isAppendTransients()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.builder.ReflectionToStringBuilder reflectionAppendArray(java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.StringBuffer $stack3;
+        org.apache.commons.lang3.builder.ToStringStyle $stack2;
+        java.lang.Object array;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        array := @parameter0: java.lang.Object;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: org.apache.commons.lang3.builder.ToStringStyle getStyle()>();
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.StringBuffer getStringBuffer()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.builder.ToStringStyle: void reflectionAppendArrayDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object)>($stack3, null, array);
+
+        return this;
+    }
+
+    public void setAppendStatics(boolean)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        boolean appendStatics;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        appendStatics := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendStatics> = appendStatics;
+
+        return;
+    }
+
+    public void setAppendTransients(boolean)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        boolean appendTransients;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        appendTransients := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: boolean appendTransients> = appendTransients;
+
+        return;
+    }
+
+    public transient org.apache.commons.lang3.builder.ReflectionToStringBuilder setExcludeFieldNames(java.lang.String[])
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.String[] excludeFieldNamesParam, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        excludeFieldNamesParam := @parameter0: java.lang.String[];
+
+        if excludeFieldNamesParam != null goto label1;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames> = null;
+
+        goto label2;
+
+     label1:
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] toNoNullStringArray(java.lang.Object[])>(excludeFieldNamesParam);
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames> = $stack2;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] excludeFieldNames>;
+
+        staticinvoke <java.util.Arrays: void sort(java.lang.Object[])>($stack3);
+
+     label2:
+        return this;
+    }
+
+    public void setUpToClass(java.lang.Class)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        java.lang.Class clazz;
+        java.lang.Object $stack3;
+        java.lang.IllegalArgumentException $stack7;
+        boolean $stack6;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        clazz := @parameter0: java.lang.Class;
+
+        if clazz == null goto label1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getObject()>();
+
+        if $stack3 == null goto label1;
+
+        $stack6 = virtualinvoke clazz.<java.lang.Class: boolean isInstance(java.lang.Object)>($stack3);
+
+        if $stack6 != 0 goto label1;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Specified class is not a superclass of the object");
+
+        throw $stack7;
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class upToClass> = clazz;
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilder this;
+        org.apache.commons.lang3.builder.ToStringStyle $stack11;
+        java.lang.Object $stack2, $stack3;
+        java.lang.Class $stack4, $stack5, $stack7, $stack9, clazz;
+        java.lang.String $stack6, $stack12;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getObject()>();
+
+        if $stack2 != null goto label1;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: org.apache.commons.lang3.builder.ToStringStyle getStyle()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String getNullText()>();
+
+        return $stack12;
+
+     label1:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Object getObject()>();
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Object: java.lang.Class getClass()>();
+
+        clazz = $stack4;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void appendFieldsIn(java.lang.Class)>($stack4);
+
+     label2:
+        $stack5 = virtualinvoke clazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $stack5 == null goto label3;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.Class getUpToClass()>();
+
+        if clazz == $stack7 goto label3;
+
+        $stack9 = virtualinvoke clazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        clazz = $stack9;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilder: void appendFieldsIn(java.lang.Class)>($stack9);
+
+        goto label2;
+
+     label3:
+        $stack6 = specialinvoke this.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        return $stack6;
+    }
+}

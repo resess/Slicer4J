@@ -1,0 +1,1239 @@
+public class org.apache.commons.lang3.concurrent.ConcurrentUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConcurrentExceptionCauseUnchecked()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        $stack2 = new java.lang.RuntimeException;
+
+        specialinvoke $stack2.<java.lang.RuntimeException: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.Throwable)>($stack2);
+
+        return;
+    }
+
+    public void testConcurrentExceptionCauseError()
+    {
+        java.lang.Error $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        $stack2 = new java.lang.Error;
+
+        specialinvoke $stack2.<java.lang.Error: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.String,java.lang.Throwable)>("An error", $stack2);
+
+        return;
+    }
+
+    public void testConcurrentExceptionCauseNull()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.Throwable)>(null);
+
+        return;
+    }
+
+    public void testConcurrentRuntimeExceptionCauseUnchecked()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        $stack2 = new java.lang.RuntimeException;
+
+        specialinvoke $stack2.<java.lang.RuntimeException: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.Throwable)>($stack2);
+
+        return;
+    }
+
+    public void testConcurrentRuntimeExceptionCauseError()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack1;
+        java.lang.Error $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        $stack2 = new java.lang.Error;
+
+        specialinvoke $stack2.<java.lang.Error: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.String,java.lang.Throwable)>("An error", $stack2);
+
+        return;
+    }
+
+    public void testConcurrentRuntimeExceptionCauseNull()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConcurrentRuntimeException;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: void <init>(java.lang.Throwable)>(null);
+
+        return;
+    }
+
+    public void testExtractCauseNull()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Non null result", $stack2);
+
+        return;
+    }
+
+    public void testExtractCauseNullCause()
+    {
+        java.util.concurrent.ExecutionException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack1.<java.util.concurrent.ExecutionException: void <init>(java.lang.String,java.lang.Throwable)>("Test", null);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Non null result", $stack3);
+
+        return;
+    }
+
+    public void testExtractCauseError()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Error $stack6;
+        java.lang.AssertionError $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.AssertionError;
+
+        specialinvoke $stack3.<java.lang.AssertionError: void <init>(java.lang.Object)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Error not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong error", $stack3, $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.Error from label1 to label2 with label3;
+    }
+
+    public void testExtractCauseUncheckedException()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.RuntimeException;
+
+        specialinvoke $stack3.<java.lang.RuntimeException: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Runtime exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception", $stack3, $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    public void testExtractCauseChecked()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack5;
+        java.lang.Exception $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>(java.lang.String)>("Test");
+
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentException extractCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack3, $stack7);
+
+        return;
+    }
+
+    public void testExtractCauseUncheckedNull()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Non null result", $stack2);
+
+        return;
+    }
+
+    public void testExtractCauseUncheckedNullCause()
+    {
+        java.util.concurrent.ExecutionException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack3;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack1 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack1.<java.util.concurrent.ExecutionException: void <init>(java.lang.String,java.lang.Throwable)>("Test", null);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Non null result", $stack3);
+
+        return;
+    }
+
+    public void testExtractCauseUncheckedError()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Error $stack6;
+        java.lang.AssertionError $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.AssertionError;
+
+        specialinvoke $stack3.<java.lang.AssertionError: void <init>(java.lang.Object)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Error not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong error", $stack3, $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.Error from label1 to label2 with label3;
+    }
+
+    public void testExtractCauseUncheckedUncheckedException()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.RuntimeException;
+
+        specialinvoke $stack3.<java.lang.RuntimeException: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Runtime exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception", $stack3, $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    public void testExtractCauseUncheckedChecked()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Exception $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>(java.lang.String)>("Test");
+
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: org.apache.commons.lang3.concurrent.ConcurrentRuntimeException extractCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack3, $stack7);
+
+        return;
+    }
+
+    public void testHandleCauseError() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Error $stack5;
+        java.lang.AssertionError $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.AssertionError;
+
+        specialinvoke $stack3.<java.lang.AssertionError: void <init>(java.lang.Object)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Error not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong error", $stack3, $stack5);
+
+     label4:
+        return;
+
+        catch java.lang.Error from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseUncheckedException() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.RuntimeException;
+
+        specialinvoke $stack3.<java.lang.RuntimeException: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Runtime exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception", $stack3, $stack5);
+
+     label4:
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseChecked()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack5;
+        java.lang.Exception $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("ConcurrentException not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack3, $stack7);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseNull() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.concurrent.ExecutionException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>(null);
+
+        $stack1 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack1.<java.util.concurrent.ExecutionException: void <init>(java.lang.String,java.lang.Throwable)>("Test", null);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>($stack1);
+
+        return;
+    }
+
+    public void testHandleCauseUncheckedError()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Error $stack5;
+        java.lang.AssertionError $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.AssertionError;
+
+        specialinvoke $stack3.<java.lang.AssertionError: void <init>(java.lang.Object)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Error not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong error", $stack3, $stack5);
+
+     label4:
+        return;
+
+        catch java.lang.Error from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseUncheckedUncheckedException()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.RuntimeException $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.RuntimeException;
+
+        specialinvoke $stack3.<java.lang.RuntimeException: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Runtime exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception", $stack3, $stack5);
+
+     label4:
+        return;
+
+        catch java.lang.RuntimeException from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseUncheckedChecked()
+    {
+        java.util.concurrent.ExecutionException $stack4;
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Exception $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>(java.lang.String)>("Test");
+
+     label1:
+        $stack4 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack4.<java.util.concurrent.ExecutionException: void <init>(java.lang.Throwable)>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCauseUnchecked(java.util.concurrent.ExecutionException)>($stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("ConcurrentRuntimeException not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack3, $stack7);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentRuntimeException from label1 to label2 with label3;
+    }
+
+    public void testHandleCauseUncheckedNull()
+    {
+        java.util.concurrent.ExecutionException $stack1;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCauseUnchecked(java.util.concurrent.ExecutionException)>(null);
+
+        $stack1 = new java.util.concurrent.ExecutionException;
+
+        specialinvoke $stack1.<java.util.concurrent.ExecutionException: void <init>(java.lang.String,java.lang.Throwable)>("Test", null);
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCauseUnchecked(java.util.concurrent.ExecutionException)>($stack1);
+
+        return;
+    }
+
+    public void testInitializeNull() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initialize(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a result", $stack2);
+
+        return;
+    }
+
+    public void testInitialize() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object[] $stack8, $stack11;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack3, $stack4, $stack5, $stack10;
+        org.easymock.IExpectationSetters $stack6;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack3;
+
+        $stack4 = new java.lang.Object;
+
+        specialinvoke $stack4.<java.lang.Object: void <init>()>();
+
+        $stack5 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack5);
+
+        interfaceinvoke $stack6.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack4);
+
+        $stack8 = newarray (java.lang.Object)[1];
+
+        $stack8[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initialize(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(init);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result object", $stack4, $stack10);
+
+        $stack11 = newarray (java.lang.Object)[1];
+
+        $stack11[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack11);
+
+        return;
+    }
+
+    public void testInitializeUncheckedNull()
+    {
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initializeUnchecked(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a result", $stack2);
+
+        return;
+    }
+
+    public void testInitializeUnchecked() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object[] $stack8, $stack11;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack3, $stack4, $stack5, $stack10;
+        org.easymock.IExpectationSetters $stack6;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack3;
+
+        $stack4 = new java.lang.Object;
+
+        specialinvoke $stack4.<java.lang.Object: void <init>()>();
+
+        $stack5 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack5);
+
+        interfaceinvoke $stack6.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack4);
+
+        $stack8 = newarray (java.lang.Object)[1];
+
+        $stack8[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initializeUnchecked(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(init);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result object", $stack4, $stack10);
+
+        $stack11 = newarray (java.lang.Object)[1];
+
+        $stack11[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack11);
+
+        return;
+    }
+
+    public void testInitializeUncheckedEx() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack15;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack13;
+        java.lang.Object[] $stack10, $stack12;
+        java.lang.Exception $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack8;
+        java.lang.Object $stack4, $stack6;
+        org.easymock.IExpectationSetters $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack4;
+
+        $stack5 = new java.lang.Exception;
+
+        specialinvoke $stack5.<java.lang.Exception: void <init>()>();
+
+        $stack6 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack6);
+
+        $stack8 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.Throwable)>($stack5);
+
+        interfaceinvoke $stack7.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andThrow(java.lang.Throwable)>($stack8);
+
+        $stack10 = newarray (java.lang.Object)[1];
+
+        $stack10[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack10);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object initializeUnchecked(org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(init);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack13 := @caughtexception;
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack5, $stack15);
+
+     label4:
+        $stack12 = newarray (java.lang.Object)[1];
+
+        $stack12[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack12);
+
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentRuntimeException from label1 to label2 with label3;
+    }
+
+    public void testConstantFuture_Integer() throws java.lang.Exception
+    {
+        java.lang.Integer $stack3;
+        java.util.concurrent.TimeUnit $stack7;
+        java.util.concurrent.Future $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack6, $stack8, $stack9;
+        boolean $stack5, $stack10, $stack11, $stack12;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.util.concurrent.Future constantFuture(java.lang.Object)>($stack3);
+
+        $stack5 = interfaceinvoke $stack4.<java.util.concurrent.Future: boolean isDone()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = interfaceinvoke $stack4.<java.util.concurrent.Future: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack6);
+
+        $stack7 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        $stack8 = interfaceinvoke $stack4.<java.util.concurrent.Future: java.lang.Object get(long,java.util.concurrent.TimeUnit)>(1000L, $stack7);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack8);
+
+        $stack9 = interfaceinvoke $stack4.<java.util.concurrent.Future: java.lang.Object get(long,java.util.concurrent.TimeUnit)>(1000L, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack9);
+
+        $stack10 = interfaceinvoke $stack4.<java.util.concurrent.Future: boolean isCancelled()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = interfaceinvoke $stack4.<java.util.concurrent.Future: boolean cancel(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = interfaceinvoke $stack4.<java.util.concurrent.Future: boolean cancel(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void testConstantFuture_null() throws java.lang.Exception
+    {
+        java.util.concurrent.TimeUnit $stack6;
+        java.util.concurrent.Future $stack3;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack5, $stack7, $stack8;
+        boolean $stack4, $stack9, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.util.concurrent.Future constantFuture(java.lang.Object)>(null);
+
+        $stack4 = interfaceinvoke $stack3.<java.util.concurrent.Future: boolean isDone()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = interfaceinvoke $stack3.<java.util.concurrent.Future: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack6 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        $stack7 = interfaceinvoke $stack3.<java.util.concurrent.Future: java.lang.Object get(long,java.util.concurrent.TimeUnit)>(1000L, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack7);
+
+        $stack8 = interfaceinvoke $stack3.<java.util.concurrent.Future: java.lang.Object get(long,java.util.concurrent.TimeUnit)>(1000L, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack9 = interfaceinvoke $stack3.<java.util.concurrent.Future: boolean isCancelled()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack9);
+
+        $stack10 = interfaceinvoke $stack3.<java.util.concurrent.Future: boolean cancel(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = interfaceinvoke $stack3.<java.util.concurrent.Future: boolean cancel(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testPutIfAbsentKeyPresent()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.util.concurrent.ConcurrentHashMap $stack5;
+        java.lang.Object $stack10, $stack12;
+        java.lang.Integer $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        $stack5 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack5.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("testKey", $stack4);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object putIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)>($stack5, "testKey", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack4, $stack10);
+
+        $stack12 = interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong value in map", $stack4, $stack12);
+
+        return;
+    }
+
+    public void testPutIfAbsentKeyNotPresent()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.util.concurrent.ConcurrentHashMap $stack5;
+        java.lang.Object $stack7, $stack9;
+        java.lang.Integer $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        $stack5 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack5.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object putIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)>($stack5, "testKey", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack4, $stack7);
+
+        $stack9 = interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong value in map", $stack4, $stack9);
+
+        return;
+    }
+
+    public void testPutIfAbsentNullMap()
+    {
+        java.lang.Object $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Integer $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(100);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object putIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,java.lang.Object)>(null, "test", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Wrong result", $stack5);
+
+        return;
+    }
+
+    public void testCreateIfAbsentKeyPresent() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object[] $stack6, $stack14;
+        java.util.concurrent.ConcurrentHashMap $stack8;
+        java.lang.Integer $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack5, $stack11, $stack13;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack5;
+
+        $stack6 = newarray (java.lang.Object)[1];
+
+        $stack6[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack6);
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        $stack8 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack8.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        interfaceinvoke $stack8.<java.util.concurrent.ConcurrentMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("testKey", $stack7);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>($stack8, "testKey", init);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack7, $stack11);
+
+        $stack13 = interfaceinvoke $stack8.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong value in map", $stack7, $stack13);
+
+        $stack14 = newarray (java.lang.Object)[1];
+
+        $stack14[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack14);
+
+        return;
+    }
+
+    public void testCreateIfAbsentKeyNotPresent() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object[] $stack10, $stack16;
+        java.util.concurrent.ConcurrentHashMap $stack11;
+        java.lang.Integer $stack6;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object $stack5, $stack7, $stack13, $stack15;
+        org.easymock.IExpectationSetters $stack8;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack5;
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        $stack7 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack7);
+
+        interfaceinvoke $stack8.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack6);
+
+        $stack10 = newarray (java.lang.Object)[1];
+
+        $stack10[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack10);
+
+        $stack11 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack11.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>($stack11, "testKey", init);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack6, $stack13);
+
+        $stack15 = interfaceinvoke $stack11.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong value in map", $stack6, $stack15);
+
+        $stack16 = newarray (java.lang.Object)[1];
+
+        $stack16[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack16);
+
+        return;
+    }
+
+    public void testCreateIfAbsentNullMap() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.lang.Object[] $stack3, $stack6;
+        java.lang.Object $stack2, $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack2 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack2;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(null, "test", init);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Wrong result", $stack5);
+
+        $stack6 = newarray (java.lang.Object)[1];
+
+        $stack6[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack6);
+
+        return;
+    }
+
+    public void testCreateIfAbsentNullInit() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.util.concurrent.ConcurrentHashMap $stack4;
+        java.lang.Object $stack8, $stack10;
+        java.lang.Integer $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack4.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        interfaceinvoke $stack4.<java.util.concurrent.ConcurrentMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("testKey", $stack5);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsent(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>($stack4, "testKey", null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Wrong result", $stack8);
+
+        $stack10 = interfaceinvoke $stack4.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Map was changed", $stack5, $stack10);
+
+        return;
+    }
+
+    public void testCreateIfAbsentUncheckedSuccess()
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        java.util.concurrent.ConcurrentHashMap $stack5;
+        java.lang.Object $stack9, $stack11;
+        java.lang.Integer $stack4;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        $stack5 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack5.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        $stack6 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>($stack4);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsentUnchecked(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>($stack5, "testKey", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack4, $stack9);
+
+        $stack11 = interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>("testKey");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong value in map", $stack4, $stack11);
+
+        return;
+    }
+
+    public void testCreateIfAbsentUncheckedException() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack16;
+        org.apache.commons.lang3.concurrent.ConcurrentRuntimeException $stack14;
+        java.lang.Object[] $stack10, $stack13;
+        java.util.concurrent.ConcurrentHashMap $stack11;
+        java.lang.Exception $stack5;
+        org.apache.commons.lang3.concurrent.ConcurrentUtilsTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack8;
+        java.lang.Object $stack4, $stack6;
+        org.easymock.IExpectationSetters $stack7;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer init;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConcurrentUtilsTest;
+
+        $stack4 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Lorg/apache/commons/lang3/concurrent/ConcurrentInitializer;");
+
+        init = (org.apache.commons.lang3.concurrent.ConcurrentInitializer) $stack4;
+
+        $stack5 = new java.lang.Exception;
+
+        specialinvoke $stack5.<java.lang.Exception: void <init>()>();
+
+        $stack6 = interfaceinvoke init.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack6);
+
+        $stack8 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.Throwable)>($stack5);
+
+        interfaceinvoke $stack7.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andThrow(java.lang.Throwable)>($stack8);
+
+        $stack10 = newarray (java.lang.Object)[1];
+
+        $stack10[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack10);
+
+     label1:
+        $stack11 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack11.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: java.lang.Object createIfAbsentUnchecked(java.util.concurrent.ConcurrentMap,java.lang.Object,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>($stack11, "test", init);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack14 := @caughtexception;
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.ConcurrentRuntimeException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack5, $stack16);
+
+     label4:
+        $stack13 = newarray (java.lang.Object)[1];
+
+        $stack13[0] = init;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack13);
+
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentRuntimeException from label1 to label2 with label3;
+    }
+}

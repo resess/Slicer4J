@@ -1,0 +1,250 @@
+class org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy extends java.lang.Object implements org.apache.commons.lang3.time.FastDateParser$Strategy
+{
+    final java.lang.String validTimeZoneChars;
+    final java.util.SortedMap tzNames;
+
+    void <init>(java.util.Locale)
+    {
+        java.lang.String[] $stack9;
+        java.util.Locale locale;
+        int $stack16, $stack17, len$, i$;
+        java.lang.String $stack18, id, $stack26, $stack29, $stack35, $stack38, i$#6;
+        boolean $stack15, $stack23, $stack31;
+        org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy this;
+        java.util.Iterator $stack14;
+        java.util.TimeZone $stack24;
+        java.util.Set $stack13;
+        java.util.TreeMap $stack7;
+        java.lang.StringBuilder $stack10, $stack20;
+        java.lang.Object $stack19;
+        java.util.Comparator $stack8;
+        java.util.SortedMap $stack12, $stack25, $stack28, $stack34, $stack37;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy;
+
+        locale := @parameter0: java.util.Locale;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack7 = new java.util.TreeMap;
+
+        $stack8 = <java.lang.String: java.util.Comparator CASE_INSENSITIVE_ORDER>;
+
+        specialinvoke $stack7.<java.util.TreeMap: void <init>(java.util.Comparator)>($stack8);
+
+        this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames> = $stack7;
+
+        $stack9 = staticinvoke <java.util.TimeZone: java.lang.String[] getAvailableIDs()>();
+
+        len$ = lengthof $stack9;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label4;
+
+        id = $stack9[i$];
+
+        $stack23 = virtualinvoke id.<java.lang.String: boolean startsWith(java.lang.String)>("GMT");
+
+        if $stack23 == 0 goto label2;
+
+        goto label3;
+
+     label2:
+        $stack24 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>(id);
+
+        $stack25 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack26 = virtualinvoke $stack24.<java.util.TimeZone: java.lang.String getDisplayName(boolean,int,java.util.Locale)>(0, 0, locale);
+
+        interfaceinvoke $stack25.<java.util.SortedMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack26, $stack24);
+
+        $stack28 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack29 = virtualinvoke $stack24.<java.util.TimeZone: java.lang.String getDisplayName(boolean,int,java.util.Locale)>(0, 1, locale);
+
+        interfaceinvoke $stack28.<java.util.SortedMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack29, $stack24);
+
+        $stack31 = virtualinvoke $stack24.<java.util.TimeZone: boolean useDaylightTime()>();
+
+        if $stack31 == 0 goto label3;
+
+        $stack34 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack35 = virtualinvoke $stack24.<java.util.TimeZone: java.lang.String getDisplayName(boolean,int,java.util.Locale)>(1, 0, locale);
+
+        interfaceinvoke $stack34.<java.util.SortedMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack35, $stack24);
+
+        $stack37 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack38 = virtualinvoke $stack24.<java.util.TimeZone: java.lang.String getDisplayName(boolean,int,java.util.Locale)>(1, 1, locale);
+
+        interfaceinvoke $stack37.<java.util.SortedMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack38, $stack24);
+
+     label3:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label4:
+        $stack10 = new java.lang.StringBuilder;
+
+        specialinvoke $stack10.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("(GMT[+\\-]\\d{0,1}\\d{2}|[+\\-]\\d{2}:?\\d{2}|");
+
+        $stack12 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack13 = interfaceinvoke $stack12.<java.util.SortedMap: java.util.Set keySet()>();
+
+        $stack14 = interfaceinvoke $stack13.<java.util.Set: java.util.Iterator iterator()>();
+
+     label5:
+        $stack15 = interfaceinvoke $stack14.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack15 == 0 goto label6;
+
+        $stack19 = interfaceinvoke $stack14.<java.util.Iterator: java.lang.Object next()>();
+
+        i$#6 = (java.lang.String) $stack19;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.FastDateParser: java.lang.StringBuilder access$000(java.lang.StringBuilder,java.lang.String,boolean)>($stack10, i$#6, 0);
+
+        virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(124);
+
+        goto label5;
+
+     label6:
+        $stack16 = virtualinvoke $stack10.<java.lang.StringBuilder: int length()>();
+
+        $stack17 = $stack16 - 1;
+
+        virtualinvoke $stack10.<java.lang.StringBuilder: void setCharAt(int,char)>($stack17, 41);
+
+        $stack18 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.lang.String validTimeZoneChars> = $stack18;
+
+        return;
+    }
+
+    public boolean isNumber()
+    {
+        org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy;
+
+        return 0;
+    }
+
+    public boolean addRegex(org.apache.commons.lang3.time.FastDateParser, java.lang.StringBuilder)
+    {
+        org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy this;
+        java.lang.StringBuilder regex;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.time.FastDateParser parser;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        regex := @parameter1: java.lang.StringBuilder;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.lang.String validTimeZoneChars>;
+
+        virtualinvoke regex.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        return 1;
+    }
+
+    public void setCalendar(org.apache.commons.lang3.time.FastDateParser, java.util.Calendar, java.lang.String)
+    {
+        java.util.Calendar cal;
+        int $i0, $i1;
+        java.lang.String value, $stack9, $stack21;
+        boolean $stack12;
+        org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy this;
+        java.util.TimeZone tz;
+        char $stack5, $stack11;
+        java.lang.IllegalArgumentException $u2;
+        java.lang.StringBuilder $stack7, $stack8, $stack19, $stack20, $u0, $u1;
+        java.lang.Object $stack14;
+        org.apache.commons.lang3.time.FastDateParser parser;
+        java.util.SortedMap $stack13;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        cal := @parameter1: java.util.Calendar;
+
+        value := @parameter2: java.lang.String;
+
+        $stack5 = virtualinvoke value.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack5;
+
+        if $i0 == 43 goto label1;
+
+        $stack11 = virtualinvoke value.<java.lang.String: char charAt(int)>(0);
+
+        $i1 = (int) $stack11;
+
+        if $i1 != 45 goto label2;
+
+     label1:
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("GMT");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(value);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        tz = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>($stack9);
+
+        goto label4;
+
+     label2:
+        $stack12 = virtualinvoke value.<java.lang.String: boolean startsWith(java.lang.String)>("GMT");
+
+        if $stack12 == 0 goto label3;
+
+        tz = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>(value);
+
+        goto label4;
+
+     label3:
+        $stack13 = this.<org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy: java.util.SortedMap tzNames>;
+
+        $stack14 = interfaceinvoke $stack13.<java.util.SortedMap: java.lang.Object get(java.lang.Object)>(value);
+
+        tz = (java.util.TimeZone) $stack14;
+
+        if tz != null goto label4;
+
+        $u2 = new java.lang.IllegalArgumentException;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(value);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a supported timezone name");
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack21);
+
+        throw $u2;
+
+     label4:
+        virtualinvoke cal.<java.util.Calendar: void setTimeZone(java.util.TimeZone)>(tz);
+
+        return;
+    }
+}

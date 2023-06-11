@@ -1,0 +1,184 @@
+public abstract class org.apache.commons.lang3.text.translate.CharSequenceTranslator extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator this;
+
+        this := @this: org.apache.commons.lang3.text.translate.CharSequenceTranslator;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException;
+
+    public final java.lang.String translate(java.lang.CharSequence)
+    {
+        java.lang.CharSequence input;
+        java.io.StringWriter $stack3;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator this;
+        java.io.IOException $stack7;
+        java.lang.RuntimeException $stack8;
+        int $stack4, $stack5;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.text.translate.CharSequenceTranslator;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        if input != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new java.io.StringWriter;
+
+        $stack4 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        $stack5 = $stack4 * 2;
+
+        specialinvoke $stack3.<java.io.StringWriter: void <init>(int)>($stack5);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(input, $stack3);
+
+        $stack6 = virtualinvoke $stack3.<java.io.StringWriter: java.lang.String toString()>();
+
+     label2:
+        return $stack6;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack8 = new java.lang.RuntimeException;
+
+        specialinvoke $stack8.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($stack7);
+
+        throw $stack8;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public final void translate(java.lang.CharSequence, java.io.Writer) throws java.io.IOException
+    {
+        java.lang.CharSequence input;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator this;
+        java.lang.IllegalArgumentException $stack18;
+        java.io.Writer out;
+        int $stack7, $stack8, $stack11, $stack12, $stack15, $stack17, pos, c;
+        char[] $stack16;
+
+        this := @this: org.apache.commons.lang3.text.translate.CharSequenceTranslator;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        out := @parameter1: java.io.Writer;
+
+        if out != null goto label1;
+
+        $stack18 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack18.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Writer must not be null");
+
+        throw $stack18;
+
+     label1:
+        if input != null goto label2;
+
+        return;
+
+     label2:
+        pos = 0;
+
+        $stack7 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+     label3:
+        if pos >= $stack7 goto label7;
+
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: int translate(java.lang.CharSequence,int,java.io.Writer)>(input, pos, out);
+
+        if $stack8 != 0 goto label4;
+
+        $stack15 = staticinvoke <java.lang.Character: int codePointAt(java.lang.CharSequence,int)>(input, pos);
+
+        $stack16 = staticinvoke <java.lang.Character: char[] toChars(int)>($stack15);
+
+        virtualinvoke out.<java.io.Writer: void write(char[])>($stack16);
+
+        $stack17 = lengthof $stack16;
+
+        pos = pos + $stack17;
+
+        goto label3;
+
+     label4:
+        c = 0;
+
+     label5:
+        if c >= $stack8 goto label6;
+
+        $stack11 = staticinvoke <java.lang.Character: int codePointAt(java.lang.CharSequence,int)>(input, pos);
+
+        $stack12 = staticinvoke <java.lang.Character: int charCount(int)>($stack11);
+
+        pos = pos + $stack12;
+
+        c = c + 1;
+
+        goto label5;
+
+     label6:
+        goto label3;
+
+     label7:
+        return;
+    }
+
+    public final transient org.apache.commons.lang3.text.translate.CharSequenceTranslator 'with'(org.apache.commons.lang3.text.translate.CharSequenceTranslator[])
+    {
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator[] translators, newArray;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator this;
+        org.apache.commons.lang3.text.translate.AggregateTranslator $stack6;
+        int $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.translate.CharSequenceTranslator;
+
+        translators := @parameter0: org.apache.commons.lang3.text.translate.CharSequenceTranslator[];
+
+        $stack3 = lengthof translators;
+
+        $stack4 = $stack3 + 1;
+
+        newArray = newarray (org.apache.commons.lang3.text.translate.CharSequenceTranslator)[$stack4];
+
+        newArray[0] = this;
+
+        $stack5 = lengthof translators;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(translators, 0, newArray, 1, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.text.translate.AggregateTranslator;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.translate.AggregateTranslator: void <init>(org.apache.commons.lang3.text.translate.CharSequenceTranslator[])>(newArray);
+
+        return $stack6;
+    }
+
+    public static java.lang.String hex(int)
+    {
+        java.util.Locale $stack2;
+        int codepoint;
+        java.lang.String $stack1, $stack3;
+
+        codepoint := @parameter0: int;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>(codepoint);
+
+        $stack2 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.String: java.lang.String toUpperCase(java.util.Locale)>($stack2);
+
+        return $stack3;
+    }
+}

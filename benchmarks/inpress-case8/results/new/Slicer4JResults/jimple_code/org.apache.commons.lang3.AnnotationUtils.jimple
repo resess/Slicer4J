@@ -1,0 +1,883 @@
+public class org.apache.commons.lang3.AnnotationUtils extends java.lang.Object
+{
+    private static final org.apache.commons.lang3.builder.ToStringStyle TO_STRING_STYLE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.AnnotationUtils this;
+
+        this := @this: org.apache.commons.lang3.AnnotationUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean equals(java.lang.'annotation'.Annotation, java.lang.'annotation'.Annotation)
+    {
+        java.lang.Object[] $stack12, $stack14, $stack24, $stack26;
+        java.lang.reflect.Method[] $stack17;
+        int len$, $stack19, i$;
+        java.lang.reflect.Method m;
+        boolean $stack16, $stack23, $stack29;
+        java.lang.IllegalAccessException $stack32;
+        java.lang.Class[] $stack18;
+        java.lang.reflect.InvocationTargetException $stack31;
+        java.lang.'annotation'.Annotation a1, a2;
+        java.lang.Class $stack10, $stack11, $stack22, $stack28;
+        java.lang.Object $stack25, $stack27;
+
+        a1 := @parameter0: java.lang.'annotation'.Annotation;
+
+        a2 := @parameter1: java.lang.'annotation'.Annotation;
+
+        if a1 != a2 goto label01;
+
+        return 1;
+
+     label01:
+        if a1 == null goto label02;
+
+        if a2 != null goto label03;
+
+     label02:
+        return 0;
+
+     label03:
+        $stack10 = interfaceinvoke a1.<java.lang.'annotation'.Annotation: java.lang.Class annotationType()>();
+
+        $stack11 = interfaceinvoke a2.<java.lang.'annotation'.Annotation: java.lang.Class annotationType()>();
+
+        $stack12 = newarray (java.lang.Object)[1];
+
+        $stack12[0] = a1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>($stack10, "Annotation %s with null annotationType()", $stack12);
+
+        $stack14 = newarray (java.lang.Object)[1];
+
+        $stack14[0] = a2;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>($stack11, "Annotation %s with null annotationType()", $stack14);
+
+        $stack16 = virtualinvoke $stack10.<java.lang.Object: boolean equals(java.lang.Object)>($stack11);
+
+        if $stack16 != 0 goto label04;
+
+        return 0;
+
+     label04:
+        $stack17 = virtualinvoke $stack10.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        len$ = lengthof $stack17;
+
+        i$ = 0;
+
+     label05:
+        if i$ >= len$ goto label08;
+
+        m = $stack17[i$];
+
+        $stack18 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack19 = lengthof $stack18;
+
+        if $stack19 != 0 goto label07;
+
+        $stack22 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Class getReturnType()>();
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean isValidAnnotationMemberType(java.lang.Class)>($stack22);
+
+        if $stack23 == 0 goto label07;
+
+        $stack24 = newarray (java.lang.Object)[0];
+
+        $stack25 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(a1, $stack24);
+
+        $stack26 = newarray (java.lang.Object)[0];
+
+        $stack27 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(a2, $stack26);
+
+        $stack28 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Class getReturnType()>();
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean memberEquals(java.lang.Class,java.lang.Object,java.lang.Object)>($stack28, $stack25, $stack27);
+
+        if $stack29 != 0 goto label07;
+
+     label06:
+        return 0;
+
+     label07:
+        i$ = i$ + 1;
+
+        goto label05;
+
+     label08:
+        goto label11;
+
+     label09:
+        $stack32 := @caughtexception;
+
+        return 0;
+
+     label10:
+        $stack31 := @caughtexception;
+
+        return 0;
+
+     label11:
+        return 1;
+
+        catch java.lang.IllegalAccessException from label04 to label06 with label09;
+        catch java.lang.IllegalAccessException from label07 to label08 with label09;
+        catch java.lang.reflect.InvocationTargetException from label04 to label06 with label10;
+        catch java.lang.reflect.InvocationTargetException from label07 to label08 with label10;
+    }
+
+    public static int hashCode(java.lang.'annotation'.Annotation)
+    {
+        java.lang.IllegalStateException $stack16;
+        java.lang.Object[] $stack10, $stack17;
+        java.lang.reflect.Method[] $stack9;
+        int len$, $stack13, result, i$;
+        java.lang.String $stack12, $stack18;
+        java.lang.reflect.Method m;
+        java.lang.RuntimeException $stack20, $stack21;
+        java.lang.Exception $stack19;
+        java.lang.'annotation'.Annotation a;
+        java.lang.Class $stack8;
+        java.lang.Object $stack11;
+
+        a := @parameter0: java.lang.'annotation'.Annotation;
+
+        result = 0;
+
+        $stack8 = interfaceinvoke a.<java.lang.'annotation'.Annotation: java.lang.Class annotationType()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        len$ = lengthof $stack9;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label8;
+
+        m = $stack9[i$];
+
+     label2:
+        $stack10 = newarray (java.lang.Object)[0];
+
+        $stack11 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(a, $stack10);
+
+        if $stack11 != null goto label3;
+
+        $stack16 = new java.lang.IllegalStateException;
+
+        $stack17 = newarray (java.lang.Object)[1];
+
+        $stack17[0] = m;
+
+        $stack18 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Annotation method %s returned null", $stack17);
+
+        specialinvoke $stack16.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack18);
+
+        throw $stack16;
+
+     label3:
+        $stack12 = virtualinvoke m.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: int hashMember(java.lang.String,java.lang.Object)>($stack12, $stack11);
+
+        result = result + $stack13;
+
+     label4:
+        goto label7;
+
+     label5:
+        $stack21 := @caughtexception;
+
+        throw $stack21;
+
+     label6:
+        $stack19 := @caughtexception;
+
+        $stack20 = new java.lang.RuntimeException;
+
+        specialinvoke $stack20.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($stack19);
+
+        throw $stack20;
+
+     label7:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label8:
+        return result;
+
+        catch java.lang.RuntimeException from label2 to label4 with label5;
+        catch java.lang.Exception from label2 to label4 with label6;
+    }
+
+    public static java.lang.String toString(java.lang.'annotation'.Annotation)
+    {
+        java.lang.Object[] $stack15;
+        org.apache.commons.lang3.builder.ToStringStyle $stack8;
+        java.lang.reflect.Method[] $stack10;
+        int len$, $stack13, i$;
+        java.lang.String $stack11, $stack14;
+        java.lang.reflect.Method m;
+        java.lang.Class[] $stack12;
+        java.lang.RuntimeException $stack21, $stack22;
+        java.lang.Exception $stack20;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack7;
+        java.lang.'annotation'.Annotation a;
+        java.lang.Class $stack9;
+        java.lang.Object $stack16;
+
+        a := @parameter0: java.lang.'annotation'.Annotation;
+
+        $stack7 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack8 = <org.apache.commons.lang3.AnnotationUtils: org.apache.commons.lang3.builder.ToStringStyle TO_STRING_STYLE>;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle)>(a, $stack8);
+
+        $stack9 = interfaceinvoke a.<java.lang.'annotation'.Annotation: java.lang.Class annotationType()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.reflect.Method[] getDeclaredMethods()>();
+
+        len$ = lengthof $stack10;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label7;
+
+        m = $stack10[i$];
+
+        $stack12 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack13 = lengthof $stack12;
+
+        if $stack13 <= 0 goto label2;
+
+        goto label6;
+
+     label2:
+        $stack14 = virtualinvoke m.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack15 = newarray (java.lang.Object)[0];
+
+        $stack16 = virtualinvoke m.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(a, $stack15);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>($stack14, $stack16);
+
+     label3:
+        goto label6;
+
+     label4:
+        $stack22 := @caughtexception;
+
+        throw $stack22;
+
+     label5:
+        $stack20 := @caughtexception;
+
+        $stack21 = new java.lang.RuntimeException;
+
+        specialinvoke $stack21.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($stack20);
+
+        throw $stack21;
+
+     label6:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label7:
+        $stack11 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String build()>();
+
+        return $stack11;
+
+        catch java.lang.RuntimeException from label2 to label3 with label4;
+        catch java.lang.Exception from label2 to label3 with label5;
+    }
+
+    public static boolean isValidAnnotationMemberType(java.lang.Class)
+    {
+        java.lang.Class $stack5, $stack7, type;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack6, $stack8, $stack9;
+
+        type := @parameter0: java.lang.Class;
+
+        if type != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack1 = virtualinvoke type.<java.lang.Class: boolean isArray()>();
+
+        if $stack1 == 0 goto label2;
+
+        type = virtualinvoke type.<java.lang.Class: java.lang.Class getComponentType()>();
+
+     label2:
+        $stack2 = virtualinvoke type.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack2 != 0 goto label3;
+
+        $stack3 = virtualinvoke type.<java.lang.Class: boolean isEnum()>();
+
+        if $stack3 != 0 goto label3;
+
+        $stack4 = virtualinvoke type.<java.lang.Class: boolean isAnnotation()>();
+
+        if $stack4 != 0 goto label3;
+
+        $stack5 = class "Ljava/lang/String;";
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack6 != 0 goto label3;
+
+        $stack7 = class "Ljava/lang/Class;";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack8 == 0 goto label4;
+
+     label3:
+        $stack9 = 1;
+
+        goto label5;
+
+     label4:
+        $stack9 = 0;
+
+     label5:
+        return $stack9;
+    }
+
+    private static int hashMember(java.lang.String, java.lang.Object)
+    {
+        int $stack3, part1, $stack7, $stack8, $stack10, $stack11, $stack14, $stack15;
+        java.lang.String name;
+        boolean $stack5, $stack6;
+        java.lang.'annotation'.Annotation $stack9;
+        java.lang.Object value;
+        java.lang.Class $stack4, $stack12, $stack13;
+
+        name := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke name.<java.lang.String: int hashCode()>();
+
+        part1 = $stack3 * 127;
+
+        $stack4 = virtualinvoke value.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: boolean isArray()>();
+
+        if $stack5 == 0 goto label1;
+
+        $stack12 = virtualinvoke value.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: int arrayMemberHash(java.lang.Class,java.lang.Object)>($stack13, value);
+
+        $stack15 = part1 ^ $stack14;
+
+        return $stack15;
+
+     label1:
+        $stack6 = value instanceof java.lang.'annotation'.Annotation;
+
+        if $stack6 == 0 goto label2;
+
+        $stack9 = (java.lang.'annotation'.Annotation) value;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: int hashCode(java.lang.'annotation'.Annotation)>($stack9);
+
+        $stack11 = part1 ^ $stack10;
+
+        return $stack11;
+
+     label2:
+        $stack7 = virtualinvoke value.<java.lang.Object: int hashCode()>();
+
+        $stack8 = part1 ^ $stack7;
+
+        return $stack8;
+    }
+
+    private static boolean memberEquals(java.lang.Class, java.lang.Object, java.lang.Object)
+    {
+        java.lang.'annotation'.Annotation $stack6, $stack7;
+        java.lang.Object o1, o2;
+        java.lang.Class type, $stack9;
+        boolean $stack3, $stack4, $stack5, $stack8, $stack10;
+
+        type := @parameter0: java.lang.Class;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        if o1 != o2 goto label1;
+
+        return 1;
+
+     label1:
+        if o1 == null goto label2;
+
+        if o2 != null goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $stack3 = virtualinvoke type.<java.lang.Class: boolean isArray()>();
+
+        if $stack3 == 0 goto label4;
+
+        $stack9 = virtualinvoke type.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean arrayMemberEquals(java.lang.Class,java.lang.Object,java.lang.Object)>($stack9, o1, o2);
+
+        return $stack10;
+
+     label4:
+        $stack4 = virtualinvoke type.<java.lang.Class: boolean isAnnotation()>();
+
+        if $stack4 == 0 goto label5;
+
+        $stack7 = (java.lang.'annotation'.Annotation) o1;
+
+        $stack6 = (java.lang.'annotation'.Annotation) o2;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean equals(java.lang.'annotation'.Annotation,java.lang.'annotation'.Annotation)>($stack7, $stack6);
+
+        return $stack8;
+
+     label5:
+        $stack5 = virtualinvoke o1.<java.lang.Object: boolean equals(java.lang.Object)>(o2);
+
+        return $stack5;
+    }
+
+    private static boolean arrayMemberEquals(java.lang.Class, java.lang.Object, java.lang.Object)
+    {
+        byte[] $stack60, $stack61, $stack62, $stack63;
+        java.lang.Object[] $stack20, $stack21, $stack22, $stack23;
+        double[] $stack30, $stack31, $stack32, $stack33;
+        float[] $stack35, $stack36, $stack37, $stack38;
+        boolean[] $stack25, $stack26, $stack27, $stack28;
+        char[] $stack45, $stack46, $stack47, $stack48;
+        int[] $stack50, $stack51, $stack52, $stack53;
+        boolean $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack24, $stack29, $stack34, $stack39, $stack44, $stack49, $stack54, $stack59, $stack64, $stack69;
+        short[] $stack55, $stack56, $stack57, $stack58;
+        java.lang.'annotation'.Annotation[] $stack65, $stack66, $stack67, $stack68;
+        long[] $stack40, $stack41, $stack42, $stack43;
+        java.lang.Class componentType, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+        java.lang.Object o1, o2;
+
+        componentType := @parameter0: java.lang.Class;
+
+        o1 := @parameter1: java.lang.Object;
+
+        o2 := @parameter2: java.lang.Object;
+
+        $stack3 = virtualinvoke componentType.<java.lang.Class: boolean isAnnotation()>();
+
+        if $stack3 == 0 goto label1;
+
+        $stack65 = (java.lang.'annotation'.Annotation[]) o1;
+
+        $stack68 = (java.lang.'annotation'.Annotation[]) $stack65;
+
+        $stack66 = (java.lang.'annotation'.Annotation[]) o2;
+
+        $stack67 = (java.lang.'annotation'.Annotation[]) $stack66;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean annotationArrayMemberEquals(java.lang.'annotation'.Annotation[],java.lang.'annotation'.Annotation[])>($stack68, $stack67);
+
+        return $stack69;
+
+     label1:
+        $stack4 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack5 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack4);
+
+        if $stack5 == 0 goto label2;
+
+        $stack60 = (byte[]) o1;
+
+        $stack63 = (byte[]) $stack60;
+
+        $stack61 = (byte[]) o2;
+
+        $stack62 = (byte[]) $stack61;
+
+        $stack64 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack63, $stack62);
+
+        return $stack64;
+
+     label2:
+        $stack6 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack7 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack6);
+
+        if $stack7 == 0 goto label3;
+
+        $stack55 = (short[]) o1;
+
+        $stack58 = (short[]) $stack55;
+
+        $stack56 = (short[]) o2;
+
+        $stack57 = (short[]) $stack56;
+
+        $stack59 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack58, $stack57);
+
+        return $stack59;
+
+     label3:
+        $stack8 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack8);
+
+        if $stack9 == 0 goto label4;
+
+        $stack50 = (int[]) o1;
+
+        $stack53 = (int[]) $stack50;
+
+        $stack51 = (int[]) o2;
+
+        $stack52 = (int[]) $stack51;
+
+        $stack54 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack53, $stack52);
+
+        return $stack54;
+
+     label4:
+        $stack10 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack11 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack10);
+
+        if $stack11 == 0 goto label5;
+
+        $stack45 = (char[]) o1;
+
+        $stack48 = (char[]) $stack45;
+
+        $stack46 = (char[]) o2;
+
+        $stack47 = (char[]) $stack46;
+
+        $stack49 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack48, $stack47);
+
+        return $stack49;
+
+     label5:
+        $stack12 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack13 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack12);
+
+        if $stack13 == 0 goto label6;
+
+        $stack40 = (long[]) o1;
+
+        $stack43 = (long[]) $stack40;
+
+        $stack41 = (long[]) o2;
+
+        $stack42 = (long[]) $stack41;
+
+        $stack44 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack43, $stack42);
+
+        return $stack44;
+
+     label6:
+        $stack14 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack14);
+
+        if $stack15 == 0 goto label7;
+
+        $stack35 = (float[]) o1;
+
+        $stack38 = (float[]) $stack35;
+
+        $stack36 = (float[]) o2;
+
+        $stack37 = (float[]) $stack36;
+
+        $stack39 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack38, $stack37);
+
+        return $stack39;
+
+     label7:
+        $stack16 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack17 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack16);
+
+        if $stack17 == 0 goto label8;
+
+        $stack30 = (double[]) o1;
+
+        $stack33 = (double[]) $stack30;
+
+        $stack31 = (double[]) o2;
+
+        $stack32 = (double[]) $stack31;
+
+        $stack34 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack33, $stack32);
+
+        return $stack34;
+
+     label8:
+        $stack18 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack19 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack18);
+
+        if $stack19 == 0 goto label9;
+
+        $stack25 = (boolean[]) o1;
+
+        $stack28 = (boolean[]) $stack25;
+
+        $stack26 = (boolean[]) o2;
+
+        $stack27 = (boolean[]) $stack26;
+
+        $stack29 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack28, $stack27);
+
+        return $stack29;
+
+     label9:
+        $stack20 = (java.lang.Object[]) o1;
+
+        $stack23 = (java.lang.Object[]) $stack20;
+
+        $stack21 = (java.lang.Object[]) o2;
+
+        $stack22 = (java.lang.Object[]) $stack21;
+
+        $stack24 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack23, $stack22);
+
+        return $stack24;
+    }
+
+    private static boolean annotationArrayMemberEquals(java.lang.'annotation'.Annotation[], java.lang.'annotation'.Annotation[])
+    {
+        java.lang.'annotation'.Annotation[] a1, a2;
+        int $stack3, $stack4, $stack5, i;
+        java.lang.'annotation'.Annotation $stack6, $stack7;
+        boolean $stack8;
+
+        a1 := @parameter0: java.lang.'annotation'.Annotation[];
+
+        a2 := @parameter1: java.lang.'annotation'.Annotation[];
+
+        $stack4 = lengthof a1;
+
+        $stack3 = lengthof a2;
+
+        if $stack4 == $stack3 goto label1;
+
+        return 0;
+
+     label1:
+        i = 0;
+
+     label2:
+        $stack5 = lengthof a1;
+
+        if i >= $stack5 goto label4;
+
+        $stack7 = a1[i];
+
+        $stack6 = a2[i];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.AnnotationUtils: boolean equals(java.lang.'annotation'.Annotation,java.lang.'annotation'.Annotation)>($stack7, $stack6);
+
+        if $stack8 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        return 1;
+    }
+
+    private static int arrayMemberHash(java.lang.Class, java.lang.Object)
+    {
+        byte[] $stack42, $stack43;
+        int[] $stack36, $stack37;
+        boolean $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17;
+        short[] $stack39, $stack40;
+        java.lang.Object[] $stack18, $stack19;
+        double[] $stack24, $stack25;
+        float[] $stack27, $stack28;
+        long[] $stack30, $stack31;
+        int $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44;
+        boolean[] $stack21, $stack22;
+        char[] $stack33, $stack34;
+        java.lang.Class componentType, $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16;
+        java.lang.Object o;
+
+        componentType := @parameter0: java.lang.Class;
+
+        o := @parameter1: java.lang.Object;
+
+        $stack2 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack3 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack2);
+
+        if $stack3 == 0 goto label1;
+
+        $stack42 = (byte[]) o;
+
+        $stack43 = (byte[]) $stack42;
+
+        $stack44 = staticinvoke <java.util.Arrays: int hashCode(byte[])>($stack43);
+
+        return $stack44;
+
+     label1:
+        $stack4 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack5 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack4);
+
+        if $stack5 == 0 goto label2;
+
+        $stack39 = (short[]) o;
+
+        $stack40 = (short[]) $stack39;
+
+        $stack41 = staticinvoke <java.util.Arrays: int hashCode(short[])>($stack40);
+
+        return $stack41;
+
+     label2:
+        $stack6 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack7 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack6);
+
+        if $stack7 == 0 goto label3;
+
+        $stack36 = (int[]) o;
+
+        $stack37 = (int[]) $stack36;
+
+        $stack38 = staticinvoke <java.util.Arrays: int hashCode(int[])>($stack37);
+
+        return $stack38;
+
+     label3:
+        $stack8 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack8);
+
+        if $stack9 == 0 goto label4;
+
+        $stack33 = (char[]) o;
+
+        $stack34 = (char[]) $stack33;
+
+        $stack35 = staticinvoke <java.util.Arrays: int hashCode(char[])>($stack34);
+
+        return $stack35;
+
+     label4:
+        $stack10 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack11 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack10);
+
+        if $stack11 == 0 goto label5;
+
+        $stack30 = (long[]) o;
+
+        $stack31 = (long[]) $stack30;
+
+        $stack32 = staticinvoke <java.util.Arrays: int hashCode(long[])>($stack31);
+
+        return $stack32;
+
+     label5:
+        $stack12 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack13 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack12);
+
+        if $stack13 == 0 goto label6;
+
+        $stack27 = (float[]) o;
+
+        $stack28 = (float[]) $stack27;
+
+        $stack29 = staticinvoke <java.util.Arrays: int hashCode(float[])>($stack28);
+
+        return $stack29;
+
+     label6:
+        $stack14 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack14);
+
+        if $stack15 == 0 goto label7;
+
+        $stack24 = (double[]) o;
+
+        $stack25 = (double[]) $stack24;
+
+        $stack26 = staticinvoke <java.util.Arrays: int hashCode(double[])>($stack25);
+
+        return $stack26;
+
+     label7:
+        $stack16 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack17 = virtualinvoke componentType.<java.lang.Object: boolean equals(java.lang.Object)>($stack16);
+
+        if $stack17 == 0 goto label8;
+
+        $stack21 = (boolean[]) o;
+
+        $stack22 = (boolean[]) $stack21;
+
+        $stack23 = staticinvoke <java.util.Arrays: int hashCode(boolean[])>($stack22);
+
+        return $stack23;
+
+     label8:
+        $stack18 = (java.lang.Object[]) o;
+
+        $stack19 = (java.lang.Object[]) $stack18;
+
+        $stack20 = staticinvoke <java.util.Arrays: int hashCode(java.lang.Object[])>($stack19);
+
+        return $stack20;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.AnnotationUtils$1 $stack0;
+
+        $stack0 = new org.apache.commons.lang3.AnnotationUtils$1;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.AnnotationUtils$1: void <init>()>();
+
+        <org.apache.commons.lang3.AnnotationUtils: org.apache.commons.lang3.builder.ToStringStyle TO_STRING_STYLE> = $stack0;
+
+        return;
+    }
+}

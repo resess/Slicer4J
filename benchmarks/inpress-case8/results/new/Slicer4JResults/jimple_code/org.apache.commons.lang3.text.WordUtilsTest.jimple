@@ -1,0 +1,1090 @@
+public class org.apache.commons.lang3.text.WordUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.text.WordUtils $stack2;
+        long $stack6;
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.text.WordUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.WordUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/text/WordUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/text/WordUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/text/WordUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testWrap_StringInt()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.StringBuilder $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack34, $stack35, $stack36, $stack37, $stack38, $stack39, $stack40, $u0, $u1, $u2;
+        int $i0, $i1;
+        java.lang.String $stack5, $stack7, $stack9, $stack11, $stack12, $stack21, $stack22, $stack31, $stack32, $stack41, $stack42;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>(null, 20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $i0 = (int) -1;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>(null, $i0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>("", 20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>("", $i1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        $stack12 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("line.separator");
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Here is one line of");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("text that is going");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("to be wrapped after");
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("20 columns.");
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>("Here is one line of text that is going to be wrapped after 20 columns.", 20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack24 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Click here to jump");
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("to the jakarta");
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("website -");
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("http://jakarta.apache.org");
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>("Click here to jump to the jakarta website - http://jakarta.apache.org", 20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack34 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Click here,");
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("http://jakarta.apache.org,");
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("to jump to the");
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("jakarta website");
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int)>("Click here, http://jakarta.apache.org, to jump to the jakarta website", 20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack41, $stack42);
+
+        return;
+    }
+
+    public void testWrap_StringIntStringBoolean()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.StringBuilder $stack37, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $u0;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack44, $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack51, $stack52, $stack53, $stack54, $stack55, $stack56;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, 20, null, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, 20, null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack11);
+
+        $i0 = (int) -1;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, $i0, null, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $i1 = (int) -1;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(null, $i1, null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack19);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", 20, null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", 20, null, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack23);
+
+        $i2 = (int) -1;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", $i2, null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack25);
+
+        $i3 = (int) -1;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("", $i3, null, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack27);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line of\ntext that is going\nto be wrapped after\n20 columns.", $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line of\ntext that is going\nto be wrapped after\n20 columns.", $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, "<br />", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line of<br />text that is going<br />to be wrapped after<br />20 columns.", $stack30);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, "<br />", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line of<br />text that is going<br />to be wrapped after<br />20 columns.", $stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line", 6, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here\nis one\nline", $stack32);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line", 2, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here\nis\none\nline", $stack33);
+
+        $i4 = (int) -1;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line", $i4, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here\nis\none\nline", $stack34);
+
+        $stack35 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("line.separator");
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack37 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Here is one line of");
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("text that is going");
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("to be wrapped after");
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("20 columns.");
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack45);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of text that is going to be wrapped after 20 columns.", 20, null, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack46);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(" Here:  is  one  line  of  text  that  is  going  to  be  wrapped  after  20  columns.", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here:  is  one  line\nof  text  that  is \ngoing  to  be \nwrapped  after  20 \ncolumns.", $stack47);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(" Here:  is  one  line  of  text  that  is  going  to  be  wrapped  after  20  columns.", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here:  is  one  line\nof  text  that  is \ngoing  to  be \nwrapped  after  20 \ncolumns.", $stack48);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is\tone line of text that is going to be wrapped after 20 columns.", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is\tone line of\ntext that is going\nto be wrapped after\n20 columns.", $stack49);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is\tone line of text that is going to be wrapped after 20 columns.", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is\tone line of\ntext that is going\nto be wrapped after\n20 columns.", $stack50);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of\ttext that is going to be wrapped after 20 columns.", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line\nof\ttext that is\ngoing to be wrapped\nafter 20 columns.", $stack51);
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Here is one line of\ttext that is going to be wrapped after 20 columns.", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Here is one line\nof\ttext that is\ngoing to be wrapped\nafter 20 columns.", $stack52);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Click here to jump to the jakarta website - http://jakarta.apache.org", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Click here to jump\nto the jakarta\nwebsite -\nhttp://jakarta.apache.org", $stack53);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Click here to jump to the jakarta website - http://jakarta.apache.org", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Click here to jump\nto the jakarta\nwebsite -\nhttp://jakarta.apach\ne.org", $stack54);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Click here, http://jakarta.apache.org, to jump to the jakarta website", 20, "\n", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Click here,\nhttp://jakarta.apache.org,\nto jump to the\njakarta website", $stack55);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>("Click here, http://jakarta.apache.org, to jump to the jakarta website", 20, "\n", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Click here,\nhttp://jakarta.apach\ne.org, to jump to\nthe jakarta website", $stack56);
+
+        return;
+    }
+
+    public void testCapitalize_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("I");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("i am here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("I Am Here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("i am HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am HERE 123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String)>("I AM HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I AM HERE 123", $stack18);
+
+        return;
+    }
+
+    public void testCapitalizeWithDelimiters_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack3, $stack6, $stack9, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack25, $stack27;
+        char[] $stack4, $stack7, $stack10, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = newarray (char)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack7 = newarray (char)[0];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("  ", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack9);
+
+        $stack10 = newarray (char)[4];
+
+        $stack10[0] = 45;
+
+        $stack10[1] = 43;
+
+        $stack10[2] = 32;
+
+        $stack10[3] = 64;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("I", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("i", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("i-am here+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I-Am Here+123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("I Am+Here-123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am+Here-123", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("i+am-HERE 123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I+Am-HERE 123", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("I-AM HERE+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I-AM HERE+123", $stack22);
+
+        $stack23 = newarray (char)[1];
+
+        $stack23[0] = 46;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("i aM.fine", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I aM.Fine", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>("i am.fine", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am.fine", $stack27);
+
+        return;
+    }
+
+    public void testCapitalizeFully_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("I");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("i am here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("I Am Here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("i am HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String)>("I AM HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am Here 123", $stack18);
+
+        return;
+    }
+
+    public void testCapitalizeFullyWithDelimiters_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack3, $stack6, $stack9, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack25, $stack27;
+        char[] $stack4, $stack7, $stack10, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = newarray (char)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack7 = newarray (char)[0];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("  ", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack9);
+
+        $stack10 = newarray (char)[4];
+
+        $stack10[0] = 45;
+
+        $stack10[1] = 43;
+
+        $stack10[2] = 32;
+
+        $stack10[3] = 64;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("I", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("i", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("i-am here+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I-Am Here+123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("I Am+Here-123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am+Here-123", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("i+am-HERE 123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I+Am-Here 123", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("I-AM HERE+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I-Am Here+123", $stack22);
+
+        $stack23 = newarray (char)[1];
+
+        $stack23[0] = 46;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("i aM.fine", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I am.Fine", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>("i am.fine", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I Am.fine", $stack27);
+
+        return;
+    }
+
+    public void testUncapitalize_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("I");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("i am here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i am here 123", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("I Am Here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i am here 123", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("i am HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i am hERE 123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String)>("I AM HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i aM hERE 123", $stack18);
+
+        return;
+    }
+
+    public void testUncapitalizeWithDelimiters_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack3, $stack6, $stack9, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack25, $stack27;
+        char[] $stack4, $stack7, $stack10, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = newarray (char)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack7 = newarray (char)[0];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("  ", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack9);
+
+        $stack10 = newarray (char)[4];
+
+        $stack10[0] = 45;
+
+        $stack10[1] = 43;
+
+        $stack10[2] = 32;
+
+        $stack10[3] = 64;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("I", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("i", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("i am-here+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i am-here+123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("I+Am Here-123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i+am here-123", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("i-am+HERE 123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i-am+hERE 123", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("I AM-HERE+123", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i aM-hERE+123", $stack22);
+
+        $stack23 = newarray (char)[1];
+
+        $stack23[0] = 46;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("I AM.FINE", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i AM.fINE", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>("I AM.FINE", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i aM.FINE", $stack27);
+
+        return;
+    }
+
+    public void testInitials_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("I");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("Ben John Lee");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("Ben J.Lee");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>(" Ben   John  . Lee");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ.L", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String)>("i am here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("iah1", $stack18);
+
+        return;
+    }
+
+    public void testInitials_String_charArray()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39, $stack41, $stack43, $stack45, $stack46, $stack49, $stack51, $stack53, $stack55, $stack57, $stack59, $stack61, $stack63, $stack65, $stack67, $stack69, $stack70, $stack73, $stack75, $stack77, $stack79, $stack81, $stack83, $stack85, $stack87, $stack89, $stack91, $stack93, $stack94, $stack97, $stack99, $stack101, $stack103, $stack105, $stack107, $stack109, $stack111, $stack113, $stack115, $stack117, $stack118, $stack121, $stack123, $stack125, $stack127, $stack129, $stack131, $stack133, $stack135, $stack137, $stack139, $stack141;
+        char[] $stack47, $stack71, $stack95, $stack119, array;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ.L", $stack19);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("KO", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("iah1", $stack23);
+
+        array = newarray (char)[0];
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack29);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack31);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack35);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack37);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack41);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack43);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", array);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack45);
+
+        $stack46 = " ";
+
+        $stack47 = virtualinvoke $stack46.<java.lang.String: char[] toCharArray()>();
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack49);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack51);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack53);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack55);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack57);
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack59);
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack61);
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ", $stack63);
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJ.L", $stack65);
+
+        $stack67 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("KO", $stack67);
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("iah1", $stack69);
+
+        $stack70 = " .";
+
+        $stack71 = virtualinvoke $stack70.<java.lang.String: char[] toCharArray()>();
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack73);
+
+        $stack75 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack75);
+
+        $stack77 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack77);
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack79);
+
+        $stack81 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack81);
+
+        $stack83 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack83);
+
+        $stack85 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack85);
+
+        $stack87 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack87);
+
+        $stack89 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack89);
+
+        $stack91 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("KO", $stack91);
+
+        $stack93 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", $stack71);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("iah1", $stack93);
+
+        $stack94 = " .\'";
+
+        $stack95 = virtualinvoke $stack94.<java.lang.String: char[] toCharArray()>();
+
+        $stack97 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack97);
+
+        $stack99 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack99);
+
+        $stack101 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack101);
+
+        $stack103 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack103);
+
+        $stack105 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack105);
+
+        $stack107 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack107);
+
+        $stack109 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack109);
+
+        $stack111 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack111);
+
+        $stack113 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("BJL", $stack113);
+
+        $stack115 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("KOM", $stack115);
+
+        $stack117 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", $stack95);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("iah1", $stack117);
+
+        $stack118 = "SIJo1";
+
+        $stack119 = virtualinvoke $stack118.<java.lang.String: char[] toCharArray()>();
+
+        $stack121 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(null, $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack121);
+
+        $stack123 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack123);
+
+        $stack125 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("  ", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" ", $stack125);
+
+        $stack127 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("I", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack127);
+
+        $stack129 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack129);
+
+        $stack131 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("SJC", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("C", $stack131);
+
+        $stack133 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben John Lee", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Bh", $stack133);
+
+        $stack135 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Ben J.Lee", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("B.", $stack135);
+
+        $stack137 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(" Ben   John  . Lee", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" h", $stack137);
+
+        $stack139 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("Kay O\'Murphy", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("K", $stack139);
+
+        $stack141 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>("i am here 123", $stack119);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i2", $stack141);
+
+        return;
+    }
+
+    public void testSwapCase_String()
+    {
+        org.apache.commons.lang3.text.WordUtilsTest this;
+        java.lang.String $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack21;
+
+        this := @this: org.apache.commons.lang3.text.WordUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("I");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("i am here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I AM HERE 123", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("I Am Here 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i aM hERE 123", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("i am HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("I AM here 123", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("I AM HERE 123");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("i am here 123", $stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String swapCase(java.lang.String)>("This String contains a TitleCase character: \u01c8");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("tHIS sTRING CONTAINS A tITLEcASE CHARACTER: \u01c9", $stack21);
+
+        return;
+    }
+}

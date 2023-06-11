@@ -1,0 +1,176 @@
+public class org.apache.commons.lang3.text.translate.UnicodeUnescaper extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeUnescaper this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        return;
+    }
+
+    public int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        java.lang.CharSequence input, $stack24, $stack31;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaper this;
+        java.io.Writer out;
+        java.lang.StringBuilder $stack22, $stack25, $stack26, $stack53, $stack54, $u0, $u2;
+        int index, $stack8, $stack9, $stack11, $stack13, $stack14, $stack15, $stack16, $stack23, $stack28, $stack29, $stack30, $stack33, $stack35, $stack36, $stack42, i, $stack17, $stack18, $stack19, $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack27, $stack32, $stack55;
+        char $stack7, $stack12, $stack34, $stack37, $stack43;
+        java.lang.NumberFormatException $stack50;
+        java.lang.IllegalArgumentException $u1, $u3;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        $stack7 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>(index);
+
+        $i0 = (int) $stack7;
+
+        if $i0 != 92 goto label9;
+
+        $stack8 = index + 1;
+
+        $stack9 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if $stack8 >= $stack9 goto label9;
+
+        $stack11 = index + 1;
+
+        $stack12 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>($stack11);
+
+        $i1 = (int) $stack12;
+
+        if $i1 != 117 goto label9;
+
+        i = 2;
+
+     label1:
+        $stack13 = index + i;
+
+        $stack14 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if $stack13 >= $stack14 goto label2;
+
+        $stack42 = index + i;
+
+        $stack43 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>($stack42);
+
+        $i2 = (int) $stack43;
+
+        if $i2 != 117 goto label2;
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack15 = index + i;
+
+        $stack16 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if $stack15 >= $stack16 goto label3;
+
+        $stack36 = index + i;
+
+        $stack37 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>($stack36);
+
+        $i3 = (int) $stack37;
+
+        if $i3 != 43 goto label3;
+
+        i = i + 1;
+
+     label3:
+        $stack17 = index + i;
+
+        $stack18 = $stack17 + 4;
+
+        $stack19 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if $stack18 > $stack19 goto label8;
+
+        $stack30 = index + i;
+
+        $stack28 = index + i;
+
+        $stack29 = $stack28 + 4;
+
+        $stack31 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>($stack30, $stack29);
+
+     label4:
+        $stack32 = interfaceinvoke $stack31.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack33 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>($stack32, 16);
+
+        $stack34 = (char) $stack33;
+
+        $i4 = (int) $stack34;
+
+        virtualinvoke out.<java.io.Writer: void write(int)>($i4);
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack50 := @caughtexception;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack53 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unable to parse unicode value: ");
+
+        $stack54 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack31);
+
+        $stack55 = virtualinvoke $stack54.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String,java.lang.Throwable)>($stack55, $stack50);
+
+        throw $u1;
+
+     label7:
+        $stack35 = i + 4;
+
+        return $stack35;
+
+     label8:
+        $u3 = new java.lang.IllegalArgumentException;
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Less than 4 hex digits in unicode value: \'");
+
+        $stack23 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        $stack24 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(index, $stack23);
+
+        $stack25 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' due to end of CharSequence");
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack27);
+
+        throw $u3;
+
+     label9:
+        return 0;
+
+        catch java.lang.NumberFormatException from label4 to label5 with label6;
+    }
+}

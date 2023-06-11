@@ -1,0 +1,53 @@
+public class org.apache.commons.lang3.text.translate.OctalUnescaperTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.OctalUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.OctalUnescaperTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testBetween()
+    {
+        org.apache.commons.lang3.text.translate.OctalUnescaperTest this;
+        java.lang.String $stack5, $stack6, $stack7, $stack8, $stack9, $stack10;
+        org.apache.commons.lang3.text.translate.OctalUnescaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.OctalUnescaperTest;
+
+        $stack4 = new org.apache.commons.lang3.text.translate.OctalUnescaper;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\45");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "%", $stack5);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\377");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "\u00ff", $stack6);
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\377 and");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "\u00ff and", $stack7);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\378 and");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "\u001f8 and", $stack8);
+
+        $stack9 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\378");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "\u001f8", $stack9);
+
+        $stack10 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.OctalUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\1");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape octal characters via the between method", "\u0001", $stack10);
+
+        return;
+    }
+}

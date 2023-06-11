@@ -1,0 +1,152 @@
+class org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler extends java.lang.Object implements java.lang.reflect.InvocationHandler
+{
+    private java.util.Map eventCounts;
+
+    private void <init>()
+    {
+        org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler this;
+        java.util.TreeMap $stack1;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.TreeMap;
+
+        specialinvoke $stack1.<java.util.TreeMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: java.util.Map eventCounts> = $stack1;
+
+        return;
+    }
+
+    public java.lang.Object createListener(java.lang.Class)
+    {
+        org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler this;
+        java.lang.Thread $stack2;
+        java.lang.Class[] $stack4;
+        java.lang.Class listenerType;
+        java.lang.Object $stack5, $stack6;
+        java.lang.ClassLoader $stack3;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler;
+
+        listenerType := @parameter0: java.lang.Class;
+
+        $stack2 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        $stack4 = newarray (java.lang.Class)[1];
+
+        $stack4[0] = listenerType;
+
+        $stack5 = staticinvoke <java.lang.reflect.Proxy: java.lang.Object newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)>($stack3, $stack4, this);
+
+        $stack6 = virtualinvoke listenerType.<java.lang.Class: java.lang.Object cast(java.lang.Object)>($stack5);
+
+        return $stack6;
+    }
+
+    public int getEventCount(java.lang.String)
+    {
+        org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler this;
+        java.util.Map $stack3;
+        int $stack5;
+        java.lang.Object $stack4;
+        java.lang.String eventName;
+        java.lang.Integer count;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler;
+
+        eventName := @parameter0: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: java.util.Map eventCounts>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: java.lang.Object get(java.lang.Object)>(eventName);
+
+        count = (java.lang.Integer) $stack4;
+
+        if count != null goto label1;
+
+        $stack5 = 0;
+
+        goto label2;
+
+     label1:
+        $stack5 = virtualinvoke count.<java.lang.Integer: int intValue()>();
+
+     label2:
+        return $stack5;
+    }
+
+    public java.lang.Object invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable
+    {
+        java.lang.Object[] args;
+        java.lang.Integer count, $stack12, $stack16;
+        java.util.Map $stack5, $stack8, $stack14;
+        int $stack10, $stack11;
+        java.lang.String $stack6, $stack9, $stack15;
+        java.lang.reflect.Method method;
+        org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler this;
+        java.lang.Object $stack7, proxy;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler;
+
+        proxy := @parameter0: java.lang.Object;
+
+        method := @parameter1: java.lang.reflect.Method;
+
+        args := @parameter2: java.lang.Object[];
+
+        $stack5 = this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: java.util.Map eventCounts>;
+
+        $stack6 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack7 = interfaceinvoke $stack5.<java.util.Map: java.lang.Object get(java.lang.Object)>($stack6);
+
+        count = (java.lang.Integer) $stack7;
+
+        if count != null goto label1;
+
+        $stack14 = this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: java.util.Map eventCounts>;
+
+        $stack15 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        interfaceinvoke $stack14.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        goto label2;
+
+     label1:
+        $stack8 = this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: java.util.Map eventCounts>;
+
+        $stack9 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack10 = virtualinvoke count.<java.lang.Integer: int intValue()>();
+
+        $stack11 = $stack10 + 1;
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack11);
+
+        interfaceinvoke $stack8.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack9, $stack12);
+
+     label2:
+        return null;
+    }
+
+    void <init>(org.apache.commons.lang3.event.EventUtilsTest$1)
+    {
+        org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler this;
+        org.apache.commons.lang3.event.EventUtilsTest$1 x0;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler;
+
+        x0 := @parameter0: org.apache.commons.lang3.event.EventUtilsTest$1;
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventUtilsTest$EventCountingInvociationHandler: void <init>()>();
+
+        return;
+    }
+}

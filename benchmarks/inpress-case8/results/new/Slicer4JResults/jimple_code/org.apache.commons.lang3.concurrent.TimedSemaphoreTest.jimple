@@ -1,0 +1,968 @@
+public class org.apache.commons.lang3.concurrent.TimedSemaphoreTest extends java.lang.Object
+{
+    private static final long PERIOD;
+    private static final java.util.concurrent.TimeUnit UNIT;
+    private static final int LIMIT;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testInit()
+    {
+        java.lang.Object[] $stack4, $stack7;
+        long $stack12, $stack19, $stack28;
+        java.util.concurrent.ScheduledExecutorService service, $stack9;
+        int $stack18, $stack27;
+        double $stack22;
+        boolean $stack24;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack5;
+        java.util.concurrent.TimeUnit $stack6, $stack14, $stack15;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.lang.Object $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack3 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack3;
+
+        $stack4 = newarray (java.lang.Object)[1];
+
+        $stack4[0] = service;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack4);
+
+        $stack5 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack6 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack6, 10);
+
+        $stack7 = newarray (java.lang.Object)[1];
+
+        $stack7[0] = service;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack7);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService getExecutorService()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong service", service, $stack9);
+
+        $stack12 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: long getPeriod()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong period", 500L, $stack12);
+
+        $stack14 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        $stack15 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.TimeUnit getUnit()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong unit", $stack14, $stack15);
+
+        $stack18 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLastAcquiresPerPeriod()>();
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Statistic available", 0L, $stack19);
+
+        $stack22 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: double getAverageCallsPerPeriod()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,double,double,double)>("Average available", 0.0, $stack22, 0.05);
+
+        $stack24 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Already shutdown", $stack24);
+
+        $stack27 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLimit()>();
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong limit", 10L, $stack28);
+
+        return;
+    }
+
+    public void testInitInvalidPeriod()
+    {
+        java.util.concurrent.TimeUnit $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack2 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(long,java.util.concurrent.TimeUnit,int)>(0L, $stack2, 10);
+
+        return;
+    }
+
+    public void testInitDefaultService()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack3;
+        java.util.concurrent.ScheduledThreadPoolExecutor exec;
+        java.util.concurrent.TimeUnit $stack4;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService $stack5;
+        boolean $stack7, $stack9, $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack4 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(long,java.util.concurrent.TimeUnit,int)>(500L, $stack4, 10);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService getExecutorService()>();
+
+        exec = (java.util.concurrent.ScheduledThreadPoolExecutor) $stack5;
+
+        $stack7 = virtualinvoke exec.<java.util.concurrent.ScheduledThreadPoolExecutor: boolean getContinueExistingPeriodicTasksAfterShutdownPolicy()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Wrong periodic task policy", $stack7);
+
+        $stack9 = virtualinvoke exec.<java.util.concurrent.ScheduledThreadPoolExecutor: boolean getExecuteExistingDelayedTasksAfterShutdownPolicy()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Wrong delayed task policy", $stack9);
+
+        $stack11 = virtualinvoke exec.<java.util.concurrent.ScheduledThreadPoolExecutor: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Already shutdown", $stack11);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.TimedSemaphore: void shutdown()>();
+
+        return;
+    }
+
+    public void testStartTimer() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.TimeUnit $stack6;
+        java.util.concurrent.ScheduledFuture $stack7;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        int $stack8, $stack9, count;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack5 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack6 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(long,java.util.concurrent.TimeUnit,int)>(500L, $stack6, 10);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.ScheduledFuture startTimer()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No future returned", $stack7);
+
+        staticinvoke <java.lang.Thread: void sleep(long)>(500L);
+
+        count = 0;
+
+     label1:
+        staticinvoke <java.lang.Thread: void sleep(long)>(500L);
+
+        $stack8 = count;
+
+        count = count + 1;
+
+        if $stack8 <= 10 goto label2;
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("endOfPeriod() not called!");
+
+     label2:
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int getPeriodEnds()>();
+
+        if $stack9 <= 0 goto label1;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void shutdown()>();
+
+        return;
+    }
+
+    public void testShutdownOwnExecutor()
+    {
+        java.util.concurrent.TimeUnit $stack3;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService $stack7;
+        boolean $stack5, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack3 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(long,java.util.concurrent.TimeUnit,int)>(500L, $stack3, 10);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: void shutdown()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not shutdown", $stack5);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService getExecutorService()>();
+
+        $stack8 = interfaceinvoke $stack7.<java.util.concurrent.ScheduledExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Executor not shutdown", $stack8);
+
+        return;
+    }
+
+    public void testShutdownSharedExecutorNoTask()
+    {
+        java.lang.Object[] $stack4, $stack9;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack5;
+        java.util.concurrent.TimeUnit $stack6;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        java.lang.Object $stack3;
+        boolean $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack3 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack3;
+
+        $stack4 = newarray (java.lang.Object)[1];
+
+        $stack4[0] = service;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack4);
+
+        $stack5 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack6 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack6, 10);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: void shutdown()>();
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not shutdown", $stack8);
+
+        $stack9 = newarray (java.lang.Object)[1];
+
+        $stack9[0] = service;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack9);
+
+        return;
+    }
+
+    private void prepareStartTimer(java.util.concurrent.ScheduledExecutorService, java.util.concurrent.ScheduledFuture)
+    {
+        java.util.concurrent.ScheduledFuture future;
+        long $stack5, $stack6;
+        java.lang.Runnable $stack4;
+        java.util.concurrent.TimeUnit $stack7, $stack9;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        java.lang.Object $stack3, $stack8;
+        org.easymock.IExpectationSetters $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        service := @parameter0: java.util.concurrent.ScheduledExecutorService;
+
+        future := @parameter1: java.util.concurrent.ScheduledFuture;
+
+        $stack3 = staticinvoke <org.easymock.EasyMock: java.lang.Object anyObject()>();
+
+        $stack4 = (java.lang.Runnable) $stack3;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: long eq(long)>(500L);
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: long eq(long)>(500L);
+
+        $stack7 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object eq(java.lang.Object)>($stack7);
+
+        $stack9 = (java.util.concurrent.TimeUnit) $stack8;
+
+        interfaceinvoke service.<java.util.concurrent.ScheduledExecutorService: java.util.concurrent.ScheduledFuture scheduleAtFixedRate(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)>($stack4, $stack5, $stack6, $stack9);
+
+        $stack11 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expectLastCall()>();
+
+        interfaceinvoke $stack11.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>(future);
+
+        return;
+    }
+
+    public void testShutdownSharedExecutorTask() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack11, $stack16;
+        java.util.concurrent.TimeUnit $stack13;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        java.lang.Boolean $stack7, $stack9;
+        java.lang.Object $stack4, $stack5;
+        org.easymock.IExpectationSetters $stack8;
+        boolean $stack6, $stack15;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack12;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack4 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack4;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack5;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack6 = interfaceinvoke future.<java.util.concurrent.ScheduledFuture: boolean cancel(boolean)>(0);
+
+        $stack7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack6);
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack7);
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        interfaceinvoke $stack8.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack9);
+
+        $stack11 = newarray (java.lang.Object)[2];
+
+        $stack11[0] = service;
+
+        $stack11[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack11);
+
+        $stack12 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack13 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack13, 10);
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void acquire()>();
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void shutdown()>();
+
+        $stack15 = virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not shutdown", $stack15);
+
+        $stack16 = newarray (java.lang.Object)[2];
+
+        $stack16[0] = service;
+
+        $stack16[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack16);
+
+        return;
+    }
+
+    public void testShutdownMultipleTimes() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack12, $stack15;
+        java.util.concurrent.TimeUnit $stack14;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        int i;
+        java.lang.Boolean $stack8, $stack10;
+        java.lang.Object $stack5, $stack6;
+        org.easymock.IExpectationSetters $stack9;
+        boolean $stack7;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack13;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack5;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack6;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack7 = interfaceinvoke future.<java.util.concurrent.ScheduledFuture: boolean cancel(boolean)>(0);
+
+        $stack8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack7);
+
+        $stack9 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack8);
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        interfaceinvoke $stack9.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack10);
+
+        $stack12 = newarray (java.lang.Object)[2];
+
+        $stack12[0] = service;
+
+        $stack12[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack12);
+
+        $stack13 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack14 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack14, 10);
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void acquire()>();
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void shutdown()>();
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack15 = newarray (java.lang.Object)[2];
+
+        $stack15[0] = service;
+
+        $stack15[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack15);
+
+        return;
+    }
+
+    public void testAcquireLimit() throws java.lang.InterruptedException
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread $stack13;
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack9, $stack26;
+        long $stack17, $stack21, $stack25;
+        java.util.concurrent.ScheduledExecutorService service;
+        int $stack16, $stack20, $stack24;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack11;
+        java.util.concurrent.TimeUnit $stack12;
+        java.util.concurrent.CountDownLatch $stack10;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.lang.Object $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack8;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack9 = newarray (java.lang.Object)[2];
+
+        $stack9[0] = service;
+
+        $stack9[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack9);
+
+        $stack10 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack10.<java.util.concurrent.CountDownLatch: void <init>(int)>(9);
+
+        $stack11 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack12 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack12, 1);
+
+        $stack13 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore,java.util.concurrent.CountDownLatch,int,int)>($stack11, $stack10, 10, 9);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: void setLimit(int)>(9);
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void start()>();
+
+        virtualinvoke $stack10.<java.util.concurrent.CountDownLatch: void await()>();
+
+        $stack16 = virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getAcquireCount()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong semaphore count", 9L, $stack17);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: void endOfPeriod()>();
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void join()>();
+
+        $stack20 = virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getAcquireCount()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong semaphore count (2)", 1L, $stack21);
+
+        $stack24 = virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLastAcquiresPerPeriod()>();
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong acquire() count", 9L, $stack25);
+
+        $stack26 = newarray (java.lang.Object)[2];
+
+        $stack26[0] = service;
+
+        $stack26[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack26);
+
+        return;
+    }
+
+    public void testAcquireMultipleThreads() throws java.lang.InterruptedException
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread $stack14, $stack29, $stack30;
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack9, $stack13;
+        long $stack21, $stack26;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread[] threads;
+        java.util.concurrent.ScheduledExecutorService service;
+        int $stack20, $stack25, i;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack10;
+        java.util.concurrent.TimeUnit $stack11;
+        java.util.concurrent.CountDownLatch $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.lang.Object $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack8;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack9 = newarray (java.lang.Object)[2];
+
+        $stack9[0] = service;
+
+        $stack9[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack9);
+
+        $stack10 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack11 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack11, 1);
+
+        $stack12 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack12.<java.util.concurrent.CountDownLatch: void <init>(int)>(1);
+
+        $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.CountDownLatch latch> = $stack12;
+
+        threads = newarray (org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread)[10];
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        $stack29 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore,java.util.concurrent.CountDownLatch,int,int)>($stack10, null, 1, 0);
+
+        threads[i] = $stack29;
+
+        $stack30 = threads[i];
+
+        virtualinvoke $stack30.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void start()>();
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        i = 0;
+
+     label3:
+        if i >= 10 goto label4;
+
+        $stack17 = $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.CountDownLatch latch>;
+
+        virtualinvoke $stack17.<java.util.concurrent.CountDownLatch: void await()>();
+
+        $stack20 = virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int getAcquireCount()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong count", 1L, $stack21);
+
+        $stack22 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack22.<java.util.concurrent.CountDownLatch: void <init>(int)>(1);
+
+        $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.CountDownLatch latch> = $stack22;
+
+        virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void endOfPeriod()>();
+
+        $stack25 = virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int getLastAcquiresPerPeriod()>();
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong acquire count", 1L, $stack26);
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        i = 0;
+
+     label5:
+        if i >= 10 goto label6;
+
+        $stack14 = threads[i];
+
+        virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void join()>();
+
+        i = i + 1;
+
+        goto label5;
+
+     label6:
+        $stack13 = newarray (java.lang.Object)[2];
+
+        $stack13[0] = service;
+
+        $stack13[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack13);
+
+        return;
+    }
+
+    public void testAcquireNoLimit() throws java.lang.InterruptedException
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread $stack13;
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack9, $stack14;
+        java.util.concurrent.TimeUnit $stack11;
+        java.util.concurrent.CountDownLatch $stack12;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        java.lang.Object $stack7, $stack8;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack8;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack9 = newarray (java.lang.Object)[2];
+
+        $stack9[0] = service;
+
+        $stack9[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack9);
+
+        $stack10 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack11 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack11, 0);
+
+        $stack12 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack12.<java.util.concurrent.CountDownLatch: void <init>(int)>(1000);
+
+        $stack13 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore,java.util.concurrent.CountDownLatch,int,int)>($stack10, $stack12, 1000, 1000);
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void start()>();
+
+        virtualinvoke $stack12.<java.util.concurrent.CountDownLatch: void await()>();
+
+        $stack14 = newarray (java.lang.Object)[2];
+
+        $stack14[0] = service;
+
+        $stack14[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack14);
+
+        return;
+    }
+
+    public void testPassAfterShutdown() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.TimeUnit $stack3;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack3 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(long,java.util.concurrent.TimeUnit,int)>(500L, $stack3, 10);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: void shutdown()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        return;
+    }
+
+    public void testAcquireMultiplePeriods() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.TimeUnit $stack6;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread $stack8;
+        java.util.concurrent.CountDownLatch $stack7;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        int $stack10;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl $stack5;
+        boolean $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack5 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack6 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit MILLISECONDS>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void <init>(long,java.util.concurrent.TimeUnit,int)>(50L, $stack6, 1);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void setLimit(int)>(250);
+
+        $stack7 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack7.<java.util.concurrent.CountDownLatch: void <init>(int)>(1000);
+
+        $stack8 = new org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore,java.util.concurrent.CountDownLatch,int,int)>($stack5, $stack7, 1000, 1000);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: void start()>();
+
+        virtualinvoke $stack7.<java.util.concurrent.CountDownLatch: void await()>();
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: void shutdown()>();
+
+        $stack10 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int getPeriodEnds()>();
+
+        if $stack10 <= 0 goto label1;
+
+        $stack11 = 1;
+
+        goto label2;
+
+     label1:
+        $stack11 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("End of period not reached", $stack11);
+
+        return;
+    }
+
+    public void testGetAverageCallsPerPeriod() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack6, $stack15;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack7;
+        java.util.concurrent.TimeUnit $stack8;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.util.concurrent.ScheduledExecutorService service;
+        java.lang.Object $stack4, $stack5;
+        double $stack11, $stack14;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack4 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack4;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack5;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack6 = newarray (java.lang.Object)[2];
+
+        $stack6[0] = service;
+
+        $stack6[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack6);
+
+        $stack7 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack8 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack8, 10);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void endOfPeriod()>();
+
+        $stack11 = virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: double getAverageCallsPerPeriod()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,double,double,double)>("Wrong average (1)", 1.0, $stack11, 0.005);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: void endOfPeriod()>();
+
+        $stack14 = virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.TimedSemaphore: double getAverageCallsPerPeriod()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,double,double,double)>("Wrong average (2)", 1.5, $stack14, 0.005);
+
+        $stack15 = newarray (java.lang.Object)[2];
+
+        $stack15[0] = service;
+
+        $stack15[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack15);
+
+        return;
+    }
+
+    public void testGetAvailablePermits() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.ScheduledFuture future;
+        java.lang.Object[] $stack7, $stack14;
+        long $stack13, $stack20, $stack22;
+        java.util.concurrent.ScheduledExecutorService service;
+        int $stack12, $stack19, $stack21, i;
+        java.lang.String $stack18;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack8;
+        java.util.concurrent.TimeUnit $stack9;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest this;
+        java.lang.Object $stack5, $stack6;
+        java.lang.StringBuilder $stack15, $stack16, $stack17;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledExecutorService;");
+
+        service = (java.util.concurrent.ScheduledExecutorService) $stack5;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ScheduledFuture;");
+
+        future = (java.util.concurrent.ScheduledFuture) $stack6;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest: void prepareStartTimer(java.util.concurrent.ScheduledExecutorService,java.util.concurrent.ScheduledFuture)>(service, future);
+
+        $stack7 = newarray (java.lang.Object)[2];
+
+        $stack7[0] = service;
+
+        $stack7[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack9 = <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT>;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, 500L, $stack9, 10);
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        $stack15 = new java.lang.StringBuilder;
+
+        specialinvoke $stack15.<java.lang.StringBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Wrong available count at ");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack19 = 10 - i;
+
+        $stack20 = (long) $stack19;
+
+        $stack21 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getAvailablePermits()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack18, $stack20, $stack22);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphore: void endOfPeriod()>();
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getAvailablePermits()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong available count in new period", 10L, $stack13);
+
+        $stack14 = newarray (java.lang.Object)[2];
+
+        $stack14[0] = service;
+
+        $stack14[1] = future;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack14);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.concurrent.TimeUnit $stack0;
+
+        <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: int LIMIT> = 10;
+
+        <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: long PERIOD> = 500L;
+
+        $stack0 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit MILLISECONDS>;
+
+        <org.apache.commons.lang3.concurrent.TimedSemaphoreTest: java.util.concurrent.TimeUnit UNIT> = $stack0;
+
+        return;
+    }
+}

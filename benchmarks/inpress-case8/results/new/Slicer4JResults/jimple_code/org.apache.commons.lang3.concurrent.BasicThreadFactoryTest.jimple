@@ -1,0 +1,898 @@
+public class org.apache.commons.lang3.concurrent.BasicThreadFactoryTest extends java.lang.Object
+{
+    private static final java.lang.String PATTERN;
+    private org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder> = $stack1;
+
+        return;
+    }
+
+    private void checkFactoryDefaults(org.apache.commons.lang3.concurrent.BasicThreadFactory)
+    {
+        java.lang.Thread$UncaughtExceptionHandler $stack5;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Boolean $stack9;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory factory;
+        java.lang.String $stack3;
+        java.util.concurrent.ThreadFactory $stack11;
+        java.lang.Integer $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        factory := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
+        $stack3 = virtualinvoke factory.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.String getNamingPattern()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a naming pattern", $stack3);
+
+        $stack5 = virtualinvoke factory.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got an exception handler", $stack5);
+
+        $stack7 = virtualinvoke factory.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Integer getPriority()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a priority", $stack7);
+
+        $stack9 = virtualinvoke factory.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Boolean getDaemonFlag()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a daemon flag", $stack9);
+
+        $stack11 = virtualinvoke factory.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.util.concurrent.ThreadFactory getWrappedFactory()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No wrapped factory", $stack11);
+
+        return;
+    }
+
+    public void testBuildDefaults()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack3;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: void checkFactoryDefaults(org.apache.commons.lang3.concurrent.BasicThreadFactory)>($stack3);
+
+        return;
+    }
+
+    public void testBuildNamingPatternNull()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder namingPattern(java.lang.String)>(null);
+
+        return;
+    }
+
+    public void testBuildWrappedFactoryNull()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(null);
+
+        return;
+    }
+
+    public void testBuildUncaughtExceptionHandlerNull()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder uncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)>(null);
+
+        return;
+    }
+
+    public void testBuilderReset()
+    {
+        java.lang.Object[] $stack6, $stack18;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack7, $stack8, $stack9, $stack10, $stack11, $stack13, $stack14;
+        java.lang.Thread$UncaughtExceptionHandler exHandler;
+        java.util.concurrent.ThreadFactory wrappedFactory, $stack17;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack15;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack4 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrappedFactory = (java.util.concurrent.ThreadFactory) $stack4;
+
+        $stack5 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Thread$UncaughtExceptionHandler;");
+
+        exHandler = (java.lang.Thread$UncaughtExceptionHandler) $stack5;
+
+        $stack6 = newarray (java.lang.Object)[2];
+
+        $stack6[0] = wrappedFactory;
+
+        $stack6[1] = exHandler;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder namingPattern(java.lang.String)>("testThread-%d");
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder daemon(boolean)>(1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder priority(int)>(10);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder uncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)>(exHandler);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrappedFactory);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: void reset()>();
+
+        $stack14 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: void checkFactoryDefaults(org.apache.commons.lang3.concurrent.BasicThreadFactory)>($stack15);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.util.concurrent.ThreadFactory getWrappedFactory()>();
+
+        staticinvoke <org.junit.Assert: void assertNotSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrapped factory not reset", wrappedFactory, $stack17);
+
+        $stack18 = newarray (java.lang.Object)[2];
+
+        $stack18[0] = wrappedFactory;
+
+        $stack18[1] = exHandler;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack18);
+
+        return;
+    }
+
+    public void testBuilderResetAfterBuild()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack1, $stack4, $stack5, $stack6, $stack8;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack9;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack2;
+        java.util.concurrent.ThreadFactory $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack2 = staticinvoke <org.easymock.EasyMock: java.lang.Object createNiceMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        $stack3 = (java.util.concurrent.ThreadFactory) $stack2;
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder namingPattern(java.lang.String)>("testThread-%d");
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder daemon(boolean)>(1);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack8 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: void checkFactoryDefaults(org.apache.commons.lang3.concurrent.BasicThreadFactory)>($stack9);
+
+        return;
+    }
+
+    public void testNewThreadNamingPattern()
+    {
+        java.lang.Object[] $stack9, $stack14, $stack16;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack10, $stack11, $stack12;
+        long $stack18, $stack27, $stack28;
+        java.lang.Runnable r;
+        java.lang.Long $stack22;
+        java.lang.Thread $stack15, $stack31, $stack33;
+        int $stack17, $stack25, i_1, i_2;
+        java.lang.String $stack23, $stack24;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack32;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack13;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack8;
+
+        i_1 = 0;
+
+     label1:
+        if i_1 >= 12 goto label2;
+
+        $stack31 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack32 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack31);
+
+        $stack33 = new java.lang.Thread;
+
+        specialinvoke $stack33.<java.lang.Thread: void <init>()>();
+
+        interfaceinvoke $stack32.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack33);
+
+        i_1 = i_1 + 1;
+
+        goto label1;
+
+     label2:
+        $stack9 = newarray (java.lang.Object)[2];
+
+        $stack9[0] = wrapped;
+
+        $stack9[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder namingPattern(java.lang.String)>("testThread-%d");
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        i_2 = 0;
+
+     label3:
+        if i_2 >= 12 goto label4;
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack16 = newarray (java.lang.Object)[1];
+
+        $stack17 = i_2 + 1;
+
+        $stack18 = (long) $stack17;
+
+        $stack22 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($stack18);
+
+        $stack16[0] = $stack22;
+
+        $stack23 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("testThread-%d", $stack16);
+
+        $stack24 = virtualinvoke $stack15.<java.lang.Thread: java.lang.String getName()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread name", $stack23, $stack24);
+
+        $stack25 = i_2 + 1;
+
+        $stack27 = (long) $stack25;
+
+        $stack28 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory: long getThreadCount()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong thread count", $stack27, $stack28);
+
+        i_2 = i_2 + 1;
+
+        goto label3;
+
+     label4:
+        $stack14 = newarray (java.lang.Object)[2];
+
+        $stack14[0] = wrapped;
+
+        $stack14[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack14);
+
+        return;
+    }
+
+    public void testNewThreadNoNamingPattern()
+    {
+        java.lang.Object[] $stack12, $stack21;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack13, $stack14;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack15;
+        java.lang.Runnable r;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Thread $stack8, $stack9, $stack17;
+        java.lang.Object $stack6, $stack7;
+        java.lang.String $stack20;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = new java.lang.Thread;
+
+        specialinvoke $stack8.<java.lang.Thread: void <init>(java.lang.String)>("unchangedThreadName");
+
+        $stack9 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack10 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack9);
+
+        interfaceinvoke $stack10.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack8);
+
+        $stack12 = newarray (java.lang.Object)[2];
+
+        $stack12[0] = wrapped;
+
+        $stack12[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack8, $stack17);
+
+        $stack20 = virtualinvoke $stack8.<java.lang.Thread: java.lang.String getName()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Name was changed", "unchangedThreadName", $stack20);
+
+        $stack21 = newarray (java.lang.Object)[2];
+
+        $stack21[0] = wrapped;
+
+        $stack21[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack21);
+
+        return;
+    }
+
+    private void checkDaemonFlag(boolean)
+    {
+        java.lang.Object[] $stack12, $stack21;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack13, $stack14, $stack15;
+        java.lang.Runnable r;
+        java.lang.Thread $stack8, $stack9, $stack18;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack10;
+        boolean flag, $stack20, $stack22;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack16;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        flag := @parameter0: boolean;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = new java.lang.Thread;
+
+        specialinvoke $stack8.<java.lang.Thread: void <init>()>();
+
+        $stack9 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack10 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack9);
+
+        interfaceinvoke $stack10.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack8);
+
+        $stack12 = newarray (java.lang.Object)[2];
+
+        $stack12[0] = wrapped;
+
+        $stack12[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder daemon(boolean)>(flag);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack8, $stack18);
+
+        $stack20 = virtualinvoke $stack8.<java.lang.Thread: boolean isDaemon()>();
+
+        if flag != $stack20 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong daemon flag", $stack22);
+
+        $stack21 = newarray (java.lang.Object)[2];
+
+        $stack21[0] = wrapped;
+
+        $stack21[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack21);
+
+        return;
+    }
+
+    public void testNewThreadDaemonTrue()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: void checkDaemonFlag(boolean)>(1);
+
+        return;
+    }
+
+    public void testNewThreadDaemonFalse()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: void checkDaemonFlag(boolean)>(0);
+
+        return;
+    }
+
+    public void testNewThreadNoDaemonFlag()
+    {
+        java.lang.Object[] $stack18, $stack30;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack19, $stack20;
+        java.lang.Runnable r1, r2;
+        java.lang.Thread $stack10, $stack11, $stack12, $stack15, $stack23, $stack27;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack13, $stack16;
+        boolean $stack25, $stack29;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack21;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack7, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r1 = (java.lang.Runnable) $stack8;
+
+        $stack9 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r2 = (java.lang.Runnable) $stack9;
+
+        $stack10 = new java.lang.Thread;
+
+        specialinvoke $stack10.<java.lang.Thread: void <init>()>();
+
+        $stack11 = new java.lang.Thread;
+
+        specialinvoke $stack11.<java.lang.Thread: void <init>()>();
+
+        virtualinvoke $stack10.<java.lang.Thread: void setDaemon(boolean)>(1);
+
+        $stack12 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r1);
+
+        $stack13 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack12);
+
+        interfaceinvoke $stack13.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack10);
+
+        $stack15 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r2);
+
+        $stack16 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack15);
+
+        interfaceinvoke $stack16.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack11);
+
+        $stack18 = newarray (java.lang.Object)[3];
+
+        $stack18[0] = wrapped;
+
+        $stack18[1] = r1;
+
+        $stack18[2] = r2;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack23 = virtualinvoke $stack21.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread 1", $stack10, $stack23);
+
+        $stack25 = virtualinvoke $stack10.<java.lang.Thread: boolean isDaemon()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("No daemon thread", $stack25);
+
+        $stack27 = virtualinvoke $stack21.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread 2", $stack11, $stack27);
+
+        $stack29 = virtualinvoke $stack11.<java.lang.Thread: boolean isDaemon()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("A daemon thread", $stack29);
+
+        $stack30 = newarray (java.lang.Object)[3];
+
+        $stack30[0] = wrapped;
+
+        $stack30[1] = r1;
+
+        $stack30[2] = r2;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack30);
+
+        return;
+    }
+
+    public void testNewThreadPriority()
+    {
+        java.lang.Object[] $stack12, $stack23;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack13, $stack14, $stack15;
+        long $stack22;
+        java.lang.Runnable r;
+        java.lang.Thread $stack8, $stack9, $stack18;
+        int $stack21;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack10;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack16;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = new java.lang.Thread;
+
+        specialinvoke $stack8.<java.lang.Thread: void <init>()>();
+
+        $stack9 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack10 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack9);
+
+        interfaceinvoke $stack10.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack8);
+
+        $stack12 = newarray (java.lang.Object)[2];
+
+        $stack12[0] = wrapped;
+
+        $stack12[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder priority(int)>(6);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack8, $stack18);
+
+        $stack21 = virtualinvoke $stack8.<java.lang.Thread: int getPriority()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong priority", 6L, $stack22);
+
+        $stack23 = newarray (java.lang.Object)[2];
+
+        $stack23[0] = wrapped;
+
+        $stack23[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack23);
+
+        return;
+    }
+
+    public void testNewThreadNoPriority()
+    {
+        java.lang.Object[] $stack12, $stack22;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack13, $stack14;
+        long $stack21;
+        java.lang.Runnable r;
+        java.lang.Thread $stack8, $stack9, $stack17;
+        int $stack20;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack10;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack15;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = new java.lang.Thread;
+
+        specialinvoke $stack8.<java.lang.Thread: void <init>()>();
+
+        virtualinvoke $stack8.<java.lang.Thread: void setPriority(int)>(6);
+
+        $stack9 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack10 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack9);
+
+        interfaceinvoke $stack10.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack8);
+
+        $stack12 = newarray (java.lang.Object)[2];
+
+        $stack12[0] = wrapped;
+
+        $stack12[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack8, $stack17);
+
+        $stack20 = virtualinvoke $stack8.<java.lang.Thread: int getPriority()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong priority", 6L, $stack21);
+
+        $stack22 = newarray (java.lang.Object)[2];
+
+        $stack22[0] = wrapped;
+
+        $stack22[1] = r;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack22);
+
+        return;
+    }
+
+    public void testNewThreadExHandler()
+    {
+        java.lang.Object[] $stack13, $stack22;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack14, $stack15, $stack16;
+        java.lang.Runnable r;
+        java.lang.Thread$UncaughtExceptionHandler handler, $stack21;
+        java.lang.Thread $stack9, $stack10, $stack19;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack11;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack17;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack6, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Thread$UncaughtExceptionHandler;");
+
+        handler = (java.lang.Thread$UncaughtExceptionHandler) $stack8;
+
+        $stack9 = new java.lang.Thread;
+
+        specialinvoke $stack9.<java.lang.Thread: void <init>()>();
+
+        $stack10 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack11 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack10);
+
+        interfaceinvoke $stack11.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack9);
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = wrapped;
+
+        $stack13[1] = r;
+
+        $stack13[2] = handler;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack13);
+
+        $stack14 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder uncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)>(handler);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack19 = virtualinvoke $stack17.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack9, $stack19);
+
+        $stack21 = virtualinvoke $stack9.<java.lang.Thread: java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception handler", handler, $stack21);
+
+        $stack22 = newarray (java.lang.Object)[3];
+
+        $stack22[0] = wrapped;
+
+        $stack22[1] = r;
+
+        $stack22[2] = handler;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack22);
+
+        return;
+    }
+
+    public void testNewThreadNoExHandler()
+    {
+        java.lang.Object[] $stack13, $stack21;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder $stack14, $stack15;
+        java.lang.Runnable r;
+        java.lang.Thread$UncaughtExceptionHandler handler, $stack20;
+        java.lang.Thread $stack9, $stack10, $stack18;
+        java.util.concurrent.ThreadFactory wrapped;
+        org.easymock.IExpectationSetters $stack11;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack16;
+        org.apache.commons.lang3.concurrent.BasicThreadFactoryTest this;
+        java.lang.Object $stack6, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactoryTest;
+
+        $stack6 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/util/concurrent/ThreadFactory;");
+
+        wrapped = (java.util.concurrent.ThreadFactory) $stack6;
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Runnable;");
+
+        r = (java.lang.Runnable) $stack7;
+
+        $stack8 = staticinvoke <org.easymock.EasyMock: java.lang.Object createMock(java.lang.Class)>(class "Ljava/lang/Thread$UncaughtExceptionHandler;");
+
+        handler = (java.lang.Thread$UncaughtExceptionHandler) $stack8;
+
+        $stack9 = new java.lang.Thread;
+
+        specialinvoke $stack9.<java.lang.Thread: void <init>()>();
+
+        virtualinvoke $stack9.<java.lang.Thread: void setUncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)>(handler);
+
+        $stack10 = interfaceinvoke wrapped.<java.util.concurrent.ThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        $stack11 = staticinvoke <org.easymock.EasyMock: org.easymock.IExpectationSetters expect(java.lang.Object)>($stack10);
+
+        interfaceinvoke $stack11.<org.easymock.IExpectationSetters: org.easymock.IExpectationSetters andReturn(java.lang.Object)>($stack9);
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = wrapped;
+
+        $stack13[1] = r;
+
+        $stack13[2] = handler;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack13);
+
+        $stack14 = this.<org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder builder>;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)>(wrapped);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.concurrent.BasicThreadFactory: java.lang.Thread newThread(java.lang.Runnable)>(r);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong thread", $stack9, $stack18);
+
+        $stack20 = virtualinvoke $stack9.<java.lang.Thread: java.lang.Thread$UncaughtExceptionHandler getUncaughtExceptionHandler()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception handler", handler, $stack20);
+
+        $stack21 = newarray (java.lang.Object)[3];
+
+        $stack21[0] = wrapped;
+
+        $stack21[1] = r;
+
+        $stack21[2] = handler;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack21);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.concurrent.BasicThreadFactoryTest: java.lang.String PATTERN> = "testThread-%d";
+
+        return;
+    }
+}

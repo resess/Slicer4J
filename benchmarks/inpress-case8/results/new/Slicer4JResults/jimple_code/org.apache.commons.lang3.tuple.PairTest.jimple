@@ -1,0 +1,419 @@
+public class org.apache.commons.lang3.tuple.PairTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.tuple.PairTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testPairOf() throws java.lang.Exception
+    {
+        long $stack11;
+        java.lang.Integer $stack3, $stack8;
+        org.apache.commons.lang3.tuple.Pair $stack4, $stack14;
+        int $stack10;
+        boolean $stack5, $stack15;
+        org.apache.commons.lang3.tuple.PairTest this;
+        org.apache.commons.lang3.tuple.ImmutablePair $stack6, $stack12, $stack16, $stack18;
+        java.lang.Object $stack7, $stack13, $stack17, $stack19;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>($stack3, "foo");
+
+        $stack5 = $stack4 instanceof org.apache.commons.lang3.tuple.ImmutablePair;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = (org.apache.commons.lang3.tuple.ImmutablePair) $stack4;
+
+        $stack7 = $stack6.<org.apache.commons.lang3.tuple.ImmutablePair: java.lang.Object left>;
+
+        $stack8 = (java.lang.Integer) $stack7;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.Integer: int intValue()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $stack12 = (org.apache.commons.lang3.tuple.ImmutablePair) $stack4;
+
+        $stack13 = $stack12.<org.apache.commons.lang3.tuple.ImmutablePair: java.lang.Object right>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>(null, "bar");
+
+        $stack15 = $stack14 instanceof org.apache.commons.lang3.tuple.ImmutablePair;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = (org.apache.commons.lang3.tuple.ImmutablePair) $stack14;
+
+        $stack17 = $stack16.<org.apache.commons.lang3.tuple.ImmutablePair: java.lang.Object left>;
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack17);
+
+        $stack18 = (org.apache.commons.lang3.tuple.ImmutablePair) $stack14;
+
+        $stack19 = $stack18.<org.apache.commons.lang3.tuple.ImmutablePair: java.lang.Object right>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack19);
+
+        return;
+    }
+
+    public void testCompatibilityBetweenPairs() throws java.lang.Exception
+    {
+        long $stack9, $stack11;
+        org.apache.commons.lang3.tuple.PairTest this;
+        java.lang.Integer $stack4, $stack6;
+        org.apache.commons.lang3.tuple.ImmutablePair $stack5;
+        java.util.HashSet $stack12;
+        org.apache.commons.lang3.tuple.MutablePair $stack7;
+        int $stack8, $stack10, $stack17, $stack18;
+        boolean $stack14, $stack16, $stack19;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.tuple.ImmutablePair: org.apache.commons.lang3.tuple.ImmutablePair of(java.lang.Object,java.lang.Object)>($stack4, "foo");
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.tuple.MutablePair: org.apache.commons.lang3.tuple.MutablePair of(java.lang.Object,java.lang.Object)>($stack6, "foo");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack7);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.Pair: int hashCode()>();
+
+        $stack9 = (long) $stack8;
+
+        $stack10 = virtualinvoke $stack7.<org.apache.commons.lang3.tuple.Pair: int hashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack9, $stack11);
+
+        $stack12 = new java.util.HashSet;
+
+        specialinvoke $stack12.<java.util.HashSet: void <init>()>();
+
+        virtualinvoke $stack12.<java.util.HashSet: boolean add(java.lang.Object)>($stack5);
+
+        $stack14 = virtualinvoke $stack12.<java.util.HashSet: boolean contains(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.tuple.Pair: java.lang.Object setValue(java.lang.Object)>("bar");
+
+        $stack16 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.Pair: boolean equals(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.Pair: int hashCode()>();
+
+        $stack18 = virtualinvoke $stack7.<org.apache.commons.lang3.tuple.Pair: int hashCode()>();
+
+        if $stack17 != $stack18 goto label1;
+
+        $stack19 = 1;
+
+        goto label2;
+
+     label1:
+        $stack19 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        return;
+    }
+
+    public void testMapEntry() throws java.lang.Exception
+    {
+        java.util.Map$Entry entry;
+        java.util.Iterator $stack10;
+        java.util.Set $stack9;
+        java.util.HashMap $stack6;
+        long $stack13, $stack15;
+        org.apache.commons.lang3.tuple.PairTest this;
+        java.lang.Integer $stack4, $stack7;
+        org.apache.commons.lang3.tuple.ImmutablePair $stack5;
+        int $stack12, $stack14;
+        java.lang.Object $stack11;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.tuple.ImmutablePair: org.apache.commons.lang3.tuple.ImmutablePair of(java.lang.Object,java.lang.Object)>($stack4, "foo");
+
+        $stack6 = new java.util.HashMap;
+
+        specialinvoke $stack6.<java.util.HashMap: void <init>()>();
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $stack6.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack7, "foo");
+
+        $stack9 = virtualinvoke $stack6.<java.util.HashMap: java.util.Set entrySet()>();
+
+        $stack10 = interfaceinvoke $stack9.<java.util.Set: java.util.Iterator iterator()>();
+
+        $stack11 = interfaceinvoke $stack10.<java.util.Iterator: java.lang.Object next()>();
+
+        entry = (java.util.Map$Entry) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, entry);
+
+        $stack12 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.Pair: int hashCode()>();
+
+        $stack13 = (long) $stack12;
+
+        $stack14 = interfaceinvoke entry.<java.util.Map$Entry: int hashCode()>();
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack15);
+
+        return;
+    }
+
+    public void testComparable1() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.PairTest this;
+        org.apache.commons.lang3.tuple.Pair $stack3, $stack4;
+        int $stack5, $stack6, $stack7, $stack8;
+        boolean $stack16, $stack13, $stack10, $stack9;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("A", "D");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("B", "C");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack3);
+
+        if $stack5 != 0 goto label1;
+
+        $stack16 = 1;
+
+        goto label2;
+
+     label1:
+        $stack16 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack4);
+
+        if $stack6 >= 0 goto label3;
+
+        $stack13 = 1;
+
+        goto label4;
+
+     label3:
+        $stack13 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack4);
+
+        if $stack7 != 0 goto label5;
+
+        $stack10 = 1;
+
+        goto label6;
+
+     label5:
+        $stack10 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack3);
+
+        if $stack8 <= 0 goto label7;
+
+        $stack9 = 1;
+
+        goto label8;
+
+     label7:
+        $stack9 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testComparable2() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.PairTest this;
+        org.apache.commons.lang3.tuple.Pair $stack3, $stack4;
+        int $stack5, $stack6, $stack7, $stack8;
+        boolean $stack16, $stack13, $stack10, $stack9;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("A", "C");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("A", "D");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack3);
+
+        if $stack5 != 0 goto label1;
+
+        $stack16 = 1;
+
+        goto label2;
+
+     label1:
+        $stack16 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack4);
+
+        if $stack6 >= 0 goto label3;
+
+        $stack13 = 1;
+
+        goto label4;
+
+     label3:
+        $stack13 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack4);
+
+        if $stack7 != 0 goto label5;
+
+        $stack10 = 1;
+
+        goto label6;
+
+     label5:
+        $stack10 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack3);
+
+        if $stack8 <= 0 goto label7;
+
+        $stack9 = 1;
+
+        goto label8;
+
+     label7:
+        $stack9 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testToString() throws java.lang.Exception
+    {
+        java.lang.String $stack4;
+        org.apache.commons.lang3.tuple.Pair $stack2;
+        org.apache.commons.lang3.tuple.PairTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("Key", "Value");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.Pair: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(Key,Value)", $stack4);
+
+        return;
+    }
+
+    public void testToStringCustom() throws java.lang.Exception
+    {
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.tuple.Pair $stack4;
+        java.lang.String $stack6;
+        org.apache.commons.lang3.tuple.PairTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(2011, 3, 25);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("DOB", $stack3);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.Pair: java.lang.String toString(java.lang.String)>("Test created on %2$tm-%2$td-%2$tY");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Test created on 04-25-2011", $stack6);
+
+        return;
+    }
+
+    public void testFormattable_simple() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.tuple.Pair $stack2;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.tuple.PairTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("Key", "Value");
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = $stack2;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%1$s", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(Key,Value)", $stack5);
+
+        return;
+    }
+
+    public void testFormattable_padded() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.tuple.Pair $stack2;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.tuple.PairTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.PairTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.tuple.Pair: org.apache.commons.lang3.tuple.Pair of(java.lang.Object,java.lang.Object)>("Key", "Value");
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = $stack2;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("%1$20s", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("         (Key,Value)", $stack5);
+
+        return;
+    }
+}

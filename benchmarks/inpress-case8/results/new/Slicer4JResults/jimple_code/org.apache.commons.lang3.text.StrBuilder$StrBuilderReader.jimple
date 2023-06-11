@@ -1,0 +1,293 @@
+class org.apache.commons.lang3.text.StrBuilder$StrBuilderReader extends java.io.Reader
+{
+    private int pos;
+    private int mark;
+    final org.apache.commons.lang3.text.StrBuilder this$0;
+
+    void <init>(org.apache.commons.lang3.text.StrBuilder)
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+        org.apache.commons.lang3.text.StrBuilder l1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        l1 := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0> = l1;
+
+        specialinvoke this.<java.io.Reader: void <init>()>();
+
+        return;
+    }
+
+    public void close()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        return;
+    }
+
+    public int read()
+    {
+        char $stack5;
+        int $stack2, $stack3, $i0, $i1;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+        org.apache.commons.lang3.text.StrBuilder $stack4;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: boolean ready()>();
+
+        if $stack1 != 0 goto label1;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack3 = $stack2 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos> = $stack3;
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: char charAt(int)>($stack2);
+
+        $i1 = (int) $stack5;
+
+        return $i1;
+    }
+
+    public int read(char[], int, int)
+    {
+        java.lang.IndexOutOfBoundsException $u0;
+        int off, $stack5, $stack6, $stack7, $stack8, $stack10, $stack11, $stack12, $stack14, $stack15, $stack16, $stack17, $stack18, $stack20, $stack21, $stack23, $stack24, len, $i0;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+        char[] b;
+        org.apache.commons.lang3.text.StrBuilder $stack9, $stack13, $stack19, $stack22;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        b := @parameter0: char[];
+
+        off := @parameter1: int;
+
+        len := @parameter2: int;
+
+        if off < 0 goto label1;
+
+        if len < 0 goto label1;
+
+        $stack5 = lengthof b;
+
+        if off > $stack5 goto label1;
+
+        $stack7 = off + len;
+
+        $stack6 = lengthof b;
+
+        if $stack7 > $stack6 goto label1;
+
+        $stack8 = off + len;
+
+        if $stack8 >= 0 goto label2;
+
+     label1:
+        $u0 = new java.lang.IndexOutOfBoundsException;
+
+        specialinvoke $u0.<java.lang.IndexOutOfBoundsException: void <init>()>();
+
+        throw $u0;
+
+     label2:
+        if len != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        if $stack10 < $stack11 goto label4;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label4:
+        $stack12 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack14 = $stack12 + len;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        if $stack14 <= $stack15 goto label5;
+
+        $stack22 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack23 = virtualinvoke $stack22.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        $stack24 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        len = $stack23 - $stack24;
+
+     label5:
+        $stack19 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack18 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack16 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack17 = $stack16 + len;
+
+        virtualinvoke $stack19.<org.apache.commons.lang3.text.StrBuilder: void getChars(int,int,char[],int)>($stack18, $stack17, b, off);
+
+        $stack20 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack21 = $stack20 + len;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos> = $stack21;
+
+        return len;
+    }
+
+    public long skip(long)
+    {
+        long $stack4, $stack6, $stack8, $stack12, $stack13, n;
+        byte $stack9, $stack10;
+        int $stack3, $stack7, $stack11, $stack14, $stack16, $stack17, $stack18, $i0, $i1;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        n := @parameter0: long;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack4 = (long) $stack3;
+
+        $stack6 = $stack4 + n;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        $stack8 = (long) $stack7;
+
+        $stack9 = $stack6 cmp $stack8;
+
+        $i0 = (int) $stack9;
+
+        if $i0 <= 0 goto label1;
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        $stack17 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack18 = $stack16 - $stack17;
+
+        n = (long) $stack18;
+
+     label1:
+        $stack10 = n cmp 0L;
+
+        $i1 = (int) $stack10;
+
+        if $i1 >= 0 goto label2;
+
+        return 0L;
+
+     label2:
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack12 = (long) $stack11;
+
+        $stack13 = $stack12 + n;
+
+        $stack14 = (int) $stack13;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos> = $stack14;
+
+        return n;
+    }
+
+    public boolean ready()
+    {
+        int $stack2, $stack3;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+        org.apache.commons.lang3.text.StrBuilder $stack1;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        if $stack2 >= $stack3 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public boolean markSupported()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        return 1;
+    }
+
+    public void mark(int)
+    {
+        int $stack2, readAheadLimit;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        readAheadLimit := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos>;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int mark> = $stack2;
+
+        return;
+    }
+
+    public void reset()
+    {
+        int $stack1;
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int mark>;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: int pos> = $stack1;
+
+        return;
+    }
+}

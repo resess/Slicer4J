@@ -1,0 +1,964 @@
+public class org.apache.commons.lang3.ObjectUtils extends java.lang.Object
+{
+    public static final org.apache.commons.lang3.ObjectUtils$Null NULL;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.ObjectUtils this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.Object defaultIfNull(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object object, defaultValue, $stack2;
+
+        object := @parameter0: java.lang.Object;
+
+        defaultValue := @parameter1: java.lang.Object;
+
+        if object == null goto label1;
+
+        $stack2 = object;
+
+        goto label2;
+
+     label1:
+        $stack2 = defaultValue;
+
+     label2:
+        return $stack2;
+    }
+
+    public static transient java.lang.Object firstNonNull(java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        int len$, i$;
+        java.lang.Object val;
+
+        values := @parameter0: java.lang.Object[];
+
+        if values == null goto label3;
+
+        len$ = lengthof values;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        val = values[i$];
+
+        if val == null goto label2;
+
+        return val;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    public static boolean equals(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object object1, object2;
+        boolean $stack2;
+
+        object1 := @parameter0: java.lang.Object;
+
+        object2 := @parameter1: java.lang.Object;
+
+        if object1 != object2 goto label1;
+
+        return 1;
+
+     label1:
+        if object1 == null goto label2;
+
+        if object2 != null goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        $stack2 = virtualinvoke object1.<java.lang.Object: boolean equals(java.lang.Object)>(object2);
+
+        return $stack2;
+    }
+
+    public static boolean notEqual(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object object1, object2;
+        boolean $stack2, $stack3;
+
+        object1 := @parameter0: java.lang.Object;
+
+        object2 := @parameter1: java.lang.Object;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>(object1, object2);
+
+        if $stack2 != 0 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public static int hashCode(java.lang.Object)
+    {
+        int $stack1;
+        java.lang.Object obj;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != null goto label1;
+
+        $stack1 = 0;
+
+        goto label2;
+
+     label1:
+        $stack1 = virtualinvoke obj.<java.lang.Object: int hashCode()>();
+
+     label2:
+        return $stack1;
+    }
+
+    public static transient int hashCodeMulti(java.lang.Object[])
+    {
+        java.lang.Object[] objects;
+        int len$, $stack7, $stack8, hash, i$;
+        java.lang.Object object;
+
+        objects := @parameter0: java.lang.Object[];
+
+        hash = 1;
+
+        if objects == null goto label2;
+
+        len$ = lengthof objects;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        object = objects[i$];
+
+        $stack7 = hash * 31;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCode(java.lang.Object)>(object);
+
+        hash = $stack7 + $stack8;
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return hash;
+    }
+
+    public static java.lang.String identityToString(java.lang.Object)
+    {
+        java.lang.Object object;
+        java.lang.String $stack3;
+        java.lang.StringBuffer $stack2;
+
+        object := @parameter0: java.lang.Object;
+
+        if object != null goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = new java.lang.StringBuffer;
+
+        specialinvoke $stack2.<java.lang.StringBuffer: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: void identityToString(java.lang.StringBuffer,java.lang.Object)>($stack2, object);
+
+        $stack3 = virtualinvoke $stack2.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $stack3;
+    }
+
+    public static void identityToString(java.lang.StringBuffer, java.lang.Object)
+    {
+        java.lang.NullPointerException $stack9;
+        java.lang.StringBuffer buffer, $stack4, $stack5;
+        int $stack6;
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, $stack7;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        object := @parameter1: java.lang.Object;
+
+        if object != null goto label1;
+
+        $stack9 = new java.lang.NullPointerException;
+
+        specialinvoke $stack9.<java.lang.NullPointerException: void <init>(java.lang.String)>("Cannot get the toString of a null identity");
+
+        throw $stack9;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4 = virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(64);
+
+        $stack6 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>(object);
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack6);
+
+        virtualinvoke $stack5.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack7);
+
+        return;
+    }
+
+    public static java.lang.String toString(java.lang.Object)
+    {
+        java.lang.Object obj;
+        java.lang.String $stack1;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != null goto label1;
+
+        $stack1 = "";
+
+        goto label2;
+
+     label1:
+        $stack1 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.String toString(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object obj;
+        java.lang.String nullStr, $stack2;
+
+        obj := @parameter0: java.lang.Object;
+
+        nullStr := @parameter1: java.lang.String;
+
+        if obj != null goto label1;
+
+        $stack2 = nullStr;
+
+        goto label2;
+
+     label1:
+        $stack2 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+     label2:
+        return $stack2;
+    }
+
+    public static transient java.lang.Comparable min(java.lang.Comparable[])
+    {
+        int len$, $stack7, i$;
+        java.lang.Comparable value, result;
+        java.lang.Comparable[] values;
+
+        values := @parameter0: java.lang.Comparable[];
+
+        result = null;
+
+        if values == null goto label3;
+
+        len$ = lengthof values;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        value = values[i$];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>(value, result, 1);
+
+        if $stack7 >= 0 goto label2;
+
+        result = value;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return result;
+    }
+
+    public static transient java.lang.Comparable max(java.lang.Comparable[])
+    {
+        int len$, $stack7, i$;
+        java.lang.Comparable value, result;
+        java.lang.Comparable[] values;
+
+        values := @parameter0: java.lang.Comparable[];
+
+        result = null;
+
+        if values == null goto label3;
+
+        len$ = lengthof values;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        value = values[i$];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>(value, result, 0);
+
+        if $stack7 <= 0 goto label2;
+
+        result = value;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return result;
+    }
+
+    public static int compare(java.lang.Comparable, java.lang.Comparable)
+    {
+        int $stack2;
+        java.lang.Comparable c1, c2;
+
+        c1 := @parameter0: java.lang.Comparable;
+
+        c2 := @parameter1: java.lang.Comparable;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>(c1, c2, 0);
+
+        return $stack2;
+    }
+
+    public static int compare(java.lang.Comparable, java.lang.Comparable, boolean)
+    {
+        byte $stack5, $stack4;
+        int $stack3;
+        java.lang.Comparable c1, c2;
+        boolean nullGreater;
+
+        c1 := @parameter0: java.lang.Comparable;
+
+        c2 := @parameter1: java.lang.Comparable;
+
+        nullGreater := @parameter2: boolean;
+
+        if c1 != c2 goto label1;
+
+        return 0;
+
+     label1:
+        if c1 != null goto label4;
+
+        if nullGreater == 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = -1;
+
+     label3:
+        return $stack5;
+
+     label4:
+        if c2 != null goto label7;
+
+        if nullGreater == 0 goto label5;
+
+        $stack4 = -1;
+
+        goto label6;
+
+     label5:
+        $stack4 = 1;
+
+     label6:
+        return $stack4;
+
+     label7:
+        $stack3 = interfaceinvoke c1.<java.lang.Comparable: int compareTo(java.lang.Object)>(c2);
+
+        return $stack3;
+    }
+
+    public static transient java.lang.Comparable median(java.lang.Comparable[])
+    {
+        java.lang.Object[] $stack7;
+        java.lang.Comparable[] items;
+        java.util.TreeSet $stack5;
+        int $stack8, $stack9, $stack10;
+        java.lang.Object $stack11;
+        java.lang.Comparable result;
+
+        items := @parameter0: java.lang.Comparable[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[])>(items);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>(items);
+
+        $stack5 = new java.util.TreeSet;
+
+        specialinvoke $stack5.<java.util.TreeSet: void <init>()>();
+
+        staticinvoke <java.util.Collections: boolean addAll(java.util.Collection,java.lang.Object[])>($stack5, items);
+
+        $stack7 = virtualinvoke $stack5.<java.util.TreeSet: java.lang.Object[] toArray()>();
+
+        $stack8 = virtualinvoke $stack5.<java.util.TreeSet: int size()>();
+
+        $stack9 = $stack8 - 1;
+
+        $stack10 = $stack9 / 2;
+
+        $stack11 = $stack7[$stack10];
+
+        result = (java.lang.Comparable) $stack11;
+
+        return result;
+    }
+
+    public static transient java.lang.Object median(java.util.Comparator, java.lang.Object[])
+    {
+        java.lang.Object[] items, $stack4, $stack7, $stack11;
+        java.util.TreeSet $stack9;
+        int $stack12, $stack13, $stack14;
+        java.lang.Object result;
+        java.util.Comparator comparator;
+
+        comparator := @parameter0: java.util.Comparator;
+
+        items := @parameter1: java.lang.Object[];
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>(items, "null/empty items", $stack4);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>(items);
+
+        $stack7 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(comparator, "null comparator", $stack7);
+
+        $stack9 = new java.util.TreeSet;
+
+        specialinvoke $stack9.<java.util.TreeSet: void <init>(java.util.Comparator)>(comparator);
+
+        staticinvoke <java.util.Collections: boolean addAll(java.util.Collection,java.lang.Object[])>($stack9, items);
+
+        $stack11 = virtualinvoke $stack9.<java.util.TreeSet: java.lang.Object[] toArray()>();
+
+        $stack12 = virtualinvoke $stack9.<java.util.TreeSet: int size()>();
+
+        $stack13 = $stack12 - 1;
+
+        $stack14 = $stack13 / 2;
+
+        result = $stack11[$stack14];
+
+        return result;
+    }
+
+    public static transient java.lang.Object mode(java.lang.Object[])
+    {
+        java.lang.Object[] items;
+        org.apache.commons.lang3.mutable.MutableInt $stack15, $stack22, count;
+        java.util.HashMap $stack8;
+        int $stack9, $stack16, len$, i$;
+        boolean $stack7, $stack12;
+        java.util.Map$Entry t#9;
+        java.util.Iterator $stack11;
+        java.util.Set $stack10;
+        java.lang.Object $stack13, $stack14, $stack19, t, arr$;
+
+        items := @parameter0: java.lang.Object[];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean isNotEmpty(java.lang.Object[])>(items);
+
+        if $stack7 == 0 goto label9;
+
+        $stack8 = new java.util.HashMap;
+
+        $stack9 = lengthof items;
+
+        specialinvoke $stack8.<java.util.HashMap: void <init>(int)>($stack9);
+
+        len$ = lengthof items;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label4;
+
+        t = items[i$];
+
+        $stack19 = virtualinvoke $stack8.<java.util.HashMap: java.lang.Object get(java.lang.Object)>(t);
+
+        count = (org.apache.commons.lang3.mutable.MutableInt) $stack19;
+
+        if count != null goto label2;
+
+        $stack22 = new org.apache.commons.lang3.mutable.MutableInt;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.mutable.MutableInt: void <init>(int)>(1);
+
+        virtualinvoke $stack8.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>(t, $stack22);
+
+        goto label3;
+
+     label2:
+        virtualinvoke count.<org.apache.commons.lang3.mutable.MutableInt: void increment()>();
+
+     label3:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label4:
+        arr$ = null;
+
+        len$ = 0;
+
+        $stack10 = virtualinvoke $stack8.<java.util.HashMap: java.util.Set entrySet()>();
+
+        $stack11 = interfaceinvoke $stack10.<java.util.Set: java.util.Iterator iterator()>();
+
+     label5:
+        $stack12 = interfaceinvoke $stack11.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack12 == 0 goto label8;
+
+        $stack13 = interfaceinvoke $stack11.<java.util.Iterator: java.lang.Object next()>();
+
+        t#9 = (java.util.Map$Entry) $stack13;
+
+        $stack14 = interfaceinvoke t#9.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $stack15 = (org.apache.commons.lang3.mutable.MutableInt) $stack14;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.mutable.MutableInt: int intValue()>();
+
+        if $stack16 != len$ goto label6;
+
+        arr$ = null;
+
+        goto label7;
+
+     label6:
+        if $stack16 <= len$ goto label7;
+
+        len$ = $stack16;
+
+        arr$ = interfaceinvoke t#9.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+     label7:
+        goto label5;
+
+     label8:
+        return arr$;
+
+     label9:
+        return null;
+    }
+
+    public static java.lang.Object clone(java.lang.Object)
+    {
+        java.lang.NoSuchMethodException $stack41;
+        java.lang.reflect.Method $stack9;
+        boolean $stack4, $stack6, $stack14;
+        java.lang.IllegalAccessException $stack33;
+        java.lang.reflect.InvocationTargetException $stack24;
+        java.lang.StringBuilder $stack27, $stack30, $stack36, $stack39, $stack44, $stack47, $stack48, $u0, $u2, $u4;
+        java.lang.Throwable $stack32;
+        java.lang.Object[] $stack10, $stack21, $stack22;
+        int $stack15, $stack17, length, $i0;
+        java.lang.String $stack29, $stack31, $stack38, $stack40, $stack46, $stack49;
+        java.lang.Class[] $stack8;
+        java.lang.Object obj, $stack16, $stack20, result;
+        java.lang.Class $stack5, $stack7, $stack12, $stack13, $stack28, $stack37, $stack45;
+        org.apache.commons.lang3.exception.CloneFailedException $u1, $u3, $u5;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack4 = obj instanceof java.lang.Cloneable;
+
+        if $stack4 == 0 goto label10;
+
+        $stack5 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Class: boolean isArray()>();
+
+        if $stack6 == 0 goto label04;
+
+        $stack12 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack14 != 0 goto label01;
+
+        $stack21 = (java.lang.Object[]) obj;
+
+        $stack22 = (java.lang.Object[]) $stack21;
+
+        result = virtualinvoke $stack22.<java.lang.Object: java.lang.Object clone()>();
+
+        goto label03;
+
+     label01:
+        $stack15 = staticinvoke <java.lang.reflect.Array: int getLength(java.lang.Object)>(obj);
+
+        length = $stack15;
+
+        $stack16 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int)>($stack13, $stack15);
+
+        result = $stack16;
+
+     label02:
+        $stack17 = length;
+
+        $i0 = (int) -1;
+
+        length = length + $i0;
+
+        if $stack17 <= 0 goto label03;
+
+        $stack20 = staticinvoke <java.lang.reflect.Array: java.lang.Object get(java.lang.Object,int)>(obj, length);
+
+        staticinvoke <java.lang.reflect.Array: void set(java.lang.Object,int,java.lang.Object)>($stack16, length, $stack20);
+
+        goto label02;
+
+     label03:
+        goto label09;
+
+     label04:
+        $stack7 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack8 = newarray (java.lang.Class)[0];
+
+        $stack9 = virtualinvoke $stack7.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("clone", $stack8);
+
+        $stack10 = newarray (java.lang.Object)[0];
+
+        result = virtualinvoke $stack9.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(obj, $stack10);
+
+     label05:
+        goto label09;
+
+     label06:
+        $stack41 := @caughtexception;
+
+        $u1 = new org.apache.commons.lang3.exception.CloneFailedException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack44 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cloneable type ");
+
+        $stack45 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack46 = virtualinvoke $stack45.<java.lang.Class: java.lang.String getName()>();
+
+        $stack47 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack46);
+
+        $stack48 = virtualinvoke $stack47.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" has no clone method");
+
+        $stack49 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<org.apache.commons.lang3.exception.CloneFailedException: void <init>(java.lang.String,java.lang.Throwable)>($stack49, $stack41);
+
+        throw $u1;
+
+     label07:
+        $stack33 := @caughtexception;
+
+        $u3 = new org.apache.commons.lang3.exception.CloneFailedException;
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack36 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cannot clone Cloneable type ");
+
+        $stack37 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack38 = virtualinvoke $stack37.<java.lang.Class: java.lang.String getName()>();
+
+        $stack39 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u3.<org.apache.commons.lang3.exception.CloneFailedException: void <init>(java.lang.String,java.lang.Throwable)>($stack40, $stack33);
+
+        throw $u3;
+
+     label08:
+        $stack24 := @caughtexception;
+
+        $u5 = new org.apache.commons.lang3.exception.CloneFailedException;
+
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack27 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Exception cloning Cloneable type ");
+
+        $stack28 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack29 = virtualinvoke $stack28.<java.lang.Class: java.lang.String getName()>();
+
+        $stack30 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = virtualinvoke $stack24.<java.lang.reflect.InvocationTargetException: java.lang.Throwable getCause()>();
+
+        specialinvoke $u5.<org.apache.commons.lang3.exception.CloneFailedException: void <init>(java.lang.String,java.lang.Throwable)>($stack31, $stack32);
+
+        throw $u5;
+
+     label09:
+        return result;
+
+     label10:
+        return null;
+
+        catch java.lang.NoSuchMethodException from label04 to label05 with label06;
+        catch java.lang.IllegalAccessException from label04 to label05 with label07;
+        catch java.lang.reflect.InvocationTargetException from label04 to label05 with label08;
+    }
+
+    public static java.lang.Object cloneIfPossible(java.lang.Object)
+    {
+        java.lang.Object obj, $stack2, $stack3;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>(obj);
+
+        if $stack2 != null goto label1;
+
+        $stack3 = obj;
+
+        goto label2;
+
+     label1:
+        $stack3 = $stack2;
+
+     label2:
+        return $stack3;
+    }
+
+    public static boolean CONST(boolean)
+    {
+        boolean v;
+
+        v := @parameter0: boolean;
+
+        return v;
+    }
+
+    public static byte CONST(byte)
+    {
+        byte v;
+
+        v := @parameter0: byte;
+
+        return v;
+    }
+
+    public static byte CONST_BYTE(int) throws java.lang.IllegalArgumentException
+    {
+        java.lang.IllegalArgumentException $u1;
+        byte $stack7;
+        int v, $i0;
+        java.lang.StringBuilder $stack3, $stack4, $stack5, $u0;
+        java.lang.String $stack6;
+
+        v := @parameter0: int;
+
+        $i0 = (int) -128;
+
+        if v < $i0 goto label1;
+
+        if v <= 127 goto label2;
+
+     label1:
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Supplied value must be a valid byte literal between -128 and 127: [");
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(v);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $u1;
+
+     label2:
+        $stack7 = (byte) v;
+
+        return $stack7;
+    }
+
+    public static char CONST(char)
+    {
+        char v;
+
+        v := @parameter0: char;
+
+        return v;
+    }
+
+    public static short CONST(short)
+    {
+        short v;
+
+        v := @parameter0: short;
+
+        return v;
+    }
+
+    public static short CONST_SHORT(int) throws java.lang.IllegalArgumentException
+    {
+        java.lang.IllegalArgumentException $u1;
+        short $stack7;
+        int v, $i0;
+        java.lang.StringBuilder $stack3, $stack4, $stack5, $u0;
+        java.lang.String $stack6;
+
+        v := @parameter0: int;
+
+        $i0 = (int) -32768;
+
+        if v < $i0 goto label1;
+
+        if v <= 32767 goto label2;
+
+     label1:
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Supplied value must be a valid byte literal between -32768 and 32767: [");
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(v);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $u1;
+
+     label2:
+        $stack7 = (short) v;
+
+        return $stack7;
+    }
+
+    public static int CONST(int)
+    {
+        int v;
+
+        v := @parameter0: int;
+
+        return v;
+    }
+
+    public static long CONST(long)
+    {
+        long v;
+
+        v := @parameter0: long;
+
+        return v;
+    }
+
+    public static float CONST(float)
+    {
+        float v;
+
+        v := @parameter0: float;
+
+        return v;
+    }
+
+    public static double CONST(double)
+    {
+        double v;
+
+        v := @parameter0: double;
+
+        return v;
+    }
+
+    public static java.lang.Object CONST(java.lang.Object)
+    {
+        java.lang.Object v;
+
+        v := @parameter0: java.lang.Object;
+
+        return v;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.ObjectUtils$Null $stack0;
+
+        $stack0 = new org.apache.commons.lang3.ObjectUtils$Null;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.ObjectUtils$Null: void <init>()>();
+
+        <org.apache.commons.lang3.ObjectUtils: org.apache.commons.lang3.ObjectUtils$Null NULL> = $stack0;
+
+        return;
+    }
+}

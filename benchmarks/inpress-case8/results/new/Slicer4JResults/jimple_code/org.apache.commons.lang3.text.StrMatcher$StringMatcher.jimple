@@ -1,0 +1,85 @@
+final class org.apache.commons.lang3.text.StrMatcher$StringMatcher extends org.apache.commons.lang3.text.StrMatcher
+{
+    private final char[] chars;
+
+    void <init>(java.lang.String)
+    {
+        char[] $stack2;
+        org.apache.commons.lang3.text.StrMatcher$StringMatcher this;
+        java.lang.String str;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        str := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrMatcher: void <init>()>();
+
+        $stack2 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        this.<org.apache.commons.lang3.text.StrMatcher$StringMatcher: char[] chars> = $stack2;
+
+        return;
+    }
+
+    public int isMatch(char[], int, int, int)
+    {
+        int len, bufferEnd, $stack8, $stack10, bufferStart, pos, i, $i0, $i1;
+        org.apache.commons.lang3.text.StrMatcher$StringMatcher this;
+        char $stack12, $stack13;
+        char[] $stack7, $stack9, $stack11, buffer;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        buffer := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        bufferStart := @parameter2: int;
+
+        bufferEnd := @parameter3: int;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrMatcher$StringMatcher: char[] chars>;
+
+        len = lengthof $stack7;
+
+        $stack8 = pos + len;
+
+        if $stack8 <= bufferEnd goto label1;
+
+        return 0;
+
+     label1:
+        i = 0;
+
+     label2:
+        $stack9 = this.<org.apache.commons.lang3.text.StrMatcher$StringMatcher: char[] chars>;
+
+        $stack10 = lengthof $stack9;
+
+        if i >= $stack10 goto label4;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrMatcher$StringMatcher: char[] chars>;
+
+        $stack13 = $stack11[i];
+
+        $stack12 = buffer[pos];
+
+        $i0 = (int) $stack13;
+
+        $i1 = (int) $stack12;
+
+        if $i0 == $i1 goto label3;
+
+        return 0;
+
+     label3:
+        i = i + 1;
+
+        pos = pos + 1;
+
+        goto label2;
+
+     label4:
+        return len;
+    }
+}

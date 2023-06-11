@@ -1,0 +1,949 @@
+public class org.apache.commons.lang3.text.StrMatcherTest extends java.lang.Object
+{
+    private static final char[] BUFFER1;
+    private static final char[] BUFFER2;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrMatcherTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testCommaMatcher()
+    {
+        long $stack7, $stack11, $stack15;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14;
+        char[] $stack4, $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher commaMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher commaMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 0);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 1);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 2);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testTabMatcher()
+    {
+        long $stack7, $stack11, $stack15;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14;
+        char[] $stack4, $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher tabMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher tabMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 2);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 3);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 4);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testSpaceMatcher()
+    {
+        long $stack7, $stack11, $stack15;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14;
+        char[] $stack4, $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher spaceMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher spaceMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 4);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 5);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 6);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testSplitMatcher()
+    {
+        long $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38;
+        char[] $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 2);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 3);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 4);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack16 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack18 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack16, 5);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack19);
+
+        $stack20 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack22 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack20, 6);
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack23);
+
+        $stack24 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack24, 7);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack27);
+
+        $stack28 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack30 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack28, 8);
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack31);
+
+        $stack32 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack34 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack32, 9);
+
+        $stack35 = (long) $stack34;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack35);
+
+        $stack36 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack38 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack36, 10);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack39);
+
+        return;
+    }
+
+    public void testTrimMatcher()
+    {
+        long $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38;
+        char[] $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 2);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 3);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 4);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack16 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack18 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack16, 5);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack19);
+
+        $stack20 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack22 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack20, 6);
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack23);
+
+        $stack24 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack24, 7);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack27);
+
+        $stack28 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack30 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack28, 8);
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack31);
+
+        $stack32 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack34 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack32, 9);
+
+        $stack35 = (long) $stack34;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack35);
+
+        $stack36 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack38 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack36, 10);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack39);
+
+        return;
+    }
+
+    public void testSingleQuoteMatcher()
+    {
+        long $stack7, $stack11, $stack15;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14;
+        char[] $stack4, $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher singleQuoteMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher singleQuoteMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 10);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 11);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 12);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        return;
+    }
+
+    public void testDoubleQuoteMatcher()
+    {
+        long $stack7, $stack11;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10;
+        char[] $stack4, $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 11);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 12);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        return;
+    }
+
+    public void testQuoteMatcher()
+    {
+        long $stack7, $stack11, $stack15;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14;
+        char[] $stack4, $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher quoteMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher quoteMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 10);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 11);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 12);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testNoneMatcher()
+    {
+        long $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39, $stack43, $stack47, $stack51, $stack55;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54;
+        char[] $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36, $stack40, $stack44, $stack48, $stack52;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack4, 0);
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack8, 1);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $stack12 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack12, 2);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack16 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack18 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack16, 3);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack19);
+
+        $stack20 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack22 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack20, 4);
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack23);
+
+        $stack24 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack24, 5);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack27);
+
+        $stack28 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack30 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack28, 6);
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack31);
+
+        $stack32 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack34 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack32, 7);
+
+        $stack35 = (long) $stack34;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack35);
+
+        $stack36 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack38 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack36, 8);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack39);
+
+        $stack40 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack42 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack40, 9);
+
+        $stack43 = (long) $stack42;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack43);
+
+        $stack44 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack46 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack44, 10);
+
+        $stack47 = (long) $stack46;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack47);
+
+        $stack48 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack50 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack48, 11);
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack51);
+
+        $stack52 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1>;
+
+        $stack54 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack52, 12);
+
+        $stack55 = (long) $stack54;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack55);
+
+        return;
+    }
+
+    public void testCharMatcher_char()
+    {
+        long $stack6, $stack10, $stack14, $stack18, $stack22, $stack26;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack5, $stack9, $stack13, $stack17, $stack21, $stack25;
+        char[] $stack3, $stack7, $stack11, $stack15, $stack19, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(99);
+
+        $stack3 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack3, 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack7, 1);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        $stack11 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack11, 2);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack15, 3);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack19 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack19, 4);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack25 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack23, 5);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack26);
+
+        return;
+    }
+
+    public void testCharSetMatcher_String()
+    {
+        long $stack6, $stack10, $stack14, $stack18, $stack22, $stack26;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack27, $stack28, $stack29, $stack31, $stack32;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack5, $stack9, $stack13, $stack17, $stack21, $stack25;
+        boolean $stack33;
+        char[] $stack3, $stack7, $stack11, $stack15, $stack19, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(java.lang.String)>("ace");
+
+        $stack3 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack3, 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack7, 1);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        $stack11 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack11, 2);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack15, 3);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack19 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack19, 4);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack22);
+
+        $stack23 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack25 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack23, 5);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(java.lang.String)>("a");
+
+        $stack33 = $stack32 instanceof org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        return;
+    }
+
+    public void testCharSetMatcher_charArray()
+    {
+        boolean $stack38;
+        long $stack8, $stack12, $stack16, $stack20, $stack24, $stack28;
+        org.apache.commons.lang3.text.StrMatcher $stack4, $stack29, $stack31, $stack32, $stack34, $stack37;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack7, $stack11, $stack15, $stack19, $stack23, $stack27;
+        java.lang.String $stack2, $stack35;
+        char[] $stack3, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack30, $stack33, $stack36;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = "ace";
+
+        $stack3 = virtualinvoke $stack2.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(char[])>($stack3);
+
+        $stack5 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack5, 0);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack8);
+
+        $stack9 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack11 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack9, 1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack13 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack15 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack13, 2);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack16);
+
+        $stack17 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack19 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack17, 3);
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack20);
+
+        $stack21 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack23 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack21, 4);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack24);
+
+        $stack25 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack27 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack25, 5);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack30 = newarray (char)[0];
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(char[])>($stack30);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack33 = (char[]) null;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(char[])>($stack33);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack32, $stack34);
+
+        $stack35 = "a";
+
+        $stack36 = virtualinvoke $stack35.<java.lang.String: char[] toCharArray()>();
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charSetMatcher(char[])>($stack36);
+
+        $stack38 = $stack37 instanceof org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack38);
+
+        return;
+    }
+
+    public void testStringMatcher_String()
+    {
+        long $stack6, $stack10, $stack14, $stack18, $stack22, $stack26;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack27, $stack28, $stack29, $stack31;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack5, $stack9, $stack13, $stack17, $stack21, $stack25;
+        char[] $stack3, $stack7, $stack11, $stack15, $stack19, $stack23;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("bc");
+
+        $stack3 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack3, 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack7, 1);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack10);
+
+        $stack11 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack11, 2);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack15, 3);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack19 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack19, 4);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack23 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack25 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack23, 5);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testMatcherIndices()
+    {
+        long $stack8, $stack12, $stack16;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+        org.apache.commons.lang3.text.StrMatcherTest this;
+        int $stack4, $stack7, $stack11, $stack15;
+        char[] $stack3, $stack5, $stack9, $stack13;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcherTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("bc");
+
+        $stack5 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack3 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack4 = lengthof $stack3;
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack5, 1, 1, $stack4);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack8);
+
+        $stack9 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack9, 1, 0, 3);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack12);
+
+        $stack13 = <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2>;
+
+        $stack15 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack13, 1, 0, 2);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack16);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        char[] $stack1, $stack3;
+        java.lang.String $stack0, $stack2;
+
+        $stack0 = "0,1\t2 3\n\r\f\u0000\'\"";
+
+        $stack1 = virtualinvoke $stack0.<java.lang.String: char[] toCharArray()>();
+
+        <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER1> = $stack1;
+
+        $stack2 = "abcdef";
+
+        $stack3 = virtualinvoke $stack2.<java.lang.String: char[] toCharArray()>();
+
+        <org.apache.commons.lang3.text.StrMatcherTest: char[] BUFFER2> = $stack3;
+
+        return;
+    }
+}

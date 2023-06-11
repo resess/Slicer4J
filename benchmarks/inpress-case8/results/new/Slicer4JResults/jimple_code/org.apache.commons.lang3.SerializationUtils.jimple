@@ -1,0 +1,346 @@
+public class org.apache.commons.lang3.SerializationUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.SerializationUtils this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.io.Serializable clone(java.io.Serializable)
+    {
+        java.lang.Throwable $stack17;
+        byte[] $stack9;
+        org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream $stack11, in;
+        java.io.ByteArrayInputStream $stack10;
+        java.io.IOException $stack15, $stack18, $stack22;
+        java.io.Serializable object, readObject;
+        org.apache.commons.lang3.SerializationException $stack16, $stack19, $stack21, $stack23;
+        java.lang.Class $stack12;
+        java.lang.Object $stack14;
+        java.lang.ClassNotFoundException $stack20;
+        java.lang.ClassLoader $stack13;
+
+        object := @parameter0: java.io.Serializable;
+
+        if object != null goto label01;
+
+        return null;
+
+     label01:
+        $stack9 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>(object);
+
+        $stack10 = new java.io.ByteArrayInputStream;
+
+        specialinvoke $stack10.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack9);
+
+        in = null;
+
+     label02:
+        $stack11 = new org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream;
+
+        $stack12 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        specialinvoke $stack11.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: void <init>(java.io.InputStream,java.lang.ClassLoader)>($stack10, $stack13);
+
+        in = $stack11;
+
+        $stack14 = virtualinvoke $stack11.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.lang.Object readObject()>();
+
+        readObject = (java.io.Serializable) $stack14;
+
+     label03:
+        if $stack11 == null goto label04;
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: void close()>();
+
+     label04:
+        goto label06;
+
+     label05:
+        $stack22 := @caughtexception;
+
+        $stack23 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String,java.lang.Throwable)>("IOException on closing cloned object data InputStream.", $stack22);
+
+        throw $stack23;
+
+     label06:
+        return readObject;
+
+     label07:
+        $stack20 := @caughtexception;
+
+        $stack21 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String,java.lang.Throwable)>("ClassNotFoundException while reading cloned object data", $stack20);
+
+        throw $stack21;
+
+     label08:
+        $stack18 := @caughtexception;
+
+        $stack19 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String,java.lang.Throwable)>("IOException while reading cloned object data", $stack18);
+
+        throw $stack19;
+
+     label09:
+        $stack17 := @caughtexception;
+
+     label10:
+        if in == null goto label11;
+
+        virtualinvoke in.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: void close()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack15 := @caughtexception;
+
+        $stack16 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String,java.lang.Throwable)>("IOException on closing cloned object data InputStream.", $stack15);
+
+        throw $stack16;
+
+     label13:
+        throw $stack17;
+
+        catch java.io.IOException from label03 to label04 with label05;
+        catch java.lang.ClassNotFoundException from label02 to label03 with label07;
+        catch java.io.IOException from label02 to label03 with label08;
+        catch java.lang.Throwable from label02 to label03 with label09;
+        catch java.io.IOException from label10 to label11 with label12;
+        catch java.lang.Throwable from label07 to label10 with label09;
+    }
+
+    public static void serialize(java.io.Serializable, java.io.OutputStream)
+    {
+        java.io.OutputStream outputStream;
+        java.lang.Throwable $stack9;
+        java.io.IOException $stack8, $stack11, $stack13;
+        java.lang.IllegalArgumentException $stack7;
+        java.io.Serializable obj;
+        org.apache.commons.lang3.SerializationException $stack12;
+        java.io.ObjectOutputStream $stack6, out;
+
+        obj := @parameter0: java.io.Serializable;
+
+        outputStream := @parameter1: java.io.OutputStream;
+
+        if outputStream != null goto label01;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The OutputStream must not be null");
+
+        throw $stack7;
+
+     label01:
+        out = null;
+
+     label02:
+        $stack6 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack6.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>(outputStream);
+
+        out = $stack6;
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>(obj);
+
+     label03:
+        if $stack6 == null goto label04;
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void close()>();
+
+     label04:
+        goto label12;
+
+     label05:
+        $stack13 := @caughtexception;
+
+        goto label12;
+
+     label06:
+        $stack11 := @caughtexception;
+
+        $stack12 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.Throwable)>($stack11);
+
+        throw $stack12;
+
+     label07:
+        $stack9 := @caughtexception;
+
+     label08:
+        if out == null goto label09;
+
+        virtualinvoke out.<java.io.ObjectOutputStream: void close()>();
+
+     label09:
+        goto label11;
+
+     label10:
+        $stack8 := @caughtexception;
+
+     label11:
+        throw $stack9;
+
+     label12:
+        return;
+
+        catch java.io.IOException from label03 to label04 with label05;
+        catch java.io.IOException from label02 to label03 with label06;
+        catch java.lang.Throwable from label02 to label03 with label07;
+        catch java.io.IOException from label08 to label09 with label10;
+        catch java.lang.Throwable from label06 to label08 with label07;
+    }
+
+    public static byte[] serialize(java.io.Serializable)
+    {
+        byte[] $stack3;
+        java.io.ByteArrayOutputStream $stack2;
+        java.io.Serializable obj;
+
+        obj := @parameter0: java.io.Serializable;
+
+        $stack2 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack2.<java.io.ByteArrayOutputStream: void <init>(int)>(512);
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>(obj, $stack2);
+
+        $stack3 = virtualinvoke $stack2.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        return $stack3;
+    }
+
+    public static java.lang.Object deserialize(java.io.InputStream)
+    {
+        java.lang.Throwable $stack10;
+        java.io.ObjectInputStream $stack6, in;
+        java.io.IOException $stack9, $stack12, $stack16;
+        java.lang.IllegalArgumentException $stack8;
+        org.apache.commons.lang3.SerializationException $stack13, $stack15;
+        java.lang.Object $stack7;
+        java.lang.ClassNotFoundException $stack14;
+        java.io.InputStream inputStream;
+
+        inputStream := @parameter0: java.io.InputStream;
+
+        if inputStream != null goto label01;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The InputStream must not be null");
+
+        throw $stack8;
+
+     label01:
+        in = null;
+
+     label02:
+        $stack6 = new java.io.ObjectInputStream;
+
+        specialinvoke $stack6.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>(inputStream);
+
+        in = $stack6;
+
+        $stack7 = virtualinvoke $stack6.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+     label03:
+        if $stack6 == null goto label04;
+
+        virtualinvoke $stack6.<java.io.ObjectInputStream: void close()>();
+
+     label04:
+        goto label06;
+
+     label05:
+        $stack16 := @caughtexception;
+
+     label06:
+        return $stack7;
+
+     label07:
+        $stack14 := @caughtexception;
+
+        $stack15 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.Throwable)>($stack14);
+
+        throw $stack15;
+
+     label08:
+        $stack12 := @caughtexception;
+
+        $stack13 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.Throwable)>($stack12);
+
+        throw $stack13;
+
+     label09:
+        $stack10 := @caughtexception;
+
+     label10:
+        if in == null goto label11;
+
+        virtualinvoke in.<java.io.ObjectInputStream: void close()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack9 := @caughtexception;
+
+     label13:
+        throw $stack10;
+
+        catch java.io.IOException from label03 to label04 with label05;
+        catch java.lang.ClassNotFoundException from label02 to label03 with label07;
+        catch java.io.IOException from label02 to label03 with label08;
+        catch java.lang.Throwable from label02 to label03 with label09;
+        catch java.io.IOException from label10 to label11 with label12;
+        catch java.lang.Throwable from label07 to label10 with label09;
+    }
+
+    public static java.lang.Object deserialize(byte[])
+    {
+        byte[] objectData;
+        java.io.ByteArrayInputStream $stack1;
+        java.lang.Object $stack2;
+        java.lang.IllegalArgumentException $stack3;
+
+        objectData := @parameter0: byte[];
+
+        if objectData != null goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The byte[] must not be null");
+
+        throw $stack3;
+
+     label1:
+        $stack1 = new java.io.ByteArrayInputStream;
+
+        specialinvoke $stack1.<java.io.ByteArrayInputStream: void <init>(byte[])>(objectData);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>($stack1);
+
+        return $stack2;
+    }
+}

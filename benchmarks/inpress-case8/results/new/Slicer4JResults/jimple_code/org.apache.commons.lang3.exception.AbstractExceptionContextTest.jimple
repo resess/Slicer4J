@@ -1,0 +1,804 @@
+public abstract class org.apache.commons.lang3.exception.AbstractExceptionContextTest extends java.lang.Object
+{
+    protected static final java.lang.String TEST_MESSAGE_2;
+    protected static final java.lang.String TEST_MESSAGE;
+    protected org.apache.commons.lang3.exception.ExceptionContext exceptionContext;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        java.util.Date $stack4;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString $stack10;
+        java.lang.Integer $stack8;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        org.apache.commons.lang3.exception.ExceptionContext $stack1, $stack2, $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack2 = interfaceinvoke $stack1.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test1", null);
+
+        $stack3 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "some value");
+
+        $stack4 = new java.util.Date;
+
+        specialinvoke $stack4.<java.util.Date: void <init>()>();
+
+        $stack6 = interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test Date", $stack4);
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack9 = interfaceinvoke $stack6.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test Nbr", $stack8);
+
+        $stack10 = new org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString: void <init>()>();
+
+        interfaceinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test Poorly written obj", $stack10);
+
+        return;
+    }
+
+    public void testAddContextValue()
+    {
+        boolean $stack16, $stack24, $stack27, $stack30, $stack33, $stack43, $stack90, $stack87, $stack84, $stack81, $stack78, $stack75, $stack72, $stack48, $stack47;
+        java.util.Set $stack19, $stack23, $stack26, $stack29, $stack32, $stack38, $stack42;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        long $stack21, $stack40;
+        int $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack20, $stack39, $stack46, $i0;
+        java.lang.String $stack4, $stack45;
+        org.apache.commons.lang3.exception.ExceptionContext $stack3, $stack12, $stack14, $stack17, $stack22, $stack25, $stack28, $stack31, $stack34, $stack36, $stack41, $stack44;
+        java.lang.Object $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack3 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>("Test Message");
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack5 < 0 goto label01;
+
+        $stack90 = 1;
+
+        goto label02;
+
+     label01:
+        $stack90 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack90);
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("test1");
+
+        if $stack6 < 0 goto label03;
+
+        $stack87 = 1;
+
+        goto label04;
+
+     label03:
+        $stack87 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack87);
+
+        $stack7 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("test2");
+
+        if $stack7 < 0 goto label05;
+
+        $stack84 = 1;
+
+        goto label06;
+
+     label05:
+        $stack84 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack84);
+
+        $stack8 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("test Date");
+
+        if $stack8 < 0 goto label07;
+
+        $stack81 = 1;
+
+        goto label08;
+
+     label07:
+        $stack81 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack81);
+
+        $stack9 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("test Nbr");
+
+        if $stack9 < 0 goto label09;
+
+        $stack78 = 1;
+
+        goto label10;
+
+     label09:
+        $stack78 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack78);
+
+        $stack10 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("some value");
+
+        if $stack10 < 0 goto label11;
+
+        $stack75 = 1;
+
+        goto label12;
+
+     label11:
+        $stack75 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack75);
+
+        $stack11 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("5");
+
+        if $stack11 < 0 goto label13;
+
+        $stack72 = 1;
+
+        goto label14;
+
+     label13:
+        $stack72 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack72);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack13 = interfaceinvoke $stack12.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test1");
+
+        if $stack13 != null goto label15;
+
+        $stack48 = 1;
+
+        goto label16;
+
+     label15:
+        $stack48 = 0;
+
+     label16:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack48);
+
+        $stack14 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack15 = interfaceinvoke $stack14.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test2");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Object: boolean equals(java.lang.Object)>("some value");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack19 = interfaceinvoke $stack17.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack20 = interfaceinvoke $stack19.<java.util.Set: int size()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack21);
+
+        $stack22 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack23 = interfaceinvoke $stack22.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack24 = interfaceinvoke $stack23.<java.util.Set: boolean contains(java.lang.Object)>("test1");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack26 = interfaceinvoke $stack25.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack27 = interfaceinvoke $stack26.<java.util.Set: boolean contains(java.lang.Object)>("test2");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack29 = interfaceinvoke $stack28.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack30 = interfaceinvoke $stack29.<java.util.Set: boolean contains(java.lang.Object)>("test Date");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack32 = interfaceinvoke $stack31.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack33 = interfaceinvoke $stack32.<java.util.Set: boolean contains(java.lang.Object)>("test Nbr");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack34 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack34.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack36 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack38 = interfaceinvoke $stack36.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack39 = interfaceinvoke $stack38.<java.util.Set: int size()>();
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack40);
+
+        $stack41 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack42 = interfaceinvoke $stack41.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack43 = interfaceinvoke $stack42.<java.util.Set: boolean contains(java.lang.Object)>("test2");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack43);
+
+        $stack44 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack45 = interfaceinvoke $stack44.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>(null);
+
+        $stack46 = virtualinvoke $stack45.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        $i0 = (int) -1;
+
+        if $stack46 != $i0 goto label17;
+
+        $stack47 = 1;
+
+        goto label18;
+
+     label17:
+        $stack47 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        return;
+    }
+
+    public void testSetContextValue()
+    {
+        boolean $stack16, $stack29, $stack32, $stack92, $stack89, $stack86, $stack77, $stack61, $stack60;
+        java.util.Set $stack24, $stack28, $stack31, $stack42, $stack54;
+        java.util.List $stack19, $stack37, $stack49;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        long $stack21, $stack26, $stack39, $stack44, $stack51, $stack56;
+        int $stack9, $stack10, $stack11, $stack20, $stack25, $stack38, $stack43, $stack50, $stack55, $stack59, $i0;
+        java.lang.String $stack8, $stack58;
+        org.apache.commons.lang3.exception.ExceptionContext $stack3, $stack5, $stack7, $stack12, $stack14, $stack17, $stack22, $stack27, $stack30, $stack33, $stack35, $stack40, $stack45, $stack47, $stack52, $stack57;
+        java.lang.Object $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack3 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack5 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack5.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test3", "3");
+
+        $stack7 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack8 = interfaceinvoke $stack7.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>("Test Message");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack9 < 0 goto label01;
+
+        $stack92 = 1;
+
+        goto label02;
+
+     label01:
+        $stack92 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack92);
+
+        $stack10 = virtualinvoke $stack8.<java.lang.String: int indexOf(java.lang.String)>("test Poorly written obj");
+
+        if $stack10 < 0 goto label03;
+
+        $stack89 = 1;
+
+        goto label04;
+
+     label03:
+        $stack89 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack89);
+
+        $stack11 = virtualinvoke $stack8.<java.lang.String: int indexOf(java.lang.String)>("Crap");
+
+        if $stack11 < 0 goto label05;
+
+        $stack86 = 1;
+
+        goto label06;
+
+     label05:
+        $stack86 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack86);
+
+        $stack12 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack13 = interfaceinvoke $stack12.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("crap");
+
+        if $stack13 != null goto label07;
+
+        $stack77 = 1;
+
+        goto label08;
+
+     label07:
+        $stack77 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack77);
+
+        $stack14 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack15 = interfaceinvoke $stack14.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test Poorly written obj");
+
+        $stack16 = $stack15 instanceof org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack19 = interfaceinvoke $stack17.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack20 = interfaceinvoke $stack19.<java.util.List: int size()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack21);
+
+        $stack22 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack24 = interfaceinvoke $stack22.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack25 = interfaceinvoke $stack24.<java.util.Set: int size()>();
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack26);
+
+        $stack27 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack28 = interfaceinvoke $stack27.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack29 = interfaceinvoke $stack28.<java.util.Set: boolean contains(java.lang.Object)>("test Poorly written obj");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack30 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack31 = interfaceinvoke $stack30.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack32 = interfaceinvoke $stack31.<java.util.Set: boolean contains(java.lang.Object)>("crap");
+
+        if $stack32 != 0 goto label09;
+
+        $stack61 = 1;
+
+        goto label10;
+
+     label09:
+        $stack61 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack61);
+
+        $stack33 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack33.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test Poorly written obj", "replacement");
+
+        $stack35 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack37 = interfaceinvoke $stack35.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack38 = interfaceinvoke $stack37.<java.util.List: int size()>();
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack39);
+
+        $stack40 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack42 = interfaceinvoke $stack40.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack43 = interfaceinvoke $stack42.<java.util.Set: int size()>();
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack44);
+
+        $stack45 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack45.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test2", "another");
+
+        $stack47 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack49 = interfaceinvoke $stack47.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack50 = interfaceinvoke $stack49.<java.util.List: int size()>();
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack51);
+
+        $stack52 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack54 = interfaceinvoke $stack52.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack55 = interfaceinvoke $stack54.<java.util.Set: int size()>();
+
+        $stack56 = (long) $stack55;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack56);
+
+        $stack57 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack58 = interfaceinvoke $stack57.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>(null);
+
+        $stack59 = virtualinvoke $stack58.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        $i0 = (int) -1;
+
+        if $stack59 != $i0 goto label11;
+
+        $stack60 = 1;
+
+        goto label12;
+
+     label11:
+        $stack60 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack60);
+
+        return;
+    }
+
+    public void testGetFirstContextValue()
+    {
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        java.lang.Object $stack4, $stack6, $stack9, $stack13;
+        org.apache.commons.lang3.exception.ExceptionContext $stack1, $stack3, $stack5, $stack8, $stack10, $stack12;
+        boolean $stack7, $stack14, $stack22, $stack15;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack1.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack3 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test1");
+
+        if $stack4 != null goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack5 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack6 = interfaceinvoke $stack5.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test2");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Object: boolean equals(java.lang.Object)>("some value");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack9 = interfaceinvoke $stack8.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("crap");
+
+        if $stack9 != null goto label3;
+
+        $stack15 = 1;
+
+        goto label4;
+
+     label3:
+        $stack15 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack10 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack10.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test2", "another");
+
+        $stack12 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack13 = interfaceinvoke $stack12.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test2");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Object: boolean equals(java.lang.Object)>("another");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testGetContextValues()
+    {
+        java.lang.String[] $stack8;
+        java.util.List $stack4, $stack5, $stack7, $stack9;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        java.lang.Object $stack13;
+        org.apache.commons.lang3.exception.ExceptionContext $stack1, $stack3, $stack6, $stack10, $stack12;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack1.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack3 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextValues(java.lang.String)>("test1");
+
+        $stack5 = staticinvoke <java.util.Collections: java.util.List singletonList(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack7 = interfaceinvoke $stack6.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextValues(java.lang.String)>("test2");
+
+        $stack8 = newarray (java.lang.String)[2];
+
+        $stack8[0] = "some value";
+
+        $stack8[1] = "different value";
+
+        $stack9 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack10.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test2", "another");
+
+        $stack12 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack13 = interfaceinvoke $stack12.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>("test2");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Object: boolean equals(java.lang.Object)>("another");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testGetContextLabels()
+    {
+        long $stack6, $stack15, $stack18;
+        int $stack5, $stack14, $stack17;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2, $stack7, $stack9, $stack11;
+        boolean $stack19, $stack20, $stack21, $stack22;
+        java.util.Set $stack10;
+        java.util.List $stack4, $stack13;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack5 = interfaceinvoke $stack4.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack7.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack9 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack10 = interfaceinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        $stack11 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack13 = interfaceinvoke $stack11.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack14 = interfaceinvoke $stack13.<java.util.List: int size()>();
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack15);
+
+        $stack17 = interfaceinvoke $stack10.<java.util.Set: int size()>();
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack18);
+
+        $stack19 = interfaceinvoke $stack10.<java.util.Set: boolean contains(java.lang.Object)>("test1");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = interfaceinvoke $stack10.<java.util.Set: boolean contains(java.lang.Object)>("test2");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = interfaceinvoke $stack10.<java.util.Set: boolean contains(java.lang.Object)>("test Date");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = interfaceinvoke $stack10.<java.util.Set: boolean contains(java.lang.Object)>("test Nbr");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testGetContextEntries()
+    {
+        long $stack6, $stack13;
+        org.apache.commons.lang3.tuple.Pair $stack16, $stack20, $stack24, $stack28, $stack32, $stack36;
+        int $stack5, $stack12;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2, $stack7, $stack9;
+        java.util.List $stack4, $stack10;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        java.lang.Object $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack5 = interfaceinvoke $stack4.<java.util.List: int size()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack7.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>("test2", "different value");
+
+        $stack9 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack10 = interfaceinvoke $stack9.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        $stack12 = interfaceinvoke $stack10.<java.util.List: int size()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack13);
+
+        $stack15 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(0);
+
+        $stack16 = (org.apache.commons.lang3.tuple.Pair) $stack15;
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test1", $stack17);
+
+        $stack19 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(1);
+
+        $stack20 = (org.apache.commons.lang3.tuple.Pair) $stack19;
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test2", $stack21);
+
+        $stack23 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(2);
+
+        $stack24 = (org.apache.commons.lang3.tuple.Pair) $stack23;
+
+        $stack25 = virtualinvoke $stack24.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test Date", $stack25);
+
+        $stack27 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(3);
+
+        $stack28 = (org.apache.commons.lang3.tuple.Pair) $stack27;
+
+        $stack29 = virtualinvoke $stack28.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test Nbr", $stack29);
+
+        $stack31 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(4);
+
+        $stack32 = (org.apache.commons.lang3.tuple.Pair) $stack31;
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test Poorly written obj", $stack33);
+
+        $stack35 = interfaceinvoke $stack10.<java.util.List: java.lang.Object get(int)>(5);
+
+        $stack36 = (org.apache.commons.lang3.tuple.Pair) $stack35;
+
+        $stack37 = virtualinvoke $stack36.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test2", $stack37);
+
+        return;
+    }
+
+    public void testJavaSerialization()
+    {
+        byte[] $stack6;
+        java.io.Serializable $stack5;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest this;
+        java.lang.Object $stack7;
+        java.lang.String $stack9, $stack10;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2, $stack4, clone, $stack8;
+
+        this := @this: org.apache.commons.lang3.exception.AbstractExceptionContextTest;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>("test Poorly written obj", "serializable replacement");
+
+        $stack4 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack5 = (java.io.Serializable) $stack4;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>($stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack6);
+
+        clone = (org.apache.commons.lang3.exception.ExceptionContext) $stack7;
+
+        $stack8 = this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack9 = interfaceinvoke $stack8.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>(null);
+
+        $stack10 = interfaceinvoke clone.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.exception.AbstractExceptionContextTest: java.lang.String TEST_MESSAGE> = "Test Message";
+
+        <org.apache.commons.lang3.exception.AbstractExceptionContextTest: java.lang.String TEST_MESSAGE_2> = "This is monotonous";
+
+        return;
+    }
+}

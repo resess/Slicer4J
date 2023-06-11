@@ -1,0 +1,469 @@
+public class org.apache.commons.lang3.mutable.MutableFloat extends java.lang.Number implements java.lang.Comparable, org.apache.commons.lang3.mutable.Mutable
+{
+    private static final long serialVersionUID;
+    private float value;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(float)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        value := @parameter0: float;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = value;
+
+        return;
+    }
+
+    public void <init>(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack2;
+        java.lang.Number value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        value := @parameter0: java.lang.Number;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = virtualinvoke value.<java.lang.Number: float floatValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String) throws java.lang.NumberFormatException
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack2;
+        java.lang.String value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        value := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = staticinvoke <java.lang.Float: float parseFloat(java.lang.String)>(value);
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack2;
+
+        return;
+    }
+
+    public java.lang.Float getValue()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        java.lang.Float $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public void setValue(float)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        value := @parameter0: float;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = value;
+
+        return;
+    }
+
+    public void setValue(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack2;
+        java.lang.Number value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        value := @parameter0: java.lang.Number;
+
+        $stack2 = virtualinvoke value.<java.lang.Number: float floatValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack2;
+
+        return;
+    }
+
+    public boolean isNaN()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = staticinvoke <java.lang.Float: boolean isNaN(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean isInfinite()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = staticinvoke <java.lang.Float: boolean isInfinite(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public void increment()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = $stack1 + 1.0F;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack2;
+
+        return;
+    }
+
+    public void decrement()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = $stack1 - 1.0F;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack2;
+
+        return;
+    }
+
+    public void add(float)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float operand, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        operand := @parameter0: float;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack3 = $stack2 + operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack3;
+
+        return;
+    }
+
+    public void add(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack2, $stack3, $stack4;
+        java.lang.Number operand;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: float floatValue()>();
+
+        $stack4 = $stack2 + $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack4;
+
+        return;
+    }
+
+    public void subtract(float)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float operand, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        operand := @parameter0: float;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack3 = $stack2 - operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack3;
+
+        return;
+    }
+
+    public void subtract(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack2, $stack3, $stack4;
+        java.lang.Number operand;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: float floatValue()>();
+
+        $stack4 = $stack2 - $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableFloat: float value> = $stack4;
+
+        return;
+    }
+
+    public int intValue()
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = (int) $stack1;
+
+        return $stack2;
+    }
+
+    public long longValue()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        long $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = (long) $stack1;
+
+        return $stack2;
+    }
+
+    public float floatValue()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        return $stack1;
+    }
+
+    public double doubleValue()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        double $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = (double) $stack1;
+
+        return $stack2;
+    }
+
+    public java.lang.Float toFloat()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        java.lang.Float $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableFloat: float floatValue()>();
+
+        $stack2 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat $stack3, this;
+        int $stack5, $stack7;
+        float $stack4, $stack6;
+        java.lang.Object obj;
+        boolean $stack2, $stack8;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = obj instanceof org.apache.commons.lang3.mutable.MutableFloat;
+
+        if $stack2 == 0 goto label1;
+
+        $stack3 = (org.apache.commons.lang3.mutable.MutableFloat) obj;
+
+        $stack4 = $stack3.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack5 = staticinvoke <java.lang.Float: int floatToIntBits(float)>($stack4);
+
+        $stack6 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack7 = staticinvoke <java.lang.Float: int floatToIntBits(float)>($stack6);
+
+        if $stack5 != $stack7 goto label1;
+
+        $stack8 = 1;
+
+        goto label2;
+
+     label1:
+        $stack8 = 0;
+
+     label2:
+        return $stack8;
+    }
+
+    public int hashCode()
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = staticinvoke <java.lang.Float: int floatToIntBits(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public int compareTo(org.apache.commons.lang3.mutable.MutableFloat)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat other, this;
+        int $stack4;
+        float anotherVal, $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        other := @parameter0: org.apache.commons.lang3.mutable.MutableFloat;
+
+        anotherVal = other.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack4 = staticinvoke <java.lang.Float: int compare(float,float)>($stack3, anotherVal);
+
+        return $stack4;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        float $stack1;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableFloat: float value>;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(float)>($stack1);
+
+        return $stack2;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this, $stack2;
+        int $stack3;
+        java.lang.Object x0;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.mutable.MutableFloat) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableFloat: int compareTo(org.apache.commons.lang3.mutable.MutableFloat)>($stack2);
+
+        return $stack3;
+    }
+
+    public volatile void setValue(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        java.lang.Object x0;
+        java.lang.Number $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.Number) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.mutable.MutableFloat: void setValue(java.lang.Number)>($stack2);
+
+        return;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        org.apache.commons.lang3.mutable.MutableFloat this;
+        java.lang.Float $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableFloat;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableFloat: java.lang.Float getValue()>();
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.mutable.MutableFloat: long serialVersionUID> = 5787169186L;
+
+        return;
+    }
+}

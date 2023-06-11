@@ -1,0 +1,992 @@
+public class org.apache.commons.lang3.exception.ExceptionUtils extends java.lang.Object
+{
+    static final java.lang.String WRAPPED_MARKER;
+    private static final java.lang.String[] CAUSE_METHOD_NAMES;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.ExceptionUtils this;
+
+        this := @this: org.apache.commons.lang3.exception.ExceptionUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String[] getDefaultCauseMethodNames()
+    {
+        java.lang.String[] $stack0, $stack2;
+        java.lang.Object[] $stack1;
+
+        $stack0 = <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] CAUSE_METHOD_NAMES>;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] clone(java.lang.Object[])>($stack0);
+
+        $stack2 = (java.lang.String[]) $stack1;
+
+        return $stack2;
+    }
+
+    public static java.lang.Throwable getCause(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable, $stack2;
+        java.lang.String[] $stack1;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack1 = <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] CAUSE_METHOD_NAMES>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable,java.lang.String[])>(throwable, $stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.Throwable getCause(java.lang.Throwable, java.lang.String[])
+    {
+        java.lang.Throwable throwable, $stack9;
+        int $stack12, i$;
+        java.lang.String[] arr$, methodNames;
+        java.lang.String methodName;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        methodNames := @parameter1: java.lang.String[];
+
+        if throwable != null goto label1;
+
+        return null;
+
+     label1:
+        if methodNames != null goto label2;
+
+        methodNames = <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] CAUSE_METHOD_NAMES>;
+
+     label2:
+        arr$ = methodNames;
+
+        $stack12 = lengthof methodNames;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= $stack12 goto label5;
+
+        methodName = arr$[i$];
+
+        if methodName == null goto label4;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCauseUsingMethodName(java.lang.Throwable,java.lang.String)>(throwable, methodName);
+
+        if $stack9 == null goto label4;
+
+        return $stack9;
+
+     label4:
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label5:
+        return null;
+    }
+
+    public static java.lang.Throwable getRootCause(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable, $stack7;
+        java.util.List $stack2;
+        int $stack3, $stack4, $stack5;
+        java.lang.Object $stack6;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>(throwable);
+
+        $stack3 = interfaceinvoke $stack2.<java.util.List: int size()>();
+
+        if $stack3 >= 2 goto label1;
+
+        $stack7 = null;
+
+        goto label2;
+
+     label1:
+        $stack4 = interfaceinvoke $stack2.<java.util.List: int size()>();
+
+        $stack5 = $stack4 - 1;
+
+        $stack6 = interfaceinvoke $stack2.<java.util.List: java.lang.Object get(int)>($stack5);
+
+        $stack7 = (java.lang.Throwable) $stack6;
+
+     label2:
+        return $stack7;
+    }
+
+    private static java.lang.Throwable getCauseUsingMethodName(java.lang.Throwable, java.lang.String)
+    {
+        java.lang.Throwable throwable, $stack13;
+        java.lang.Object[] $stack11;
+        java.lang.NoSuchMethodException $stack19;
+        java.lang.SecurityException $stack17;
+        java.lang.String methodName;
+        java.lang.reflect.Method method;
+        boolean $stack9;
+        java.lang.IllegalAccessException $stack16;
+        java.lang.Class[] $stack5;
+        java.lang.IllegalArgumentException $stack15;
+        java.lang.reflect.InvocationTargetException $stack14;
+        java.lang.Class $stack4, $stack7, $stack8;
+        java.lang.Object $stack12;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        methodName := @parameter1: java.lang.String;
+
+        method = null;
+
+     label01:
+        $stack4 = virtualinvoke throwable.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack5 = newarray (java.lang.Class)[0];
+
+        method = virtualinvoke $stack4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>(methodName, $stack5);
+
+     label02:
+        goto label05;
+
+     label03:
+        $stack19 := @caughtexception;
+
+        goto label05;
+
+     label04:
+        $stack17 := @caughtexception;
+
+     label05:
+        if method == null goto label11;
+
+        $stack7 = class "Ljava/lang/Throwable;";
+
+        $stack8 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Class getReturnType()>();
+
+        $stack9 = virtualinvoke $stack7.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($stack8);
+
+        if $stack9 == 0 goto label11;
+
+     label06:
+        $stack11 = newarray (java.lang.Object)[0];
+
+        $stack12 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(throwable, $stack11);
+
+        $stack13 = (java.lang.Throwable) $stack12;
+
+     label07:
+        return $stack13;
+
+     label08:
+        $stack16 := @caughtexception;
+
+        goto label11;
+
+     label09:
+        $stack15 := @caughtexception;
+
+        goto label11;
+
+     label10:
+        $stack14 := @caughtexception;
+
+     label11:
+        return null;
+
+        catch java.lang.NoSuchMethodException from label01 to label02 with label03;
+        catch java.lang.SecurityException from label01 to label02 with label04;
+        catch java.lang.IllegalAccessException from label06 to label07 with label08;
+        catch java.lang.IllegalArgumentException from label06 to label07 with label09;
+        catch java.lang.reflect.InvocationTargetException from label06 to label07 with label10;
+    }
+
+    public static int getThrowableCount(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable;
+        int $stack2;
+        java.util.List $stack1;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>(throwable);
+
+        $stack2 = interfaceinvoke $stack1.<java.util.List: int size()>();
+
+        return $stack2;
+    }
+
+    public static java.lang.Throwable[] getThrowables(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable;
+        java.util.List $stack2;
+        java.lang.Object[] $stack5;
+        java.lang.Throwable[] $stack4, $stack6;
+        int $stack3;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getThrowableList(java.lang.Throwable)>(throwable);
+
+        $stack3 = interfaceinvoke $stack2.<java.util.List: int size()>();
+
+        $stack4 = newarray (java.lang.Throwable)[$stack3];
+
+        $stack5 = interfaceinvoke $stack2.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack4);
+
+        $stack6 = (java.lang.Throwable[]) $stack5;
+
+        return $stack6;
+    }
+
+    public static java.util.List getThrowableList(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable;
+        java.util.ArrayList $stack2;
+        boolean $stack3;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack2 = new java.util.ArrayList;
+
+        specialinvoke $stack2.<java.util.ArrayList: void <init>()>();
+
+     label1:
+        if throwable == null goto label2;
+
+        $stack3 = interfaceinvoke $stack2.<java.util.List: boolean contains(java.lang.Object)>(throwable);
+
+        if $stack3 != 0 goto label2;
+
+        interfaceinvoke $stack2.<java.util.List: boolean add(java.lang.Object)>(throwable);
+
+        throwable = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getCause(java.lang.Throwable)>(throwable);
+
+        goto label1;
+
+     label2:
+        return $stack2;
+    }
+
+    public static int indexOfThrowable(java.lang.Throwable, java.lang.Class)
+    {
+        java.lang.Throwable throwable;
+        int $stack2;
+        java.lang.Class clazz;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        clazz := @parameter1: java.lang.Class;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOf(java.lang.Throwable,java.lang.Class,int,boolean)>(throwable, clazz, 0, 0);
+
+        return $stack2;
+    }
+
+    public static int indexOfThrowable(java.lang.Throwable, java.lang.Class, int)
+    {
+        java.lang.Throwable throwable;
+        int fromIndex, $stack3;
+        java.lang.Class clazz;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        clazz := @parameter1: java.lang.Class;
+
+        fromIndex := @parameter2: int;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOf(java.lang.Throwable,java.lang.Class,int,boolean)>(throwable, clazz, fromIndex, 0);
+
+        return $stack3;
+    }
+
+    public static int indexOfType(java.lang.Throwable, java.lang.Class)
+    {
+        java.lang.Throwable throwable;
+        int $stack2;
+        java.lang.Class type;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        type := @parameter1: java.lang.Class;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOf(java.lang.Throwable,java.lang.Class,int,boolean)>(throwable, type, 0, 1);
+
+        return $stack2;
+    }
+
+    public static int indexOfType(java.lang.Throwable, java.lang.Class, int)
+    {
+        java.lang.Throwable throwable;
+        int fromIndex, $stack3;
+        java.lang.Class type;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        type := @parameter1: java.lang.Class;
+
+        fromIndex := @parameter2: int;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: int indexOf(java.lang.Throwable,java.lang.Class,int,boolean)>(throwable, type, fromIndex, 1);
+
+        return $stack3;
+    }
+
+    private static int indexOf(java.lang.Throwable, java.lang.Class, int, boolean)
+    {
+        java.lang.Throwable throwable, $stack9, $stack16;
+        int $stack7, $stack8, $stack14, fromIndex, i, $i0, $i1, $i2;
+        boolean subclass, $stack11, $stack18;
+        java.lang.Throwable[] $stack6;
+        java.lang.Class type, $stack10, $stack17;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        type := @parameter1: java.lang.Class;
+
+        fromIndex := @parameter2: int;
+
+        subclass := @parameter3: boolean;
+
+        if throwable == null goto label01;
+
+        if type != null goto label02;
+
+     label01:
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label02:
+        if fromIndex >= 0 goto label03;
+
+        fromIndex = 0;
+
+     label03:
+        $stack6 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>(throwable);
+
+        $stack7 = lengthof $stack6;
+
+        if fromIndex < $stack7 goto label04;
+
+        $i1 = (int) -1;
+
+        return $i1;
+
+     label04:
+        if subclass == 0 goto label08;
+
+        i = fromIndex;
+
+     label05:
+        $stack14 = lengthof $stack6;
+
+        if i >= $stack14 goto label07;
+
+        $stack16 = $stack6[i];
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack18 = virtualinvoke type.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>($stack17);
+
+        if $stack18 == 0 goto label06;
+
+        return i;
+
+     label06:
+        i = i + 1;
+
+        goto label05;
+
+     label07:
+        goto label11;
+
+     label08:
+        i = fromIndex;
+
+     label09:
+        $stack8 = lengthof $stack6;
+
+        if i >= $stack8 goto label11;
+
+        $stack9 = $stack6[i];
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack11 = virtualinvoke type.<java.lang.Object: boolean equals(java.lang.Object)>($stack10);
+
+        if $stack11 == 0 goto label10;
+
+        return i;
+
+     label10:
+        i = i + 1;
+
+        goto label09;
+
+     label11:
+        $i2 = (int) -1;
+
+        return $i2;
+    }
+
+    public static void printRootCauseStackTrace(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable;
+        java.io.PrintStream $stack1;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack1 = <java.lang.System: java.io.PrintStream err>;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream)>(throwable, $stack1);
+
+        return;
+    }
+
+    public static void printRootCauseStackTrace(java.lang.Throwable, java.io.PrintStream)
+    {
+        java.lang.Throwable throwable;
+        java.io.PrintStream stream;
+        int len$, i$;
+        java.lang.String[] $stack7;
+        java.lang.String element;
+        java.lang.IllegalArgumentException $stack10;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        stream := @parameter1: java.io.PrintStream;
+
+        if throwable != null goto label1;
+
+        return;
+
+     label1:
+        if stream != null goto label2;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The PrintStream must not be null");
+
+        throw $stack10;
+
+     label2:
+        $stack7 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)>(throwable);
+
+        len$ = lengthof $stack7;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label4;
+
+        element = $stack7[i$];
+
+        virtualinvoke stream.<java.io.PrintStream: void println(java.lang.String)>(element);
+
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label4:
+        virtualinvoke stream.<java.io.PrintStream: void flush()>();
+
+        return;
+    }
+
+    public static void printRootCauseStackTrace(java.lang.Throwable, java.io.PrintWriter)
+    {
+        java.lang.Throwable throwable;
+        java.io.PrintWriter writer;
+        int len$, i$;
+        java.lang.String[] $stack7;
+        java.lang.String element;
+        java.lang.IllegalArgumentException $stack10;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        writer := @parameter1: java.io.PrintWriter;
+
+        if throwable != null goto label1;
+
+        return;
+
+     label1:
+        if writer != null goto label2;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The PrintWriter must not be null");
+
+        throw $stack10;
+
+     label2:
+        $stack7 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)>(throwable);
+
+        len$ = lengthof $stack7;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label4;
+
+        element = $stack7[i$];
+
+        virtualinvoke writer.<java.io.PrintWriter: void println(java.lang.String)>(element);
+
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label4:
+        virtualinvoke writer.<java.io.PrintWriter: void flush()>();
+
+        return;
+    }
+
+    public static java.lang.String[] getRootCauseStackTrace(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable, $stack11, $stack20, $stack31, $stack36;
+        java.lang.Object[] $stack15;
+        java.lang.String[] $stack14, $stack16, $stack41;
+        java.util.ArrayList $u0;
+        int count, $stack10, $stack13, $stack17, $stack35, i, j, $stack25, $i0;
+        java.lang.String $stack21, $stack23, $stack32;
+        java.util.List trace, $stack37, nextTrace;
+        java.lang.Throwable[] $stack8;
+        java.lang.StringBuilder $stack19, $stack22, $u1;
+        java.lang.Object $stack27;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        if throwable != null goto label1;
+
+        $stack41 = <org.apache.commons.lang3.ArrayUtils: java.lang.String[] EMPTY_STRING_ARRAY>;
+
+        return $stack41;
+
+     label1:
+        $stack8 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable[] getThrowables(java.lang.Throwable)>(throwable);
+
+        count = lengthof $stack8;
+
+        $u0 = new java.util.ArrayList;
+
+        specialinvoke $u0.<java.util.ArrayList: void <init>()>();
+
+        $stack10 = count - 1;
+
+        $stack11 = $stack8[$stack10];
+
+        nextTrace = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getStackFrameList(java.lang.Throwable)>($stack11);
+
+        i = count;
+
+     label2:
+        $i0 = (int) -1;
+
+        i = i + $i0;
+
+        if i < 0 goto label8;
+
+        trace = nextTrace;
+
+        if i == 0 goto label3;
+
+        $stack35 = i - 1;
+
+        $stack36 = $stack8[$stack35];
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.util.List getStackFrameList(java.lang.Throwable)>($stack36);
+
+        nextTrace = $stack37;
+
+        staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: void removeCommonFrames(java.util.List,java.util.List)>(trace, $stack37);
+
+     label3:
+        $stack17 = count - 1;
+
+        if i != $stack17 goto label4;
+
+        $stack31 = $stack8[i];
+
+        $stack32 = virtualinvoke $stack31.<java.lang.Throwable: java.lang.String toString()>();
+
+        interfaceinvoke $u0.<java.util.List: boolean add(java.lang.Object)>($stack32);
+
+        goto label5;
+
+     label4:
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" [wrapped] ");
+
+        $stack20 = $stack8[i];
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Throwable: java.lang.String toString()>();
+
+        $stack22 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack21);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $u0.<java.util.List: boolean add(java.lang.Object)>($stack23);
+
+     label5:
+        j = 0;
+
+     label6:
+        $stack25 = interfaceinvoke trace.<java.util.List: int size()>();
+
+        if j >= $stack25 goto label7;
+
+        $stack27 = interfaceinvoke trace.<java.util.List: java.lang.Object get(int)>(j);
+
+        interfaceinvoke $u0.<java.util.List: boolean add(java.lang.Object)>($stack27);
+
+        j = j + 1;
+
+        goto label6;
+
+     label7:
+        goto label2;
+
+     label8:
+        $stack13 = interfaceinvoke $u0.<java.util.List: int size()>();
+
+        $stack14 = newarray (java.lang.String)[$stack13];
+
+        $stack15 = interfaceinvoke $u0.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack14);
+
+        $stack16 = (java.lang.String[]) $stack15;
+
+        return $stack16;
+    }
+
+    public static void removeCommonFrames(java.util.List, java.util.List)
+    {
+        java.lang.IllegalArgumentException $u0;
+        java.util.List causeFrames, wrapperFrames;
+        int $stack7, $stack8, causeFrameIndex, wrapperFrameIndex, $i0, $i1;
+        java.lang.Object $stack9, $stack10;
+        java.lang.String causeFrame, wrapperFrame;
+        boolean $stack11;
+
+        causeFrames := @parameter0: java.util.List;
+
+        wrapperFrames := @parameter1: java.util.List;
+
+        if causeFrames == null goto label1;
+
+        if wrapperFrames != null goto label2;
+
+     label1:
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The List must not be null");
+
+        throw $u0;
+
+     label2:
+        $stack7 = interfaceinvoke causeFrames.<java.util.List: int size()>();
+
+        causeFrameIndex = $stack7 - 1;
+
+        $stack8 = interfaceinvoke wrapperFrames.<java.util.List: int size()>();
+
+        wrapperFrameIndex = $stack8 - 1;
+
+     label3:
+        if causeFrameIndex < 0 goto label5;
+
+        if wrapperFrameIndex < 0 goto label5;
+
+        $stack9 = interfaceinvoke causeFrames.<java.util.List: java.lang.Object get(int)>(causeFrameIndex);
+
+        causeFrame = (java.lang.String) $stack9;
+
+        $stack10 = interfaceinvoke wrapperFrames.<java.util.List: java.lang.Object get(int)>(wrapperFrameIndex);
+
+        wrapperFrame = (java.lang.String) $stack10;
+
+        $stack11 = virtualinvoke causeFrame.<java.lang.String: boolean equals(java.lang.Object)>(wrapperFrame);
+
+        if $stack11 == 0 goto label4;
+
+        interfaceinvoke causeFrames.<java.util.List: java.lang.Object remove(int)>(causeFrameIndex);
+
+     label4:
+        $i0 = (int) -1;
+
+        causeFrameIndex = causeFrameIndex + $i0;
+
+        $i1 = (int) -1;
+
+        wrapperFrameIndex = wrapperFrameIndex + $i1;
+
+        goto label3;
+
+     label5:
+        return;
+    }
+
+    public static java.lang.String getStackTrace(java.lang.Throwable)
+    {
+        java.io.PrintWriter $stack4;
+        java.lang.Throwable throwable;
+        java.lang.StringBuffer $stack5;
+        java.io.StringWriter $stack3;
+        java.lang.String $stack6;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        $stack3 = new java.io.StringWriter;
+
+        specialinvoke $stack3.<java.io.StringWriter: void <init>()>();
+
+        $stack4 = new java.io.PrintWriter;
+
+        specialinvoke $stack4.<java.io.PrintWriter: void <init>(java.io.Writer,boolean)>($stack3, 1);
+
+        virtualinvoke throwable.<java.lang.Throwable: void printStackTrace(java.io.PrintWriter)>($stack4);
+
+        $stack5 = virtualinvoke $stack3.<java.io.StringWriter: java.lang.StringBuffer getBuffer()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $stack6;
+    }
+
+    public static java.lang.String[] getStackFrames(java.lang.Throwable)
+    {
+        java.lang.Throwable throwable;
+        java.lang.String[] $stack2, $stack3;
+        java.lang.String $stack1;
+
+        throwable := @parameter0: java.lang.Throwable;
+
+        if throwable != null goto label1;
+
+        $stack3 = <org.apache.commons.lang3.ArrayUtils: java.lang.String[] EMPTY_STRING_ARRAY>;
+
+        return $stack3;
+
+     label1:
+        $stack1 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>(throwable);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] getStackFrames(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    static java.lang.String[] getStackFrames(java.lang.String)
+    {
+        java.lang.Object[] $stack9;
+        java.lang.String[] $stack8, $stack10;
+        java.util.ArrayList $stack5;
+        java.util.StringTokenizer $stack4;
+        int $stack7;
+        java.lang.String linebreak, stackTrace, $stack11;
+        boolean $stack6;
+
+        stackTrace := @parameter0: java.lang.String;
+
+        linebreak = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack4 = new java.util.StringTokenizer;
+
+        specialinvoke $stack4.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>(stackTrace, linebreak);
+
+        $stack5 = new java.util.ArrayList;
+
+        specialinvoke $stack5.<java.util.ArrayList: void <init>()>();
+
+     label1:
+        $stack6 = virtualinvoke $stack4.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $stack6 == 0 goto label2;
+
+        $stack11 = virtualinvoke $stack4.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        interfaceinvoke $stack5.<java.util.List: boolean add(java.lang.Object)>($stack11);
+
+        goto label1;
+
+     label2:
+        $stack7 = interfaceinvoke $stack5.<java.util.List: int size()>();
+
+        $stack8 = newarray (java.lang.String)[$stack7];
+
+        $stack9 = interfaceinvoke $stack5.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack8);
+
+        $stack10 = (java.lang.String[]) $stack9;
+
+        return $stack10;
+    }
+
+    static java.util.List getStackFrameList(java.lang.Throwable)
+    {
+        java.lang.Throwable t;
+        java.util.ArrayList $u1;
+        java.util.StringTokenizer $u0;
+        int $stack13, $i0;
+        java.lang.String $stack8, linebreak, $stack12, $stack16, $stack17;
+        boolean $stack11, $stack18, traceStarted;
+
+        t := @parameter0: java.lang.Throwable;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>(t);
+
+        linebreak = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $u0 = new java.util.StringTokenizer;
+
+        specialinvoke $u0.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($stack8, linebreak);
+
+        $u1 = new java.util.ArrayList;
+
+        specialinvoke $u1.<java.util.ArrayList: void <init>()>();
+
+        traceStarted = 0;
+
+     label1:
+        $stack11 = virtualinvoke $u0.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $stack11 == 0 goto label4;
+
+        $stack12 = virtualinvoke $u0.<java.util.StringTokenizer: java.lang.String nextToken()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.String: int indexOf(java.lang.String)>("at");
+
+        $i0 = (int) -1;
+
+        if $stack13 == $i0 goto label2;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.String: java.lang.String substring(int,int)>(0, $stack13);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.String: java.lang.String trim()>();
+
+        $stack18 = virtualinvoke $stack17.<java.lang.String: boolean isEmpty()>();
+
+        if $stack18 == 0 goto label2;
+
+        traceStarted = 1;
+
+        interfaceinvoke $u1.<java.util.List: boolean add(java.lang.Object)>($stack12);
+
+        goto label3;
+
+     label2:
+        if traceStarted == 0 goto label3;
+
+        goto label4;
+
+     label3:
+        goto label1;
+
+     label4:
+        return $u1;
+    }
+
+    public static java.lang.String getMessage(java.lang.Throwable)
+    {
+        java.lang.Throwable th;
+        java.lang.StringBuilder $stack5, $stack6, $stack7, $stack9;
+        java.lang.String $stack3, $stack4, $stack8, $stack10;
+
+        th := @parameter0: java.lang.Throwable;
+
+        if th != null goto label1;
+
+        return "";
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortClassName(java.lang.Object,java.lang.String)>(th, null);
+
+        $stack4 = virtualinvoke th.<java.lang.Throwable: java.lang.String getMessage()>();
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String defaultString(java.lang.String)>($stack4);
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack10;
+    }
+
+    public static java.lang.String getRootCauseMessage(java.lang.Throwable)
+    {
+        java.lang.Throwable th, $stack2, $stack4;
+        java.lang.String $stack3;
+
+        th := @parameter0: java.lang.Throwable;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.Throwable getRootCause(java.lang.Throwable)>(th);
+
+        if $stack2 != null goto label1;
+
+        $stack4 = th;
+
+        goto label2;
+
+     label1:
+        $stack4 = $stack2;
+
+     label2:
+        $stack3 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getMessage(java.lang.Throwable)>($stack4);
+
+        return $stack3;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.String[] $stack0;
+
+        <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String WRAPPED_MARKER> = " [wrapped] ";
+
+        $stack0 = newarray (java.lang.String)[12];
+
+        $stack0[0] = "getCause";
+
+        $stack0[1] = "getNextException";
+
+        $stack0[2] = "getTargetException";
+
+        $stack0[3] = "getException";
+
+        $stack0[4] = "getSourceException";
+
+        $stack0[5] = "getRootCause";
+
+        $stack0[6] = "getCausedByException";
+
+        $stack0[7] = "getNested";
+
+        $stack0[8] = "getLinkedException";
+
+        $stack0[9] = "getNestedException";
+
+        $stack0[10] = "getLinkedCause";
+
+        $stack0[11] = "getThrowable";
+
+        <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String[] CAUSE_METHOD_NAMES> = $stack0;
+
+        return;
+    }
+}

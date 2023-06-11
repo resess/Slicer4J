@@ -1,0 +1,130 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey extends java.lang.Object
+{
+    private final java.util.TimeZone mTimeZone;
+    private final int mStyle;
+    private final java.util.Locale mLocale;
+
+    void <init>(java.util.TimeZone, boolean, int, java.util.Locale)
+    {
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        int style;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey this;
+        boolean daylight;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey;
+
+        timeZone := @parameter0: java.util.TimeZone;
+
+        daylight := @parameter1: boolean;
+
+        style := @parameter2: int;
+
+        locale := @parameter3: java.util.Locale;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.TimeZone mTimeZone> = timeZone;
+
+        if daylight == 0 goto label1;
+
+        style = style | -2147483648;
+
+     label1:
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: int mStyle> = style;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.Locale mLocale> = locale;
+
+        return;
+    }
+
+    public int hashCode()
+    {
+        java.util.TimeZone $stack6;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey this;
+        java.util.Locale $stack2;
+        int $stack1, $stack3, $stack4, $stack5, $stack7, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: int mStyle>;
+
+        $stack3 = $stack1 * 31;
+
+        $stack2 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.Locale mLocale>;
+
+        $stack4 = virtualinvoke $stack2.<java.util.Locale: int hashCode()>();
+
+        $stack5 = $stack3 + $stack4;
+
+        $stack7 = $stack5 * 31;
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.TimeZone mTimeZone>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.Object: int hashCode()>();
+
+        $stack9 = $stack7 + $stack8;
+
+        return $stack9;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.util.TimeZone $stack4, $stack5;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey this, other;
+        java.util.Locale $stack10, $stack11;
+        int $stack7, $stack8;
+        java.lang.Object obj;
+        boolean $stack3, $stack6, $stack12, $stack9;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey;
+
+        obj := @parameter0: java.lang.Object;
+
+        if this != obj goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey;
+
+        if $stack3 == 0 goto label4;
+
+        other = (org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey) obj;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.TimeZone mTimeZone>;
+
+        $stack4 = other.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.TimeZone mTimeZone>;
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Object: boolean equals(java.lang.Object)>($stack4);
+
+        if $stack6 == 0 goto label2;
+
+        $stack8 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: int mStyle>;
+
+        $stack7 = other.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: int mStyle>;
+
+        if $stack8 != $stack7 goto label2;
+
+        $stack11 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.Locale mLocale>;
+
+        $stack10 = other.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: java.util.Locale mLocale>;
+
+        $stack12 = virtualinvoke $stack11.<java.util.Locale: boolean equals(java.lang.Object)>($stack10);
+
+        if $stack12 == 0 goto label2;
+
+        $stack9 = 1;
+
+        goto label3;
+
+     label2:
+        $stack9 = 0;
+
+     label3:
+        return $stack9;
+
+     label4:
+        return 0;
+    }
+}

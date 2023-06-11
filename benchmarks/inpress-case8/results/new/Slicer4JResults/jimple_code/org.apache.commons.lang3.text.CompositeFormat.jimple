@@ -1,0 +1,118 @@
+public class org.apache.commons.lang3.text.CompositeFormat extends java.text.Format
+{
+    private static final long serialVersionUID;
+    private final java.text.Format parser;
+    private final java.text.Format formatter;
+
+    public void <init>(java.text.Format, java.text.Format)
+    {
+        java.text.Format parser, formatter;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        parser := @parameter0: java.text.Format;
+
+        formatter := @parameter1: java.text.Format;
+
+        specialinvoke this.<java.text.Format: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format parser> = parser;
+
+        this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format formatter> = formatter;
+
+        return;
+    }
+
+    public java.lang.StringBuffer format(java.lang.Object, java.lang.StringBuffer, java.text.FieldPosition)
+    {
+        java.text.Format $stack4;
+        java.text.FieldPosition pos;
+        java.lang.StringBuffer toAppendTo, $stack5;
+        java.lang.Object obj;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        obj := @parameter0: java.lang.Object;
+
+        toAppendTo := @parameter1: java.lang.StringBuffer;
+
+        pos := @parameter2: java.text.FieldPosition;
+
+        $stack4 = this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format formatter>;
+
+        $stack5 = virtualinvoke $stack4.<java.text.Format: java.lang.StringBuffer format(java.lang.Object,java.lang.StringBuffer,java.text.FieldPosition)>(obj, toAppendTo, pos);
+
+        return $stack5;
+    }
+
+    public java.lang.Object parseObject(java.lang.String, java.text.ParsePosition)
+    {
+        java.text.Format $stack3;
+        java.text.ParsePosition pos;
+        java.lang.Object $stack4;
+        java.lang.String source;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        source := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack3 = this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format parser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.Format: java.lang.Object parseObject(java.lang.String,java.text.ParsePosition)>(source, pos);
+
+        return $stack4;
+    }
+
+    public java.text.Format getParser()
+    {
+        java.text.Format $stack1;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format parser>;
+
+        return $stack1;
+    }
+
+    public java.text.Format getFormatter()
+    {
+        java.text.Format $stack1;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format formatter>;
+
+        return $stack1;
+    }
+
+    public java.lang.String reformat(java.lang.String) throws java.text.ParseException
+    {
+        java.lang.Object $stack2;
+        java.lang.String input, $stack3;
+        org.apache.commons.lang3.text.CompositeFormat this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormat;
+
+        input := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.CompositeFormat: java.lang.Object parseObject(java.lang.String)>(input);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.CompositeFormat: java.lang.String format(java.lang.Object)>($stack2);
+
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.CompositeFormat: long serialVersionUID> = -4329119827877627683L;
+
+        return;
+    }
+}

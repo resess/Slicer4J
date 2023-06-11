@@ -1,0 +1,72 @@
+public class org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConcurrency() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$InspectingClient $stack14;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture $stack8;
+        java.lang.Thread $stack11, $stack13;
+        int i, j;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient $stack12;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest;
+
+        $stack8 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest)>(this);
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label4;
+
+        j = 0;
+
+     label2:
+        if j >= 10 goto label3;
+
+        $stack11 = new java.lang.Thread;
+
+        $stack12 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest,org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture)>(this, $stack8);
+
+        specialinvoke $stack11.<java.lang.Thread: void <init>(java.lang.Runnable)>($stack12);
+
+        virtualinvoke $stack11.<java.lang.Thread: void start()>();
+
+        $stack13 = new java.lang.Thread;
+
+        $stack14 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$InspectingClient;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$InspectingClient: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest,org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture)>(this, $stack8);
+
+        specialinvoke $stack13.<java.lang.Thread: void <init>(java.lang.Runnable)>($stack14);
+
+        virtualinvoke $stack13.<java.lang.Thread: void start()>();
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        return;
+    }
+}

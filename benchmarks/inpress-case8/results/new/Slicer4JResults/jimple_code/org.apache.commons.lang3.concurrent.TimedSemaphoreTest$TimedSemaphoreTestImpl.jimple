@@ -1,0 +1,140 @@
+class org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl extends org.apache.commons.lang3.concurrent.TimedSemaphore
+{
+    java.util.concurrent.ScheduledFuture schedFuture;
+    volatile java.util.concurrent.CountDownLatch latch;
+    private int periodEnds;
+
+    public void <init>(long, java.util.concurrent.TimeUnit, int)
+    {
+        java.util.concurrent.TimeUnit timeUnit;
+        int limit;
+        long timePeriod;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        timePeriod := @parameter0: long;
+
+        timeUnit := @parameter1: java.util.concurrent.TimeUnit;
+
+        limit := @parameter2: int;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(long,java.util.concurrent.TimeUnit,int)>(timePeriod, timeUnit, limit);
+
+        return;
+    }
+
+    public void <init>(java.util.concurrent.ScheduledExecutorService, long, java.util.concurrent.TimeUnit, int)
+    {
+        java.util.concurrent.TimeUnit timeUnit;
+        java.util.concurrent.ScheduledExecutorService service;
+        int limit;
+        long timePeriod;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        service := @parameter0: java.util.concurrent.ScheduledExecutorService;
+
+        timePeriod := @parameter1: long;
+
+        timeUnit := @parameter2: java.util.concurrent.TimeUnit;
+
+        limit := @parameter3: int;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(service, timePeriod, timeUnit, limit);
+
+        return;
+    }
+
+    public int getPeriodEnds()
+    {
+        int $stack5;
+        java.lang.Throwable $stack6;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        entermonitor this;
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int periodEnds>;
+
+        exitmonitor this;
+
+     label2:
+        return $stack5;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        exitmonitor this;
+
+     label4:
+        throw $stack6;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public synchronized void acquire() throws java.lang.InterruptedException
+    {
+        java.util.concurrent.CountDownLatch $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.CountDownLatch latch>;
+
+        if $stack1 == null goto label1;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.CountDownLatch latch>;
+
+        virtualinvoke $stack2.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+     label1:
+        return;
+    }
+
+    protected synchronized void endOfPeriod()
+    {
+        int $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void endOfPeriod()>();
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int periodEnds>;
+
+        $stack2 = $stack1 + 1;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: int periodEnds> = $stack2;
+
+        return;
+    }
+
+    protected java.util.concurrent.ScheduledFuture startTimer()
+    {
+        java.util.concurrent.ScheduledFuture $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.ScheduledFuture schedFuture>;
+
+        if $stack1 == null goto label1;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$TimedSemaphoreTestImpl: java.util.concurrent.ScheduledFuture schedFuture>;
+
+        goto label2;
+
+     label1:
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture startTimer()>();
+
+     label2:
+        return $stack2;
+    }
+}

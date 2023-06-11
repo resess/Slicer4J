@@ -1,0 +1,408 @@
+public class org.apache.commons.lang3.exception.DefaultExceptionContext extends java.lang.Object implements org.apache.commons.lang3.exception.ExceptionContext, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private final java.util.List contextValues;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        java.util.ArrayList $stack1;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.ArrayList;
+
+        specialinvoke $stack1.<java.util.ArrayList: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues> = $stack1;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.exception.DefaultExceptionContext addContextValue(java.lang.String, java.lang.Object)
+    {
+        java.util.List $stack4;
+        java.lang.Object value;
+        java.lang.String label;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        org.apache.commons.lang3.tuple.ImmutablePair $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        label := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.Object;
+
+        $stack4 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack3 = new org.apache.commons.lang3.tuple.ImmutablePair;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.tuple.ImmutablePair: void <init>(java.lang.Object,java.lang.Object)>(label, value);
+
+        interfaceinvoke $stack4.<java.util.List: boolean add(java.lang.Object)>($stack3);
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.exception.DefaultExceptionContext setContextValue(java.lang.String, java.lang.Object)
+    {
+        java.util.Iterator $stack6;
+        java.lang.CharSequence $stack11;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        java.util.List $stack5;
+        org.apache.commons.lang3.tuple.Pair p;
+        java.lang.Object value, $stack9, $stack10;
+        java.lang.String label;
+        boolean $stack7, $stack12;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        label := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.Object;
+
+        $stack5 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack6 = interfaceinvoke $stack5.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack7 = interfaceinvoke $stack6.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack7 == 0 goto label3;
+
+        $stack9 = interfaceinvoke $stack6.<java.util.Iterator: java.lang.Object next()>();
+
+        p = (org.apache.commons.lang3.tuple.Pair) $stack9;
+
+        $stack10 = virtualinvoke p.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack11 = (java.lang.CharSequence) $stack10;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(label, $stack11);
+
+        if $stack12 == 0 goto label2;
+
+        interfaceinvoke $stack6.<java.util.Iterator: void remove()>();
+
+     label2:
+        goto label1;
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.exception.DefaultExceptionContext: org.apache.commons.lang3.exception.DefaultExceptionContext addContextValue(java.lang.String,java.lang.Object)>(label, value);
+
+        return this;
+    }
+
+    public java.util.List getContextValues(java.lang.String)
+    {
+        java.util.Iterator $stack7;
+        java.lang.CharSequence $stack11;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        java.util.ArrayList $stack5;
+        java.util.List $stack6;
+        org.apache.commons.lang3.tuple.Pair pair;
+        java.lang.Object $stack9, $stack10, $stack14;
+        java.lang.String label;
+        boolean $stack8, $stack12;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        label := @parameter0: java.lang.String;
+
+        $stack5 = new java.util.ArrayList;
+
+        specialinvoke $stack5.<java.util.ArrayList: void <init>()>();
+
+        $stack6 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack7 = interfaceinvoke $stack6.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack8 = interfaceinvoke $stack7.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack8 == 0 goto label3;
+
+        $stack9 = interfaceinvoke $stack7.<java.util.Iterator: java.lang.Object next()>();
+
+        pair = (org.apache.commons.lang3.tuple.Pair) $stack9;
+
+        $stack10 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack11 = (java.lang.CharSequence) $stack10;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(label, $stack11);
+
+        if $stack12 == 0 goto label2;
+
+        $stack14 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        interfaceinvoke $stack5.<java.util.List: boolean add(java.lang.Object)>($stack14);
+
+     label2:
+        goto label1;
+
+     label3:
+        return $stack5;
+    }
+
+    public java.lang.Object getFirstContextValue(java.lang.String)
+    {
+        java.util.Iterator $stack5;
+        java.lang.CharSequence $stack9;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        java.util.List $stack4;
+        org.apache.commons.lang3.tuple.Pair pair;
+        java.lang.Object $stack7, $stack8, $stack12;
+        java.lang.String label;
+        boolean $stack6, $stack10;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        label := @parameter0: java.lang.String;
+
+        $stack4 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack6 = interfaceinvoke $stack5.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack6 == 0 goto label3;
+
+        $stack7 = interfaceinvoke $stack5.<java.util.Iterator: java.lang.Object next()>();
+
+        pair = (org.apache.commons.lang3.tuple.Pair) $stack7;
+
+        $stack8 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack9 = (java.lang.CharSequence) $stack8;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(label, $stack9);
+
+        if $stack10 == 0 goto label2;
+
+        $stack12 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        return $stack12;
+
+     label2:
+        goto label1;
+
+     label3:
+        return null;
+    }
+
+    public java.util.Set getContextLabels()
+    {
+        java.util.Iterator $stack6;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        java.util.HashSet $stack4;
+        java.util.List $stack5;
+        org.apache.commons.lang3.tuple.Pair pair;
+        java.lang.Object $stack8, $stack9;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        $stack4 = new java.util.HashSet;
+
+        specialinvoke $stack4.<java.util.HashSet: void <init>()>();
+
+        $stack5 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack6 = interfaceinvoke $stack5.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack7 = interfaceinvoke $stack6.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack7 == 0 goto label2;
+
+        $stack8 = interfaceinvoke $stack6.<java.util.Iterator: java.lang.Object next()>();
+
+        pair = (org.apache.commons.lang3.tuple.Pair) $stack8;
+
+        $stack9 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        interfaceinvoke $stack4.<java.util.Set: boolean add(java.lang.Object)>($stack9);
+
+        goto label1;
+
+     label2:
+        return $stack4;
+    }
+
+    public java.util.List getContextEntries()
+    {
+        java.util.List $stack1;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        return $stack1;
+    }
+
+    public java.lang.String getFormattedExceptionMessage(java.lang.String)
+    {
+        org.apache.commons.lang3.exception.DefaultExceptionContext this;
+        org.apache.commons.lang3.tuple.Pair pair;
+        int $stack11, $stack13, i;
+        java.lang.String baseMessage, $stack12, $stack25, $stack46, valueStr;
+        boolean $stack17;
+        java.util.Iterator $stack16;
+        java.lang.Exception $stack43;
+        java.util.List $stack10, $stack15;
+        java.lang.StringBuilder $stack9, $stack44, $stack45, $stack47;
+        java.lang.Object $stack20, $stack24, $stack28;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        baseMessage := @parameter0: java.lang.String;
+
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>(int)>(256);
+
+        if baseMessage == null goto label01;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(baseMessage);
+
+     label01:
+        $stack10 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack11 = interfaceinvoke $stack10.<java.util.List: int size()>();
+
+        if $stack11 <= 0 goto label10;
+
+        $stack13 = virtualinvoke $stack9.<java.lang.StringBuilder: int length()>();
+
+        if $stack13 <= 0 goto label02;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(10);
+
+     label02:
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Exception Context:\n");
+
+        i = 0;
+
+        $stack15 = this.<org.apache.commons.lang3.exception.DefaultExceptionContext: java.util.List contextValues>;
+
+        $stack16 = interfaceinvoke $stack15.<java.util.List: java.util.Iterator iterator()>();
+
+     label03:
+        $stack17 = interfaceinvoke $stack16.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack17 == 0 goto label09;
+
+        $stack20 = interfaceinvoke $stack16.<java.util.Iterator: java.lang.Object next()>();
+
+        pair = (org.apache.commons.lang3.tuple.Pair) $stack20;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\t[");
+
+        i = i + 1;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(58);
+
+        $stack24 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack25 = (java.lang.String) $stack24;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("=");
+
+        $stack28 = virtualinvoke pair.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        if $stack28 != null goto label04;
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("null");
+
+        goto label08;
+
+     label04:
+        valueStr = virtualinvoke $stack28.<java.lang.Object: java.lang.String toString()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack43 := @caughtexception;
+
+        $stack44 = new java.lang.StringBuilder;
+
+        specialinvoke $stack44.<java.lang.StringBuilder: void <init>()>();
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Exception thrown on toString(): ");
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack43);
+
+        $stack47 = virtualinvoke $stack45.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack46);
+
+        valueStr = virtualinvoke $stack47.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label07:
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(valueStr);
+
+     label08:
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]\n");
+
+        goto label03;
+
+     label09:
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("---------------------------------");
+
+     label10:
+        $stack12 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack12;
+
+        catch java.lang.Exception from label04 to label05 with label06;
+    }
+
+    public volatile org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String, java.lang.Object)
+    {
+        java.lang.Object x1;
+        java.lang.String x0;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this, $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        x0 := @parameter0: java.lang.String;
+
+        x1 := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.exception.DefaultExceptionContext: org.apache.commons.lang3.exception.DefaultExceptionContext setContextValue(java.lang.String,java.lang.Object)>(x0, x1);
+
+        return $stack3;
+    }
+
+    public volatile org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String, java.lang.Object)
+    {
+        java.lang.Object x1;
+        java.lang.String x0;
+        org.apache.commons.lang3.exception.DefaultExceptionContext this, $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        x0 := @parameter0: java.lang.String;
+
+        x1 := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.exception.DefaultExceptionContext: org.apache.commons.lang3.exception.DefaultExceptionContext addContextValue(java.lang.String,java.lang.Object)>(x0, x1);
+
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.exception.DefaultExceptionContext: long serialVersionUID> = 20110706L;
+
+        return;
+    }
+}

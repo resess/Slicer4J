@@ -1,0 +1,266 @@
+public abstract class org.apache.commons.lang3.concurrent.BackgroundInitializer extends java.lang.Object implements org.apache.commons.lang3.concurrent.ConcurrentInitializer
+{
+    private java.util.concurrent.ExecutorService externalExecutor;
+    private java.util.concurrent.ExecutorService executor;
+    private java.util.concurrent.Future future;
+
+    protected void <init>()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>(java.util.concurrent.ExecutorService)>(null);
+
+        return;
+    }
+
+    protected void <init>(java.util.concurrent.ExecutorService)
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService exec;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        exec := @parameter0: java.util.concurrent.ExecutorService;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void setExternalExecutor(java.util.concurrent.ExecutorService)>(exec);
+
+        return;
+    }
+
+    public final synchronized java.util.concurrent.ExecutorService getExternalExecutor()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService externalExecutor>;
+
+        return $stack1;
+    }
+
+    public synchronized boolean isStarted()
+    {
+        java.util.concurrent.Future $stack1;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Future future>;
+
+        if $stack1 == null goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public final synchronized void setExternalExecutor(java.util.concurrent.ExecutorService)
+    {
+        java.lang.IllegalStateException $stack3;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService externalExecutor;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        externalExecutor := @parameter0: java.util.concurrent.ExecutorService;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: boolean isStarted()>();
+
+        if $stack2 == 0 goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Cannot set ExecutorService after start()!");
+
+        throw $stack3;
+
+     label1:
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService externalExecutor> = externalExecutor;
+
+        return;
+    }
+
+    public synchronized boolean start()
+    {
+        java.util.concurrent.Callable $stack6;
+        java.util.concurrent.Future $stack7;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService $stack3, $stack4, $stack5, $stack8, tempExec;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: boolean isStarted()>();
+
+        if $stack2 != 0 goto label3;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService getExternalExecutor()>();
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService executor> = $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService executor>;
+
+        if $stack4 != null goto label1;
+
+        $stack8 = specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService createExecutor()>();
+
+        tempExec = $stack8;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService executor> = $stack8;
+
+        goto label2;
+
+     label1:
+        tempExec = null;
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService executor>;
+
+        $stack6 = specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Callable createTask(java.util.concurrent.ExecutorService)>(tempExec);
+
+        $stack7 = interfaceinvoke $stack5.<java.util.concurrent.ExecutorService: java.util.concurrent.Future submit(java.util.concurrent.Callable)>($stack6);
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Future future> = $stack7;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public java.lang.Object get() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.concurrent.ExecutionException $stack7;
+        java.util.concurrent.Future $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.lang.InterruptedException $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack6;
+        java.lang.Thread $stack5;
+        java.lang.Object $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+     label1:
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Future getFuture()>();
+
+        $stack3 = interfaceinvoke $stack2.<java.util.concurrent.Future: java.lang.Object get()>();
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        staticinvoke <org.apache.commons.lang3.concurrent.ConcurrentUtils: void handleCause(java.util.concurrent.ExecutionException)>($stack7);
+
+        return null;
+
+     label4:
+        $stack4 := @caughtexception;
+
+        $stack5 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        virtualinvoke $stack5.<java.lang.Thread: void interrupt()>();
+
+        $stack6 = new org.apache.commons.lang3.concurrent.ConcurrentException;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.concurrent.ConcurrentException: void <init>(java.lang.Throwable)>($stack4);
+
+        throw $stack6;
+
+        catch java.util.concurrent.ExecutionException from label1 to label2 with label3;
+        catch java.lang.InterruptedException from label1 to label2 with label4;
+    }
+
+    public synchronized java.util.concurrent.Future getFuture()
+    {
+        java.lang.IllegalStateException $stack3;
+        java.util.concurrent.Future $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Future future>;
+
+        if $stack1 != null goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("start() must be called first!");
+
+        throw $stack3;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.Future future>;
+
+        return $stack2;
+    }
+
+    protected final synchronized java.util.concurrent.ExecutorService getActiveExecutor()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService executor>;
+
+        return $stack1;
+    }
+
+    protected int getTaskCount()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        return 1;
+    }
+
+    protected abstract java.lang.Object initialize() throws java.lang.Exception;
+
+    private java.util.concurrent.Callable createTask(java.util.concurrent.ExecutorService)
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask $stack2;
+        java.util.concurrent.ExecutorService execDestroy;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        execDestroy := @parameter0: java.util.concurrent.ExecutorService;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: void <init>(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>(this, execDestroy);
+
+        return $stack2;
+    }
+
+    private java.util.concurrent.ExecutorService createExecutor()
+    {
+        int $stack1;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer this;
+        java.util.concurrent.ExecutorService $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: int getTaskCount()>();
+
+        $stack2 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool(int)>($stack1);
+
+        return $stack2;
+    }
+}

@@ -1,0 +1,489 @@
+public class org.apache.commons.lang3.RandomStringUtils extends java.lang.Object
+{
+    private static final java.util.Random RANDOM;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.RandomStringUtils this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String random(int)
+    {
+        int count;
+        java.lang.String $stack1;
+
+        count := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,boolean,boolean)>(count, 0, 0);
+
+        return $stack1;
+    }
+
+    public static java.lang.String randomAscii(int)
+    {
+        int count;
+        java.lang.String $stack1;
+
+        count := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean)>(count, 32, 127, 0, 0);
+
+        return $stack1;
+    }
+
+    public static java.lang.String randomAlphabetic(int)
+    {
+        int count;
+        java.lang.String $stack1;
+
+        count := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,boolean,boolean)>(count, 1, 0);
+
+        return $stack1;
+    }
+
+    public static java.lang.String randomAlphanumeric(int)
+    {
+        int count;
+        java.lang.String $stack1;
+
+        count := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,boolean,boolean)>(count, 1, 1);
+
+        return $stack1;
+    }
+
+    public static java.lang.String randomNumeric(int)
+    {
+        int count;
+        java.lang.String $stack1;
+
+        count := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,boolean,boolean)>(count, 0, 1);
+
+        return $stack1;
+    }
+
+    public static java.lang.String random(int, boolean, boolean)
+    {
+        int count;
+        java.lang.String $stack3;
+        boolean letters, numbers;
+
+        count := @parameter0: int;
+
+        letters := @parameter1: boolean;
+
+        numbers := @parameter2: boolean;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean)>(count, 0, 0, letters, numbers);
+
+        return $stack3;
+    }
+
+    public static java.lang.String random(int, int, int, boolean, boolean)
+    {
+        int count, start, end;
+        java.util.Random $stack5;
+        java.lang.String $stack6;
+        boolean letters, numbers;
+
+        count := @parameter0: int;
+
+        start := @parameter1: int;
+
+        end := @parameter2: int;
+
+        letters := @parameter3: boolean;
+
+        numbers := @parameter4: boolean;
+
+        $stack5 = <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(count, start, end, letters, numbers, null, $stack5);
+
+        return $stack6;
+    }
+
+    public static transient java.lang.String random(int, int, int, boolean, boolean, char[])
+    {
+        java.util.Random $stack6;
+        int count, start, end;
+        char[] chars;
+        java.lang.String $stack7;
+        boolean letters, numbers;
+
+        count := @parameter0: int;
+
+        start := @parameter1: int;
+
+        end := @parameter2: int;
+
+        letters := @parameter3: boolean;
+
+        numbers := @parameter4: boolean;
+
+        chars := @parameter5: char[];
+
+        $stack6 = <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(count, start, end, letters, numbers, chars, $stack6);
+
+        return $stack7;
+    }
+
+    public static java.lang.String random(int, int, int, boolean, boolean, char[], java.util.Random)
+    {
+        java.util.Random random;
+        boolean letters, numbers, $stack29, $stack33;
+        java.lang.StringBuilder $stack40, $stack41, $stack42, $stack43, $stack44, $stack60, $stack61, $stack62, $u0, $u3;
+        int $stack12, $stack13, $stack20, $stack21, $stack26, $stack27, $stack35, $stack36, $stack55, count, start, end, $stack52, $stack10, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16;
+        java.lang.String $stack45, $stack63, $u5;
+        char $stack22, $stack28, ch;
+        java.lang.IllegalArgumentException $u1, $u2, $u4;
+        char[] chars, $stack49;
+
+        count := @parameter0: int;
+
+        start := @parameter1: int;
+
+        end := @parameter2: int;
+
+        letters := @parameter3: boolean;
+
+        numbers := @parameter4: boolean;
+
+        chars := @parameter5: char[];
+
+        random := @parameter6: java.util.Random;
+
+        if count != 0 goto label01;
+
+        return "";
+
+     label01:
+        if count >= 0 goto label02;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack60 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Requested random string length ");
+
+        $stack61 = virtualinvoke $stack60.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(count);
+
+        $stack62 = virtualinvoke $stack61.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is less than 0.");
+
+        $stack63 = virtualinvoke $stack62.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack63);
+
+        throw $u1;
+
+     label02:
+        if chars == null goto label03;
+
+        $stack55 = lengthof chars;
+
+        if $stack55 != 0 goto label03;
+
+        $u2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The chars array must not be empty");
+
+        throw $u2;
+
+     label03:
+        if start != 0 goto label06;
+
+        if end != 0 goto label06;
+
+        if chars == null goto label04;
+
+        end = lengthof chars;
+
+        goto label07;
+
+     label04:
+        if letters != 0 goto label05;
+
+        if numbers != 0 goto label05;
+
+        end = 2147483647;
+
+        goto label07;
+
+     label05:
+        end = 123;
+
+        start = 32;
+
+        goto label07;
+
+     label06:
+        if end > start goto label07;
+
+        $u4 = new java.lang.IllegalArgumentException;
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack40 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Parameter end (");
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(end);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") must be greater than start (");
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(start);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack45);
+
+        throw $u4;
+
+     label07:
+        $stack49 = newarray (char)[count];
+
+        $stack52 = end - start;
+
+     label08:
+        $stack10 = count;
+
+        $i0 = (int) -1;
+
+        count = count + $i0;
+
+        if $stack10 == 0 goto label21;
+
+        if chars != null goto label09;
+
+        $stack35 = virtualinvoke random.<java.util.Random: int nextInt(int)>($stack52);
+
+        $stack36 = $stack35 + start;
+
+        ch = (char) $stack36;
+
+        goto label10;
+
+     label09:
+        $stack12 = virtualinvoke random.<java.util.Random: int nextInt(int)>($stack52);
+
+        $stack13 = $stack12 + start;
+
+        ch = chars[$stack13];
+
+     label10:
+        if letters == 0 goto label11;
+
+        $stack33 = staticinvoke <java.lang.Character: boolean isLetter(char)>(ch);
+
+        if $stack33 != 0 goto label13;
+
+     label11:
+        if numbers == 0 goto label12;
+
+        $stack29 = staticinvoke <java.lang.Character: boolean isDigit(char)>(ch);
+
+        if $stack29 != 0 goto label13;
+
+     label12:
+        if letters != 0 goto label19;
+
+        if numbers != 0 goto label19;
+
+     label13:
+        $i1 = (int) ch;
+
+        $i2 = (int) 56320;
+
+        if $i1 < $i2 goto label15;
+
+        $i3 = (int) ch;
+
+        $i4 = (int) 57343;
+
+        if $i3 > $i4 goto label15;
+
+        if count != 0 goto label14;
+
+        count = count + 1;
+
+        goto label20;
+
+     label14:
+        $stack49[count] = ch;
+
+        $i5 = (int) -1;
+
+        count = count + $i5;
+
+        $stack26 = virtualinvoke random.<java.util.Random: int nextInt(int)>(128);
+
+        $i6 = (int) 55296;
+
+        $stack27 = $i6 + $stack26;
+
+        $stack28 = (char) $stack27;
+
+        $stack49[count] = $stack28;
+
+        goto label20;
+
+     label15:
+        $i7 = (int) ch;
+
+        $i8 = (int) 55296;
+
+        if $i7 < $i8 goto label17;
+
+        $i9 = (int) ch;
+
+        $i10 = (int) 56191;
+
+        if $i9 > $i10 goto label17;
+
+        if count != 0 goto label16;
+
+        count = count + 1;
+
+        goto label20;
+
+     label16:
+        $stack20 = virtualinvoke random.<java.util.Random: int nextInt(int)>(128);
+
+        $i11 = (int) 56320;
+
+        $stack21 = $i11 + $stack20;
+
+        $stack22 = (char) $stack21;
+
+        $stack49[count] = $stack22;
+
+        $i12 = (int) -1;
+
+        count = count + $i12;
+
+        $stack49[count] = ch;
+
+        goto label20;
+
+     label17:
+        $i13 = (int) ch;
+
+        $i14 = (int) 56192;
+
+        if $i13 < $i14 goto label18;
+
+        $i15 = (int) ch;
+
+        $i16 = (int) 56319;
+
+        if $i15 > $i16 goto label18;
+
+        count = count + 1;
+
+        goto label20;
+
+     label18:
+        $stack49[count] = ch;
+
+        goto label20;
+
+     label19:
+        count = count + 1;
+
+     label20:
+        goto label08;
+
+     label21:
+        $u5 = new java.lang.String;
+
+        specialinvoke $u5.<java.lang.String: void <init>(char[])>($stack49);
+
+        return $u5;
+    }
+
+    public static java.lang.String random(int, java.lang.String)
+    {
+        int count;
+        char[] $stack2;
+        java.util.Random $stack4;
+        java.lang.String chars, $stack3, $stack5;
+
+        count := @parameter0: int;
+
+        chars := @parameter1: java.lang.String;
+
+        if chars != null goto label1;
+
+        $stack4 = <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(count, 0, 0, 0, 0, null, $stack4);
+
+        return $stack5;
+
+     label1:
+        $stack2 = virtualinvoke chars.<java.lang.String: char[] toCharArray()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>(count, $stack2);
+
+        return $stack3;
+    }
+
+    public static transient java.lang.String random(int, char[])
+    {
+        int count, $stack3;
+        char[] chars;
+        java.util.Random $stack2, $stack5;
+        java.lang.String $stack4, $stack6;
+
+        count := @parameter0: int;
+
+        chars := @parameter1: char[];
+
+        if chars != null goto label1;
+
+        $stack5 = <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(count, 0, 0, 0, 0, null, $stack5);
+
+        return $stack6;
+
+     label1:
+        $stack3 = lengthof chars;
+
+        $stack2 = <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(count, 0, $stack3, 0, 0, chars, $stack2);
+
+        return $stack4;
+    }
+
+    static void <clinit>()
+    {
+        java.util.Random $stack0;
+
+        $stack0 = new java.util.Random;
+
+        specialinvoke $stack0.<java.util.Random: void <init>()>();
+
+        <org.apache.commons.lang3.RandomStringUtils: java.util.Random RANDOM> = $stack0;
+
+        return;
+    }
+}

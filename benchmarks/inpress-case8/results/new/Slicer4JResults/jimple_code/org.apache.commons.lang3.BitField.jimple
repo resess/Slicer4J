@@ -1,0 +1,411 @@
+public class org.apache.commons.lang3.BitField extends java.lang.Object
+{
+    private final int _mask;
+    private final int _shift_count;
+
+    public void <init>(int)
+    {
+        int mask, $stack4, count, bit_pattern;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        mask := @parameter0: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.BitField: int _mask> = mask;
+
+        count = 0;
+
+        bit_pattern = mask;
+
+        if mask == 0 goto label2;
+
+     label1:
+        $stack4 = bit_pattern & 1;
+
+        if $stack4 != 0 goto label2;
+
+        count = count + 1;
+
+        bit_pattern = bit_pattern >> 1;
+
+        goto label1;
+
+     label2:
+        this.<org.apache.commons.lang3.BitField: int _shift_count> = count;
+
+        return;
+    }
+
+    public int getValue(int)
+    {
+        int holder, $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int getRawValue(int)>(holder);
+
+        $stack3 = this.<org.apache.commons.lang3.BitField: int _shift_count>;
+
+        $stack4 = $stack2 >> $stack3;
+
+        return $stack4;
+    }
+
+    public short getShortValue(short)
+    {
+        short holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int getValue(int)>($i0);
+
+        $stack3 = (short) $stack2;
+
+        return $stack3;
+    }
+
+    public int getRawValue(int)
+    {
+        int holder, $stack2, $stack3;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $stack3 = holder & $stack2;
+
+        return $stack3;
+    }
+
+    public short getShortRawValue(short)
+    {
+        short holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int getRawValue(int)>($i0);
+
+        $stack3 = (short) $stack2;
+
+        return $stack3;
+    }
+
+    public boolean isSet(int)
+    {
+        int holder, $stack2, $stack3;
+        org.apache.commons.lang3.BitField this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $stack3 = holder & $stack2;
+
+        if $stack3 == 0 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public boolean isAllSet(int)
+    {
+        int holder, $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.BitField this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $stack4 = holder & $stack2;
+
+        $stack3 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        if $stack4 != $stack3 goto label1;
+
+        $stack5 = 1;
+
+        goto label2;
+
+     label1:
+        $stack5 = 0;
+
+     label2:
+        return $stack5;
+    }
+
+    public int setValue(int, int)
+    {
+        org.apache.commons.lang3.BitField this;
+        int holder, $stack3, $stack4, value, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $i0;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        value := @parameter1: int;
+
+        $stack3 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $i0 = (int) -1;
+
+        $stack4 = $stack3 ^ $i0;
+
+        $stack9 = holder & $stack4;
+
+        $stack5 = this.<org.apache.commons.lang3.BitField: int _shift_count>;
+
+        $stack7 = value << $stack5;
+
+        $stack6 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $stack8 = $stack7 & $stack6;
+
+        $stack10 = $stack9 | $stack8;
+
+        return $stack10;
+    }
+
+    public short setShortValue(short, short)
+    {
+        short holder, value, $stack4;
+        int $stack3, $i0, $i1;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        value := @parameter1: short;
+
+        $i0 = (int) holder;
+
+        $i1 = (int) value;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: int setValue(int,int)>($i0, $i1);
+
+        $stack4 = (short) $stack3;
+
+        return $stack4;
+    }
+
+    public int clear(int)
+    {
+        int holder, $stack2, $stack3, $stack4, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $i0 = (int) -1;
+
+        $stack3 = $stack2 ^ $i0;
+
+        $stack4 = holder & $stack3;
+
+        return $stack4;
+    }
+
+    public short clearShort(short)
+    {
+        short holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int clear(int)>($i0);
+
+        $stack3 = (short) $stack2;
+
+        return $stack3;
+    }
+
+    public byte clearByte(byte)
+    {
+        byte holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: byte;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int clear(int)>($i0);
+
+        $stack3 = (byte) $stack2;
+
+        return $stack3;
+    }
+
+    public int set(int)
+    {
+        int holder, $stack2, $stack3;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.BitField: int _mask>;
+
+        $stack3 = holder | $stack2;
+
+        return $stack3;
+    }
+
+    public short setShort(short)
+    {
+        short holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int set(int)>($i0);
+
+        $stack3 = (short) $stack2;
+
+        return $stack3;
+    }
+
+    public byte setByte(byte)
+    {
+        byte holder, $stack3;
+        int $stack2, $i0;
+        org.apache.commons.lang3.BitField this;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: byte;
+
+        $i0 = (int) holder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.BitField: int set(int)>($i0);
+
+        $stack3 = (byte) $stack2;
+
+        return $stack3;
+    }
+
+    public int setBoolean(int, boolean)
+    {
+        int holder, $stack3;
+        org.apache.commons.lang3.BitField this;
+        boolean flag;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: int;
+
+        flag := @parameter1: boolean;
+
+        if flag == 0 goto label1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: int set(int)>(holder);
+
+        goto label2;
+
+     label1:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: int clear(int)>(holder);
+
+     label2:
+        return $stack3;
+    }
+
+    public short setShortBoolean(short, boolean)
+    {
+        short holder, $stack3;
+        org.apache.commons.lang3.BitField this;
+        boolean flag;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: short;
+
+        flag := @parameter1: boolean;
+
+        if flag == 0 goto label1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: short setShort(short)>(holder);
+
+        goto label2;
+
+     label1:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: short clearShort(short)>(holder);
+
+     label2:
+        return $stack3;
+    }
+
+    public byte setByteBoolean(byte, boolean)
+    {
+        byte holder, $stack3;
+        org.apache.commons.lang3.BitField this;
+        boolean flag;
+
+        this := @this: org.apache.commons.lang3.BitField;
+
+        holder := @parameter0: byte;
+
+        flag := @parameter1: boolean;
+
+        if flag == 0 goto label1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: byte setByte(byte)>(holder);
+
+        goto label2;
+
+     label1:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.BitField: byte clearByte(byte)>(holder);
+
+     label2:
+        return $stack3;
+    }
+}

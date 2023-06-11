@@ -1,0 +1,79 @@
+class org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject extends org.apache.commons.lang3.builder.CompareToBuilderTest$TestObject
+{
+    private int b;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestObject: void <init>(int)>(0);
+
+        return;
+    }
+
+    public void <init>(int, int)
+    {
+        int a, b;
+        org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject;
+
+        a := @parameter0: int;
+
+        b := @parameter1: int;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestObject: void <init>(int)>(a);
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject: int b> = b;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject this, rhs;
+        int $stack5, $stack6;
+        java.lang.Object o;
+        boolean $stack3, $stack4, $stack7;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject;
+
+        o := @parameter0: java.lang.Object;
+
+        if o != this goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = o instanceof org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject;
+
+        if $stack3 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        rhs = (org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject) o;
+
+        $stack4 = specialinvoke this.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestObject: boolean equals(java.lang.Object)>(o);
+
+        if $stack4 == 0 goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject: int b>;
+
+        $stack5 = rhs.<org.apache.commons.lang3.builder.CompareToBuilderTest$TestSubObject: int b>;
+
+        if $stack6 != $stack5 goto label3;
+
+        $stack7 = 1;
+
+        goto label4;
+
+     label3:
+        $stack7 = 0;
+
+     label4:
+        return $stack7;
+    }
+}

@@ -1,0 +1,60 @@
+public class org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler extends java.lang.Object implements java.lang.reflect.InvocationHandler
+{
+    final org.apache.commons.lang3.event.EventListenerSupport this$0;
+
+    protected void <init>(org.apache.commons.lang3.event.EventListenerSupport)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler this;
+        org.apache.commons.lang3.event.EventListenerSupport l1;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler;
+
+        l1 := @parameter0: org.apache.commons.lang3.event.EventListenerSupport;
+
+        this.<org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler: org.apache.commons.lang3.event.EventListenerSupport this$0> = l1;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable
+    {
+        java.lang.Object[] args;
+        java.util.Iterator $stack8;
+        org.apache.commons.lang3.event.EventListenerSupport $stack6;
+        java.util.List $stack7;
+        org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler this;
+        java.lang.Object $stack10, proxy;
+        java.lang.reflect.Method method;
+        boolean $stack9;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler;
+
+        proxy := @parameter0: java.lang.Object;
+
+        method := @parameter1: java.lang.reflect.Method;
+
+        args := @parameter2: java.lang.Object[];
+
+        $stack6 = this.<org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler: org.apache.commons.lang3.event.EventListenerSupport this$0>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: java.util.List access$000(org.apache.commons.lang3.event.EventListenerSupport)>($stack6);
+
+        $stack8 = interfaceinvoke $stack7.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack9 = interfaceinvoke $stack8.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack9 == 0 goto label2;
+
+        $stack10 = interfaceinvoke $stack8.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke method.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($stack10, args);
+
+        goto label1;
+
+     label2:
+        return null;
+    }
+}

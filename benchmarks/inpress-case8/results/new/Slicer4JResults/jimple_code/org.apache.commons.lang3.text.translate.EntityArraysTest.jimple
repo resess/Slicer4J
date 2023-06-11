@@ -1,0 +1,243 @@
+public class org.apache.commons.lang3.text.translate.EntityArraysTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.EntityArraysTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.EntityArraysTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructorExists()
+    {
+        org.apache.commons.lang3.text.translate.EntityArraysTest this;
+        org.apache.commons.lang3.text.translate.EntityArrays $stack1;
+
+        this := @this: org.apache.commons.lang3.text.translate.EntityArraysTest;
+
+        $stack1 = new org.apache.commons.lang3.text.translate.EntityArrays;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.translate.EntityArrays: void <init>()>();
+
+        return;
+    }
+
+    public void testHTML40_EXTENDED_ESCAPE()
+    {
+        java.lang.String[] $stack13, $stack17, $stack24, $stack28;
+        java.util.HashSet $stack5, $stack6;
+        int $stack8, i;
+        java.lang.String $stack14, $stack16, $stack18, $stack25, $stack27, $stack29;
+        boolean $stack19, $stack30;
+        org.apache.commons.lang3.text.translate.EntityArraysTest this;
+        java.lang.StringBuilder $stack9, $stack10, $stack11, $stack12, $stack15, $stack20, $stack21, $stack22, $stack23, $stack26;
+        java.lang.String[][] $stack7;
+
+        this := @this: org.apache.commons.lang3.text.translate.EntityArraysTest;
+
+        $stack5 = new java.util.HashSet;
+
+        specialinvoke $stack5.<java.util.HashSet: void <init>()>();
+
+        $stack6 = new java.util.HashSet;
+
+        specialinvoke $stack6.<java.util.HashSet: void <init>()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.translate.EntityArrays: java.lang.String[][] HTML40_EXTENDED_ESCAPE()>();
+
+        i = 0;
+
+     label1:
+        $stack8 = lengthof $stack7;
+
+        if i >= $stack8 goto label2;
+
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Already added entry 0: ");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack13 = $stack7[i];
+
+        $stack14 = $stack13[0];
+
+        $stack15 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = $stack7[i];
+
+        $stack18 = $stack17[0];
+
+        $stack19 = interfaceinvoke $stack5.<java.util.Set: boolean add(java.lang.Object)>($stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack16, $stack19);
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Already added entry 1: ");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack24 = $stack7[i];
+
+        $stack25 = $stack24[1];
+
+        $stack26 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack28 = $stack7[i];
+
+        $stack29 = $stack28[1];
+
+        $stack30 = interfaceinvoke $stack6.<java.util.Set: boolean add(java.lang.Object)>($stack29);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack27, $stack30);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testISO8859_1_ESCAPE()
+    {
+        boolean $stack14, $stack17, success;
+        org.apache.commons.lang3.text.translate.EntityArraysTest this;
+        java.lang.StringBuilder $stack20, $stack22, $stack23, $stack24, $stack27, $stack28, $stack31, $stack33, $stack35, $stack36, $stack37, $stack40, $stack41, $stack44;
+        java.lang.String[] $stack12, $stack15, $stack25, $stack29, $stack38, $stack42;
+        java.util.HashSet $stack8, $stack9;
+        int $stack11, i;
+        java.lang.String $stack13, $stack16, $stack26, $stack30, $stack32, $stack39, $stack43, $stack45;
+        java.io.PrintStream $stack21, $stack34;
+        java.lang.String[][] $stack10;
+
+        this := @this: org.apache.commons.lang3.text.translate.EntityArraysTest;
+
+        $stack8 = new java.util.HashSet;
+
+        specialinvoke $stack8.<java.util.HashSet: void <init>()>();
+
+        $stack9 = new java.util.HashSet;
+
+        specialinvoke $stack9.<java.util.HashSet: void <init>()>();
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.translate.EntityArrays: java.lang.String[][] ISO8859_1_ESCAPE()>();
+
+        success = 1;
+
+        i = 0;
+
+     label1:
+        $stack11 = lengthof $stack10;
+
+        if i >= $stack11 goto label4;
+
+        $stack12 = $stack10[i];
+
+        $stack13 = $stack12[0];
+
+        $stack14 = interfaceinvoke $stack8.<java.util.Set: boolean add(java.lang.Object)>($stack13);
+
+        $stack15 = $stack10[i];
+
+        $stack16 = $stack15[1];
+
+        $stack17 = interfaceinvoke $stack9.<java.util.Set: boolean add(java.lang.Object)>($stack16);
+
+        if $stack14 != 0 goto label2;
+
+        success = 0;
+
+        $stack34 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack33 = new java.lang.StringBuilder;
+
+        specialinvoke $stack33.<java.lang.StringBuilder: void <init>()>();
+
+        $stack35 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Already added entry 0: ");
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack38 = $stack10[i];
+
+        $stack39 = $stack38[0];
+
+        $stack40 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack39);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack42 = $stack10[i];
+
+        $stack43 = $stack42[1];
+
+        $stack44 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack43);
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack34.<java.io.PrintStream: void println(java.lang.String)>($stack45);
+
+     label2:
+        if $stack17 != 0 goto label3;
+
+        success = 0;
+
+        $stack21 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Already added entry 1: ");
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack25 = $stack10[i];
+
+        $stack26 = $stack25[0];
+
+        $stack27 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack29 = $stack10[i];
+
+        $stack30 = $stack29[1];
+
+        $stack31 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack30);
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack21.<java.io.PrintStream: void println(java.lang.String)>($stack32);
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("One or more errors detected", success);
+
+        return;
+    }
+}

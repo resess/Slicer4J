@@ -1,0 +1,291 @@
+public class org.apache.commons.lang3.CharSequenceUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharSequenceUtils this;
+
+        this := @this: org.apache.commons.lang3.CharSequenceUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.CharSequence subSequence(java.lang.CharSequence, int)
+    {
+        java.lang.CharSequence cs, $stack3;
+        int start, $stack2;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        start := @parameter1: int;
+
+        if cs != null goto label1;
+
+        $stack3 = null;
+
+        goto label2;
+
+     label1:
+        $stack2 = interfaceinvoke cs.<java.lang.CharSequence: int length()>();
+
+        $stack3 = interfaceinvoke cs.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(start, $stack2);
+
+     label2:
+        return $stack3;
+    }
+
+    static int indexOf(java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence cs;
+        char $stack7;
+        int $stack6, searchChar, $stack12, start, i, $i0, $i1;
+        java.lang.String $stack11;
+        boolean $stack5;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        searchChar := @parameter1: int;
+
+        start := @parameter2: int;
+
+        $stack5 = cs instanceof java.lang.String;
+
+        if $stack5 == 0 goto label1;
+
+        $stack11 = (java.lang.String) cs;
+
+        $stack12 = virtualinvoke $stack11.<java.lang.String: int indexOf(int,int)>(searchChar, start);
+
+        return $stack12;
+
+     label1:
+        $stack6 = interfaceinvoke cs.<java.lang.CharSequence: int length()>();
+
+        if start >= 0 goto label2;
+
+        start = 0;
+
+     label2:
+        i = start;
+
+     label3:
+        if i >= $stack6 goto label5;
+
+        $stack7 = interfaceinvoke cs.<java.lang.CharSequence: char charAt(int)>(i);
+
+        $i0 = (int) $stack7;
+
+        if $i0 != searchChar goto label4;
+
+        return i;
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        $i1 = (int) -1;
+
+        return $i1;
+    }
+
+    static int indexOf(java.lang.CharSequence, java.lang.CharSequence, int)
+    {
+        java.lang.CharSequence cs, searchChar;
+        int start, $stack5;
+        java.lang.String $stack3, $stack4;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        searchChar := @parameter1: java.lang.CharSequence;
+
+        start := @parameter2: int;
+
+        $stack3 = interfaceinvoke cs.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack4 = interfaceinvoke searchChar.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack5 = virtualinvoke $stack3.<java.lang.String: int indexOf(java.lang.String,int)>($stack4, start);
+
+        return $stack5;
+    }
+
+    static int lastIndexOf(java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence cs;
+        char $stack7;
+        int $stack6, searchChar, $stack11, start, i, $i0, $i1, $i2, $i3;
+        java.lang.String $stack10;
+        boolean $stack5;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        searchChar := @parameter1: int;
+
+        start := @parameter2: int;
+
+        $stack5 = cs instanceof java.lang.String;
+
+        if $stack5 == 0 goto label1;
+
+        $stack10 = (java.lang.String) cs;
+
+        $stack11 = virtualinvoke $stack10.<java.lang.String: int lastIndexOf(int,int)>(searchChar, start);
+
+        return $stack11;
+
+     label1:
+        $stack6 = interfaceinvoke cs.<java.lang.CharSequence: int length()>();
+
+        if start >= 0 goto label2;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label2:
+        if start < $stack6 goto label3;
+
+        start = $stack6 - 1;
+
+     label3:
+        i = start;
+
+     label4:
+        if i < 0 goto label6;
+
+        $stack7 = interfaceinvoke cs.<java.lang.CharSequence: char charAt(int)>(i);
+
+        $i1 = (int) $stack7;
+
+        if $i1 != searchChar goto label5;
+
+        return i;
+
+     label5:
+        $i2 = (int) -1;
+
+        i = i + $i2;
+
+        goto label4;
+
+     label6:
+        $i3 = (int) -1;
+
+        return $i3;
+    }
+
+    static int lastIndexOf(java.lang.CharSequence, java.lang.CharSequence, int)
+    {
+        java.lang.CharSequence cs, searchChar;
+        int start, $stack5;
+        java.lang.String $stack3, $stack4;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        searchChar := @parameter1: java.lang.CharSequence;
+
+        start := @parameter2: int;
+
+        $stack3 = interfaceinvoke cs.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack4 = interfaceinvoke searchChar.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack5 = virtualinvoke $stack3.<java.lang.String: int lastIndexOf(java.lang.String,int)>($stack4, start);
+
+        return $stack5;
+    }
+
+    static char[] toCharArray(java.lang.CharSequence)
+    {
+        java.lang.CharSequence cs;
+        char $stack7;
+        int $stack5, $stack6, i;
+        char[] array, $stack11;
+        java.lang.String $stack10;
+        boolean $stack4;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        $stack4 = cs instanceof java.lang.String;
+
+        if $stack4 == 0 goto label1;
+
+        $stack10 = (java.lang.String) cs;
+
+        $stack11 = virtualinvoke $stack10.<java.lang.String: char[] toCharArray()>();
+
+        return $stack11;
+
+     label1:
+        $stack5 = interfaceinvoke cs.<java.lang.CharSequence: int length()>();
+
+        $stack6 = interfaceinvoke cs.<java.lang.CharSequence: int length()>();
+
+        array = newarray (char)[$stack6];
+
+        i = 0;
+
+     label2:
+        if i >= $stack5 goto label3;
+
+        $stack7 = interfaceinvoke cs.<java.lang.CharSequence: char charAt(int)>(i);
+
+        array[i] = $stack7;
+
+        i = i + 1;
+
+        goto label2;
+
+     label3:
+        return array;
+    }
+
+    static boolean regionMatches(java.lang.CharSequence, boolean, int, java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence cs, substring;
+        int thisStart, start, length;
+        java.lang.String $stack7, $stack8, $stack17, $stack18;
+        boolean $stack6, ignoreCase, $stack9, $stack10, $stack19;
+
+        cs := @parameter0: java.lang.CharSequence;
+
+        ignoreCase := @parameter1: boolean;
+
+        thisStart := @parameter2: int;
+
+        substring := @parameter3: java.lang.CharSequence;
+
+        start := @parameter4: int;
+
+        length := @parameter5: int;
+
+        $stack6 = cs instanceof java.lang.String;
+
+        if $stack6 == 0 goto label1;
+
+        $stack10 = substring instanceof java.lang.String;
+
+        if $stack10 == 0 goto label1;
+
+        $stack18 = (java.lang.String) cs;
+
+        $stack17 = (java.lang.String) substring;
+
+        $stack19 = virtualinvoke $stack18.<java.lang.String: boolean regionMatches(boolean,int,java.lang.String,int,int)>(ignoreCase, thisStart, $stack17, start, length);
+
+        return $stack19;
+
+     label1:
+        $stack7 = interfaceinvoke cs.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack8 = interfaceinvoke substring.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack9 = virtualinvoke $stack7.<java.lang.String: boolean regionMatches(boolean,int,java.lang.String,int,int)>(ignoreCase, thisStart, $stack8, start, length);
+
+        return $stack9;
+    }
+}

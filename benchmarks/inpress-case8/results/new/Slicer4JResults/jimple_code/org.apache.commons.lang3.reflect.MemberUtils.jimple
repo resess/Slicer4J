@@ -1,0 +1,367 @@
+abstract class org.apache.commons.lang3.reflect.MemberUtils extends java.lang.Object
+{
+    private static final int ACCESS_TEST;
+    private static final java.lang.Class[] ORDERED_PRIMITIVE_TYPES;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.reflect.MemberUtils this;
+
+        this := @this: org.apache.commons.lang3.reflect.MemberUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void setAccessibleWorkaround(java.lang.reflect.AccessibleObject)
+    {
+        java.lang.reflect.AccessibleObject o;
+        java.lang.reflect.Member m;
+        int $stack4, $stack7;
+        java.lang.Class $stack6;
+        java.lang.SecurityException $stack9;
+        boolean $stack3, $stack5, $stack8;
+
+        o := @parameter0: java.lang.reflect.AccessibleObject;
+
+        if o == null goto label1;
+
+        $stack3 = virtualinvoke o.<java.lang.reflect.AccessibleObject: boolean isAccessible()>();
+
+        if $stack3 == 0 goto label2;
+
+     label1:
+        return;
+
+     label2:
+        m = (java.lang.reflect.Member) o;
+
+        $stack4 = interfaceinvoke m.<java.lang.reflect.Member: int getModifiers()>();
+
+        $stack5 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack4);
+
+        if $stack5 == 0 goto label6;
+
+        $stack6 = interfaceinvoke m.<java.lang.reflect.Member: java.lang.Class getDeclaringClass()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Class: int getModifiers()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: boolean isPackageAccess(int)>($stack7);
+
+        if $stack8 == 0 goto label6;
+
+     label3:
+        virtualinvoke o.<java.lang.reflect.AccessibleObject: void setAccessible(boolean)>(1);
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack9 := @caughtexception;
+
+     label6:
+        return;
+
+        catch java.lang.SecurityException from label3 to label4 with label5;
+    }
+
+    static boolean isPackageAccess(int)
+    {
+        int modifiers, $stack1;
+        boolean $stack2;
+
+        modifiers := @parameter0: int;
+
+        $stack1 = modifiers & 7;
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    static boolean isAccessible(java.lang.reflect.Member)
+    {
+        java.lang.reflect.Member m;
+        int $stack1;
+        boolean $stack2, $stack4, $stack3;
+
+        m := @parameter0: java.lang.reflect.Member;
+
+        if m == null goto label1;
+
+        $stack1 = interfaceinvoke m.<java.lang.reflect.Member: int getModifiers()>();
+
+        $stack2 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack1);
+
+        if $stack2 == 0 goto label1;
+
+        $stack4 = interfaceinvoke m.<java.lang.reflect.Member: boolean isSynthetic()>();
+
+        if $stack4 != 0 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    static int compareParameterTypes(java.lang.Class[], java.lang.Class[], java.lang.Class[])
+    {
+        java.lang.Class[] actual, left, right;
+        byte $stack7, $stack8, $stack9;
+        int $i0, $i1;
+        float $stack5, $stack6;
+
+        left := @parameter0: java.lang.Class[];
+
+        right := @parameter1: java.lang.Class[];
+
+        actual := @parameter2: java.lang.Class[];
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: float getTotalTransformationCost(java.lang.Class[],java.lang.Class[])>(actual, left);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: float getTotalTransformationCost(java.lang.Class[],java.lang.Class[])>(actual, right);
+
+        $stack7 = $stack5 cmpg $stack6;
+
+        $i0 = (int) $stack7;
+
+        if $i0 >= 0 goto label1;
+
+        $stack9 = -1;
+
+        goto label3;
+
+     label1:
+        $stack8 = $stack6 cmpg $stack5;
+
+        $i1 = (int) $stack8;
+
+        if $i1 >= 0 goto label2;
+
+        $stack9 = 1;
+
+        goto label3;
+
+     label2:
+        $stack9 = 0;
+
+     label3:
+        return $stack9;
+    }
+
+    private static float getTotalTransformationCost(java.lang.Class[], java.lang.Class[])
+    {
+        java.lang.Class[] srcArgs, destArgs;
+        int $stack6, i;
+        float $stack7, totalCost;
+        java.lang.Class srcClass, destClass;
+
+        srcArgs := @parameter0: java.lang.Class[];
+
+        destArgs := @parameter1: java.lang.Class[];
+
+        totalCost = 0.0F;
+
+        i = 0;
+
+     label1:
+        $stack6 = lengthof srcArgs;
+
+        if i >= $stack6 goto label2;
+
+        srcClass = srcArgs[i];
+
+        destClass = destArgs[i];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: float getObjectTransformationCost(java.lang.Class,java.lang.Class)>(srcClass, destClass);
+
+        totalCost = totalCost + $stack7;
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return totalCost;
+    }
+
+    private static float getObjectTransformationCost(java.lang.Class, java.lang.Class)
+    {
+        float $stack15, cost;
+        java.lang.Class destClass, srcClass;
+        boolean $stack3, $stack5, $stack7, $stack10;
+
+        srcClass := @parameter0: java.lang.Class;
+
+        destClass := @parameter1: java.lang.Class;
+
+        $stack3 = virtualinvoke destClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack3 == 0 goto label1;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: float getPrimitivePromotionCost(java.lang.Class,java.lang.Class)>(srcClass, destClass);
+
+        return $stack15;
+
+     label1:
+        cost = 0.0F;
+
+     label2:
+        if srcClass == null goto label4;
+
+        $stack5 = virtualinvoke destClass.<java.lang.Object: boolean equals(java.lang.Object)>(srcClass);
+
+        if $stack5 != 0 goto label4;
+
+        $stack7 = virtualinvoke destClass.<java.lang.Class: boolean isInterface()>();
+
+        if $stack7 == 0 goto label3;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class,java.lang.Class)>(srcClass, destClass);
+
+        if $stack10 == 0 goto label3;
+
+        cost = cost + 0.25F;
+
+        goto label4;
+
+     label3:
+        cost = cost + 1.0F;
+
+        srcClass = virtualinvoke srcClass.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        goto label2;
+
+     label4:
+        if srcClass != null goto label5;
+
+        cost = cost + 1.5F;
+
+     label5:
+        return cost;
+    }
+
+    private static float getPrimitivePromotionCost(java.lang.Class, java.lang.Class)
+    {
+        java.lang.Class[] $stack6, $stack9, $stack13, $stack17;
+        int $stack7, $stack14, $stack15, $stack16, i;
+        float cost;
+        java.lang.Class srcClass, destClass, $stack10, 'cls';
+        boolean $stack5;
+
+        srcClass := @parameter0: java.lang.Class;
+
+        destClass := @parameter1: java.lang.Class;
+
+        cost = 0.0F;
+
+        'cls' = srcClass;
+
+        $stack5 = virtualinvoke srcClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack5 != 0 goto label1;
+
+        cost = 0.1F;
+
+        'cls' = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class wrapperToPrimitive(java.lang.Class)>(srcClass);
+
+     label1:
+        i = 0;
+
+     label2:
+        if 'cls' == destClass goto label4;
+
+        $stack6 = <org.apache.commons.lang3.reflect.MemberUtils: java.lang.Class[] ORDERED_PRIMITIVE_TYPES>;
+
+        $stack7 = lengthof $stack6;
+
+        if i >= $stack7 goto label4;
+
+        $stack9 = <org.apache.commons.lang3.reflect.MemberUtils: java.lang.Class[] ORDERED_PRIMITIVE_TYPES>;
+
+        $stack10 = $stack9[i];
+
+        if 'cls' != $stack10 goto label3;
+
+        cost = cost + 0.1F;
+
+        $stack13 = <org.apache.commons.lang3.reflect.MemberUtils: java.lang.Class[] ORDERED_PRIMITIVE_TYPES>;
+
+        $stack14 = lengthof $stack13;
+
+        $stack15 = $stack14 - 1;
+
+        if i >= $stack15 goto label3;
+
+        $stack17 = <org.apache.commons.lang3.reflect.MemberUtils: java.lang.Class[] ORDERED_PRIMITIVE_TYPES>;
+
+        $stack16 = i + 1;
+
+        'cls' = $stack17[$stack16];
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        return cost;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.Class[] $stack0;
+        java.lang.Class $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7;
+
+        <org.apache.commons.lang3.reflect.MemberUtils: int ACCESS_TEST> = 7;
+
+        $stack0 = newarray (java.lang.Class)[7];
+
+        $stack1 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack0[0] = $stack1;
+
+        $stack2 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack0[1] = $stack2;
+
+        $stack3 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack0[2] = $stack3;
+
+        $stack4 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack0[3] = $stack4;
+
+        $stack5 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack0[4] = $stack5;
+
+        $stack6 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack0[5] = $stack6;
+
+        $stack7 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack0[6] = $stack7;
+
+        <org.apache.commons.lang3.reflect.MemberUtils: java.lang.Class[] ORDERED_PRIMITIVE_TYPES> = $stack0;
+
+        return;
+    }
+}

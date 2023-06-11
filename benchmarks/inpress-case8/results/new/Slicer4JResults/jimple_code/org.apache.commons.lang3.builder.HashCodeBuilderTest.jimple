@@ -1,0 +1,2241 @@
+public class org.apache.commons.lang3.builder.HashCodeBuilderTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructorEx1()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(0, 0);
+
+        return;
+    }
+
+    public void testConstructorEx2()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(2, 2);
+
+        return;
+    }
+
+    public void testReflectionHashCode()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        java.lang.String[] $stack3, $stack8;
+        long $stack5, $stack10;
+        int $stack4, $stack9;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject $stack1, $stack6;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject: void <init>(int)>(0);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack1, $stack3);
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject: void <init>(int)>(123456);
+
+        $stack8 = newarray (java.lang.String)[0];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack6, $stack8);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(124085L, $stack10);
+
+        return;
+    }
+
+    public void testReflectionHierarchyHashCode()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        java.lang.String[] $stack3, $stack12;
+        long $stack5, $stack9, $stack14, $stack18;
+        int $stack4, $stack8, $stack13, $stack17;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject $stack1, $stack6, $stack10, $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(0, 0, 0);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack1, $stack3);
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(0, 0, 0);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,boolean)>($stack6, 1);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(861101L, $stack9);
+
+        $stack10 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(123456, 7890, 0);
+
+        $stack12 = newarray (java.lang.String)[0];
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack10, $stack12);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(438659L, $stack14);
+
+        $stack15 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(123456, 7890, 0);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,boolean)>($stack15, 1);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(11785967L, $stack18);
+
+        return;
+    }
+
+    public void testReflectionHierarchyHashCodeEx1()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(0, 0, 0);
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean)>(0, 0, $stack1, 1);
+
+        return;
+    }
+
+    public void testReflectionHierarchyHashCodeEx2()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestSubObject: void <init>(int,int,int)>(0, 0, 0);
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean)>(2, 2, $stack1, 1);
+
+        return;
+    }
+
+    public void testReflectionHashCodeEx1()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject: void <init>(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean)>(0, 0, $stack1, 1);
+
+        return;
+    }
+
+    public void testReflectionHashCodeEx2()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObject: void <init>(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean)>(2, 2, $stack1, 1);
+
+        return;
+    }
+
+    public void testReflectionHashCodeEx3()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean)>(13, 19, null, 1);
+
+        return;
+    }
+
+    public void testSuper()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack13;
+        int $stack4, $stack5, $stack10, $stack12;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack6, $stack8, $stack9, $stack11;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new java.lang.Object;
+
+        specialinvoke $stack2.<java.lang.Object: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<java.lang.Object: int hashCode()>();
+
+        $stack5 = 1408 + $stack4;
+
+        $stack7 = (long) $stack5;
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(19, 41);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>($stack2);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder appendSuper(int)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack7, $stack13);
+
+        return;
+    }
+
+    public void testObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack12, $stack15;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack11, $stack13;
+        int $stack5, $stack9, $stack10, $stack14;
+        java.lang.Object $stack7;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(null);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack6);
+
+        $stack7 = new java.lang.Object;
+
+        specialinvoke $stack7.<java.lang.Object: void <init>()>();
+
+        $stack9 = virtualinvoke $stack7.<java.lang.Object: int hashCode()>();
+
+        $stack10 = 629 + $stack9;
+
+        $stack12 = (long) $stack10;
+
+        $stack11 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack13 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>($stack7);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack12, $stack15);
+
+        return;
+    }
+
+    public void testObjectBuild()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack13, $stack17;
+        java.lang.Integer $stack5, $stack15;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack12, $stack14;
+        int $stack6, $stack10, $stack11, $stack16;
+        java.lang.Object $stack8;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(null);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.Integer build()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Integer: int intValue()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        $stack8 = new java.lang.Object;
+
+        specialinvoke $stack8.<java.lang.Object: void <init>()>();
+
+        $stack10 = virtualinvoke $stack8.<java.lang.Object: int hashCode()>();
+
+        $stack11 = 629 + $stack10;
+
+        $stack13 = (long) $stack11;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>($stack8);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.Integer build()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Integer: int intValue()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack17);
+
+        return;
+    }
+
+    public void testLong()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long)>(0L);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long)>(123456789L);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(123457418L, $stack10);
+
+        return;
+    }
+
+    public void testInt()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int)>(0);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int)>(123456);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(124085L, $stack10);
+
+        return;
+    }
+
+    public void testShort()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short)>(0);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short)>(12345);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(12974L, $stack10);
+
+        return;
+    }
+
+    public void testChar()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char)>(0);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char)>(1234);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1863L, $stack10);
+
+        return;
+    }
+
+    public void testByte()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte)>(0);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte)>(123);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(752L, $stack10);
+
+        return;
+    }
+
+    public void testDouble()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack9, $stack10, $stack11, $stack12, $stack16, $stack19;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack5, $stack7, $stack15, $stack17;
+        int $stack8, $stack13, $stack14, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack5 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double)>(0.0);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack9);
+
+        $stack10 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(1234567.89);
+
+        $stack11 = $stack10 >> 32;
+
+        $stack12 = $stack10 ^ $stack11;
+
+        $stack13 = (int) $stack12;
+
+        $stack14 = 629 + $stack13;
+
+        $stack16 = (long) $stack14;
+
+        $stack15 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double)>(1234567.89);
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack16, $stack19);
+
+        return;
+    }
+
+    public void testFloat()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack11, $stack14;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack3, $stack5, $stack10, $stack12;
+        int $stack6, $stack8, $stack9, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float)>(0.0F);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        $stack8 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(1234.89F);
+
+        $stack9 = 629 + $stack8;
+
+        $stack11 = (long) $stack9;
+
+        $stack10 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float)>(1234.89F);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack11, $stack14);
+
+        return;
+    }
+
+    public void testBoolean()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack5, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack1, $stack3, $stack6, $stack8;
+        int $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean)>(1);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean)>(0);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(630L, $stack10);
+
+        return;
+    }
+
+    public void testObjectArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack20, $stack22, $stack35, $stack37;
+        java.lang.Object[] $stack4, obj;
+        long $stack7, $stack12, $stack21, $stack24, $stack36, $stack39;
+        int $stack6, $stack11, $stack17, $stack18, $stack19, $stack23, $stack29, $stack30, $stack32, $stack33, $stack34, $stack38;
+        java.lang.Object $stack13, $stack15, $stack25, $stack27, $stack31;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (java.lang.Object[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (java.lang.Object)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        $stack13 = new java.lang.Object;
+
+        specialinvoke $stack13.<java.lang.Object: void <init>()>();
+
+        obj[0] = $stack13;
+
+        $stack15 = obj[0];
+
+        $stack17 = virtualinvoke $stack15.<java.lang.Object: int hashCode()>();
+
+        $stack18 = 629 + $stack17;
+
+        $stack19 = $stack18 * 37;
+
+        $stack21 = (long) $stack19;
+
+        $stack20 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack22 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack23 = virtualinvoke $stack22.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack21, $stack24);
+
+        $stack25 = new java.lang.Object;
+
+        specialinvoke $stack25.<java.lang.Object: void <init>()>();
+
+        obj[1] = $stack25;
+
+        $stack27 = obj[0];
+
+        $stack29 = virtualinvoke $stack27.<java.lang.Object: int hashCode()>();
+
+        $stack30 = 629 + $stack29;
+
+        $stack32 = $stack30 * 37;
+
+        $stack31 = obj[1];
+
+        $stack33 = virtualinvoke $stack31.<java.lang.Object: int hashCode()>();
+
+        $stack34 = $stack32 + $stack33;
+
+        $stack36 = (long) $stack34;
+
+        $stack35 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack35.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack37 = virtualinvoke $stack35.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack38 = virtualinvoke $stack37.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack36, $stack39);
+
+        return;
+    }
+
+    public void testObjectArrayAsObject()
+    {
+        java.lang.Object[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack15, $stack18, $stack30, $stack33;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack14, $stack16, $stack29, $stack31;
+        int $stack5, $stack11, $stack12, $stack13, $stack17, $stack23, $stack24, $stack26, $stack27, $stack28, $stack32;
+        java.lang.Object $stack7, $stack9, $stack19, $stack21, $stack25;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (java.lang.Object)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        $stack7 = new java.lang.Object;
+
+        specialinvoke $stack7.<java.lang.Object: void <init>()>();
+
+        obj[0] = $stack7;
+
+        $stack9 = obj[0];
+
+        $stack11 = virtualinvoke $stack9.<java.lang.Object: int hashCode()>();
+
+        $stack12 = 629 + $stack11;
+
+        $stack13 = $stack12 * 37;
+
+        $stack15 = (long) $stack13;
+
+        $stack14 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack18);
+
+        $stack19 = new java.lang.Object;
+
+        specialinvoke $stack19.<java.lang.Object: void <init>()>();
+
+        obj[1] = $stack19;
+
+        $stack21 = obj[0];
+
+        $stack23 = virtualinvoke $stack21.<java.lang.Object: int hashCode()>();
+
+        $stack24 = 629 + $stack23;
+
+        $stack26 = $stack24 * 37;
+
+        $stack25 = obj[1];
+
+        $stack27 = virtualinvoke $stack25.<java.lang.Object: int hashCode()>();
+
+        $stack28 = $stack26 + $stack27;
+
+        $stack30 = (long) $stack28;
+
+        $stack29 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack31 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack32 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack30, $stack33);
+
+        return;
+    }
+
+    public void testLongArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack9, $stack14, $stack18, $stack21, $stack26, $stack29;
+        long[] $stack6, obj;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack4, $stack7, $stack10, $stack12, $stack17, $stack19, $stack25, $stack27;
+        int $stack8, $stack13, $stack20, $stack28;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack4 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack6 = (long[]) null;
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long[])>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack9);
+
+        obj = newarray (long)[2];
+
+        $stack10 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long[])>(obj);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack14);
+
+        obj[0] = 5L;
+
+        $stack18 = (long) 23458;
+
+        $stack17 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack19 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long[])>(obj);
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack18, $stack21);
+
+        obj[1] = 6L;
+
+        $stack26 = (long) 23464;
+
+        $stack25 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack27 = virtualinvoke $stack25.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long[])>(obj);
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack29 = (long) $stack28;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack26, $stack29);
+
+        return;
+    }
+
+    public void testLongArrayAsObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack8, $stack12, $stack15, $stack20, $stack23;
+        long[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack4, $stack6, $stack11, $stack13, $stack19, $stack21;
+        int $stack7, $stack14, $stack22;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (long)[2];
+
+        $stack4 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack8);
+
+        obj[0] = 5L;
+
+        $stack12 = (long) 23458;
+
+        $stack11 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack13 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack12, $stack15);
+
+        obj[1] = 6L;
+
+        $stack20 = (long) 23464;
+
+        $stack19 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack21 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack20, $stack23);
+
+        return;
+    }
+
+    public void testIntArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack12, $stack17, $stack22;
+        int[] $stack4, obj;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        int $stack6, $stack11, $stack16, $stack21;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (int[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (int)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        obj[0] = 5;
+
+        $stack13 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int[])>(obj);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack17);
+
+        obj[1] = 6;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack22);
+
+        return;
+    }
+
+    public void testIntArrayAsObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack11, $stack16;
+        int[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14;
+        int $stack5, $stack10, $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (int)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        obj[0] = 5;
+
+        $stack7 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack11);
+
+        obj[1] = 6;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack16);
+
+        return;
+    }
+
+    public void testShortArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        int $stack6, $stack11, $stack16, $stack21;
+        short[] $stack4, obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (short[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (short)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        obj[0] = 5;
+
+        $stack13 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short[])>(obj);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack17);
+
+        obj[1] = 6;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack22);
+
+        return;
+    }
+
+    public void testShortArrayAsObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack11, $stack16;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14;
+        int $stack5, $stack10, $stack15;
+        short[] obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (short)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        obj[0] = 5;
+
+        $stack7 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack11);
+
+        obj[1] = 6;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack16);
+
+        return;
+    }
+
+    public void testCharArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        int $stack6, $stack11, $stack16, $stack21;
+        char[] $stack4, obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (char[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (char)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        obj[0] = 5;
+
+        $stack13 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char[])>(obj);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack17);
+
+        obj[1] = 6;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack22);
+
+        return;
+    }
+
+    public void testCharArrayAsObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack11, $stack16;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14;
+        int $stack5, $stack10, $stack15;
+        char[] obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (char)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        obj[0] = 5;
+
+        $stack7 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack11);
+
+        obj[1] = 6;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack16);
+
+        return;
+    }
+
+    public void testByteArray()
+    {
+        byte[] $stack4, obj;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        int $stack6, $stack11, $stack16, $stack21;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (byte[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (byte)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        obj[0] = 5;
+
+        $stack13 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])>(obj);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack17);
+
+        obj[1] = 6;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack22);
+
+        return;
+    }
+
+    public void testByteArrayAsObject()
+    {
+        byte[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack11, $stack16;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14;
+        int $stack5, $stack10, $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (byte)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        obj[0] = 5;
+
+        $stack7 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23458L, $stack11);
+
+        obj[1] = 6;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23464L, $stack16);
+
+        return;
+    }
+
+    public void testDoubleArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack8, $stack11, $stack14, $stack16, $stack24, $stack26, $stack35, $stack37;
+        double[] $stack10, obj;
+        long $stack13, $stack18, $stack19, $stack20, $stack21, $stack25, $stack28, $stack29, $stack30, $stack31, $stack36, $stack39;
+        int $stack12, $stack17, h1, $stack22, $stack23, $stack27, h2, $stack32, $stack33, $stack34, $stack38;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = (double[]) null;
+
+        $stack11 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double[])>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack13);
+
+        obj = newarray (double)[2];
+
+        $stack14 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double[])>(obj);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack18);
+
+        obj[0] = 5.4;
+
+        $stack19 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(5.4);
+
+        $stack20 = $stack19 >> 32;
+
+        $stack21 = $stack19 ^ $stack20;
+
+        h1 = (int) $stack21;
+
+        $stack22 = 629 + h1;
+
+        $stack23 = $stack22 * 37;
+
+        $stack25 = (long) $stack23;
+
+        $stack24 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack24.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack26 = virtualinvoke $stack24.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double[])>(obj);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack25, $stack28);
+
+        obj[1] = 6.3;
+
+        $stack29 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(6.3);
+
+        $stack30 = $stack29 >> 32;
+
+        $stack31 = $stack29 ^ $stack30;
+
+        h2 = (int) $stack31;
+
+        $stack32 = 629 + h1;
+
+        $stack33 = $stack32 * 37;
+
+        $stack34 = $stack33 + h2;
+
+        $stack36 = (long) $stack34;
+
+        $stack35 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack35.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack37 = virtualinvoke $stack35.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double[])>(obj);
+
+        $stack38 = virtualinvoke $stack37.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack36, $stack39);
+
+        return;
+    }
+
+    public void testDoubleArrayAsObject()
+    {
+        double[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack12, $stack13, $stack14, $stack15, $stack19, $stack22, $stack23, $stack24, $stack25, $stack30, $stack33;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack8, $stack10, $stack18, $stack20, $stack29, $stack31;
+        int $stack11, h1, $stack16, $stack17, $stack21, h2, $stack26, $stack27, $stack28, $stack32;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (double)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack12);
+
+        obj[0] = 5.4;
+
+        $stack13 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(5.4);
+
+        $stack14 = $stack13 >> 32;
+
+        $stack15 = $stack13 ^ $stack14;
+
+        h1 = (int) $stack15;
+
+        $stack16 = 629 + h1;
+
+        $stack17 = $stack16 * 37;
+
+        $stack19 = (long) $stack17;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack19, $stack22);
+
+        obj[1] = 6.3;
+
+        $stack23 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(6.3);
+
+        $stack24 = $stack23 >> 32;
+
+        $stack25 = $stack23 ^ $stack24;
+
+        h2 = (int) $stack25;
+
+        $stack26 = 629 + h1;
+
+        $stack27 = $stack26 * 37;
+
+        $stack28 = $stack27 + h2;
+
+        $stack30 = (long) $stack28;
+
+        $stack29 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack31 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack32 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack30, $stack33);
+
+        return;
+    }
+
+    public void testFloatArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        float[] $stack6, obj;
+        long $stack9, $stack14, $stack19, $stack22, $stack28, $stack31;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack4, $stack7, $stack10, $stack12, $stack18, $stack20, $stack27, $stack29;
+        int $stack8, $stack13, $stack15, $stack16, $stack17, $stack21, $stack23, $stack24, $stack25, $stack26, $stack30;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack4 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack6 = (float[]) null;
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float[])>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack9);
+
+        obj = newarray (float)[2];
+
+        $stack10 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float[])>(obj);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack14);
+
+        obj[0] = 5.4F;
+
+        $stack15 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(5.4F);
+
+        $stack16 = 629 + $stack15;
+
+        $stack17 = $stack16 * 37;
+
+        $stack19 = (long) $stack17;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack19, $stack22);
+
+        obj[1] = 6.3F;
+
+        $stack23 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(6.3F);
+
+        $stack24 = 629 + $stack15;
+
+        $stack25 = $stack24 * 37;
+
+        $stack26 = $stack25 + $stack23;
+
+        $stack28 = (long) $stack26;
+
+        $stack27 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack27.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack29 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float[])>(obj);
+
+        $stack30 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack28, $stack31);
+
+        return;
+    }
+
+    public void testFloatArrayAsObject()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        float[] obj;
+        long $stack8, $stack13, $stack16, $stack22, $stack25;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack4, $stack6, $stack12, $stack14, $stack21, $stack23;
+        int $stack7, $stack9, $stack10, $stack11, $stack15, $stack17, $stack18, $stack19, $stack20, $stack24;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (float)[2];
+
+        $stack4 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack8);
+
+        obj[0] = 5.4F;
+
+        $stack9 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(5.4F);
+
+        $stack10 = 629 + $stack9;
+
+        $stack11 = $stack10 * 37;
+
+        $stack13 = (long) $stack11;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack16);
+
+        obj[1] = 6.3F;
+
+        $stack17 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(6.3F);
+
+        $stack18 = 629 + $stack9;
+
+        $stack19 = $stack18 * 37;
+
+        $stack20 = $stack19 + $stack17;
+
+        $stack22 = (long) $stack20;
+
+        $stack21 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack23 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack22, $stack25);
+
+        return;
+    }
+
+    public void testBooleanArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack7, $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        int $stack6, $stack11, $stack16, $stack21;
+        boolean[] $stack4, obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = (boolean[]) null;
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack7);
+
+        obj = newarray (boolean)[2];
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23311L, $stack12);
+
+        obj[0] = 1;
+
+        $stack13 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])>(obj);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23274L, $stack17);
+
+        obj[1] = 0;
+
+        $stack18 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])>(obj);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23274L, $stack22);
+
+        return;
+    }
+
+    public void testBooleanArrayAsObject()
+    {
+        boolean[] obj;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack11, $stack16;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14;
+        int $stack5, $stack10, $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (boolean)[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23311L, $stack6);
+
+        obj[0] = 1;
+
+        $stack7 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23274L, $stack11);
+
+        obj[1] = 0;
+
+        $stack12 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(obj);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23274L, $stack16);
+
+        return;
+    }
+
+    public void testBooleanMultiArray()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack6, $stack12, $stack18, $stack24, $stack30, $stack36;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack8, $stack10, $stack14, $stack16, $stack20, $stack22, $stack26, $stack28, $stack32, $stack34;
+        int $stack5, $stack11, $stack17, $stack23, $stack29, $stack35;
+        boolean[] $stack7, $stack13, $stack19, $stack25, $stack31;
+        boolean[][] obj;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        obj = newarray (boolean[])[2];
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23273L, $stack6);
+
+        $stack7 = newarray (boolean)[0];
+
+        obj[0] = $stack7;
+
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(629L, $stack12);
+
+        $stack13 = newarray (boolean)[1];
+
+        obj[0] = $stack13;
+
+        $stack14 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23310L, $stack18);
+
+        $stack19 = newarray (boolean)[2];
+
+        obj[0] = $stack19;
+
+        $stack20 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack22 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack23 = virtualinvoke $stack22.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(862507L, $stack24);
+
+        $stack25 = obj[0];
+
+        $stack25[0] = 1;
+
+        $stack26 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack26.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack28 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack29 = virtualinvoke $stack28.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(861138L, $stack30);
+
+        $stack31 = newarray (boolean)[1];
+
+        obj[1] = $stack31;
+
+        $stack32 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack32.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack34 = virtualinvoke $stack32.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>(obj);
+
+        $stack35 = virtualinvoke $stack34.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(861139L, $stack36);
+
+        return;
+    }
+
+    public void testReflectionHashCodeExcludeFields() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        java.lang.String[] $stack3, $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35;
+        long $stack6, $stack10, $stack14, $stack18, $stack22, $stack26, $stack30, $stack34, $stack38;
+        int $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObjectWithMultipleFields $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObjectWithMultipleFields;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilderTest$TestObjectWithMultipleFields: void <init>(int,int,int)>(1, 2, 3);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(862547L, $stack6);
+
+        $stack7 = (java.lang.String[]) null;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack7);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(862547L, $stack10);
+
+        $stack11 = newarray (java.lang.String)[0];
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack11);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(862547L, $stack14);
+
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "xxx";
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack15);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(862547L, $stack18);
+
+        $stack19 = newarray (java.lang.String)[1];
+
+        $stack19[0] = "two";
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack19);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23313L, $stack22);
+
+        $stack23 = newarray (java.lang.String)[1];
+
+        $stack23[0] = "three";
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack23);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(23312L, $stack26);
+
+        $stack27 = newarray (java.lang.String)[2];
+
+        $stack27[0] = "two";
+
+        $stack27[1] = "three";
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack27);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(630L, $stack30);
+
+        $stack31 = newarray (java.lang.String)[3];
+
+        $stack31[0] = "one";
+
+        $stack31[1] = "two";
+
+        $stack31[2] = "three";
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack31);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(17L, $stack34);
+
+        $stack35 = newarray (java.lang.String)[4];
+
+        $stack35[0] = "one";
+
+        $stack35[1] = "two";
+
+        $stack35[2] = "three";
+
+        $stack35[3] = "xxx";
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>($stack2, $stack35);
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(17L, $stack38);
+
+        return;
+    }
+
+    public void testReflectionObjectCycle()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        java.util.Set $stack6, $stack8;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA $stack3;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA: void <init>()>();
+
+        $stack4 = new org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB: void <init>()>();
+
+        $stack3.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA: org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB b> = $stack4;
+
+        $stack4.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB: org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA a> = $stack3;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA: int hashCode()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack6);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB: int hashCode()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack8);
+
+        return;
+    }
+
+    public void testToHashCodeEqualsHashCode()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest this;
+        long $stack8, $stack10;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack2, $stack4, $stack5;
+        int $stack7, $stack9;
+        java.lang.Object $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(17, 37);
+
+        $stack3 = new java.lang.Object;
+
+        specialinvoke $stack3.<java.lang.Object: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char)>(97);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack8 = (long) $stack7;
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.HashCodeBuilder: int hashCode()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("hashCode() is no longer returning the same value as toHashCode() - see LANG-520", $stack8, $stack10);
+
+        return;
+    }
+}

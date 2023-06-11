@@ -1,0 +1,44 @@
+public abstract class org.apache.commons.lang3.text.translate.CodePointTranslator extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.CodePointTranslator this;
+
+        this := @this: org.apache.commons.lang3.text.translate.CodePointTranslator;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        return;
+    }
+
+    public final int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        java.lang.CharSequence input;
+        int index, $stack6;
+        java.io.Writer out;
+        org.apache.commons.lang3.text.translate.CodePointTranslator this;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.text.translate.CodePointTranslator;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        $stack6 = staticinvoke <java.lang.Character: int codePointAt(java.lang.CharSequence,int)>(input, index);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.text.translate.CodePointTranslator: boolean translate(int,java.io.Writer)>($stack6, out);
+
+        if $stack7 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        return 0;
+    }
+
+    public abstract boolean translate(int, java.io.Writer) throws java.io.IOException;
+}

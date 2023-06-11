@@ -1,0 +1,64 @@
+class org.apache.commons.lang3.text.StrSubstitutorTest$1 extends org.apache.commons.lang3.text.StrSubstitutor
+{
+    final org.apache.commons.lang3.text.StrBuilder val$builder;
+    final org.apache.commons.lang3.text.StrSubstitutorTest this$0;
+
+    void <init>(org.apache.commons.lang3.text.StrSubstitutorTest, java.util.Map, org.apache.commons.lang3.text.StrBuilder)
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest$1 this;
+        org.apache.commons.lang3.text.StrSubstitutorTest l1;
+        java.util.Map x0;
+        org.apache.commons.lang3.text.StrBuilder l3;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        x0 := @parameter1: java.util.Map;
+
+        l3 := @parameter2: org.apache.commons.lang3.text.StrBuilder;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutorTest$1: org.apache.commons.lang3.text.StrSubstitutorTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutorTest$1: org.apache.commons.lang3.text.StrBuilder val$builder> = l3;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>(x0);
+
+        return;
+    }
+
+    protected java.lang.String resolveVariable(java.lang.String, org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest$1 this;
+        long $stack6, $stack7;
+        int startPos, endPos;
+        java.lang.String variableName;
+        org.apache.commons.lang3.text.StrBuilder buf, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest$1;
+
+        variableName := @parameter0: java.lang.String;
+
+        buf := @parameter1: org.apache.commons.lang3.text.StrBuilder;
+
+        startPos := @parameter2: int;
+
+        endPos := @parameter3: int;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("name", variableName);
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrSubstitutorTest$1: org.apache.commons.lang3.text.StrBuilder val$builder>;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack5, buf);
+
+        $stack6 = (long) startPos;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack6);
+
+        $stack7 = (long) endPos;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack7);
+
+        return "jakarta";
+    }
+}

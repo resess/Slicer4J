@@ -1,0 +1,303 @@
+public class org.apache.commons.lang3.reflect.ConstructorUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.reflect.ConstructorUtils this;
+
+        this := @this: org.apache.commons.lang3.reflect.ConstructorUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static transient java.lang.Object invokeConstructor(java.lang.Class, java.lang.Object[]) throws java.lang.NoSuchMethodException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException
+    {
+        java.lang.Object[] args;
+        java.lang.Class[] $stack3;
+        java.lang.Class 'cls';
+        java.lang.Object $stack4;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        args := @parameter1: java.lang.Object[];
+
+        if args != null goto label1;
+
+        args = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class[] toClass(java.lang.Object[])>(args);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.Object invokeConstructor(java.lang.Class,java.lang.Object[],java.lang.Class[])>('cls', args, $stack3);
+
+        return $stack4;
+    }
+
+    public static java.lang.Object invokeConstructor(java.lang.Class, java.lang.Object[], java.lang.Class[]) throws java.lang.NoSuchMethodException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException
+    {
+        java.lang.Object[] args;
+        java.lang.NoSuchMethodException $stack6;
+        java.lang.Class[] parameterTypes;
+        java.lang.reflect.Constructor $stack4;
+        java.lang.Class 'cls';
+        java.lang.Object $stack5;
+        java.lang.StringBuilder $stack7, $stack8, $stack10;
+        java.lang.String $stack9, $stack11;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        args := @parameter1: java.lang.Object[];
+
+        parameterTypes := @parameter2: java.lang.Class[];
+
+        if parameterTypes != null goto label1;
+
+        parameterTypes = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+     label1:
+        if args != null goto label2;
+
+        args = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+     label2:
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.reflect.Constructor getMatchingAccessibleConstructor(java.lang.Class,java.lang.Class[])>('cls', parameterTypes);
+
+        if $stack4 != null goto label3;
+
+        $stack6 = new java.lang.NoSuchMethodException;
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No such accessible constructor on object: ");
+
+        $stack9 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack6.<java.lang.NoSuchMethodException: void <init>(java.lang.String)>($stack11);
+
+        throw $stack6;
+
+     label3:
+        $stack5 = virtualinvoke $stack4.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>(args);
+
+        return $stack5;
+    }
+
+    public static transient java.lang.Object invokeExactConstructor(java.lang.Class, java.lang.Object[]) throws java.lang.NoSuchMethodException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException
+    {
+        java.lang.Object[] args;
+        java.lang.Class[] $stack3;
+        java.lang.Class 'cls';
+        java.lang.Object $stack4;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        args := @parameter1: java.lang.Object[];
+
+        if args != null goto label1;
+
+        args = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class[] toClass(java.lang.Object[])>(args);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.Object invokeExactConstructor(java.lang.Class,java.lang.Object[],java.lang.Class[])>('cls', args, $stack3);
+
+        return $stack4;
+    }
+
+    public static java.lang.Object invokeExactConstructor(java.lang.Class, java.lang.Object[], java.lang.Class[]) throws java.lang.NoSuchMethodException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException
+    {
+        java.lang.Object[] args;
+        java.lang.NoSuchMethodException $stack6;
+        java.lang.Class[] parameterTypes;
+        java.lang.reflect.Constructor $stack4;
+        java.lang.Class 'cls';
+        java.lang.Object $stack5;
+        java.lang.StringBuilder $stack7, $stack8, $stack10;
+        java.lang.String $stack9, $stack11;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        args := @parameter1: java.lang.Object[];
+
+        parameterTypes := @parameter2: java.lang.Class[];
+
+        if args != null goto label1;
+
+        args = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+     label1:
+        if parameterTypes != null goto label2;
+
+        parameterTypes = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+     label2:
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.reflect.Constructor getAccessibleConstructor(java.lang.Class,java.lang.Class[])>('cls', parameterTypes);
+
+        if $stack4 != null goto label3;
+
+        $stack6 = new java.lang.NoSuchMethodException;
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No such accessible constructor on object: ");
+
+        $stack9 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack6.<java.lang.NoSuchMethodException: void <init>(java.lang.String)>($stack11);
+
+        throw $stack6;
+
+     label3:
+        $stack5 = virtualinvoke $stack4.<java.lang.reflect.Constructor: java.lang.Object newInstance(java.lang.Object[])>(args);
+
+        return $stack5;
+    }
+
+    public static transient java.lang.reflect.Constructor getAccessibleConstructor(java.lang.Class, java.lang.Class[])
+    {
+        java.lang.NoSuchMethodException $stack5;
+        java.lang.Class[] parameterTypes;
+        java.lang.Class 'cls';
+        java.lang.reflect.Constructor $stack3, $stack4;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        parameterTypes := @parameter1: java.lang.Class[];
+
+     label1:
+        $stack3 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Constructor getConstructor(java.lang.Class[])>(parameterTypes);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.reflect.Constructor getAccessibleConstructor(java.lang.reflect.Constructor)>($stack3);
+
+     label2:
+        return $stack4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        return null;
+
+        catch java.lang.NoSuchMethodException from label1 to label2 with label3;
+    }
+
+    public static java.lang.reflect.Constructor getAccessibleConstructor(java.lang.reflect.Constructor)
+    {
+        int $stack3;
+        java.lang.Class $stack2;
+        java.lang.reflect.Constructor ctor, $stack5;
+        boolean $stack1, $stack4;
+
+        ctor := @parameter0: java.lang.reflect.Constructor;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: boolean isAccessible(java.lang.reflect.Member)>(ctor);
+
+        if $stack1 == 0 goto label1;
+
+        $stack2 = virtualinvoke ctor.<java.lang.reflect.Constructor: java.lang.Class getDeclaringClass()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: int getModifiers()>();
+
+        $stack4 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack3);
+
+        if $stack4 == 0 goto label1;
+
+        $stack5 = ctor;
+
+        goto label2;
+
+     label1:
+        $stack5 = null;
+
+     label2:
+        return $stack5;
+    }
+
+    public static transient java.lang.reflect.Constructor getMatchingAccessibleConstructor(java.lang.Class, java.lang.Class[])
+    {
+        java.lang.NoSuchMethodException $stack10;
+        java.lang.Class[] parameterTypes, $stack12, $stack17, $stack18;
+        java.lang.reflect.Constructor $stack9, $stack16, ctor_1, ctor_2;
+        java.lang.reflect.Constructor[] $stack11;
+        int len$, $stack19, i$;
+        java.lang.Class 'cls';
+        boolean $stack13;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        parameterTypes := @parameter1: java.lang.Class[];
+
+     label1:
+        $stack9 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Constructor getConstructor(java.lang.Class[])>(parameterTypes);
+
+        staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: void setAccessibleWorkaround(java.lang.reflect.AccessibleObject)>($stack9);
+
+     label2:
+        return $stack9;
+
+     label3:
+        $stack10 := @caughtexception;
+
+        ctor_1 = null;
+
+        $stack11 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Constructor[] getConstructors()>();
+
+        len$ = lengthof $stack11;
+
+        i$ = 0;
+
+     label4:
+        if i$ >= len$ goto label7;
+
+        ctor_2 = $stack11[i$];
+
+        $stack12 = virtualinvoke ctor_2.<java.lang.reflect.Constructor: java.lang.Class[] getParameterTypes()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class[],java.lang.Class[],boolean)>(parameterTypes, $stack12, 1);
+
+        if $stack13 == 0 goto label6;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.ConstructorUtils: java.lang.reflect.Constructor getAccessibleConstructor(java.lang.reflect.Constructor)>(ctor_2);
+
+        if $stack16 == null goto label6;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: void setAccessibleWorkaround(java.lang.reflect.AccessibleObject)>($stack16);
+
+        if ctor_1 == null goto label5;
+
+        $stack17 = virtualinvoke $stack16.<java.lang.reflect.Constructor: java.lang.Class[] getParameterTypes()>();
+
+        $stack18 = virtualinvoke ctor_1.<java.lang.reflect.Constructor: java.lang.Class[] getParameterTypes()>();
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.MemberUtils: int compareParameterTypes(java.lang.Class[],java.lang.Class[],java.lang.Class[])>($stack17, $stack18, parameterTypes);
+
+        if $stack19 >= 0 goto label6;
+
+     label5:
+        ctor_1 = $stack16;
+
+     label6:
+        i$ = i$ + 1;
+
+        goto label4;
+
+     label7:
+        return ctor_1;
+
+        catch java.lang.NoSuchMethodException from label1 to label2 with label3;
+    }
+}

@@ -1,0 +1,1495 @@
+public class org.apache.commons.lang3.StringEscapeUtilsTest extends java.lang.Object
+{
+    private static final java.lang.String FOO;
+    private static final java.lang.String[][] HTML_ESCAPES;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        org.apache.commons.lang3.StringEscapeUtils $stack2;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.StringEscapeUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.StringEscapeUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/StringEscapeUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/StringEscapeUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/StringEscapeUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testEscapeJava() throws java.io.IOException
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack4, $stack5;
+        java.io.IOException $stack55, $stack59;
+        java.lang.IllegalArgumentException $stack6, $stack56;
+        java.lang.String $stack3;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeJava(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+     label1:
+        $stack4 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_JAVA>;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(null, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label5;
+
+     label3:
+        $stack59 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label5;
+
+     label4:
+        $stack56 := @caughtexception;
+
+     label5:
+        $stack5 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_JAVA>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>("", null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label6:
+        goto label9;
+
+     label7:
+        $stack55 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label9;
+
+     label8:
+        $stack6 := @caughtexception;
+
+     label9:
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("empty string", "", "");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("foo", "foo");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("tab", "\\t", "\t");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("backslash", "\\\\", "\\");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("single quote should not be escaped", "\'", "\'");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\\\\\b\\t\\r", "\\\u0008\t\r");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\u1234", "\u1234");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\u0234", "\u0234");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\u00EF", "\u00ef");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\u0001", "\u0001");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("Should use capitalized Unicode hex", "\\uABCD", "\uabcd");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("He didn\'t say, \\\"stop!\\\"", "He didn\'t say, \"stop!\"");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>("non-breaking space", "This space is non-breaking:\\u00A0", "This space is non-breaking:\u00a0");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String)>("\\uABCD\\u1234\\u012C", "\uabcd\u1234\u012c");
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label1 to label2 with label4;
+        catch java.io.IOException from label5 to label6 with label7;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label8;
+    }
+
+    public void testEscapeJavaWithSlash()
+    {
+        java.lang.String $stack4;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeJava(java.lang.String)>("String with a slash (/) in it");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("String with a slash (/) in it", $stack4);
+
+        return;
+    }
+
+    private void assertEscapeJava(java.lang.String, java.lang.String) throws java.io.IOException
+    {
+        java.lang.String escaped, original;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        escaped := @parameter0: java.lang.String;
+
+        original := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertEscapeJava(java.lang.String,java.lang.String,java.lang.String)>(null, escaped, original);
+
+        return;
+    }
+
+    private void assertEscapeJava(java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException
+    {
+        java.lang.String original, $stack6, $stack14, expected, $stack17, message, $stack12;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack15;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack16;
+        java.lang.StringBuilder $stack7, $stack8, $stack9, $stack10, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        message := @parameter0: java.lang.String;
+
+        expected := @parameter1: java.lang.String;
+
+        original := @parameter2: java.lang.String;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeJava(java.lang.String)>(original);
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("escapeJava(String) failed");
+
+        if message != null goto label1;
+
+        $stack12 = "";
+
+        goto label2;
+
+     label1:
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(message);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $stack13 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack14, expected, $stack6);
+
+        $stack15 = new java.io.StringWriter;
+
+        specialinvoke $stack15.<java.io.StringWriter: void <init>()>();
+
+        $stack16 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_JAVA>;
+
+        virtualinvoke $stack16.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(original, $stack15);
+
+        $stack17 = virtualinvoke $stack15.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expected, $stack17);
+
+        return;
+    }
+
+    public void testUnescapeJava() throws java.io.IOException
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack4, $stack5;
+        java.io.IOException $stack40, $stack44;
+        java.lang.RuntimeException $stack7;
+        java.lang.IllegalArgumentException $stack38, $stack41;
+        java.lang.String $stack3;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeJava(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+     label01:
+        $stack4 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_JAVA>;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(null, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label05;
+
+     label03:
+        $stack44 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label05;
+
+     label04:
+        $stack41 := @caughtexception;
+
+     label05:
+        $stack5 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_JAVA>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>("", null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label06:
+        goto label09;
+
+     label07:
+        $stack40 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label09;
+
+     label08:
+        $stack38 := @caughtexception;
+
+     label09:
+        staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeJava(java.lang.String)>("\\u02-3");
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack7 := @caughtexception;
+
+     label12:
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("", "");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("test", "test");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("\ntest\u0008", "\\ntest\\b");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("\u123425foo\ntest\u0008", "\\u123425foo\\ntest\\b");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("\'\foo\teste\r", "\\\'\\foo\\teste\\r");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String)>("", "\\");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String,java.lang.String)>("lowercase Unicode", "\uabcdx", "\\uabcdx");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String,java.lang.String)>("uppercase Unicode", "\uabcdx", "\\uABCDx");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String,java.lang.String)>("Unicode as final character", "\uabcd", "\\uabcd");
+
+        return;
+
+        catch java.io.IOException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label01 to label02 with label04;
+        catch java.io.IOException from label05 to label06 with label07;
+        catch java.lang.IllegalArgumentException from label05 to label06 with label08;
+        catch java.lang.RuntimeException from label09 to label10 with label11;
+    }
+
+    private void assertUnescapeJava(java.lang.String, java.lang.String) throws java.io.IOException
+    {
+        java.lang.String unescaped, original;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        unescaped := @parameter0: java.lang.String;
+
+        original := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void assertUnescapeJava(java.lang.String,java.lang.String,java.lang.String)>(null, unescaped, original);
+
+        return;
+    }
+
+    private void assertUnescapeJava(java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException
+    {
+        java.lang.String unescaped, original, $stack7, message, $stack16, $stack19, $stack22, $stack25, $stack13;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack23;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack24;
+        java.lang.StringBuilder $stack8, $stack9, $stack10, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18, $stack20, $stack21;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        message := @parameter0: java.lang.String;
+
+        unescaped := @parameter1: java.lang.String;
+
+        original := @parameter2: java.lang.String;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeJava(java.lang.String)>(original);
+
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("unescape(String) failed");
+
+        if message != null goto label1;
+
+        $stack13 = "";
+
+        goto label2;
+
+     label1:
+        $stack10 = new java.lang.StringBuilder;
+
+        specialinvoke $stack10.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(message);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label2:
+        $stack14 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack13);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": expected \'");
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeJava(java.lang.String)>(unescaped);
+
+        $stack17 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack16);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' actual \'");
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeJava(java.lang.String)>($stack7);
+
+        $stack20 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack19);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack22, unescaped, $stack7);
+
+        $stack23 = new java.io.StringWriter;
+
+        specialinvoke $stack23.<java.io.StringWriter: void <init>()>();
+
+        $stack24 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_JAVA>;
+
+        virtualinvoke $stack24.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(original, $stack23);
+
+        $stack25 = virtualinvoke $stack23.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(unescaped, $stack25);
+
+        return;
+    }
+
+    public void testEscapeEcmaScript()
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack4, $stack5;
+        java.io.IOException $stack13, $stack17;
+        java.lang.IllegalArgumentException $stack10, $stack14;
+        java.lang.String $stack3, $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeEcmaScript(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+     label1:
+        $stack4 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_ECMASCRIPT>;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(null, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label5;
+
+     label3:
+        $stack17 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label5;
+
+     label4:
+        $stack14 := @caughtexception;
+
+     label5:
+        $stack5 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_ECMASCRIPT>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>("", null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label6:
+        goto label9;
+
+     label7:
+        $stack13 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        goto label9;
+
+     label8:
+        $stack10 := @caughtexception;
+
+     label9:
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeEcmaScript(java.lang.String)>("He didn\'t say, \"stop!\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("He didn\\\'t say, \\\"stop!\\\"", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeEcmaScript(java.lang.String)>("document.getElementById(\"test\").value = \'<script>alert(\'aaa\');</script>\';");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("document.getElementById(\\\"test\\\").value = \\\'<script>alert(\\\'aaa\\\');<\\/script>\\\';", $stack9);
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label1 to label2 with label4;
+        catch java.io.IOException from label5 to label6 with label7;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label8;
+    }
+
+    public void testEscapeHtml()
+    {
+        java.lang.String[] $stack10, $stack12, $stack14;
+        int $stack8, i;
+        java.lang.String message, expected, original, $stack15, $stack18;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack16;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack17;
+        java.io.IOException $stack23;
+        java.lang.String[][] $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        i = 0;
+
+     label1:
+        $stack7 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack8 = lengthof $stack7;
+
+        if i >= $stack8 goto label8;
+
+        $stack9 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack10 = $stack9[i];
+
+        message = $stack10[0];
+
+        $stack11 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack12 = $stack11[i];
+
+        expected = $stack12[1];
+
+        $stack13 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack14 = $stack13[i];
+
+        original = $stack14[2];
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeHtml4(java.lang.String)>(original);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, $stack15);
+
+        $stack16 = new java.io.StringWriter;
+
+        specialinvoke $stack16.<java.io.StringWriter: void <init>()>();
+
+     label2:
+        $stack17 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_HTML4>;
+
+        virtualinvoke $stack17.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(original, $stack16);
+
+     label3:
+        goto label5;
+
+     label4:
+        $stack23 := @caughtexception;
+
+     label5:
+        if original != null goto label6;
+
+        $stack18 = null;
+
+        goto label7;
+
+     label6:
+        $stack18 = virtualinvoke $stack16.<java.io.StringWriter: java.lang.String toString()>();
+
+     label7:
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, $stack18);
+
+        i = i + 1;
+
+        goto label1;
+
+     label8:
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    public void testUnescapeHtml4()
+    {
+        java.lang.String[] $stack21, $stack23, $stack25;
+        int $stack8, i;
+        java.lang.String $stack11, $stack13, $stack15, $stack17, $stack19, message, expected, original, $stack26, $stack29;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack27;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack28;
+        java.io.IOException $stack34;
+        java.lang.String[][] $stack7, $stack20, $stack22, $stack24;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        i = 0;
+
+     label1:
+        $stack7 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack8 = lengthof $stack7;
+
+        if i >= $stack8 goto label8;
+
+        $stack20 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack21 = $stack20[i];
+
+        message = $stack21[0];
+
+        $stack22 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack23 = $stack22[i];
+
+        expected = $stack23[2];
+
+        $stack24 = <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES>;
+
+        $stack25 = $stack24[i];
+
+        original = $stack25[1];
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>(original);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, $stack26);
+
+        $stack27 = new java.io.StringWriter;
+
+        specialinvoke $stack27.<java.io.StringWriter: void <init>()>();
+
+     label2:
+        $stack28 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_HTML4>;
+
+        virtualinvoke $stack28.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(original, $stack27);
+
+     label3:
+        goto label5;
+
+     label4:
+        $stack34 := @caughtexception;
+
+     label5:
+        if original != null goto label6;
+
+        $stack29 = null;
+
+        goto label7;
+
+     label6:
+        $stack29 = virtualinvoke $stack27.<java.io.StringWriter: java.lang.String toString()>();
+
+     label7:
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, $stack29);
+
+        i = i + 1;
+
+        goto label1;
+
+     label8:
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("Fran\u00e7ais");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("funny chars pass through OK", "Fran\u00e7ais", $stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("Hello&;World");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello&;World", $stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("Hello&#;World");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello&#;World", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("Hello&# ;World");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello&# ;World", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("Hello&##;World");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello&##;World", $stack19);
+
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    public void testUnescapeHexCharsHtml()
+    {
+        java.lang.Character $u0, $u1;
+        java.lang.StringBuilder $stack19, $stack21, $stack24, $stack27, $stack28, $stack31, $stack34, $stack35, $stack38, $stack39, $stack42, $stack43, $u2, $u3, $u4, $u5, $u6;
+        int $stack15, $stack46, $i0, $i1, $i2;
+        java.lang.String $stack9, $stack12, $stack18, $stack20, $stack22, $stack26, $stack29, $stack33, $stack36, $stack40, $stack44, $stack45;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        char $stack16, $stack25, $stack32, i;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("&#x80;&#x9F;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("hex number unescape", "\u0080\u009f", $stack9);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("&#X80;&#X9F;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("hex number unescape", "\u0080\u009f", $stack12);
+
+        i = 0;
+
+     label1:
+        $i0 = (int) 65535;
+
+        if i >= $i0 goto label2;
+
+        $u0 = new java.lang.Character;
+
+        specialinvoke $u0.<java.lang.Character: void <init>(char)>(i);
+
+        $u1 = new java.lang.Character;
+
+        $stack15 = i + 1;
+
+        $stack16 = (char) $stack15;
+
+        specialinvoke $u1.<java.lang.Character: void <init>(char)>($stack16);
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $u0.<java.lang.Character: java.lang.String toString()>();
+
+        $stack19 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $u1.<java.lang.Character: java.lang.String toString()>();
+
+        $stack21 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack20);
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack24 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&#x");
+
+        $stack25 = virtualinvoke $u0.<java.lang.Character: char charValue()>();
+
+        $i1 = (int) $stack25;
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i1);
+
+        $stack27 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";");
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack31 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("&#x");
+
+        $stack32 = virtualinvoke $u1.<java.lang.Character: char charValue()>();
+
+        $i2 = (int) $stack32;
+
+        $stack33 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i2);
+
+        $stack34 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack33);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";");
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $u5 = new java.lang.StringBuilder;
+
+        specialinvoke $u5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack38 = virtualinvoke $u5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("hex number unescape index ");
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $u6 = new java.lang.StringBuilder;
+
+        specialinvoke $u6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack42 = virtualinvoke $u6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack36);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>($stack44);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack40, $stack22, $stack45);
+
+        $stack46 = i + 1;
+
+        i = (char) $stack46;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testUnescapeUnknownEntity() throws java.lang.Exception
+    {
+        java.lang.String $stack2;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("&zzzz;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("&zzzz;", $stack2);
+
+        return;
+    }
+
+    public void testEscapeHtmlVersions() throws java.lang.Exception
+    {
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeHtml4(java.lang.String)>("\u0392");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("&Beta;", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("&Beta;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\u0392", $stack4);
+
+        return;
+    }
+
+    public void testEscapeXml() throws java.lang.Exception
+    {
+        java.lang.String $stack4, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack36, $stack41;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack32, $stack37;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack33, $stack38;
+        java.io.IOException $stack42, $stack44;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>("<abc>");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("&lt;abc&gt;", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&lt;abc&gt;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("<abc>", $stack6);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>("\u00a1");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML should not escape >0x7f values", "\u00a1", $stack9);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&#160;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML should be able to unescape >0x7f values", "\u00a0", $stack12);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&#0160;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML should be able to unescape >0x7f values with one leading 0", "\u00a0", $stack15);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&#00160;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML should be able to unescape >0x7f values with two leading 0s", "\u00a0", $stack18);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&#000160;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML should be able to unescape >0x7f values with three leading 0s", "\u00a0", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("ain&apos;t");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ain\'t", $stack23);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>("ain\'t");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ain&apos;t", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack29);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack31);
+
+        $stack32 = new java.io.StringWriter;
+
+        specialinvoke $stack32.<java.io.StringWriter: void <init>()>();
+
+     label1:
+        $stack33 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_XML>;
+
+        virtualinvoke $stack33.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>("<abc>", $stack32);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack44 := @caughtexception;
+
+     label4:
+        $stack36 = virtualinvoke $stack32.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML was escaped incorrectly", "&lt;abc&gt;", $stack36);
+
+        $stack37 = new java.io.StringWriter;
+
+        specialinvoke $stack37.<java.io.StringWriter: void <init>()>();
+
+     label5:
+        $stack38 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_XML>;
+
+        virtualinvoke $stack38.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>("&lt;abc&gt;", $stack37);
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack42 := @caughtexception;
+
+     label8:
+        $stack41 = virtualinvoke $stack37.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("XML was unescaped incorrectly", "<abc>", $stack41);
+
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+        catch java.io.IOException from label5 to label6 with label7;
+    }
+
+    public void testEscapeXmlSupplementaryCharacters()
+    {
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator[] $stack2;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaper $stack5;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack3, $stack6;
+        java.lang.String $stack9;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_XML>;
+
+        $stack2 = newarray (org.apache.commons.lang3.text.translate.CharSequenceTranslator)[1];
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.translate.NumericEntityEscaper: org.apache.commons.lang3.text.translate.NumericEntityEscaper between(int,int)>(127, 2147483647);
+
+        $stack2[0] = $stack5;
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: org.apache.commons.lang3.text.translate.CharSequenceTranslator 'with'(org.apache.commons.lang3.text.translate.CharSequenceTranslator[])>($stack2);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: java.lang.String translate(java.lang.CharSequence)>("\ud84c\udfb4");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Supplementary character must be represented using a single escape", "&#144308;", $stack9);
+
+        return;
+    }
+
+    public void testUnescapeXmlSupplementaryCharacters()
+    {
+        java.lang.String $stack3;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&#144308;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Supplementary character must be represented using a single escape", "\ud84c\udfb4", $stack3);
+
+        return;
+    }
+
+    public void testStandaloneAmphersand()
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("&lt;P&O&gt;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("<P&O>", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("test & &lt;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test & <", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("&lt;P&O&gt;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("<P&O>", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeXml(java.lang.String)>("test & &lt;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("test & <", $stack8);
+
+        return;
+    }
+
+    public void testLang313()
+    {
+        java.lang.String $stack2;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>("& &amp;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("& &", $stack2);
+
+        return;
+    }
+
+    public void testEscapeCsvString() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("foo.bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo.bar", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("foo,bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"foo,bar\"", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("foo\nbar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"foo\nbar\"", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("foo\rbar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"foo\rbar\"", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("foo\"bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"foo\"\"bar\"", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeCsv(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        return;
+    }
+
+    public void testEscapeCsvWriter() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("foo.bar", "foo.bar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("\"foo,bar\"", "foo,bar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("\"foo\nbar\"", "foo\nbar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("\"foo\rbar\"", "foo\rbar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("\"foo\"\"bar\"", "foo\"bar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("", null);
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvEscapeWriter(java.lang.String,java.lang.String)>("", "");
+
+        return;
+    }
+
+    private void checkCsvEscapeWriter(java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack4;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack5;
+        java.io.IOException $stack7;
+        java.lang.StringBuilder $stack8, $stack9, $stack10;
+        java.lang.String value, expected, $stack6, $stack11;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        expected := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.String;
+
+     label1:
+        $stack4 = new java.io.StringWriter;
+
+        specialinvoke $stack4.<java.io.StringWriter: void <init>()>();
+
+        $stack5 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator ESCAPE_CSV>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(value, $stack4);
+
+        $stack6 = virtualinvoke $stack4.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expected, $stack6);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Threw: ");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack7);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack11);
+
+     label4:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public void testUnescapeCsvString() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("foo.bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo.bar", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("\"foo,bar\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,bar", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("\"foo\nbar\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo\nbar", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("\"foo\rbar\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo\rbar", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("\"foo\"\"bar\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo\"bar", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeCsv(java.lang.String)>("\"foo.bar\"");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"foo.bar\"", $stack16);
+
+        return;
+    }
+
+    public void testUnescapeCsvWriter() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("foo.bar", "foo.bar");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("foo,bar", "\"foo,bar\"");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("foo\nbar", "\"foo\nbar\"");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("foo\rbar", "\"foo\rbar\"");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("foo\"bar", "\"foo\"\"bar\"");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("", null);
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("", "");
+
+        specialinvoke this.<org.apache.commons.lang3.StringEscapeUtilsTest: void checkCsvUnescapeWriter(java.lang.String,java.lang.String)>("\"foo.bar\"", "\"foo.bar\"");
+
+        return;
+    }
+
+    private void checkCsvUnescapeWriter(java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.StringWriter $stack4;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator $stack5;
+        java.io.IOException $stack7;
+        java.lang.StringBuilder $stack8, $stack9, $stack10;
+        java.lang.String value, expected, $stack6, $stack11;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        expected := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.String;
+
+     label1:
+        $stack4 = new java.io.StringWriter;
+
+        specialinvoke $stack4.<java.io.StringWriter: void <init>()>();
+
+        $stack5 = <org.apache.commons.lang3.StringEscapeUtils: org.apache.commons.lang3.text.translate.CharSequenceTranslator UNESCAPE_CSV>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void translate(java.lang.CharSequence,java.io.Writer)>(value, $stack4);
+
+        $stack6 = virtualinvoke $stack4.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expected, $stack6);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Threw: ");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack7);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack11);
+
+     label4:
+        return;
+
+        catch java.io.IOException from label1 to label2 with label3;
+    }
+
+    public void testEscapeHtmlHighUnicode() throws java.io.UnsupportedEncodingException
+    {
+        byte[] $stack5;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.lang.String $stack6, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack5 = newarray (byte)[4];
+
+        $stack5[0] = -16;
+
+        $stack5[1] = -99;
+
+        $stack5[2] = -115;
+
+        $stack5[3] = -94;
+
+        $stack6 = new java.lang.String;
+
+        specialinvoke $stack6.<java.lang.String: void <init>(byte[],java.lang.String)>($stack5, "UTF8");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeHtml4(java.lang.String)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("High Unicode should not have been escaped", $stack6, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("High Unicode should have been unchanged", $stack6, $stack8);
+
+        return;
+    }
+
+    public void testEscapeHiragana()
+    {
+        java.lang.String $stack4, $stack5;
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeHtml4(java.lang.String)>("\u304b\u304c\u3068");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Hiragana character Unicode behaviour should not be being escaped by escapeHtml4", "\u304b\u304c\u3068", $stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String unescapeHtml4(java.lang.String)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Hiragana character Unicode behaviour has changed - expected no unescaping", $stack4, $stack5);
+
+        return;
+    }
+
+    public void testLang708() throws java.io.IOException
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.io.FileInputStream $stack3;
+        java.lang.String $stack4, $stack5;
+        boolean $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = new java.io.FileInputStream;
+
+        specialinvoke $stack3.<java.io.FileInputStream: void <init>(java.lang.String)>("src/test/resources/lang-708-input.txt");
+
+        $stack4 = staticinvoke <org.apache.commons.io.IOUtils: java.lang.String toString(java.io.InputStream,java.lang.String)>($stack3, "UTF-8");
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeEcmaScript(java.lang.String)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.String: boolean endsWith(java.lang.String)>("}]");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack5, $stack6);
+
+        $stack7 = virtualinvoke $stack5.<java.lang.String: boolean endsWith(java.lang.String)>("\"valueCode\\\":\\\"\\\"}]");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack5, $stack7);
+
+        return;
+    }
+
+    public void testLang720()
+    {
+        org.apache.commons.lang3.StringEscapeUtilsTest this;
+        java.lang.StringBuilder $stack3, $stack4;
+        java.lang.String $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtilsTest;
+
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>(java.lang.String)>("\ud842\udfb7");
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("A");
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringEscapeUtils: java.lang.String escapeXml(java.lang.String)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.String[] $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11;
+        java.lang.String[][] $stack0;
+
+        <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String FOO> = "foo";
+
+        $stack0 = newarray (java.lang.String[])[11];
+
+        $stack1 = newarray (java.lang.String)[3];
+
+        $stack1[0] = "no escaping";
+
+        $stack1[1] = "plain text";
+
+        $stack1[2] = "plain text";
+
+        $stack0[0] = $stack1;
+
+        $stack2 = newarray (java.lang.String)[3];
+
+        $stack2[0] = "no escaping";
+
+        $stack2[1] = "plain text";
+
+        $stack2[2] = "plain text";
+
+        $stack0[1] = $stack2;
+
+        $stack3 = newarray (java.lang.String)[3];
+
+        $stack3[0] = "empty string";
+
+        $stack3[1] = "";
+
+        $stack3[2] = "";
+
+        $stack0[2] = $stack3;
+
+        $stack4 = newarray (java.lang.String)[3];
+
+        $stack4[0] = "null";
+
+        $stack4[1] = null;
+
+        $stack4[2] = null;
+
+        $stack0[3] = $stack4;
+
+        $stack5 = newarray (java.lang.String)[3];
+
+        $stack5[0] = "ampersand";
+
+        $stack5[1] = "bread &amp; butter";
+
+        $stack5[2] = "bread & butter";
+
+        $stack0[4] = $stack5;
+
+        $stack6 = newarray (java.lang.String)[3];
+
+        $stack6[0] = "quotes";
+
+        $stack6[1] = "&quot;bread&quot; &amp; butter";
+
+        $stack6[2] = "\"bread\" & butter";
+
+        $stack0[5] = $stack6;
+
+        $stack7 = newarray (java.lang.String)[3];
+
+        $stack7[0] = "final character only";
+
+        $stack7[1] = "greater than &gt;";
+
+        $stack7[2] = "greater than >";
+
+        $stack0[6] = $stack7;
+
+        $stack8 = newarray (java.lang.String)[3];
+
+        $stack8[0] = "first character only";
+
+        $stack8[1] = "&lt; less than";
+
+        $stack8[2] = "< less than";
+
+        $stack0[7] = $stack8;
+
+        $stack9 = newarray (java.lang.String)[3];
+
+        $stack9[0] = "apostrophe";
+
+        $stack9[1] = "Huntington\'s chorea";
+
+        $stack9[2] = "Huntington\'s chorea";
+
+        $stack0[8] = $stack9;
+
+        $stack10 = newarray (java.lang.String)[3];
+
+        $stack10[0] = "languages";
+
+        $stack10[1] = "English,Fran&ccedil;ais,\u65e5\u672c\u8a9e (nihongo)";
+
+        $stack10[2] = "English,Fran\u00e7ais,\u65e5\u672c\u8a9e (nihongo)";
+
+        $stack0[9] = $stack10;
+
+        $stack11 = newarray (java.lang.String)[3];
+
+        $stack11[0] = "8-bit ascii shouldn\'t number-escape";
+
+        $stack11[1] = "\u0080\u009f";
+
+        $stack11[2] = "\u0080\u009f";
+
+        $stack0[10] = $stack11;
+
+        <org.apache.commons.lang3.StringEscapeUtilsTest: java.lang.String[][] HTML_ESCAPES> = $stack0;
+
+        return;
+    }
+}

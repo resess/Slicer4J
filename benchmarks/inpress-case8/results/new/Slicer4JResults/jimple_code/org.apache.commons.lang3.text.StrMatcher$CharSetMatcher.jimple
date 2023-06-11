@@ -1,0 +1,66 @@
+final class org.apache.commons.lang3.text.StrMatcher$CharSetMatcher extends org.apache.commons.lang3.text.StrMatcher
+{
+    private final char[] chars;
+
+    void <init>(char[])
+    {
+        org.apache.commons.lang3.text.StrMatcher$CharSetMatcher this;
+        char[] chars, $stack3, $stack4;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        chars := @parameter0: char[];
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrMatcher: void <init>()>();
+
+        $stack2 = virtualinvoke chars.<java.lang.Object: java.lang.Object clone()>();
+
+        $stack3 = (char[]) $stack2;
+
+        this.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: char[] chars> = $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: char[] chars>;
+
+        staticinvoke <java.util.Arrays: void sort(char[])>($stack4);
+
+        return;
+    }
+
+    public int isMatch(char[], int, int, int)
+    {
+        char $stack5;
+        byte $stack8;
+        org.apache.commons.lang3.text.StrMatcher$CharSetMatcher this;
+        int pos, $stack7, bufferStart, bufferEnd;
+        char[] buffer, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$CharSetMatcher;
+
+        buffer := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        bufferStart := @parameter2: int;
+
+        bufferEnd := @parameter3: int;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrMatcher$CharSetMatcher: char[] chars>;
+
+        $stack5 = buffer[pos];
+
+        $stack7 = staticinvoke <java.util.Arrays: int binarySearch(char[],char)>($stack6, $stack5);
+
+        if $stack7 < 0 goto label1;
+
+        $stack8 = 1;
+
+        goto label2;
+
+     label1:
+        $stack8 = 0;
+
+     label2:
+        return $stack8;
+    }
+}

@@ -1,0 +1,1262 @@
+public class org.apache.commons.lang3.time.FastDatePrinter extends java.lang.Object implements org.apache.commons.lang3.time.DatePrinter, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    public static final int FULL;
+    public static final int LONG;
+    public static final int MEDIUM;
+    public static final int SHORT;
+    private final java.lang.String mPattern;
+    private final java.util.TimeZone mTimeZone;
+    private final java.util.Locale mLocale;
+    private transient org.apache.commons.lang3.time.FastDatePrinter$Rule[] mRules;
+    private transient int mMaxLengthEstimate;
+    private static java.util.concurrent.ConcurrentMap cTimeZoneDisplayCache;
+
+    protected void <init>(java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        pattern := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern> = pattern;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone> = timeZone;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale> = locale;
+
+        specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: void init()>();
+
+        return;
+    }
+
+    private void init()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$Rule[] $stack6, $stack8, $stack9, $stack10;
+        java.lang.Object[] $stack7;
+        org.apache.commons.lang3.time.FastDatePrinter$Rule $stack11;
+        java.util.List $stack4;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        int $stack5, $stack12, len, i, $i0;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.List parsePattern()>();
+
+        $stack5 = interfaceinvoke $stack4.<java.util.List: int size()>();
+
+        $stack6 = newarray (org.apache.commons.lang3.time.FastDatePrinter$Rule)[$stack5];
+
+        $stack7 = interfaceinvoke $stack4.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack6);
+
+        $stack8 = (org.apache.commons.lang3.time.FastDatePrinter$Rule[]) $stack7;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$Rule[] mRules> = $stack8;
+
+        len = 0;
+
+        $stack9 = this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$Rule[] mRules>;
+
+        i = lengthof $stack9;
+
+     label1:
+        $i0 = (int) -1;
+
+        i = i + $i0;
+
+        if i < 0 goto label2;
+
+        $stack10 = this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$Rule[] mRules>;
+
+        $stack11 = $stack10[i];
+
+        $stack12 = interfaceinvoke $stack11.<org.apache.commons.lang3.time.FastDatePrinter$Rule: int estimateLength()>();
+
+        len = len + $stack12;
+
+        goto label1;
+
+     label2:
+        this.<org.apache.commons.lang3.time.FastDatePrinter: int mMaxLengthEstimate> = len;
+
+        return;
+    }
+
+    protected java.util.List parsePattern()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TextField $u2, $u3, $u4, $u6, $u7;
+        org.apache.commons.lang3.time.FastDatePrinter$NumberRule $stack51, $stack53;
+        org.apache.commons.lang3.time.FastDatePrinter$Rule rule;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        int[] indexRef;
+        java.util.Locale $stack18, $stack33, $stack39;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule $u9, $u10;
+        java.util.TimeZone $stack34, $stack40;
+        java.lang.StringBuilder $stack75, $stack76, $u13;
+        java.lang.String[] $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack66;
+        org.apache.commons.lang3.time.FastDatePrinter$StringLiteral $u12;
+        java.util.ArrayList $u1;
+        int $stack27, $stack30, $stack69, i, $stack45, $i0;
+        org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField $u5;
+        org.apache.commons.lang3.time.FastDatePrinter$TwentyFourHourField $u8;
+        java.lang.String $stack26, $stack28, $stack29, $stack68, $stack77;
+        org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral $u11;
+        char $stack31, $stack72;
+        java.lang.IllegalArgumentException $u14;
+        java.text.DateFormatSymbols $u0;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $u0 = new java.text.DateFormatSymbols;
+
+        $stack18 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        specialinvoke $u0.<java.text.DateFormatSymbols: void <init>(java.util.Locale)>($stack18);
+
+        $u1 = new java.util.ArrayList;
+
+        specialinvoke $u1.<java.util.ArrayList: void <init>()>();
+
+        $stack20 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getEras()>();
+
+        $stack21 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getMonths()>();
+
+        $stack22 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getShortMonths()>();
+
+        $stack23 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getWeekdays()>();
+
+        $stack24 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getShortWeekdays()>();
+
+        $stack25 = virtualinvoke $u0.<java.text.DateFormatSymbols: java.lang.String[] getAmPmStrings()>();
+
+        $stack26 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack27 = virtualinvoke $stack26.<java.lang.String: int length()>();
+
+        indexRef = newarray (int)[1];
+
+        i = 0;
+
+     label01:
+        if i >= $stack27 goto label36;
+
+        indexRef[0] = i;
+
+        $stack28 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack29 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String parseToken(java.lang.String,int[])>($stack28, indexRef);
+
+        i = indexRef[0];
+
+        $stack30 = virtualinvoke $stack29.<java.lang.String: int length()>();
+
+        if $stack30 != 0 goto label02;
+
+        goto label36;
+
+     label02:
+        $stack31 = virtualinvoke $stack29.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack31;
+
+        tableswitch($i0)
+        {
+            case 39: goto label32;
+            case 40: goto label34;
+            case 41: goto label34;
+            case 42: goto label34;
+            case 43: goto label34;
+            case 44: goto label34;
+            case 45: goto label34;
+            case 46: goto label34;
+            case 47: goto label34;
+            case 48: goto label34;
+            case 49: goto label34;
+            case 50: goto label34;
+            case 51: goto label34;
+            case 52: goto label34;
+            case 53: goto label34;
+            case 54: goto label34;
+            case 55: goto label34;
+            case 56: goto label34;
+            case 57: goto label34;
+            case 58: goto label34;
+            case 59: goto label34;
+            case 60: goto label34;
+            case 61: goto label34;
+            case 62: goto label34;
+            case 63: goto label34;
+            case 64: goto label34;
+            case 65: goto label34;
+            case 66: goto label34;
+            case 67: goto label34;
+            case 68: goto label21;
+            case 69: goto label18;
+            case 70: goto label22;
+            case 71: goto label03;
+            case 72: goto label14;
+            case 73: goto label34;
+            case 74: goto label34;
+            case 75: goto label27;
+            case 76: goto label34;
+            case 77: goto label08;
+            case 78: goto label34;
+            case 79: goto label34;
+            case 80: goto label34;
+            case 81: goto label34;
+            case 82: goto label34;
+            case 83: goto label17;
+            case 84: goto label34;
+            case 85: goto label34;
+            case 86: goto label34;
+            case 87: goto label24;
+            case 88: goto label34;
+            case 89: goto label34;
+            case 90: goto label30;
+            case 91: goto label34;
+            case 92: goto label34;
+            case 93: goto label34;
+            case 94: goto label34;
+            case 95: goto label34;
+            case 96: goto label34;
+            case 97: goto label25;
+            case 98: goto label34;
+            case 99: goto label34;
+            case 100: goto label12;
+            case 101: goto label34;
+            case 102: goto label34;
+            case 103: goto label34;
+            case 104: goto label13;
+            case 105: goto label34;
+            case 106: goto label34;
+            case 107: goto label26;
+            case 108: goto label34;
+            case 109: goto label15;
+            case 110: goto label34;
+            case 111: goto label34;
+            case 112: goto label34;
+            case 113: goto label34;
+            case 114: goto label34;
+            case 115: goto label16;
+            case 116: goto label34;
+            case 117: goto label34;
+            case 118: goto label34;
+            case 119: goto label23;
+            case 120: goto label34;
+            case 121: goto label04;
+            case 122: goto label28;
+            default: goto label34;
+        };
+
+     label03:
+        $u2 = new org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        specialinvoke $u2.<org.apache.commons.lang3.time.FastDatePrinter$TextField: void <init>(int,java.lang.String[])>(0, $stack20);
+
+        rule = $u2;
+
+        goto label35;
+
+     label04:
+        if $stack30 != 2 goto label05;
+
+        rule = <org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField INSTANCE>;
+
+        goto label35;
+
+     label05:
+        if $stack30 >= 4 goto label06;
+
+        $stack45 = 4;
+
+        goto label07;
+
+     label06:
+        $stack45 = $stack30;
+
+     label07:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(1, $stack45);
+
+        goto label35;
+
+     label08:
+        if $stack30 < 4 goto label09;
+
+        $u3 = new org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        specialinvoke $u3.<org.apache.commons.lang3.time.FastDatePrinter$TextField: void <init>(int,java.lang.String[])>(2, $stack21);
+
+        rule = $u3;
+
+        goto label35;
+
+     label09:
+        if $stack30 != 3 goto label10;
+
+        $u4 = new org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        specialinvoke $u4.<org.apache.commons.lang3.time.FastDatePrinter$TextField: void <init>(int,java.lang.String[])>(2, $stack22);
+
+        rule = $u4;
+
+        goto label35;
+
+     label10:
+        if $stack30 != 2 goto label11;
+
+        rule = <org.apache.commons.lang3.time.FastDatePrinter$TwoDigitMonthField: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitMonthField INSTANCE>;
+
+        goto label35;
+
+     label11:
+        rule = <org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField INSTANCE>;
+
+        goto label35;
+
+     label12:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(5, $stack30);
+
+        goto label35;
+
+     label13:
+        $u5 = new org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField;
+
+        $stack53 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(10, $stack30);
+
+        specialinvoke $u5.<org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField: void <init>(org.apache.commons.lang3.time.FastDatePrinter$NumberRule)>($stack53);
+
+        rule = $u5;
+
+        goto label35;
+
+     label14:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(11, $stack30);
+
+        goto label35;
+
+     label15:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(12, $stack30);
+
+        goto label35;
+
+     label16:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(13, $stack30);
+
+        goto label35;
+
+     label17:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(14, $stack30);
+
+        goto label35;
+
+     label18:
+        $u6 = new org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        if $stack30 >= 4 goto label19;
+
+        $stack66 = $stack24;
+
+        goto label20;
+
+     label19:
+        $stack66 = $stack23;
+
+     label20:
+        specialinvoke $u6.<org.apache.commons.lang3.time.FastDatePrinter$TextField: void <init>(int,java.lang.String[])>(7, $stack66);
+
+        rule = $u6;
+
+        goto label35;
+
+     label21:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(6, $stack30);
+
+        goto label35;
+
+     label22:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(8, $stack30);
+
+        goto label35;
+
+     label23:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(3, $stack30);
+
+        goto label35;
+
+     label24:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(4, $stack30);
+
+        goto label35;
+
+     label25:
+        $u7 = new org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        specialinvoke $u7.<org.apache.commons.lang3.time.FastDatePrinter$TextField: void <init>(int,java.lang.String[])>(9, $stack25);
+
+        rule = $u7;
+
+        goto label35;
+
+     label26:
+        $u8 = new org.apache.commons.lang3.time.FastDatePrinter$TwentyFourHourField;
+
+        $stack51 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(11, $stack30);
+
+        specialinvoke $u8.<org.apache.commons.lang3.time.FastDatePrinter$TwentyFourHourField: void <init>(org.apache.commons.lang3.time.FastDatePrinter$NumberRule)>($stack51);
+
+        rule = $u8;
+
+        goto label35;
+
+     label27:
+        rule = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int,int)>(10, $stack30);
+
+        goto label35;
+
+     label28:
+        if $stack30 < 4 goto label29;
+
+        $u9 = new org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule;
+
+        $stack40 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack39 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        specialinvoke $u9.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: void <init>(java.util.TimeZone,java.util.Locale,int)>($stack40, $stack39, 1);
+
+        rule = $u9;
+
+        goto label35;
+
+     label29:
+        $u10 = new org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule;
+
+        $stack34 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack33 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        specialinvoke $u10.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: void <init>(java.util.TimeZone,java.util.Locale,int)>($stack34, $stack33, 0);
+
+        rule = $u10;
+
+        goto label35;
+
+     label30:
+        if $stack30 != 1 goto label31;
+
+        rule = <org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_NO_COLON>;
+
+        goto label35;
+
+     label31:
+        rule = <org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_COLON>;
+
+        goto label35;
+
+     label32:
+        $stack68 = virtualinvoke $stack29.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $stack69 = virtualinvoke $stack68.<java.lang.String: int length()>();
+
+        if $stack69 != 1 goto label33;
+
+        $u11 = new org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral;
+
+        $stack72 = virtualinvoke $stack68.<java.lang.String: char charAt(int)>(0);
+
+        specialinvoke $u11.<org.apache.commons.lang3.time.FastDatePrinter$CharacterLiteral: void <init>(char)>($stack72);
+
+        rule = $u11;
+
+        goto label35;
+
+     label33:
+        $u12 = new org.apache.commons.lang3.time.FastDatePrinter$StringLiteral;
+
+        specialinvoke $u12.<org.apache.commons.lang3.time.FastDatePrinter$StringLiteral: void <init>(java.lang.String)>($stack68);
+
+        rule = $u12;
+
+        goto label35;
+
+     label34:
+        $u14 = new java.lang.IllegalArgumentException;
+
+        $u13 = new java.lang.StringBuilder;
+
+        specialinvoke $u13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack75 = virtualinvoke $u13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Illegal pattern component: ");
+
+        $stack76 = virtualinvoke $stack75.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack77 = virtualinvoke $stack76.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack77);
+
+        throw $u14;
+
+     label35:
+        interfaceinvoke $u1.<java.util.List: boolean add(java.lang.Object)>(rule);
+
+        i = i + 1;
+
+        goto label01;
+
+     label36:
+        return $u1;
+    }
+
+    protected java.lang.String parseToken(java.lang.String, int[])
+    {
+        int[] indexRef;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        int $stack9, $stack25, $stack27, $stack36, i, $stack35, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12;
+        java.lang.String pattern, $stack12;
+        boolean peek, $stack26;
+        char $stack10, $stack13, $stack28, $stack37;
+        java.lang.StringBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        pattern := @parameter0: java.lang.String;
+
+        indexRef := @parameter1: int[];
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        i = indexRef[0];
+
+        $stack9 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        $stack10 = virtualinvoke pattern.<java.lang.String: char charAt(int)>(i);
+
+        $i0 = (int) $stack10;
+
+        if $i0 < 65 goto label01;
+
+        $i1 = (int) $stack10;
+
+        if $i1 <= 90 goto label02;
+
+     label01:
+        $i2 = (int) $stack10;
+
+        if $i2 < 97 goto label04;
+
+        $i3 = (int) $stack10;
+
+        if $i3 > 122 goto label04;
+
+     label02:
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack10);
+
+     label03:
+        $stack35 = i + 1;
+
+        if $stack35 >= $stack9 goto label14;
+
+        $stack36 = i + 1;
+
+        $stack37 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack36);
+
+        $i4 = (int) $stack37;
+
+        $i5 = (int) $stack10;
+
+        if $i4 != $i5 goto label14;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack10);
+
+        i = i + 1;
+
+        goto label03;
+
+     label04:
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        peek = 0;
+
+     label05:
+        if i >= $stack9 goto label14;
+
+        $stack13 = virtualinvoke pattern.<java.lang.String: char charAt(int)>(i);
+
+        $i6 = (int) $stack13;
+
+        if $i6 != 39 goto label09;
+
+        $stack25 = i + 1;
+
+        if $stack25 >= $stack9 goto label06;
+
+        $stack27 = i + 1;
+
+        $stack28 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack27);
+
+        $i7 = (int) $stack28;
+
+        if $i7 != 39 goto label06;
+
+        i = i + 1;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack13);
+
+        goto label13;
+
+     label06:
+        if peek != 0 goto label07;
+
+        $stack26 = 1;
+
+        goto label08;
+
+     label07:
+        $stack26 = 0;
+
+     label08:
+        peek = $stack26;
+
+        goto label13;
+
+     label09:
+        if peek != 0 goto label12;
+
+        $i8 = (int) $stack13;
+
+        if $i8 < 65 goto label10;
+
+        $i9 = (int) $stack13;
+
+        if $i9 <= 90 goto label11;
+
+     label10:
+        $i10 = (int) $stack13;
+
+        if $i10 < 97 goto label12;
+
+        $i11 = (int) $stack13;
+
+        if $i11 > 122 goto label12;
+
+     label11:
+        $i12 = (int) -1;
+
+        i = i + $i12;
+
+        goto label14;
+
+     label12:
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack13);
+
+     label13:
+        i = i + 1;
+
+        goto label05;
+
+     label14:
+        indexRef[0] = i;
+
+        $stack12 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack12;
+    }
+
+    protected org.apache.commons.lang3.time.FastDatePrinter$NumberRule selectNumberRule(int, int)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField $stack4;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        int padding, field;
+        org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField $stack5;
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        field := @parameter0: int;
+
+        padding := @parameter1: int;
+
+        lookupswitch(padding)
+        {
+            case 1: goto label1;
+            case 2: goto label2;
+            default: goto label3;
+        };
+
+     label1:
+        $stack4 = new org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.time.FastDatePrinter$UnpaddedNumberField: void <init>(int)>(field);
+
+        return $stack4;
+
+     label2:
+        $stack3 = new org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter$TwoDigitNumberField: void <init>(int)>(field);
+
+        return $stack3;
+
+     label3:
+        $stack5 = new org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: void <init>(int,int)>(field, padding);
+
+        return $stack5;
+    }
+
+    public java.lang.StringBuffer format(java.lang.Object, java.lang.StringBuffer, java.text.FieldPosition)
+    {
+        java.util.Date $stack19;
+        long $stack15;
+        java.util.Calendar $stack17;
+        java.text.FieldPosition pos;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.lang.Long $stack14;
+        java.lang.StringBuffer toAppendTo, $stack16, $stack18, $stack20;
+        java.lang.String $stack13, $stack11;
+        boolean $stack4, $stack5, $stack6;
+        java.lang.IllegalArgumentException $stack7;
+        java.lang.Object obj;
+        java.lang.StringBuilder $stack8, $stack9, $stack12;
+        java.lang.Class $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        obj := @parameter0: java.lang.Object;
+
+        toAppendTo := @parameter1: java.lang.StringBuffer;
+
+        pos := @parameter2: java.text.FieldPosition;
+
+        $stack4 = obj instanceof java.util.Date;
+
+        if $stack4 == 0 goto label1;
+
+        $stack19 = (java.util.Date) obj;
+
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Date,java.lang.StringBuffer)>($stack19, toAppendTo);
+
+        return $stack20;
+
+     label1:
+        $stack5 = obj instanceof java.util.Calendar;
+
+        if $stack5 == 0 goto label2;
+
+        $stack17 = (java.util.Calendar) obj;
+
+        $stack18 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Calendar,java.lang.StringBuffer)>($stack17, toAppendTo);
+
+        return $stack18;
+
+     label2:
+        $stack6 = obj instanceof java.lang.Long;
+
+        if $stack6 == 0 goto label3;
+
+        $stack14 = (java.lang.Long) obj;
+
+        $stack15 = virtualinvoke $stack14.<java.lang.Long: long longValue()>();
+
+        $stack16 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(long,java.lang.StringBuffer)>($stack15, toAppendTo);
+
+        return $stack16;
+
+     label3:
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unknown class: ");
+
+        if obj != null goto label4;
+
+        $stack11 = "<null>";
+
+        goto label5;
+
+     label4:
+        $stack10 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: java.lang.String getName()>();
+
+     label5:
+        $stack12 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack11);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack13);
+
+        throw $stack7;
+    }
+
+    public java.lang.String format(long)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Date $stack3;
+        long millis;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        millis := @parameter0: long;
+
+        $stack3 = new java.util.Date;
+
+        specialinvoke $stack3.<java.util.Date: void <init>(long)>(millis);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String format(java.util.Date)>($stack3);
+
+        return $stack4;
+    }
+
+    public java.lang.String format(java.util.Date)
+    {
+        java.util.GregorianCalendar $stack3;
+        java.util.TimeZone $stack5;
+        java.util.Date date;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Locale $stack4;
+        java.lang.StringBuffer $stack6, $stack8;
+        int $stack7;
+        java.lang.String $stack9;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        date := @parameter0: java.util.Date;
+
+        $stack3 = new java.util.GregorianCalendar;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        specialinvoke $stack3.<java.util.GregorianCalendar: void <init>(java.util.TimeZone,java.util.Locale)>($stack5, $stack4);
+
+        virtualinvoke $stack3.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        $stack6 = new java.lang.StringBuffer;
+
+        $stack7 = this.<org.apache.commons.lang3.time.FastDatePrinter: int mMaxLengthEstimate>;
+
+        specialinvoke $stack6.<java.lang.StringBuffer: void <init>(int)>($stack7);
+
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer applyRules(java.util.Calendar,java.lang.StringBuffer)>($stack3, $stack6);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $stack9;
+    }
+
+    public java.lang.String format(java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.lang.StringBuffer $stack2, $stack4;
+        int $stack3;
+        java.lang.String $stack5;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        $stack2 = new java.lang.StringBuffer;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter: int mMaxLengthEstimate>;
+
+        specialinvoke $stack2.<java.lang.StringBuffer: void <init>(int)>($stack3);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Calendar,java.lang.StringBuffer)>(calendar, $stack2);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $stack5;
+    }
+
+    public java.lang.StringBuffer format(long, java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Date $stack4;
+        java.lang.StringBuffer buf, $stack5;
+        long millis;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        millis := @parameter0: long;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack4 = new java.util.Date;
+
+        specialinvoke $stack4.<java.util.Date: void <init>(long)>(millis);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Date,java.lang.StringBuffer)>($stack4, buf);
+
+        return $stack5;
+    }
+
+    public java.lang.StringBuffer format(java.util.Date, java.lang.StringBuffer)
+    {
+        java.util.GregorianCalendar $stack4;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Locale $stack5;
+        java.util.TimeZone $stack6;
+        java.util.Date date;
+        java.lang.StringBuffer buf, $stack7;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        date := @parameter0: java.util.Date;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack4 = new java.util.GregorianCalendar;
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        specialinvoke $stack4.<java.util.GregorianCalendar: void <init>(java.util.TimeZone,java.util.Locale)>($stack6, $stack5);
+
+        virtualinvoke $stack4.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer applyRules(java.util.Calendar,java.lang.StringBuffer)>($stack4, buf);
+
+        return $stack7;
+    }
+
+    public java.lang.StringBuffer format(java.util.Calendar, java.lang.StringBuffer)
+    {
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.lang.StringBuffer buf, $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer applyRules(java.util.Calendar,java.lang.StringBuffer)>(calendar, buf);
+
+        return $stack3;
+    }
+
+    protected java.lang.StringBuffer applyRules(java.util.Calendar, java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$Rule[] arr$;
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.lang.StringBuffer buf;
+        int len$, i$;
+        org.apache.commons.lang3.time.FastDatePrinter$Rule rule;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        arr$ = this.<org.apache.commons.lang3.time.FastDatePrinter: org.apache.commons.lang3.time.FastDatePrinter$Rule[] mRules>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        rule = arr$[i$];
+
+        interfaceinvoke rule.<org.apache.commons.lang3.time.FastDatePrinter$Rule: void appendTo(java.lang.StringBuffer,java.util.Calendar)>(buf, calendar);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return buf;
+    }
+
+    public java.lang.String getPattern()
+    {
+        java.lang.String $stack1;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        return $stack1;
+    }
+
+    public java.util.TimeZone getTimeZone()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.TimeZone $stack1;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        return $stack1;
+    }
+
+    public java.util.Locale getLocale()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Locale $stack1;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        return $stack1;
+    }
+
+    public int getMaxLengthEstimate()
+    {
+        int $stack1;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter: int mMaxLengthEstimate>;
+
+        return $stack1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.util.TimeZone $stack7, $stack8;
+        org.apache.commons.lang3.time.FastDatePrinter other, this;
+        java.util.Locale $stack11, $stack12;
+        java.lang.Object obj;
+        java.lang.String $stack4, $stack5;
+        boolean $stack3, $stack6, $stack9, $stack13, $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack3 = obj instanceof org.apache.commons.lang3.time.FastDatePrinter;
+
+        if $stack3 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        other = (org.apache.commons.lang3.time.FastDatePrinter) obj;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack4 = other.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack6 = virtualinvoke $stack5.<java.lang.String: boolean equals(java.lang.Object)>($stack4);
+
+        if $stack6 == 0 goto label2;
+
+        $stack8 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack7 = other.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Object: boolean equals(java.lang.Object)>($stack7);
+
+        if $stack9 == 0 goto label2;
+
+        $stack12 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        $stack11 = other.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        $stack13 = virtualinvoke $stack12.<java.util.Locale: boolean equals(java.lang.Object)>($stack11);
+
+        if $stack13 == 0 goto label2;
+
+        $stack10 = 1;
+
+        goto label3;
+
+     label2:
+        $stack10 = 0;
+
+     label3:
+        return $stack10;
+    }
+
+    public int hashCode()
+    {
+        java.util.TimeZone $stack3;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Locale $stack6;
+        int $stack2, $stack5, $stack8, $stack9, $stack10, $stack11, $stack12;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.String: int hashCode()>();
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack5 = virtualinvoke $stack3.<java.lang.Object: int hashCode()>();
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        $stack8 = virtualinvoke $stack6.<java.util.Locale: int hashCode()>();
+
+        $stack9 = 13 * $stack8;
+
+        $stack10 = $stack5 + $stack9;
+
+        $stack11 = 13 * $stack10;
+
+        $stack12 = $stack2 + $stack11;
+
+        return $stack12;
+    }
+
+    public java.lang.String toString()
+    {
+        java.util.TimeZone $stack9;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+        java.util.Locale $stack6;
+        java.lang.StringBuilder $stack1, $stack2, $stack4, $stack5, $stack7, $stack8, $stack11, $stack12;
+        java.lang.String $stack3, $stack10, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("FastDatePrinter[");
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String mPattern>;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale mLocale>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $stack9 = this.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone mTimeZone>;
+
+        $stack10 = virtualinvoke $stack9.<java.util.TimeZone: java.lang.String getID()>();
+
+        $stack11 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack13;
+    }
+
+    private void readObject(java.io.ObjectInputStream) throws java.io.IOException, java.lang.ClassNotFoundException
+    {
+        java.io.ObjectInputStream in;
+        org.apache.commons.lang3.time.FastDatePrinter this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter;
+
+        in := @parameter0: java.io.ObjectInputStream;
+
+        virtualinvoke in.<java.io.ObjectInputStream: void defaultReadObject()>();
+
+        specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinter: void init()>();
+
+        return;
+    }
+
+    static java.lang.String getTimeZoneDisplay(java.util.TimeZone, boolean, int, java.util.Locale)
+    {
+        java.util.TimeZone tz;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey $stack7;
+        java.util.concurrent.ConcurrentMap $stack8, $stack11;
+        java.util.Locale locale;
+        int style;
+        java.lang.Object $stack9, $stack12;
+        java.lang.String $stack10, prior, value;
+        boolean daylight;
+
+        tz := @parameter0: java.util.TimeZone;
+
+        daylight := @parameter1: boolean;
+
+        style := @parameter2: int;
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack7 = new org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneDisplayKey: void <init>(java.util.TimeZone,boolean,int,java.util.Locale)>(tz, daylight, style, locale);
+
+        $stack8 = <org.apache.commons.lang3.time.FastDatePrinter: java.util.concurrent.ConcurrentMap cTimeZoneDisplayCache>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>($stack7);
+
+        value = (java.lang.String) $stack9;
+
+        if value != null goto label1;
+
+        $stack10 = virtualinvoke tz.<java.util.TimeZone: java.lang.String getDisplayName(boolean,int,java.util.Locale)>(daylight, style, locale);
+
+        value = $stack10;
+
+        $stack11 = <org.apache.commons.lang3.time.FastDatePrinter: java.util.concurrent.ConcurrentMap cTimeZoneDisplayCache>;
+
+        $stack12 = interfaceinvoke $stack11.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>($stack7, $stack10);
+
+        prior = (java.lang.String) $stack12;
+
+        if prior == null goto label1;
+
+        value = prior;
+
+     label1:
+        return value;
+    }
+
+    static void <clinit>()
+    {
+        java.util.concurrent.ConcurrentHashMap $stack0;
+
+        <org.apache.commons.lang3.time.FastDatePrinter: int SHORT> = 3;
+
+        <org.apache.commons.lang3.time.FastDatePrinter: int MEDIUM> = 2;
+
+        <org.apache.commons.lang3.time.FastDatePrinter: int LONG> = 1;
+
+        <org.apache.commons.lang3.time.FastDatePrinter: int FULL> = 0;
+
+        <org.apache.commons.lang3.time.FastDatePrinter: long serialVersionUID> = 1L;
+
+        $stack0 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack0.<java.util.concurrent.ConcurrentHashMap: void <init>(int)>(7);
+
+        <org.apache.commons.lang3.time.FastDatePrinter: java.util.concurrent.ConcurrentMap cTimeZoneDisplayCache> = $stack0;
+
+        return;
+    }
+}

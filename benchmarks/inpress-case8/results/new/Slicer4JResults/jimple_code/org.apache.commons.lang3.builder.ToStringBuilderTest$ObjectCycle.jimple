@@ -1,0 +1,37 @@
+class org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle extends java.lang.Object
+{
+    java.lang.Object obj;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle this;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle this;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack1, $stack3;
+        java.lang.Object $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle;
+
+        $stack1 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>(this);
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ToStringBuilderTest$ObjectCycle: java.lang.Object obj>;
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        return $stack4;
+    }
+}

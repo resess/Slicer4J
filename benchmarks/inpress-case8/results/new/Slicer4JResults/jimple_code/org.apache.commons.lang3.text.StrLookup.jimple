@@ -1,0 +1,88 @@
+public abstract class org.apache.commons.lang3.text.StrLookup extends java.lang.Object
+{
+    private static final org.apache.commons.lang3.text.StrLookup NONE_LOOKUP;
+    private static final org.apache.commons.lang3.text.StrLookup SYSTEM_PROPERTIES_LOOKUP;
+
+    public static org.apache.commons.lang3.text.StrLookup noneLookup()
+    {
+        org.apache.commons.lang3.text.StrLookup $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup NONE_LOOKUP>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()
+    {
+        org.apache.commons.lang3.text.StrLookup $stack0;
+
+        $stack0 = <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup SYSTEM_PROPERTIES_LOOKUP>;
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)
+    {
+        org.apache.commons.lang3.text.StrLookup$MapStrLookup $stack1;
+        java.util.Map map;
+
+        map := @parameter0: java.util.Map;
+
+        $stack1 = new org.apache.commons.lang3.text.StrLookup$MapStrLookup;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: void <init>(java.util.Map)>(map);
+
+        return $stack1;
+    }
+
+    protected void <init>()
+    {
+        org.apache.commons.lang3.text.StrLookup this;
+
+        this := @this: org.apache.commons.lang3.text.StrLookup;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public abstract java.lang.String lookup(java.lang.String);
+
+    static void <clinit>()
+    {
+        java.util.Properties $stack4;
+        org.apache.commons.lang3.text.StrLookup$MapStrLookup $stack3, $stack5;
+        java.lang.SecurityException $stack6;
+        org.apache.commons.lang3.text.StrLookup lookup;
+
+        $stack3 = new org.apache.commons.lang3.text.StrLookup$MapStrLookup;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: void <init>(java.util.Map)>(null);
+
+        <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup NONE_LOOKUP> = $stack3;
+
+     label1:
+        $stack4 = staticinvoke <java.lang.System: java.util.Properties getProperties()>();
+
+        $stack5 = new org.apache.commons.lang3.text.StrLookup$MapStrLookup;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: void <init>(java.util.Map)>($stack4);
+
+        lookup = $stack5;
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        lookup = <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup NONE_LOOKUP>;
+
+     label4:
+        <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup SYSTEM_PROPERTIES_LOOKUP> = lookup;
+
+        return;
+
+        catch java.lang.SecurityException from label1 to label2 with label3;
+    }
+}

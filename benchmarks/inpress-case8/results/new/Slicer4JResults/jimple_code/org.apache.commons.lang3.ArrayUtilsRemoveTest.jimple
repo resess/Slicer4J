@@ -1,0 +1,2531 @@
+public class org.apache.commons.lang3.ArrayUtilsRemoveTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testRemoveObjectArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Object[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        int $i0;
+        java.lang.Class $stack8, $stack9, $stack15, $stack16, $stack22, $stack23, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = "a";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack9);
+
+        $stack10 = newarray (java.lang.Object)[2];
+
+        $stack10[0] = "a";
+
+        $stack10[1] = "b";
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack10, 0);
+
+        $stack12 = newarray (java.lang.Object)[1];
+
+        $stack12[0] = "b";
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack16);
+
+        $stack17 = newarray (java.lang.Object)[2];
+
+        $stack17[0] = "a";
+
+        $stack17[1] = "b";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack17, 1);
+
+        $stack19 = newarray (java.lang.Object)[1];
+
+        $stack19[0] = "a";
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack23);
+
+        $stack24 = newarray (java.lang.Object)[3];
+
+        $stack24[0] = "a";
+
+        $stack24[1] = "b";
+
+        $stack24[2] = "c";
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack24, 1);
+
+        $stack26 = newarray (java.lang.Object)[2];
+
+        $stack26[0] = "a";
+
+        $stack26[1] = "c";
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack30);
+
+     label01:
+        $stack31 = newarray (java.lang.Object)[2];
+
+        $stack31[0] = "a";
+
+        $stack31[1] = "b";
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (java.lang.Object)[2];
+
+        $stack33[0] = "a";
+
+        $stack33[1] = "b";
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (java.lang.Object[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveNumberArray()
+    {
+        java.lang.Object[] $stack12, $stack18, $stack24;
+        long $stack11, $stack14, $stack20, $stack26;
+        java.lang.Integer $stack5;
+        java.lang.Long $stack7;
+        int $stack10, $stack13, $stack19, $stack25;
+        java.lang.Byte $stack9;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Number[] $stack3, outarray;
+        java.lang.Class $stack16, $stack17, $stack22, $stack23, $stack28, $stack29;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (java.lang.Number)[3];
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack3[0] = $stack5;
+
+        $stack7 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(2L);
+
+        $stack3[1] = $stack7;
+
+        $stack9 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(3);
+
+        $stack3[2] = $stack9;
+
+        $stack10 = lengthof $stack3;
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>($stack3, 1);
+
+        outarray = (java.lang.Number[]) $stack12;
+
+        $stack13 = lengthof outarray;
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack14);
+
+        $stack16 = virtualinvoke outarray.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Number;", $stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>(outarray, 1);
+
+        outarray = (java.lang.Number[]) $stack18;
+
+        $stack19 = lengthof outarray;
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack20);
+
+        $stack22 = virtualinvoke outarray.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Number;", $stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] remove(java.lang.Object[],int)>(outarray, 0);
+
+        outarray = (java.lang.Number[]) $stack24;
+
+        $stack25 = lengthof outarray;
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack26);
+
+        $stack28 = virtualinvoke outarray.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack29 = virtualinvoke $stack28.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Number;", $stack29);
+
+        return;
+    }
+
+    public void testRemoveBooleanArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        int $i0;
+        boolean[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (boolean)[1];
+
+        $stack3[0] = 1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: boolean[] EMPTY_BOOLEAN_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (boolean)[2];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 0;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack10, 0);
+
+        $stack12 = newarray (boolean)[1];
+
+        $stack12[0] = 0;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (boolean)[2];
+
+        $stack17[0] = 1;
+
+        $stack17[1] = 0;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack17, 1);
+
+        $stack19 = newarray (boolean)[1];
+
+        $stack19[0] = 1;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (boolean)[3];
+
+        $stack24[0] = 1;
+
+        $stack24[1] = 0;
+
+        $stack24[2] = 1;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack24, 1);
+
+        $stack26 = newarray (boolean)[2];
+
+        $stack26[0] = 1;
+
+        $stack26[1] = 1;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (boolean)[2];
+
+        $stack31[0] = 1;
+
+        $stack31[1] = 0;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (boolean)[2];
+
+        $stack33[0] = 1;
+
+        $stack33[1] = 0;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] remove(boolean[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveByteArray()
+    {
+        byte[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (byte)[1];
+
+        $stack3[0] = 1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: byte[] EMPTY_BYTE_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (byte)[2];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 2;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack10, 0);
+
+        $stack12 = newarray (byte)[1];
+
+        $stack12[0] = 2;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (byte)[2];
+
+        $stack17[0] = 1;
+
+        $stack17[1] = 2;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack17, 1);
+
+        $stack19 = newarray (byte)[1];
+
+        $stack19[0] = 1;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (byte)[3];
+
+        $stack24[0] = 1;
+
+        $stack24[1] = 2;
+
+        $stack24[2] = 1;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack24, 1);
+
+        $stack26 = newarray (byte)[2];
+
+        $stack26[0] = 1;
+
+        $stack26[1] = 1;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (byte)[2];
+
+        $stack31[0] = 1;
+
+        $stack31[1] = 2;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (byte)[2];
+
+        $stack33[0] = 1;
+
+        $stack33[1] = 2;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (byte[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] remove(byte[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveCharArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        int $i0;
+        char[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (char)[1];
+
+        $stack3[0] = 97;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (char)[2];
+
+        $stack10[0] = 97;
+
+        $stack10[1] = 98;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack10, 0);
+
+        $stack12 = newarray (char)[1];
+
+        $stack12[0] = 98;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (char)[2];
+
+        $stack17[0] = 97;
+
+        $stack17[1] = 98;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack17, 1);
+
+        $stack19 = newarray (char)[1];
+
+        $stack19[0] = 97;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (char)[3];
+
+        $stack24[0] = 97;
+
+        $stack24[1] = 98;
+
+        $stack24[2] = 99;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack24, 1);
+
+        $stack26 = newarray (char)[2];
+
+        $stack26[0] = 97;
+
+        $stack26[1] = 99;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (char)[2];
+
+        $stack31[0] = 97;
+
+        $stack31[1] = 98;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (char)[2];
+
+        $stack33[0] = 97;
+
+        $stack33[1] = 98;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (char[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] remove(char[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveDoubleArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        double[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (double)[1];
+
+        $stack3[0] = 1.0;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: double[] EMPTY_DOUBLE_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (double)[2];
+
+        $stack10[0] = 1.0;
+
+        $stack10[1] = 2.0;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack10, 0);
+
+        $stack12 = newarray (double)[1];
+
+        $stack12[0] = 2.0;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (double)[2];
+
+        $stack17[0] = 1.0;
+
+        $stack17[1] = 2.0;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack17, 1);
+
+        $stack19 = newarray (double)[1];
+
+        $stack19[0] = 1.0;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (double)[3];
+
+        $stack24[0] = 1.0;
+
+        $stack24[1] = 2.0;
+
+        $stack24[2] = 1.0;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack24, 1);
+
+        $stack26 = newarray (double)[2];
+
+        $stack26[0] = 1.0;
+
+        $stack26[1] = 1.0;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (double)[2];
+
+        $stack31[0] = 1.0;
+
+        $stack31[1] = 2.0;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (double)[2];
+
+        $stack33[0] = 1.0;
+
+        $stack33[1] = 2.0;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (double[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] remove(double[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveFloatArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        float[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (float)[1];
+
+        $stack3[0] = 1.0F;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: float[] EMPTY_FLOAT_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (float)[2];
+
+        $stack10[0] = 1.0F;
+
+        $stack10[1] = 2.0F;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack10, 0);
+
+        $stack12 = newarray (float)[1];
+
+        $stack12[0] = 2.0F;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (float)[2];
+
+        $stack17[0] = 1.0F;
+
+        $stack17[1] = 2.0F;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack17, 1);
+
+        $stack19 = newarray (float)[1];
+
+        $stack19[0] = 1.0F;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (float)[3];
+
+        $stack24[0] = 1.0F;
+
+        $stack24[1] = 2.0F;
+
+        $stack24[2] = 1.0F;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack24, 1);
+
+        $stack26 = newarray (float)[2];
+
+        $stack26[0] = 1.0F;
+
+        $stack26[1] = 1.0F;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (float)[2];
+
+        $stack31[0] = 1.0F;
+
+        $stack31[1] = 2.0F;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (float)[2];
+
+        $stack33[0] = 1.0F;
+
+        $stack33[1] = 2.0F;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (float[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] remove(float[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveIntArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        int[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (int)[1];
+
+        $stack3[0] = 1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: int[] EMPTY_INT_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (int)[2];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 2;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack10, 0);
+
+        $stack12 = newarray (int)[1];
+
+        $stack12[0] = 2;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (int)[2];
+
+        $stack17[0] = 1;
+
+        $stack17[1] = 2;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack17, 1);
+
+        $stack19 = newarray (int)[1];
+
+        $stack19[0] = 1;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (int)[3];
+
+        $stack24[0] = 1;
+
+        $stack24[1] = 2;
+
+        $stack24[2] = 1;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack24, 1);
+
+        $stack26 = newarray (int)[2];
+
+        $stack26[0] = 1;
+
+        $stack26[1] = 1;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (int)[2];
+
+        $stack31[0] = 1;
+
+        $stack31[1] = 2;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (int)[2];
+
+        $stack33[0] = 1;
+
+        $stack33[1] = 2;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (int[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] remove(int[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveLongArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        long[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (long)[1];
+
+        $stack3[0] = 1L;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: long[] EMPTY_LONG_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (long)[2];
+
+        $stack10[0] = 1L;
+
+        $stack10[1] = 2L;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack10, 0);
+
+        $stack12 = newarray (long)[1];
+
+        $stack12[0] = 2L;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (long)[2];
+
+        $stack17[0] = 1L;
+
+        $stack17[1] = 2L;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack17, 1);
+
+        $stack19 = newarray (long)[1];
+
+        $stack19[0] = 1L;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (long)[3];
+
+        $stack24[0] = 1L;
+
+        $stack24[1] = 2L;
+
+        $stack24[2] = 1L;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack24, 1);
+
+        $stack26 = newarray (long)[2];
+
+        $stack26[0] = 1L;
+
+        $stack26[1] = 1L;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (long)[2];
+
+        $stack31[0] = 1L;
+
+        $stack31[1] = 2L;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (long)[2];
+
+        $stack33[0] = 1L;
+
+        $stack33[1] = 2L;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (long[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] remove(long[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveShortArray()
+    {
+        java.lang.IndexOutOfBoundsException $stack37, $stack38, $stack42;
+        boolean $stack6, $stack13, $stack20, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        short[] $stack3, $stack4, $stack5, $stack10, $stack11, $stack12, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack31, $stack33, $stack35;
+        int $i0;
+        java.lang.Class $stack7, $stack8, $stack9, $stack14, $stack15, $stack16, $stack21, $stack22, $stack23, $stack28, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack3 = newarray (short)[1];
+
+        $stack3[0] = 1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack3, 0);
+
+        $stack5 = <org.apache.commons.lang3.ArrayUtils: short[] EMPTY_SHORT_ARRAY>;
+
+        $stack6 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack5, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = newarray (short)[2];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 2;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack10, 0);
+
+        $stack12 = newarray (short)[1];
+
+        $stack12[0] = 2;
+
+        $stack13 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack17 = newarray (short)[2];
+
+        $stack17[0] = 1;
+
+        $stack17[1] = 2;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack17, 1);
+
+        $stack19 = newarray (short)[1];
+
+        $stack19[0] = 1;
+
+        $stack20 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack19, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack23);
+
+        $stack24 = newarray (short)[3];
+
+        $stack24[0] = 1;
+
+        $stack24[1] = 2;
+
+        $stack24[2] = 1;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack24, 1);
+
+        $stack26 = newarray (short)[2];
+
+        $stack26[0] = 1;
+
+        $stack26[1] = 1;
+
+        $stack27 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack26, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack29 = virtualinvoke $stack25.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+     label01:
+        $stack31 = newarray (short)[2];
+
+        $stack31[0] = 1;
+
+        $stack31[1] = 2;
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack31, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack42 := @caughtexception;
+
+     label04:
+        $stack33 = newarray (short)[2];
+
+        $stack33[0] = 1;
+
+        $stack33[1] = 2;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack33, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack38 := @caughtexception;
+
+     label07:
+        $stack35 = (short[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] remove(short[],int)>($stack35, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IndexOutOfBoundsException expected");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack37 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+    }
+
+    public void testRemoveElementObjectArray()
+    {
+        java.lang.Object[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack9, $stack10, $stack16, $stack17, $stack23, $stack24, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (java.lang.Object[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] removeElement(java.lang.Object[],java.lang.Object)>($stack2, "a");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] removeElement(java.lang.Object[],java.lang.Object)>($stack4, "a");
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack10);
+
+        $stack11 = newarray (java.lang.Object)[1];
+
+        $stack11[0] = "a";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] removeElement(java.lang.Object[],java.lang.Object)>($stack11, "a");
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] EMPTY_OBJECT_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack17);
+
+        $stack18 = newarray (java.lang.Object)[2];
+
+        $stack18[0] = "a";
+
+        $stack18[1] = "b";
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] removeElement(java.lang.Object[],java.lang.Object)>($stack18, "a");
+
+        $stack20 = newarray (java.lang.Object)[1];
+
+        $stack20[0] = "b";
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack24);
+
+        $stack25 = newarray (java.lang.Object)[3];
+
+        $stack25[0] = "a";
+
+        $stack25[1] = "b";
+
+        $stack25[2] = "a";
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] removeElement(java.lang.Object[],java.lang.Object)>($stack25, "a");
+
+        $stack27 = newarray (java.lang.Object)[2];
+
+        $stack27[0] = "b";
+
+        $stack27[1] = "a";
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/lang/Object;", $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementBooleanArray()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28;
+        boolean[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (boolean[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] removeElement(boolean[],boolean)>($stack2, 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: boolean[] EMPTY_BOOLEAN_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] removeElement(boolean[],boolean)>($stack4, 1);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: boolean[] EMPTY_BOOLEAN_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (boolean)[1];
+
+        $stack11[0] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] removeElement(boolean[],boolean)>($stack11, 1);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: boolean[] EMPTY_BOOLEAN_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (boolean)[2];
+
+        $stack18[0] = 1;
+
+        $stack18[1] = 0;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] removeElement(boolean[],boolean)>($stack18, 1);
+
+        $stack20 = newarray (boolean)[1];
+
+        $stack20[0] = 0;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (boolean)[3];
+
+        $stack25[0] = 1;
+
+        $stack25[1] = 0;
+
+        $stack25[2] = 1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] removeElement(boolean[],boolean)>($stack25, 1);
+
+        $stack27 = newarray (boolean)[2];
+
+        $stack27[0] = 0;
+
+        $stack27[1] = 1;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(boolean[],boolean[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementByteArray()
+    {
+        byte[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (byte[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] removeElement(byte[],byte)>($stack2, 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: byte[] EMPTY_BYTE_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] removeElement(byte[],byte)>($stack4, 1);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: byte[] EMPTY_BYTE_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (byte)[1];
+
+        $stack11[0] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] removeElement(byte[],byte)>($stack11, 1);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: byte[] EMPTY_BYTE_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (byte)[2];
+
+        $stack18[0] = 1;
+
+        $stack18[1] = 2;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] removeElement(byte[],byte)>($stack18, 1);
+
+        $stack20 = newarray (byte)[1];
+
+        $stack20[0] = 2;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (byte)[3];
+
+        $stack25[0] = 1;
+
+        $stack25[1] = 2;
+
+        $stack25[2] = 1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: byte[] removeElement(byte[],byte)>($stack25, 1);
+
+        $stack27 = newarray (byte)[2];
+
+        $stack27[0] = 2;
+
+        $stack27[1] = 1;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(byte[],byte[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementCharArray()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        char[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (char[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] removeElement(char[],char)>($stack2, 97);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] removeElement(char[],char)>($stack4, 97);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (char)[1];
+
+        $stack11[0] = 97;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] removeElement(char[],char)>($stack11, 97);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (char)[2];
+
+        $stack18[0] = 97;
+
+        $stack18[1] = 98;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] removeElement(char[],char)>($stack18, 97);
+
+        $stack20 = newarray (char)[1];
+
+        $stack20[0] = 98;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (char)[3];
+
+        $stack25[0] = 97;
+
+        $stack25[1] = 98;
+
+        $stack25[2] = 97;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] removeElement(char[],char)>($stack25, 97);
+
+        $stack27 = newarray (char)[2];
+
+        $stack27[0] = 98;
+
+        $stack27[1] = 97;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(char[],char[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementDoubleArray()
+    {
+        double[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (double[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] removeElement(double[],double)>($stack2, 1.0);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: double[] EMPTY_DOUBLE_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] removeElement(double[],double)>($stack4, 1.0);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: double[] EMPTY_DOUBLE_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (double)[1];
+
+        $stack11[0] = 1.0;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] removeElement(double[],double)>($stack11, 1.0);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: double[] EMPTY_DOUBLE_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (double)[2];
+
+        $stack18[0] = 1.0;
+
+        $stack18[1] = 2.0;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] removeElement(double[],double)>($stack18, 1.0);
+
+        $stack20 = newarray (double)[1];
+
+        $stack20[0] = 2.0;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (double)[3];
+
+        $stack25[0] = 1.0;
+
+        $stack25[1] = 2.0;
+
+        $stack25[2] = 1.0;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: double[] removeElement(double[],double)>($stack25, 1.0);
+
+        $stack27 = newarray (double)[2];
+
+        $stack27[0] = 2.0;
+
+        $stack27[1] = 1.0;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(double[],double[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementFloatArray()
+    {
+        float[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (float[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] removeElement(float[],float)>($stack2, 1.0F);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: float[] EMPTY_FLOAT_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] removeElement(float[],float)>($stack4, 1.0F);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: float[] EMPTY_FLOAT_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (float)[1];
+
+        $stack11[0] = 1.0F;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] removeElement(float[],float)>($stack11, 1.0F);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: float[] EMPTY_FLOAT_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (float)[2];
+
+        $stack18[0] = 1.0F;
+
+        $stack18[1] = 2.0F;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] removeElement(float[],float)>($stack18, 1.0F);
+
+        $stack20 = newarray (float)[1];
+
+        $stack20[0] = 2.0F;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (float)[3];
+
+        $stack25[0] = 1.0F;
+
+        $stack25[1] = 2.0F;
+
+        $stack25[2] = 1.0F;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: float[] removeElement(float[],float)>($stack25, 1.0F);
+
+        $stack27 = newarray (float)[2];
+
+        $stack27[0] = 2.0F;
+
+        $stack27[1] = 1.0F;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(float[],float[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementIntArray()
+    {
+        int[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (int[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] removeElement(int[],int)>($stack2, 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: int[] EMPTY_INT_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] removeElement(int[],int)>($stack4, 1);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: int[] EMPTY_INT_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (int)[1];
+
+        $stack11[0] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] removeElement(int[],int)>($stack11, 1);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: int[] EMPTY_INT_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (int)[2];
+
+        $stack18[0] = 1;
+
+        $stack18[1] = 2;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] removeElement(int[],int)>($stack18, 1);
+
+        $stack20 = newarray (int)[1];
+
+        $stack20[0] = 2;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (int)[3];
+
+        $stack25[0] = 1;
+
+        $stack25[1] = 2;
+
+        $stack25[2] = 1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: int[] removeElement(int[],int)>($stack25, 1);
+
+        $stack27 = newarray (int)[2];
+
+        $stack27[0] = 2;
+
+        $stack27[1] = 1;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementLongArray()
+    {
+        long[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (long[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] removeElement(long[],long)>($stack2, 1L);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: long[] EMPTY_LONG_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] removeElement(long[],long)>($stack4, 1L);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: long[] EMPTY_LONG_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (long)[1];
+
+        $stack11[0] = 1L;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] removeElement(long[],long)>($stack11, 1L);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: long[] EMPTY_LONG_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (long)[2];
+
+        $stack18[0] = 1L;
+
+        $stack18[1] = 2L;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] removeElement(long[],long)>($stack18, 1L);
+
+        $stack20 = newarray (long)[1];
+
+        $stack20[0] = 2L;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (long)[3];
+
+        $stack25[0] = 1L;
+
+        $stack25[1] = 2L;
+
+        $stack25[2] = 1L;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] removeElement(long[],long)>($stack25, 1L);
+
+        $stack27 = newarray (long)[2];
+
+        $stack27[0] = 2L;
+
+        $stack27[1] = 1L;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(long[],long[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+
+    public void testRemoveElementShortArray()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28;
+        org.apache.commons.lang3.ArrayUtilsRemoveTest this;
+        java.lang.Class $stack8, $stack9, $stack10, $stack15, $stack16, $stack17, $stack22, $stack23, $stack24, $stack29, $stack30, $stack31;
+        short[] $stack2, $stack3, $stack4, $stack5, $stack6, $stack11, $stack12, $stack13, $stack18, $stack19, $stack20, $stack25, $stack26, $stack27;
+
+        this := @this: org.apache.commons.lang3.ArrayUtilsRemoveTest;
+
+        $stack2 = (short[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] removeElement(short[],short)>($stack2, 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = <org.apache.commons.lang3.ArrayUtils: short[] EMPTY_SHORT_ARRAY>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] removeElement(short[],short)>($stack4, 1);
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: short[] EMPTY_SHORT_ARRAY>;
+
+        $stack7 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack6, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack9 = virtualinvoke $stack5.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack10);
+
+        $stack11 = newarray (short)[1];
+
+        $stack11[0] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] removeElement(short[],short)>($stack11, 1);
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: short[] EMPTY_SHORT_ARRAY>;
+
+        $stack14 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack13, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack12.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack17);
+
+        $stack18 = newarray (short)[2];
+
+        $stack18[0] = 1;
+
+        $stack18[1] = 2;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] removeElement(short[],short)>($stack18, 1);
+
+        $stack20 = newarray (short)[1];
+
+        $stack20[0] = 2;
+
+        $stack21 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack20, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack23 = virtualinvoke $stack19.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack25 = newarray (short)[3];
+
+        $stack25[0] = 1;
+
+        $stack25[1] = 2;
+
+        $stack25[2] = 1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ArrayUtils: short[] removeElement(short[],short)>($stack25, 1);
+
+        $stack27 = newarray (short)[2];
+
+        $stack27[0] = 2;
+
+        $stack27[1] = 1;
+
+        $stack28 = staticinvoke <java.util.Arrays: boolean equals(short[],short[])>($stack27, $stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack26.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        return;
+    }
+}

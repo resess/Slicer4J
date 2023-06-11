@@ -1,0 +1,4024 @@
+public class org.apache.commons.lang3.text.StrBuilderAppendInsertTest extends java.lang.Object
+{
+    private static final java.lang.String SEP;
+    private static final java.lang.Object FOO;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testAppendNewLine()
+    {
+        java.lang.String $stack7, $stack10, $stack11, $stack19, $stack21, $stack22;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuilder $stack5, $stack6, $stack8, $stack9, $stack17, $stack18, $stack20;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack12, $stack13, $stack14, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("---");
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("+++");
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("---");
+
+        $stack7 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("+++");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("---");
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNewLineText(java.lang.String)>("#");
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNewLineText(java.lang.String)>(null);
+
+        virtualinvoke $stack15.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        $stack17 = new java.lang.StringBuilder;
+
+        specialinvoke $stack17.<java.lang.StringBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("---#");
+
+        $stack19 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack20 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack19);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack22 = virtualinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        return;
+    }
+
+    public void testAppendWithNullText()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuffer $stack31;
+        java.lang.Object $stack13;
+        java.lang.String $stack5, $stack8, $stack12, $stack16, $stack20, $stack23, $stack26, $stack30, $stack34;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>(null);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULL", $stack12);
+
+        $stack13 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack13);
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfoo", $stack16);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(null);
+
+        $stack20 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfooNULL", $stack20);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("");
+
+        $stack23 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfooNULL", $stack23);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("bar");
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfooNULLbar", $stack26);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>(null);
+
+        $stack30 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfooNULLbarNULL", $stack30);
+
+        $stack31 = new java.lang.StringBuffer;
+
+        specialinvoke $stack31.<java.lang.StringBuffer: void <init>(java.lang.String)>("baz");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>($stack31);
+
+        $stack34 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULLNULLfooNULLbarNULLbaz", $stack34);
+
+        return;
+    }
+
+    public void testAppend_Object()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuffer $stack18;
+        java.lang.Object $stack10;
+        java.lang.String $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack28;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack22;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>(null);
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        $stack10 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack10);
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack13);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>(null);
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack17);
+
+        $stack18 = new java.lang.StringBuffer;
+
+        specialinvoke $stack18.<java.lang.StringBuffer: void <init>(java.lang.String)>("baz");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>($stack18);
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobaz", $stack21);
+
+        $stack22 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("yes");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>($stack22);
+
+        $stack25 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobazyes", $stack25);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence)>("Seq");
+
+        $stack28 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobazyesSeq", $stack28);
+
+        return;
+    }
+
+    public void testAppend_String()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack7, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(null);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack11 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack11);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("");
+
+        $stack14 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack14);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("bar");
+
+        $stack17 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack17);
+
+        return;
+    }
+
+    public void testAppend_String_int_int()
+    {
+        java.lang.IndexOutOfBoundsException $stack28, $stack44, $stack50, $stack56, $stack62, $stack68;
+        int $i0, $i1, $i2;
+        java.lang.String $stack8, $stack12, $stack21, $stack24, $stack27;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilder $stack4, $u0, $u1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>(null, 0, 1);
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack8);
+
+        $u1 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("foo", 0, 3);
+
+        $stack12 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack12);
+
+     label01:
+        $i0 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", $i0, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1,) expected IndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack68 := @caughtexception;
+
+     label04:
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", 3, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 3,) expected IndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack62 := @caughtexception;
+
+     label07:
+        $i1 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", 1, $i1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[],, -1) expected IndexOutOfBoundsException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack56 := @caughtexception;
+
+     label10:
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", 1, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 1, 3) expected IndexOutOfBoundsException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack50 := @caughtexception;
+
+     label13:
+        $i2 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", $i2, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1, 3) expected IndexOutOfBoundsException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack44 := @caughtexception;
+
+     label16:
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", 4, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 4, 0) expected IndexOutOfBoundsException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack28 := @caughtexception;
+
+     label19:
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("bar", 3, 0);
+
+        $stack21 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack21);
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>("abcbardef", 3, 3);
+
+        $stack24 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack24);
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence,int,int)>("abcbardef", 4, 3);
+
+        $stack27 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarard", $stack27);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+        catch java.lang.IndexOutOfBoundsException from label10 to label11 with label12;
+        catch java.lang.IndexOutOfBoundsException from label13 to label14 with label15;
+        catch java.lang.IndexOutOfBoundsException from label16 to label17 with label18;
+    }
+
+    public void testAppend_StringBuffer()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuffer $stack9, $stack13, $stack17;
+        java.lang.String $stack7, $stack12, $stack16, $stack20;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>(null);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack9 = new java.lang.StringBuffer;
+
+        specialinvoke $stack9.<java.lang.StringBuffer: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>($stack9);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack12);
+
+        $stack13 = new java.lang.StringBuffer;
+
+        specialinvoke $stack13.<java.lang.StringBuffer: void <init>(java.lang.String)>("");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>($stack13);
+
+        $stack16 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack16);
+
+        $stack17 = new java.lang.StringBuffer;
+
+        specialinvoke $stack17.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>($stack17);
+
+        $stack20 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack20);
+
+        return;
+    }
+
+    public void testAppend_StringBuffer_int_int()
+    {
+        java.lang.IndexOutOfBoundsException $stack34, $stack45, $stack51, $stack57, $stack63, $stack69;
+        java.lang.StringBuffer $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9, $u10;
+        int $i0, $i1, $i2;
+        java.lang.String $stack8, $stack13, $stack29, $stack33;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilder $stack4, $u0, $u1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>(null, 0, 1);
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack8);
+
+        $u1 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $u2 = new java.lang.StringBuffer;
+
+        specialinvoke $u2.<java.lang.StringBuffer: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u2, 0, 3);
+
+        $stack13 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack13);
+
+     label01:
+        $u3 = new java.lang.StringBuffer;
+
+        specialinvoke $u3.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u3, $i0, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1,) expected IndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack69 := @caughtexception;
+
+     label04:
+        $u4 = new java.lang.StringBuffer;
+
+        specialinvoke $u4.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u4, 3, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 3,) expected IndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack63 := @caughtexception;
+
+     label07:
+        $u5 = new java.lang.StringBuffer;
+
+        specialinvoke $u5.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        $i1 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u5, 1, $i1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[],, -1) expected IndexOutOfBoundsException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack57 := @caughtexception;
+
+     label10:
+        $u6 = new java.lang.StringBuffer;
+
+        specialinvoke $u6.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u6, 1, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 1, 3) expected IndexOutOfBoundsException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack51 := @caughtexception;
+
+     label13:
+        $u7 = new java.lang.StringBuffer;
+
+        specialinvoke $u7.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        $i2 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u7, $i2, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1, 3) expected IndexOutOfBoundsException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack45 := @caughtexception;
+
+     label16:
+        $u8 = new java.lang.StringBuffer;
+
+        specialinvoke $u8.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u8, 4, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 4, 0) expected IndexOutOfBoundsException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack34 := @caughtexception;
+
+     label19:
+        $u9 = new java.lang.StringBuffer;
+
+        specialinvoke $u9.<java.lang.StringBuffer: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u9, 3, 0);
+
+        $stack29 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack29);
+
+        $u10 = new java.lang.StringBuffer;
+
+        specialinvoke $u10.<java.lang.StringBuffer: void <init>(java.lang.String)>("abcbardef");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>($u10, 3, 3);
+
+        $stack33 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack33);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+        catch java.lang.IndexOutOfBoundsException from label10 to label11 with label12;
+        catch java.lang.IndexOutOfBoundsException from label13 to label14 with label15;
+        catch java.lang.IndexOutOfBoundsException from label16 to label17 with label18;
+    }
+
+    public void testAppend_StrBuilder()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack7, $stack12, $stack16, $stack20;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack8, $stack9, $stack13, $stack17;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>(null);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack9 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>($stack9);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack12);
+
+        $stack13 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>($stack13);
+
+        $stack16 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack16);
+
+        $stack17 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>($stack17);
+
+        $stack20 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack20);
+
+        return;
+    }
+
+    public void testAppend_StrBuilder_int_int()
+    {
+        java.lang.IndexOutOfBoundsException $stack34, $stack45, $stack51, $stack57, $stack63, $stack69;
+        int $i0, $i1, $i2;
+        java.lang.String $stack8, $stack13, $stack29, $stack33;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilder $stack4, $u0, $u1, $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9, $u10;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>(null, 0, 1);
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack8);
+
+        $u1 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $u2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u2.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u2, 0, 3);
+
+        $stack13 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack13);
+
+     label01:
+        $u3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u3.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u3, $i0, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1,) expected IndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack69 := @caughtexception;
+
+     label04:
+        $u4 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u4.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u4, 3, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 3,) expected IndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack63 := @caughtexception;
+
+     label07:
+        $u5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u5.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        $i1 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u5, 1, $i1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[],, -1) expected IndexOutOfBoundsException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack57 := @caughtexception;
+
+     label10:
+        $u6 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u6.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u6, 1, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 1, 3) expected IndexOutOfBoundsException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack51 := @caughtexception;
+
+     label13:
+        $u7 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u7.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        $i2 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u7, $i2, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1, 3) expected IndexOutOfBoundsException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack45 := @caughtexception;
+
+     label16:
+        $u8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u8.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u8, 4, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 4, 0) expected IndexOutOfBoundsException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack34 := @caughtexception;
+
+     label19:
+        $u9 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u9.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("bar");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u9, 3, 0);
+
+        $stack29 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack29);
+
+        $u10 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u10.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("abcbardef");
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>($u10, 3, 3);
+
+        $stack33 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack33);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+        catch java.lang.IndexOutOfBoundsException from label10 to label11 with label12;
+        catch java.lang.IndexOutOfBoundsException from label13 to label14 with label15;
+        catch java.lang.IndexOutOfBoundsException from label16 to label17 with label18;
+    }
+
+    public void testAppend_CharArray()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        char[] $stack4, $stack9, $stack13;
+        java.lang.String $stack7, $stack12, $stack16;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        $stack4 = (char[]) null;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[])>($stack4);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack9 = newarray (char)[0];
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[])>($stack9);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack13 = newarray (char)[3];
+
+        $stack13[0] = 102;
+
+        $stack13[1] = 111;
+
+        $stack13[2] = 111;
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[])>($stack13);
+
+        $stack16 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack16);
+
+        return;
+    }
+
+    public void testAppend_CharArray_int_int()
+    {
+        java.lang.IndexOutOfBoundsException $stack34, $stack69, $stack81, $stack93, $stack105, $stack117;
+        int $i0, $i1, $i2;
+        java.lang.String $stack8, $stack13, $stack29, $stack33;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        char[] $stack5, $stack10, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack30;
+        org.apache.commons.lang3.text.StrBuilder $stack4, $u0, $u1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("NULL");
+
+        $stack5 = (char[]) null;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack5, 0, 1);
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("NULL", $stack8);
+
+        $u1 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack10 = newarray (char)[3];
+
+        $stack10[0] = 102;
+
+        $stack10[1] = 111;
+
+        $stack10[2] = 111;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack10, 0, 3);
+
+        $stack13 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack13);
+
+     label01:
+        $stack14 = newarray (char)[3];
+
+        $stack14[0] = 98;
+
+        $stack14[1] = 97;
+
+        $stack14[2] = 114;
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack14, $i0, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1,) expected IndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack117 := @caughtexception;
+
+     label04:
+        $stack16 = newarray (char)[3];
+
+        $stack16[0] = 98;
+
+        $stack16[1] = 97;
+
+        $stack16[2] = 114;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack16, 3, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 3,) expected IndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack105 := @caughtexception;
+
+     label07:
+        $stack18 = newarray (char)[3];
+
+        $stack18[0] = 98;
+
+        $stack18[1] = 97;
+
+        $stack18[2] = 114;
+
+        $i1 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack18, 1, $i1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[],, -1) expected IndexOutOfBoundsException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack93 := @caughtexception;
+
+     label10:
+        $stack20 = newarray (char)[3];
+
+        $stack20[0] = 98;
+
+        $stack20[1] = 97;
+
+        $stack20[2] = 114;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack20, 1, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 1, 3) expected IndexOutOfBoundsException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack81 := @caughtexception;
+
+     label13:
+        $stack22 = newarray (char)[3];
+
+        $stack22[0] = 98;
+
+        $stack22[1] = 97;
+
+        $stack22[2] = 114;
+
+        $i2 = (int) -1;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack22, $i2, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], -1, 3) expected IndexOutOfBoundsException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack69 := @caughtexception;
+
+     label16:
+        $stack24 = newarray (char)[3];
+
+        $stack24[0] = 98;
+
+        $stack24[1] = 97;
+
+        $stack24[2] = 114;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack24, 4, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("append(char[], 4, 0) expected IndexOutOfBoundsException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack34 := @caughtexception;
+
+     label19:
+        $stack26 = newarray (char)[3];
+
+        $stack26[0] = 98;
+
+        $stack26[1] = 97;
+
+        $stack26[2] = 114;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack26, 3, 0);
+
+        $stack29 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack29);
+
+        $stack30 = newarray (char)[9];
+
+        $stack30[0] = 97;
+
+        $stack30[1] = 98;
+
+        $stack30[2] = 99;
+
+        $stack30[3] = 98;
+
+        $stack30[4] = 97;
+
+        $stack30[5] = 114;
+
+        $stack30[6] = 100;
+
+        $stack30[7] = 101;
+
+        $stack30[8] = 102;
+
+        virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>($stack30, 3, 3);
+
+        $stack33 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack33);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label07 to label08 with label09;
+        catch java.lang.IndexOutOfBoundsException from label10 to label11 with label12;
+        catch java.lang.IndexOutOfBoundsException from label13 to label14 with label15;
+        catch java.lang.IndexOutOfBoundsException from label16 to label17 with label18;
+    }
+
+    public void testAppend_Boolean()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack5, $stack8, $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(boolean)>(1);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("true", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(boolean)>(0);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("truefalse", $stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(33);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("truefalse!", $stack11);
+
+        return;
+    }
+
+    public void testAppend_PrimitiveNumber()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack5, $stack8, $stack11, $stack14;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(int)>(0);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(long)>(1L);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("01", $stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(float)>(2.3F);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("012.3", $stack11);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(double)>(4.5);
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("012.34.5", $stack14);
+
+        return;
+    }
+
+    public void testAppendln_FormattedString()
+    {
+        java.lang.Object[] $stack4;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$2 $stack3;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack13, $stack15;
+        int[] count;
+        int $stack12, $stack14;
+        java.lang.StringBuilder $stack6, $stack7, $stack9;
+        java.lang.String $stack8, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$2;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$2: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = newarray (java.lang.Object)[1];
+
+        $stack4[0] = "Alice";
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String,java.lang.Object[])>("Hello %s", $stack4);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Hello Alice");
+
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = count[0];
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack13);
+
+        $stack14 = count[1];
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testAppendln_Object()
+    {
+        java.lang.Integer $stack21;
+        java.lang.String $stack7, $stack9, $stack10, $stack14, $stack17, $stack19, $stack20, $stack24, $stack27, $stack30, $stack32, $stack33;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuilder $stack5, $stack6, $stack8, $stack13, $stack15, $stack16, $stack18, $stack23, $stack25, $stack26, $stack28, $stack29, $stack31;
+        java.lang.Object $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.Object)>(null);
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("");
+
+        $stack7 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.Object)>($stack11);
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack15 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack17 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack20 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.Object)>($stack21);
+
+        $stack23 = new java.lang.StringBuilder;
+
+        specialinvoke $stack23.<java.lang.StringBuilder: void <init>()>();
+
+        $stack24 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack27 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("6");
+
+        $stack30 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack31 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack30);
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack33 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack32, $stack33);
+
+        return;
+    }
+
+    public void testAppendln_String()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$3 $stack3;
+        long $stack12, $stack14;
+        int[] count;
+        int $stack11, $stack13;
+        java.lang.StringBuilder $stack5, $stack6, $stack8;
+        java.lang.String $stack7, $stack9, $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$3;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$3: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String)>("foo");
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack7 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = count[0];
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack12);
+
+        $stack13 = count[1];
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        return;
+    }
+
+    public void testAppendln_String_int_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$4 $stack3;
+        long $stack12, $stack14;
+        int[] count;
+        int $stack11, $stack13;
+        java.lang.StringBuilder $stack5, $stack6, $stack8;
+        java.lang.String $stack7, $stack9, $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$4;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$4: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String,int,int)>("foo", 0, 3);
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack7 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = count[0];
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack12);
+
+        $stack13 = count[1];
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        return;
+    }
+
+    public void testAppendln_StringBuffer()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$5 $stack3;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack13, $stack15;
+        int[] count;
+        java.lang.StringBuffer $stack4;
+        int $stack12, $stack14;
+        java.lang.StringBuilder $stack6, $stack7, $stack9;
+        java.lang.String $stack8, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$5;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$5: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = new java.lang.StringBuffer;
+
+        specialinvoke $stack4.<java.lang.StringBuffer: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.StringBuffer)>($stack4);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = count[0];
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack13);
+
+        $stack14 = count[1];
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testAppendln_StringBuffer_int_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$6 $stack3;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack13, $stack15;
+        int[] count;
+        java.lang.StringBuffer $stack4;
+        int $stack12, $stack14;
+        java.lang.StringBuilder $stack6, $stack7, $stack9;
+        java.lang.String $stack8, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$6;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$6: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = new java.lang.StringBuffer;
+
+        specialinvoke $stack4.<java.lang.StringBuffer: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(java.lang.StringBuffer,int,int)>($stack4, 0, 3);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = count[0];
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack13);
+
+        $stack14 = count[1];
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testAppendln_StrBuilder()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$7 $stack3;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack13, $stack15;
+        int[] count;
+        int $stack12, $stack14;
+        java.lang.StringBuilder $stack6, $stack7, $stack9;
+        java.lang.String $stack8, $stack10, $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$7;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$7: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(org.apache.commons.lang3.text.StrBuilder)>($stack4);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = count[0];
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack13);
+
+        $stack14 = count[1];
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testAppendln_StrBuilder_int_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$8 $stack3;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack13, $stack15;
+        int[] count;
+        int $stack12, $stack14;
+        java.lang.StringBuilder $stack6, $stack7, $stack9;
+        java.lang.String $stack8, $stack10, $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$8;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$8: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("foo");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack4, 0, 3);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = count[0];
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack13);
+
+        $stack14 = count[1];
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack15);
+
+        return;
+    }
+
+    public void testAppendln_CharArray()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack14, $stack16;
+        int[] count;
+        int $stack13, $stack15;
+        char[] $stack5;
+        java.lang.StringBuilder $stack7, $stack8, $stack10;
+        java.lang.String $stack4, $stack9, $stack11, $stack12;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$9 $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$9;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$9: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = "foo";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: char[] toCharArray()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(char[])>($stack5);
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack9 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack13 = count[0];
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = count[1];
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack16);
+
+        return;
+    }
+
+    public void testAppendln_CharArray_int_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$10 $stack3;
+        long $stack14, $stack16;
+        int[] count;
+        int $stack13, $stack15;
+        char[] $stack5;
+        java.lang.StringBuilder $stack7, $stack8, $stack10;
+        java.lang.String $stack4, $stack9, $stack11, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        count = newarray (int)[2];
+
+        $stack3 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$10;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$10: void <init>(org.apache.commons.lang3.text.StrBuilderAppendInsertTest,int[])>(this, count);
+
+        $stack4 = "foo";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: char[] toCharArray()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(char[],int,int)>($stack5, 0, 3);
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack9 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack13 = count[0];
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = count[1];
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack16);
+
+        return;
+    }
+
+    public void testAppendln_Boolean()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuilder $stack4, $stack5, $stack7, $stack12, $stack13, $stack15;
+        java.lang.String $stack6, $stack8, $stack9, $stack14, $stack16, $stack17;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(boolean)>(1);
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("true");
+
+        $stack6 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(boolean)>(0);
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("false");
+
+        $stack14 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack15 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        return;
+    }
+
+    public void testAppendln_PrimitiveNumber()
+    {
+        java.lang.String $stack6, $stack8, $stack9, $stack14, $stack16, $stack17, $stack22, $stack24, $stack25, $stack30, $stack32, $stack33;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuilder $stack4, $stack5, $stack7, $stack12, $stack13, $stack15, $stack20, $stack21, $stack23, $stack28, $stack29, $stack31;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(int)>(0);
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("0");
+
+        $stack6 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(long)>(1L);
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("1");
+
+        $stack14 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack15 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(float)>(2.3F);
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("2.3");
+
+        $stack22 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack25 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack24, $stack25);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendln(double)>(4.5);
+
+        $stack28 = new java.lang.StringBuilder;
+
+        specialinvoke $stack28.<java.lang.StringBuilder: void <init>()>();
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("4.5");
+
+        $stack30 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP>;
+
+        $stack31 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack30);
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack33 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack32, $stack33);
+
+        return;
+    }
+
+    public void testAppendPadding()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack18;
+        int $stack17, $i0;
+        java.lang.String $stack5, $stack8, $stack11, $stack14, $stack20;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendPadding(int,char)>($i0, 45);
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack8);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendPadding(int,char)>(0, 45);
+
+        $stack11 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack11);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendPadding(int,char)>(1, 45);
+
+        $stack14 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo-", $stack14);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendPadding(int,char)>(16, 45);
+
+        $stack17 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(20L, $stack18);
+
+        $stack20 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo-----------------", $stack20);
+
+        return;
+    }
+
+    public void testAppendFixedWidthPadLeft()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack30;
+        int $stack29, $i0;
+        java.lang.String $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack32, $stack37;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", $i0, 45);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 0, 45);
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 1, 45);
+
+        $stack13 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("o", $stack13);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 2, 45);
+
+        $stack17 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("oo", $stack17);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 3, 45);
+
+        $stack21 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack21);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 4, 45);
+
+        $stack25 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-foo", $stack25);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>("foo", 10, 45);
+
+        $stack29 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack30);
+
+        $stack32 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-------foo", $stack32);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("null");
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>(null, 5, 45);
+
+        $stack37 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-null", $stack37);
+
+        return;
+    }
+
+    public void testAppendFixedWidthPadLeft_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack30;
+        int $stack29, $i0;
+        java.lang.String $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack32;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, $i0, 45);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 0, 45);
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 1, 45);
+
+        $stack13 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("3", $stack13);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 2, 45);
+
+        $stack17 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("23", $stack17);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 3, 45);
+
+        $stack21 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123", $stack21);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 4, 45);
+
+        $stack25 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-123", $stack25);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int,int,char)>(123, 10, 45);
+
+        $stack29 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack30);
+
+        $stack32 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-------123", $stack32);
+
+        return;
+    }
+
+    public void testAppendFixedWidthPadRight()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack30;
+        int $stack29, $i0;
+        java.lang.String $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack32, $stack37;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", $i0, 45);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 0, 45);
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 1, 45);
+
+        $stack13 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f", $stack13);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 2, 45);
+
+        $stack17 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo", $stack17);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 3, 45);
+
+        $stack21 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack21);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 4, 45);
+
+        $stack25 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo-", $stack25);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 10, 45);
+
+        $stack29 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack30);
+
+        $stack32 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo-------", $stack32);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("null");
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>(null, 5, 45);
+
+        $stack37 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("null-", $stack37);
+
+        return;
+    }
+
+    public void testLang299()
+    {
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(1);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>("foo", 1, 45);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f", $stack5);
+
+        return;
+    }
+
+    public void testAppendFixedWidthPadRight_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        long $stack30;
+        int $stack29, $i0;
+        java.lang.String $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack32;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, $i0, 45);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 0, 45);
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack9);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 1, 45);
+
+        $stack13 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1", $stack13);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 2, 45);
+
+        $stack17 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("12", $stack17);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 3, 45);
+
+        $stack21 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123", $stack21);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 4, 45);
+
+        $stack25 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123-", $stack25);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int,int,char)>(123, 10, 45);
+
+        $stack29 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack30);
+
+        $stack32 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123-------", $stack32);
+
+        return;
+    }
+
+    public void testAppend_FormattedString()
+    {
+        java.lang.Object[] $stack3, $stack8, $stack13, $stack18;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.Integer $stack21;
+        java.lang.String $stack6, $stack11, $stack16, $stack24;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack7, $stack12, $stack17;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = (java.lang.Object[]) null;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,java.lang.Object[])>("Hi", $stack3);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi", $stack6);
+
+        $stack7 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack8 = newarray (java.lang.Object)[1];
+
+        $stack8[0] = "Alice";
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,java.lang.Object[])>("Hi", $stack8);
+
+        $stack11 = virtualinvoke $stack7.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi", $stack11);
+
+        $stack12 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack13 = newarray (java.lang.Object)[1];
+
+        $stack13[0] = "Alice";
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,java.lang.Object[])>("Hi %s", $stack13);
+
+        $stack16 = virtualinvoke $stack12.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi Alice", $stack16);
+
+        $stack17 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack18 = newarray (java.lang.Object)[2];
+
+        $stack18[0] = "Alice";
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5000);
+
+        $stack18[1] = $stack21;
+
+        virtualinvoke $stack17.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,java.lang.Object[])>("Hi %s %,d", $stack18);
+
+        $stack24 = virtualinvoke $stack17.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi Alice 5,000", $stack24);
+
+        return;
+    }
+
+    public void testAppendAll_Array()
+    {
+        java.lang.Object[] $stack3, $stack8, $stack13;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack6, $stack11, $stack16;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = (java.lang.Object[]) null;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Object[])>($stack3);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = newarray (java.lang.Object)[0];
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Object[])>($stack8);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Object[])>($stack13);
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack16);
+
+        return;
+    }
+
+    public void testAppendAll_Collection()
+    {
+        java.lang.Object[] $stack13;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.util.List $stack8, $stack14;
+        java.lang.String $stack6, $stack11, $stack17;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Iterable)>(null);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = <java.util.Collections: java.util.List EMPTY_LIST>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Iterable)>($stack8);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        $stack14 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack13);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Iterable)>($stack14);
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack17);
+
+        return;
+    }
+
+    public void testAppendAll_Iterator()
+    {
+        java.lang.Object[] $stack14;
+        java.util.Iterator $stack9, $stack16;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.util.List $stack8, $stack15;
+        java.lang.String $stack6, $stack12, $stack19;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.util.Iterator)>(null);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = <java.util.Collections: java.util.List EMPTY_LIST>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.util.Iterator)>($stack9);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack14 = newarray (java.lang.Object)[3];
+
+        $stack14[0] = "foo";
+
+        $stack14[1] = "bar";
+
+        $stack14[2] = "baz";
+
+        $stack15 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack14);
+
+        $stack16 = interfaceinvoke $stack15.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendAll(java.util.Iterator)>($stack16);
+
+        $stack19 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack19);
+
+        return;
+    }
+
+    public void testAppendWithSeparators_Array()
+    {
+        java.lang.Object[] $stack3, $stack8, $stack13, $stack18, $stack23;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack6, $stack11, $stack16, $stack21, $stack26;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = (java.lang.Object[]) null;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack3, ",");
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = newarray (java.lang.Object)[0];
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack8, ",");
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack13, ",");
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,bar,baz", $stack16);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack18 = newarray (java.lang.Object)[3];
+
+        $stack18[0] = "foo";
+
+        $stack18[1] = "bar";
+
+        $stack18[2] = "baz";
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack18, null);
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack21);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack23 = newarray (java.lang.Object)[3];
+
+        $stack23[0] = "foo";
+
+        $stack23[1] = null;
+
+        $stack23[2] = "baz";
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack23, ",");
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,,baz", $stack26);
+
+        return;
+    }
+
+    public void testAppendWithSeparators_Collection()
+    {
+        java.lang.Object[] $stack13, $stack19, $stack25;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.util.List $stack8, $stack14, $stack20, $stack26;
+        java.lang.String $stack6, $stack11, $stack17, $stack23, $stack29;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>(null, ",");
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = <java.util.Collections: java.util.List EMPTY_LIST>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>($stack8, ",");
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack13 = newarray (java.lang.Object)[3];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        $stack14 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack13);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>($stack14, ",");
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,bar,baz", $stack17);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack19 = newarray (java.lang.Object)[3];
+
+        $stack19[0] = "foo";
+
+        $stack19[1] = "bar";
+
+        $stack19[2] = "baz";
+
+        $stack20 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack19);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>($stack20, null);
+
+        $stack23 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack23);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack25 = newarray (java.lang.Object)[3];
+
+        $stack25[0] = "foo";
+
+        $stack25[1] = null;
+
+        $stack25[2] = "baz";
+
+        $stack26 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack25);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>($stack26, ",");
+
+        $stack29 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,,baz", $stack29);
+
+        return;
+    }
+
+    public void testAppendWithSeparators_Iterator()
+    {
+        java.lang.Object[] $stack14, $stack21, $stack28;
+        java.lang.String $stack6, $stack12, $stack19, $stack26, $stack33;
+        java.util.Iterator $stack9, $stack16, $stack23, $stack30;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.util.List $stack8, $stack15, $stack22, $stack29;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator,java.lang.String)>(null, ",");
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack8 = <java.util.Collections: java.util.List EMPTY_LIST>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator,java.lang.String)>($stack9, ",");
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack14 = newarray (java.lang.Object)[3];
+
+        $stack14[0] = "foo";
+
+        $stack14[1] = "bar";
+
+        $stack14[2] = "baz";
+
+        $stack15 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack14);
+
+        $stack16 = interfaceinvoke $stack15.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator,java.lang.String)>($stack16, ",");
+
+        $stack19 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,bar,baz", $stack19);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack21 = newarray (java.lang.Object)[3];
+
+        $stack21[0] = "foo";
+
+        $stack21[1] = "bar";
+
+        $stack21[2] = "baz";
+
+        $stack22 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack21);
+
+        $stack23 = interfaceinvoke $stack22.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator,java.lang.String)>($stack23, null);
+
+        $stack26 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack26);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack28 = newarray (java.lang.Object)[3];
+
+        $stack28[0] = "foo";
+
+        $stack28[1] = null;
+
+        $stack28[2] = "baz";
+
+        $stack29 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack28);
+
+        $stack30 = interfaceinvoke $stack29.<java.util.List: java.util.Iterator iterator()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator,java.lang.String)>($stack30, ",");
+
+        $stack33 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,,baz", $stack33);
+
+        return;
+    }
+
+    public void testAppendWithSeparatorsWithNullText()
+    {
+        java.util.List $stack10;
+        java.lang.Object[] $stack4, $stack9;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack7, $stack13;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("null");
+
+        $stack4 = newarray (java.lang.Object)[3];
+
+        $stack4[0] = "foo";
+
+        $stack4[1] = null;
+
+        $stack4[2] = "baz";
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[],java.lang.String)>($stack4, ",");
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,null,baz", $stack7);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        $stack9 = newarray (java.lang.Object)[3];
+
+        $stack9[0] = "foo";
+
+        $stack9[1] = null;
+
+        $stack9[2] = "baz";
+
+        $stack10 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack9);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>($stack10, ",");
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,null,baz", $stack13);
+
+        return;
+    }
+
+    public void testAppendSeparator_String()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack5, $stack8, $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String)>(",");
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String)>(",");
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack11);
+
+        return;
+    }
+
+    public void testAppendSeparator_String_String()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26;
+        org.apache.commons.lang3.text.StrBuilder $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(null, null);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(",", null);
+
+        $stack11 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack11);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(",", "order by ");
+
+        $stack14 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("order by ", $stack14);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(null, null);
+
+        $stack17 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("order by ", $stack17);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(null, "order by ");
+
+        $stack20 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("order by ", $stack20);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack23 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("order by foo", $stack23);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(",", "order by ");
+
+        $stack26 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("order by foo,", $stack26);
+
+        return;
+    }
+
+    public void testAppendSeparator_char()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.String $stack5, $stack8, $stack11;
+        org.apache.commons.lang3.text.StrBuilder $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char)>(44);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char)>(44);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack11);
+
+        return;
+    }
+
+    public void testAppendSeparator_char_char()
+    {
+        java.lang.String $stack7, $stack8, $stack11, $stack14, $stack15, $stack18, $stack22, $stack23;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        java.lang.StringBuilder $stack10, $stack12, $stack13, $stack17, $stack19, $stack20, $stack21;
+        org.apache.commons.lang3.text.StrBuilder $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char,char)>(44, 58);
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(58);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack10 = new java.lang.StringBuilder;
+
+        specialinvoke $stack10.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(58);
+
+        $stack12 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack11);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack15 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char,char)>(44, 58);
+
+        $stack17 = new java.lang.StringBuilder;
+
+        specialinvoke $stack17.<java.lang.StringBuilder: void <init>()>();
+
+        $stack18 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(58);
+
+        $stack19 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("foo");
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack23 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+        return;
+    }
+
+    public void testAppendSeparator_String_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        int $i0;
+        java.lang.String $stack5, $stack8, $stack11, $stack14;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,int)>(",", 0);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack8);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,int)>(",", 1);
+
+        $stack11 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack11);
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,int)>(",", $i0);
+
+        $stack14 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack14);
+
+        return;
+    }
+
+    public void testAppendSeparator_char_int()
+    {
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        int $i0;
+        java.lang.String $stack5, $stack8, $stack11, $stack14;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char,int)>(44, 0);
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack5);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("foo");
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack8);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char,int)>(44, 1);
+
+        $stack11 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack11);
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(char,int)>(44, $i0);
+
+        $stack14 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo,", $stack14);
+
+        return;
+    }
+
+    public void testInsert()
+    {
+        java.lang.IndexOutOfBoundsException $stack141, $stack146, $stack151, $stack164, $stack169, $stack182, $stack187, $stack200, $stack205, $stack218, $stack223, $stack240, $stack245, $stack302, $stack327, $stack352, $stack377, $stack414, $stack439, $stack486, $stack497, $stack520, $stack525, $stack541;
+        java.lang.String $stack6, $stack14, $stack18, $stack22, $stack28, $stack31, $stack35, $stack43, $stack47, $stack51, $stack55, $stack63, $stack67, $stack79, $stack83, $stack87, $stack92, $stack95, $stack99, $stack104, $stack108, $stack113, $stack117, $stack122, $stack126, $stack131, $stack135, $stack140;
+        char[] $stack36, $stack38, $stack40, $stack44, $stack48, $stack56, $stack58, $stack60, $stack64, $stack68, $stack70, $stack72, $stack74, $stack76, $stack80;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11;
+        java.lang.Object $stack7, $stack9, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack6 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack6);
+
+     label01:
+        $stack7 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>($i0, $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, Object) expected StringIndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack541 := @caughtexception;
+
+     label04:
+        $stack9 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(7, $stack9);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, Object) expected StringIndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack525 := @caughtexception;
+
+     label07:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(0, null);
+
+        $stack14 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack14);
+
+        $stack15 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(0, $stack15);
+
+        $stack18 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack18);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack22 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack22);
+
+     label08:
+        $i1 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>($i1, "foo");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, String) expected StringIndexOutOfBoundsException");
+
+     label09:
+        goto label11;
+
+     label10:
+        $stack520 := @caughtexception;
+
+     label11:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(7, "foo");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, String) expected StringIndexOutOfBoundsException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack497 := @caughtexception;
+
+     label14:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(0, null);
+
+        $stack28 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack28);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(0, "foo");
+
+        $stack31 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack31);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack35 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack35);
+
+     label15:
+        $stack36 = newarray (char)[3];
+
+        $stack36[0] = 102;
+
+        $stack36[1] = 111;
+
+        $stack36[2] = 111;
+
+        $i2 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>($i2, $stack36);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, char[]) expected StringIndexOutOfBoundsException");
+
+     label16:
+        goto label18;
+
+     label17:
+        $stack486 := @caughtexception;
+
+     label18:
+        $stack38 = newarray (char)[3];
+
+        $stack38[0] = 102;
+
+        $stack38[1] = 111;
+
+        $stack38[2] = 111;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>(7, $stack38);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, char[]) expected StringIndexOutOfBoundsException");
+
+     label19:
+        goto label21;
+
+     label20:
+        $stack439 := @caughtexception;
+
+     label21:
+        $stack40 = (char[]) null;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>(0, $stack40);
+
+        $stack43 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack43);
+
+        $stack44 = newarray (char)[0];
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>(0, $stack44);
+
+        $stack47 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack47);
+
+        $stack48 = newarray (char)[3];
+
+        $stack48[0] = 102;
+
+        $stack48[1] = 111;
+
+        $stack48[2] = 111;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>(0, $stack48);
+
+        $stack51 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack51);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack55 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack55);
+
+     label22:
+        $stack56 = newarray (char)[9];
+
+        $stack56[0] = 97;
+
+        $stack56[1] = 98;
+
+        $stack56[2] = 99;
+
+        $stack56[3] = 102;
+
+        $stack56[4] = 111;
+
+        $stack56[5] = 111;
+
+        $stack56[6] = 100;
+
+        $stack56[7] = 101;
+
+        $stack56[8] = 102;
+
+        $i3 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>($i3, $stack56, 3, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, char[], 3, 3) expected StringIndexOutOfBoundsException");
+
+     label23:
+        goto label25;
+
+     label24:
+        $stack414 := @caughtexception;
+
+     label25:
+        $stack58 = newarray (char)[9];
+
+        $stack58[0] = 97;
+
+        $stack58[1] = 98;
+
+        $stack58[2] = 99;
+
+        $stack58[3] = 102;
+
+        $stack58[4] = 111;
+
+        $stack58[5] = 111;
+
+        $stack58[6] = 100;
+
+        $stack58[7] = 101;
+
+        $stack58[8] = 102;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(7, $stack58, 3, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, char[], 3, 3) expected StringIndexOutOfBoundsException");
+
+     label26:
+        goto label28;
+
+     label27:
+        $stack377 := @caughtexception;
+
+     label28:
+        $stack60 = (char[]) null;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack60, 0, 0);
+
+        $stack63 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack63);
+
+        $stack64 = newarray (char)[0];
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack64, 0, 0);
+
+        $stack67 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack67);
+
+     label29:
+        $stack68 = newarray (char)[9];
+
+        $stack68[0] = 97;
+
+        $stack68[1] = 98;
+
+        $stack68[2] = 99;
+
+        $stack68[3] = 102;
+
+        $stack68[4] = 111;
+
+        $stack68[5] = 111;
+
+        $stack68[6] = 100;
+
+        $stack68[7] = 101;
+
+        $stack68[8] = 102;
+
+        $i4 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack68, $i4, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(0, char[], -1, 3) expected StringIndexOutOfBoundsException");
+
+     label30:
+        goto label32;
+
+     label31:
+        $stack352 := @caughtexception;
+
+     label32:
+        $stack70 = newarray (char)[9];
+
+        $stack70[0] = 97;
+
+        $stack70[1] = 98;
+
+        $stack70[2] = 99;
+
+        $stack70[3] = 102;
+
+        $stack70[4] = 111;
+
+        $stack70[5] = 111;
+
+        $stack70[6] = 100;
+
+        $stack70[7] = 101;
+
+        $stack70[8] = 102;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack70, 10, 3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(0, char[], 10, 3) expected StringIndexOutOfBoundsException");
+
+     label33:
+        goto label35;
+
+     label34:
+        $stack327 := @caughtexception;
+
+     label35:
+        $stack72 = newarray (char)[9];
+
+        $stack72[0] = 97;
+
+        $stack72[1] = 98;
+
+        $stack72[2] = 99;
+
+        $stack72[3] = 102;
+
+        $stack72[4] = 111;
+
+        $stack72[5] = 111;
+
+        $stack72[6] = 100;
+
+        $stack72[7] = 101;
+
+        $stack72[8] = 102;
+
+        $i5 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack72, 0, $i5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(0, char[], 0, -1) expected StringIndexOutOfBoundsException");
+
+     label36:
+        goto label38;
+
+     label37:
+        $stack302 := @caughtexception;
+
+     label38:
+        $stack74 = newarray (char)[9];
+
+        $stack74[0] = 97;
+
+        $stack74[1] = 98;
+
+        $stack74[2] = 99;
+
+        $stack74[3] = 102;
+
+        $stack74[4] = 111;
+
+        $stack74[5] = 111;
+
+        $stack74[6] = 100;
+
+        $stack74[7] = 101;
+
+        $stack74[8] = 102;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack74, 0, 10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(0, char[], 0, 10) expected StringIndexOutOfBoundsException");
+
+     label39:
+        goto label41;
+
+     label40:
+        $stack245 := @caughtexception;
+
+     label41:
+        $stack76 = newarray (char)[9];
+
+        $stack76[0] = 97;
+
+        $stack76[1] = 98;
+
+        $stack76[2] = 99;
+
+        $stack76[3] = 102;
+
+        $stack76[4] = 111;
+
+        $stack76[5] = 111;
+
+        $stack76[6] = 100;
+
+        $stack76[7] = 101;
+
+        $stack76[8] = 102;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack76, 0, 0);
+
+        $stack79 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack79);
+
+        $stack80 = newarray (char)[9];
+
+        $stack80[0] = 97;
+
+        $stack80[1] = 98;
+
+        $stack80[2] = 99;
+
+        $stack80[3] = 102;
+
+        $stack80[4] = 111;
+
+        $stack80[5] = 111;
+
+        $stack80[6] = 100;
+
+        $stack80[7] = 101;
+
+        $stack80[8] = 102;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack80, 3, 3);
+
+        $stack83 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobarbaz", $stack83);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack87 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack87);
+
+     label42:
+        $i6 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,boolean)>($i6, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, boolean) expected StringIndexOutOfBoundsException");
+
+     label43:
+        goto label45;
+
+     label44:
+        $stack240 := @caughtexception;
+
+     label45:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,boolean)>(7, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, boolean) expected StringIndexOutOfBoundsException");
+
+     label46:
+        goto label48;
+
+     label47:
+        $stack223 := @caughtexception;
+
+     label48:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,boolean)>(0, 1);
+
+        $stack92 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("truebarbaz", $stack92);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,boolean)>(0, 0);
+
+        $stack95 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("falsetruebarbaz", $stack95);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack99 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack99);
+
+     label49:
+        $i7 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char)>($i7, 33);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, char) expected StringIndexOutOfBoundsException");
+
+     label50:
+        goto label52;
+
+     label51:
+        $stack218 := @caughtexception;
+
+     label52:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char)>(7, 33);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, char) expected StringIndexOutOfBoundsException");
+
+     label53:
+        goto label55;
+
+     label54:
+        $stack205 := @caughtexception;
+
+     label55:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char)>(0, 33);
+
+        $stack104 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("!barbaz", $stack104);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack108 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack108);
+
+     label56:
+        $i8 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,int)>($i8, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, int) expected StringIndexOutOfBoundsException");
+
+     label57:
+        goto label59;
+
+     label58:
+        $stack200 := @caughtexception;
+
+     label59:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,int)>(7, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, int) expected StringIndexOutOfBoundsException");
+
+     label60:
+        goto label62;
+
+     label61:
+        $stack187 := @caughtexception;
+
+     label62:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char)>(0, 48);
+
+        $stack113 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0barbaz", $stack113);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack117 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack117);
+
+     label63:
+        $i9 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,long)>($i9, 1L);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, long) expected StringIndexOutOfBoundsException");
+
+     label64:
+        goto label66;
+
+     label65:
+        $stack182 := @caughtexception;
+
+     label66:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,long)>(7, 1L);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, long) expected StringIndexOutOfBoundsException");
+
+     label67:
+        goto label69;
+
+     label68:
+        $stack169 := @caughtexception;
+
+     label69:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,long)>(0, 1L);
+
+        $stack122 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1barbaz", $stack122);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack126 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack126);
+
+     label70:
+        $i10 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,float)>($i10, 2.3F);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, float) expected StringIndexOutOfBoundsException");
+
+     label71:
+        goto label73;
+
+     label72:
+        $stack164 := @caughtexception;
+
+     label73:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,float)>(7, 2.3F);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, float) expected StringIndexOutOfBoundsException");
+
+     label74:
+        goto label76;
+
+     label75:
+        $stack151 := @caughtexception;
+
+     label76:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,float)>(0, 2.3F);
+
+        $stack131 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2.3barbaz", $stack131);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack135 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack135);
+
+     label77:
+        $i11 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,double)>($i11, 4.5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, double) expected StringIndexOutOfBoundsException");
+
+     label78:
+        goto label80;
+
+     label79:
+        $stack146 := @caughtexception;
+
+     label80:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,double)>(7, 4.5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, double) expected StringIndexOutOfBoundsException");
+
+     label81:
+        goto label83;
+
+     label82:
+        $stack141 := @caughtexception;
+
+     label83:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,double)>(0, 4.5);
+
+        $stack140 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("4.5barbaz", $stack140);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label08 to label09 with label10;
+        catch java.lang.IndexOutOfBoundsException from label11 to label12 with label13;
+        catch java.lang.IndexOutOfBoundsException from label15 to label16 with label17;
+        catch java.lang.IndexOutOfBoundsException from label18 to label19 with label20;
+        catch java.lang.IndexOutOfBoundsException from label22 to label23 with label24;
+        catch java.lang.IndexOutOfBoundsException from label25 to label26 with label27;
+        catch java.lang.IndexOutOfBoundsException from label29 to label30 with label31;
+        catch java.lang.IndexOutOfBoundsException from label32 to label33 with label34;
+        catch java.lang.IndexOutOfBoundsException from label35 to label36 with label37;
+        catch java.lang.IndexOutOfBoundsException from label38 to label39 with label40;
+        catch java.lang.IndexOutOfBoundsException from label42 to label43 with label44;
+        catch java.lang.IndexOutOfBoundsException from label45 to label46 with label47;
+        catch java.lang.IndexOutOfBoundsException from label49 to label50 with label51;
+        catch java.lang.IndexOutOfBoundsException from label52 to label53 with label54;
+        catch java.lang.IndexOutOfBoundsException from label56 to label57 with label58;
+        catch java.lang.IndexOutOfBoundsException from label59 to label60 with label61;
+        catch java.lang.IndexOutOfBoundsException from label63 to label64 with label65;
+        catch java.lang.IndexOutOfBoundsException from label66 to label67 with label68;
+        catch java.lang.IndexOutOfBoundsException from label70 to label71 with label72;
+        catch java.lang.IndexOutOfBoundsException from label73 to label74 with label75;
+        catch java.lang.IndexOutOfBoundsException from label77 to label78 with label79;
+        catch java.lang.IndexOutOfBoundsException from label80 to label81 with label82;
+    }
+
+    public void testInsertWithNullText()
+    {
+        java.lang.IndexOutOfBoundsException $stack41, $stack60, $stack65, $stack81;
+        int $i0, $i1;
+        java.lang.String $stack7, $stack15, $stack19, $stack23, $stack29, $stack32, $stack36, $stack40;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest this;
+        char[] $stack33, $stack37;
+        java.lang.Object $stack8, $stack10, $stack16;
+        org.apache.commons.lang3.text.StrBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderAppendInsertTest;
+
+        $u0 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)>("null");
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack7 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack7);
+
+     label01:
+        $stack8 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        $i0 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>($i0, $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, Object) expected StringIndexOutOfBoundsException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack81 := @caughtexception;
+
+     label04:
+        $stack10 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(7, $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, Object) expected StringIndexOutOfBoundsException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack65 := @caughtexception;
+
+     label07:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(0, null);
+
+        $stack15 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("nullbarbaz", $stack15);
+
+        $stack16 = <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO>;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.Object)>(0, $stack16);
+
+        $stack19 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foonullbarbaz", $stack19);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("barbaz");
+
+        $stack23 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barbaz", $stack23);
+
+     label08:
+        $i1 = (int) -1;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>($i1, "foo");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(-1, String) expected StringIndexOutOfBoundsException");
+
+     label09:
+        goto label11;
+
+     label10:
+        $stack60 := @caughtexception;
+
+     label11:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(7, "foo");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("insert(7, String) expected StringIndexOutOfBoundsException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack41 := @caughtexception;
+
+     label14:
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(0, null);
+
+        $stack29 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("nullbarbaz", $stack29);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(0, "foo");
+
+        $stack32 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foonullbarbaz", $stack32);
+
+        $stack33 = (char[]) null;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[])>(0, $stack33);
+
+        $stack36 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("nullfoonullbarbaz", $stack36);
+
+        $stack37 = (char[]) null;
+
+        virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,char[],int,int)>(0, $stack37, 0, 0);
+
+        $stack40 = virtualinvoke $u0.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("nullnullfoonullbarbaz", $stack40);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label01 to label02 with label03;
+        catch java.lang.IndexOutOfBoundsException from label04 to label05 with label06;
+        catch java.lang.IndexOutOfBoundsException from label08 to label09 with label10;
+        catch java.lang.IndexOutOfBoundsException from label11 to label12 with label13;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.String $stack0;
+        org.apache.commons.lang3.text.StrBuilderAppendInsertTest$1 $stack1;
+
+        $stack0 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.String SEP> = $stack0;
+
+        $stack1 = new org.apache.commons.lang3.text.StrBuilderAppendInsertTest$1;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrBuilderAppendInsertTest$1: void <init>()>();
+
+        <org.apache.commons.lang3.text.StrBuilderAppendInsertTest: java.lang.Object FOO> = $stack1;
+
+        return;
+    }
+}

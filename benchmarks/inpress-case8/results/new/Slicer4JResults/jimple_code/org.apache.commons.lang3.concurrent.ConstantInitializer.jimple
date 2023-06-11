@@ -1,0 +1,140 @@
+public class org.apache.commons.lang3.concurrent.ConstantInitializer extends java.lang.Object implements org.apache.commons.lang3.concurrent.ConcurrentInitializer
+{
+    private static final java.lang.String FMT_TO_STRING;
+    private final java.lang.Object object;
+
+    public void <init>(java.lang.Object)
+    {
+        java.lang.Object obj;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        obj := @parameter0: java.lang.Object;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object object> = obj;
+
+        return;
+    }
+
+    public final java.lang.Object getObject()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object object>;
+
+        return $stack1;
+    }
+
+    public java.lang.Object get() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        return $stack1;
+    }
+
+    public int hashCode()
+    {
+        int $stack3;
+        java.lang.Object $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        if $stack1 == null goto label1;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: int hashCode()>();
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object obj, $stack4, $stack5;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this, c;
+        boolean $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        obj := @parameter0: java.lang.Object;
+
+        if this != obj goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        if $stack3 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        c = (org.apache.commons.lang3.concurrent.ConstantInitializer) obj;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        $stack5 = virtualinvoke c.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        return $stack6;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object[] $stack1;
+        int $stack4;
+        java.lang.Object $stack7;
+        java.lang.String $stack8, $stack9;
+        org.apache.commons.lang3.concurrent.ConstantInitializer this;
+        java.lang.Integer $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack1 = newarray (java.lang.Object)[2];
+
+        $stack4 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>(this);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack4);
+
+        $stack1[0] = $stack5;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        $stack8 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($stack7);
+
+        $stack1[1] = $stack8;
+
+        $stack9 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("ConstantInitializer@%d [ object = %s ]", $stack1);
+
+        return $stack9;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.String FMT_TO_STRING> = "ConstantInitializer@%d [ object = %s ]";
+
+        return;
+    }
+}

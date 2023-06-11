@@ -1,0 +1,526 @@
+public class org.apache.commons.lang3.LocaleUtils extends java.lang.Object
+{
+    private static final java.util.concurrent.ConcurrentMap cLanguagesByCountry;
+    private static final java.util.concurrent.ConcurrentMap cCountriesByLanguage;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.LocaleUtils this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.util.Locale toLocale(java.lang.String)
+    {
+        java.util.Locale $u4, $u7, $u10, $u13;
+        java.lang.StringBuilder $stack33, $stack34, $stack45, $stack46, $stack57, $stack58, $stack11, $stack12, $stack21, $stack22, $u0, $u2, $u5, $u8, $u11;
+        int $stack6, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10;
+        java.lang.String str, $stack28, $stack29, $stack30, $stack35, $stack37, $stack38, $stack40, $stack42, $stack47, $stack59, $stack13, $stack23;
+        char $stack16, $stack17, $stack18, $stack26, $stack7, $stack8;
+        java.lang.IllegalArgumentException $u1, $u3, $u6, $u9, $u12;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label01;
+
+        return null;
+
+     label01:
+        $stack6 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack6 == 2 goto label02;
+
+        if $stack6 == 5 goto label02;
+
+        if $stack6 >= 7 goto label02;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack57 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid locale format: ");
+
+        $stack58 = virtualinvoke $stack57.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack59 = virtualinvoke $stack58.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack59);
+
+        throw $u1;
+
+     label02:
+        $stack7 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack8 = virtualinvoke str.<java.lang.String: char charAt(int)>(1);
+
+        $i0 = (int) $stack7;
+
+        if $i0 < 97 goto label03;
+
+        $i1 = (int) $stack7;
+
+        if $i1 > 122 goto label03;
+
+        $i2 = (int) $stack8;
+
+        if $i2 < 97 goto label03;
+
+        $i3 = (int) $stack8;
+
+        if $i3 <= 122 goto label04;
+
+     label03:
+        $u3 = new java.lang.IllegalArgumentException;
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid locale format: ");
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack13);
+
+        throw $u3;
+
+     label04:
+        if $stack6 != 2 goto label05;
+
+        $u4 = new java.util.Locale;
+
+        specialinvoke $u4.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>(str, "");
+
+        return $u4;
+
+     label05:
+        $stack16 = virtualinvoke str.<java.lang.String: char charAt(int)>(2);
+
+        $i4 = (int) $stack16;
+
+        if $i4 == 95 goto label06;
+
+        $u6 = new java.lang.IllegalArgumentException;
+
+        $u5 = new java.lang.StringBuilder;
+
+        specialinvoke $u5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack45 = virtualinvoke $u5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid locale format: ");
+
+        $stack46 = virtualinvoke $stack45.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack47 = virtualinvoke $stack46.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack47);
+
+        throw $u6;
+
+     label06:
+        $stack17 = virtualinvoke str.<java.lang.String: char charAt(int)>(3);
+
+        $i5 = (int) $stack17;
+
+        if $i5 != 95 goto label07;
+
+        $u7 = new java.util.Locale;
+
+        $stack40 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, 2);
+
+        $stack42 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>(4);
+
+        specialinvoke $u7.<java.util.Locale: void <init>(java.lang.String,java.lang.String,java.lang.String)>($stack40, "", $stack42);
+
+        return $u7;
+
+     label07:
+        $stack18 = virtualinvoke str.<java.lang.String: char charAt(int)>(4);
+
+        $i6 = (int) $stack17;
+
+        if $i6 < 65 goto label08;
+
+        $i7 = (int) $stack17;
+
+        if $i7 > 90 goto label08;
+
+        $i8 = (int) $stack18;
+
+        if $i8 < 65 goto label08;
+
+        $i9 = (int) $stack18;
+
+        if $i9 <= 90 goto label09;
+
+     label08:
+        $u9 = new java.lang.IllegalArgumentException;
+
+        $u8 = new java.lang.StringBuilder;
+
+        specialinvoke $u8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $u8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid locale format: ");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack23);
+
+        throw $u9;
+
+     label09:
+        if $stack6 != 5 goto label10;
+
+        $u10 = new java.util.Locale;
+
+        $stack37 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, 2);
+
+        $stack38 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(3, 5);
+
+        specialinvoke $u10.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>($stack37, $stack38);
+
+        return $u10;
+
+     label10:
+        $stack26 = virtualinvoke str.<java.lang.String: char charAt(int)>(5);
+
+        $i10 = (int) $stack26;
+
+        if $i10 == 95 goto label11;
+
+        $u12 = new java.lang.IllegalArgumentException;
+
+        $u11 = new java.lang.StringBuilder;
+
+        specialinvoke $u11.<java.lang.StringBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $u11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid locale format: ");
+
+        $stack34 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u12.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack35);
+
+        throw $u12;
+
+     label11:
+        $u13 = new java.util.Locale;
+
+        $stack28 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, 2);
+
+        $stack29 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(3, 5);
+
+        $stack30 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>(6);
+
+        specialinvoke $u13.<java.util.Locale: void <init>(java.lang.String,java.lang.String,java.lang.String)>($stack28, $stack29, $stack30);
+
+        return $u13;
+    }
+
+    public static java.util.List localeLookupList(java.util.Locale)
+    {
+        java.util.List $stack1;
+        java.util.Locale locale;
+
+        locale := @parameter0: java.util.Locale;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List localeLookupList(java.util.Locale,java.util.Locale)>(locale, locale);
+
+        return $stack1;
+    }
+
+    public static java.util.List localeLookupList(java.util.Locale, java.util.Locale)
+    {
+        java.util.ArrayList $stack3;
+        java.util.List $stack4;
+        java.util.Locale locale, defaultLocale, $stack13, $stack18;
+        int $stack7, $stack9;
+        java.lang.String $stack6, $stack8, $stack14, $stack19, $stack20;
+        boolean $stack10;
+
+        locale := @parameter0: java.util.Locale;
+
+        defaultLocale := @parameter1: java.util.Locale;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>(int)>(4);
+
+        if locale == null goto label3;
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(locale);
+
+        $stack6 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.String: int length()>();
+
+        if $stack7 <= 0 goto label1;
+
+        $stack18 = new java.util.Locale;
+
+        $stack19 = virtualinvoke locale.<java.util.Locale: java.lang.String getLanguage()>();
+
+        $stack20 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        specialinvoke $stack18.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>($stack19, $stack20);
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>($stack18);
+
+     label1:
+        $stack8 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.String: int length()>();
+
+        if $stack9 <= 0 goto label2;
+
+        $stack13 = new java.util.Locale;
+
+        $stack14 = virtualinvoke locale.<java.util.Locale: java.lang.String getLanguage()>();
+
+        specialinvoke $stack13.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>($stack14, "");
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>($stack13);
+
+     label2:
+        $stack10 = interfaceinvoke $stack3.<java.util.List: boolean contains(java.lang.Object)>(defaultLocale);
+
+        if $stack10 != 0 goto label3;
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(defaultLocale);
+
+     label3:
+        $stack4 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($stack3);
+
+        return $stack4;
+    }
+
+    public static java.util.List availableLocaleList()
+    {
+        java.util.List $stack0;
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.List access$000()>();
+
+        return $stack0;
+    }
+
+    public static java.util.Set availableLocaleSet()
+    {
+        java.util.Set $stack0;
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.Set access$100()>();
+
+        return $stack0;
+    }
+
+    public static boolean isAvailableLocale(java.util.Locale)
+    {
+        java.util.List $stack1;
+        java.util.Locale locale;
+        boolean $stack2;
+
+        locale := @parameter0: java.util.Locale;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List availableLocaleList()>();
+
+        $stack2 = interfaceinvoke $stack1.<java.util.List: boolean contains(java.lang.Object)>(locale);
+
+        return $stack2;
+    }
+
+    public static java.util.List languagesByCountry(java.lang.String)
+    {
+        java.util.concurrent.ConcurrentMap $stack5, $stack11, $stack13;
+        java.util.ArrayList $stack7;
+        java.util.Locale locale;
+        int $stack9, i;
+        java.lang.String countryCode, $stack17, $stack21;
+        boolean $stack18, $stack22;
+        java.util.List $stack8, $stack10, $stack24, langs;
+        java.lang.Object $stack6, $stack14, $stack16;
+
+        countryCode := @parameter0: java.lang.String;
+
+        if countryCode != null goto label1;
+
+        $stack24 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $stack24;
+
+     label1:
+        $stack5 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cLanguagesByCountry>;
+
+        $stack6 = interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(countryCode);
+
+        langs = (java.util.List) $stack6;
+
+        if langs != null goto label5;
+
+        $stack7 = new java.util.ArrayList;
+
+        specialinvoke $stack7.<java.util.ArrayList: void <init>()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List availableLocaleList()>();
+
+        i = 0;
+
+     label2:
+        $stack9 = interfaceinvoke $stack8.<java.util.List: int size()>();
+
+        if i >= $stack9 goto label4;
+
+        $stack16 = interfaceinvoke $stack8.<java.util.List: java.lang.Object get(int)>(i);
+
+        locale = (java.util.Locale) $stack16;
+
+        $stack17 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        $stack18 = virtualinvoke countryCode.<java.lang.String: boolean equals(java.lang.Object)>($stack17);
+
+        if $stack18 == 0 goto label3;
+
+        $stack21 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.String: boolean isEmpty()>();
+
+        if $stack22 == 0 goto label3;
+
+        interfaceinvoke $stack7.<java.util.List: boolean add(java.lang.Object)>(locale);
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        $stack10 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($stack7);
+
+        $stack11 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cLanguagesByCountry>;
+
+        interfaceinvoke $stack11.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>(countryCode, $stack10);
+
+        $stack13 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cLanguagesByCountry>;
+
+        $stack14 = interfaceinvoke $stack13.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(countryCode);
+
+        langs = (java.util.List) $stack14;
+
+     label5:
+        return langs;
+    }
+
+    public static java.util.List countriesByLanguage(java.lang.String)
+    {
+        java.util.concurrent.ConcurrentMap $stack5, $stack11, $stack13;
+        java.util.ArrayList $stack7;
+        java.util.Locale locale;
+        int $stack9, $stack22, i;
+        java.lang.String languageCode, $stack17, $stack21, $stack23;
+        boolean $stack18, $stack24;
+        java.util.List $stack8, $stack10, $stack26, countries;
+        java.lang.Object $stack6, $stack14, $stack16;
+
+        languageCode := @parameter0: java.lang.String;
+
+        if languageCode != null goto label1;
+
+        $stack26 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $stack26;
+
+     label1:
+        $stack5 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cCountriesByLanguage>;
+
+        $stack6 = interfaceinvoke $stack5.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(languageCode);
+
+        countries = (java.util.List) $stack6;
+
+        if countries != null goto label5;
+
+        $stack7 = new java.util.ArrayList;
+
+        specialinvoke $stack7.<java.util.ArrayList: void <init>()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List availableLocaleList()>();
+
+        i = 0;
+
+     label2:
+        $stack9 = interfaceinvoke $stack8.<java.util.List: int size()>();
+
+        if i >= $stack9 goto label4;
+
+        $stack16 = interfaceinvoke $stack8.<java.util.List: java.lang.Object get(int)>(i);
+
+        locale = (java.util.Locale) $stack16;
+
+        $stack17 = virtualinvoke locale.<java.util.Locale: java.lang.String getLanguage()>();
+
+        $stack18 = virtualinvoke languageCode.<java.lang.String: boolean equals(java.lang.Object)>($stack17);
+
+        if $stack18 == 0 goto label3;
+
+        $stack21 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.String: int length()>();
+
+        if $stack22 == 0 goto label3;
+
+        $stack23 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.String: boolean isEmpty()>();
+
+        if $stack24 == 0 goto label3;
+
+        interfaceinvoke $stack7.<java.util.List: boolean add(java.lang.Object)>(locale);
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        $stack10 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($stack7);
+
+        $stack11 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cCountriesByLanguage>;
+
+        interfaceinvoke $stack11.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>(languageCode, $stack10);
+
+        $stack13 = <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cCountriesByLanguage>;
+
+        $stack14 = interfaceinvoke $stack13.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>(languageCode);
+
+        countries = (java.util.List) $stack14;
+
+     label5:
+        return countries;
+    }
+
+    static void <clinit>()
+    {
+        java.util.concurrent.ConcurrentHashMap $stack0, $stack1;
+
+        $stack0 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack0.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cLanguagesByCountry> = $stack0;
+
+        $stack1 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack1.<java.util.concurrent.ConcurrentHashMap: void <init>()>();
+
+        <org.apache.commons.lang3.LocaleUtils: java.util.concurrent.ConcurrentMap cCountriesByLanguage> = $stack1;
+
+        return;
+    }
+}

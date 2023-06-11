@@ -1,0 +1,1476 @@
+public class org.apache.commons.lang3.time.DateUtilsRoundingTest extends java.lang.Object
+{
+    java.text.DateFormat dateTimeParser;
+    java.util.Date januaryOneDate;
+    java.util.Date targetYearDate;
+    java.util.Date targetDateDate;
+    java.util.Date targetDayOfMonthDate;
+    java.util.Date targetAmDate;
+    java.util.Date targetPmDate;
+    java.util.Date targetHourOfDayDate;
+    java.util.Date targetHourDate;
+    java.util.Date targetMinuteDate;
+    java.util.Date targetSecondDate;
+    java.util.Date targetMilliSecondDate;
+    java.util.Calendar januaryOneCalendar;
+    org.apache.commons.lang3.time.FastDateFormat fdf;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        org.apache.commons.lang3.time.FastDateFormat $stack1;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_FORMAT>;
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf> = $stack1;
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        java.util.Date $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24;
+        java.text.SimpleDateFormat $stack1;
+        java.util.Calendar $stack23, $stack25;
+        java.util.Locale $stack2;
+        java.text.DateFormat $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21;
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack1 = new java.text.SimpleDateFormat;
+
+        $stack2 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        specialinvoke $stack1.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>("MMM dd, yyyy H:mm:ss.SSS", $stack2);
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser> = $stack1;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2007 0:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetYearDate> = $stack4;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack6 = virtualinvoke $stack5.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 0:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDayOfMonthDate> = $stack6;
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDateDate> = $stack6;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 0:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetAmDate> = $stack8;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 12:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetPmDate> = $stack10;
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourDate> = $stack12;
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourOfDayDate> = $stack14;
+
+        $stack15 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack16 = virtualinvoke $stack15.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMinuteDate> = $stack16;
+
+        $stack17 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack18 = virtualinvoke $stack17.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:14.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetSecondDate> = $stack18;
+
+        $stack19 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack20 = virtualinvoke $stack19.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:14.231");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMilliSecondDate> = $stack20;
+
+        $stack21 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack22 = virtualinvoke $stack21.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:00:00.000");
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate> = $stack22;
+
+        $stack23 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar> = $stack23;
+
+        $stack25 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack24 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        virtualinvoke $stack25.<java.util.Calendar: void setTime(java.util.Date)>($stack24);
+
+        return;
+    }
+
+    public void testRoundYear() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack6, roundedDownDate, $stack8;
+        java.text.DateFormat $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack6 = virtualinvoke $stack5.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetYearDate>;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 30, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack6, roundedDownDate, $stack8, 1);
+
+        return;
+    }
+
+    public void testRoundMonth() throws java.lang.Exception
+    {
+        java.util.Date $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack34;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33;
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2007 0:00:00.000");
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2007 0:00:00.000");
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 14, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, $stack10, $stack12, 2);
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2008 0:00:00.000");
+
+        $stack15 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack16 = virtualinvoke $stack15.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2008 0:00:00.000");
+
+        $stack17 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack18 = virtualinvoke $stack17.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 15, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack14, $stack16, $stack18, 2);
+
+        $stack19 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack20 = virtualinvoke $stack19.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 1, 2008 0:00:00.000");
+
+        $stack21 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack22 = virtualinvoke $stack21.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 1, 2008 0:00:00.000");
+
+        $stack23 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack24 = virtualinvoke $stack23.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 15, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack20, $stack22, $stack24, 2);
+
+        $stack25 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack26 = virtualinvoke $stack25.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 0:00:00.000");
+
+        $stack27 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack28 = virtualinvoke $stack27.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 1, 2008 0:00:00.000");
+
+        $stack29 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack30 = virtualinvoke $stack29.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 16, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack26, $stack28, $stack30, 2);
+
+        $stack31 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack32 = virtualinvoke $stack31.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 17, 2007 00:00:00.000");
+
+        $stack33 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack34 = virtualinvoke $stack33.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 16, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack32, $stack34, 2);
+
+        return;
+    }
+
+    public void testRoundSemiMonth() throws java.lang.Exception
+    {
+        java.util.Date $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack34, $stack36, $stack38, $stack40, $stack42, $stack44, $stack46, $stack48, $stack50, $stack52, $stack54, $stack56, $stack58;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39, $stack41, $stack43, $stack45, $stack47, $stack49, $stack51, $stack53, $stack55, $stack57;
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2007 0:00:00.000");
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2007 0:00:00.000");
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 8, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, $stack10, $stack12, 1001);
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2007 0:00:00.000");
+
+        $stack15 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack16 = virtualinvoke $stack15.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2007 0:00:00.000");
+
+        $stack17 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack18 = virtualinvoke $stack17.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 23, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack14, $stack16, $stack18, 1001);
+
+        $stack19 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack20 = virtualinvoke $stack19.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2008 0:00:00.000");
+
+        $stack21 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack22 = virtualinvoke $stack21.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2008 0:00:00.000");
+
+        $stack23 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack24 = virtualinvoke $stack23.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 8, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack20, $stack22, $stack24, 1001);
+
+        $stack25 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack26 = virtualinvoke $stack25.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2008 0:00:00.000");
+
+        $stack27 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack28 = virtualinvoke $stack27.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2008 0:00:00.000");
+
+        $stack29 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack30 = virtualinvoke $stack29.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 23, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack26, $stack28, $stack30, 1001);
+
+        $stack31 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack32 = virtualinvoke $stack31.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 16, 2008 0:00:00.000");
+
+        $stack33 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack34 = virtualinvoke $stack33.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 1, 2008 0:00:00.000");
+
+        $stack35 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack36 = virtualinvoke $stack35.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 8, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack32, $stack34, $stack36, 1001);
+
+        $stack37 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack38 = virtualinvoke $stack37.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 1, 2008 0:00:00.000");
+
+        $stack39 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack40 = virtualinvoke $stack39.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 16, 2008 0:00:00.000");
+
+        $stack41 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack42 = virtualinvoke $stack41.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 23, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack38, $stack40, $stack42, 1001);
+
+        $stack43 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack44 = virtualinvoke $stack43.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 16, 2008 0:00:00.000");
+
+        $stack45 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack46 = virtualinvoke $stack45.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 1, 2008 0:00:00.000");
+
+        $stack47 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack48 = virtualinvoke $stack47.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 8, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack44, $stack46, $stack48, 1001);
+
+        $stack49 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack50 = virtualinvoke $stack49.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 0:00:00.000");
+
+        $stack51 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack52 = virtualinvoke $stack51.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 16, 2008 0:00:00.000");
+
+        $stack53 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack54 = virtualinvoke $stack53.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("May 23, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack50, $stack52, $stack54, 1001);
+
+        $stack55 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack56 = virtualinvoke $stack55.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 24, 2007 00:00:00.000");
+
+        $stack57 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack58 = virtualinvoke $stack57.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 8, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack56, $stack58, 1001);
+
+        return;
+    }
+
+    public void testRoundDate() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 2, 2008 0:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDateDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 11:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 5);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 12:00:00.000");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 11:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 5);
+
+        return;
+    }
+
+    public void testRoundDayOfMonth() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 2, 2008 0:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDayOfMonthDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 11:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 5);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 12:00:00.000");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 11:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 5);
+
+        return;
+    }
+
+    public void testRoundAmPm() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, roundedDownDate;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13, $stack15, $stack17;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 12:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetAmDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 5:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 9);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 2, 2008 0:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetPmDate>;
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 17:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack12, roundedDownDate, $stack14, 9);
+
+        $stack15 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack16 = virtualinvoke $stack15.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 18:00:00.000");
+
+        $stack17 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack18 = virtualinvoke $stack17.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 5:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack16, $stack18, 9);
+
+        return;
+    }
+
+    public void testRoundHourOfDay() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 9:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourOfDayDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:29:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 11);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 23:30:00.000");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:29:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 11);
+
+        return;
+    }
+
+    public void testRoundHour() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 9:00:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:29:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 10);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 23:30:00.000");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:29:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 10);
+
+        return;
+    }
+
+    public void testRoundMinute() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:16:00.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMinuteDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:29.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 12);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 23:59:30.000");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:00:29.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 12);
+
+        return;
+    }
+
+    public void testRoundSecond() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack8, roundedDownDate, $stack10, $stack12, $stack14;
+        java.text.DateFormat $stack7, $stack9, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack8 = virtualinvoke $stack7.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:15.000");
+
+        roundedDownDate = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetSecondDate>;
+
+        $stack9 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack10 = virtualinvoke $stack9.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:14.499");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack8, roundedDownDate, $stack10, 13);
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 23:59:59.500");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack14 = virtualinvoke $stack13.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("January 1, 2008 0:00:00.499");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack12, $stack14, 13);
+
+        return;
+    }
+
+    public void testRoundMilliSecond() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack7, $stack9, $stack10;
+        java.text.DateFormat $stack8;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack7 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMilliSecondDate>;
+
+        $stack8 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack9 = virtualinvoke $stack8.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:14.232");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseRoundTest(java.util.Date,java.util.Date,java.util.Date,int)>($stack9, $stack7, $stack7, 14);
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void roundToJanuaryFirst(java.util.Date,java.util.Date,int)>($stack10, $stack10, 14);
+
+        return;
+    }
+
+    public void testTruncateYear() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("December 31, 2007 23:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetYearDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 1);
+
+        return;
+    }
+
+    public void testTruncateMonth() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack5, $stack7;
+        java.text.DateFormat $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack5 = virtualinvoke $stack4.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2008 0:00:00.000");
+
+        $stack6 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack7 = virtualinvoke $stack6.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 31, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack7, 2);
+
+        return;
+    }
+
+    public void testTruncateSemiMonth() throws java.lang.Exception
+    {
+        java.util.Date $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35;
+        java.text.DateFormat $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack34;
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack5 = virtualinvoke $stack4.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2007 0:00:00.000");
+
+        $stack6 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack7 = virtualinvoke $stack6.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 15, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack7, 1001);
+
+        $stack8 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack9 = virtualinvoke $stack8.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2007 0:00:00.000");
+
+        $stack10 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack11 = virtualinvoke $stack10.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 28, 2007 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack9, $stack11, 1001);
+
+        $stack12 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack13 = virtualinvoke $stack12.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 1, 2008 0:00:00.000");
+
+        $stack14 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack15 = virtualinvoke $stack14.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 15, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack13, $stack15, 1001);
+
+        $stack16 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack17 = virtualinvoke $stack16.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 16, 2008 0:00:00.000");
+
+        $stack18 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack19 = virtualinvoke $stack18.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("February 29, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack17, $stack19, 1001);
+
+        $stack20 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack21 = virtualinvoke $stack20.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 1, 2008 0:00:00.000");
+
+        $stack22 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack23 = virtualinvoke $stack22.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 15, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack21, $stack23, 1001);
+
+        $stack24 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack25 = virtualinvoke $stack24.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 16, 2008 0:00:00.000");
+
+        $stack26 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack27 = virtualinvoke $stack26.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("April 30, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack25, $stack27, 1001);
+
+        $stack28 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack29 = virtualinvoke $stack28.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 1, 2008 0:00:00.000");
+
+        $stack30 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack31 = virtualinvoke $stack30.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 15, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack29, $stack31, 1001);
+
+        $stack32 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack33 = virtualinvoke $stack32.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 16, 2008 0:00:00.000");
+
+        $stack34 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack35 = virtualinvoke $stack34.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("March 31, 2008 23:59:59.999");
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack33, $stack35, 1001);
+
+        return;
+    }
+
+    public void testTruncateDate() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 23:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDateDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 5);
+
+        return;
+    }
+
+    public void testTruncateDayOfMonth() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 23:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetDayOfMonthDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 5);
+
+        return;
+    }
+
+    public void testTruncateAmPm() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5, $stack7, $stack8;
+        java.text.DateFormat $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 11:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetAmDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 9);
+
+        $stack6 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack7 = virtualinvoke $stack6.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 23:59:59.999");
+
+        $stack8 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetPmDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack8, $stack7, 9);
+
+        return;
+    }
+
+    public void testTruncateHour() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 10);
+
+        return;
+    }
+
+    public void testTruncateHourOfDay() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:59:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetHourOfDayDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 11);
+
+        return;
+    }
+
+    public void testTruncateMinute() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:59.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMinuteDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 12);
+
+        return;
+    }
+
+    public void testTruncateSecond() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack4, $stack5;
+        java.text.DateFormat $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.text.DateFormat dateTimeParser>;
+
+        $stack4 = virtualinvoke $stack3.<java.text.DateFormat: java.util.Date parse(java.lang.String)>("June 1, 2008 8:15:14.999");
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetSecondDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack5, $stack4, 13);
+
+        return;
+    }
+
+    public void testTruncateMilliSecond() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.util.Date $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMilliSecondDate>;
+
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date targetMilliSecondDate>;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: void baseTruncateTest(java.util.Date,java.util.Date,int)>($stack3, $stack2, 14);
+
+        return;
+    }
+
+    protected void baseRoundTest(java.util.Date, java.util.Date, java.util.Date, int)
+    {
+        java.util.Date lastRoundDownDate, $stack10, roundedDownDate, $stack11, roundedUpDate, $stack12, $stack13, $stack14, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30;
+        java.util.Calendar $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22;
+        int calendarField;
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        roundedUpDate := @parameter0: java.util.Date;
+
+        roundedDownDate := @parameter1: java.util.Date;
+
+        lastRoundDownDate := @parameter2: java.util.Date;
+
+        calendarField := @parameter3: int;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date addMilliseconds(java.util.Date,int)>(lastRoundDownDate, 1);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>(roundedDownDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>(roundedUpDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>(lastRoundDownDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack10, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack14);
+
+        $stack15 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack16 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack17 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack18 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack15.<java.util.Calendar: void setTime(java.util.Date)>(roundedDownDate);
+
+        virtualinvoke $stack16.<java.util.Calendar: void setTime(java.util.Date)>(roundedUpDate);
+
+        virtualinvoke $stack17.<java.util.Calendar: void setTime(java.util.Date)>(lastRoundDownDate);
+
+        virtualinvoke $stack18.<java.util.Calendar: void setTime(java.util.Date)>($stack10);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack15, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack16, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack17, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack18, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>(roundedDownDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>(roundedUpDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack24);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>(lastRoundDownDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>($stack10, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>($stack15, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack27);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>($stack16, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>(lastRoundDownDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedDownDate, $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.lang.Object,int)>($stack10, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(roundedUpDate, $stack30);
+
+        return;
+    }
+
+    protected void baseTruncateTest(java.util.Date, java.util.Date, int)
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.lang.StringBuilder $stack9, $stack10, $stack13, $stack14, $stack15, $stack16, $stack20, $stack23, $stack24, $stack25, $stack32, $stack33, $stack36, $stack37, $stack38, $stack39, $stack43, $stack46, $stack47, $stack48, $stack52, $stack53, $stack56, $stack57, $stack58, $stack59, $stack63, $stack66, $stack67, $stack68, $stack72, $stack73, $stack76, $stack77, $stack78, $stack79, $stack83, $stack86, $stack87, $stack88;
+        java.util.Calendar $stack29, $stack30, $stack31, $stack41, $stack42, $stack50;
+        java.lang.String $stack12, $stack17, $stack22, $stack26, $stack35, $stack40, $stack45, $stack49, $stack55, $stack60, $stack65, $stack69, $stack75, $stack80, $stack85, $stack89;
+        java.util.Date lastTruncateDate, $stack8, truncatedDate, $stack18, $stack19, $stack27, $stack61, $stack62, $stack70, $stack81, $stack82, $stack90;
+        boolean $stack28, $stack51, $stack71, $stack91;
+        int calendarField;
+        org.apache.commons.lang3.time.FastDateFormat $stack11, $stack21, $stack34, $stack44, $stack54, $stack64, $stack74, $stack84;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        truncatedDate := @parameter0: java.util.Date;
+
+        lastTruncateDate := @parameter1: java.util.Date;
+
+        calendarField := @parameter2: int;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date addMilliseconds(java.util.Date,int)>(lastTruncateDate, 1);
+
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Truncating ");
+
+        $stack11 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(truncatedDate);
+
+        $stack13 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Date with CalendarField-value ");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>(truncatedDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack17, truncatedDate, $stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>(lastTruncateDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(truncatedDate, $stack19);
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(lastTruncateDate);
+
+        $stack23 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an extreme when truncating as Date with CalendarField-value ");
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>($stack8, calendarField);
+
+        $stack28 = virtualinvoke truncatedDate.<java.util.Date: boolean equals(java.lang.Object)>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack26, $stack28);
+
+        $stack29 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack30 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack31 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack29.<java.util.Calendar: void setTime(java.util.Date)>(truncatedDate);
+
+        virtualinvoke $stack30.<java.util.Calendar: void setTime(java.util.Date)>(lastTruncateDate);
+
+        virtualinvoke $stack31.<java.util.Calendar: void setTime(java.util.Date)>($stack8);
+
+        $stack32 = new java.lang.StringBuilder;
+
+        specialinvoke $stack32.<java.lang.StringBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Truncating ");
+
+        $stack34 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack35 = virtualinvoke $stack34.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack29);
+
+        $stack36 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Calendar with CalendarField-value ");
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself");
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>($stack29, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack40, $stack29, $stack41);
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>($stack30, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack42);
+
+        $stack43 = new java.lang.StringBuilder;
+
+        specialinvoke $stack43.<java.lang.StringBuilder: void <init>()>();
+
+        $stack44 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack45 = virtualinvoke $stack44.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack30);
+
+        $stack46 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack45);
+
+        $stack47 = virtualinvoke $stack46.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an extreme when truncating as Calendar with CalendarField-value ");
+
+        $stack48 = virtualinvoke $stack47.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack49 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>($stack31, calendarField);
+
+        $stack51 = virtualinvoke $stack29.<java.util.Calendar: boolean equals(java.lang.Object)>($stack50);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack49, $stack51);
+
+        $stack52 = new java.lang.StringBuilder;
+
+        specialinvoke $stack52.<java.lang.StringBuilder: void <init>()>();
+
+        $stack53 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Truncating ");
+
+        $stack54 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack55 = virtualinvoke $stack54.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(truncatedDate);
+
+        $stack56 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack55);
+
+        $stack57 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Date cast to Object with CalendarField-value ");
+
+        $stack58 = virtualinvoke $stack57.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack59 = virtualinvoke $stack58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself as Date");
+
+        $stack60 = virtualinvoke $stack59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>(truncatedDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack60, truncatedDate, $stack61);
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>(lastTruncateDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(truncatedDate, $stack62);
+
+        $stack63 = new java.lang.StringBuilder;
+
+        specialinvoke $stack63.<java.lang.StringBuilder: void <init>()>();
+
+        $stack64 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack65 = virtualinvoke $stack64.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(lastTruncateDate);
+
+        $stack66 = virtualinvoke $stack63.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack65);
+
+        $stack67 = virtualinvoke $stack66.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an extreme when truncating as Date cast to Object with CalendarField-value ");
+
+        $stack68 = virtualinvoke $stack67.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack69 = virtualinvoke $stack68.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack70 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>($stack8, calendarField);
+
+        $stack71 = virtualinvoke truncatedDate.<java.util.Date: boolean equals(java.lang.Object)>($stack70);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack69, $stack71);
+
+        $stack72 = new java.lang.StringBuilder;
+
+        specialinvoke $stack72.<java.lang.StringBuilder: void <init>()>();
+
+        $stack73 = virtualinvoke $stack72.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Truncating ");
+
+        $stack74 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack75 = virtualinvoke $stack74.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack29);
+
+        $stack76 = virtualinvoke $stack73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack75);
+
+        $stack77 = virtualinvoke $stack76.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Calendar cast to Object with CalendarField-value ");
+
+        $stack78 = virtualinvoke $stack77.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack79 = virtualinvoke $stack78.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself as Date");
+
+        $stack80 = virtualinvoke $stack79.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack81 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>($stack29, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack80, truncatedDate, $stack81);
+
+        $stack82 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>($stack30, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(truncatedDate, $stack82);
+
+        $stack83 = new java.lang.StringBuilder;
+
+        specialinvoke $stack83.<java.lang.StringBuilder: void <init>()>();
+
+        $stack84 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack85 = virtualinvoke $stack84.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack30);
+
+        $stack86 = virtualinvoke $stack83.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack85);
+
+        $stack87 = virtualinvoke $stack86.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an extreme when truncating as Calendar cast to Object with CalendarField-value ");
+
+        $stack88 = virtualinvoke $stack87.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack89 = virtualinvoke $stack88.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack90 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.lang.Object,int)>($stack31, calendarField);
+
+        $stack91 = virtualinvoke truncatedDate.<java.util.Date: boolean equals(java.lang.Object)>($stack90);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack89, $stack91);
+
+        return;
+    }
+
+    protected void roundToJanuaryFirst(java.util.Date, java.util.Date, int)
+    {
+        org.apache.commons.lang3.time.DateUtilsRoundingTest this;
+        java.lang.StringBuilder $stack11, $stack15, $stack16, $stack17, $stack18, $stack30, $stack34, $stack35, $stack36, $stack37, $stack51, $stack52, $stack53, $stack61, $stack62, $stack63, $stack73, $stack74, $stack75, $stack83, $stack84, $stack85, $u0, $u1, $u2, $u3, $u4, $u5;
+        java.util.Calendar $stack27, $stack28, $stack31, $stack39, $stack40, $stack41, $stack42, $stack43, $stack44, $stack45, $stack68, $stack69;
+        java.lang.String $stack14, $stack19, $stack33, $stack38, $stack50, $stack54, $stack60, $stack64, $stack72, $stack76, $stack82, $stack86;
+        java.util.Date $stack12, $stack20, $stack21, $stack22, minDate, $stack23, $stack24, maxDate, $stack25, $stack26, $stack46, $stack47, $stack55, $stack56, $stack65, $stack66, $stack77, $stack78, $stack87, $stack88;
+        boolean $stack57, $stack67, $stack79, $stack89;
+        int calendarField, $i0;
+        org.apache.commons.lang3.time.FastDateFormat $stack13, $stack32, $stack49, $stack59, $stack71, $stack81;
+
+        this := @this: org.apache.commons.lang3.time.DateUtilsRoundingTest;
+
+        minDate := @parameter0: java.util.Date;
+
+        maxDate := @parameter1: java.util.Date;
+
+        calendarField := @parameter2: int;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Rounding ");
+
+        $stack13 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack12 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>($stack12);
+
+        $stack15 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Date with CalendarField-value ");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself");
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack21 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack20 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack20, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack19, $stack21, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>(minDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack24);
+
+        $stack25 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>(maxDate, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack26);
+
+        $stack27 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack27.<java.util.Calendar: void setTime(java.util.Date)>(minDate);
+
+        $stack28 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack28.<java.util.Calendar: void setTime(java.util.Date)>(maxDate);
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack30 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Rounding ");
+
+        $stack32 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack31 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack31);
+
+        $stack34 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack33);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" as Date with CalendarField-value ");
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" must return itself");
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack40 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack39 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack39, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack38, $stack40, $stack41);
+
+        $stack42 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack27, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack42, $stack43);
+
+        $stack44 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Calendar januaryOneCalendar>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack28, calendarField);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack45);
+
+        $i0 = (int) -1;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date addMilliseconds(java.util.Date,int)>(minDate, $i0);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date addMilliseconds(java.util.Date,int)>(maxDate, 1);
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack49 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack50 = virtualinvoke $stack49.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(minDate);
+
+        $stack51 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack50);
+
+        $stack52 = virtualinvoke $stack51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an lower-extreme when rounding as Date with CalendarField-value ");
+
+        $stack53 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack54 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack55 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack46, calendarField);
+
+        $stack57 = virtualinvoke $stack55.<java.util.Date: boolean equals(java.lang.Object)>($stack56);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack54, $stack57);
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack59 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack60 = virtualinvoke $stack59.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(maxDate);
+
+        $stack61 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack60);
+
+        $stack62 = virtualinvoke $stack61.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an upper-extreme when rounding as Date with CalendarField-value ");
+
+        $stack63 = virtualinvoke $stack62.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack64 = virtualinvoke $stack63.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack65 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack47, calendarField);
+
+        $stack67 = virtualinvoke $stack65.<java.util.Date: boolean equals(java.lang.Object)>($stack66);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack64, $stack67);
+
+        $stack68 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack68.<java.util.Calendar: void setTime(java.util.Date)>($stack46);
+
+        $stack69 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack69.<java.util.Calendar: void setTime(java.util.Date)>($stack47);
+
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack71 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack72 = virtualinvoke $stack71.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack27);
+
+        $stack73 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack72);
+
+        $stack74 = virtualinvoke $stack73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an lower-extreme when rounding as Date with CalendarField-value ");
+
+        $stack75 = virtualinvoke $stack74.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack76 = virtualinvoke $stack75.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack77 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack78 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack46, calendarField);
+
+        $stack79 = virtualinvoke $stack77.<java.util.Date: boolean equals(java.lang.Object)>($stack78);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack76, $stack79);
+
+        $u5 = new java.lang.StringBuilder;
+
+        specialinvoke $u5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack81 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: org.apache.commons.lang3.time.FastDateFormat fdf>;
+
+        $stack82 = virtualinvoke $stack81.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack28);
+
+        $stack83 = virtualinvoke $u5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack82);
+
+        $stack84 = virtualinvoke $stack83.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not an upper-extreme when rounding as Date with CalendarField-value ");
+
+        $stack85 = virtualinvoke $stack84.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(calendarField);
+
+        $stack86 = virtualinvoke $stack85.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack87 = this.<org.apache.commons.lang3.time.DateUtilsRoundingTest: java.util.Date januaryOneDate>;
+
+        $stack88 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack47, calendarField);
+
+        $stack89 = virtualinvoke $stack87.<java.util.Date: boolean equals(java.lang.Object)>($stack88);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack86, $stack89);
+
+        return;
+    }
+}

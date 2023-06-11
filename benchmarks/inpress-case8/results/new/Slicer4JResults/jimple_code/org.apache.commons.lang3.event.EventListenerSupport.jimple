@@ -1,0 +1,395 @@
+public class org.apache.commons.lang3.event.EventListenerSupport extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private java.util.List listeners;
+    private transient java.lang.Object proxy;
+    private transient java.lang.Object[] prototypeArray;
+
+    public static org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack1;
+        java.lang.Class listenerInterface;
+
+        listenerInterface := @parameter0: java.lang.Class;
+
+        $stack1 = new org.apache.commons.lang3.event.EventListenerSupport;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.event.EventListenerSupport: void <init>(java.lang.Class)>(listenerInterface);
+
+        return $stack1;
+    }
+
+    public void <init>(java.lang.Class)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Thread $stack2;
+        java.lang.Class listenerInterface;
+        java.lang.ClassLoader $stack3;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listenerInterface := @parameter0: java.lang.Class;
+
+        $stack2 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: void <init>(java.lang.Class,java.lang.ClassLoader)>(listenerInterface, $stack3);
+
+        return;
+    }
+
+    public void <init>(java.lang.Class, java.lang.ClassLoader)
+    {
+        java.lang.Object[] $stack3, $stack5, $stack8;
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Class listenerInterface;
+        java.lang.ClassLoader classLoader;
+        java.lang.String $stack11;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listenerInterface := @parameter0: java.lang.Class;
+
+        classLoader := @parameter1: java.lang.ClassLoader;
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: void <init>()>();
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(listenerInterface, "Listener interface cannot be null.", $stack3);
+
+        $stack5 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(classLoader, "ClassLoader cannot be null.", $stack5);
+
+        $stack7 = virtualinvoke listenerInterface.<java.lang.Class: boolean isInterface()>();
+
+        $stack8 = newarray (java.lang.Object)[1];
+
+        $stack11 = virtualinvoke listenerInterface.<java.lang.Class: java.lang.String getName()>();
+
+        $stack8[0] = $stack11;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack7, "Class {0} is not an interface", $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: void initializeTransientFields(java.lang.Class,java.lang.ClassLoader)>(listenerInterface, classLoader);
+
+        return;
+    }
+
+    private void <init>()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.concurrent.CopyOnWriteArrayList $stack1;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.concurrent.CopyOnWriteArrayList;
+
+        specialinvoke $stack1.<java.util.concurrent.CopyOnWriteArrayList: void <init>()>();
+
+        this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners> = $stack1;
+
+        return;
+    }
+
+    public java.lang.Object fire()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Object $stack1;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack1 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object proxy>;
+
+        return $stack1;
+    }
+
+    public void addListener(java.lang.Object)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.List $stack4;
+        java.lang.Object[] $stack2;
+        java.lang.Object listener;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listener := @parameter0: java.lang.Object;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(listener, "Listener object cannot be null.", $stack2);
+
+        $stack4 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        interfaceinvoke $stack4.<java.util.List: boolean add(java.lang.Object)>(listener);
+
+        return;
+    }
+
+    int getListenerCount()
+    {
+        int $stack2;
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.List $stack1;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack1 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.List: int size()>();
+
+        return $stack2;
+    }
+
+    public void removeListener(java.lang.Object)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.List $stack4;
+        java.lang.Object[] $stack2;
+        java.lang.Object listener;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listener := @parameter0: java.lang.Object;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(listener, "Listener object cannot be null.", $stack2);
+
+        $stack4 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        interfaceinvoke $stack4.<java.util.List: boolean remove(java.lang.Object)>(listener);
+
+        return;
+    }
+
+    public java.lang.Object[] getListeners()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.List $stack2;
+        java.lang.Object[] $stack1, $stack3;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack2 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        $stack1 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] prototypeArray>;
+
+        $stack3 = interfaceinvoke $stack2.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack1);
+
+        return $stack3;
+    }
+
+    private void writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    {
+        java.lang.Object[] $stack13, $stack14;
+        java.io.ByteArrayOutputStream $stack9, $stack20;
+        java.util.Iterator $stack11;
+        java.io.IOException $stack18;
+        java.util.ArrayList $stack7;
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.util.List $stack10;
+        java.io.ObjectOutputStream $stack8, objectOutputStream, $stack19, testObjectOutputStream;
+        java.lang.Object $stack15;
+        boolean $stack12;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        objectOutputStream := @parameter0: java.io.ObjectOutputStream;
+
+        $stack7 = new java.util.ArrayList;
+
+        specialinvoke $stack7.<java.util.ArrayList: void <init>()>();
+
+        $stack8 = new java.io.ObjectOutputStream;
+
+        $stack9 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack9.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        specialinvoke $stack8.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack9);
+
+        testObjectOutputStream = $stack8;
+
+        $stack10 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        $stack11 = interfaceinvoke $stack10.<java.util.List: java.util.Iterator iterator()>();
+
+     label1:
+        $stack12 = interfaceinvoke $stack11.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack12 == 0 goto label6;
+
+        $stack15 = interfaceinvoke $stack11.<java.util.Iterator: java.lang.Object next()>();
+
+     label2:
+        virtualinvoke testObjectOutputStream.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack15);
+
+        virtualinvoke $stack7.<java.util.ArrayList: boolean add(java.lang.Object)>($stack15);
+
+     label3:
+        goto label5;
+
+     label4:
+        $stack18 := @caughtexception;
+
+        $stack19 = new java.io.ObjectOutputStream;
+
+        $stack20 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack20.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        specialinvoke $stack19.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack20);
+
+        testObjectOutputStream = $stack19;
+
+     label5:
+        goto label1;
+
+     label6:
+        $stack13 = this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] prototypeArray>;
+
+        $stack14 = virtualinvoke $stack7.<java.util.ArrayList: java.lang.Object[] toArray(java.lang.Object[])>($stack13);
+
+        virtualinvoke objectOutputStream.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack14);
+
+        return;
+
+        catch java.io.IOException from label2 to label3 with label4;
+    }
+
+    private void readObject(java.io.ObjectInputStream) throws java.io.IOException, java.lang.ClassNotFoundException
+    {
+        java.lang.Object[] $stack5, listeners;
+        java.io.ObjectInputStream objectInputStream;
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Thread $stack9;
+        java.lang.Object $stack4;
+        java.lang.Class $stack7, $stack8;
+        java.lang.ClassLoader $stack10;
+        java.util.concurrent.CopyOnWriteArrayList $stack6;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        objectInputStream := @parameter0: java.io.ObjectInputStream;
+
+        $stack4 = virtualinvoke objectInputStream.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        $stack5 = (java.lang.Object[]) $stack4;
+
+        listeners = (java.lang.Object[]) $stack5;
+
+        $stack6 = new java.util.concurrent.CopyOnWriteArrayList;
+
+        specialinvoke $stack6.<java.util.concurrent.CopyOnWriteArrayList: void <init>(java.lang.Object[])>(listeners);
+
+        this.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners> = $stack6;
+
+        $stack7 = virtualinvoke listeners.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack9 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: void initializeTransientFields(java.lang.Class,java.lang.ClassLoader)>($stack8, $stack10);
+
+        return;
+    }
+
+    private void initializeTransientFields(java.lang.Class, java.lang.ClassLoader)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Object[] $stack5, array;
+        java.lang.Class listenerInterface;
+        java.lang.Object $stack4;
+        java.lang.ClassLoader classLoader;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listenerInterface := @parameter0: java.lang.Class;
+
+        classLoader := @parameter1: java.lang.ClassLoader;
+
+        $stack4 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int)>(listenerInterface, 0);
+
+        $stack5 = (java.lang.Object[]) $stack4;
+
+        array = (java.lang.Object[]) $stack5;
+
+        this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] prototypeArray> = array;
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: void createProxy(java.lang.Class,java.lang.ClassLoader)>(listenerInterface, classLoader);
+
+        return;
+    }
+
+    private void createProxy(java.lang.Class, java.lang.ClassLoader)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport this;
+        java.lang.Class[] $stack3;
+        java.lang.Class listenerInterface;
+        java.lang.Object $stack5, $stack6;
+        java.lang.ClassLoader classLoader;
+        java.lang.reflect.InvocationHandler $stack4;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        listenerInterface := @parameter0: java.lang.Class;
+
+        classLoader := @parameter1: java.lang.ClassLoader;
+
+        $stack3 = newarray (java.lang.Class)[1];
+
+        $stack3[0] = listenerInterface;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.reflect.InvocationHandler createInvocationHandler()>();
+
+        $stack5 = staticinvoke <java.lang.reflect.Proxy: java.lang.Object newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)>(classLoader, $stack3, $stack4);
+
+        $stack6 = virtualinvoke listenerInterface.<java.lang.Class: java.lang.Object cast(java.lang.Object)>($stack5);
+
+        this.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object proxy> = $stack6;
+
+        return;
+    }
+
+    protected java.lang.reflect.InvocationHandler createInvocationHandler()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler $stack1;
+        org.apache.commons.lang3.event.EventListenerSupport this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack1 = new org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler: void <init>(org.apache.commons.lang3.event.EventListenerSupport)>(this);
+
+        return $stack1;
+    }
+
+    static java.util.List access$000(org.apache.commons.lang3.event.EventListenerSupport)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport x0;
+        java.util.List $stack1;
+
+        x0 := @parameter0: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack1 = x0.<org.apache.commons.lang3.event.EventListenerSupport: java.util.List listeners>;
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.event.EventListenerSupport: long serialVersionUID> = 3593265990380473632L;
+
+        return;
+    }
+}

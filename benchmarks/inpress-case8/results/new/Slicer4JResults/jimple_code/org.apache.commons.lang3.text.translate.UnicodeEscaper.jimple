@@ -1,0 +1,236 @@
+public class org.apache.commons.lang3.text.translate.UnicodeEscaper extends org.apache.commons.lang3.text.translate.CodePointTranslator
+{
+    private final int below;
+    private final int above;
+    private final boolean between;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaper this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaper;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: void <init>(int,int,boolean)>(0, 2147483647, 1);
+
+        return;
+    }
+
+    private void <init>(int, int, boolean)
+    {
+        int below, above;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper this;
+        boolean between;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaper;
+
+        below := @parameter0: int;
+
+        above := @parameter1: int;
+
+        between := @parameter2: boolean;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CodePointTranslator: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int below> = below;
+
+        this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int above> = above;
+
+        this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: boolean between> = between;
+
+        return;
+    }
+
+    public static org.apache.commons.lang3.text.translate.UnicodeEscaper below(int)
+    {
+        int codepoint;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack1;
+
+        codepoint := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: org.apache.commons.lang3.text.translate.UnicodeEscaper outsideOf(int,int)>(codepoint, 2147483647);
+
+        return $stack1;
+    }
+
+    public static org.apache.commons.lang3.text.translate.UnicodeEscaper above(int)
+    {
+        int codepoint;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack1;
+
+        codepoint := @parameter0: int;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: org.apache.commons.lang3.text.translate.UnicodeEscaper outsideOf(int,int)>(0, codepoint);
+
+        return $stack1;
+    }
+
+    public static org.apache.commons.lang3.text.translate.UnicodeEscaper outsideOf(int, int)
+    {
+        int codepointLow, codepointHigh;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack2;
+
+        codepointLow := @parameter0: int;
+
+        codepointHigh := @parameter1: int;
+
+        $stack2 = new org.apache.commons.lang3.text.translate.UnicodeEscaper;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.translate.UnicodeEscaper: void <init>(int,int,boolean)>(codepointLow, codepointHigh, 0);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.text.translate.UnicodeEscaper between(int, int)
+    {
+        int codepointLow, codepointHigh;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack2;
+
+        codepointLow := @parameter0: int;
+
+        codepointHigh := @parameter1: int;
+
+        $stack2 = new org.apache.commons.lang3.text.translate.UnicodeEscaper;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.translate.UnicodeEscaper: void <init>(int,int,boolean)>(codepointLow, codepointHigh, 1);
+
+        return $stack2;
+    }
+
+    public boolean translate(int, java.io.Writer) throws java.io.IOException
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaper this;
+        boolean $stack3;
+        java.io.Writer out;
+        java.lang.StringBuilder $stack6, $stack8, $stack11, $stack13, $stack17, $stack19, $stack22, $stack24, $stack27, $stack29, $u0, $u1, $u2, $u3, $u4;
+        int codepoint, $stack4, $stack31, $stack34, $stack35, $i0;
+        java.lang.String $stack7, $stack9, $stack12, $stack14, $stack18, $stack20, $stack23, $stack25, $stack28, $stack30;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaper;
+
+        codepoint := @parameter0: int;
+
+        out := @parameter1: java.io.Writer;
+
+        $stack3 = this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: boolean between>;
+
+        if $stack3 == 0 goto label2;
+
+        $stack34 = this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int below>;
+
+        if codepoint < $stack34 goto label1;
+
+        $stack35 = this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int above>;
+
+        if codepoint <= $stack35 goto label3;
+
+     label1:
+        return 0;
+
+     label2:
+        $stack4 = this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int below>;
+
+        if codepoint < $stack4 goto label3;
+
+        $stack31 = this.<org.apache.commons.lang3.text.translate.UnicodeEscaper: int above>;
+
+        if codepoint > $stack31 goto label3;
+
+        return 0;
+
+     label3:
+        $i0 = (int) 65535;
+
+        if codepoint <= $i0 goto label4;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack27 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u");
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String hex(int)>(codepoint);
+
+        $stack29 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack28);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack30);
+
+        goto label8;
+
+     label4:
+        if codepoint <= 4095 goto label5;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u");
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String hex(int)>(codepoint);
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack25);
+
+        goto label8;
+
+     label5:
+        if codepoint <= 255 goto label6;
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u0");
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String hex(int)>(codepoint);
+
+        $stack19 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack20);
+
+        goto label8;
+
+     label6:
+        if codepoint <= 15 goto label7;
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u00");
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String hex(int)>(codepoint);
+
+        $stack13 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack14);
+
+        goto label8;
+
+     label7:
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u000");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String hex(int)>(codepoint);
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack9);
+
+     label8:
+        return 1;
+    }
+}

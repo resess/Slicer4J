@@ -1,0 +1,296 @@
+public class org.apache.commons.lang3.CharSetUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharSetUtils this;
+
+        this := @this: org.apache.commons.lang3.CharSetUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static transient java.lang.String squeeze(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] set;
+        char ch;
+        org.apache.commons.lang3.CharSet $stack11;
+        int $stack13, sz, lastChar, i, $i0;
+        char[] $stack14;
+        java.lang.StringBuilder $u0;
+        java.lang.String str, $stack15;
+        boolean $stack9, $stack10, $stack22;
+
+        str := @parameter0: java.lang.String;
+
+        set := @parameter1: java.lang.String[];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack9 != 0 goto label1;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSetUtils: boolean deepEmpty(java.lang.String[])>(set);
+
+        if $stack10 == 0 goto label2;
+
+     label1:
+        return str;
+
+     label2:
+        $stack11 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>(set);
+
+        $u0 = new java.lang.StringBuilder;
+
+        $stack13 = virtualinvoke str.<java.lang.String: int length()>();
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(int)>($stack13);
+
+        $stack14 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        sz = lengthof $stack14;
+
+        lastChar = 32;
+
+        i = 0;
+
+     label3:
+        if i >= sz goto label6;
+
+        ch = $stack14[i];
+
+        $i0 = (int) ch;
+
+        if $i0 != lastChar goto label4;
+
+        if i == 0 goto label4;
+
+        $stack22 = virtualinvoke $stack11.<org.apache.commons.lang3.CharSet: boolean contains(char)>(ch);
+
+        if $stack22 == 0 goto label4;
+
+        goto label5;
+
+     label4:
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(ch);
+
+        lastChar = ch;
+
+     label5:
+        i = i + 1;
+
+        goto label3;
+
+     label6:
+        $stack15 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack15;
+    }
+
+    public static transient int count(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] set;
+        char c;
+        org.apache.commons.lang3.CharSet $stack10;
+        int len$, count, i$;
+        char[] $stack11;
+        java.lang.String str;
+        boolean $stack8, $stack9, $stack12;
+
+        str := @parameter0: java.lang.String;
+
+        set := @parameter1: java.lang.String[];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.CharSetUtils: boolean deepEmpty(java.lang.String[])>(set);
+
+        if $stack9 == 0 goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>(set);
+
+        count = 0;
+
+        $stack11 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        len$ = lengthof $stack11;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label5;
+
+        c = $stack11[i$];
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(c);
+
+        if $stack12 == 0 goto label4;
+
+        count = count + 1;
+
+     label4:
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label5:
+        return count;
+    }
+
+    public static transient java.lang.String keep(java.lang.String, java.lang.String[])
+    {
+        int $stack2;
+        java.lang.String[] set;
+        java.lang.String str, $stack4;
+        boolean $stack3;
+
+        str := @parameter0: java.lang.String;
+
+        set := @parameter1: java.lang.String[];
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack2 == 0 goto label2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharSetUtils: boolean deepEmpty(java.lang.String[])>(set);
+
+        if $stack3 == 0 goto label3;
+
+     label2:
+        return "";
+
+     label3:
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSetUtils: java.lang.String modify(java.lang.String,java.lang.String[],boolean)>(str, set, 1);
+
+        return $stack4;
+    }
+
+    public static transient java.lang.String delete(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] set;
+        java.lang.String str, $stack4;
+        boolean $stack2, $stack3;
+
+        str := @parameter0: java.lang.String;
+
+        set := @parameter1: java.lang.String[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack2 != 0 goto label1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharSetUtils: boolean deepEmpty(java.lang.String[])>(set);
+
+        if $stack3 == 0 goto label2;
+
+     label1:
+        return str;
+
+     label2:
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSetUtils: java.lang.String modify(java.lang.String,java.lang.String[],boolean)>(str, set, 0);
+
+        return $stack4;
+    }
+
+    private static java.lang.String modify(java.lang.String, java.lang.String[], boolean)
+    {
+        java.lang.String[] set;
+        char $stack13, $stack17;
+        org.apache.commons.lang3.CharSet $stack8;
+        int $stack10, sz, i;
+        char[] $stack11;
+        java.lang.StringBuilder $stack9;
+        java.lang.String str, $stack12;
+        boolean $stack14, expect;
+
+        str := @parameter0: java.lang.String;
+
+        set := @parameter1: java.lang.String[];
+
+        expect := @parameter2: boolean;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>(set);
+
+        $stack9 = new java.lang.StringBuilder;
+
+        $stack10 = virtualinvoke str.<java.lang.String: int length()>();
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>(int)>($stack10);
+
+        $stack11 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        sz = lengthof $stack11;
+
+        i = 0;
+
+     label1:
+        if i >= sz goto label3;
+
+        $stack13 = $stack11[i];
+
+        $stack14 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>($stack13);
+
+        if $stack14 != expect goto label2;
+
+        $stack17 = $stack11[i];
+
+        virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack17);
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack12 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack12;
+    }
+
+    private static boolean deepEmpty(java.lang.String[])
+    {
+        int len$, i$;
+        java.lang.String[] strings;
+        java.lang.String s;
+        boolean $stack6;
+
+        strings := @parameter0: java.lang.String[];
+
+        if strings == null goto label3;
+
+        len$ = lengthof strings;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        s = strings[i$];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isNotEmpty(java.lang.CharSequence)>(s);
+
+        if $stack6 == 0 goto label2;
+
+        return 0;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return 1;
+    }
+}

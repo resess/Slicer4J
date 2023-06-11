@@ -1,0 +1,1521 @@
+public class org.apache.commons.lang3.BooleanUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.BooleanUtils this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.Boolean negate(java.lang.Boolean)
+    {
+        java.lang.Boolean bool, $stack2;
+        boolean $stack1;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        if bool != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack1 == 0 goto label2;
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        goto label3;
+
+     label2:
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+     label3:
+        return $stack2;
+    }
+
+    public static boolean isTrue(java.lang.Boolean)
+    {
+        java.lang.Boolean bool, $stack1;
+        boolean $stack2;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Boolean: boolean equals(java.lang.Object)>(bool);
+
+        return $stack2;
+    }
+
+    public static boolean isNotTrue(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        boolean $stack1, $stack2;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isTrue(java.lang.Boolean)>(bool);
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public static boolean isFalse(java.lang.Boolean)
+    {
+        java.lang.Boolean bool, $stack1;
+        boolean $stack2;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Boolean: boolean equals(java.lang.Object)>(bool);
+
+        return $stack2;
+    }
+
+    public static boolean isNotFalse(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        boolean $stack1, $stack2;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isFalse(java.lang.Boolean)>(bool);
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public static boolean toBoolean(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        boolean $stack1, $stack2;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        if bool == null goto label1;
+
+        $stack1 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack1 == 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public static boolean toBooleanDefaultIfNull(java.lang.Boolean, boolean)
+    {
+        java.lang.Boolean bool;
+        boolean $stack2, valueIfNull;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        valueIfNull := @parameter1: boolean;
+
+        if bool != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        return $stack2;
+    }
+
+    public static boolean toBoolean(int)
+    {
+        int value;
+        boolean $stack1;
+
+        value := @parameter0: int;
+
+        if value == 0 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.Boolean toBooleanObject(int)
+    {
+        int value;
+        java.lang.Boolean $stack1;
+
+        value := @parameter0: int;
+
+        if value != 0 goto label1;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        goto label2;
+
+     label1:
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.Boolean toBooleanObject(java.lang.Integer)
+    {
+        int $stack1;
+        java.lang.Boolean $stack2;
+        java.lang.Integer value;
+
+        value := @parameter0: java.lang.Integer;
+
+        if value != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = virtualinvoke value.<java.lang.Integer: int intValue()>();
+
+        if $stack1 != 0 goto label2;
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        goto label3;
+
+     label2:
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+     label3:
+        return $stack2;
+    }
+
+    public static boolean toBoolean(int, int, int)
+    {
+        int value, trueValue, falseValue;
+        java.lang.IllegalArgumentException $stack3;
+
+        value := @parameter0: int;
+
+        trueValue := @parameter1: int;
+
+        falseValue := @parameter2: int;
+
+        if value != trueValue goto label1;
+
+        return 1;
+
+     label1:
+        if value != falseValue goto label2;
+
+        return 0;
+
+     label2:
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Integer did not match either specified value");
+
+        throw $stack3;
+    }
+
+    public static boolean toBoolean(java.lang.Integer, java.lang.Integer, java.lang.Integer)
+    {
+        java.lang.IllegalArgumentException $stack5;
+        java.lang.Integer value, trueValue, falseValue;
+        boolean $stack3, $stack4;
+
+        value := @parameter0: java.lang.Integer;
+
+        trueValue := @parameter1: java.lang.Integer;
+
+        falseValue := @parameter2: java.lang.Integer;
+
+        if value != null goto label2;
+
+        if trueValue != null goto label1;
+
+        return 1;
+
+     label1:
+        if falseValue != null goto label4;
+
+        return 0;
+
+     label2:
+        $stack3 = virtualinvoke value.<java.lang.Integer: boolean equals(java.lang.Object)>(trueValue);
+
+        if $stack3 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        $stack4 = virtualinvoke value.<java.lang.Integer: boolean equals(java.lang.Object)>(falseValue);
+
+        if $stack4 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Integer did not match either specified value");
+
+        throw $stack5;
+    }
+
+    public static java.lang.Boolean toBooleanObject(int, int, int, int)
+    {
+        int value, trueValue, falseValue, nullValue;
+        java.lang.Boolean $stack5, $stack6;
+        java.lang.IllegalArgumentException $stack4;
+
+        value := @parameter0: int;
+
+        trueValue := @parameter1: int;
+
+        falseValue := @parameter2: int;
+
+        nullValue := @parameter3: int;
+
+        if value != trueValue goto label1;
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack6;
+
+     label1:
+        if value != falseValue goto label2;
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack5;
+
+     label2:
+        if value != nullValue goto label3;
+
+        return null;
+
+     label3:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Integer did not match any specified value");
+
+        throw $stack4;
+    }
+
+    public static java.lang.Boolean toBooleanObject(java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer)
+    {
+        java.lang.IllegalArgumentException $stack7;
+        java.lang.Integer value, trueValue, falseValue, nullValue;
+        java.lang.Boolean $stack8, $stack9, $stack11, $stack12;
+        boolean $stack4, $stack5, $stack6;
+
+        value := @parameter0: java.lang.Integer;
+
+        trueValue := @parameter1: java.lang.Integer;
+
+        falseValue := @parameter2: java.lang.Integer;
+
+        nullValue := @parameter3: java.lang.Integer;
+
+        if value != null goto label3;
+
+        if trueValue != null goto label1;
+
+        $stack12 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack12;
+
+     label1:
+        if falseValue != null goto label2;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack11;
+
+     label2:
+        if nullValue != null goto label6;
+
+        return null;
+
+     label3:
+        $stack4 = virtualinvoke value.<java.lang.Integer: boolean equals(java.lang.Object)>(trueValue);
+
+        if $stack4 == 0 goto label4;
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack9;
+
+     label4:
+        $stack5 = virtualinvoke value.<java.lang.Integer: boolean equals(java.lang.Object)>(falseValue);
+
+        if $stack5 == 0 goto label5;
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack8;
+
+     label5:
+        $stack6 = virtualinvoke value.<java.lang.Integer: boolean equals(java.lang.Object)>(nullValue);
+
+        if $stack6 == 0 goto label6;
+
+        return null;
+
+     label6:
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Integer did not match any specified value");
+
+        throw $stack7;
+    }
+
+    public static int toInteger(boolean)
+    {
+        byte $stack1;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        if bool == 0 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.Integer toIntegerObject(boolean)
+    {
+        java.lang.Integer $stack1;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        if bool == 0 goto label1;
+
+        $stack1 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        goto label2;
+
+     label1:
+        $stack1 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ZERO>;
+
+     label2:
+        return $stack1;
+    }
+
+    public static java.lang.Integer toIntegerObject(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        java.lang.Integer $stack2;
+        boolean $stack1;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        if bool != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack1 == 0 goto label2;
+
+        $stack2 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        goto label3;
+
+     label2:
+        $stack2 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ZERO>;
+
+     label3:
+        return $stack2;
+    }
+
+    public static int toInteger(boolean, int, int)
+    {
+        int falseValue, trueValue, $stack3;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        trueValue := @parameter1: int;
+
+        falseValue := @parameter2: int;
+
+        if bool == 0 goto label1;
+
+        $stack3 = trueValue;
+
+        goto label2;
+
+     label1:
+        $stack3 = falseValue;
+
+     label2:
+        return $stack3;
+    }
+
+    public static int toInteger(java.lang.Boolean, int, int, int)
+    {
+        int falseValue, trueValue, nullValue, $stack5;
+        java.lang.Boolean bool;
+        boolean $stack4;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        trueValue := @parameter1: int;
+
+        falseValue := @parameter2: int;
+
+        nullValue := @parameter3: int;
+
+        if bool != null goto label1;
+
+        return nullValue;
+
+     label1:
+        $stack4 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = trueValue;
+
+        goto label3;
+
+     label2:
+        $stack5 = falseValue;
+
+     label3:
+        return $stack5;
+    }
+
+    public static java.lang.Integer toIntegerObject(boolean, java.lang.Integer, java.lang.Integer)
+    {
+        java.lang.Integer falseValue, trueValue, $stack3;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        trueValue := @parameter1: java.lang.Integer;
+
+        falseValue := @parameter2: java.lang.Integer;
+
+        if bool == 0 goto label1;
+
+        $stack3 = trueValue;
+
+        goto label2;
+
+     label1:
+        $stack3 = falseValue;
+
+     label2:
+        return $stack3;
+    }
+
+    public static java.lang.Integer toIntegerObject(java.lang.Boolean, java.lang.Integer, java.lang.Integer, java.lang.Integer)
+    {
+        java.lang.Boolean bool;
+        java.lang.Integer falseValue, trueValue, nullValue, $stack5;
+        boolean $stack4;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        trueValue := @parameter1: java.lang.Integer;
+
+        falseValue := @parameter2: java.lang.Integer;
+
+        nullValue := @parameter3: java.lang.Integer;
+
+        if bool != null goto label1;
+
+        return nullValue;
+
+     label1:
+        $stack4 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = trueValue;
+
+        goto label3;
+
+     label2:
+        $stack5 = falseValue;
+
+     label3:
+        return $stack5;
+    }
+
+    public static java.lang.Boolean toBooleanObject(java.lang.String)
+    {
+        java.lang.String str;
+        int $stack6, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22, $i23, $i24, $i25, $i26, $i27, $i28, $i29, $i30, $i31, $i32, $i33, $i34, $i35, $i36, $i37, $i38, $i39, $i40, $i41, $i42, $i43, $i44, $i45;
+        java.lang.Boolean $stack12, $stack26, $stack36, $stack37, $stack50, $stack51, $stack61, $stack59, $stack60;
+        char $stack7, $stack8, $stack9, $stack10, $stack11, $stack22, $stack23, $stack24, $stack25, $stack33, $stack34, $stack35, $stack48, $stack49, $stack58;
+
+        str := @parameter0: java.lang.String;
+
+        if str != "true" goto label01;
+
+        $stack61 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack61;
+
+     label01:
+        if str != null goto label02;
+
+        return null;
+
+     label02:
+        $stack6 = virtualinvoke str.<java.lang.String: int length()>();
+
+        tableswitch($stack6)
+        {
+            case 1: goto label03;
+            case 2: goto label07;
+            case 3: goto label13;
+            case 4: goto label21;
+            case 5: goto label26;
+            default: goto label32;
+        };
+
+     label03:
+        $stack58 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack58;
+
+        if $i0 == 121 goto label04;
+
+        $i1 = (int) $stack58;
+
+        if $i1 == 89 goto label04;
+
+        $i2 = (int) $stack58;
+
+        if $i2 == 116 goto label04;
+
+        $i3 = (int) $stack58;
+
+        if $i3 != 84 goto label05;
+
+     label04:
+        $stack59 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack59;
+
+     label05:
+        $i4 = (int) $stack58;
+
+        if $i4 == 110 goto label06;
+
+        $i5 = (int) $stack58;
+
+        if $i5 == 78 goto label06;
+
+        $i6 = (int) $stack58;
+
+        if $i6 == 102 goto label06;
+
+        $i7 = (int) $stack58;
+
+        if $i7 != 70 goto label32;
+
+     label06:
+        $stack60 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack60;
+
+     label07:
+        $stack48 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack49 = virtualinvoke str.<java.lang.String: char charAt(int)>(1);
+
+        $i8 = (int) $stack48;
+
+        if $i8 == 111 goto label08;
+
+        $i9 = (int) $stack48;
+
+        if $i9 != 79 goto label10;
+
+     label08:
+        $i10 = (int) $stack49;
+
+        if $i10 == 110 goto label09;
+
+        $i11 = (int) $stack49;
+
+        if $i11 != 78 goto label10;
+
+     label09:
+        $stack50 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack50;
+
+     label10:
+        $i12 = (int) $stack48;
+
+        if $i12 == 110 goto label11;
+
+        $i13 = (int) $stack48;
+
+        if $i13 != 78 goto label32;
+
+     label11:
+        $i14 = (int) $stack49;
+
+        if $i14 == 111 goto label12;
+
+        $i15 = (int) $stack49;
+
+        if $i15 != 79 goto label32;
+
+     label12:
+        $stack51 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack51;
+
+     label13:
+        $stack33 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack34 = virtualinvoke str.<java.lang.String: char charAt(int)>(1);
+
+        $stack35 = virtualinvoke str.<java.lang.String: char charAt(int)>(2);
+
+        $i16 = (int) $stack33;
+
+        if $i16 == 121 goto label14;
+
+        $i17 = (int) $stack33;
+
+        if $i17 != 89 goto label17;
+
+     label14:
+        $i18 = (int) $stack34;
+
+        if $i18 == 101 goto label15;
+
+        $i19 = (int) $stack34;
+
+        if $i19 != 69 goto label17;
+
+     label15:
+        $i20 = (int) $stack35;
+
+        if $i20 == 115 goto label16;
+
+        $i21 = (int) $stack35;
+
+        if $i21 != 83 goto label17;
+
+     label16:
+        $stack36 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack36;
+
+     label17:
+        $i22 = (int) $stack33;
+
+        if $i22 == 111 goto label18;
+
+        $i23 = (int) $stack33;
+
+        if $i23 != 79 goto label32;
+
+     label18:
+        $i24 = (int) $stack34;
+
+        if $i24 == 102 goto label19;
+
+        $i25 = (int) $stack34;
+
+        if $i25 != 70 goto label32;
+
+     label19:
+        $i26 = (int) $stack35;
+
+        if $i26 == 102 goto label20;
+
+        $i27 = (int) $stack35;
+
+        if $i27 != 70 goto label32;
+
+     label20:
+        $stack37 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack37;
+
+     label21:
+        $stack22 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack23 = virtualinvoke str.<java.lang.String: char charAt(int)>(1);
+
+        $stack24 = virtualinvoke str.<java.lang.String: char charAt(int)>(2);
+
+        $stack25 = virtualinvoke str.<java.lang.String: char charAt(int)>(3);
+
+        $i28 = (int) $stack22;
+
+        if $i28 == 116 goto label22;
+
+        $i29 = (int) $stack22;
+
+        if $i29 != 84 goto label32;
+
+     label22:
+        $i30 = (int) $stack23;
+
+        if $i30 == 114 goto label23;
+
+        $i31 = (int) $stack23;
+
+        if $i31 != 82 goto label32;
+
+     label23:
+        $i32 = (int) $stack24;
+
+        if $i32 == 117 goto label24;
+
+        $i33 = (int) $stack24;
+
+        if $i33 != 85 goto label32;
+
+     label24:
+        $i34 = (int) $stack25;
+
+        if $i34 == 101 goto label25;
+
+        $i35 = (int) $stack25;
+
+        if $i35 != 69 goto label32;
+
+     label25:
+        $stack26 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack26;
+
+     label26:
+        $stack7 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack8 = virtualinvoke str.<java.lang.String: char charAt(int)>(1);
+
+        $stack9 = virtualinvoke str.<java.lang.String: char charAt(int)>(2);
+
+        $stack10 = virtualinvoke str.<java.lang.String: char charAt(int)>(3);
+
+        $stack11 = virtualinvoke str.<java.lang.String: char charAt(int)>(4);
+
+        $i36 = (int) $stack7;
+
+        if $i36 == 102 goto label27;
+
+        $i37 = (int) $stack7;
+
+        if $i37 != 70 goto label32;
+
+     label27:
+        $i38 = (int) $stack8;
+
+        if $i38 == 97 goto label28;
+
+        $i39 = (int) $stack8;
+
+        if $i39 != 65 goto label32;
+
+     label28:
+        $i40 = (int) $stack9;
+
+        if $i40 == 108 goto label29;
+
+        $i41 = (int) $stack9;
+
+        if $i41 != 76 goto label32;
+
+     label29:
+        $i42 = (int) $stack10;
+
+        if $i42 == 115 goto label30;
+
+        $i43 = (int) $stack10;
+
+        if $i43 != 83 goto label32;
+
+     label30:
+        $i44 = (int) $stack11;
+
+        if $i44 == 101 goto label31;
+
+        $i45 = (int) $stack11;
+
+        if $i45 != 69 goto label32;
+
+     label31:
+        $stack12 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack12;
+
+     label32:
+        return null;
+    }
+
+    public static java.lang.Boolean toBooleanObject(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.IllegalArgumentException $stack7;
+        java.lang.Boolean $stack8, $stack9, $stack11, $stack12;
+        java.lang.String str, trueString, falseString, nullString;
+        boolean $stack4, $stack5, $stack6;
+
+        str := @parameter0: java.lang.String;
+
+        trueString := @parameter1: java.lang.String;
+
+        falseString := @parameter2: java.lang.String;
+
+        nullString := @parameter3: java.lang.String;
+
+        if str != null goto label3;
+
+        if trueString != null goto label1;
+
+        $stack12 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack12;
+
+     label1:
+        if falseString != null goto label2;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack11;
+
+     label2:
+        if nullString != null goto label6;
+
+        return null;
+
+     label3:
+        $stack4 = virtualinvoke str.<java.lang.String: boolean equals(java.lang.Object)>(trueString);
+
+        if $stack4 == 0 goto label4;
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        return $stack9;
+
+     label4:
+        $stack5 = virtualinvoke str.<java.lang.String: boolean equals(java.lang.Object)>(falseString);
+
+        if $stack5 == 0 goto label5;
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        return $stack8;
+
+     label5:
+        $stack6 = virtualinvoke str.<java.lang.String: boolean equals(java.lang.Object)>(nullString);
+
+        if $stack6 == 0 goto label6;
+
+        return null;
+
+     label6:
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The String did not match any specified value");
+
+        throw $stack7;
+    }
+
+    public static boolean toBoolean(java.lang.String)
+    {
+        java.lang.Boolean $stack1, $stack2;
+        java.lang.String str;
+        boolean $stack3;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>(str);
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        if $stack1 != $stack2 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public static boolean toBoolean(java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String str, trueString, falseString;
+        java.lang.IllegalArgumentException $stack3;
+        boolean $stack4, $stack5;
+
+        str := @parameter0: java.lang.String;
+
+        trueString := @parameter1: java.lang.String;
+
+        falseString := @parameter2: java.lang.String;
+
+        if str != trueString goto label1;
+
+        return 1;
+
+     label1:
+        if str != falseString goto label2;
+
+        return 0;
+
+     label2:
+        if str == null goto label4;
+
+        $stack4 = virtualinvoke str.<java.lang.String: boolean equals(java.lang.Object)>(trueString);
+
+        if $stack4 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        $stack5 = virtualinvoke str.<java.lang.String: boolean equals(java.lang.Object)>(falseString);
+
+        if $stack5 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The String did not match either specified value");
+
+        throw $stack3;
+    }
+
+    public static java.lang.String toStringTrueFalse(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        java.lang.String $stack1;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>(bool, "true", "false", null);
+
+        return $stack1;
+    }
+
+    public static java.lang.String toStringOnOff(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        java.lang.String $stack1;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>(bool, "on", "off", null);
+
+        return $stack1;
+    }
+
+    public static java.lang.String toStringYesNo(java.lang.Boolean)
+    {
+        java.lang.Boolean bool;
+        java.lang.String $stack1;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>(bool, "yes", "no", null);
+
+        return $stack1;
+    }
+
+    public static java.lang.String toString(java.lang.Boolean, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.Boolean bool;
+        java.lang.String falseString, trueString, nullString, $stack5;
+        boolean $stack4;
+
+        bool := @parameter0: java.lang.Boolean;
+
+        trueString := @parameter1: java.lang.String;
+
+        falseString := @parameter2: java.lang.String;
+
+        nullString := @parameter3: java.lang.String;
+
+        if bool != null goto label1;
+
+        return nullString;
+
+     label1:
+        $stack4 = virtualinvoke bool.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = trueString;
+
+        goto label3;
+
+     label2:
+        $stack5 = falseString;
+
+     label3:
+        return $stack5;
+    }
+
+    public static java.lang.String toStringTrueFalse(boolean)
+    {
+        java.lang.String $stack1;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(boolean,java.lang.String,java.lang.String)>(bool, "true", "false");
+
+        return $stack1;
+    }
+
+    public static java.lang.String toStringOnOff(boolean)
+    {
+        java.lang.String $stack1;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(boolean,java.lang.String,java.lang.String)>(bool, "on", "off");
+
+        return $stack1;
+    }
+
+    public static java.lang.String toStringYesNo(boolean)
+    {
+        java.lang.String $stack1;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(boolean,java.lang.String,java.lang.String)>(bool, "yes", "no");
+
+        return $stack1;
+    }
+
+    public static java.lang.String toString(boolean, java.lang.String, java.lang.String)
+    {
+        java.lang.String falseString, trueString, $stack3;
+        boolean bool;
+
+        bool := @parameter0: boolean;
+
+        trueString := @parameter1: java.lang.String;
+
+        falseString := @parameter2: java.lang.String;
+
+        if bool == 0 goto label1;
+
+        $stack3 = trueString;
+
+        goto label2;
+
+     label1:
+        $stack3 = falseString;
+
+     label2:
+        return $stack3;
+    }
+
+    public static transient boolean and(boolean[])
+    {
+        boolean[] array;
+        int $stack5, len$, i$;
+        java.lang.IllegalArgumentException $stack8, $stack9;
+        boolean element;
+
+        array := @parameter0: boolean[];
+
+        if array != null goto label1;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack9;
+
+     label1:
+        $stack5 = lengthof array;
+
+        if $stack5 != 0 goto label2;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack8;
+
+     label2:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label5;
+
+        element = array[i$];
+
+        if element != 0 goto label4;
+
+        return 0;
+
+     label4:
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label5:
+        return 1;
+    }
+
+    public static transient java.lang.Boolean and(java.lang.Boolean[])
+    {
+        boolean[] $stack3;
+        java.lang.IllegalArgumentException $stack6, $stack7, $stack9;
+        java.lang.Boolean[] array;
+        java.lang.NullPointerException $stack8;
+        int $stack2;
+        java.lang.Boolean $stack5;
+        boolean $stack4;
+
+        array := @parameter0: java.lang.Boolean[];
+
+        if array != null goto label1;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack7;
+
+     label1:
+        $stack2 = lengthof array;
+
+        if $stack2 != 0 goto label2;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack6;
+
+     label2:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] toPrimitive(java.lang.Boolean[])>(array);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack3);
+
+        if $stack4 == 0 goto label3;
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        goto label4;
+
+     label3:
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+     label4:
+        return $stack5;
+
+     label5:
+        $stack8 := @caughtexception;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The array must not contain any null elements");
+
+        throw $stack9;
+
+        catch java.lang.NullPointerException from label2 to label4 with label5;
+    }
+
+    public static transient boolean or(boolean[])
+    {
+        boolean[] array;
+        int $stack5, len$, i$;
+        java.lang.IllegalArgumentException $stack8, $stack9;
+        boolean element;
+
+        array := @parameter0: boolean[];
+
+        if array != null goto label1;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack9;
+
+     label1:
+        $stack5 = lengthof array;
+
+        if $stack5 != 0 goto label2;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack8;
+
+     label2:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label5;
+
+        element = array[i$];
+
+        if element == 0 goto label4;
+
+        return 1;
+
+     label4:
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label5:
+        return 0;
+    }
+
+    public static transient java.lang.Boolean or(java.lang.Boolean[])
+    {
+        boolean[] $stack3;
+        java.lang.IllegalArgumentException $stack6, $stack7, $stack9;
+        java.lang.Boolean[] array;
+        java.lang.NullPointerException $stack8;
+        int $stack2;
+        java.lang.Boolean $stack5;
+        boolean $stack4;
+
+        array := @parameter0: java.lang.Boolean[];
+
+        if array != null goto label1;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack7;
+
+     label1:
+        $stack2 = lengthof array;
+
+        if $stack2 != 0 goto label2;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack6;
+
+     label2:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] toPrimitive(java.lang.Boolean[])>(array);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack3);
+
+        if $stack4 == 0 goto label3;
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        goto label4;
+
+     label3:
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+     label4:
+        return $stack5;
+
+     label5:
+        $stack8 := @caughtexception;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The array must not contain any null elements");
+
+        throw $stack9;
+
+        catch java.lang.NullPointerException from label2 to label4 with label5;
+    }
+
+    public static transient boolean xor(boolean[])
+    {
+        boolean[] array;
+        java.lang.IllegalArgumentException $stack10, $stack11;
+        int $stack6, len$, trueCount, i$;
+        boolean element, $stack7;
+
+        array := @parameter0: boolean[];
+
+        if array != null goto label1;
+
+        $stack11 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack11;
+
+     label1:
+        $stack6 = lengthof array;
+
+        if $stack6 != 0 goto label2;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack10;
+
+     label2:
+        trueCount = 0;
+
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label6;
+
+        element = array[i$];
+
+        if element == 0 goto label5;
+
+        if trueCount >= 1 goto label4;
+
+        trueCount = trueCount + 1;
+
+        goto label5;
+
+     label4:
+        return 0;
+
+     label5:
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label6:
+        if trueCount != 1 goto label7;
+
+        $stack7 = 1;
+
+        goto label8;
+
+     label7:
+        $stack7 = 0;
+
+     label8:
+        return $stack7;
+    }
+
+    public static transient java.lang.Boolean xor(java.lang.Boolean[])
+    {
+        boolean[] $stack3;
+        java.lang.IllegalArgumentException $stack6, $stack7, $stack9;
+        java.lang.Boolean[] array;
+        java.lang.NullPointerException $stack8;
+        int $stack2;
+        java.lang.Boolean $stack5;
+        boolean $stack4;
+
+        array := @parameter0: java.lang.Boolean[];
+
+        if array != null goto label1;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack7;
+
+     label1:
+        $stack2 = lengthof array;
+
+        if $stack2 != 0 goto label2;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array is empty");
+
+        throw $stack6;
+
+     label2:
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean[] toPrimitive(java.lang.Boolean[])>(array);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack3);
+
+        if $stack4 == 0 goto label3;
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        goto label4;
+
+     label3:
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+     label4:
+        return $stack5;
+
+     label5:
+        $stack8 := @caughtexception;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The array must not contain any null elements");
+
+        throw $stack9;
+
+        catch java.lang.NullPointerException from label2 to label4 with label5;
+    }
+}

@@ -1,0 +1,831 @@
+public class org.apache.commons.lang3.time.FastDateFormat extends java.text.Format implements org.apache.commons.lang3.time.DateParser, org.apache.commons.lang3.time.DatePrinter
+{
+    private static final long serialVersionUID;
+    public static final int FULL;
+    public static final int LONG;
+    public static final int MEDIUM;
+    public static final int SHORT;
+    private static final org.apache.commons.lang3.time.FormatCache cache;
+    private final org.apache.commons.lang3.time.FastDatePrinter printer;
+    private final org.apache.commons.lang3.time.FastDateParser parser;
+
+    public static org.apache.commons.lang3.time.FastDateFormat getInstance()
+    {
+        org.apache.commons.lang3.time.FormatCache $stack0;
+        java.text.Format $stack1;
+        org.apache.commons.lang3.time.FastDateFormat $stack2;
+
+        $stack0 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack1 = virtualinvoke $stack0.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance()>();
+
+        $stack2 = (org.apache.commons.lang3.time.FastDateFormat) $stack1;
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack1;
+        java.text.Format $stack2;
+        java.lang.String pattern;
+        org.apache.commons.lang3.time.FastDateFormat $stack3;
+
+        pattern := @parameter0: java.lang.String;
+
+        $stack1 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, null, null);
+
+        $stack3 = (org.apache.commons.lang3.time.FastDateFormat) $stack2;
+
+        return $stack3;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String, java.util.TimeZone)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack3;
+        java.util.TimeZone timeZone;
+        java.lang.String pattern;
+        org.apache.commons.lang3.time.FastDateFormat $stack4;
+
+        pattern := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, null);
+
+        $stack4 = (org.apache.commons.lang3.time.FastDateFormat) $stack3;
+
+        return $stack4;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack3;
+        java.util.Locale locale;
+        java.lang.String pattern;
+        org.apache.commons.lang3.time.FastDateFormat $stack4;
+
+        pattern := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, null, locale);
+
+        $stack4 = (org.apache.commons.lang3.time.FastDateFormat) $stack3;
+
+        return $stack4;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack3;
+        java.text.Format $stack4;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String pattern;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        pattern := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        $stack5 = (org.apache.commons.lang3.time.FastDateFormat) $stack4;
+
+        return $stack5;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateInstance(int)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack1;
+        java.text.Format $stack3;
+        int style;
+        java.lang.Integer $stack2;
+        org.apache.commons.lang3.time.FastDateFormat $stack4;
+
+        style := @parameter0: int;
+
+        $stack1 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack2, null, null, null);
+
+        $stack4 = (org.apache.commons.lang3.time.FastDateFormat) $stack3;
+
+        return $stack4;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateInstance(int, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack4;
+        java.util.Locale locale;
+        int style;
+        java.lang.Integer $stack3;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        style := @parameter0: int;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack3, null, null, locale);
+
+        $stack5 = (org.apache.commons.lang3.time.FastDateFormat) $stack4;
+
+        return $stack5;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateInstance(int, java.util.TimeZone)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack4;
+        java.util.TimeZone timeZone;
+        int style;
+        java.lang.Integer $stack3;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        style := @parameter0: int;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack3, null, timeZone, null);
+
+        $stack5 = (org.apache.commons.lang3.time.FastDateFormat) $stack4;
+
+        return $stack5;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateInstance(int, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack3;
+        java.text.Format $stack5;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        int style;
+        java.lang.Integer $stack4;
+        org.apache.commons.lang3.time.FastDateFormat $stack6;
+
+        style := @parameter0: int;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack4, null, timeZone, locale);
+
+        $stack6 = (org.apache.commons.lang3.time.FastDateFormat) $stack5;
+
+        return $stack6;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack1;
+        java.text.Format $stack4;
+        int style;
+        java.lang.Integer $stack3;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        style := @parameter0: int;
+
+        $stack1 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>(null, $stack3, null, null);
+
+        $stack5 = (org.apache.commons.lang3.time.FastDateFormat) $stack4;
+
+        return $stack5;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack5;
+        java.util.Locale locale;
+        int style;
+        java.lang.Integer $stack4;
+        org.apache.commons.lang3.time.FastDateFormat $stack6;
+
+        style := @parameter0: int;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>(null, $stack4, null, locale);
+
+        $stack6 = (org.apache.commons.lang3.time.FastDateFormat) $stack5;
+
+        return $stack6;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int, java.util.TimeZone)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack5;
+        java.util.TimeZone timeZone;
+        int style;
+        java.lang.Integer $stack4;
+        org.apache.commons.lang3.time.FastDateFormat $stack6;
+
+        style := @parameter0: int;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>(null, $stack4, timeZone, null);
+
+        $stack6 = (org.apache.commons.lang3.time.FastDateFormat) $stack5;
+
+        return $stack6;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack3;
+        java.text.Format $stack6;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        int style;
+        java.lang.Integer $stack5;
+        org.apache.commons.lang3.time.FastDateFormat $stack7;
+
+        style := @parameter0: int;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(style);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>(null, $stack5, timeZone, locale);
+
+        $stack7 = (org.apache.commons.lang3.time.FastDateFormat) $stack6;
+
+        return $stack7;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int, int)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack2;
+        java.text.Format $stack5;
+        int dateStyle, timeStyle;
+        java.lang.Integer $stack3, $stack4;
+        org.apache.commons.lang3.time.FastDateFormat $stack6;
+
+        dateStyle := @parameter0: int;
+
+        timeStyle := @parameter1: int;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(dateStyle);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(timeStyle);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack3, $stack4, null, null);
+
+        $stack6 = (org.apache.commons.lang3.time.FastDateFormat) $stack5;
+
+        return $stack6;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int, int, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack3;
+        java.text.Format $stack6;
+        java.lang.Integer $stack4, $stack5;
+        org.apache.commons.lang3.time.FastDateFormat $stack7;
+        java.util.Locale locale;
+        int dateStyle, timeStyle;
+
+        dateStyle := @parameter0: int;
+
+        timeStyle := @parameter1: int;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(dateStyle);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(timeStyle);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack4, $stack5, null, locale);
+
+        $stack7 = (org.apache.commons.lang3.time.FastDateFormat) $stack6;
+
+        return $stack7;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int, int, java.util.TimeZone)
+    {
+        java.util.TimeZone timeZone;
+        int dateStyle, timeStyle;
+        org.apache.commons.lang3.time.FastDateFormat $stack3;
+
+        dateStyle := @parameter0: int;
+
+        timeStyle := @parameter1: int;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.TimeZone,java.util.Locale)>(dateStyle, timeStyle, timeZone, null);
+
+        return $stack3;
+    }
+
+    public static org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int, int, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache $stack4;
+        java.text.Format $stack7;
+        java.util.TimeZone timeZone;
+        java.lang.Integer $stack5, $stack6;
+        org.apache.commons.lang3.time.FastDateFormat $stack8;
+        java.util.Locale locale;
+        int dateStyle, timeStyle;
+
+        dateStyle := @parameter0: int;
+
+        timeStyle := @parameter1: int;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack4 = <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache>;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(dateStyle);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(timeStyle);
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack5, $stack6, timeZone, locale);
+
+        $stack8 = (org.apache.commons.lang3.time.FastDateFormat) $stack7;
+
+        return $stack8;
+    }
+
+    protected void <init>(java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack4;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String pattern;
+        org.apache.commons.lang3.time.FastDateParser $stack5;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        specialinvoke this.<java.text.Format: void <init>()>();
+
+        $stack4 = new org.apache.commons.lang3.time.FastDatePrinter;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.time.FastDatePrinter: void <init>(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer> = $stack4;
+
+        $stack5 = new org.apache.commons.lang3.time.FastDateParser;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.time.FastDateParser: void <init>(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateParser parser> = $stack5;
+
+        return;
+    }
+
+    public java.lang.StringBuffer format(java.lang.Object, java.lang.StringBuffer, java.text.FieldPosition)
+    {
+        java.text.FieldPosition pos;
+        org.apache.commons.lang3.time.FastDatePrinter $stack4;
+        java.lang.StringBuffer toAppendTo, $stack5;
+        java.lang.Object obj;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        obj := @parameter0: java.lang.Object;
+
+        toAppendTo := @parameter1: java.lang.StringBuffer;
+
+        pos := @parameter2: java.text.FieldPosition;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.lang.Object,java.lang.StringBuffer,java.text.FieldPosition)>(obj, toAppendTo, pos);
+
+        return $stack5;
+    }
+
+    public java.lang.String format(long)
+    {
+        java.util.Date $stack3;
+        long millis;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        millis := @parameter0: long;
+
+        $stack3 = new java.util.Date;
+
+        specialinvoke $stack3.<java.util.Date: void <init>(long)>(millis);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>($stack3);
+
+        return $stack4;
+    }
+
+    public java.lang.String format(java.util.Date)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack2;
+        java.util.Date date;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        date := @parameter0: java.util.Date;
+
+        $stack2 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String format(java.util.Date)>(date);
+
+        return $stack3;
+    }
+
+    public java.lang.String format(java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter $stack2;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        $stack2 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String format(java.util.Calendar)>(calendar);
+
+        return $stack3;
+    }
+
+    public java.lang.StringBuffer format(long, java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack4;
+        java.lang.StringBuffer buf, $stack5;
+        long millis;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        millis := @parameter0: long;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(long,java.lang.StringBuffer)>(millis, buf);
+
+        return $stack5;
+    }
+
+    public java.lang.StringBuffer format(java.util.Date, java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack3;
+        java.util.Date date;
+        java.lang.StringBuffer buf, $stack4;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        date := @parameter0: java.util.Date;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Date,java.lang.StringBuffer)>(date, buf);
+
+        return $stack4;
+    }
+
+    public java.lang.StringBuffer format(java.util.Calendar, java.lang.StringBuffer)
+    {
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter $stack3;
+        java.lang.StringBuffer buf, $stack4;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer format(java.util.Calendar,java.lang.StringBuffer)>(calendar, buf);
+
+        return $stack4;
+    }
+
+    public java.util.Date parse(java.lang.String) throws java.text.ParseException
+    {
+        java.util.Date $stack3;
+        java.lang.String source;
+        org.apache.commons.lang3.time.FastDateParser $stack2;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        source := @parameter0: java.lang.String;
+
+        $stack2 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateParser parser>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.time.FastDateParser: java.util.Date parse(java.lang.String)>(source);
+
+        return $stack3;
+    }
+
+    public java.util.Date parse(java.lang.String, java.text.ParsePosition)
+    {
+        java.util.Date $stack4;
+        java.text.ParsePosition pos;
+        java.lang.String source;
+        org.apache.commons.lang3.time.FastDateParser $stack3;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        source := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateParser parser>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDateParser: java.util.Date parse(java.lang.String,java.text.ParsePosition)>(source, pos);
+
+        return $stack4;
+    }
+
+    public java.lang.Object parseObject(java.lang.String, java.text.ParsePosition)
+    {
+        java.text.ParsePosition pos;
+        java.lang.Object $stack4;
+        java.lang.String source;
+        org.apache.commons.lang3.time.FastDateParser $stack3;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        source := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateParser parser>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDateParser: java.lang.Object parseObject(java.lang.String,java.text.ParsePosition)>(source, pos);
+
+        return $stack4;
+    }
+
+    public java.lang.String getPattern()
+    {
+        java.lang.String $stack2;
+        org.apache.commons.lang3.time.FastDatePrinter $stack1;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getPattern()>();
+
+        return $stack2;
+    }
+
+    public java.util.TimeZone getTimeZone()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack1;
+        org.apache.commons.lang3.time.FastDateFormat this;
+        java.util.TimeZone $stack2;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone getTimeZone()>();
+
+        return $stack2;
+    }
+
+    public java.util.Locale getLocale()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack1;
+        org.apache.commons.lang3.time.FastDateFormat this;
+        java.util.Locale $stack2;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale getLocale()>();
+
+        return $stack2;
+    }
+
+    public int getMaxLengthEstimate()
+    {
+        int $stack2;
+        org.apache.commons.lang3.time.FastDatePrinter $stack1;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter: int getMaxLengthEstimate()>();
+
+        return $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack4, $stack5;
+        java.lang.Object obj;
+        org.apache.commons.lang3.time.FastDateFormat other, this;
+        boolean $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack3 = obj instanceof org.apache.commons.lang3.time.FastDateFormat;
+
+        if $stack3 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        other = (org.apache.commons.lang3.time.FastDateFormat) obj;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack4 = other.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.time.FastDatePrinter: boolean equals(java.lang.Object)>($stack4);
+
+        return $stack6;
+    }
+
+    public int hashCode()
+    {
+        int $stack2;
+        org.apache.commons.lang3.time.FastDatePrinter $stack1;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter: int hashCode()>();
+
+        return $stack2;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter $stack3, $stack7, $stack11;
+        java.util.Locale $stack8;
+        java.lang.String $stack4, $stack13, $stack16;
+        java.util.TimeZone $stack12;
+        org.apache.commons.lang3.time.FastDateFormat this;
+        java.lang.StringBuilder $stack1, $stack2, $stack5, $stack6, $stack9, $stack10, $stack14, $stack15;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("FastDateFormat[");
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getPattern()>();
+
+        $stack5 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $stack7 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.time.FastDatePrinter: java.util.Locale getLocale()>();
+
+        $stack9 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $stack11 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.time.FastDatePrinter: java.util.TimeZone getTimeZone()>();
+
+        $stack13 = virtualinvoke $stack12.<java.util.TimeZone: java.lang.String getID()>();
+
+        $stack14 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack13);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack16;
+    }
+
+    protected java.lang.StringBuffer applyRules(java.util.Calendar, java.lang.StringBuffer)
+    {
+        java.util.Calendar calendar;
+        org.apache.commons.lang3.time.FastDatePrinter $stack3;
+        java.lang.StringBuffer buf, $stack4;
+        org.apache.commons.lang3.time.FastDateFormat this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormat;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        buf := @parameter1: java.lang.StringBuffer;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDatePrinter printer>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter: java.lang.StringBuffer applyRules(java.util.Calendar,java.lang.StringBuffer)>(calendar, buf);
+
+        return $stack4;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.time.FastDateFormat$1 $stack0;
+
+        <org.apache.commons.lang3.time.FastDateFormat: int SHORT> = 3;
+
+        <org.apache.commons.lang3.time.FastDateFormat: int MEDIUM> = 2;
+
+        <org.apache.commons.lang3.time.FastDateFormat: int LONG> = 1;
+
+        <org.apache.commons.lang3.time.FastDateFormat: int FULL> = 0;
+
+        <org.apache.commons.lang3.time.FastDateFormat: long serialVersionUID> = 2L;
+
+        $stack0 = new org.apache.commons.lang3.time.FastDateFormat$1;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.time.FastDateFormat$1: void <init>()>();
+
+        <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FormatCache cache> = $stack0;
+
+        return;
+    }
+}

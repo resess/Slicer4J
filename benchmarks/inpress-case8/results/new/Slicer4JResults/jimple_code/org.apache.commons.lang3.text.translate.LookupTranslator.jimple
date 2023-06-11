@@ -1,0 +1,145 @@
+public class org.apache.commons.lang3.text.translate.LookupTranslator extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+    private final java.util.HashMap lookupMap;
+    private final int shortest;
+    private final int longest;
+
+    public transient void <init>(java.lang.CharSequence[][])
+    {
+        java.lang.CharSequence $stack14, $stack15, $stack18;
+        java.lang.CharSequence[][] lookup;
+        java.util.HashMap $stack9, $stack16;
+        java.lang.CharSequence[] seq;
+        org.apache.commons.lang3.text.translate.LookupTranslator this;
+        int len$, $stack19, _shortest, _longest, i$;
+
+        this := @this: org.apache.commons.lang3.text.translate.LookupTranslator;
+
+        lookup := @parameter0: java.lang.CharSequence[][];
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        $stack9 = new java.util.HashMap;
+
+        specialinvoke $stack9.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.translate.LookupTranslator: java.util.HashMap lookupMap> = $stack9;
+
+        _shortest = 2147483647;
+
+        _longest = 0;
+
+        if lookup == null goto label4;
+
+        len$ = lengthof lookup;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label4;
+
+        seq = lookup[i$];
+
+        $stack16 = this.<org.apache.commons.lang3.text.translate.LookupTranslator: java.util.HashMap lookupMap>;
+
+        $stack15 = seq[0];
+
+        $stack14 = seq[1];
+
+        virtualinvoke $stack16.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack15, $stack14);
+
+        $stack18 = seq[0];
+
+        $stack19 = interfaceinvoke $stack18.<java.lang.CharSequence: int length()>();
+
+        if $stack19 >= _shortest goto label2;
+
+        _shortest = $stack19;
+
+     label2:
+        if $stack19 <= _longest goto label3;
+
+        _longest = $stack19;
+
+     label3:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label4:
+        this.<org.apache.commons.lang3.text.translate.LookupTranslator: int shortest> = _shortest;
+
+        this.<org.apache.commons.lang3.text.translate.LookupTranslator: int longest> = _longest;
+
+        return;
+    }
+
+    public int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        java.util.HashMap $stack14;
+        int index, $stack8, $stack9, $stack10, $stack12, $stack19, max, i, $stack11, $i0;
+        java.lang.String $stack18;
+        java.lang.CharSequence input, $stack13, result;
+        org.apache.commons.lang3.text.translate.LookupTranslator this;
+        java.io.Writer out;
+        java.lang.Object $stack15;
+
+        this := @this: org.apache.commons.lang3.text.translate.LookupTranslator;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        max = this.<org.apache.commons.lang3.text.translate.LookupTranslator: int longest>;
+
+        $stack8 = this.<org.apache.commons.lang3.text.translate.LookupTranslator: int longest>;
+
+        $stack9 = index + $stack8;
+
+        $stack10 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if $stack9 <= $stack10 goto label1;
+
+        $stack19 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        max = $stack19 - index;
+
+     label1:
+        i = max;
+
+     label2:
+        $stack11 = this.<org.apache.commons.lang3.text.translate.LookupTranslator: int shortest>;
+
+        if i < $stack11 goto label4;
+
+        $stack12 = index + i;
+
+        $stack13 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(index, $stack12);
+
+        $stack14 = this.<org.apache.commons.lang3.text.translate.LookupTranslator: java.util.HashMap lookupMap>;
+
+        $stack15 = virtualinvoke $stack14.<java.util.HashMap: java.lang.Object get(java.lang.Object)>($stack13);
+
+        result = (java.lang.CharSequence) $stack15;
+
+        if result == null goto label3;
+
+        $stack18 = interfaceinvoke result.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack18);
+
+        return i;
+
+     label3:
+        $i0 = (int) -1;
+
+        i = i + $i0;
+
+        goto label2;
+
+     label4:
+        return 0;
+    }
+}

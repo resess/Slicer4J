@@ -1,0 +1,55 @@
+class org.apache.commons.lang3.time.FastDatePrinter$StringLiteral extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$Rule
+{
+    private final java.lang.String mValue;
+
+    void <init>(java.lang.String)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$StringLiteral this;
+        java.lang.String value;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$StringLiteral;
+
+        value := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$StringLiteral: java.lang.String mValue> = value;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        int $stack2;
+        org.apache.commons.lang3.time.FastDatePrinter$StringLiteral this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$StringLiteral;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter$StringLiteral: java.lang.String mValue>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.String: int length()>();
+
+        return $stack2;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.time.FastDatePrinter$StringLiteral this;
+        java.lang.String $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$StringLiteral;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$StringLiteral: java.lang.String mValue>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack3);
+
+        return;
+    }
+}
