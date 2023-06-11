@@ -1,0 +1,156 @@
+public class org.apache.commons.lang3.mutable.MutableObject extends java.lang.Object implements org.apache.commons.lang3.mutable.Mutable, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private java.lang.Object value;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        value := @parameter0: java.lang.Object;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value> = value;
+
+        return;
+    }
+
+    public java.lang.Object getValue()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        return $stack1;
+    }
+
+    public void setValue(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        value := @parameter0: java.lang.Object;
+
+        this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value> = value;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object obj, $stack5, $stack6;
+        java.lang.Class $stack3, $stack4;
+        org.apache.commons.lang3.mutable.MutableObject this, that;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != null goto label1;
+
+        return 0;
+
+     label1:
+        if this != obj goto label2;
+
+        return 1;
+
+     label2:
+        $stack3 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack4 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $stack3 != $stack4 goto label3;
+
+        that = (org.apache.commons.lang3.mutable.MutableObject) obj;
+
+        $stack6 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        $stack5 = that.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Object: boolean equals(java.lang.Object)>($stack5);
+
+        return $stack7;
+
+     label3:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int $stack3;
+        java.lang.Object $stack1, $stack2;
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        if $stack1 != null goto label1;
+
+        $stack3 = 0;
+
+        goto label2;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: int hashCode()>();
+
+     label2:
+        return $stack3;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.Object $stack1, $stack2;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.mutable.MutableObject this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableObject;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        if $stack1 != null goto label1;
+
+        $stack3 = "null";
+
+        goto label2;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableObject: java.lang.Object value>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: java.lang.String toString()>();
+
+     label2:
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.mutable.MutableObject: long serialVersionUID> = 86241875189L;
+
+        return;
+    }
+}

@@ -1,0 +1,64 @@
+class org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient extends java.lang.Object implements java.lang.Runnable
+{
+    private final org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture testFixture;
+    private final java.util.Random random;
+    final org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this$0;
+
+    public void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest, org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest l1;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture testFixture;
+        java.util.Random $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient;
+
+        l1 := @parameter0: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest;
+
+        testFixture := @parameter1: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this$0> = l1;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack3 = new java.util.Random;
+
+        specialinvoke $stack3.<java.util.Random: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: java.util.Random random> = $stack3;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture testFixture> = testFixture;
+
+        return;
+    }
+
+    public void run()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture $stack3, $stack4;
+        java.util.Random $stack1;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: java.util.Random random>;
+
+        $stack2 = virtualinvoke $stack1.<java.util.Random: boolean nextBoolean()>();
+
+        if $stack2 == 0 goto label1;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture testFixture>;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: void add()>();
+
+        goto label2;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$MutatingClient: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture testFixture>;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: void delete()>();
+
+     label2:
+        return;
+    }
+}

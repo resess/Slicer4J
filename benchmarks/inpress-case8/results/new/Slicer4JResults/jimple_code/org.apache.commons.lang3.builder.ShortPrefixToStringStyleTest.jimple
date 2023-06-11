@@ -1,0 +1,674 @@
+public class org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest extends java.lang.Object
+{
+    private final java.lang.Integer base;
+    private final java.lang.String baseStr;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.String baseStr> = "Integer";
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base> = $stack1;
+
+        this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.String baseStr> = "Integer";
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.ToStringStyle $stack1;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack1 = <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle SHORT_PREFIX_STYLE>;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringBuilder: void setDefaultStyle(org.apache.commons.lang3.builder.ToStringStyle)>($stack1);
+
+        return;
+    }
+
+    public void tearDown() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.ToStringStyle $stack1;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack1 = <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle DEFAULT_STYLE>;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringBuilder: void setDefaultStyle(org.apache.commons.lang3.builder.ToStringStyle)>($stack1);
+
+        return;
+    }
+
+    public void testBlank()
+    {
+        org.apache.commons.lang3.builder.ToStringBuilder $stack1;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack4;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack2);
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[]", $stack4);
+
+        return;
+    }
+
+    public void testAppendSuper()
+    {
+        java.lang.Integer $stack2, $stack7, $stack12, $stack18, $stack24;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack5, $stack10, $stack16, $stack22, $stack28;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack1, $stack4, $stack6, $stack9, $stack11, $stack14, $stack15, $stack17, $stack20, $stack21, $stack23, $stack26, $stack27;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack2);
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>("Integer@8888[]");
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[]", $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack7 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>("Integer@8888[<null>]");
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack12 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack12);
+
+        $stack14 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>("Integer@8888[]");
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=hello]", $stack16);
+
+        $stack17 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack18 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack18);
+
+        $stack20 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>("Integer@8888[<null>]");
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>,a=hello]", $stack22);
+
+        $stack23 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack24 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack24);
+
+        $stack26 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>(null);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=hello]", $stack28);
+
+        return;
+    }
+
+    public void testObject()
+    {
+        java.lang.Integer $stack3, $stack4, $stack6, $stack12, $stack17, $stack23, $stack28, $stack34, $stack39, $stack46, $stack53, $stack60, $stack67, $stack73;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack5, $stack9, $stack11, $stack14, $stack16, $stack20, $stack22, $stack25, $stack27, $stack30, $stack31, $stack33, $stack36, $stack38, $stack43, $stack45, $stack50, $stack52, $stack57, $stack59, $stack64, $stack66, $stack70, $stack72, $stack76;
+        java.util.HashMap $stack55, $stack62;
+        java.lang.String[] $stack69, $stack75;
+        java.util.ArrayList $stack41, $stack48;
+        java.lang.String $stack10, $stack15, $stack21, $stack26, $stack32, $stack37, $stack44, $stack51, $stack58, $stack65, $stack71, $stack77;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        $stack5 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack6 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack6);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack12 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack12);
+
+        $stack14 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack3);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[3]", $stack15);
+
+        $stack16 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack17 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack17);
+
+        $stack20 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", null);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=<null>]", $stack21);
+
+        $stack22 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack23 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack23);
+
+        $stack25 = virtualinvoke $stack22.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", $stack3);
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=3]", $stack26);
+
+        $stack27 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack28 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack27.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack28);
+
+        $stack30 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", $stack3);
+
+        $stack31 = virtualinvoke $stack30.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("b", $stack4);
+
+        $stack32 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=3,b=4]", $stack32);
+
+        $stack33 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack34 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack33.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack34);
+
+        $stack36 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack3, 0);
+
+        $stack37 = virtualinvoke $stack36.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=<Integer>]", $stack37);
+
+        $stack38 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack39 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack38.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack39);
+
+        $stack41 = new java.util.ArrayList;
+
+        specialinvoke $stack41.<java.util.ArrayList: void <init>()>();
+
+        $stack43 = virtualinvoke $stack38.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack41, 0);
+
+        $stack44 = virtualinvoke $stack43.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=<size=0>]", $stack44);
+
+        $stack45 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack46 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack45.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack46);
+
+        $stack48 = new java.util.ArrayList;
+
+        specialinvoke $stack48.<java.util.ArrayList: void <init>()>();
+
+        $stack50 = virtualinvoke $stack45.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack48, 1);
+
+        $stack51 = virtualinvoke $stack50.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=[]]", $stack51);
+
+        $stack52 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack53 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack52.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack53);
+
+        $stack55 = new java.util.HashMap;
+
+        specialinvoke $stack55.<java.util.HashMap: void <init>()>();
+
+        $stack57 = virtualinvoke $stack52.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack55, 0);
+
+        $stack58 = virtualinvoke $stack57.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=<size=0>]", $stack58);
+
+        $stack59 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack60 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack59.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack60);
+
+        $stack62 = new java.util.HashMap;
+
+        specialinvoke $stack62.<java.util.HashMap: void <init>()>();
+
+        $stack64 = virtualinvoke $stack59.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack62, 1);
+
+        $stack65 = virtualinvoke $stack64.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a={}]", $stack65);
+
+        $stack66 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack67 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack66.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack67);
+
+        $stack69 = newarray (java.lang.String)[0];
+
+        $stack70 = virtualinvoke $stack66.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack69, 0);
+
+        $stack71 = virtualinvoke $stack70.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=<size=0>]", $stack71);
+
+        $stack72 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack73 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack72.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack73);
+
+        $stack75 = newarray (java.lang.String)[0];
+
+        $stack76 = virtualinvoke $stack72.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack75, 1);
+
+        $stack77 = virtualinvoke $stack76.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a={}]", $stack77);
+
+        return;
+    }
+
+    public void testPerson()
+    {
+        org.apache.commons.lang3.builder.ToStringStyleTest$Person $stack3;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack8, $stack10, $stack12, $stack14;
+        int $stack11;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.StringBuilder $stack4, $stack5, $stack6;
+        java.lang.String $stack7, $stack9, $stack15;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.ToStringStyleTest$Person;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: void <init>()>();
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: java.lang.String name> = "John Q. Public";
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: int age> = 45;
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: boolean smoker> = 1;
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("ToStringStyleTest.Person");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[name=John Q. Public,age=45,smoker=true]");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack8 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack3);
+
+        $stack9 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: java.lang.String name>;
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("name", $stack9);
+
+        $stack11 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: int age>;
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,int)>("age", $stack11);
+
+        $stack13 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: boolean smoker>;
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,boolean)>("smoker", $stack13);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack15);
+
+        return;
+    }
+
+    public void testLong()
+    {
+        java.lang.Integer $stack2, $stack7, $stack12;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack1, $stack4, $stack6, $stack9, $stack11, $stack14, $stack15;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack5, $stack10, $stack16;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack1 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack2);
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long)>(3L);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[3]", $stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack7 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("a", 3L);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=3]", $stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack12 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack12);
+
+        $stack14 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("a", 3L);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("b", 4L);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[a=3,b=4]", $stack16);
+
+        return;
+    }
+
+    public void testObjectArray()
+    {
+        java.lang.Object[] $stack2;
+        java.lang.Integer $stack3, $stack6, $stack11, $stack16, $stack21;
+        int[] $stack4;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack9, $stack14, $stack19, $stack24;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20, $stack23;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack2 = newarray (java.lang.Object)[3];
+
+        $stack2[0] = null;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        $stack2[1] = $stack3;
+
+        $stack4 = newarray (int)[2];
+
+        $stack4[0] = 3;
+
+        $stack4[1] = 6;
+
+        $stack2[2] = $stack4;
+
+        $stack5 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack6 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>($stack2);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{<null>,5,{3,6}}]", $stack9);
+
+        $stack10 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack11 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack11);
+
+        $stack13 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{<null>,5,{3,6}}]", $stack14);
+
+        $stack15 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack16 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack16);
+
+        $stack18 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>(null);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack19);
+
+        $stack20 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack21 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack21);
+
+        $stack23 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack24);
+
+        return;
+    }
+
+    public void testLongArray()
+    {
+        java.lang.Integer $stack4, $stack9, $stack14, $stack19;
+        long[] $stack2;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack7, $stack12, $stack17, $stack22;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack3, $stack6, $stack8, $stack11, $stack13, $stack16, $stack18, $stack21;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack2 = newarray (long)[4];
+
+        $stack2[0] = 1L;
+
+        $stack2[1] = 2L;
+
+        $stack2[2] = -3L;
+
+        $stack2[3] = 4L;
+
+        $stack3 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack4);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long[])>($stack2);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{1,2,-3,4}]", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack9);
+
+        $stack11 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{1,2,-3,4}]", $stack12);
+
+        $stack13 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack14 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack14);
+
+        $stack16 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long[])>(null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack17);
+
+        $stack18 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack19 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack19);
+
+        $stack21 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack22);
+
+        return;
+    }
+
+    public void testLongArrayArray()
+    {
+        java.lang.Integer $stack6, $stack11, $stack16, $stack21;
+        long[] $stack3, $stack4;
+        org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest this;
+        java.lang.String $stack9, $stack14, $stack19, $stack24;
+        long[][] $stack2, array;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20, $stack23;
+
+        this := @this: org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest;
+
+        $stack2 = newarray (long[])[3];
+
+        $stack3 = newarray (long)[2];
+
+        $stack3[0] = 1L;
+
+        $stack3[1] = 2L;
+
+        $stack2[0] = $stack3;
+
+        $stack2[1] = null;
+
+        $stack4 = newarray (long)[1];
+
+        $stack4[0] = 5L;
+
+        $stack2[2] = $stack4;
+
+        $stack5 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack6 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>($stack2);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{{1,2},<null>,{5}}]", $stack9);
+
+        $stack10 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack11 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack11);
+
+        $stack13 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[{{1,2},<null>,{5}}]", $stack14);
+
+        array = (long[][]) null;
+
+        $stack15 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack16 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack16);
+
+        $stack18 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>(array);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack19);
+
+        $stack20 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack21 = this.<org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack21);
+
+        $stack23 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(array);
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Integer[<null>]", $stack24);
+
+        return;
+    }
+}

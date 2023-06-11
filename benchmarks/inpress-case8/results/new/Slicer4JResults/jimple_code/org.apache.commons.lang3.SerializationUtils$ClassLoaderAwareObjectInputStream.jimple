@@ -1,0 +1,152 @@
+class org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream extends java.io.ObjectInputStream
+{
+    private static final java.util.Map primitiveTypes;
+    private java.lang.ClassLoader classLoader;
+
+    public void <init>(java.io.InputStream, java.lang.ClassLoader) throws java.io.IOException
+    {
+        org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream this;
+        java.util.Map $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28;
+        java.lang.Class $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27;
+        java.lang.ClassLoader classLoader;
+        java.io.InputStream in;
+
+        this := @this: org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream;
+
+        in := @parameter0: java.io.InputStream;
+
+        classLoader := @parameter1: java.lang.ClassLoader;
+
+        specialinvoke this.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>(in);
+
+        this.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.lang.ClassLoader classLoader> = classLoader;
+
+        $stack4 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack3 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("byte", $stack3);
+
+        $stack7 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack6 = <java.lang.Short: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack7.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("short", $stack6);
+
+        $stack10 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack9 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack10.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("int", $stack9);
+
+        $stack13 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack12 = <java.lang.Long: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack13.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("long", $stack12);
+
+        $stack16 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack15 = <java.lang.Float: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack16.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("float", $stack15);
+
+        $stack19 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack18 = <java.lang.Double: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack19.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("double", $stack18);
+
+        $stack22 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack21 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack22.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean", $stack21);
+
+        $stack25 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack24 = <java.lang.Character: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack25.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("char", $stack24);
+
+        $stack28 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack27 = <java.lang.Void: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack28.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void", $stack27);
+
+        return;
+    }
+
+    protected java.lang.Class resolveClass(java.io.ObjectStreamClass) throws java.io.IOException, java.lang.ClassNotFoundException
+    {
+        java.io.ObjectStreamClass desc;
+        org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream this;
+        java.util.Map $stack10;
+        java.lang.Thread $stack14;
+        java.lang.Class $stack8, 'cls', $stack16;
+        java.lang.ClassNotFoundException $stack9, $stack12;
+        java.lang.Object $stack11;
+        java.lang.String $stack6;
+        java.lang.ClassLoader $stack7, $stack15;
+
+        this := @this: org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream;
+
+        desc := @parameter0: java.io.ObjectStreamClass;
+
+        $stack6 = virtualinvoke desc.<java.io.ObjectStreamClass: java.lang.String getName()>();
+
+     label1:
+        $stack7 = this.<org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.lang.ClassLoader classLoader>;
+
+        $stack8 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String,boolean,java.lang.ClassLoader)>($stack6, 0, $stack7);
+
+     label2:
+        return $stack8;
+
+     label3:
+        $stack12 := @caughtexception;
+
+     label4:
+        $stack14 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $stack15 = virtualinvoke $stack14.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        $stack16 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String,boolean,java.lang.ClassLoader)>($stack6, 0, $stack15);
+
+     label5:
+        return $stack16;
+
+     label6:
+        $stack9 := @caughtexception;
+
+        $stack10 = <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes>;
+
+        $stack11 = interfaceinvoke $stack10.<java.util.Map: java.lang.Object get(java.lang.Object)>($stack6);
+
+        'cls' = (java.lang.Class) $stack11;
+
+        if 'cls' == null goto label7;
+
+        return 'cls';
+
+     label7:
+        throw $stack9;
+
+        catch java.lang.ClassNotFoundException from label1 to label2 with label3;
+        catch java.lang.ClassNotFoundException from label4 to label5 with label6;
+    }
+
+    static void <clinit>()
+    {
+        java.util.HashMap $stack0;
+
+        $stack0 = new java.util.HashMap;
+
+        specialinvoke $stack0.<java.util.HashMap: void <init>()>();
+
+        <org.apache.commons.lang3.SerializationUtils$ClassLoaderAwareObjectInputStream: java.util.Map primitiveTypes> = $stack0;
+
+        return;
+    }
+}

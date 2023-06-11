@@ -1,0 +1,124 @@
+class org.apache.commons.lang3.AnnotationUtilsTest$1 extends java.lang.Object implements java.lang.reflect.InvocationHandler
+{
+    final org.junit.Test val$real;
+    final org.apache.commons.lang3.AnnotationUtilsTest this$0;
+
+    void <init>(org.apache.commons.lang3.AnnotationUtilsTest, org.junit.Test)
+    {
+        org.junit.Test l2;
+        org.apache.commons.lang3.AnnotationUtilsTest$1 this;
+        org.apache.commons.lang3.AnnotationUtilsTest l1;
+
+        this := @this: org.apache.commons.lang3.AnnotationUtilsTest$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.AnnotationUtilsTest;
+
+        l2 := @parameter1: org.junit.Test;
+
+        this.<org.apache.commons.lang3.AnnotationUtilsTest$1: org.apache.commons.lang3.AnnotationUtilsTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.AnnotationUtilsTest$1: org.junit.Test val$real> = l2;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable
+    {
+        java.lang.Object[] args;
+        java.lang.Integer $stack24;
+        int $stack16, $stack21, $stack23, $stack26;
+        java.lang.Boolean $stack29;
+        java.lang.String $stack4, $stack5, $stack7, $stack8, $stack10, $stack11;
+        java.lang.reflect.Method method;
+        boolean $stack6, $stack9, $stack12, $stack30;
+        java.lang.Class[] $stack15, $stack20, $stack25;
+        org.junit.Test $stack13;
+        org.apache.commons.lang3.AnnotationUtilsTest$1 this;
+        java.lang.Object $stack14, proxy, $stack28;
+
+        this := @this: org.apache.commons.lang3.AnnotationUtilsTest$1;
+
+        proxy := @parameter0: java.lang.Object;
+
+        method := @parameter1: java.lang.reflect.Method;
+
+        args := @parameter2: java.lang.Object[];
+
+        $stack4 = "equals";
+
+        $stack5 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: boolean equals(java.lang.Object)>($stack5);
+
+        if $stack6 == 0 goto label3;
+
+        $stack25 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack26 = lengthof $stack25;
+
+        if $stack26 != 1 goto label3;
+
+        $stack28 = args[0];
+
+        if proxy != $stack28 goto label1;
+
+        $stack30 = 1;
+
+        goto label2;
+
+     label1:
+        $stack30 = 0;
+
+     label2:
+        $stack29 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack30);
+
+        return $stack29;
+
+     label3:
+        $stack7 = "hashCode";
+
+        $stack8 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack9 = virtualinvoke $stack7.<java.lang.String: boolean equals(java.lang.Object)>($stack8);
+
+        if $stack9 == 0 goto label4;
+
+        $stack20 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack21 = lengthof $stack20;
+
+        if $stack21 != 0 goto label4;
+
+        $stack23 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>(proxy);
+
+        $stack24 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack23);
+
+        return $stack24;
+
+     label4:
+        $stack10 = "toString";
+
+        $stack11 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack12 = virtualinvoke $stack10.<java.lang.String: boolean equals(java.lang.Object)>($stack11);
+
+        if $stack12 == 0 goto label5;
+
+        $stack15 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack16 = lengthof $stack15;
+
+        if $stack16 != 0 goto label5;
+
+        return "Test proxy";
+
+     label5:
+        $stack13 = this.<org.apache.commons.lang3.AnnotationUtilsTest$1: org.junit.Test val$real>;
+
+        $stack14 = virtualinvoke method.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>($stack13, args);
+
+        return $stack14;
+    }
+}

@@ -1,0 +1,747 @@
+public class org.apache.commons.lang3.SystemUtils extends java.lang.Object
+{
+    private static final java.lang.String OS_NAME_WINDOWS_PREFIX;
+    private static final java.lang.String USER_HOME_KEY;
+    private static final java.lang.String USER_DIR_KEY;
+    private static final java.lang.String JAVA_IO_TMPDIR_KEY;
+    private static final java.lang.String JAVA_HOME_KEY;
+    public static final java.lang.String AWT_TOOLKIT;
+    public static final java.lang.String FILE_ENCODING;
+    public static final java.lang.String FILE_SEPARATOR;
+    public static final java.lang.String JAVA_AWT_FONTS;
+    public static final java.lang.String JAVA_AWT_GRAPHICSENV;
+    public static final java.lang.String JAVA_AWT_HEADLESS;
+    public static final java.lang.String JAVA_AWT_PRINTERJOB;
+    public static final java.lang.String JAVA_CLASS_PATH;
+    public static final java.lang.String JAVA_CLASS_VERSION;
+    public static final java.lang.String JAVA_COMPILER;
+    public static final java.lang.String JAVA_ENDORSED_DIRS;
+    public static final java.lang.String JAVA_EXT_DIRS;
+    public static final java.lang.String JAVA_HOME;
+    public static final java.lang.String JAVA_IO_TMPDIR;
+    public static final java.lang.String JAVA_LIBRARY_PATH;
+    public static final java.lang.String JAVA_RUNTIME_NAME;
+    public static final java.lang.String JAVA_RUNTIME_VERSION;
+    public static final java.lang.String JAVA_SPECIFICATION_NAME;
+    public static final java.lang.String JAVA_SPECIFICATION_VENDOR;
+    public static final java.lang.String JAVA_SPECIFICATION_VERSION;
+    private static final org.apache.commons.lang3.JavaVersion JAVA_SPECIFICATION_VERSION_AS_ENUM;
+    public static final java.lang.String JAVA_UTIL_PREFS_PREFERENCES_FACTORY;
+    public static final java.lang.String JAVA_VENDOR;
+    public static final java.lang.String JAVA_VENDOR_URL;
+    public static final java.lang.String JAVA_VERSION;
+    public static final java.lang.String JAVA_VM_INFO;
+    public static final java.lang.String JAVA_VM_NAME;
+    public static final java.lang.String JAVA_VM_SPECIFICATION_NAME;
+    public static final java.lang.String JAVA_VM_SPECIFICATION_VENDOR;
+    public static final java.lang.String JAVA_VM_SPECIFICATION_VERSION;
+    public static final java.lang.String JAVA_VM_VENDOR;
+    public static final java.lang.String JAVA_VM_VERSION;
+    public static final java.lang.String LINE_SEPARATOR;
+    public static final java.lang.String OS_ARCH;
+    public static final java.lang.String OS_NAME;
+    public static final java.lang.String OS_VERSION;
+    public static final java.lang.String PATH_SEPARATOR;
+    public static final java.lang.String USER_COUNTRY;
+    public static final java.lang.String USER_DIR;
+    public static final java.lang.String USER_HOME;
+    public static final java.lang.String USER_LANGUAGE;
+    public static final java.lang.String USER_NAME;
+    public static final java.lang.String USER_TIMEZONE;
+    public static final boolean IS_JAVA_1_1;
+    public static final boolean IS_JAVA_1_2;
+    public static final boolean IS_JAVA_1_3;
+    public static final boolean IS_JAVA_1_4;
+    public static final boolean IS_JAVA_1_5;
+    public static final boolean IS_JAVA_1_6;
+    public static final boolean IS_JAVA_1_7;
+    public static final boolean IS_OS_AIX;
+    public static final boolean IS_OS_HP_UX;
+    public static final boolean IS_OS_IRIX;
+    public static final boolean IS_OS_LINUX;
+    public static final boolean IS_OS_MAC;
+    public static final boolean IS_OS_MAC_OSX;
+    public static final boolean IS_OS_FREE_BSD;
+    public static final boolean IS_OS_OPEN_BSD;
+    public static final boolean IS_OS_NET_BSD;
+    public static final boolean IS_OS_OS2;
+    public static final boolean IS_OS_SOLARIS;
+    public static final boolean IS_OS_SUN_OS;
+    public static final boolean IS_OS_UNIX;
+    public static final boolean IS_OS_WINDOWS;
+    public static final boolean IS_OS_WINDOWS_2000;
+    public static final boolean IS_OS_WINDOWS_2003;
+    public static final boolean IS_OS_WINDOWS_2008;
+    public static final boolean IS_OS_WINDOWS_95;
+    public static final boolean IS_OS_WINDOWS_98;
+    public static final boolean IS_OS_WINDOWS_ME;
+    public static final boolean IS_OS_WINDOWS_NT;
+    public static final boolean IS_OS_WINDOWS_XP;
+    public static final boolean IS_OS_WINDOWS_VISTA;
+    public static final boolean IS_OS_WINDOWS_7;
+    public static final boolean IS_OS_WINDOWS_8;
+
+    public static java.io.File getJavaHome()
+    {
+        java.lang.String $stack1;
+        java.io.File $stack0;
+
+        $stack0 = new java.io.File;
+
+        $stack1 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.home");
+
+        specialinvoke $stack0.<java.io.File: void <init>(java.lang.String)>($stack1);
+
+        return $stack0;
+    }
+
+    public static java.io.File getJavaIoTmpDir()
+    {
+        java.lang.String $stack1;
+        java.io.File $stack0;
+
+        $stack0 = new java.io.File;
+
+        $stack1 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.io.tmpdir");
+
+        specialinvoke $stack0.<java.io.File: void <init>(java.lang.String)>($stack1);
+
+        return $stack0;
+    }
+
+    private static boolean getJavaVersionMatches(java.lang.String)
+    {
+        java.lang.String versionPrefix, $stack1;
+        boolean $stack2;
+
+        versionPrefix := @parameter0: java.lang.String;
+
+        $stack1 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionMatch(java.lang.String,java.lang.String)>($stack1, versionPrefix);
+
+        return $stack2;
+    }
+
+    private static boolean getOSMatches(java.lang.String, java.lang.String)
+    {
+        java.lang.String osNamePrefix, osVersionPrefix, $stack2, $stack3;
+        boolean $stack4;
+
+        osNamePrefix := @parameter0: java.lang.String;
+
+        osVersionPrefix := @parameter1: java.lang.String;
+
+        $stack3 = <org.apache.commons.lang3.SystemUtils: java.lang.String OS_NAME>;
+
+        $stack2 = <org.apache.commons.lang3.SystemUtils: java.lang.String OS_VERSION>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isOSMatch(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>($stack3, $stack2, osNamePrefix, osVersionPrefix);
+
+        return $stack4;
+    }
+
+    private static boolean getOSMatchesName(java.lang.String)
+    {
+        java.lang.String osNamePrefix, $stack1;
+        boolean $stack2;
+
+        osNamePrefix := @parameter0: java.lang.String;
+
+        $stack1 = <org.apache.commons.lang3.SystemUtils: java.lang.String OS_NAME>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isOSNameMatch(java.lang.String,java.lang.String)>($stack1, osNamePrefix);
+
+        return $stack2;
+    }
+
+    private static java.lang.String getSystemProperty(java.lang.String)
+    {
+        java.io.PrintStream $stack5;
+        java.lang.SecurityException $stack3;
+        java.lang.StringBuilder $stack4, $stack6, $stack7, $stack8;
+        java.lang.String property, $stack2, $stack9;
+
+        property := @parameter0: java.lang.String;
+
+     label1:
+        $stack2 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>(property);
+
+     label2:
+        return $stack2;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        $stack5 = <java.lang.System: java.io.PrintStream err>;
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Caught a SecurityException reading the system property \'");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(property);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'; the SystemUtils property value will default to null.");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack5.<java.io.PrintStream: void println(java.lang.String)>($stack9);
+
+        return null;
+
+        catch java.lang.SecurityException from label1 to label2 with label3;
+    }
+
+    public static java.io.File getUserDir()
+    {
+        java.lang.String $stack1;
+        java.io.File $stack0;
+
+        $stack0 = new java.io.File;
+
+        $stack1 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("user.dir");
+
+        specialinvoke $stack0.<java.io.File: void <init>(java.lang.String)>($stack1);
+
+        return $stack0;
+    }
+
+    public static java.io.File getUserHome()
+    {
+        java.lang.String $stack1;
+        java.io.File $stack0;
+
+        $stack0 = new java.io.File;
+
+        $stack1 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("user.home");
+
+        specialinvoke $stack0.<java.io.File: void <init>(java.lang.String)>($stack1);
+
+        return $stack0;
+    }
+
+    public static boolean isJavaAwtHeadless()
+    {
+        java.lang.Boolean $stack1;
+        java.lang.String $stack0, $stack2, $stack3;
+        boolean $stack4;
+
+        $stack0 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_HEADLESS>;
+
+        if $stack0 == null goto label1;
+
+        $stack2 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_HEADLESS>;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.Boolean: java.lang.String toString()>();
+
+        $stack4 = virtualinvoke $stack2.<java.lang.String: boolean equals(java.lang.Object)>($stack3);
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public static boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)
+    {
+        org.apache.commons.lang3.JavaVersion requiredVersion, $stack1;
+        boolean $stack2;
+
+        requiredVersion := @parameter0: org.apache.commons.lang3.JavaVersion;
+
+        $stack1 = <org.apache.commons.lang3.SystemUtils: org.apache.commons.lang3.JavaVersion JAVA_SPECIFICATION_VERSION_AS_ENUM>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.JavaVersion: boolean atLeast(org.apache.commons.lang3.JavaVersion)>(requiredVersion);
+
+        return $stack2;
+    }
+
+    static boolean isJavaVersionMatch(java.lang.String, java.lang.String)
+    {
+        java.lang.String version, versionPrefix;
+        boolean $stack2;
+
+        version := @parameter0: java.lang.String;
+
+        versionPrefix := @parameter1: java.lang.String;
+
+        if version != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = virtualinvoke version.<java.lang.String: boolean startsWith(java.lang.String)>(versionPrefix);
+
+        return $stack2;
+    }
+
+    static boolean isOSMatch(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        java.lang.String osName, osVersion, osNamePrefix, osVersionPrefix;
+        boolean $stack4, $stack5, $stack6;
+
+        osName := @parameter0: java.lang.String;
+
+        osVersion := @parameter1: java.lang.String;
+
+        osNamePrefix := @parameter2: java.lang.String;
+
+        osVersionPrefix := @parameter3: java.lang.String;
+
+        if osName == null goto label1;
+
+        if osVersion != null goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        $stack4 = virtualinvoke osName.<java.lang.String: boolean startsWith(java.lang.String)>(osNamePrefix);
+
+        if $stack4 == 0 goto label3;
+
+        $stack5 = virtualinvoke osVersion.<java.lang.String: boolean startsWith(java.lang.String)>(osVersionPrefix);
+
+        if $stack5 == 0 goto label3;
+
+        $stack6 = 1;
+
+        goto label4;
+
+     label3:
+        $stack6 = 0;
+
+     label4:
+        return $stack6;
+    }
+
+    static boolean isOSNameMatch(java.lang.String, java.lang.String)
+    {
+        java.lang.String osName, osNamePrefix;
+        boolean $stack2;
+
+        osName := @parameter0: java.lang.String;
+
+        osNamePrefix := @parameter1: java.lang.String;
+
+        if osName != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = virtualinvoke osName.<java.lang.String: boolean startsWith(java.lang.String)>(osNamePrefix);
+
+        return $stack2;
+    }
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.SystemUtils this;
+
+        this := @this: org.apache.commons.lang3.SystemUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.JavaVersion $stack21;
+        java.lang.String $stack0, $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37, $stack38, $stack40, $stack41, $stack42, $stack43, $stack44, $stack39;
+        boolean $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack51, $stack52, $stack53, $stack54, $stack55, $stack56, $stack57, $stack58, $stack59, $stack60, $stack61, $stack62, $stack63, $stack64, $stack65, $stack66, $stack67, $stack68, $stack69, $stack70, $stack71, $stack72, $stack73, $stack74, $stack75, $stack76, $stack77, $stack78, $stack79, $stack80, $stack81, $stack82, $stack83, $stack84, $stack85, $stack109, $stack110, $stack86;
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_HOME_KEY> = "java.home";
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_IO_TMPDIR_KEY> = "java.io.tmpdir";
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_DIR_KEY> = "user.dir";
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_HOME_KEY> = "user.home";
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String OS_NAME_WINDOWS_PREFIX> = "Windows";
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("awt.toolkit");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String AWT_TOOLKIT> = $stack0;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("file.encoding");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String FILE_ENCODING> = $stack1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("file.separator");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String FILE_SEPARATOR> = $stack2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.awt.fonts");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_FONTS> = $stack3;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.awt.graphicsenv");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_GRAPHICSENV> = $stack4;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.awt.headless");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_HEADLESS> = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.awt.printerjob");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_AWT_PRINTERJOB> = $stack6;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.class.path");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_CLASS_PATH> = $stack7;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.class.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_CLASS_VERSION> = $stack8;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.compiler");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_COMPILER> = $stack9;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.endorsed.dirs");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_ENDORSED_DIRS> = $stack10;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.ext.dirs");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_EXT_DIRS> = $stack11;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.home");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_HOME> = $stack12;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.io.tmpdir");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_IO_TMPDIR> = $stack13;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.library.path");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_LIBRARY_PATH> = $stack14;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.runtime.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_RUNTIME_NAME> = $stack15;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.runtime.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_RUNTIME_VERSION> = $stack16;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.specification.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_NAME> = $stack17;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.specification.vendor");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VENDOR> = $stack18;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.specification.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION> = $stack19;
+
+        $stack20 = <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_SPECIFICATION_VERSION>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion get(java.lang.String)>($stack20);
+
+        <org.apache.commons.lang3.SystemUtils: org.apache.commons.lang3.JavaVersion JAVA_SPECIFICATION_VERSION_AS_ENUM> = $stack21;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.util.prefs.PreferencesFactory");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_UTIL_PREFS_PREFERENCES_FACTORY> = $stack22;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vendor");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VENDOR> = $stack23;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vendor.url");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VENDOR_URL> = $stack24;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VERSION> = $stack25;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.info");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_INFO> = $stack26;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_NAME> = $stack27;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.specification.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_SPECIFICATION_NAME> = $stack28;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.specification.vendor");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_SPECIFICATION_VENDOR> = $stack29;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.specification.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_SPECIFICATION_VERSION> = $stack30;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.vendor");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_VENDOR> = $stack31;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("java.vm.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String JAVA_VM_VERSION> = $stack32;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("line.separator");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR> = $stack33;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("os.arch");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String OS_ARCH> = $stack34;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("os.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String OS_NAME> = $stack35;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("os.version");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String OS_VERSION> = $stack36;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("path.separator");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String PATH_SEPARATOR> = $stack37;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.country");
+
+        if $stack38 != null goto label1;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.region");
+
+        goto label2;
+
+     label1:
+        $stack39 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.country");
+
+     label2:
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_COUNTRY> = $stack39;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.dir");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_DIR> = $stack40;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.home");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_HOME> = $stack41;
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.language");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_LANGUAGE> = $stack42;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.name");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_NAME> = $stack43;
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.SystemUtils: java.lang.String getSystemProperty(java.lang.String)>("user.timezone");
+
+        <org.apache.commons.lang3.SystemUtils: java.lang.String USER_TIMEZONE> = $stack44;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.1");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_1> = $stack45;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.2");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_2> = $stack46;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.3");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_3> = $stack47;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.4");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_4> = $stack48;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.5");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_5> = $stack49;
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.6");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_6> = $stack50;
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getJavaVersionMatches(java.lang.String)>("1.7");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_JAVA_1_7> = $stack51;
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("AIX");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_AIX> = $stack52;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("HP-UX");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_HP_UX> = $stack53;
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Irix");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_IRIX> = $stack54;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Linux");
+
+        if $stack55 != 0 goto label3;
+
+        $stack109 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("LINUX");
+
+        if $stack109 == 0 goto label4;
+
+     label3:
+        $stack110 = 1;
+
+        goto label5;
+
+     label4:
+        $stack110 = 0;
+
+     label5:
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_LINUX> = $stack110;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Mac");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_MAC> = $stack56;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Mac OS X");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_MAC_OSX> = $stack57;
+
+        $stack58 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("FreeBSD");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_FREE_BSD> = $stack58;
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("OpenBSD");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_OPEN_BSD> = $stack59;
+
+        $stack60 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("NetBSD");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_NET_BSD> = $stack60;
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("OS/2");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_OS2> = $stack61;
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Solaris");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_SOLARIS> = $stack62;
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("SunOS");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_SUN_OS> = $stack63;
+
+        $stack64 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_AIX>;
+
+        if $stack64 != 0 goto label6;
+
+        $stack77 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_HP_UX>;
+
+        if $stack77 != 0 goto label6;
+
+        $stack78 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_IRIX>;
+
+        if $stack78 != 0 goto label6;
+
+        $stack79 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_LINUX>;
+
+        if $stack79 != 0 goto label6;
+
+        $stack80 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_MAC_OSX>;
+
+        if $stack80 != 0 goto label6;
+
+        $stack81 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_SOLARIS>;
+
+        if $stack81 != 0 goto label6;
+
+        $stack82 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_SUN_OS>;
+
+        if $stack82 != 0 goto label6;
+
+        $stack83 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_FREE_BSD>;
+
+        if $stack83 != 0 goto label6;
+
+        $stack84 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_OPEN_BSD>;
+
+        if $stack84 != 0 goto label6;
+
+        $stack85 = <org.apache.commons.lang3.SystemUtils: boolean IS_OS_NET_BSD>;
+
+        if $stack85 == 0 goto label7;
+
+     label6:
+        $stack86 = 1;
+
+        goto label8;
+
+     label7:
+        $stack86 = 0;
+
+     label8:
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_UNIX> = $stack86;
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Windows");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS> = $stack65;
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "5.0");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_2000> = $stack66;
+
+        $stack67 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "5.2");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_2003> = $stack67;
+
+        $stack68 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows Server 2008", "6.1");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_2008> = $stack68;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows 9", "4.0");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_95> = $stack69;
+
+        $stack70 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows 9", "4.1");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_98> = $stack70;
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "4.9");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_ME> = $stack71;
+
+        $stack72 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatchesName(java.lang.String)>("Windows NT");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_NT> = $stack72;
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "5.1");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_XP> = $stack73;
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "6.0");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_VISTA> = $stack74;
+
+        $stack75 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "6.1");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_7> = $stack75;
+
+        $stack76 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean getOSMatches(java.lang.String,java.lang.String)>("Windows", "6.2");
+
+        <org.apache.commons.lang3.SystemUtils: boolean IS_OS_WINDOWS_8> = $stack76;
+
+        return;
+    }
+}

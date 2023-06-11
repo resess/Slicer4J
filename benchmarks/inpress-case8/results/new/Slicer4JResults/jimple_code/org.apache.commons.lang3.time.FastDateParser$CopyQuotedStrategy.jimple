@@ -1,0 +1,88 @@
+class org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy extends java.lang.Object implements org.apache.commons.lang3.time.FastDateParser$Strategy
+{
+    private final java.lang.String formatField;
+
+    void <init>(java.lang.String)
+    {
+        org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy this;
+        java.lang.String formatField;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy;
+
+        formatField := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy: java.lang.String formatField> = formatField;
+
+        return;
+    }
+
+    public boolean isNumber()
+    {
+        int $i0;
+        org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy this;
+        char $stack3, c;
+        java.lang.String $stack2, $stack5;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy;
+
+        $stack2 = this.<org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy: java.lang.String formatField>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.String: char charAt(int)>(0);
+
+        c = $stack3;
+
+        $i0 = (int) $stack3;
+
+        if $i0 != 39 goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy: java.lang.String formatField>;
+
+        c = virtualinvoke $stack5.<java.lang.String: char charAt(int)>(1);
+
+     label1:
+        $stack4 = staticinvoke <java.lang.Character: boolean isDigit(char)>(c);
+
+        return $stack4;
+    }
+
+    public boolean addRegex(org.apache.commons.lang3.time.FastDateParser, java.lang.StringBuilder)
+    {
+        org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy this;
+        java.lang.StringBuilder regex;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.time.FastDateParser parser;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        regex := @parameter1: java.lang.StringBuilder;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy: java.lang.String formatField>;
+
+        staticinvoke <org.apache.commons.lang3.time.FastDateParser: java.lang.StringBuilder access$000(java.lang.StringBuilder,java.lang.String,boolean)>(regex, $stack3, 1);
+
+        return 0;
+    }
+
+    public void setCalendar(org.apache.commons.lang3.time.FastDateParser, java.util.Calendar, java.lang.String)
+    {
+        java.util.Calendar cal;
+        org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy this;
+        org.apache.commons.lang3.time.FastDateParser parser;
+        java.lang.String value;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$CopyQuotedStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        cal := @parameter1: java.util.Calendar;
+
+        value := @parameter2: java.lang.String;
+
+        return;
+    }
+}

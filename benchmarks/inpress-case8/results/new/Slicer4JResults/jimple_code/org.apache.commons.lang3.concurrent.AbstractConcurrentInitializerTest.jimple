@@ -1,0 +1,156 @@
+public abstract class org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testGet() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Object $stack3;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest: org.apache.commons.lang3.concurrent.ConcurrentInitializer createInitializer()>();
+
+        $stack3 = interfaceinvoke $stack2.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No managed object", $stack3);
+
+        return;
+    }
+
+    public void testGetMultipleTimes() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this;
+        int i;
+        java.lang.Object $stack5, $stack10;
+        java.lang.StringBuilder $stack6, $stack7, $stack8;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest: org.apache.commons.lang3.concurrent.ConcurrentInitializer createInitializer()>();
+
+        $stack5 = interfaceinvoke $stack4.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Got different object at ");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack10 = interfaceinvoke $stack4.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack9, $stack5, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testGetConcurrent() throws org.apache.commons.lang3.concurrent.ConcurrentException, java.lang.InterruptedException
+    {
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread t_2, $stack18, $stack19, t_1;
+        java.util.concurrent.CountDownLatch $stack11;
+        int i, len$, i$, t_1#9;
+        java.lang.Object $stack12, $stack13;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread[] threads;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest: org.apache.commons.lang3.concurrent.ConcurrentInitializer createInitializer()>();
+
+        $stack11 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack11.<java.util.concurrent.CountDownLatch: void <init>(int)>(1);
+
+        threads = newarray (org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread)[20];
+
+        i = 0;
+
+     label1:
+        if i >= 20 goto label2;
+
+        $stack18 = new org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: void <init>(org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest,java.util.concurrent.CountDownLatch,org.apache.commons.lang3.concurrent.ConcurrentInitializer)>(this, $stack11, $stack10);
+
+        threads[i] = $stack18;
+
+        $stack19 = threads[i];
+
+        virtualinvoke $stack19.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: void start()>();
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        virtualinvoke $stack11.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+        len$ = lengthof threads;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label4;
+
+        t_1 = threads[i$];
+
+        virtualinvoke t_1.<java.lang.Thread: void join()>();
+
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label4:
+        $stack12 = interfaceinvoke $stack10.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        i$ = lengthof threads;
+
+        t_1#9 = 0;
+
+     label5:
+        if t_1#9 >= i$ goto label6;
+
+        t_2 = threads[t_1#9];
+
+        $stack13 = t_2.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: java.lang.Object object>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong object", $stack12, $stack13);
+
+        t_1#9 = t_1#9 + 1;
+
+        goto label5;
+
+     label6:
+        return;
+    }
+
+    protected abstract org.apache.commons.lang3.concurrent.ConcurrentInitializer createInitializer();
+}

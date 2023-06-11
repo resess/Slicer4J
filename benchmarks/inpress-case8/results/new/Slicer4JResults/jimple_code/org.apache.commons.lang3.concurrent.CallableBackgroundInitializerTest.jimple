@@ -1,0 +1,127 @@
+public class org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest extends java.lang.Object
+{
+    private static final java.lang.Integer RESULT;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testInitNullCallable()
+    {
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void <init>(java.util.concurrent.Callable)>(null);
+
+        return;
+    }
+
+    public void testInitExecutor()
+    {
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable $stack5;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack3, $stack7;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest;
+
+        $stack3 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        $stack4 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        $stack5 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable: void <init>(org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$1)>(null);
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void <init>(java.util.concurrent.Callable,java.util.concurrent.ExecutorService)>($stack5, $stack3);
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: java.util.concurrent.ExecutorService getExternalExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Executor not set", $stack3, $stack7);
+
+        return;
+    }
+
+    public void testInitExecutorNullCallable()
+    {
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack2;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest;
+
+        $stack2 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        $stack3 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void <init>(java.util.concurrent.Callable,java.util.concurrent.ExecutorService)>(null, $stack2);
+
+        return;
+    }
+
+    public void testInitialize() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable $stack3;
+        int $stack8;
+        java.lang.Object $stack7;
+        long $stack9;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest this;
+        java.lang.Integer $stack6;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable: void <init>(org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$1)>(null);
+
+        $stack4 = new org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void <init>(java.util.concurrent.Callable)>($stack3);
+
+        $stack6 = <org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest: java.lang.Integer RESULT>;
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: java.lang.Object initialize()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", $stack6, $stack7);
+
+        $stack8 = $stack3.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest$TestCallable: int callCount>;
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of invocations", 1L, $stack9);
+
+        return;
+    }
+
+    static java.lang.Integer access$100()
+    {
+        java.lang.Integer $stack0;
+
+        $stack0 = <org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest: java.lang.Integer RESULT>;
+
+        return $stack0;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.Integer $stack0;
+
+        $stack0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        <org.apache.commons.lang3.concurrent.CallableBackgroundInitializerTest: java.lang.Integer RESULT> = $stack0;
+
+        return;
+    }
+}

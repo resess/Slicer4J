@@ -1,0 +1,47 @@
+final class org.apache.commons.lang3.time.FastDateParser$1 extends org.apache.commons.lang3.time.FastDateParser$NumberStrategy
+{
+
+    void <init>(int)
+    {
+        int x0;
+        org.apache.commons.lang3.time.FastDateParser$1 this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$1;
+
+        x0 := @parameter0: int;
+
+        specialinvoke this.<org.apache.commons.lang3.time.FastDateParser$NumberStrategy: void <init>(int)>(x0);
+
+        return;
+    }
+
+    public void setCalendar(org.apache.commons.lang3.time.FastDateParser, java.util.Calendar, java.lang.String)
+    {
+        java.util.Calendar cal;
+        org.apache.commons.lang3.time.FastDateParser$1 this;
+        int $stack5, iValue;
+        java.lang.String value;
+        org.apache.commons.lang3.time.FastDateParser parser;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$1;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        cal := @parameter1: java.util.Calendar;
+
+        value := @parameter2: java.lang.String;
+
+        $stack5 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(value);
+
+        iValue = $stack5;
+
+        if $stack5 >= 100 goto label1;
+
+        iValue = virtualinvoke parser.<org.apache.commons.lang3.time.FastDateParser: int adjustYear(int)>($stack5);
+
+     label1:
+        virtualinvoke cal.<java.util.Calendar: void set(int,int)>(1, iValue);
+
+        return;
+    }
+}

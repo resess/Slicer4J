@@ -1,0 +1,30 @@
+class org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB extends java.lang.Object
+{
+    org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleA a;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public int hashCode()
+    {
+        int $stack2;
+        java.lang.String[] $stack1;
+        org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilderTest$ReflectionTestCycleB;
+
+        $stack1 = newarray (java.lang.String)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>(this, $stack1);
+
+        return $stack2;
+    }
+}

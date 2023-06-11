@@ -1,0 +1,249 @@
+class org.apache.commons.lang3.time.DurationFormatUtils$Token extends java.lang.Object
+{
+    private final java.lang.Object value;
+    private int count;
+
+    static boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[], java.lang.Object)
+    {
+        org.apache.commons.lang3.time.DurationFormatUtils$Token $stack4;
+        int sz, i;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] tokens;
+        java.lang.Object $stack5, value;
+
+        tokens := @parameter0: org.apache.commons.lang3.time.DurationFormatUtils$Token[];
+
+        value := @parameter1: java.lang.Object;
+
+        sz = lengthof tokens;
+
+        i = 0;
+
+     label1:
+        if i >= sz goto label3;
+
+        $stack4 = tokens[i];
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object getValue()>();
+
+        if $stack5 != value goto label2;
+
+        return 1;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    void <init>(java.lang.Object)
+    {
+        java.lang.Object value;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        value := @parameter0: java.lang.Object;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value> = value;
+
+        this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count> = 1;
+
+        return;
+    }
+
+    void <init>(java.lang.Object, int)
+    {
+        int count;
+        java.lang.Object value;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        value := @parameter0: java.lang.Object;
+
+        count := @parameter1: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value> = value;
+
+        this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count> = count;
+
+        return;
+    }
+
+    void increment()
+    {
+        int $stack1, $stack2;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count>;
+
+        $stack2 = $stack1 + 1;
+
+        this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count> = $stack2;
+
+        return;
+    }
+
+    int getCount()
+    {
+        int $stack1;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count>;
+
+        return $stack1;
+    }
+
+    java.lang.Object getValue()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        return $stack1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        int $stack8, $stack9;
+        java.lang.String $stack21, $stack23;
+        boolean $stack3, $stack11, $stack13, $stack19, $stack24, $stack16;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token tok2, this;
+        java.lang.Object obj2, $stack4, $stack6, $stack10, $stack12, $stack14, $stack15, $stack17, $stack18, $stack20, $stack22;
+        java.lang.Class $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        obj2 := @parameter0: java.lang.Object;
+
+        $stack3 = obj2 instanceof org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        if $stack3 == 0 goto label7;
+
+        tok2 = (org.apache.commons.lang3.time.DurationFormatUtils$Token) obj2;
+
+        $stack4 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack6 = tok2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $stack5 == $stack7 goto label1;
+
+        return 0;
+
+     label1:
+        $stack9 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count>;
+
+        $stack8 = tok2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count>;
+
+        if $stack9 == $stack8 goto label2;
+
+        return 0;
+
+     label2:
+        $stack10 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack11 = $stack10 instanceof java.lang.StringBuffer;
+
+        if $stack11 == 0 goto label3;
+
+        $stack20 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Object: java.lang.String toString()>();
+
+        $stack22 = tok2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Object: java.lang.String toString()>();
+
+        $stack24 = virtualinvoke $stack21.<java.lang.String: boolean equals(java.lang.Object)>($stack23);
+
+        return $stack24;
+
+     label3:
+        $stack12 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack13 = $stack12 instanceof java.lang.Number;
+
+        if $stack13 == 0 goto label4;
+
+        $stack18 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack17 = tok2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack19 = virtualinvoke $stack18.<java.lang.Object: boolean equals(java.lang.Object)>($stack17);
+
+        return $stack19;
+
+     label4:
+        $stack15 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack14 = tok2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        if $stack15 != $stack14 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        return $stack16;
+
+     label7:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int $stack2;
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Object: int hashCode()>();
+
+        return $stack2;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtils$Token this;
+        int $stack3;
+        java.lang.Object $stack1;
+        java.lang.String $stack2, $stack4;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object value>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Object: java.lang.String toString()>();
+
+        $stack3 = this.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int count>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String repeat(java.lang.String,int)>($stack2, $stack3);
+
+        return $stack4;
+    }
+}

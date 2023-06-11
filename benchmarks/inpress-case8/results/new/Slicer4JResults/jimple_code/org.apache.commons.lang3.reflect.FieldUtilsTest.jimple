@@ -1,0 +1,3568 @@
+public class org.apache.commons.lang3.reflect.FieldUtilsTest extends java.lang.Object
+{
+    static final java.lang.String S;
+    static final java.lang.String SS;
+    static final java.lang.Integer I0;
+    static final java.lang.Integer I1;
+    static final java.lang.Double D0;
+    static final java.lang.Double D1;
+    private org.apache.commons.lang3.reflect.testbed.PublicChild publicChild;
+    private org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild;
+    private org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild;
+    private java.lang.Class parentClass;
+
+    public void <init>()
+    {
+        java.lang.Class $stack1, $stack2;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;";
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass> = $stack2;
+
+        return;
+    }
+
+    public void setUp()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack2;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack1;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack3;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: void reset()>();
+
+        $stack1 = new org.apache.commons.lang3.reflect.testbed.PublicChild;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.reflect.testbed.PublicChild: void <init>()>();
+
+        this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild> = $stack1;
+
+        $stack2 = new org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild: void <init>()>();
+
+        this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild> = $stack2;
+
+        $stack3 = new org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild: void <init>()>();
+
+        this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild> = $stack3;
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        org.apache.commons.lang3.reflect.FieldUtils $stack2;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.reflect.FieldUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.reflect.FieldUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/reflect/FieldUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/reflect/FieldUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/reflect/FieldUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testGetField()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.reflect.Field $stack2, $stack5, $stack7, $stack8, $stack9, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack31, $stack32, $stack33;
+        java.lang.Class $stack3, $stack4, $stack6, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack28, $stack30;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE");
+
+        $stack3 = virtualinvoke $stack2.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "b");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "i");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "d");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE");
+
+        $stack12 = virtualinvoke $stack11.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "s");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "b");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "i");
+
+        $stack21 = virtualinvoke $stack20.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "d");
+
+        $stack24 = virtualinvoke $stack23.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE");
+
+        $stack27 = virtualinvoke $stack26.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", $stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "s");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack30);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "b");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "i");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack32);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "d");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack33);
+
+        return;
+    }
+
+    public void testGetFieldIllegalArgumentException1()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(null, "none");
+
+        return;
+    }
+
+    public void testGetFieldIllegalArgumentException2()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", null);
+
+        return;
+    }
+
+    public void testGetFieldForceAccess()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.reflect.Field $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44;
+        java.lang.Class $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE", 1);
+
+        $stack3 = virtualinvoke $stack2.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", $stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s", 1);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "b", 1);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "i", 1);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "d", 1);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE", 1);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "s", 1);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "b", 1);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "i", 1);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "d", 1);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE", 1);
+
+        $stack33 = virtualinvoke $stack32.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "s", 1);
+
+        $stack36 = virtualinvoke $stack35.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "b", 1);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "i", 1);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack42);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "d", 1);
+
+        $stack45 = virtualinvoke $stack44.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack45);
+
+        return;
+    }
+
+    public void testGetFieldForceAccessIllegalArgumentException1()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(null, "none", 1);
+
+        return;
+    }
+
+    public void testGetFieldForceAccessIllegalArgumentException2()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", null, 1);
+
+        return;
+    }
+
+    public void testGetDeclaredField()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.reflect.Field $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack8, $stack11, $stack14, $stack17, $stack19, $stack20, $stack21, $stack22, $stack23;
+        java.lang.Class $stack9, $stack12, $stack15, $stack18;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "b");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "i");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "d");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "s");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "b");
+
+        $stack12 = virtualinvoke $stack11.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "i");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "d");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "s");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "b");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "i");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "d");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack23);
+
+        return;
+    }
+
+    public void testGetDeclaredFieldAccessIllegalArgumentException1()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(null, "none");
+
+        return;
+    }
+
+    public void testGetDeclaredFieldAccessIllegalArgumentException2()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", null);
+
+        return;
+    }
+
+    public void testGetDeclaredFieldForceAccess()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.reflect.Field $stack2, $stack4, $stack5, $stack6, $stack7, $stack8, $stack10, $stack13, $stack16, $stack19, $stack21, $stack23, $stack26, $stack29, $stack32;
+        java.lang.Class $stack3, $stack11, $stack14, $stack17, $stack20, $stack24, $stack27, $stack30, $stack33;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE", 1);
+
+        $stack3 = virtualinvoke $stack2.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", $stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "s", 1);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "b", 1);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "i", 1);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "d", 1);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", $stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "s", 1);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "b", 1);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "i", 1);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "d", 1);
+
+        $stack33 = virtualinvoke $stack32.<java.lang.reflect.Field: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", $stack33);
+
+        return;
+    }
+
+    public void testGetDeclaredFieldForceAccessIllegalArgumentException1()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(null, "none", 1);
+
+        return;
+    }
+
+    public void testGetDeclaredFieldForceAccessIllegalArgumentException2()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", null, 1);
+
+        return;
+    }
+
+    public void testReadStaticField() throws java.lang.Exception
+    {
+        java.lang.Object $stack3;
+        java.lang.reflect.Field $stack2;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        return;
+    }
+
+    public void testReadStaticFieldIllegalArgumentException1() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>(null);
+
+        return;
+    }
+
+    public void testReadStaticFieldIllegalArgumentException2() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack6;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Object $stack4;
+        java.lang.reflect.Field $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s");
+
+        $stack6 = newarray (java.lang.Object)[1];
+
+        $stack6[0] = $stack5;
+
+        staticinvoke <org.junit.Assume: void assumeNotNull(java.lang.Object[])>($stack6);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack5);
+
+        return;
+    }
+
+    public void testReadStaticFieldForceAccess() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Object $stack3, $stack6;
+        java.lang.reflect.Field $stack2, $stack5;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE");
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack6);
+
+        return;
+    }
+
+    public void testReadStaticFieldForceAccessIllegalArgumentException1() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field,boolean)>(null, 1);
+
+        return;
+    }
+
+    public void testReadStaticFieldForceAccessIllegalArgumentException2() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack3;
+        java.lang.reflect.Field $stack2;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s", 1);
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = $stack2;
+
+        staticinvoke <org.junit.Assume: void assumeNotNull(java.lang.Object[])>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.reflect.Field)>($stack2);
+
+        return;
+    }
+
+    public void testReadNamedStaticField() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalArgumentException $stack14, $stack15, $stack19, $stack23;
+        java.lang.Object $stack3, $stack5, $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack9);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(null, "none");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("null class should cause an IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack23 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("null field name should cause an IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack19 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "does_not_exist");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a field that doesn\'t exist should cause an IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack15 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("non-static field should cause an IllegalArgumentException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack14 := @caughtexception;
+
+     label13:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+    }
+
+    public void testReadNamedStaticFieldForceAccess() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalArgumentException $stack14, $stack15, $stack20, $stack25;
+        java.lang.Object $stack3, $stack5, $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("child", $stack9);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(null, "none", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("null class should cause an IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack25 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", null, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("null field name should cause an IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack20 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "does_not_exist", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a field that doesn\'t exist should cause an IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack15 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "s", 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("non-static field should cause an IllegalArgumentException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack14 := @caughtexception;
+
+     label13:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+    }
+
+    public void testReadDeclaredNamedStaticField() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalArgumentException $stack10, $stack11, $stack15;
+        java.lang.Object $stack3, $stack5, $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+     label01:
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("child", $stack5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack15 := @caughtexception;
+
+     label04:
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack11 := @caughtexception;
+
+     label07:
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack9);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack10 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+    }
+
+    public void testReadDeclaredNamedStaticFieldForceAccess() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Object $stack3, $stack5, $stack7, $stack9;
+        java.lang.IllegalArgumentException $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/Foo;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PublicChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("child", $stack5);
+
+     label1:
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PubliclyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack11 := @caughtexception;
+
+     label4:
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredStaticField(java.lang.Class,java.lang.String,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/PrivatelyShadowedChild;", "VALUE", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack9);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack10 := @caughtexception;
+
+     label7:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testReadField() throws java.lang.Exception
+    {
+        java.lang.Integer $stack31, $stack34, $stack37;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack11, $stack22, $stack33, $stack44;
+        java.lang.Double $stack42, $stack45, $stack48;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack20, $stack23, $stack26;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack8, $stack19, $stack30, $stack41, $stack50;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack14, $stack25, $stack36, $stack47;
+        java.lang.reflect.Field $stack7, $stack18, $stack29, $stack40;
+        java.lang.IllegalArgumentException $stack53;
+        java.lang.Class $stack6, $stack17, $stack28, $stack39;
+        java.lang.Object $stack10, $stack13, $stack16, $stack21, $stack24, $stack27, $stack32, $stack35, $stack38, $stack43, $stack46, $stack49;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>($stack6, "s");
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack7, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack7, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack13);
+
+        $stack14 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack7, $stack14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack17, "b", 1);
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack19 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack18, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack21);
+
+        $stack23 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack22 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack18, $stack22);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack24);
+
+        $stack26 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack25 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack18, $stack25);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack28, "i", 1);
+
+        $stack31 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack29, $stack30);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+        $stack34 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack29, $stack33);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        $stack37 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack29, $stack36);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack39, "d", 1);
+
+        $stack42 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack41 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack40, $stack41);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack42, $stack43);
+
+        $stack45 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack44 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack40, $stack44);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack46);
+
+        $stack48 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack47 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>($stack40, $stack47);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack48, $stack49);
+
+     label1:
+        $stack50 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object)>(null, $stack50);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field should cause an IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack53 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testReadFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Integer $stack31, $stack34, $stack37;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack11, $stack22, $stack33, $stack44;
+        java.lang.Double $stack42, $stack45, $stack48;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack20, $stack23, $stack26;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack8, $stack19, $stack30, $stack41, $stack50;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack14, $stack25, $stack36, $stack47;
+        java.lang.reflect.Field $stack7, $stack18, $stack29, $stack40;
+        java.lang.IllegalArgumentException $stack53;
+        java.lang.Class $stack6, $stack17, $stack28, $stack39;
+        java.lang.Object $stack10, $stack13, $stack16, $stack21, $stack24, $stack27, $stack32, $stack35, $stack38, $stack43, $stack46, $stack49;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String)>($stack6, "s");
+
+        virtualinvoke $stack7.<java.lang.reflect.Field: void setAccessible(boolean)>(0);
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack7, $stack8, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack7, $stack11, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack13);
+
+        $stack14 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack7, $stack14, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack17, "b", 1);
+
+        virtualinvoke $stack18.<java.lang.reflect.Field: void setAccessible(boolean)>(0);
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack19 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack18, $stack19, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack21);
+
+        $stack23 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack22 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack18, $stack22, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack24);
+
+        $stack26 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack25 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack18, $stack25, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack28, "i", 1);
+
+        virtualinvoke $stack29.<java.lang.reflect.Field: void setAccessible(boolean)>(0);
+
+        $stack31 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack29, $stack30, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+        $stack34 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack29, $stack33, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        $stack37 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack29, $stack36, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack38);
+
+        $stack39 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getDeclaredField(java.lang.Class,java.lang.String,boolean)>($stack39, "d", 1);
+
+        virtualinvoke $stack40.<java.lang.reflect.Field: void setAccessible(boolean)>(0);
+
+        $stack42 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack41 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack40, $stack41, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack42, $stack43);
+
+        $stack45 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack44 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack40, $stack44, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack46);
+
+        $stack48 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack47 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack40, $stack47, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack48, $stack49);
+
+     label1:
+        $stack50 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.reflect.Field,java.lang.Object,boolean)>(null, $stack50, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field should cause an IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack53 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testReadNamedField() throws java.lang.Exception
+    {
+        java.lang.Integer $stack25, $stack28, $stack31;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack5, $stack18, $stack27, $stack36;
+        java.lang.Double $stack34, $stack37, $stack40;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack11, $stack15, $stack24, $stack33;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack8, $stack21, $stack30, $stack39;
+        java.lang.IllegalArgumentException $stack42, $stack43, $stack49, $stack53, $stack59, $stack63, $stack69, $stack73;
+        java.lang.Object $stack4, $stack7, $stack10, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack2, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack4);
+
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack5, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack8, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack10);
+
+     label01:
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack11, null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field name should cause an IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack73 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>(null, "none");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null target should cause an IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack69 := @caughtexception;
+
+     label07:
+        $stack16 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack15, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack63 := @caughtexception;
+
+     label10:
+        $stack19 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack18 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack18, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+     label11:
+        $stack22 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack21 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack21, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack59 := @caughtexception;
+
+     label14:
+        $stack25 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack24, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack26);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label15:
+        goto label17;
+
+     label16:
+        $stack53 := @caughtexception;
+
+     label17:
+        $stack28 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack27, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack29);
+
+     label18:
+        $stack31 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack30, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label19:
+        goto label21;
+
+     label20:
+        $stack49 := @caughtexception;
+
+     label21:
+        $stack34 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack33, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label22:
+        goto label24;
+
+     label23:
+        $stack43 := @caughtexception;
+
+     label24:
+        $stack37 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack36, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack38);
+
+     label25:
+        $stack40 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack39 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack39, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack40, $stack41);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label26:
+        goto label28;
+
+     label27:
+        $stack42 := @caughtexception;
+
+     label28:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label11 to label12 with label13;
+        catch java.lang.IllegalArgumentException from label14 to label15 with label16;
+        catch java.lang.IllegalArgumentException from label18 to label19 with label20;
+        catch java.lang.IllegalArgumentException from label21 to label22 with label23;
+        catch java.lang.IllegalArgumentException from label25 to label26 with label27;
+    }
+
+    public void testReadNamedFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Integer $stack21, $stack24, $stack27;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack5, $stack14, $stack23, $stack32;
+        java.lang.Double $stack30, $stack33, $stack36;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack12, $stack15, $stack18;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack11, $stack20, $stack29, $stack38;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack8, $stack17, $stack26, $stack35;
+        java.lang.IllegalArgumentException $stack42, $stack43;
+        java.lang.Object $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28, $stack31, $stack34, $stack37;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack2, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack4);
+
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack5, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack8, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack10);
+
+        $stack12 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack11, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack14 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack14, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack17, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack21 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack20, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        $stack24 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack23 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack23, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack24, $stack25);
+
+        $stack27 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack26 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack26, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        $stack30 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack29 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack29, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack31);
+
+        $stack33 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack32 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack32, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack33, $stack34);
+
+        $stack36 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack35 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack35, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack36, $stack37);
+
+     label1:
+        $stack38 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack38, null, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field name should cause an IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack43 := @caughtexception;
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>(null, "none", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null target should cause an IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack42 := @caughtexception;
+
+     label7:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testReadDeclaredNamedField() throws java.lang.Exception
+    {
+        java.lang.Integer $stack25, $stack28, $stack31;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack9, $stack18, $stack27, $stack36;
+        java.lang.Double $stack34, $stack37, $stack40;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack6, $stack15, $stack24, $stack33;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack12, $stack21, $stack30, $stack39;
+        java.lang.IllegalArgumentException $stack42, $stack43, $stack49, $stack53, $stack59, $stack63, $stack69, $stack73, $stack79, $stack83;
+        java.lang.Object $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack2, null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field name should cause an IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack83 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>(null, "none");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null target should cause an IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack79 := @caughtexception;
+
+     label07:
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack6, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack73 := @caughtexception;
+
+     label10:
+        $stack9 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack9, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack11);
+
+     label11:
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack12, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack14);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack69 := @caughtexception;
+
+     label14:
+        $stack16 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack15, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label15:
+        goto label17;
+
+     label16:
+        $stack63 := @caughtexception;
+
+     label17:
+        $stack19 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack18 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack18, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+     label18:
+        $stack22 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack21 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack21, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label19:
+        goto label21;
+
+     label20:
+        $stack59 := @caughtexception;
+
+     label21:
+        $stack25 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack24, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack26);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label22:
+        goto label24;
+
+     label23:
+        $stack53 := @caughtexception;
+
+     label24:
+        $stack28 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack27, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack29);
+
+     label25:
+        $stack31 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack30, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label26:
+        goto label28;
+
+     label27:
+        $stack49 := @caughtexception;
+
+     label28:
+        $stack34 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack33, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label29:
+        goto label31;
+
+     label30:
+        $stack43 := @caughtexception;
+
+     label31:
+        $stack37 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack36, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack38);
+
+     label32:
+        $stack40 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack39 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack39, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack40, $stack41);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label33:
+        goto label35;
+
+     label34:
+        $stack42 := @caughtexception;
+
+     label35:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label11 to label12 with label13;
+        catch java.lang.IllegalArgumentException from label14 to label15 with label16;
+        catch java.lang.IllegalArgumentException from label18 to label19 with label20;
+        catch java.lang.IllegalArgumentException from label21 to label22 with label23;
+        catch java.lang.IllegalArgumentException from label25 to label26 with label27;
+        catch java.lang.IllegalArgumentException from label28 to label29 with label30;
+        catch java.lang.IllegalArgumentException from label32 to label33 with label34;
+    }
+
+    public void testReadDeclaredNamedFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Integer $stack25, $stack28, $stack31;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack9, $stack18, $stack27, $stack36;
+        java.lang.Double $stack34, $stack37, $stack40;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack16, $stack19, $stack22;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack6, $stack15, $stack24, $stack33;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack12, $stack21, $stack30, $stack39;
+        java.lang.IllegalArgumentException $stack42, $stack49, $stack60, $stack71, $stack82, $stack87;
+        java.lang.Object $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack2, null, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null field name should cause an IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack87 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>(null, "none", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("a null target should cause an IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack82 := @caughtexception;
+
+     label07:
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack6, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("s", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack71 := @caughtexception;
+
+     label10:
+        $stack9 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack9, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack12, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ss", $stack14);
+
+     label11:
+        $stack16 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack15, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack60 := @caughtexception;
+
+     label14:
+        $stack19 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack18 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack18, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+        $stack22 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack21 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack21, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+     label15:
+        $stack25 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0>;
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack24, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack26);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label16:
+        goto label18;
+
+     label17:
+        $stack49 := @caughtexception;
+
+     label18:
+        $stack28 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack27, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack29);
+
+        $stack31 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1>;
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack30, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+     label19:
+        $stack34 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0>;
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack33, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("expected IllegalArgumentException");
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack42 := @caughtexception;
+
+     label22:
+        $stack37 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack36, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack37, $stack38);
+
+        $stack40 = <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1>;
+
+        $stack39 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack39, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack40, $stack41);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label11 to label12 with label13;
+        catch java.lang.IllegalArgumentException from label15 to label16 with label17;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+    }
+
+    public void testWriteStaticField() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalAccessException $stack20, $stack21, $stack26, $stack31, $stack36, $stack41, $stack46;
+        java.lang.reflect.Field $stack4, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19;
+        java.lang.Class $stack3, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+        java.lang.Object $stack5;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePublic");
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack4, "new");
+
+        $stack5 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack5);
+
+        $stack6 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutableProtected");
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack7, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack46 := @caughtexception;
+
+     label04:
+        $stack8 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePackage");
+
+     label05:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack9, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack41 := @caughtexception;
+
+     label08:
+        $stack10 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePrivate");
+
+     label09:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack11, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack36 := @caughtexception;
+
+     label12:
+        $stack12 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack13 = virtualinvoke $stack12.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PUBLIC");
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack13, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack31 := @caughtexception;
+
+     label16:
+        $stack14 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack15 = virtualinvoke $stack14.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PROTECTED");
+
+     label17:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack15, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label18:
+        goto label20;
+
+     label19:
+        $stack26 := @caughtexception;
+
+     label20:
+        $stack16 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack17 = virtualinvoke $stack16.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PACKAGE");
+
+     label21:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack17, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label22:
+        goto label24;
+
+     label23:
+        $stack21 := @caughtexception;
+
+     label24:
+        $stack18 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack19 = virtualinvoke $stack18.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PRIVATE");
+
+     label25:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object)>($stack19, "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label26:
+        goto label28;
+
+     label27:
+        $stack20 := @caughtexception;
+
+     label28:
+        return;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label03;
+        catch java.lang.IllegalAccessException from label05 to label06 with label07;
+        catch java.lang.IllegalAccessException from label09 to label10 with label11;
+        catch java.lang.IllegalAccessException from label13 to label14 with label15;
+        catch java.lang.IllegalAccessException from label17 to label18 with label19;
+        catch java.lang.IllegalAccessException from label21 to label22 with label23;
+        catch java.lang.IllegalAccessException from label25 to label26 with label27;
+    }
+
+    public void testWriteStaticFieldForceAccess() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalAccessException $stack26, $stack27, $stack33, $stack39;
+        java.lang.reflect.Field $stack4, $stack7, $stack11, $stack15, $stack19, $stack21, $stack23, $stack25;
+        java.lang.Class $stack3, $stack6, $stack10, $stack14, $stack18, $stack20, $stack22, $stack24;
+        java.lang.Object $stack5, $stack9, $stack13, $stack17;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePublic");
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack4, "new", 1);
+
+        $stack5 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack5);
+
+        $stack6 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutableProtected");
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack7, "new", 1);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutableProtected()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePackage");
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack11, "new", 1);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePackage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack13);
+
+        $stack14 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack15 = virtualinvoke $stack14.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("mutablePrivate");
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack15, "new", 1);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePrivate()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack17);
+
+        $stack18 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack19 = virtualinvoke $stack18.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PUBLIC");
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack19, "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack39 := @caughtexception;
+
+     label04:
+        $stack20 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PROTECTED");
+
+     label05:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack21, "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack33 := @caughtexception;
+
+     label08:
+        $stack22 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PACKAGE");
+
+     label09:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack23, "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack27 := @caughtexception;
+
+     label12:
+        $stack24 = class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;";
+
+        $stack25 = virtualinvoke $stack24.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("IMMUTABLE_PRIVATE");
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.reflect.Field,java.lang.Object,boolean)>($stack25, "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack26 := @caughtexception;
+
+     label16:
+        return;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label03;
+        catch java.lang.IllegalAccessException from label05 to label06 with label07;
+        catch java.lang.IllegalAccessException from label09 to label10 with label11;
+        catch java.lang.IllegalAccessException from label13 to label14 with label15;
+    }
+
+    public void testWriteNamedStaticField() throws java.lang.Exception
+    {
+        java.lang.IllegalAccessException $stack14;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalArgumentException $stack3, $stack4, $stack9, $stack19, $stack24, $stack29;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePublic", "new");
+
+        $stack2 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack2);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutableProtected", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack29 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePackage", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack24 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePrivate", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack19 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PUBLIC", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack14 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PROTECTED", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack9 := @caughtexception;
+
+     label16:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PACKAGE", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack4 := @caughtexception;
+
+     label19:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PRIVATE", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack3 := @caughtexception;
+
+     label22:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalAccessException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+    }
+
+    public void testWriteNamedStaticFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.IllegalAccessException $stack9, $stack10, $stack16, $stack22;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Object $stack2, $stack4, $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePublic", "new", 1);
+
+        $stack2 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack2);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutableProtected", "new", 1);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutableProtected()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack4);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePackage", "new", 1);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePackage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack6);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "mutablePrivate", "new", 1);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePrivate()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack8);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PUBLIC", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PROTECTED", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack16 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PACKAGE", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack10 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainerChild;", "IMMUTABLE_PRIVATE", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack9 := @caughtexception;
+
+     label13:
+        return;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label03;
+        catch java.lang.IllegalAccessException from label04 to label05 with label06;
+        catch java.lang.IllegalAccessException from label07 to label08 with label09;
+        catch java.lang.IllegalAccessException from label10 to label11 with label12;
+    }
+
+    public void testWriteDeclaredNamedStaticField() throws java.lang.Exception
+    {
+        java.lang.IllegalAccessException $stack14;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.IllegalArgumentException $stack3, $stack4, $stack9, $stack19, $stack24, $stack29;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePublic", "new");
+
+        $stack2 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack2);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutableProtected", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack29 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePackage", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack24 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePrivate", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack19 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PUBLIC", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack14 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PROTECTED", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack9 := @caughtexception;
+
+     label16:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PACKAGE", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack4 := @caughtexception;
+
+     label19:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PRIVATE", "new");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack3 := @caughtexception;
+
+     label22:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalAccessException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+    }
+
+    public void testWriteDeclaredNamedStaticFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.IllegalAccessException $stack9, $stack10, $stack16, $stack22;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Object $stack2, $stack4, $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePublic", "new", 1);
+
+        $stack2 = <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object mutablePublic>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack2);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutableProtected", "new", 1);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutableProtected()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack4);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePackage", "new", 1);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePackage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack6);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "mutablePrivate", "new", 1);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.testbed.StaticContainer: java.lang.Object getMutablePrivate()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("new", $stack8);
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PUBLIC", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack22 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PROTECTED", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack16 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PACKAGE", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack10 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredStaticField(java.lang.Class,java.lang.String,java.lang.Object,boolean)>(class "Lorg/apache/commons/lang3/reflect/testbed/StaticContainer;", "IMMUTABLE_PRIVATE", "new", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack9 := @caughtexception;
+
+     label13:
+        return;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label03;
+        catch java.lang.IllegalAccessException from label04 to label05 with label06;
+        catch java.lang.IllegalAccessException from label07 to label08 with label09;
+        catch java.lang.IllegalAccessException from label10 to label11 with label12;
+    }
+
+    public void testWriteField() throws java.lang.Exception
+    {
+        java.lang.Double $stack20;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Integer $stack16;
+        java.lang.Boolean $stack11;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack5, $stack6, $stack12, $stack15, $stack19;
+        java.lang.IllegalAccessException $stack21, $stack22, $stack28;
+        java.lang.reflect.Field $stack4, $stack10, $stack14, $stack18;
+        java.lang.Class $stack3, $stack9, $stack13, $stack17;
+        java.lang.Object $stack8;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack3 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("s");
+
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object)>($stack4, $stack5, "S");
+
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack8 = virtualinvoke $stack4.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("b");
+
+     label01:
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object)>($stack10, $stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalAccessException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack28 := @caughtexception;
+
+     label04:
+        $stack13 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("i");
+
+     label05:
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2147483647);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object)>($stack14, $stack15, $stack16);
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack22 := @caughtexception;
+
+     label08:
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("d");
+
+     label09:
+        $stack19 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack20 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.7976931348623157E308);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object)>($stack18, $stack19, $stack20);
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack21 := @caughtexception;
+
+     label12:
+        return;
+
+        catch java.lang.IllegalAccessException from label01 to label02 with label03;
+        catch java.lang.IllegalAccessException from label05 to label06 with label07;
+        catch java.lang.IllegalAccessException from label09 to label10 with label11;
+    }
+
+    public void testWriteFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Double $stack25, $stack26;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Integer $stack18, $stack19;
+        java.lang.Boolean $stack10, $stack13;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack4, $stack5, $stack11, $stack12, $stack17, $stack20, $stack24, $stack27;
+        java.lang.reflect.Field $stack3, $stack9, $stack16, $stack23;
+        java.lang.Class $stack2, $stack8, $stack15, $stack22;
+        java.lang.Object $stack7, $stack14, $stack21, $stack28;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("s");
+
+        $stack4 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object,boolean)>($stack3, $stack4, "S", 1);
+
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack7 = virtualinvoke $stack3.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("b");
+
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object,boolean)>($stack9, $stack11, $stack10, 1);
+
+        $stack13 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack14 = virtualinvoke $stack9.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("i");
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack18 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2147483647);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object,boolean)>($stack16, $stack17, $stack18, 1);
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2147483647);
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack21 = virtualinvoke $stack16.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack21);
+
+        $stack22 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Class parentClass>;
+
+        $stack23 = virtualinvoke $stack22.<java.lang.Class: java.lang.reflect.Field getDeclaredField(java.lang.String)>("d");
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack25 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.7976931348623157E308);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.reflect.Field,java.lang.Object,java.lang.Object,boolean)>($stack23, $stack24, $stack25, 1);
+
+        $stack26 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.7976931348623157E308);
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack28 = virtualinvoke $stack23.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack28);
+
+        return;
+    }
+
+    public void testWriteNamedField() throws java.lang.Exception
+    {
+        java.lang.Integer $stack10, $stack25, $stack26, $stack43;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack14, $stack15, $stack19, $stack20, $stack23, $stack27, $stack29, $stack33;
+        java.lang.Double $stack13, $stack31, $stack32, $stack46;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack6, $stack18, $stack21, $stack39;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack3, $stack7, $stack8, $stack11;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack35, $stack36, $stack40, $stack41, $stack44;
+        java.lang.IllegalArgumentException $stack47, $stack48, $stack52, $stack56, $stack84, $stack88;
+        java.lang.Object $stack5, $stack17, $stack22, $stack28, $stack34, $stack38;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack2, "s", "S");
+
+        $stack3 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack3, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack5);
+
+     label01:
+        $stack7 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack7, "b", $stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack88 := @caughtexception;
+
+     label04:
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack8, "i", $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack84 := @caughtexception;
+
+     label07:
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack13 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack11, "d", $stack13);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack56 := @caughtexception;
+
+     label10:
+        $stack14 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack14, "s", "S");
+
+        $stack15 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack15, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack17);
+
+        $stack19 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack19, "b", $stack18);
+
+        $stack21 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack20, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack23, "i", $stack25);
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack27, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack28);
+
+        $stack29 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack31 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack29, "d", $stack31);
+
+        $stack32 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack33, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack32, $stack34);
+
+        $stack35 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack35, "s", "S");
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String)>($stack36, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack38);
+
+     label11:
+        $stack40 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack39 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack40, "b", $stack39);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack52 := @caughtexception;
+
+     label14:
+        $stack41 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack43 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack41, "i", $stack43);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label15:
+        goto label17;
+
+     label16:
+        $stack48 := @caughtexception;
+
+     label17:
+        $stack44 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack46 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object)>($stack44, "d", $stack46);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label18:
+        goto label20;
+
+     label19:
+        $stack47 := @caughtexception;
+
+     label20:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label11 to label12 with label13;
+        catch java.lang.IllegalArgumentException from label14 to label15 with label16;
+        catch java.lang.IllegalArgumentException from label17 to label18 with label19;
+    }
+
+    public void testWriteNamedFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Integer $stack12, $stack13, $stack33, $stack34, $stack54, $stack55;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack22, $stack23, $stack27, $stack28, $stack31, $stack35, $stack37, $stack41;
+        java.lang.Double $stack18, $stack19, $stack39, $stack40, $stack60, $stack61;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack5, $stack8, $stack26, $stack29, $stack47, $stack50;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack1, $stack2, $stack6, $stack7, $stack10, $stack14, $stack16, $stack20;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack43, $stack44, $stack48, $stack49, $stack52, $stack56, $stack58, $stack62;
+        java.lang.Object $stack4, $stack9, $stack15, $stack21, $stack25, $stack30, $stack36, $stack42, $stack46, $stack51, $stack57, $stack63;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        $stack1 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack1, "s", "S", 1);
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack2, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack4);
+
+        $stack6 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack6, "b", $stack5, 1);
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack7 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack7, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack10, "i", $stack12, 1);
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack14 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack14, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack15);
+
+        $stack16 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack18 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack16, "d", $stack18, 1);
+
+        $stack19 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack20, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack21);
+
+        $stack22 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack22, "s", "S", 1);
+
+        $stack23 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack23, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack25);
+
+        $stack27 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack26 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack27, "b", $stack26, 1);
+
+        $stack29 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack28 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack28, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack30);
+
+        $stack31 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack33 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack31, "i", $stack33, 1);
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack35 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack35, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack36);
+
+        $stack37 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack39 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack37, "d", $stack39, 1);
+
+        $stack40 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack41 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack41, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack40, $stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack43, "s", "S", 1);
+
+        $stack44 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack44, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack46);
+
+        $stack48 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack47 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack48, "b", $stack47, 1);
+
+        $stack50 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack49 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack49, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack50, $stack51);
+
+        $stack52 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack54 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack52, "i", $stack54, 1);
+
+        $stack55 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack56 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack56, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack55, $stack57);
+
+        $stack58 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack60 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack58, "d", $stack60, 1);
+
+        $stack61 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack62 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readField(java.lang.Object,java.lang.String,boolean)>($stack62, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack61, $stack63);
+
+        return;
+    }
+
+    public void testWriteDeclaredNamedField() throws java.lang.Exception
+    {
+        java.lang.Integer $stack7, $stack22, $stack23, $stack37;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack11, $stack12, $stack16, $stack17, $stack20, $stack24, $stack26, $stack30;
+        java.lang.Double $stack10, $stack28, $stack29, $stack40;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack3, $stack15, $stack18, $stack33;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack4, $stack5, $stack8;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack32, $stack34, $stack35, $stack38;
+        java.lang.IllegalArgumentException $stack41, $stack42, $stack46, $stack50, $stack54, $stack78, $stack82, $stack86;
+        java.lang.Object $stack14, $stack19, $stack25, $stack31;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack2, "s", "S");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack86 := @caughtexception;
+
+     label04:
+        $stack4 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack4, "b", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack82 := @caughtexception;
+
+     label07:
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack5, "i", $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack78 := @caughtexception;
+
+     label10:
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack8, "d", $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack54 := @caughtexception;
+
+     label13:
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack11, "s", "S");
+
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack12, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack14);
+
+        $stack16 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack16, "b", $stack15);
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack17, "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack22 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack20, "i", $stack22);
+
+        $stack23 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack24, "i");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack25);
+
+        $stack26 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack28 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack26, "d", $stack28);
+
+        $stack29 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String)>($stack30, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+     label14:
+        $stack32 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack32, "s", "S");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label15:
+        goto label17;
+
+     label16:
+        $stack50 := @caughtexception;
+
+     label17:
+        $stack34 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack33 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack34, "b", $stack33);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label18:
+        goto label20;
+
+     label19:
+        $stack46 := @caughtexception;
+
+     label20:
+        $stack35 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack37 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack35, "i", $stack37);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label21:
+        goto label23;
+
+     label22:
+        $stack42 := @caughtexception;
+
+     label23:
+        $stack38 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack40 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object)>($stack38, "d", $stack40);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label24:
+        goto label26;
+
+     label25:
+        $stack41 := @caughtexception;
+
+     label26:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label14 to label15 with label16;
+        catch java.lang.IllegalArgumentException from label17 to label18 with label19;
+        catch java.lang.IllegalArgumentException from label20 to label21 with label22;
+        catch java.lang.IllegalArgumentException from label23 to label24 with label25;
+    }
+
+    public void testWriteDeclaredNamedFieldForceAccess() throws java.lang.Exception
+    {
+        java.lang.Integer $stack7, $stack22, $stack23, $stack43, $stack44;
+        org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild $stack11, $stack12, $stack16, $stack17, $stack20, $stack24, $stack26, $stack30;
+        java.lang.Double $stack10, $stack28, $stack29, $stack49, $stack50;
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+        java.lang.Boolean $stack3, $stack15, $stack18, $stack36, $stack39;
+        org.apache.commons.lang3.reflect.testbed.PublicChild $stack2, $stack4, $stack5, $stack8;
+        org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild $stack32, $stack33, $stack37, $stack38, $stack41, $stack45, $stack47, $stack51;
+        java.lang.IllegalArgumentException $stack53, $stack108, $stack113, $stack118;
+        java.lang.Object $stack14, $stack19, $stack25, $stack31, $stack35, $stack40, $stack46, $stack52;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack2, "s", "S", 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack118 := @caughtexception;
+
+     label04:
+        $stack4 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack4, "b", $stack3, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack113 := @caughtexception;
+
+     label07:
+        $stack5 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack5, "i", $stack7, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack108 := @caughtexception;
+
+     label10:
+        $stack8 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PublicChild publicChild>;
+
+        $stack10 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack8, "d", $stack10, 1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack53 := @caughtexception;
+
+     label13:
+        $stack11 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack11, "s", "S", 1);
+
+        $stack12 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack12, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack14);
+
+        $stack16 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack16, "b", $stack15, 1);
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack17, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack20 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack22 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack20, "i", $stack22, 1);
+
+        $stack23 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack24 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack24, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack25);
+
+        $stack26 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack28 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack26, "d", $stack28, 1);
+
+        $stack29 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack30 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PubliclyShadowedChild publiclyShadowedChild>;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack30, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack31);
+
+        $stack32 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack32, "s", "S", 1);
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack33, "s", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("S", $stack35);
+
+        $stack37 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack36 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack37, "b", $stack36, 1);
+
+        $stack39 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack38 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack38, "b", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack39, $stack40);
+
+        $stack41 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack43 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack41, "i", $stack43, 1);
+
+        $stack44 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack45 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack45, "i", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack46);
+
+        $stack47 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack49 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: void writeDeclaredField(java.lang.Object,java.lang.String,java.lang.Object,boolean)>($stack47, "d", $stack49, 1);
+
+        $stack50 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        $stack51 = this.<org.apache.commons.lang3.reflect.FieldUtilsTest: org.apache.commons.lang3.reflect.testbed.PrivatelyShadowedChild privatelyShadowedChild>;
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.Object readDeclaredField(java.lang.Object,java.lang.String,boolean)>($stack51, "d", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack50, $stack52);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+    }
+
+    public void testAmbig()
+    {
+        org.apache.commons.lang3.reflect.FieldUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.FieldUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.reflect.FieldUtils: java.lang.reflect.Field getField(java.lang.Class,java.lang.String)>(class "Lorg/apache/commons/lang3/reflect/testbed/Ambig;", "VALUE");
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.Double $stack2, $stack3;
+        java.lang.Integer $stack0, $stack1;
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.String SS> = "ss";
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.String S> = "s";
+
+        $stack0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I0> = $stack0;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Integer I1> = $stack1;
+
+        $stack2 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D0> = $stack2;
+
+        $stack3 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        <org.apache.commons.lang3.reflect.FieldUtilsTest: java.lang.Double D1> = $stack3;
+
+        return;
+    }
+}

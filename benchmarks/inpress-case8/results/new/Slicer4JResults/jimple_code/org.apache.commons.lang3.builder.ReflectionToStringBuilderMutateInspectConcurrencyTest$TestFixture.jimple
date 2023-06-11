@@ -1,0 +1,130 @@
+class org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture extends java.lang.Object
+{
+    private final java.util.LinkedList listField;
+    private final java.util.Random random;
+    private int N;
+    final org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this$0;
+
+    public void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest)
+    {
+        java.lang.Throwable $stack15;
+        java.util.Random $stack6;
+        java.lang.Integer $stack11;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest l1;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture this;
+        int $stack8, i;
+        java.util.LinkedList $stack5, $stack10;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture;
+
+        l1 := @parameter0: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest this$0> = l1;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack5 = new java.util.LinkedList;
+
+        specialinvoke $stack5.<java.util.LinkedList: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.LinkedList listField> = $stack5;
+
+        $stack6 = new java.util.Random;
+
+        specialinvoke $stack6.<java.util.Random: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.Random random> = $stack6;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: int N> = 100;
+
+        entermonitor this;
+
+     label1:
+        i = 0;
+
+     label2:
+        $stack8 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: int N>;
+
+        if i >= $stack8 goto label3;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.LinkedList listField>;
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i);
+
+        virtualinvoke $stack10.<java.util.LinkedList: boolean add(java.lang.Object)>($stack11);
+
+        i = i + 1;
+
+        goto label2;
+
+     label3:
+        exitmonitor this;
+
+     label4:
+        goto label7;
+
+     label5:
+        $stack15 := @caughtexception;
+
+        exitmonitor this;
+
+     label6:
+        throw $stack15;
+
+     label7:
+        return;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public synchronized void add()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture this;
+        int $stack1, $stack4;
+        java.util.Random $stack2;
+        java.util.LinkedList $stack3;
+        java.lang.Integer $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.LinkedList listField>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.Random random>;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: int N>;
+
+        $stack4 = virtualinvoke $stack2.<java.util.Random: int nextInt(int)>($stack1);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack4);
+
+        virtualinvoke $stack3.<java.util.LinkedList: boolean add(java.lang.Object)>($stack5);
+
+        return;
+    }
+
+    public synchronized void delete()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture this;
+        int $stack1, $stack4;
+        java.util.Random $stack2;
+        java.util.LinkedList $stack3;
+        java.lang.Integer $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.LinkedList listField>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: java.util.Random random>;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderMutateInspectConcurrencyTest$TestFixture: int N>;
+
+        $stack4 = virtualinvoke $stack2.<java.util.Random: int nextInt(int)>($stack1);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack4);
+
+        virtualinvoke $stack3.<java.util.LinkedList: boolean remove(java.lang.Object)>($stack5);
+
+        return;
+    }
+}

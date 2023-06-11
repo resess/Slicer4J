@@ -1,0 +1,4891 @@
+public class org.apache.commons.lang3.builder.EqualsBuilderTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testReflectionEquals()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        java.lang.String[] $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17;
+        boolean $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack20, $stack33, $stack29, $stack25, $stack21;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        $stack5 = newarray (java.lang.String)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack3, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = newarray (java.lang.String)[0];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack7);
+
+        if $stack8 != 0 goto label1;
+
+        $stack33 = 1;
+
+        goto label2;
+
+     label1:
+        $stack33 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(4);
+
+        $stack9 = newarray (java.lang.String)[0];
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = newarray (java.lang.String)[0];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, this, $stack11);
+
+        if $stack12 != 0 goto label3;
+
+        $stack29 = 1;
+
+        goto label4;
+
+     label3:
+        $stack29 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack13 = newarray (java.lang.String)[0];
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, null, $stack13);
+
+        if $stack14 != 0 goto label5;
+
+        $stack25 = 1;
+
+        goto label6;
+
+     label5:
+        $stack25 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack15 = newarray (java.lang.String)[0];
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>(null, $stack4, $stack15);
+
+        if $stack16 != 0 goto label7;
+
+        $stack21 = 1;
+
+        goto label8;
+
+     label7:
+        $stack21 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack17 = newarray (java.lang.String)[0];
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>(null, null, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testReflectionHierarchyEquals()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject $stack1, $stack2, $stack4, $stack5, $stack7, $stack8, $stack10, $stack11, $stack13, $stack14;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack15, $stack27, $stack17, $stack16;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest: void testReflectionHierarchyEquals(boolean)>(0);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest: void testReflectionHierarchyEquals(boolean)>(1);
+
+        $stack1 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack2 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack1, $stack2, 1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack4, $stack5, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 0, 0, 4);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack7, $stack8, 1);
+
+        if $stack9 != 0 goto label1;
+
+        $stack27 = 1;
+
+        goto label2;
+
+     label1:
+        $stack27 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack10 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 0);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack10, $stack11, 1);
+
+        if $stack12 != 0 goto label3;
+
+        $stack17 = 1;
+
+        goto label4;
+
+     label3:
+        $stack17 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(0, 2, 3, 4);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(1, 2, 3, 4);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack13, $stack14, 1);
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    private void testReflectionHierarchyEquals(boolean)
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTSubObject $stack20;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject $stack21;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject $stack19, $stack59, $stack61;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack14, $stack15, $stack16, $stack17, $stack26, $stack52, $stack56, $stack58, $stack62, $stack64, $stack68;
+        boolean testTransients, $stack28, $stack31, $stack34, $stack37, $stack40, $stack43, $stack44, $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack51, $stack54, $stack57, $stack60, $stack63, $stack66, $stack69, $stack71, $stack73, $stack147, $stack141, $stack135, $stack107, $stack103, $stack98, $stack93, $stack88, $stack83, $stack79, $stack75, $stack74;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject $stack22, $stack23, $stack24, $stack25, $stack27, $stack29, $stack30, $stack32, $stack33, $stack35, $stack36, $stack38, $stack39, $stack41, $stack42, $stack65, $stack67;
+        java.lang.String[] $stack70, $stack72;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject $stack18, $stack53, $stack55;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        testTransients := @parameter0: boolean;
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack16 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        $stack18 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject: void <init>(int)>(4);
+
+        $stack19 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject: void <init>(int,int)>(4, 1);
+
+        $stack20 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTSubObject;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTSubObject: void <init>(int,int,int)>(4, 1, 2);
+
+        $stack21 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTTLeafObject: void <init>(int,int,int,int)>(4, 1, 2, 3);
+
+        $stack22 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 4);
+
+        $stack23 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 4);
+
+        $stack24 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack24.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 4);
+
+        $stack25 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(2, 5);
+
+        $stack26 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>()>();
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest: void testReflectionEqualsEquivalenceRelationship(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,boolean)>($stack14, $stack15, $stack16, $stack17, $stack26, testTransients);
+
+        $stack27 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack27.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>()>();
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest: void testReflectionEqualsEquivalenceRelationship(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject,boolean)>($stack22, $stack23, $stack24, $stack25, $stack27, testTransients);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack21, $stack21, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack30 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack30.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack29, $stack30, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack32 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack32.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack33 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack33.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 11);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack32, $stack33, testTransients);
+
+        if $stack34 != 0 goto label01;
+
+        $stack147 = 1;
+
+        goto label02;
+
+     label01:
+        $stack147 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack147);
+
+        $stack35 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack35.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 11);
+
+        $stack36 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack36.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack35, $stack36, testTransients);
+
+        if $stack37 != 0 goto label03;
+
+        $stack141 = 1;
+
+        goto label04;
+
+     label03:
+        $stack141 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack141);
+
+        $stack38 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack38.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(0, 10);
+
+        $stack39 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack39.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack38, $stack39, testTransients);
+
+        if $stack40 != 0 goto label05;
+
+        $stack135 = 1;
+
+        goto label06;
+
+     label05:
+        $stack135 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack135);
+
+        $stack41 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack41.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(1, 10);
+
+        $stack42 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack42.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(0, 10);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack41, $stack42, testTransients);
+
+        if $stack43 != 0 goto label07;
+
+        $stack107 = 1;
+
+        goto label08;
+
+     label07:
+        $stack107 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack107);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack14, $stack18, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack44);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack18, $stack14, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack45);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack14, $stack19, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack46);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack19, $stack14, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack14, $stack20, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack48);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack20, $stack14, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack49);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack19, $stack20, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack50);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack20, $stack19, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack51);
+
+        $stack52 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack52.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(0);
+
+        $stack53 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject;
+
+        specialinvoke $stack53.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject: void <init>(int)>(1);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack52, $stack53, testTransients);
+
+        if $stack54 != 0 goto label09;
+
+        $stack103 = 1;
+
+        goto label10;
+
+     label09:
+        $stack103 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack103);
+
+        $stack55 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject;
+
+        specialinvoke $stack55.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestEmptySubObject: void <init>(int)>(1);
+
+        $stack56 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack56.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(0);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack55, $stack56, testTransients);
+
+        if $stack57 != 0 goto label11;
+
+        $stack98 = 1;
+
+        goto label12;
+
+     label11:
+        $stack98 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack98);
+
+        $stack58 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack58.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(0);
+
+        $stack59 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject;
+
+        specialinvoke $stack59.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject: void <init>(int,int)>(1, 1);
+
+        $stack60 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack58, $stack59, testTransients);
+
+        if $stack60 != 0 goto label13;
+
+        $stack93 = 1;
+
+        goto label14;
+
+     label13:
+        $stack93 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack93);
+
+        $stack61 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject;
+
+        specialinvoke $stack61.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestTSubObject: void <init>(int,int)>(1, 1);
+
+        $stack62 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack62.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(0);
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack61, $stack62, testTransients);
+
+        if $stack63 != 0 goto label15;
+
+        $stack88 = 1;
+
+        goto label16;
+
+     label15:
+        $stack88 = 0;
+
+     label16:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack88);
+
+        $stack64 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack64.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(1);
+
+        $stack65 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack65.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(0, 10);
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack64, $stack65, testTransients);
+
+        if $stack66 != 0 goto label17;
+
+        $stack83 = 1;
+
+        goto label18;
+
+     label17:
+        $stack83 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack83);
+
+        $stack67 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke $stack67.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void <init>(int,int)>(0, 10);
+
+        $stack68 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack68.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(1);
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>($stack67, $stack68, testTransients);
+
+        if $stack69 != 0 goto label19;
+
+        $stack79 = 1;
+
+        goto label20;
+
+     label19:
+        $stack79 = 0;
+
+     label20:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack79);
+
+        $stack70 = newarray (java.lang.String)[0];
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack14, $stack21, $stack70);
+
+        if $stack71 != 0 goto label21;
+
+        $stack75 = 1;
+
+        goto label22;
+
+     label21:
+        $stack75 = 0;
+
+     label22:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack75);
+
+        $stack72 = newarray (java.lang.String)[0];
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack22, this, $stack72);
+
+        if $stack73 != 0 goto label23;
+
+        $stack74 = 1;
+
+        goto label24;
+
+     label23:
+        $stack74 = 0;
+
+     label24:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack74);
+
+        return;
+    }
+
+    private void testReflectionEqualsEquivalenceRelationship(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject, org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject, org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject, org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject, org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject, boolean)
+    {
+        boolean testTransients, $stack7, $stack8, $stack9, $stack13, $stack14, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack26, $stack71, $stack76, $stack77, $stack78, $stack10, $stack72, $stack12, $stack47, $stack43, $stack39, $stack35, $stack31, $stack27;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject $stack51, $stack52, $stack58, $stack59;
+        int $stack15, $stack16, $stack53, $stack54, $stack60, $stack11;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject 'to', to2, toBis, oToChange, toTer;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        'to' := @parameter0: org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        toBis := @parameter1: org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        toTer := @parameter2: org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        to2 := @parameter3: org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        oToChange := @parameter4: org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        testTransients := @parameter5: boolean;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>('to', 'to', testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(to2, to2, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>('to', toBis, testTransients);
+
+        if $stack9 == 0 goto label01;
+
+        $stack77 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(toBis, 'to', testTransients);
+
+        if $stack77 == 0 goto label01;
+
+        $stack78 = 1;
+
+        goto label02;
+
+     label01:
+        $stack78 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack78);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>('to', toBis, testTransients);
+
+        if $stack10 == 0 goto label03;
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(toBis, toTer, testTransients);
+
+        if $stack71 == 0 goto label03;
+
+        $stack76 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>('to', toTer, testTransients);
+
+        if $stack76 == 0 goto label03;
+
+        $stack72 = 1;
+
+        goto label04;
+
+     label03:
+        $stack72 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack72);
+
+        $stack11 = virtualinvoke 'to'.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: int getA()>();
+
+        virtualinvoke oToChange.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>($stack11);
+
+        $stack12 = oToChange instanceof org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        if $stack12 == 0 goto label05;
+
+        $stack59 = (org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject) oToChange;
+
+        $stack58 = (org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject) 'to';
+
+        $stack60 = virtualinvoke $stack58.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int getB()>();
+
+        virtualinvoke $stack59.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void setB(int)>($stack60);
+
+     label05:
+        $stack13 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(oToChange, 'to', testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(oToChange, 'to', testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = virtualinvoke 'to'.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: int getA()>();
+
+        $stack16 = $stack15 + 1;
+
+        virtualinvoke oToChange.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>($stack16);
+
+        $stack17 = oToChange instanceof org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        if $stack17 == 0 goto label06;
+
+        $stack52 = (org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject) oToChange;
+
+        $stack51 = (org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject) 'to';
+
+        $stack53 = virtualinvoke $stack51.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int getB()>();
+
+        $stack54 = $stack53 + 1;
+
+        virtualinvoke $stack52.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: void setB(int)>($stack54);
+
+     label06:
+        $stack18 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(oToChange, 'to', testTransients);
+
+        if $stack18 != 0 goto label07;
+
+        $stack47 = 1;
+
+        goto label08;
+
+     label07:
+        $stack47 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(oToChange, 'to', testTransients);
+
+        if $stack19 != 0 goto label09;
+
+        $stack43 = 1;
+
+        goto label10;
+
+     label09:
+        $stack43 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack43);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>('to', null, testTransients);
+
+        if $stack20 != 0 goto label11;
+
+        $stack39 = 1;
+
+        goto label12;
+
+     label11:
+        $stack39 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack39);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(to2, null, testTransients);
+
+        if $stack21 != 0 goto label13;
+
+        $stack35 = 1;
+
+        goto label14;
+
+     label13:
+        $stack35 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(null, 'to', testTransients);
+
+        if $stack22 != 0 goto label15;
+
+        $stack31 = 1;
+
+        goto label16;
+
+     label15:
+        $stack31 = 0;
+
+     label16:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(null, to2, testTransients);
+
+        if $stack23 != 0 goto label17;
+
+        $stack27 = 1;
+
+        goto label18;
+
+     label17:
+        $stack27 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,boolean)>(null, null, testTransients);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        return;
+    }
+
+    public void testSuper()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack7, $stack9, $stack10, $stack11, $stack13, $stack14, $stack15, $stack17, $stack18, $stack19;
+        boolean $stack8, $stack12, $stack16, $stack20;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder appendSuper(boolean)>(1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack3);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder appendSuper(boolean)>(0);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack3);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder appendSuper(boolean)>(1);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder appendSuper(boolean)>(0);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18, $stack20, $stack21, $stack23, $stack26;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack27, $stack37, $stack34, $stack31, $stack28;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack3);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack10 != 0 goto label1;
+
+        $stack37 = 1;
+
+        goto label2;
+
+     label1:
+        $stack37 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(4);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, this);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack16 != 0 goto label3;
+
+        $stack34 = 1;
+
+        goto label4;
+
+     label3:
+        $stack34 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack34);
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, null);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label5;
+
+        $stack31 = 1;
+
+        goto label6;
+
+     label5:
+        $stack31 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack20 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack22 != 0 goto label7;
+
+        $stack28 = 1;
+
+        goto label8;
+
+     label7:
+        $stack28 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack23 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack26 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(null, null);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        return;
+    }
+
+    public void testObjectBuild()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        java.lang.Boolean $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack34;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack33;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack3);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack8);
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack12);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(4);
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, this);
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack20);
+
+        $stack22 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack21 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack23 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack3, null);
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack24);
+
+        $stack26 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack25 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack27 = virtualinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack28);
+
+        $stack30 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack29 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(null, null);
+
+        $stack34 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.EqualsBuilder: java.lang.Boolean build()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack34);
+
+        return;
+    }
+
+    public void testLong()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9;
+        boolean $stack7, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long,long)>(1L, 1L);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long,long)>(1L, 2L);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack10 != 0 goto label1;
+
+        $stack11 = 1;
+
+        goto label2;
+
+     label1:
+        $stack11 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testInt()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7;
+        boolean $stack5, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int,int)>(1, 1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int,int)>(1, 2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testShort()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7;
+        boolean $stack5, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short,short)>(1, 1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short,short)>(1, 2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testChar()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7;
+        boolean $stack5, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char,char)>(1, 1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char,char)>(1, 2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testByte()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7;
+        boolean $stack5, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte,byte)>(1, 1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte,byte)>(1, 2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testDouble()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack25, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double,double)>(1.0, 1.0);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double,double)>(1.0, 2.0);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack10 != 0 goto label1;
+
+        $stack25 = 1;
+
+        goto label2;
+
+     label1:
+        $stack25 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double,double)>(1.0, #NaN);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack13 != 0 goto label3;
+
+        $stack20 = 1;
+
+        goto label4;
+
+     label3:
+        $stack20 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double,double)>(#NaN, #NaN);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double,double)>(#Infinity, #Infinity);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        return;
+    }
+
+    public void testFloat()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack23, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float,float)>(1.0F, 1.0F);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float,float)>(1.0F, 2.0F);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack23 = 1;
+
+        goto label2;
+
+     label1:
+        $stack23 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float,float)>(1.0F, #NaNF);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float,float)>(#NaNF, #NaNF);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float,float)>(#InfinityF, #InfinityF);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testAccessors()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack2;
+        boolean $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void setEquals(boolean)>(1);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void setEquals(boolean)>(0);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        return;
+    }
+
+    public void testReset()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack2;
+        boolean $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void setEquals(boolean)>(0);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: void reset()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        return;
+    }
+
+    public void testBoolean()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7;
+        boolean $stack5, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean,boolean)>(1, 1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean,boolean)>(1, 0);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    public void testObjectArray()
+    {
+        boolean $stack13, $stack16, $stack19, $stack23, $stack27, $stack31, $stack34, $stack37, $stack40, $stack54, $stack45, $stack41;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack11, $stack12, $stack14, $stack15, $stack17, $stack18, $stack21, $stack22, $stack25, $stack26, $stack29, $stack30, $stack32, $stack33, $stack35, $stack36, $stack38, $stack39;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack3, $stack5, $stack7, $stack9, $stack20, $stack24, $stack28;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject)[3];
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        obj1[0] = $stack3;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        obj1[1] = $stack5;
+
+        obj1[2] = null;
+
+        obj2 = newarray (org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject)[3];
+
+        $stack7 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        obj2[0] = $stack7;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        obj2[1] = $stack9;
+
+        obj2[2] = null;
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj1);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj2, obj2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = obj1[1];
+
+        virtualinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(6);
+
+        $stack21 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj2);
+
+        $stack23 = virtualinvoke $stack22.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack23 != 0 goto label1;
+
+        $stack54 = 1;
+
+        goto label2;
+
+     label1:
+        $stack54 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack54);
+
+        $stack24 = obj1[1];
+
+        virtualinvoke $stack24.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(5);
+
+        $stack25 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj2);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = obj1[1];
+
+        obj1[2] = $stack28;
+
+        $stack29 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack30 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj2);
+
+        $stack31 = virtualinvoke $stack30.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack31 != 0 goto label3;
+
+        $stack45 = 1;
+
+        goto label4;
+
+     label3:
+        $stack45 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack45);
+
+        obj1[2] = null;
+
+        $stack32 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack32.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, obj2);
+
+        $stack34 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack34);
+
+        $stack35 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack35.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack36 = virtualinvoke $stack35.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(obj1, null);
+
+        $stack37 = virtualinvoke $stack36.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack37 != 0 goto label5;
+
+        $stack41 = 1;
+
+        goto label6;
+
+     label5:
+        $stack41 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack41);
+
+        $stack38 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack38.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack39 = virtualinvoke $stack38.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(null, null);
+
+        $stack40 = virtualinvoke $stack39.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack40);
+
+        return;
+    }
+
+    public void testLongArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        long[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (long)[2];
+
+        obj1[0] = 5L;
+
+        obj1[1] = 6L;
+
+        obj2 = newarray (long)[2];
+
+        obj2[0] = 5L;
+
+        obj2[1] = 6L;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long[],long[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long[],long[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7L;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long[],long[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long[],long[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(long[],long[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testIntArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        int[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (int)[2];
+
+        obj1[0] = 5;
+
+        obj1[1] = 6;
+
+        obj2 = newarray (int)[2];
+
+        obj2[0] = 5;
+
+        obj2[1] = 6;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int[],int[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int[],int[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int[],int[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int[],int[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(int[],int[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testShortArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+        short[] obj1, obj2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (short)[2];
+
+        obj1[0] = 5;
+
+        obj1[1] = 6;
+
+        obj2 = newarray (short)[2];
+
+        obj2[0] = 5;
+
+        obj2[1] = 6;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short[],short[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short[],short[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short[],short[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short[],short[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(short[],short[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testCharArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+        char[] obj1, obj2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (char)[2];
+
+        obj1[0] = 5;
+
+        obj1[1] = 6;
+
+        obj2 = newarray (char)[2];
+
+        obj2[0] = 5;
+
+        obj2[1] = 6;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char[],char[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char[],char[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char[],char[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char[],char[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(char[],char[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testByteArray()
+    {
+        byte[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (byte)[2];
+
+        obj1[0] = 5;
+
+        obj1[1] = 6;
+
+        obj2 = newarray (byte)[2];
+
+        obj2[0] = 5;
+
+        obj2[1] = 6;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte[],byte[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte[],byte[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte[],byte[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte[],byte[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(byte[],byte[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testDoubleArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        double[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (double)[2];
+
+        obj1[0] = 5.0;
+
+        obj1[1] = 6.0;
+
+        obj2 = newarray (double)[2];
+
+        obj2[0] = 5.0;
+
+        obj2[1] = 6.0;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double[],double[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double[],double[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7.0;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double[],double[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double[],double[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(double[],double[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testFloatArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        float[] obj1, obj2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (float)[2];
+
+        obj1[0] = 5.0F;
+
+        obj1[1] = 6.0F;
+
+        obj2 = newarray (float)[2];
+
+        obj2[0] = 5.0F;
+
+        obj2[1] = 6.0F;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float[],float[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float[],float[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 7.0F;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float[],float[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float[],float[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(float[],float[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testBooleanArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16;
+        boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack22, $stack18;
+        boolean[] obj1, obj2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        obj1 = newarray (boolean)[2];
+
+        obj1[0] = 1;
+
+        obj1[1] = 0;
+
+        obj2 = newarray (boolean)[2];
+
+        obj2[0] = 1;
+
+        obj2[1] = 0;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean[],boolean[])>(obj1, obj1);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean[],boolean[])>(obj1, obj2);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        obj1[1] = 1;
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean[],boolean[])>(obj1, obj2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack11 != 0 goto label1;
+
+        $stack22 = 1;
+
+        goto label2;
+
+     label1:
+        $stack22 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean[],boolean[])>(obj1, null);
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack14 != 0 goto label3;
+
+        $stack18 = 1;
+
+        goto label4;
+
+     label3:
+        $stack18 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(boolean[],boolean[])>(null, null);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testMultiLongArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        long $stack24, $stack29;
+        long[] $stack12, $stack17, $stack25, $stack30;
+        int $stack5, $stack18, $stack21, $stack22, $stack23, $stack26, $stack27, $stack28, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        long[][] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (long)[2][2];
+
+        array2 = newmultiarray (long)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack25 = array1[i];
+
+        $stack22 = i + 1;
+
+        $stack21 = j + 1;
+
+        $stack23 = $stack22 * $stack21;
+
+        $stack24 = (long) $stack23;
+
+        $stack25[j] = $stack24;
+
+        $stack30 = array2[i];
+
+        $stack27 = i + 1;
+
+        $stack26 = j + 1;
+
+        $stack28 = $stack27 * $stack26;
+
+        $stack29 = (long) $stack28;
+
+        $stack30[j] = $stack29;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0L;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiIntArray()
+    {
+        int[][] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        int[] $stack12, $stack17, $stack24, $stack28;
+        int $stack5, $stack18, $stack21, $stack22, $stack23, $stack25, $stack26, $stack27, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (int)[2][2];
+
+        array2 = newmultiarray (int)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack24 = array1[i];
+
+        $stack22 = i + 1;
+
+        $stack21 = j + 1;
+
+        $stack23 = $stack22 * $stack21;
+
+        $stack24[j] = $stack23;
+
+        $stack28 = array2[i];
+
+        $stack26 = i + 1;
+
+        $stack25 = j + 1;
+
+        $stack27 = $stack26 * $stack25;
+
+        $stack28[j] = $stack27;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiShortArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        short[][] array1, array2;
+        short i, j;
+        int $stack5, $stack18, $stack19, $stack24;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        short[] $stack12, $stack17, $stack22, $stack23;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (short)[2][2];
+
+        array2 = newmultiarray (short)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack22 = array1[i];
+
+        $stack22[j] = i;
+
+        $stack23 = array2[i];
+
+        $stack23[j] = i;
+
+        $stack24 = j + 1;
+
+        j = (short) $stack24;
+
+        goto label2;
+
+     label3:
+        $stack19 = i + 1;
+
+        i = (short) $stack19;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiCharArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        char[][] array1, array2;
+        int $stack5, $stack18, $stack19, $stack24, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        char i;
+        char[] $stack12, $stack17, $stack22, $stack23;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (char)[2][2];
+
+        array2 = newmultiarray (char)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack22 = array1[i];
+
+        $stack22[j] = i;
+
+        $stack23 = array2[i];
+
+        $stack23[j] = i;
+
+        $stack24 = j + 1;
+
+        j = (char) $stack24;
+
+        goto label2;
+
+     label3:
+        $stack19 = i + 1;
+
+        i = (char) $stack19;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiByteArray()
+    {
+        byte[] $stack12, $stack17, $stack22, $stack23;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        byte i, j;
+        int $stack5, $stack18, $stack19, $stack24;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        byte[][] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (byte)[2][2];
+
+        array2 = newmultiarray (byte)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack22 = array1[i];
+
+        $stack22[j] = i;
+
+        $stack23 = array2[i];
+
+        $stack23[j] = i;
+
+        $stack24 = j + 1;
+
+        j = (byte) $stack24;
+
+        goto label2;
+
+     label3:
+        $stack19 = i + 1;
+
+        i = (byte) $stack19;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiFloatArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        float[] $stack12, $stack17, $stack25, $stack30;
+        int $stack5, $stack18, $stack21, $stack22, $stack23, $stack26, $stack27, $stack28, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        float[][] array1, array2;
+        float $stack24, $stack29;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (float)[2][2];
+
+        array2 = newmultiarray (float)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack25 = array1[i];
+
+        $stack22 = i + 1;
+
+        $stack21 = j + 1;
+
+        $stack23 = $stack22 * $stack21;
+
+        $stack24 = (float) $stack23;
+
+        $stack25[j] = $stack24;
+
+        $stack30 = array2[i];
+
+        $stack27 = i + 1;
+
+        $stack26 = j + 1;
+
+        $stack28 = $stack27 * $stack26;
+
+        $stack29 = (float) $stack28;
+
+        $stack30[j] = $stack29;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0.0F;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiDoubleArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        double[] $stack12, $stack17, $stack25, $stack30;
+        int $stack5, $stack18, $stack21, $stack22, $stack23, $stack26, $stack27, $stack28, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        double $stack24, $stack29;
+        double[][] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (double)[2][2];
+
+        array2 = newmultiarray (double)[2][2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        j = 0;
+
+     label2:
+        $stack17 = array1[0];
+
+        $stack18 = lengthof $stack17;
+
+        if j >= $stack18 goto label3;
+
+        $stack25 = array1[i];
+
+        $stack22 = i + 1;
+
+        $stack21 = j + 1;
+
+        $stack23 = $stack22 * $stack21;
+
+        $stack24 = (double) $stack23;
+
+        $stack25[j] = $stack24;
+
+        $stack30 = array2[i];
+
+        $stack27 = i + 1;
+
+        $stack26 = j + 1;
+
+        $stack28 = $stack27 * $stack26;
+
+        $stack29 = (double) $stack28;
+
+        $stack30[j] = $stack29;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0.0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMultiBooleanArray()
+    {
+        boolean $stack8, $stack11, $stack15, $stack19, $stack22, $stack25, $stack28, $stack54, $stack52, $stack29;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        int $stack5, $stack44, $stack53, $stack55, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14, $stack17, $stack18, $stack20, $stack21, $stack23, $stack24, $stack26, $stack27;
+        boolean[] $stack12, $stack16, $stack43, $stack47, $stack48;
+        boolean[][] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newmultiarray (boolean)[2][2];
+
+        array2 = newmultiarray (boolean)[2][2];
+
+        i = 0;
+
+     label01:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label10;
+
+        j = 0;
+
+     label02:
+        $stack43 = array1[0];
+
+        $stack44 = lengthof $stack43;
+
+        if j >= $stack44 goto label09;
+
+        $stack47 = array1[i];
+
+        $stack55 = j;
+
+        if i == 1 goto label03;
+
+        if j != 1 goto label04;
+
+     label03:
+        $stack54 = 1;
+
+        goto label05;
+
+     label04:
+        $stack54 = 0;
+
+     label05:
+        $stack47[$stack55] = $stack54;
+
+        $stack48 = array2[i];
+
+        $stack53 = j;
+
+        if i == 1 goto label06;
+
+        if j != 1 goto label07;
+
+     label06:
+        $stack52 = 1;
+
+        goto label08;
+
+     label07:
+        $stack52 = 0;
+
+     label08:
+        $stack48[$stack53] = $stack52;
+
+        j = j + 1;
+
+        goto label02;
+
+     label09:
+        i = i + 1;
+
+        goto label01;
+
+     label10:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label11;
+
+        $stack29 = 1;
+
+        goto label12;
+
+     label11:
+        $stack29 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack16 = newarray (boolean)[2];
+
+        $stack16[0] = 1;
+
+        $stack16[1] = 1;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, $stack16);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack16, array1);
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array2, $stack16);
+
+        $stack25 = virtualinvoke $stack24.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack25);
+
+        $stack26 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>($stack16, array2);
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack28);
+
+        return;
+    }
+
+    public void testRaggedArray()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        long $stack26, $stack31;
+        long[] $stack12, $stack17, $stack18, $stack19, $stack27, $stack32;
+        int $stack5, $stack20, $stack23, $stack24, $stack25, $stack28, $stack29, $stack30, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        boolean $stack8, $stack11, $stack15, $stack16;
+        long[][] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (long[])[2];
+
+        array2 = newarray (long[])[2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        $stack17 = newarray (long)[2];
+
+        array1[i] = $stack17;
+
+        $stack18 = newarray (long)[2];
+
+        array2[i] = $stack18;
+
+        j = 0;
+
+     label2:
+        $stack19 = array1[i];
+
+        $stack20 = lengthof $stack19;
+
+        if j >= $stack20 goto label3;
+
+        $stack27 = array1[i];
+
+        $stack24 = i + 1;
+
+        $stack23 = j + 1;
+
+        $stack25 = $stack24 * $stack23;
+
+        $stack26 = (long) $stack25;
+
+        $stack27[j] = $stack26;
+
+        $stack32 = array2[i];
+
+        $stack29 = i + 1;
+
+        $stack28 = j + 1;
+
+        $stack30 = $stack29 * $stack28;
+
+        $stack31 = (long) $stack30;
+
+        $stack32[j] = $stack31;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack12[1] = 0L;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack15 != 0 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testMixedArray()
+    {
+        boolean $stack8, $stack11, $stack17, $stack18;
+        java.lang.Object[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        long $stack28, $stack35;
+        long[] $stack13, $stack14, $stack19, $stack20, $stack24, $stack29, $stack31, $stack36;
+        int $stack5, $stack25, $stack26, $stack27, $stack32, $stack33, $stack34, i, j;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack6, $stack7, $stack9, $stack10, $stack15, $stack16;
+        java.lang.Object $stack12, $stack23, $stack30;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (java.lang.Object)[2];
+
+        array2 = newarray (java.lang.Object)[2];
+
+        i = 0;
+
+     label1:
+        $stack5 = lengthof array1;
+
+        if i >= $stack5 goto label4;
+
+        $stack19 = newarray (long)[2];
+
+        array1[i] = $stack19;
+
+        $stack20 = newarray (long)[2];
+
+        array2[i] = $stack20;
+
+        j = 0;
+
+     label2:
+        if j >= 2 goto label3;
+
+        $stack23 = array1[i];
+
+        $stack24 = (long[]) $stack23;
+
+        $stack29 = (long[]) $stack24;
+
+        $stack26 = i + 1;
+
+        $stack25 = j + 1;
+
+        $stack27 = $stack26 * $stack25;
+
+        $stack28 = (long) $stack27;
+
+        $stack29[j] = $stack28;
+
+        $stack30 = array2[i];
+
+        $stack31 = (long[]) $stack30;
+
+        $stack36 = (long[]) $stack31;
+
+        $stack33 = i + 1;
+
+        $stack32 = j + 1;
+
+        $stack34 = $stack33 * $stack32;
+
+        $stack35 = (long) $stack34;
+
+        $stack36[j] = $stack35;
+
+        j = j + 1;
+
+        goto label2;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        $stack6 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array1);
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = array1[1];
+
+        $stack13 = (long[]) $stack12;
+
+        $stack14 = (long[]) $stack13;
+
+        $stack14[1] = 0L;
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>(array1, array2);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack17 != 0 goto label5;
+
+        $stack18 = 1;
+
+        goto label6;
+
+     label5:
+        $stack18 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        return;
+    }
+
+    public void testObjectArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack13, $stack14, $stack16, $stack17, $stack19, $stack20, $stack22, $stack23, $stack26, $stack27;
+        boolean $stack15, $stack18, $stack21, $stack24, $stack28, $stack29;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject $stack5, $stack7, $stack9, $stack11, $stack25;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject)[2];
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        array1[0] = $stack5;
+
+        $stack7 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        array1[1] = $stack7;
+
+        array2 = newarray (org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject)[2];
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(4);
+
+        array2[0] = $stack9;
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(5);
+
+        array2[1] = $stack11;
+
+        $stack13 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack23 = virtualinvoke $stack22.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = array1[1];
+
+        virtualinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void setA(int)>(6);
+
+        $stack26 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack28 != 0 goto label1;
+
+        $stack29 = 1;
+
+        goto label2;
+
+     label1:
+        $stack29 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        return;
+    }
+
+    public void testLongArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        long[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (long)[2];
+
+        array1[0] = 5L;
+
+        array1[1] = 6L;
+
+        array2 = newarray (long)[2];
+
+        array2[0] = 5L;
+
+        array2[1] = 6L;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7L;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testIntArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        int[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (int)[2];
+
+        array1[0] = 5;
+
+        array1[1] = 6;
+
+        array2 = newarray (int)[2];
+
+        array2[0] = 5;
+
+        array2[1] = 6;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testShortArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+        short[] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (short)[2];
+
+        array1[0] = 5;
+
+        array1[1] = 6;
+
+        array2 = newarray (short)[2];
+
+        array2[0] = 5;
+
+        array2[1] = 6;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testCharArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+        char[] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (char)[2];
+
+        array1[0] = 5;
+
+        array1[1] = 6;
+
+        array2 = newarray (char)[2];
+
+        array2[0] = 5;
+
+        array2[1] = 6;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testByteArrayHiddenByObject()
+    {
+        byte[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (byte)[2];
+
+        array1[0] = 5;
+
+        array1[1] = 6;
+
+        array2 = newarray (byte)[2];
+
+        array2[0] = 5;
+
+        array2[1] = 6;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testDoubleArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        double[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (double)[2];
+
+        array1[0] = 5.0;
+
+        array1[1] = 6.0;
+
+        array2 = newarray (double)[2];
+
+        array2[0] = 5.0;
+
+        array2[1] = 6.0;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7.0;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testFloatArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        float[] array1, array2;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (float)[2];
+
+        array1[0] = 5.0F;
+
+        array1[1] = 6.0F;
+
+        array2 = newarray (float)[2];
+
+        array2[0] = 5.0F;
+
+        array2[1] = 6.0F;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 7.0F;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testBooleanArrayHiddenByObject()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18;
+        boolean $stack7, $stack10, $stack13, $stack16, $stack19, $stack20;
+        boolean[] array1, array2;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        array1 = newarray (boolean)[2];
+
+        array1[0] = 1;
+
+        array1[1] = 0;
+
+        array2 = newarray (boolean)[2];
+
+        array2[0] = 1;
+
+        array2[1] = 0;
+
+        $stack5 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array1);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        array1[1] = 1;
+
+        $stack17 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object,java.lang.Object)>(array1, array2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        if $stack19 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testUnrelatedClasses()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestBCanEqualA $stack7;
+        boolean $stack9, $stack10, $stack11, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestACanEqualB $stack4;
+        java.lang.Object[] $stack3, $stack6;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack25, $stack26, $stack28, $stack29, $stack31, $stack32, $stack34, $stack35;
+        java.lang.Object $stack13, $stack14, $stack16, $stack17, $stack19, $stack20, $stack22, $stack23;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestACanEqualB;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestACanEqualB: void <init>(int)>(1);
+
+        $stack3[0] = $stack4;
+
+        $stack6 = newarray (java.lang.Object)[1];
+
+        $stack7 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestBCanEqualA;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestBCanEqualA: void <init>(int)>(1);
+
+        $stack6[0] = $stack7;
+
+        $stack9 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack3, $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack6, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack3, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack6, $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack14 = $stack3[0];
+
+        $stack13 = $stack3[0];
+
+        $stack15 = virtualinvoke $stack14.<java.lang.Object: boolean equals(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack17 = $stack6[0];
+
+        $stack16 = $stack6[0];
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Object: boolean equals(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack20 = $stack3[0];
+
+        $stack19 = $stack6[0];
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Object: boolean equals(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack23 = $stack6[0];
+
+        $stack22 = $stack3[0];
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Object: boolean equals(java.lang.Object)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>($stack3, $stack3);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack28.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack29 = virtualinvoke $stack28.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>($stack6, $stack6);
+
+        $stack30 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack31.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack32 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>($stack3, $stack6);
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack34 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack34.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        $stack35 = virtualinvoke $stack34.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>($stack6, $stack3);
+
+        $stack36 = virtualinvoke $stack35.<org.apache.commons.lang3.builder.EqualsBuilder: boolean isEquals()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack36);
+
+        return;
+    }
+
+    public void testNpeForNullElement()
+    {
+        java.lang.Object[] $stack3, $stack8;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        java.lang.Integer $stack5, $stack7, $stack10, $stack12, $stack14;
+        org.apache.commons.lang3.builder.EqualsBuilder $stack15;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = newarray (java.lang.Object)[3];
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack3[0] = $stack5;
+
+        $stack3[1] = null;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack3[2] = $stack7;
+
+        $stack8 = newarray (java.lang.Object)[3];
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack8[0] = $stack10;
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack8[1] = $stack12;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack8[2] = $stack14;
+
+        $stack15 = new org.apache.commons.lang3.builder.EqualsBuilder;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: void <init>()>();
+
+        virtualinvoke $stack15.<org.apache.commons.lang3.builder.EqualsBuilder: org.apache.commons.lang3.builder.EqualsBuilder append(java.lang.Object[],java.lang.Object[])>($stack3, $stack8);
+
+        return;
+    }
+
+    public void testReflectionEqualsExcludeFields() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        java.lang.String[] $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21;
+        boolean $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack73, $stack69, $stack63, $stack57, $stack51, $stack23;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectWithMultipleFields $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectWithMultipleFields;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectWithMultipleFields: void <init>(int,int,int)>(1, 2, 3);
+
+        $stack4 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectWithMultipleFields;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectWithMultipleFields: void <init>(int,int,int)>(1, 3, 4);
+
+        $stack5 = newarray (java.lang.String)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack5);
+
+        if $stack6 != 0 goto label01;
+
+        $stack73 = 1;
+
+        goto label02;
+
+     label01:
+        $stack73 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack73);
+
+        $stack7 = (java.lang.String[]) null;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack7);
+
+        if $stack8 != 0 goto label03;
+
+        $stack69 = 1;
+
+        goto label04;
+
+     label03:
+        $stack69 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack69);
+
+        $stack9 = newarray (java.lang.String)[0];
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack9);
+
+        if $stack10 != 0 goto label05;
+
+        $stack63 = 1;
+
+        goto label06;
+
+     label05:
+        $stack63 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack63);
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "xxx";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack11);
+
+        if $stack12 != 0 goto label07;
+
+        $stack57 = 1;
+
+        goto label08;
+
+     label07:
+        $stack57 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack57);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = "two";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack13);
+
+        if $stack14 != 0 goto label09;
+
+        $stack51 = 1;
+
+        goto label10;
+
+     label09:
+        $stack51 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack51);
+
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "three";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack15);
+
+        if $stack16 != 0 goto label11;
+
+        $stack23 = 1;
+
+        goto label12;
+
+     label11:
+        $stack23 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack17 = newarray (java.lang.String)[2];
+
+        $stack17[0] = "two";
+
+        $stack17[1] = "three";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = newarray (java.lang.String)[3];
+
+        $stack19[0] = "one";
+
+        $stack19[1] = "two";
+
+        $stack19[2] = "three";
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = newarray (java.lang.String)[4];
+
+        $stack21[0] = "one";
+
+        $stack21[1] = "two";
+
+        $stack21[2] = "three";
+
+        $stack21[3] = "xxx";
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: boolean reflectionEquals(java.lang.Object,java.lang.Object,java.lang.String[])>($stack3, $stack4, $stack21);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testCyclicalObjectReferences()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference $stack7, $stack8, $stack9, $stack10, $stack11, $stack12;
+        org.apache.commons.lang3.builder.EqualsBuilderTest this;
+        java.util.Set $stack14, $stack16, $stack18;
+        boolean $stack13, $stack15, $stack17;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest;
+
+        $stack7 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(1);
+
+        $stack8 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(1);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack7);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack8);
+
+        $stack9 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(1);
+
+        $stack10 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(1);
+
+        virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack9);
+
+        virtualinvoke $stack9.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(2);
+
+        $stack12 = new org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void <init>(int)>(2);
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack11);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: void setObjectReference(org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference)>($stack12);
+
+        $stack13 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: boolean equals(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: java.util.Set getRegistry()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack14);
+
+        $stack15 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: java.util.Set getRegistry()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack16);
+
+        $stack17 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObjectReference: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.builder.EqualsBuilder: java.util.Set getRegistry()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack18);
+
+        return;
+    }
+}

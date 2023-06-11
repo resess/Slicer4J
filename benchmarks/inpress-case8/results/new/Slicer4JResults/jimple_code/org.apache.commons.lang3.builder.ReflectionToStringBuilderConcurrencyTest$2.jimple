@@ -1,0 +1,71 @@
+class org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2 extends java.lang.Object implements java.util.concurrent.Callable
+{
+    final java.util.List val$list;
+    final org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this$0;
+
+    void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest, java.util.List)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2 this;
+        java.util.List l2;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest l1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2;
+
+        l1 := @parameter0: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        l2 := @parameter1: java.util.List;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: java.util.List val$list> = l2;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Integer call()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2 this;
+        java.util.List $stack3, $stack4;
+        int i;
+        java.lang.Object $stack5;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2;
+
+        i = 0;
+
+     label1:
+        if i >= 100000 goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: java.util.List val$list>;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: java.util.List val$list>;
+
+        $stack5 = interfaceinvoke $stack3.<java.util.List: java.lang.Object get(int)>(0);
+
+        interfaceinvoke $stack4.<java.util.List: boolean remove(java.lang.Object)>($stack5);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(100);
+
+        return $stack2;
+    }
+
+    public volatile java.lang.Object call() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2 this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$2: java.lang.Integer call()>();
+
+        return $stack1;
+    }
+}

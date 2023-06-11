@@ -1,0 +1,266 @@
+public abstract class org.apache.commons.lang3.tuple.Pair extends java.lang.Object implements java.util.Map$Entry, java.lang.Comparable, java.io.Serializable
+{
+    private static final long serialVersionUID;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.tuple.Pair this;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static org.apache.commons.lang3.tuple.Pair of(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object left, right;
+        org.apache.commons.lang3.tuple.ImmutablePair $stack2;
+
+        left := @parameter0: java.lang.Object;
+
+        right := @parameter1: java.lang.Object;
+
+        $stack2 = new org.apache.commons.lang3.tuple.ImmutablePair;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.tuple.ImmutablePair: void <init>(java.lang.Object,java.lang.Object)>(left, right);
+
+        return $stack2;
+    }
+
+    public abstract java.lang.Object getLeft();
+
+    public abstract java.lang.Object getRight();
+
+    public final java.lang.Object getKey()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.tuple.Pair this;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getLeft()>();
+
+        return $stack1;
+    }
+
+    public java.lang.Object getValue()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.tuple.Pair this;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getRight()>();
+
+        return $stack1;
+    }
+
+    public int compareTo(org.apache.commons.lang3.tuple.Pair)
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder $stack2, $stack5, $stack8;
+        org.apache.commons.lang3.tuple.Pair this, other;
+        int $stack9;
+        java.lang.Object $stack3, $stack4, $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        other := @parameter0: org.apache.commons.lang3.tuple.Pair;
+
+        $stack2 = new org.apache.commons.lang3.builder.CompareToBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.CompareToBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getLeft()>();
+
+        $stack4 = virtualinvoke other.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getLeft()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getRight()>();
+
+        $stack7 = virtualinvoke other.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getRight()>();
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.CompareToBuilder: int toComparison()>();
+
+        return $stack9;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.util.Map$Entry other;
+        org.apache.commons.lang3.tuple.Pair this;
+        java.lang.Object obj, $stack4, $stack5, $stack7, $stack8;
+        boolean $stack3, $stack6, $stack9, $stack10;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof java.util.Map$Entry;
+
+        if $stack3 == 0 goto label4;
+
+        other = (java.util.Map$Entry) obj;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack5 = interfaceinvoke other.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        if $stack6 == 0 goto label2;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        $stack8 = interfaceinvoke other.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        if $stack9 == 0 goto label2;
+
+        $stack10 = 1;
+
+        goto label3;
+
+     label2:
+        $stack10 = 0;
+
+     label3:
+        return $stack10;
+
+     label4:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.tuple.Pair this;
+        int $stack3, $stack6, $stack7;
+        java.lang.Object $stack1, $stack2, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        if $stack1 != null goto label1;
+
+        $stack3 = 0;
+
+        goto label2;
+
+     label1:
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getKey()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: int hashCode()>();
+
+     label2:
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        if $stack4 != null goto label3;
+
+        $stack6 = 0;
+
+        goto label4;
+
+     label3:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getValue()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Object: int hashCode()>();
+
+     label4:
+        $stack7 = $stack3 ^ $stack6;
+
+        return $stack7;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.tuple.Pair this;
+        java.lang.StringBuilder $stack1, $stack2, $stack4, $stack5, $stack7, $stack8;
+        java.lang.Object $stack3, $stack6;
+        java.lang.String $stack9;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(40);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getLeft()>();
+
+        $stack4 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getRight()>();
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(41);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack9;
+    }
+
+    public java.lang.String toString(java.lang.String)
+    {
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.tuple.Pair this;
+        java.lang.Object $stack4, $stack6;
+        java.lang.String format, $stack7;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        format := @parameter0: java.lang.String;
+
+        $stack2 = newarray (java.lang.Object)[2];
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getLeft()>();
+
+        $stack2[0] = $stack4;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: java.lang.Object getRight()>();
+
+        $stack2[1] = $stack6;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(format, $stack2);
+
+        return $stack7;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        org.apache.commons.lang3.tuple.Pair this, $stack2;
+        int $stack3;
+        java.lang.Object x0;
+
+        this := @this: org.apache.commons.lang3.tuple.Pair;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.tuple.Pair) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.tuple.Pair: int compareTo(org.apache.commons.lang3.tuple.Pair)>($stack2);
+
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.tuple.Pair: long serialVersionUID> = 4954918890077093841L;
+
+        return;
+    }
+}

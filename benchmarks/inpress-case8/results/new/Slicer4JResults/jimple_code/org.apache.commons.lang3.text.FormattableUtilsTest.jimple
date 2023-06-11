@@ -1,0 +1,765 @@
+public class org.apache.commons.lang3.text.FormattableUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testDefaultAppend()
+    {
+        java.util.Formatter $stack4, $stack9, $stack14, $stack19, $stack24, $stack29, $stack34, $stack39, $stack44, $stack49, $u0, $u1, $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9;
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6;
+        java.lang.String $stack5, $stack10, $stack15, $stack20, $stack25, $stack30, $stack35, $stack40, $stack45, $stack50;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        $u0 = new java.util.Formatter;
+
+        specialinvoke $u0.<java.util.Formatter: void <init>()>();
+
+        $i0 = (int) -1;
+
+        $i1 = (int) -1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u0, 0, $i0, $i1);
+
+        $stack5 = virtualinvoke $stack4.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $u1 = new java.util.Formatter;
+
+        specialinvoke $u1.<java.util.Formatter: void <init>()>();
+
+        $i2 = (int) -1;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u1, 0, $i2, 2);
+
+        $stack10 = virtualinvoke $stack9.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo", $stack10);
+
+        $u2 = new java.util.Formatter;
+
+        specialinvoke $u2.<java.util.Formatter: void <init>()>();
+
+        $i3 = (int) -1;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u2, 0, 4, $i3);
+
+        $stack15 = virtualinvoke $stack14.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" foo", $stack15);
+
+        $u3 = new java.util.Formatter;
+
+        specialinvoke $u3.<java.util.Formatter: void <init>()>();
+
+        $i4 = (int) -1;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u3, 0, 6, $i4);
+
+        $stack20 = virtualinvoke $stack19.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   foo", $stack20);
+
+        $u4 = new java.util.Formatter;
+
+        specialinvoke $u4.<java.util.Formatter: void <init>()>();
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u4, 0, 3, 2);
+
+        $stack25 = virtualinvoke $stack24.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" fo", $stack25);
+
+        $u5 = new java.util.Formatter;
+
+        specialinvoke $u5.<java.util.Formatter: void <init>()>();
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u5, 0, 5, 2);
+
+        $stack30 = virtualinvoke $stack29.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   fo", $stack30);
+
+        $u6 = new java.util.Formatter;
+
+        specialinvoke $u6.<java.util.Formatter: void <init>()>();
+
+        $i5 = (int) -1;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u6, 1, 4, $i5);
+
+        $stack35 = virtualinvoke $stack34.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo ", $stack35);
+
+        $u7 = new java.util.Formatter;
+
+        specialinvoke $u7.<java.util.Formatter: void <init>()>();
+
+        $i6 = (int) -1;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u7, 1, 6, $i6);
+
+        $stack40 = virtualinvoke $stack39.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo   ", $stack40);
+
+        $u8 = new java.util.Formatter;
+
+        specialinvoke $u8.<java.util.Formatter: void <init>()>();
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u8, 1, 3, 2);
+
+        $stack45 = virtualinvoke $stack44.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo ", $stack45);
+
+        $u9 = new java.util.Formatter;
+
+        specialinvoke $u9.<java.util.Formatter: void <init>()>();
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int)>("foo", $u9, 1, 5, 2);
+
+        $stack50 = virtualinvoke $stack49.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo   ", $stack50);
+
+        return;
+    }
+
+    public void testAlternatePadCharacter()
+    {
+        java.util.Formatter $stack5, $stack10, $stack15, $stack20, $stack25, $stack30, $stack35, $stack40, $stack45, $stack50, $u0, $u1, $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9;
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6;
+        java.lang.String $stack6, $stack11, $stack16, $stack21, $stack26, $stack31, $stack36, $stack41, $stack46, $stack51;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        $u0 = new java.util.Formatter;
+
+        specialinvoke $u0.<java.util.Formatter: void <init>()>();
+
+        $i0 = (int) -1;
+
+        $i1 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u0, 0, $i0, $i1, 95);
+
+        $stack6 = virtualinvoke $stack5.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack6);
+
+        $u1 = new java.util.Formatter;
+
+        specialinvoke $u1.<java.util.Formatter: void <init>()>();
+
+        $i2 = (int) -1;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u1, 0, $i2, 2, 95);
+
+        $stack11 = virtualinvoke $stack10.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo", $stack11);
+
+        $u2 = new java.util.Formatter;
+
+        specialinvoke $u2.<java.util.Formatter: void <init>()>();
+
+        $i3 = (int) -1;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u2, 0, 4, $i3, 95);
+
+        $stack16 = virtualinvoke $stack15.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_foo", $stack16);
+
+        $u3 = new java.util.Formatter;
+
+        specialinvoke $u3.<java.util.Formatter: void <init>()>();
+
+        $i4 = (int) -1;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u3, 0, 6, $i4, 95);
+
+        $stack21 = virtualinvoke $stack20.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___foo", $stack21);
+
+        $u4 = new java.util.Formatter;
+
+        specialinvoke $u4.<java.util.Formatter: void <init>()>();
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u4, 0, 3, 2, 95);
+
+        $stack26 = virtualinvoke $stack25.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_fo", $stack26);
+
+        $u5 = new java.util.Formatter;
+
+        specialinvoke $u5.<java.util.Formatter: void <init>()>();
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u5, 0, 5, 2, 95);
+
+        $stack31 = virtualinvoke $stack30.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___fo", $stack31);
+
+        $u6 = new java.util.Formatter;
+
+        specialinvoke $u6.<java.util.Formatter: void <init>()>();
+
+        $i5 = (int) -1;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u6, 1, 4, $i5, 95);
+
+        $stack36 = virtualinvoke $stack35.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo_", $stack36);
+
+        $u7 = new java.util.Formatter;
+
+        specialinvoke $u7.<java.util.Formatter: void <init>()>();
+
+        $i6 = (int) -1;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u7, 1, 6, $i6, 95);
+
+        $stack41 = virtualinvoke $stack40.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo___", $stack41);
+
+        $u8 = new java.util.Formatter;
+
+        specialinvoke $u8.<java.util.Formatter: void <init>()>();
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u8, 1, 3, 2, 95);
+
+        $stack46 = virtualinvoke $stack45.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo_", $stack46);
+
+        $u9 = new java.util.Formatter;
+
+        specialinvoke $u9.<java.util.Formatter: void <init>()>();
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char)>("foo", $u9, 1, 5, 2, 95);
+
+        $stack51 = virtualinvoke $stack50.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo___", $stack51);
+
+        return;
+    }
+
+    public void testEllipsis()
+    {
+        java.lang.String $stack5, $stack10, $stack15, $stack20, $stack25, $stack30, $stack35, $stack40, $stack45, $stack50, $stack55, $stack60, $stack65, $stack70, $stack75, $stack80, $stack85, $stack90, $stack95, $stack100;
+        java.util.Formatter $stack4, $stack9, $stack14, $stack19, $stack24, $stack29, $stack34, $stack39, $stack44, $stack49, $stack54, $stack59, $stack64, $stack69, $stack74, $stack79, $stack84, $stack89, $stack94, $stack99, $u0, $u1, $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9, $u10, $u11, $u12, $u13, $u14, $u15, $u16, $u17, $u18, $u19;
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        $u0 = new java.util.Formatter;
+
+        specialinvoke $u0.<java.util.Formatter: void <init>()>();
+
+        $i0 = (int) -1;
+
+        $i1 = (int) -1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u0, 0, $i0, $i1, "*");
+
+        $stack5 = virtualinvoke $stack4.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $u1 = new java.util.Formatter;
+
+        specialinvoke $u1.<java.util.Formatter: void <init>()>();
+
+        $i2 = (int) -1;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u1, 0, $i2, 2, "*");
+
+        $stack10 = virtualinvoke $stack9.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f*", $stack10);
+
+        $u2 = new java.util.Formatter;
+
+        specialinvoke $u2.<java.util.Formatter: void <init>()>();
+
+        $i3 = (int) -1;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u2, 0, 4, $i3, "*");
+
+        $stack15 = virtualinvoke $stack14.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" foo", $stack15);
+
+        $u3 = new java.util.Formatter;
+
+        specialinvoke $u3.<java.util.Formatter: void <init>()>();
+
+        $i4 = (int) -1;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u3, 0, 6, $i4, "*");
+
+        $stack20 = virtualinvoke $stack19.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   foo", $stack20);
+
+        $u4 = new java.util.Formatter;
+
+        specialinvoke $u4.<java.util.Formatter: void <init>()>();
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u4, 0, 3, 2, "*");
+
+        $stack25 = virtualinvoke $stack24.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" f*", $stack25);
+
+        $u5 = new java.util.Formatter;
+
+        specialinvoke $u5.<java.util.Formatter: void <init>()>();
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u5, 0, 5, 2, "*");
+
+        $stack30 = virtualinvoke $stack29.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   f*", $stack30);
+
+        $u6 = new java.util.Formatter;
+
+        specialinvoke $u6.<java.util.Formatter: void <init>()>();
+
+        $i5 = (int) -1;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u6, 1, 4, $i5, "*");
+
+        $stack35 = virtualinvoke $stack34.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo ", $stack35);
+
+        $u7 = new java.util.Formatter;
+
+        specialinvoke $u7.<java.util.Formatter: void <init>()>();
+
+        $i6 = (int) -1;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u7, 1, 6, $i6, "*");
+
+        $stack40 = virtualinvoke $stack39.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo   ", $stack40);
+
+        $u8 = new java.util.Formatter;
+
+        specialinvoke $u8.<java.util.Formatter: void <init>()>();
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u8, 1, 3, 2, "*");
+
+        $stack45 = virtualinvoke $stack44.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f* ", $stack45);
+
+        $u9 = new java.util.Formatter;
+
+        specialinvoke $u9.<java.util.Formatter: void <init>()>();
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u9, 1, 5, 2, "*");
+
+        $stack50 = virtualinvoke $stack49.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f*   ", $stack50);
+
+        $u10 = new java.util.Formatter;
+
+        specialinvoke $u10.<java.util.Formatter: void <init>()>();
+
+        $i7 = (int) -1;
+
+        $i8 = (int) -1;
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u10, 0, $i7, $i8, "+*");
+
+        $stack55 = virtualinvoke $stack54.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack55);
+
+        $u11 = new java.util.Formatter;
+
+        specialinvoke $u11.<java.util.Formatter: void <init>()>();
+
+        $i9 = (int) -1;
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u11, 0, $i9, 2, "+*");
+
+        $stack60 = virtualinvoke $stack59.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+*", $stack60);
+
+        $u12 = new java.util.Formatter;
+
+        specialinvoke $u12.<java.util.Formatter: void <init>()>();
+
+        $i10 = (int) -1;
+
+        $stack64 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u12, 0, 4, $i10, "+*");
+
+        $stack65 = virtualinvoke $stack64.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" foo", $stack65);
+
+        $u13 = new java.util.Formatter;
+
+        specialinvoke $u13.<java.util.Formatter: void <init>()>();
+
+        $i11 = (int) -1;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u13, 0, 6, $i11, "+*");
+
+        $stack70 = virtualinvoke $stack69.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   foo", $stack70);
+
+        $u14 = new java.util.Formatter;
+
+        specialinvoke $u14.<java.util.Formatter: void <init>()>();
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u14, 0, 3, 2, "+*");
+
+        $stack75 = virtualinvoke $stack74.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(" +*", $stack75);
+
+        $u15 = new java.util.Formatter;
+
+        specialinvoke $u15.<java.util.Formatter: void <init>()>();
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u15, 0, 5, 2, "+*");
+
+        $stack80 = virtualinvoke $stack79.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("   +*", $stack80);
+
+        $u16 = new java.util.Formatter;
+
+        specialinvoke $u16.<java.util.Formatter: void <init>()>();
+
+        $i12 = (int) -1;
+
+        $stack84 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u16, 1, 4, $i12, "+*");
+
+        $stack85 = virtualinvoke $stack84.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo ", $stack85);
+
+        $u17 = new java.util.Formatter;
+
+        specialinvoke $u17.<java.util.Formatter: void <init>()>();
+
+        $i13 = (int) -1;
+
+        $stack89 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u17, 1, 6, $i13, "+*");
+
+        $stack90 = virtualinvoke $stack89.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo   ", $stack90);
+
+        $u18 = new java.util.Formatter;
+
+        specialinvoke $u18.<java.util.Formatter: void <init>()>();
+
+        $stack94 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u18, 1, 3, 2, "+*");
+
+        $stack95 = virtualinvoke $stack94.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+* ", $stack95);
+
+        $u19 = new java.util.Formatter;
+
+        specialinvoke $u19.<java.util.Formatter: void <init>()>();
+
+        $stack99 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u19, 1, 5, 2, "+*");
+
+        $stack100 = virtualinvoke $stack99.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+*   ", $stack100);
+
+        return;
+    }
+
+    public void testIllegalEllipsis()
+    {
+        int $i0;
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+        java.util.Formatter $u0;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        $u0 = new java.util.Formatter;
+
+        specialinvoke $u0.<java.util.Formatter: void <init>()>();
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,java.lang.CharSequence)>("foo", $u0, 0, $i0, 1, "xx");
+
+        return;
+    }
+
+    public void testAlternatePadCharAndEllipsis()
+    {
+        java.lang.String $stack5, $stack10, $stack15, $stack20, $stack25, $stack30, $stack35, $stack40, $stack45, $stack50, $stack55, $stack60, $stack65, $stack70, $stack75, $stack80, $stack85, $stack90, $stack95, $stack100;
+        java.util.Formatter $stack4, $stack9, $stack14, $stack19, $stack24, $stack29, $stack34, $stack39, $stack44, $stack49, $stack54, $stack59, $stack64, $stack69, $stack74, $stack79, $stack84, $stack89, $stack94, $stack99, $u0, $u1, $u2, $u3, $u4, $u5, $u6, $u7, $u8, $u9, $u10, $u11, $u12, $u13, $u14, $u15, $u16, $u17, $u18, $u19;
+        org.apache.commons.lang3.text.FormattableUtilsTest this;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13;
+
+        this := @this: org.apache.commons.lang3.text.FormattableUtilsTest;
+
+        $u0 = new java.util.Formatter;
+
+        specialinvoke $u0.<java.util.Formatter: void <init>()>();
+
+        $i0 = (int) -1;
+
+        $i1 = (int) -1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u0, 0, $i0, $i1, 95, "*");
+
+        $stack5 = virtualinvoke $stack4.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack5);
+
+        $u1 = new java.util.Formatter;
+
+        specialinvoke $u1.<java.util.Formatter: void <init>()>();
+
+        $i2 = (int) -1;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u1, 0, $i2, 2, 95, "*");
+
+        $stack10 = virtualinvoke $stack9.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f*", $stack10);
+
+        $u2 = new java.util.Formatter;
+
+        specialinvoke $u2.<java.util.Formatter: void <init>()>();
+
+        $i3 = (int) -1;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u2, 0, 4, $i3, 95, "*");
+
+        $stack15 = virtualinvoke $stack14.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_foo", $stack15);
+
+        $u3 = new java.util.Formatter;
+
+        specialinvoke $u3.<java.util.Formatter: void <init>()>();
+
+        $i4 = (int) -1;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u3, 0, 6, $i4, 95, "*");
+
+        $stack20 = virtualinvoke $stack19.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___foo", $stack20);
+
+        $u4 = new java.util.Formatter;
+
+        specialinvoke $u4.<java.util.Formatter: void <init>()>();
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u4, 0, 3, 2, 95, "*");
+
+        $stack25 = virtualinvoke $stack24.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_f*", $stack25);
+
+        $u5 = new java.util.Formatter;
+
+        specialinvoke $u5.<java.util.Formatter: void <init>()>();
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u5, 0, 5, 2, 95, "*");
+
+        $stack30 = virtualinvoke $stack29.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___f*", $stack30);
+
+        $u6 = new java.util.Formatter;
+
+        specialinvoke $u6.<java.util.Formatter: void <init>()>();
+
+        $i5 = (int) -1;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u6, 1, 4, $i5, 95, "*");
+
+        $stack35 = virtualinvoke $stack34.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo_", $stack35);
+
+        $u7 = new java.util.Formatter;
+
+        specialinvoke $u7.<java.util.Formatter: void <init>()>();
+
+        $i6 = (int) -1;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u7, 1, 6, $i6, 95, "*");
+
+        $stack40 = virtualinvoke $stack39.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo___", $stack40);
+
+        $u8 = new java.util.Formatter;
+
+        specialinvoke $u8.<java.util.Formatter: void <init>()>();
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u8, 1, 3, 2, 95, "*");
+
+        $stack45 = virtualinvoke $stack44.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f*_", $stack45);
+
+        $u9 = new java.util.Formatter;
+
+        specialinvoke $u9.<java.util.Formatter: void <init>()>();
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u9, 1, 5, 2, 95, "*");
+
+        $stack50 = virtualinvoke $stack49.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f*___", $stack50);
+
+        $u10 = new java.util.Formatter;
+
+        specialinvoke $u10.<java.util.Formatter: void <init>()>();
+
+        $i7 = (int) -1;
+
+        $i8 = (int) -1;
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u10, 0, $i7, $i8, 95, "+*");
+
+        $stack55 = virtualinvoke $stack54.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack55);
+
+        $u11 = new java.util.Formatter;
+
+        specialinvoke $u11.<java.util.Formatter: void <init>()>();
+
+        $i9 = (int) -1;
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u11, 0, $i9, 2, 95, "+*");
+
+        $stack60 = virtualinvoke $stack59.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+*", $stack60);
+
+        $u12 = new java.util.Formatter;
+
+        specialinvoke $u12.<java.util.Formatter: void <init>()>();
+
+        $i10 = (int) -1;
+
+        $stack64 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u12, 0, 4, $i10, 95, "+*");
+
+        $stack65 = virtualinvoke $stack64.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_foo", $stack65);
+
+        $u13 = new java.util.Formatter;
+
+        specialinvoke $u13.<java.util.Formatter: void <init>()>();
+
+        $i11 = (int) -1;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u13, 0, 6, $i11, 95, "+*");
+
+        $stack70 = virtualinvoke $stack69.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___foo", $stack70);
+
+        $u14 = new java.util.Formatter;
+
+        specialinvoke $u14.<java.util.Formatter: void <init>()>();
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u14, 0, 3, 2, 95, "+*");
+
+        $stack75 = virtualinvoke $stack74.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("_+*", $stack75);
+
+        $u15 = new java.util.Formatter;
+
+        specialinvoke $u15.<java.util.Formatter: void <init>()>();
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u15, 0, 5, 2, 95, "+*");
+
+        $stack80 = virtualinvoke $stack79.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("___+*", $stack80);
+
+        $u16 = new java.util.Formatter;
+
+        specialinvoke $u16.<java.util.Formatter: void <init>()>();
+
+        $i12 = (int) -1;
+
+        $stack84 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u16, 1, 4, $i12, 95, "+*");
+
+        $stack85 = virtualinvoke $stack84.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo_", $stack85);
+
+        $u17 = new java.util.Formatter;
+
+        specialinvoke $u17.<java.util.Formatter: void <init>()>();
+
+        $i13 = (int) -1;
+
+        $stack89 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u17, 1, 6, $i13, 95, "+*");
+
+        $stack90 = virtualinvoke $stack89.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo___", $stack90);
+
+        $u18 = new java.util.Formatter;
+
+        specialinvoke $u18.<java.util.Formatter: void <init>()>();
+
+        $stack94 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u18, 1, 3, 2, 95, "+*");
+
+        $stack95 = virtualinvoke $stack94.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+*_", $stack95);
+
+        $u19 = new java.util.Formatter;
+
+        specialinvoke $u19.<java.util.Formatter: void <init>()>();
+
+        $stack99 = staticinvoke <org.apache.commons.lang3.text.FormattableUtils: java.util.Formatter append(java.lang.CharSequence,java.util.Formatter,int,int,int,char,java.lang.CharSequence)>("foo", $u19, 1, 5, 2, 95, "+*");
+
+        $stack100 = virtualinvoke $stack99.<java.util.Formatter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("+*___", $stack100);
+
+        return;
+    }
+}

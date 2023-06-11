@@ -1,0 +1,1257 @@
+public class org.apache.commons.lang3.Validate extends java.lang.Object
+{
+    private static final java.lang.String DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_MATCHES_PATTERN_EX;
+    private static final java.lang.String DEFAULT_IS_NULL_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_IS_TRUE_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NOT_BLANK_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NOT_EMPTY_CHAR_SEQUENCE_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_VALID_INDEX_ARRAY_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_VALID_INDEX_CHAR_SEQUENCE_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_VALID_INDEX_COLLECTION_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_VALID_STATE_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_IS_ASSIGNABLE_EX_MESSAGE;
+    private static final java.lang.String DEFAULT_IS_INSTANCE_OF_EX_MESSAGE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.Validate this;
+
+        this := @this: org.apache.commons.lang3.Validate;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void isTrue(boolean, java.lang.String, long)
+    {
+        java.lang.Object[] $stack5;
+        java.lang.Long $stack7;
+        long value;
+        java.lang.String message, $stack8;
+        java.lang.IllegalArgumentException $stack4;
+        boolean expression;
+
+        expression := @parameter0: boolean;
+
+        message := @parameter1: java.lang.String;
+
+        value := @parameter2: long;
+
+        if expression != 0 goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = newarray (java.lang.Object)[1];
+
+        $stack7 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(value);
+
+        $stack5[0] = $stack7;
+
+        $stack8 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, $stack5);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack8);
+
+        throw $stack4;
+
+     label1:
+        return;
+    }
+
+    public static void isTrue(boolean, java.lang.String, double)
+    {
+        java.lang.Object[] $stack5;
+        java.lang.Double $stack7;
+        java.lang.String message, $stack8;
+        java.lang.IllegalArgumentException $stack4;
+        boolean expression;
+        double value;
+
+        expression := @parameter0: boolean;
+
+        message := @parameter1: java.lang.String;
+
+        value := @parameter2: double;
+
+        if expression != 0 goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = newarray (java.lang.Object)[1];
+
+        $stack7 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(value);
+
+        $stack5[0] = $stack7;
+
+        $stack8 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, $stack5);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack8);
+
+        throw $stack4;
+
+     label1:
+        return;
+    }
+
+    public static transient void isTrue(boolean, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.String message, $stack4;
+        java.lang.IllegalArgumentException $stack3;
+        boolean expression;
+
+        expression := @parameter0: boolean;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if expression != 0 goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack4);
+
+        throw $stack3;
+
+     label1:
+        return;
+    }
+
+    public static void isTrue(boolean)
+    {
+        java.lang.IllegalArgumentException $stack1;
+        boolean expression;
+
+        expression := @parameter0: boolean;
+
+        if expression != 0 goto label1;
+
+        $stack1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The validated expression is false");
+
+        throw $stack1;
+
+     label1:
+        return;
+    }
+
+    public static java.lang.Object notNull(java.lang.Object)
+    {
+        java.lang.Object object, $stack2;
+        java.lang.Object[] $stack1;
+
+        object := @parameter0: java.lang.Object;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(object, "The validated object is null", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.Object notNull(java.lang.Object, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.Object object;
+        java.lang.String message, $stack4;
+        java.lang.NullPointerException $stack3;
+
+        object := @parameter0: java.lang.Object;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if object != null goto label1;
+
+        $stack3 = new java.lang.NullPointerException;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack3.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack4);
+
+        throw $stack3;
+
+     label1:
+        return object;
+    }
+
+    public static transient java.lang.Object[] notEmpty(java.lang.Object[], java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] array, values;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.NullPointerException $stack6;
+        int $stack3;
+        java.lang.String message, $stack5, $stack7;
+
+        array := @parameter0: java.lang.Object[];
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if array != null goto label1;
+
+        $stack6 = new java.lang.NullPointerException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack4;
+
+     label2:
+        return array;
+    }
+
+    public static java.lang.Object[] notEmpty(java.lang.Object[])
+    {
+        java.lang.Object[] array, $stack1, $stack2;
+
+        array := @parameter0: java.lang.Object[];
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>(array, "The validated array is empty", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.util.Collection notEmpty(java.util.Collection, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.util.Collection collection;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.NullPointerException $stack6;
+        java.lang.String message, $stack5, $stack7;
+        boolean $stack3;
+
+        collection := @parameter0: java.util.Collection;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if collection != null goto label1;
+
+        $stack6 = new java.lang.NullPointerException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label1:
+        $stack3 = interfaceinvoke collection.<java.util.Collection: boolean isEmpty()>();
+
+        if $stack3 == 0 goto label2;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack4;
+
+     label2:
+        return collection;
+    }
+
+    public static java.util.Collection notEmpty(java.util.Collection)
+    {
+        java.lang.Object[] $stack1;
+        java.util.Collection collection, $stack2;
+
+        collection := @parameter0: java.util.Collection;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection,java.lang.String,java.lang.Object[])>(collection, "The validated collection is empty", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.util.Map notEmpty(java.util.Map, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.NullPointerException $stack6;
+        java.util.Map map;
+        java.lang.String message, $stack5, $stack7;
+        boolean $stack3;
+
+        map := @parameter0: java.util.Map;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if map != null goto label1;
+
+        $stack6 = new java.lang.NullPointerException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label1:
+        $stack3 = interfaceinvoke map.<java.util.Map: boolean isEmpty()>();
+
+        if $stack3 == 0 goto label2;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack4;
+
+     label2:
+        return map;
+    }
+
+    public static java.util.Map notEmpty(java.util.Map)
+    {
+        java.lang.Object[] $stack1;
+        java.util.Map map, $stack2;
+
+        map := @parameter0: java.util.Map;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map,java.lang.String,java.lang.Object[])>(map, "The validated map is empty", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.CharSequence notEmpty(java.lang.CharSequence, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.CharSequence chars;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.NullPointerException $stack6;
+        int $stack3;
+        java.lang.String message, $stack5, $stack7;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if chars != null goto label1;
+
+        $stack6 = new java.lang.NullPointerException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label1:
+        $stack3 = interfaceinvoke chars.<java.lang.CharSequence: int length()>();
+
+        if $stack3 != 0 goto label2;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack4;
+
+     label2:
+        return chars;
+    }
+
+    public static java.lang.CharSequence notEmpty(java.lang.CharSequence)
+    {
+        java.lang.Object[] $stack1;
+        java.lang.CharSequence chars, $stack2;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(chars, "The validated character sequence is empty", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.CharSequence notBlank(java.lang.CharSequence, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.CharSequence chars;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.NullPointerException $stack6;
+        java.lang.String message, $stack5, $stack7;
+        boolean $stack3;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if chars != null goto label1;
+
+        $stack6 = new java.lang.NullPointerException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.NullPointerException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isBlank(java.lang.CharSequence)>(chars);
+
+        if $stack3 == 0 goto label2;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack4;
+
+     label2:
+        return chars;
+    }
+
+    public static java.lang.CharSequence notBlank(java.lang.CharSequence)
+    {
+        java.lang.Object[] $stack1;
+        java.lang.CharSequence chars, $stack2;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(chars, "The validated character sequence is blank", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.Object[] noNullElements(java.lang.Object[], java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] array, values, $stack11;
+        java.lang.IllegalArgumentException $stack12;
+        java.lang.Integer $stack10;
+        int $stack6, i;
+        java.lang.Object $stack7;
+        java.lang.String message, $stack13;
+
+        array := @parameter0: java.lang.Object[];
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(array);
+
+        i = 0;
+
+     label1:
+        $stack6 = lengthof array;
+
+        if i >= $stack6 goto label3;
+
+        $stack7 = array[i];
+
+        if $stack7 != null goto label2;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] add(java.lang.Object[],java.lang.Object)>(values, $stack10);
+
+        $stack12 = new java.lang.IllegalArgumentException;
+
+        $stack13 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, $stack11);
+
+        specialinvoke $stack12.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack13);
+
+        throw $stack12;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return array;
+    }
+
+    public static java.lang.Object[] noNullElements(java.lang.Object[])
+    {
+        java.lang.Object[] array, $stack1, $stack2;
+
+        array := @parameter0: java.lang.Object[];
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>(array, "The validated array contains null element at index: %d", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.Iterable noNullElements(java.lang.Iterable, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values, $stack11, $stack14;
+        java.util.Iterator $stack7;
+        java.lang.IllegalArgumentException $stack15;
+        java.lang.Integer $stack13;
+        java.lang.Iterable iterable;
+        int i;
+        java.lang.Object $stack9;
+        java.lang.String message, $stack16;
+        boolean $stack8;
+
+        iterable := @parameter0: java.lang.Iterable;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(iterable);
+
+        i = 0;
+
+        $stack7 = interfaceinvoke iterable.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $stack8 = interfaceinvoke $stack7.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack8 == 0 goto label3;
+
+        $stack9 = interfaceinvoke $stack7.<java.util.Iterator: java.lang.Object next()>();
+
+        if $stack9 != null goto label2;
+
+        $stack11 = newarray (java.lang.Object)[1];
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i);
+
+        $stack11[0] = $stack13;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] addAll(java.lang.Object[],java.lang.Object[])>(values, $stack11);
+
+        $stack15 = new java.lang.IllegalArgumentException;
+
+        $stack16 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, $stack14);
+
+        specialinvoke $stack15.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack16);
+
+        throw $stack15;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return iterable;
+    }
+
+    public static java.lang.Iterable noNullElements(java.lang.Iterable)
+    {
+        java.lang.Object[] $stack1;
+        java.lang.Iterable iterable, $stack2;
+
+        iterable := @parameter0: java.lang.Iterable;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable,java.lang.String,java.lang.Object[])>(iterable, "The validated collection contains null element at index: %d", $stack1);
+
+        return $stack2;
+    }
+
+    public static transient java.lang.Object[] validIndex(java.lang.Object[], int, java.lang.String, java.lang.Object[])
+    {
+        java.lang.IndexOutOfBoundsException $stack5;
+        java.lang.Object[] array, values;
+        int index, $stack7;
+        java.lang.String message, $stack6;
+
+        array := @parameter0: java.lang.Object[];
+
+        index := @parameter1: int;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(array);
+
+        if index < 0 goto label1;
+
+        $stack7 = lengthof array;
+
+        if index < $stack7 goto label2;
+
+     label1:
+        $stack5 = new java.lang.IndexOutOfBoundsException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IndexOutOfBoundsException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label2:
+        return array;
+    }
+
+    public static java.lang.Object[] validIndex(java.lang.Object[], int)
+    {
+        java.lang.Object[] array, $stack2, $stack6;
+        int index;
+        java.lang.Integer $stack5;
+
+        array := @parameter0: java.lang.Object[];
+
+        index := @parameter1: int;
+
+        $stack2 = newarray (java.lang.Object)[1];
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(index);
+
+        $stack2[0] = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int,java.lang.String,java.lang.Object[])>(array, index, "The validated array index is invalid: %d", $stack2);
+
+        return $stack6;
+    }
+
+    public static transient java.util.Collection validIndex(java.util.Collection, int, java.lang.String, java.lang.Object[])
+    {
+        java.lang.IndexOutOfBoundsException $stack5;
+        java.lang.Object[] values;
+        java.util.Collection collection;
+        int index, $stack7;
+        java.lang.String message, $stack6;
+
+        collection := @parameter0: java.util.Collection;
+
+        index := @parameter1: int;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(collection);
+
+        if index < 0 goto label1;
+
+        $stack7 = interfaceinvoke collection.<java.util.Collection: int size()>();
+
+        if index < $stack7 goto label2;
+
+     label1:
+        $stack5 = new java.lang.IndexOutOfBoundsException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IndexOutOfBoundsException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label2:
+        return collection;
+    }
+
+    public static java.util.Collection validIndex(java.util.Collection, int)
+    {
+        java.lang.Object[] $stack2;
+        java.util.Collection collection, $stack6;
+        int index;
+        java.lang.Integer $stack5;
+
+        collection := @parameter0: java.util.Collection;
+
+        index := @parameter1: int;
+
+        $stack2 = newarray (java.lang.Object)[1];
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(index);
+
+        $stack2[0] = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>(collection, index, "The validated collection index is invalid: %d", $stack2);
+
+        return $stack6;
+    }
+
+    public static transient java.lang.CharSequence validIndex(java.lang.CharSequence, int, java.lang.String, java.lang.Object[])
+    {
+        java.lang.IndexOutOfBoundsException $stack5;
+        java.lang.Object[] values;
+        java.lang.CharSequence chars;
+        int index, $stack7;
+        java.lang.String message, $stack6;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(chars);
+
+        if index < 0 goto label1;
+
+        $stack7 = interfaceinvoke chars.<java.lang.CharSequence: int length()>();
+
+        if index < $stack7 goto label2;
+
+     label1:
+        $stack5 = new java.lang.IndexOutOfBoundsException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IndexOutOfBoundsException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label2:
+        return chars;
+    }
+
+    public static java.lang.CharSequence validIndex(java.lang.CharSequence, int)
+    {
+        java.lang.Object[] $stack2;
+        java.lang.CharSequence chars, $stack6;
+        int index;
+        java.lang.Integer $stack5;
+
+        chars := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        $stack2 = newarray (java.lang.Object)[1];
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(index);
+
+        $stack2[0] = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>(chars, index, "The validated character sequence index is invalid: %d", $stack2);
+
+        return $stack6;
+    }
+
+    public static void validState(boolean)
+    {
+        java.lang.IllegalStateException $stack1;
+        boolean expression;
+
+        expression := @parameter0: boolean;
+
+        if expression != 0 goto label1;
+
+        $stack1 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack1.<java.lang.IllegalStateException: void <init>(java.lang.String)>("The validated state is false");
+
+        throw $stack1;
+
+     label1:
+        return;
+    }
+
+    public static transient void validState(boolean, java.lang.String, java.lang.Object[])
+    {
+        java.lang.IllegalStateException $stack3;
+        java.lang.Object[] values;
+        java.lang.String message, $stack4;
+        boolean expression;
+
+        expression := @parameter0: boolean;
+
+        message := @parameter1: java.lang.String;
+
+        values := @parameter2: java.lang.Object[];
+
+        if expression != 0 goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack4);
+
+        throw $stack3;
+
+     label1:
+        return;
+    }
+
+    public static void matchesPattern(java.lang.CharSequence, java.lang.String)
+    {
+        java.lang.Object[] $stack4;
+        java.lang.CharSequence input;
+        java.lang.String pattern, $stack5;
+        java.lang.IllegalArgumentException $stack3;
+        boolean $stack2;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack2 = staticinvoke <java.util.regex.Pattern: boolean matches(java.lang.String,java.lang.CharSequence)>(pattern, input);
+
+        if $stack2 != 0 goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        $stack4 = newarray (java.lang.Object)[2];
+
+        $stack4[0] = input;
+
+        $stack4[1] = pattern;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("The string %s does not match the pattern %s", $stack4);
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack5);
+
+        throw $stack3;
+
+     label1:
+        return;
+    }
+
+    public static transient void matchesPattern(java.lang.CharSequence, java.lang.String, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.CharSequence input;
+        java.lang.String pattern, message, $stack6;
+        java.lang.IllegalArgumentException $stack5;
+        boolean $stack4;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        pattern := @parameter1: java.lang.String;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        $stack4 = staticinvoke <java.util.regex.Pattern: boolean matches(java.lang.String,java.lang.CharSequence)>(pattern, input);
+
+        if $stack4 != 0 goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label1:
+        return;
+    }
+
+    public static void inclusiveBetween(java.lang.Object, java.lang.Object, java.lang.Comparable)
+    {
+        java.lang.Object[] $stack5;
+        java.lang.IllegalArgumentException $stack4;
+        int $stack3, $stack7;
+        java.lang.Comparable value;
+        java.lang.Object start, end;
+        java.lang.String $stack6;
+
+        start := @parameter0: java.lang.Object;
+
+        end := @parameter1: java.lang.Object;
+
+        value := @parameter2: java.lang.Comparable;
+
+        $stack3 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(start);
+
+        if $stack3 < 0 goto label1;
+
+        $stack7 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(end);
+
+        if $stack7 <= 0 goto label2;
+
+     label1:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = newarray (java.lang.Object)[3];
+
+        $stack5[0] = value;
+
+        $stack5[1] = start;
+
+        $stack5[2] = end;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("The value %s is not in the specified inclusive range of %s to %s", $stack5);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack4;
+
+     label2:
+        return;
+    }
+
+    public static transient void inclusiveBetween(java.lang.Object, java.lang.Object, java.lang.Comparable, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.IllegalArgumentException $stack6;
+        int $stack5, $stack8;
+        java.lang.Comparable value;
+        java.lang.Object start, end;
+        java.lang.String message, $stack7;
+
+        start := @parameter0: java.lang.Object;
+
+        end := @parameter1: java.lang.Object;
+
+        value := @parameter2: java.lang.Comparable;
+
+        message := @parameter3: java.lang.String;
+
+        values := @parameter4: java.lang.Object[];
+
+        $stack5 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(start);
+
+        if $stack5 < 0 goto label1;
+
+        $stack8 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(end);
+
+        if $stack8 <= 0 goto label2;
+
+     label1:
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label2:
+        return;
+    }
+
+    public static void exclusiveBetween(java.lang.Object, java.lang.Object, java.lang.Comparable)
+    {
+        java.lang.Object[] $stack5;
+        java.lang.IllegalArgumentException $stack4;
+        int $stack3, $stack7;
+        java.lang.Comparable value;
+        java.lang.Object start, end;
+        java.lang.String $stack6;
+
+        start := @parameter0: java.lang.Object;
+
+        end := @parameter1: java.lang.Object;
+
+        value := @parameter2: java.lang.Comparable;
+
+        $stack3 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(start);
+
+        if $stack3 <= 0 goto label1;
+
+        $stack7 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(end);
+
+        if $stack7 < 0 goto label2;
+
+     label1:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = newarray (java.lang.Object)[3];
+
+        $stack5[0] = value;
+
+        $stack5[1] = start;
+
+        $stack5[2] = end;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("The value %s is not in the specified exclusive range of %s to %s", $stack5);
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack4;
+
+     label2:
+        return;
+    }
+
+    public static transient void exclusiveBetween(java.lang.Object, java.lang.Object, java.lang.Comparable, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.IllegalArgumentException $stack6;
+        int $stack5, $stack8;
+        java.lang.Comparable value;
+        java.lang.Object start, end;
+        java.lang.String message, $stack7;
+
+        start := @parameter0: java.lang.Object;
+
+        end := @parameter1: java.lang.Object;
+
+        value := @parameter2: java.lang.Comparable;
+
+        message := @parameter3: java.lang.String;
+
+        values := @parameter4: java.lang.Object[];
+
+        $stack5 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(start);
+
+        if $stack5 <= 0 goto label1;
+
+        $stack8 = interfaceinvoke value.<java.lang.Comparable: int compareTo(java.lang.Object)>(end);
+
+        if $stack8 < 0 goto label2;
+
+     label1:
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        $stack7 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack7);
+
+        throw $stack6;
+
+     label2:
+        return;
+    }
+
+    public static void isInstanceOf(java.lang.Class, java.lang.Object)
+    {
+        java.lang.Object[] $stack4;
+        java.lang.IllegalArgumentException $stack3;
+        java.lang.Class type, $stack9;
+        java.lang.Object obj;
+        java.lang.String $stack7, $stack11, $stack10;
+        boolean $stack2;
+
+        type := @parameter0: java.lang.Class;
+
+        obj := @parameter1: java.lang.Object;
+
+        $stack2 = virtualinvoke type.<java.lang.Class: boolean isInstance(java.lang.Object)>(obj);
+
+        if $stack2 != 0 goto label3;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        $stack4 = newarray (java.lang.Object)[2];
+
+        $stack7 = virtualinvoke type.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4[0] = $stack7;
+
+        if obj != null goto label1;
+
+        $stack10 = "null";
+
+        goto label2;
+
+     label1:
+        $stack9 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Class: java.lang.String getName()>();
+
+     label2:
+        $stack4[1] = $stack10;
+
+        $stack11 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Expected type: %s, actual: %s", $stack4);
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack11);
+
+        throw $stack3;
+
+     label3:
+        return;
+    }
+
+    public static transient void isInstanceOf(java.lang.Class, java.lang.Object, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.Class type;
+        java.lang.Object obj;
+        java.lang.String message, $stack6;
+        java.lang.IllegalArgumentException $stack5;
+        boolean $stack4;
+
+        type := @parameter0: java.lang.Class;
+
+        obj := @parameter1: java.lang.Object;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        $stack4 = virtualinvoke type.<java.lang.Class: boolean isInstance(java.lang.Object)>(obj);
+
+        if $stack4 != 0 goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label1:
+        return;
+    }
+
+    public static void isAssignableFrom(java.lang.Class, java.lang.Class)
+    {
+        java.lang.Object[] $stack4;
+        java.lang.IllegalArgumentException $stack3;
+        java.lang.Class superType, type;
+        java.lang.String $stack9, $stack10, $stack7;
+        boolean $stack2;
+
+        superType := @parameter0: java.lang.Class;
+
+        type := @parameter1: java.lang.Class;
+
+        $stack2 = virtualinvoke superType.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(type);
+
+        if $stack2 != 0 goto label3;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        $stack4 = newarray (java.lang.Object)[2];
+
+        if type != null goto label1;
+
+        $stack7 = "null";
+
+        goto label2;
+
+     label1:
+        $stack7 = virtualinvoke type.<java.lang.Class: java.lang.String getName()>();
+
+     label2:
+        $stack4[0] = $stack7;
+
+        $stack9 = virtualinvoke superType.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4[1] = $stack9;
+
+        $stack10 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Cannot assign a %s to a %s", $stack4);
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack10);
+
+        throw $stack3;
+
+     label3:
+        return;
+    }
+
+    public static transient void isAssignableFrom(java.lang.Class, java.lang.Class, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] values;
+        java.lang.Class superType, type;
+        java.lang.String message, $stack6;
+        java.lang.IllegalArgumentException $stack5;
+        boolean $stack4;
+
+        superType := @parameter0: java.lang.Class;
+
+        type := @parameter1: java.lang.Class;
+
+        message := @parameter2: java.lang.String;
+
+        values := @parameter3: java.lang.Object[];
+
+        $stack4 = virtualinvoke superType.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>(type);
+
+        if $stack4 != 0 goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(message, values);
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack6);
+
+        throw $stack5;
+
+     label1:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_IS_INSTANCE_OF_EX_MESSAGE> = "Expected type: %s, actual: %s";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_IS_ASSIGNABLE_EX_MESSAGE> = "Cannot assign a %s to a %s";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_VALID_STATE_EX_MESSAGE> = "The validated state is false";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_VALID_INDEX_COLLECTION_EX_MESSAGE> = "The validated collection index is invalid: %d";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_VALID_INDEX_CHAR_SEQUENCE_EX_MESSAGE> = "The validated character sequence index is invalid: %d";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_VALID_INDEX_ARRAY_EX_MESSAGE> = "The validated array index is invalid: %d";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE> = "The validated map is empty";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE> = "The validated collection is empty";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NOT_EMPTY_CHAR_SEQUENCE_EX_MESSAGE> = "The validated character sequence is empty";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE> = "The validated array is empty";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NOT_BLANK_EX_MESSAGE> = "The validated character sequence is blank";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE> = "The validated collection contains null element at index: %d";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE> = "The validated array contains null element at index: %d";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_IS_TRUE_EX_MESSAGE> = "The validated expression is false";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_IS_NULL_EX_MESSAGE> = "The validated object is null";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_MATCHES_PATTERN_EX> = "The string %s does not match the pattern %s";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE> = "The value %s is not in the specified inclusive range of %s to %s";
+
+        <org.apache.commons.lang3.Validate: java.lang.String DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE> = "The value %s is not in the specified exclusive range of %s to %s";
+
+        return;
+    }
+}

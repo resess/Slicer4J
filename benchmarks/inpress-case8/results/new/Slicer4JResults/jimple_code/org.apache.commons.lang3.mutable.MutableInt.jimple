@@ -1,0 +1,451 @@
+public class org.apache.commons.lang3.mutable.MutableInt extends java.lang.Number implements java.lang.Comparable, org.apache.commons.lang3.mutable.Mutable
+{
+    private static final long serialVersionUID;
+    private int value;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        int value;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        value := @parameter0: int;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = value;
+
+        return;
+    }
+
+    public void <init>(java.lang.Number)
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Number value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        value := @parameter0: java.lang.Number;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = virtualinvoke value.<java.lang.Number: int intValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String) throws java.lang.NumberFormatException
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.String value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        value := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(value);
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack2;
+
+        return;
+    }
+
+    public java.lang.Integer getValue()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack1);
+
+        return $stack2;
+    }
+
+    public void setValue(int)
+    {
+        int value;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        value := @parameter0: int;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = value;
+
+        return;
+    }
+
+    public void setValue(java.lang.Number)
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Number value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        value := @parameter0: java.lang.Number;
+
+        $stack2 = virtualinvoke value.<java.lang.Number: int intValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack2;
+
+        return;
+    }
+
+    public void increment()
+    {
+        int $stack1, $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = $stack1 + 1;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack2;
+
+        return;
+    }
+
+    public void decrement()
+    {
+        int $stack1, $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = $stack1 - 1;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack2;
+
+        return;
+    }
+
+    public void add(int)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+        int operand, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        operand := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = $stack2 + operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack3;
+
+        return;
+    }
+
+    public void add(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+        int $stack2, $stack3, $stack4;
+        java.lang.Number operand;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: int intValue()>();
+
+        $stack4 = $stack2 + $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack4;
+
+        return;
+    }
+
+    public void subtract(int)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+        int operand, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        operand := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = $stack2 - operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack3;
+
+        return;
+    }
+
+    public void subtract(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+        int $stack2, $stack3, $stack4;
+        java.lang.Number operand;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: int intValue()>();
+
+        $stack4 = $stack2 - $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableInt: int value> = $stack4;
+
+        return;
+    }
+
+    public int intValue()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        return $stack1;
+    }
+
+    public long longValue()
+    {
+        int $stack1;
+        long $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = (long) $stack1;
+
+        return $stack2;
+    }
+
+    public float floatValue()
+    {
+        int $stack1;
+        float $stack2;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = (float) $stack1;
+
+        return $stack2;
+    }
+
+    public double doubleValue()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        double $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = (double) $stack1;
+
+        return $stack2;
+    }
+
+    public java.lang.Integer toInteger()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableInt: int intValue()>();
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this, $stack3;
+        int $stack4, $stack5;
+        java.lang.Object obj;
+        boolean $stack2, $stack6;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = obj instanceof org.apache.commons.lang3.mutable.MutableInt;
+
+        if $stack2 == 0 goto label3;
+
+        $stack4 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = (org.apache.commons.lang3.mutable.MutableInt) obj;
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.mutable.MutableInt: int intValue()>();
+
+        if $stack4 != $stack5 goto label1;
+
+        $stack6 = 1;
+
+        goto label2;
+
+     label1:
+        $stack6 = 0;
+
+     label2:
+        return $stack6;
+
+     label3:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        return $stack1;
+    }
+
+    public int compareTo(org.apache.commons.lang3.mutable.MutableInt)
+    {
+        org.apache.commons.lang3.mutable.MutableInt other, this;
+        byte $stack5;
+        int anotherVal, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        other := @parameter0: org.apache.commons.lang3.mutable.MutableInt;
+
+        anotherVal = other.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        if $stack3 >= anotherVal goto label1;
+
+        $stack5 = -1;
+
+        goto label3;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        if $stack4 != anotherVal goto label2;
+
+        $stack5 = 0;
+
+        goto label3;
+
+     label2:
+        $stack5 = 1;
+
+     label3:
+        return $stack5;
+    }
+
+    public java.lang.String toString()
+    {
+        int $stack1;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableInt: int value>;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($stack1);
+
+        return $stack2;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableInt this, $stack2;
+        int $stack3;
+        java.lang.Object x0;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.mutable.MutableInt) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableInt: int compareTo(org.apache.commons.lang3.mutable.MutableInt)>($stack2);
+
+        return $stack3;
+    }
+
+    public volatile void setValue(java.lang.Object)
+    {
+        java.lang.Object x0;
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Number $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.Number) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.mutable.MutableInt: void setValue(java.lang.Number)>($stack2);
+
+        return;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        org.apache.commons.lang3.mutable.MutableInt this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableInt;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableInt: java.lang.Integer getValue()>();
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.mutable.MutableInt: long serialVersionUID> = 512176391864L;
+
+        return;
+    }
+}

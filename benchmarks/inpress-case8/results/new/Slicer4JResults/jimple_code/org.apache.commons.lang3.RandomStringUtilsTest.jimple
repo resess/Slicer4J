@@ -1,0 +1,964 @@
+public class org.apache.commons.lang3.RandomStringUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        org.apache.commons.lang3.RandomStringUtils $stack2;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.RandomStringUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.RandomStringUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/RandomStringUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/RandomStringUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/RandomStringUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testRandomStringUtils()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        long $stack10, $stack15, $stack22, $stack31, $stack40, $stack49, $stack58, $stack68, $stack74, $stack83, $stack93, $stack99, $stack102;
+        java.lang.String $stack6, $stack11, $stack18, $stack24, $stack27, $stack33, $stack36, $stack42, $stack45, $stack51, $stack54, $stack60, $stack64, $stack70, $stack79, $stack85, $stack89, $stack95, $stack110, $stack118, $stack119, $stack147, i_1#53;
+        char[] $stack78, $stack88, $stack94;
+        java.util.Random $u0, $u1;
+        boolean $stack17, $stack26, $stack35, $stack44, $stack53, $stack62, $stack76, $stack87, $stack101, $stack173, $stack177, $stack185, $stack194, $stack198, $stack210, $stack209, $stack200, $stack199, $stack188, $stack179, $stack178, $stack165, $stack164, $stack150, $stack145, $stack144, $stack130, $stack120;
+        int $stack9, $stack14, $stack21, $stack30, $stack39, $stack48, $stack57, $stack67, $stack73, $stack82, $stack92, $stack98, $stack141, $stack161, i_1, $stack23, $stack32, $stack41, $stack50, i_2, $stack59, $stack84, $i0, $i1, $i2, $i3, $i4, $i5;
+        char $stack140, $stack160, $stack172, $stack176, $stack184, $stack193, $stack197, $stack205, $stack208;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int)>(50);
+
+        $stack9 = virtualinvoke $stack6.<java.lang.String: int length()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int)>(50);
+
+        $stack14 = virtualinvoke $stack11.<java.lang.String: int length()>();
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack15);
+
+        $stack17 = virtualinvoke $stack6.<java.lang.String: boolean equals(java.lang.Object)>($stack11);
+
+        if $stack17 != 0 goto label01;
+
+        $stack210 = 1;
+
+        goto label02;
+
+     label01:
+        $stack210 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack210);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAscii(int)>(50);
+
+        $stack21 = virtualinvoke $stack18.<java.lang.String: int length()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("randomAscii(50) length", 50L, $stack22);
+
+        i_1 = 0;
+
+     label03:
+        $stack23 = virtualinvoke $stack18.<java.lang.String: int length()>();
+
+        if i_1 >= $stack23 goto label06;
+
+        $stack205 = virtualinvoke $stack18.<java.lang.String: char charAt(int)>(i_1);
+
+        $i0 = (int) $stack205;
+
+        if $i0 < 32 goto label04;
+
+        $stack208 = virtualinvoke $stack18.<java.lang.String: char charAt(int)>(i_1);
+
+        $i1 = (int) $stack208;
+
+        if $i1 > 127 goto label04;
+
+        $stack209 = 1;
+
+        goto label05;
+
+     label04:
+        $stack209 = 0;
+
+     label05:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("char between 32 and 127", $stack209);
+
+        i_1 = i_1 + 1;
+
+        goto label03;
+
+     label06:
+        $stack24 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAscii(int)>(50);
+
+        $stack26 = virtualinvoke $stack18.<java.lang.String: boolean equals(java.lang.Object)>($stack24);
+
+        if $stack26 != 0 goto label07;
+
+        $stack200 = 1;
+
+        goto label08;
+
+     label07:
+        $stack200 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack200);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAlphabetic(int)>(50);
+
+        $stack30 = virtualinvoke $stack27.<java.lang.String: int length()>();
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("randomAlphabetic(50)", 50L, $stack31);
+
+        i_1 = 0;
+
+     label09:
+        $stack32 = virtualinvoke $stack27.<java.lang.String: int length()>();
+
+        if i_1 >= $stack32 goto label12;
+
+        $stack193 = virtualinvoke $stack27.<java.lang.String: char charAt(int)>(i_1);
+
+        $stack194 = staticinvoke <java.lang.Character: boolean isLetter(char)>($stack193);
+
+        if $stack194 == 0 goto label10;
+
+        $stack197 = virtualinvoke $stack27.<java.lang.String: char charAt(int)>(i_1);
+
+        $stack198 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack197);
+
+        if $stack198 != 0 goto label10;
+
+        $stack199 = 1;
+
+        goto label11;
+
+     label10:
+        $stack199 = 0;
+
+     label11:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("r1 contains alphabetic", $stack199);
+
+        i_1 = i_1 + 1;
+
+        goto label09;
+
+     label12:
+        $stack33 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAlphabetic(int)>(50);
+
+        $stack35 = virtualinvoke $stack27.<java.lang.String: boolean equals(java.lang.Object)>($stack33);
+
+        if $stack35 != 0 goto label13;
+
+        $stack188 = 1;
+
+        goto label14;
+
+     label13:
+        $stack188 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack188);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAlphanumeric(int)>(50);
+
+        $stack39 = virtualinvoke $stack36.<java.lang.String: int length()>();
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("randomAlphanumeric(50)", 50L, $stack40);
+
+        i_1 = 0;
+
+     label15:
+        $stack41 = virtualinvoke $stack36.<java.lang.String: int length()>();
+
+        if i_1 >= $stack41 goto label16;
+
+        $stack184 = virtualinvoke $stack36.<java.lang.String: char charAt(int)>(i_1);
+
+        $stack185 = staticinvoke <java.lang.Character: boolean isLetterOrDigit(char)>($stack184);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("r1 contains alphanumeric", $stack185);
+
+        i_1 = i_1 + 1;
+
+        goto label15;
+
+     label16:
+        $stack42 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomAlphabetic(int)>(50);
+
+        $stack44 = virtualinvoke $stack36.<java.lang.String: boolean equals(java.lang.Object)>($stack42);
+
+        if $stack44 != 0 goto label17;
+
+        $stack179 = 1;
+
+        goto label18;
+
+     label17:
+        $stack179 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack179);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomNumeric(int)>(50);
+
+        $stack48 = virtualinvoke $stack45.<java.lang.String: int length()>();
+
+        $stack49 = (long) $stack48;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("randomNumeric(50)", 50L, $stack49);
+
+        i_1 = 0;
+
+     label19:
+        $stack50 = virtualinvoke $stack45.<java.lang.String: int length()>();
+
+        if i_1 >= $stack50 goto label22;
+
+        $stack172 = virtualinvoke $stack45.<java.lang.String: char charAt(int)>(i_1);
+
+        $stack173 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack172);
+
+        if $stack173 == 0 goto label20;
+
+        $stack176 = virtualinvoke $stack45.<java.lang.String: char charAt(int)>(i_1);
+
+        $stack177 = staticinvoke <java.lang.Character: boolean isLetter(char)>($stack176);
+
+        if $stack177 != 0 goto label20;
+
+        $stack178 = 1;
+
+        goto label21;
+
+     label20:
+        $stack178 = 0;
+
+     label21:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("r1 contains numeric", $stack178);
+
+        i_1 = i_1 + 1;
+
+        goto label19;
+
+     label22:
+        $stack51 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String randomNumeric(int)>(50);
+
+        $stack53 = virtualinvoke $stack45.<java.lang.String: boolean equals(java.lang.Object)>($stack51);
+
+        if $stack53 != 0 goto label23;
+
+        $stack165 = 1;
+
+        goto label24;
+
+     label23:
+        $stack165 = 0;
+
+     label24:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack165);
+
+        i_1#53 = "abcdefg";
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>(50, "abcdefg");
+
+        $stack57 = virtualinvoke $stack54.<java.lang.String: int length()>();
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50, \"abcdefg\")", 50L, $stack58);
+
+        i_2 = 0;
+
+     label25:
+        $stack59 = virtualinvoke $stack54.<java.lang.String: int length()>();
+
+        if i_2 >= $stack59 goto label28;
+
+        $stack160 = virtualinvoke $stack54.<java.lang.String: char charAt(int)>(i_2);
+
+        $i2 = (int) $stack160;
+
+        $stack161 = virtualinvoke i_1#53.<java.lang.String: int indexOf(int)>($i2);
+
+        $i3 = (int) -1;
+
+        if $stack161 <= $i3 goto label26;
+
+        $stack164 = 1;
+
+        goto label27;
+
+     label26:
+        $stack164 = 0;
+
+     label27:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("random char in set", $stack164);
+
+        i_2 = i_2 + 1;
+
+        goto label25;
+
+     label28:
+        $stack60 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>(50, "abcdefg");
+
+        $stack62 = virtualinvoke $stack54.<java.lang.String: boolean equals(java.lang.Object)>($stack60);
+
+        if $stack62 != 0 goto label29;
+
+        $stack150 = 1;
+
+        goto label30;
+
+     label29:
+        $stack150 = 0;
+
+     label30:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack150);
+
+        $stack64 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>(50, null);
+
+        $stack67 = virtualinvoke $stack64.<java.lang.String: int length()>();
+
+        $stack68 = (long) $stack67;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack68);
+
+        $stack70 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>(50, null);
+
+        $stack73 = virtualinvoke $stack70.<java.lang.String: int length()>();
+
+        $stack74 = (long) $stack73;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack74);
+
+        $stack76 = virtualinvoke $stack64.<java.lang.String: boolean equals(java.lang.Object)>($stack70);
+
+        if $stack76 != 0 goto label31;
+
+        $stack145 = 1;
+
+        goto label32;
+
+     label31:
+        $stack145 = 0;
+
+     label32:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack145);
+
+        i_1#53 = "stuvwxyz";
+
+        $stack147 = "stuvwxyz";
+
+        $stack78 = virtualinvoke $stack147.<java.lang.String: char[] toCharArray()>();
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>(50, $stack78);
+
+        $stack82 = virtualinvoke $stack79.<java.lang.String: int length()>();
+
+        $stack83 = (long) $stack82;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50, \"stuvwxyz\")", 50L, $stack83);
+
+        i_2 = 0;
+
+     label33:
+        $stack84 = virtualinvoke $stack79.<java.lang.String: int length()>();
+
+        if i_2 >= $stack84 goto label36;
+
+        $stack140 = virtualinvoke $stack79.<java.lang.String: char charAt(int)>(i_2);
+
+        $i4 = (int) $stack140;
+
+        $stack141 = virtualinvoke i_1#53.<java.lang.String: int indexOf(int)>($i4);
+
+        $i5 = (int) -1;
+
+        if $stack141 <= $i5 goto label34;
+
+        $stack144 = 1;
+
+        goto label35;
+
+     label34:
+        $stack144 = 0;
+
+     label35:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("random char in set", $stack144);
+
+        i_2 = i_2 + 1;
+
+        goto label33;
+
+     label36:
+        $stack85 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>(50, "stuvwxyz");
+
+        $stack87 = virtualinvoke $stack79.<java.lang.String: boolean equals(java.lang.Object)>($stack85);
+
+        if $stack87 != 0 goto label37;
+
+        $stack130 = 1;
+
+        goto label38;
+
+     label37:
+        $stack130 = 0;
+
+     label38:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack130);
+
+        $stack88 = (char[]) null;
+
+        $stack89 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>(50, $stack88);
+
+        $stack92 = virtualinvoke $stack89.<java.lang.String: int length()>();
+
+        $stack93 = (long) $stack92;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack93);
+
+        $stack94 = (char[]) null;
+
+        $stack95 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>(50, $stack94);
+
+        $stack98 = virtualinvoke $stack95.<java.lang.String: int length()>();
+
+        $stack99 = (long) $stack98;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("random(50) length", 50L, $stack99);
+
+        $stack101 = virtualinvoke $stack89.<java.lang.String: boolean equals(java.lang.Object)>($stack95);
+
+        if $stack101 != 0 goto label39;
+
+        $stack120 = 1;
+
+        goto label40;
+
+     label39:
+        $stack120 = 0;
+
+     label40:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("!r1.equals(r2)", $stack120);
+
+        $stack102 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $u0 = new java.util.Random;
+
+        specialinvoke $u0.<java.util.Random: void <init>(long)>($stack102);
+
+        $stack110 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(50, 0, 0, 1, 1, null, $u0);
+
+        $u1 = new java.util.Random;
+
+        specialinvoke $u1.<java.util.Random: void <init>(long)>($stack102);
+
+        $stack118 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(50, 0, 0, 1, 1, null, $u1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("r1.equals(r2)", $stack110, $stack118);
+
+        $stack119 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("random(0).equals(\"\")", "", $stack119);
+
+        return;
+    }
+
+    public void testLANG805()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        char[] $stack4;
+        long $stack3;
+        java.util.Random $stack5;
+        java.lang.String $stack12;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        $stack3 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $stack4 = newarray (char)[1];
+
+        $stack4[0] = 97;
+
+        $stack5 = new java.util.Random;
+
+        specialinvoke $stack5.<java.util.Random: void <init>(long)>($stack3);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>(3, 0, 0, 0, 0, $stack4, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("aaa", $stack12);
+
+        return;
+    }
+
+    public void testLANG807()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        java.lang.IllegalArgumentException $stack4;
+        java.lang.StringBuilder $stack6, $stack7, $stack8, $stack9, $stack12, $stack13, $stack14, $stack15;
+        java.lang.String $stack5, $stack10, $stack16;
+        boolean $stack11, $stack17;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean)>(3, 5, 5, 0, 0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expected IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message (");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") must contain \'start\'");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = virtualinvoke $stack5.<java.lang.String: boolean contains(java.lang.CharSequence)>("start");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack10, $stack11);
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Message (");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(") must contain \'end\'");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = virtualinvoke $stack5.<java.lang.String: boolean contains(java.lang.CharSequence)>("end");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack16, $stack17);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testExceptions()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        java.util.Random $u0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        java.lang.IllegalArgumentException $stack21, $stack22, $stack24, $stack31, $stack37, $stack40, $stack43, $stack46, $stack49;
+        char[] $stack3, $stack7;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        $stack3 = newarray (char)[1];
+
+        $stack3[0] = 97;
+
+     label01:
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int)>($i0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack49 := @caughtexception;
+
+     label04:
+        $i1 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,boolean,boolean)>($i1, 1, 1);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack46 := @caughtexception;
+
+     label07:
+        $i2 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>($i2, $stack3);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack43 := @caughtexception;
+
+     label10:
+        $stack7 = newarray (char)[0];
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,char[])>(1, $stack7);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack40 := @caughtexception;
+
+     label13:
+        $i3 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>($i3, "");
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack37 := @caughtexception;
+
+     label16:
+        $i4 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,java.lang.String)>($i4, null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack31 := @caughtexception;
+
+     label19:
+        $i5 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean)>($i5, 97, 122, 0, 0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack24 := @caughtexception;
+
+     label22:
+        $i6 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[])>($i6, 97, 122, 0, 0, $stack3);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label23:
+        goto label25;
+
+     label24:
+        $stack22 := @caughtexception;
+
+     label25:
+        $u0 = new java.util.Random;
+
+        specialinvoke $u0.<java.util.Random: void <init>()>();
+
+        $i7 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int,int,int,boolean,boolean,char[],java.util.Random)>($i7, 97, 122, 0, 0, $stack3, $u0);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label26:
+        goto label28;
+
+     label27:
+        $stack21 := @caughtexception;
+
+     label28:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+        catch java.lang.IllegalArgumentException from label22 to label23 with label24;
+        catch java.lang.IllegalArgumentException from label25 to label26 with label27;
+    }
+
+    public void testRandomAlphaNumeric()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        return;
+    }
+
+    public void testRandomNumeric()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        return;
+    }
+
+    public void testRandomAlphabetic()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        return;
+    }
+
+    public void testRandomAscii()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        return;
+    }
+
+    public void testRandomStringUtilsHomog()
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        return;
+    }
+
+    private double chiSquare(int[], int[])
+    {
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        int[] observed, expected;
+        int $stack8, $stack9, $stack10, $stack11, $stack12, i;
+        double $stack13, $stack14, $stack15, sumSq, dev;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        expected := @parameter0: int[];
+
+        observed := @parameter1: int[];
+
+        sumSq = 0.0;
+
+        i = 0;
+
+     label1:
+        $stack8 = lengthof observed;
+
+        if i >= $stack8 goto label2;
+
+        $stack10 = observed[i];
+
+        $stack9 = expected[i];
+
+        $stack11 = $stack10 - $stack9;
+
+        dev = (double) $stack11;
+
+        $stack14 = dev * dev;
+
+        $stack12 = expected[i];
+
+        $stack13 = (double) $stack12;
+
+        $stack15 = $stack14 / $stack13;
+
+        sumSq = sumSq + $stack15;
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return sumSq;
+    }
+
+    public void testLang100() throws java.lang.Exception
+    {
+        byte[] $stack10;
+        org.apache.commons.lang3.RandomStringUtilsTest this;
+        long $stack14, $stack16, $stack39, $stack40;
+        java.lang.Character $stack28, $stack33;
+        int $stack12, $stack13, $stack15, $stack17, $stack29, $stack34, i;
+        java.lang.String $stack9, $stack11, $stack30, $stack35, $stack38;
+        char $stack22, $stack23;
+        java.lang.StringBuilder $stack24, $stack25, $stack26, $stack27, $stack31, $stack32, $stack36, $stack37;
+
+        this := @this: org.apache.commons.lang3.RandomStringUtilsTest;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.RandomStringUtils: java.lang.String random(int)>(5000);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.String: byte[] getBytes(java.lang.String)>("UTF-8");
+
+        $stack11 = new java.lang.String;
+
+        specialinvoke $stack11.<java.lang.String: void <init>(byte[],java.lang.String)>($stack10, "UTF-8");
+
+        i = 0;
+
+     label1:
+        $stack12 = virtualinvoke $stack9.<java.lang.String: int length()>();
+
+        if i >= $stack12 goto label2;
+
+        $stack17 = virtualinvoke $stack11.<java.lang.String: int length()>();
+
+        if i >= $stack17 goto label2;
+
+        $stack22 = virtualinvoke $stack9.<java.lang.String: char charAt(int)>(i);
+
+        $stack23 = virtualinvoke $stack11.<java.lang.String: char charAt(int)>(i);
+
+        $stack24 = new java.lang.StringBuilder;
+
+        specialinvoke $stack24.<java.lang.StringBuilder: void <init>()>();
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("differs at ");
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("(");
+
+        $stack28 = new java.lang.Character;
+
+        specialinvoke $stack28.<java.lang.Character: void <init>(char)>($stack22);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.Character: int hashCode()>();
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack29);
+
+        $stack31 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack30);
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(",");
+
+        $stack33 = new java.lang.Character;
+
+        specialinvoke $stack33.<java.lang.Character: void <init>(char)>($stack23);
+
+        $stack34 = virtualinvoke $stack33.<java.lang.Character: int hashCode()>();
+
+        $stack35 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack34);
+
+        $stack36 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack40 = (long) $stack22;
+
+        $stack39 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack38, $stack40, $stack39);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack13 = virtualinvoke $stack9.<java.lang.String: int length()>();
+
+        $stack14 = (long) $stack13;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.String: int length()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack14, $stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack11);
+
+        return;
+    }
+}

@@ -1,0 +1,434 @@
+public class org.apache.commons.lang3.concurrent.TimedSemaphore extends java.lang.Object
+{
+    public static final int NO_LIMIT;
+    private static final int THREAD_POOL_SIZE;
+    private final java.util.concurrent.ScheduledExecutorService executorService;
+    private final long period;
+    private final java.util.concurrent.TimeUnit unit;
+    private final boolean ownExecutor;
+    private java.util.concurrent.ScheduledFuture task;
+    private long totalAcquireCount;
+    private long periodCount;
+    private int limit;
+    private int acquireCount;
+    private int lastCallsPerPeriod;
+    private boolean shutdown;
+
+    public void <init>(long, java.util.concurrent.TimeUnit, int)
+    {
+        java.util.concurrent.TimeUnit timeUnit;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        int limit;
+        long timePeriod;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        timePeriod := @parameter0: long;
+
+        timeUnit := @parameter1: java.util.concurrent.TimeUnit;
+
+        limit := @parameter2: int;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void <init>(java.util.concurrent.ScheduledExecutorService,long,java.util.concurrent.TimeUnit,int)>(null, timePeriod, timeUnit, limit);
+
+        return;
+    }
+
+    public void <init>(java.util.concurrent.ScheduledExecutorService, long, java.util.concurrent.TimeUnit, int)
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        long timePeriod;
+        java.util.concurrent.ScheduledThreadPoolExecutor $u1;
+        java.lang.IllegalArgumentException $u0;
+        java.util.concurrent.TimeUnit timeUnit;
+        byte $stack7;
+        java.util.concurrent.ScheduledExecutorService service;
+        int limit, $i0;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        service := @parameter0: java.util.concurrent.ScheduledExecutorService;
+
+        timePeriod := @parameter1: long;
+
+        timeUnit := @parameter2: java.util.concurrent.TimeUnit;
+
+        limit := @parameter3: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack7 = timePeriod cmp 0L;
+
+        $i0 = (int) $stack7;
+
+        if $i0 > 0 goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Time period must be greater 0!");
+
+        throw $u0;
+
+     label1:
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long period> = timePeriod;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.TimeUnit unit> = timeUnit;
+
+        if service == null goto label2;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService executorService> = service;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean ownExecutor> = 0;
+
+        goto label3;
+
+     label2:
+        $u1 = new java.util.concurrent.ScheduledThreadPoolExecutor;
+
+        specialinvoke $u1.<java.util.concurrent.ScheduledThreadPoolExecutor: void <init>(int)>(1);
+
+        virtualinvoke $u1.<java.util.concurrent.ScheduledThreadPoolExecutor: void setContinueExistingPeriodicTasksAfterShutdownPolicy(boolean)>(0);
+
+        virtualinvoke $u1.<java.util.concurrent.ScheduledThreadPoolExecutor: void setExecuteExistingDelayedTasksAfterShutdownPolicy(boolean)>(0);
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService executorService> = $u1;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean ownExecutor> = 1;
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: void setLimit(int)>(limit);
+
+        return;
+    }
+
+    public final synchronized int getLimit()
+    {
+        int $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int limit>;
+
+        return $stack1;
+    }
+
+    public final synchronized void setLimit(int)
+    {
+        int limit;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        limit := @parameter0: int;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int limit> = limit;
+
+        return;
+    }
+
+    public synchronized void shutdown()
+    {
+        java.util.concurrent.ScheduledFuture $stack3, $stack4;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        java.util.concurrent.ScheduledExecutorService $stack8;
+        boolean $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean shutdown>;
+
+        if $stack1 != 0 goto label3;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean ownExecutor>;
+
+        if $stack2 == 0 goto label1;
+
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService getExecutorService()>();
+
+        interfaceinvoke $stack8.<java.util.concurrent.ScheduledExecutorService: java.util.List shutdownNow()>();
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture task>;
+
+        if $stack3 == null goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture task>;
+
+        interfaceinvoke $stack4.<java.util.concurrent.ScheduledFuture: boolean cancel(boolean)>(0);
+
+     label2:
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean shutdown> = 1;
+
+     label3:
+        return;
+    }
+
+    public synchronized boolean isShutdown()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean shutdown>;
+
+        return $stack1;
+    }
+
+    public synchronized void acquire() throws java.lang.InterruptedException
+    {
+        java.lang.IllegalStateException $stack15;
+        java.util.concurrent.ScheduledFuture $stack3, $stack13;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        int $stack5, $stack6, $stack9, $stack10, $stack4;
+        boolean $stack2, $stack11, canPass, $stack11#6_2;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: boolean isShutdown()>();
+
+        if $stack2 == 0 goto label1;
+
+        $stack15 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack15.<java.lang.IllegalStateException: void <init>(java.lang.String)>("TimedSemaphore is shut down!");
+
+        throw $stack15;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture task>;
+
+        if $stack3 != null goto label2;
+
+        $stack13 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture startTimer()>();
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledFuture task> = $stack13;
+
+     label2:
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLimit()>();
+
+        if $stack4 <= 0 goto label3;
+
+        $stack9 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount>;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLimit()>();
+
+        if $stack9 >= $stack10 goto label4;
+
+     label3:
+        $stack11#6_2 = 1;
+
+        $stack11 = 1;
+
+        goto label5;
+
+     label4:
+        $stack11#6_2 = 0;
+
+        $stack11 = 0;
+
+     label5:
+        canPass = $stack11;
+
+        if $stack11#6_2 != 0 goto label6;
+
+        virtualinvoke this.<java.lang.Object: void wait()>();
+
+        goto label7;
+
+     label6:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount>;
+
+        $stack6 = $stack5 + 1;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount> = $stack6;
+
+     label7:
+        if canPass == 0 goto label2;
+
+        return;
+    }
+
+    public synchronized int getLastAcquiresPerPeriod()
+    {
+        int $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int lastCallsPerPeriod>;
+
+        return $stack1;
+    }
+
+    public synchronized int getAcquireCount()
+    {
+        int $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount>;
+
+        return $stack1;
+    }
+
+    public synchronized int getAvailablePermits()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        int $stack1, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getLimit()>();
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int getAcquireCount()>();
+
+        $stack3 = $stack1 - $stack2;
+
+        return $stack3;
+    }
+
+    public synchronized double getAverageCallsPerPeriod()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        long $stack1, $stack3, $stack4;
+        byte $stack2;
+        double $stack5, $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long periodCount>;
+
+        $stack2 = $stack1 cmp 0L;
+
+        if $stack2 != 0 goto label1;
+
+        $stack7 = 0.0;
+
+        goto label2;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long totalAcquireCount>;
+
+        $stack6 = (double) $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long periodCount>;
+
+        $stack5 = (double) $stack4;
+
+        $stack7 = $stack6 / $stack5;
+
+     label2:
+        return $stack7;
+    }
+
+    public long getPeriod()
+    {
+        long $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long period>;
+
+        return $stack1;
+    }
+
+    public java.util.concurrent.TimeUnit getUnit()
+    {
+        java.util.concurrent.TimeUnit $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.TimeUnit unit>;
+
+        return $stack1;
+    }
+
+    protected java.util.concurrent.ScheduledExecutorService getExecutorService()
+    {
+        java.util.concurrent.ScheduledExecutorService $stack1;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService executorService>;
+
+        return $stack1;
+    }
+
+    protected java.util.concurrent.ScheduledFuture startTimer()
+    {
+        java.util.concurrent.TimeUnit $stack5;
+        java.util.concurrent.ScheduledFuture $stack6;
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        org.apache.commons.lang3.concurrent.TimedSemaphore$1 $stack2;
+        java.util.concurrent.ScheduledExecutorService $stack1;
+        long $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.ScheduledExecutorService getExecutorService()>();
+
+        $stack2 = new org.apache.commons.lang3.concurrent.TimedSemaphore$1;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.TimedSemaphore$1: void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore)>(this);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long getPeriod()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long getPeriod()>();
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.concurrent.TimedSemaphore: java.util.concurrent.TimeUnit getUnit()>();
+
+        $stack6 = interfaceinvoke $stack1.<java.util.concurrent.ScheduledExecutorService: java.util.concurrent.ScheduledFuture scheduleAtFixedRate(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)>($stack2, $stack3, $stack4, $stack5);
+
+        return $stack6;
+    }
+
+    synchronized void endOfPeriod()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphore this;
+        long $stack3, $stack4, $stack5, $stack6, $stack7;
+        int $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount>;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int lastCallsPerPeriod> = $stack1;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long totalAcquireCount>;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount>;
+
+        $stack3 = (long) $stack2;
+
+        $stack5 = $stack4 + $stack3;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long totalAcquireCount> = $stack5;
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long periodCount>;
+
+        $stack7 = $stack6 + 1L;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: long periodCount> = $stack7;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphore: int acquireCount> = 0;
+
+        virtualinvoke this.<java.lang.Object: void notifyAll()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.concurrent.TimedSemaphore: int THREAD_POOL_SIZE> = 1;
+
+        <org.apache.commons.lang3.concurrent.TimedSemaphore: int NO_LIMIT> = 0;
+
+        return;
+    }
+}

@@ -1,0 +1,341 @@
+public class org.apache.commons.lang3.concurrent.ConstantInitializerTest extends java.lang.Object
+{
+    private static final java.lang.Integer VALUE;
+    private org.apache.commons.lang3.concurrent.ConstantInitializer init;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack1;
+        java.lang.Integer $stack2;
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack2 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>($stack2);
+
+        this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init> = $stack1;
+
+        return;
+    }
+
+    private void checkEquals(java.lang.Object, boolean)
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        long $stack12, $stack14;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack3, $stack6, $stack9;
+        int $stack11, $stack13;
+        java.lang.Object obj;
+        boolean expected, $stack5, $stack8, $stack17, $stack15;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        obj := @parameter0: java.lang.Object;
+
+        expected := @parameter1: boolean;
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.ConstantInitializer: boolean equals(java.lang.Object)>(obj);
+
+        if expected != $stack5 goto label1;
+
+        $stack17 = 1;
+
+        goto label2;
+
+     label1:
+        $stack17 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong result of equals", $stack17);
+
+        if obj == null goto label5;
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack8 = virtualinvoke obj.<java.lang.Object: boolean equals(java.lang.Object)>($stack6);
+
+        if expected != $stack8 goto label3;
+
+        $stack15 = 1;
+
+        goto label4;
+
+     label3:
+        $stack15 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not symmetric", $stack15);
+
+        if expected == 0 goto label5;
+
+        $stack9 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.concurrent.ConstantInitializer: int hashCode()>();
+
+        $stack12 = (long) $stack11;
+
+        $stack13 = virtualinvoke obj.<java.lang.Object: int hashCode()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Different hash codes", $stack12, $stack14);
+
+     label5:
+        return;
+    }
+
+    public void testGetObject()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        java.lang.Object $stack4;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack1;
+        java.lang.Integer $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack3 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object getObject()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong object", $stack3, $stack4);
+
+        return;
+    }
+
+    public void testGet() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        java.lang.Object $stack4;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack1;
+        java.lang.Integer $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack3 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack4 = virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong object", $stack3, $stack4);
+
+        return;
+    }
+
+    public void testEqualsTrue()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack2, $stack3, $stack7, $stack8;
+        java.lang.Integer $stack4, $stack6;
+        int $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack2, 1);
+
+        $stack3 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack4 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Integer: int intValue()>();
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack5);
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>($stack6);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack3, 1);
+
+        $stack7 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>(null);
+
+        this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init> = $stack7;
+
+        $stack8 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>(null);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack8, 1);
+
+        return;
+    }
+
+    public void testEqualsFalse()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        int $stack5, $stack6;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack2, $stack3;
+        java.lang.Integer $stack4, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>(null);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack2, 0);
+
+        $stack3 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        $stack4 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Integer: int intValue()>();
+
+        $stack6 = $stack5 + 1;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack6);
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>($stack7);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack3, 0);
+
+        return;
+    }
+
+    public void testEqualsWithOtherObjects()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack1;
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>(null, 0);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>(this, 0);
+
+        $stack1 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>("Test");
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: void checkEquals(java.lang.Object,boolean)>($stack1, 0);
+
+        return;
+    }
+
+    public void testToString()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        java.lang.Integer $stack7;
+        java.util.regex.Matcher $stack16;
+        java.lang.String $stack4, $stack10, $stack15;
+        boolean $stack17;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack3;
+        java.lang.StringBuilder $stack5, $stack6, $stack8, $stack9, $stack12, $stack13, $stack14;
+        java.util.regex.Pattern $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.ConstantInitializerTest: org.apache.commons.lang3.concurrent.ConstantInitializer init>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.String toString()>();
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("ConstantInitializer@\\d+ \\[ object = ");
+
+        $stack7 = <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" \\]");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>($stack10);
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Wrong string: ");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack4);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack16 = virtualinvoke $stack11.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($stack4);
+
+        $stack17 = virtualinvoke $stack16.<java.util.regex.Matcher: boolean matches()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack15, $stack17);
+
+        return;
+    }
+
+    public void testToStringNull()
+    {
+        org.apache.commons.lang3.concurrent.ConstantInitializerTest this;
+        org.apache.commons.lang3.concurrent.ConstantInitializer $stack2;
+        int $stack8;
+        java.lang.StringBuilder $stack4, $stack5, $stack6;
+        java.lang.String $stack3, $stack7;
+        boolean $stack9;
+
+        this := @this: org.apache.commons.lang3.concurrent.ConstantInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.ConstantInitializer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.ConstantInitializer: void <init>(java.lang.Object)>(null);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.ConstantInitializer: java.lang.String toString()>();
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Object not found: ");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack8 = virtualinvoke $stack3.<java.lang.String: int indexOf(java.lang.String)>("object = null");
+
+        if $stack8 <= 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack7, $stack9);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.Integer $stack0;
+
+        $stack0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        <org.apache.commons.lang3.concurrent.ConstantInitializerTest: java.lang.Integer VALUE> = $stack0;
+
+        return;
+    }
+}

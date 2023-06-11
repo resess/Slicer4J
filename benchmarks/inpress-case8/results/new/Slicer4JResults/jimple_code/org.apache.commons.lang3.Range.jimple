@@ -1,0 +1,823 @@
+public final class org.apache.commons.lang3.Range extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private final java.util.Comparator comparator;
+    private final java.lang.Object minimum;
+    private final java.lang.Object maximum;
+    private transient int hashCode;
+    private transient java.lang.String toString;
+
+    public static org.apache.commons.lang3.Range is(java.lang.Comparable)
+    {
+        java.lang.Comparable element;
+        org.apache.commons.lang3.Range $stack1;
+
+        element := @parameter0: java.lang.Comparable;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Object,java.lang.Object,java.util.Comparator)>(element, element, null);
+
+        return $stack1;
+    }
+
+    public static org.apache.commons.lang3.Range is(java.lang.Object, java.util.Comparator)
+    {
+        java.lang.Object element;
+        java.util.Comparator comparator;
+        org.apache.commons.lang3.Range $stack2;
+
+        element := @parameter0: java.lang.Object;
+
+        comparator := @parameter1: java.util.Comparator;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Object,java.lang.Object,java.util.Comparator)>(element, element, comparator);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.Range between(java.lang.Comparable, java.lang.Comparable)
+    {
+        java.lang.Comparable fromInclusive, toInclusive;
+        org.apache.commons.lang3.Range $stack2;
+
+        fromInclusive := @parameter0: java.lang.Comparable;
+
+        toInclusive := @parameter1: java.lang.Comparable;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Object,java.lang.Object,java.util.Comparator)>(fromInclusive, toInclusive, null);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.Range between(java.lang.Object, java.lang.Object, java.util.Comparator)
+    {
+        java.lang.Object fromInclusive, toInclusive;
+        java.util.Comparator comparator;
+        org.apache.commons.lang3.Range $stack3;
+
+        fromInclusive := @parameter0: java.lang.Object;
+
+        toInclusive := @parameter1: java.lang.Object;
+
+        comparator := @parameter2: java.util.Comparator;
+
+        $stack3 = new org.apache.commons.lang3.Range;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.Range: void <init>(java.lang.Object,java.lang.Object,java.util.Comparator)>(fromInclusive, toInclusive, comparator);
+
+        return $stack3;
+    }
+
+    private void <init>(java.lang.Object, java.lang.Object, java.util.Comparator)
+    {
+        java.lang.IllegalArgumentException $stack4;
+        int $stack11;
+        java.lang.Object element1, element2;
+        java.lang.StringBuilder $stack5, $stack6, $stack7, $stack8, $stack9;
+        java.lang.String $stack10;
+        java.util.Comparator comparator;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element1 := @parameter0: java.lang.Object;
+
+        element2 := @parameter1: java.lang.Object;
+
+        comparator := @parameter2: java.util.Comparator;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        if element1 == null goto label1;
+
+        if element2 != null goto label2;
+
+     label1:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Elements in a range must not be null: element1=");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(element1);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(", element2=");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(element2);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack10);
+
+        throw $stack4;
+
+     label2:
+        if comparator != null goto label3;
+
+        comparator = <org.apache.commons.lang3.Range$ComparableComparator: org.apache.commons.lang3.Range$ComparableComparator INSTANCE>;
+
+     label3:
+        $stack11 = interfaceinvoke comparator.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element1, element2);
+
+        if $stack11 >= 1 goto label4;
+
+        this.<org.apache.commons.lang3.Range: java.lang.Object minimum> = element1;
+
+        this.<org.apache.commons.lang3.Range: java.lang.Object maximum> = element2;
+
+        goto label5;
+
+     label4:
+        this.<org.apache.commons.lang3.Range: java.lang.Object minimum> = element2;
+
+        this.<org.apache.commons.lang3.Range: java.lang.Object maximum> = element1;
+
+     label5:
+        this.<org.apache.commons.lang3.Range: java.util.Comparator comparator> = comparator;
+
+        return;
+    }
+
+    public java.lang.Object getMinimum()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        $stack1 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        return $stack1;
+    }
+
+    public java.lang.Object getMaximum()
+    {
+        java.lang.Object $stack1;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        $stack1 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        return $stack1;
+    }
+
+    public java.util.Comparator getComparator()
+    {
+        java.util.Comparator $stack1;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        $stack1 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        return $stack1;
+    }
+
+    public boolean isNaturalOrdering()
+    {
+        org.apache.commons.lang3.Range$ComparableComparator $stack1;
+        java.util.Comparator $stack2;
+        org.apache.commons.lang3.Range this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack1 = <org.apache.commons.lang3.Range$ComparableComparator: org.apache.commons.lang3.Range$ComparableComparator INSTANCE>;
+
+        if $stack2 != $stack1 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public boolean contains(java.lang.Object)
+    {
+        int $stack4, $stack7, $i0;
+        java.lang.Object element, $stack2, $stack5;
+        java.util.Comparator $stack3, $stack6;
+        org.apache.commons.lang3.Range this;
+        boolean $stack8;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack2);
+
+        $i0 = (int) -1;
+
+        if $stack4 <= $i0 goto label2;
+
+        $stack6 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack5 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack7 = interfaceinvoke $stack6.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack5);
+
+        if $stack7 >= 1 goto label2;
+
+        $stack8 = 1;
+
+        goto label3;
+
+     label2:
+        $stack8 = 0;
+
+     label3:
+        return $stack8;
+    }
+
+    public boolean isAfter(java.lang.Object)
+    {
+        int $stack4;
+        java.lang.Object element, $stack2;
+        java.util.Comparator $stack3;
+        org.apache.commons.lang3.Range this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack2);
+
+        if $stack4 >= 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = 0;
+
+     label3:
+        return $stack5;
+    }
+
+    public boolean isStartedBy(java.lang.Object)
+    {
+        int $stack4;
+        java.lang.Object element, $stack2;
+        java.util.Comparator $stack3;
+        org.apache.commons.lang3.Range this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack2);
+
+        if $stack4 != 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = 0;
+
+     label3:
+        return $stack5;
+    }
+
+    public boolean isEndedBy(java.lang.Object)
+    {
+        int $stack4;
+        java.lang.Object element, $stack2;
+        java.util.Comparator $stack3;
+        org.apache.commons.lang3.Range this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack2);
+
+        if $stack4 != 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = 0;
+
+     label3:
+        return $stack5;
+    }
+
+    public boolean isBefore(java.lang.Object)
+    {
+        int $stack4;
+        java.lang.Object element, $stack2;
+        java.util.Comparator $stack3;
+        org.apache.commons.lang3.Range this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(element, $stack2);
+
+        if $stack4 <= 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = 0;
+
+     label3:
+        return $stack5;
+    }
+
+    public int elementCompareTo(java.lang.Object)
+    {
+        int $i0;
+        java.lang.Object element;
+        java.lang.NullPointerException $u0;
+        org.apache.commons.lang3.Range this;
+        boolean $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        element := @parameter0: java.lang.Object;
+
+        if element != null goto label1;
+
+        $u0 = new java.lang.NullPointerException;
+
+        specialinvoke $u0.<java.lang.NullPointerException: void <init>(java.lang.String)>("Element is null");
+
+        throw $u0;
+
+     label1:
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>(element);
+
+        if $stack2 == 0 goto label2;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label2:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>(element);
+
+        if $stack3 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        return 0;
+    }
+
+    public boolean containsRange(org.apache.commons.lang3.Range)
+    {
+        java.lang.Object $stack2, $stack4;
+        org.apache.commons.lang3.Range otherRange, this;
+        boolean $stack3, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        otherRange := @parameter0: org.apache.commons.lang3.Range;
+
+        if otherRange != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = otherRange.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack2);
+
+        if $stack3 == 0 goto label2;
+
+        $stack4 = otherRange.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack4);
+
+        if $stack5 == 0 goto label2;
+
+        $stack6 = 1;
+
+        goto label3;
+
+     label2:
+        $stack6 = 0;
+
+     label3:
+        return $stack6;
+    }
+
+    public boolean isAfterRange(org.apache.commons.lang3.Range)
+    {
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.Range otherRange, this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        otherRange := @parameter0: org.apache.commons.lang3.Range;
+
+        if otherRange != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = otherRange.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack2);
+
+        return $stack3;
+    }
+
+    public boolean isOverlappedBy(org.apache.commons.lang3.Range)
+    {
+        java.lang.Object $stack2, $stack4, $stack6;
+        org.apache.commons.lang3.Range otherRange, this;
+        boolean $stack3, $stack5, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        otherRange := @parameter0: org.apache.commons.lang3.Range;
+
+        if otherRange != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack3 = virtualinvoke otherRange.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack2);
+
+        if $stack3 != 0 goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack5 = virtualinvoke otherRange.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack4);
+
+        if $stack5 != 0 goto label2;
+
+        $stack6 = otherRange.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack6);
+
+        if $stack7 == 0 goto label3;
+
+     label2:
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        return $stack8;
+    }
+
+    public boolean isBeforeRange(org.apache.commons.lang3.Range)
+    {
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.Range otherRange, this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        otherRange := @parameter0: org.apache.commons.lang3.Range;
+
+        if otherRange != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = otherRange.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)
+    {
+        java.lang.Object[] $stack25;
+        int $stack9, $stack13;
+        java.lang.String $stack26;
+        org.apache.commons.lang3.Range this, other, $stack15;
+        boolean $stack4, $stack5;
+        java.lang.IllegalArgumentException $stack24;
+        java.lang.Object $stack7, $stack8, min, $stack11, $stack12, $stack20, $stack16;
+        java.util.Comparator $stack6, $stack10, $stack14;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        other := @parameter0: org.apache.commons.lang3.Range;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>(other);
+
+        if $stack4 != 0 goto label1;
+
+        $stack24 = new java.lang.IllegalArgumentException;
+
+        $stack25 = newarray (java.lang.Object)[1];
+
+        $stack25[0] = other;
+
+        $stack26 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Cannot calculate intersection with non-overlapping range %s", $stack25);
+
+        specialinvoke $stack24.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack26);
+
+        throw $stack24;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>(other);
+
+        if $stack5 == 0 goto label2;
+
+        return this;
+
+     label2:
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.Range: java.util.Comparator getComparator()>();
+
+        $stack8 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack7 = other.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack9 = interfaceinvoke $stack6.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>($stack8, $stack7);
+
+        if $stack9 >= 0 goto label3;
+
+        $stack20 = other.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        goto label4;
+
+     label3:
+        $stack20 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+     label4:
+        min = $stack20;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.Range: java.util.Comparator getComparator()>();
+
+        $stack12 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack11 = other.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack13 = interfaceinvoke $stack10.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>($stack12, $stack11);
+
+        if $stack13 >= 0 goto label5;
+
+        $stack16 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        goto label6;
+
+     label5:
+        $stack16 = other.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+     label6:
+        $stack14 = virtualinvoke this.<org.apache.commons.lang3.Range: java.util.Comparator getComparator()>();
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Object,java.lang.Object,java.util.Comparator)>(min, $stack16, $stack14);
+
+        return $stack15;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object obj, $stack5, $stack6, $stack8, $stack9;
+        java.lang.Class $stack3, $stack4;
+        org.apache.commons.lang3.Range this, range;
+        boolean $stack7, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        if obj == null goto label2;
+
+        $stack3 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack4 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $stack3 == $stack4 goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        range = (org.apache.commons.lang3.Range) obj;
+
+        $stack6 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack5 = range.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Object: boolean equals(java.lang.Object)>($stack5);
+
+        if $stack7 == 0 goto label4;
+
+        $stack9 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack8 = range.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Object: boolean equals(java.lang.Object)>($stack8);
+
+        if $stack10 == 0 goto label4;
+
+        $stack11 = 1;
+
+        goto label5;
+
+     label4:
+        $stack11 = 0;
+
+     label5:
+        return $stack11;
+    }
+
+    public int hashCode()
+    {
+        int $stack2, $stack5, $stack7, $stack8, $stack10, $stack11, result;
+        java.lang.Class $stack4;
+        java.lang.Object $stack6, $stack9;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        result = this.<org.apache.commons.lang3.Range: int hashCode>;
+
+        $stack2 = this.<org.apache.commons.lang3.Range: int hashCode>;
+
+        if $stack2 != 0 goto label1;
+
+        $stack4 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Object: int hashCode()>();
+
+        result = 629 + $stack5;
+
+        $stack7 = 37 * result;
+
+        $stack6 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.Object: int hashCode()>();
+
+        result = $stack7 + $stack8;
+
+        $stack10 = 37 * result;
+
+        $stack9 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack11 = virtualinvoke $stack9.<java.lang.Object: int hashCode()>();
+
+        result = $stack10 + $stack11;
+
+        this.<org.apache.commons.lang3.Range: int hashCode> = result;
+
+     label1:
+        return result;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.StringBuilder $stack3;
+        java.lang.Object $stack5, $stack8;
+        java.lang.String $stack11, result;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        result = this.<org.apache.commons.lang3.Range: java.lang.String toString>;
+
+        if result != null goto label1;
+
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>(int)>(32);
+
+        virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(91);
+
+        $stack5 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack5);
+
+        virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("..");
+
+        $stack8 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack8);
+
+        virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(93);
+
+        $stack11 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        result = $stack11;
+
+        this.<org.apache.commons.lang3.Range: java.lang.String toString> = $stack11;
+
+     label1:
+        return result;
+    }
+
+    public java.lang.String toString(java.lang.String)
+    {
+        java.lang.Object[] $stack2;
+        java.lang.Object $stack3, $stack4;
+        java.lang.String format, $stack6;
+        java.util.Comparator $stack5;
+        org.apache.commons.lang3.Range this;
+
+        this := @this: org.apache.commons.lang3.Range;
+
+        format := @parameter0: java.lang.String;
+
+        $stack2 = newarray (java.lang.Object)[3];
+
+        $stack3 = this.<org.apache.commons.lang3.Range: java.lang.Object minimum>;
+
+        $stack2[0] = $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.Range: java.lang.Object maximum>;
+
+        $stack2[1] = $stack4;
+
+        $stack5 = this.<org.apache.commons.lang3.Range: java.util.Comparator comparator>;
+
+        $stack2[2] = $stack5;
+
+        $stack6 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(format, $stack2);
+
+        return $stack6;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.Range: long serialVersionUID> = 1L;
+
+        return;
+    }
+}

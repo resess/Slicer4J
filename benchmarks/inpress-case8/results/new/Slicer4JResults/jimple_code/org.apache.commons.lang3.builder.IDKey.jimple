@@ -1,0 +1,84 @@
+final class org.apache.commons.lang3.builder.IDKey extends java.lang.Object
+{
+    private final java.lang.Object value;
+    private final int id;
+
+    public void <init>(java.lang.Object)
+    {
+        int $stack2;
+        java.lang.Object _value;
+        org.apache.commons.lang3.builder.IDKey this;
+
+        this := @this: org.apache.commons.lang3.builder.IDKey;
+
+        _value := @parameter0: java.lang.Object;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack2 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>(_value);
+
+        this.<org.apache.commons.lang3.builder.IDKey: int id> = $stack2;
+
+        this.<org.apache.commons.lang3.builder.IDKey: java.lang.Object value> = _value;
+
+        return;
+    }
+
+    public int hashCode()
+    {
+        int $stack1;
+        org.apache.commons.lang3.builder.IDKey this;
+
+        this := @this: org.apache.commons.lang3.builder.IDKey;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.IDKey: int id>;
+
+        return $stack1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.IDKey idKey, this;
+        int $stack4, $stack5;
+        java.lang.Object other, $stack6, $stack7;
+        boolean $stack3, $stack8;
+
+        this := @this: org.apache.commons.lang3.builder.IDKey;
+
+        other := @parameter0: java.lang.Object;
+
+        $stack3 = other instanceof org.apache.commons.lang3.builder.IDKey;
+
+        if $stack3 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        idKey = (org.apache.commons.lang3.builder.IDKey) other;
+
+        $stack5 = this.<org.apache.commons.lang3.builder.IDKey: int id>;
+
+        $stack4 = idKey.<org.apache.commons.lang3.builder.IDKey: int id>;
+
+        if $stack5 == $stack4 goto label2;
+
+        return 0;
+
+     label2:
+        $stack7 = this.<org.apache.commons.lang3.builder.IDKey: java.lang.Object value>;
+
+        $stack6 = idKey.<org.apache.commons.lang3.builder.IDKey: java.lang.Object value>;
+
+        if $stack7 != $stack6 goto label3;
+
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        return $stack8;
+    }
+}

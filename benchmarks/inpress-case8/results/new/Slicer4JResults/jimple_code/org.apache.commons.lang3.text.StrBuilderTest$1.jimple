@@ -1,0 +1,59 @@
+final class org.apache.commons.lang3.text.StrBuilderTest$1 extends org.apache.commons.lang3.text.StrMatcher
+{
+
+    void <init>()
+    {
+        org.apache.commons.lang3.text.StrBuilderTest$1 this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderTest$1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrMatcher: void <init>()>();
+
+        return;
+    }
+
+    public int isMatch(char[], int, int, int)
+    {
+        char $stack5, $stack7, $stack8;
+        org.apache.commons.lang3.text.StrBuilderTest$1 this;
+        int bufferEnd, bufferStart, pos, pos#2, $i0, $i1, $i2;
+        char[] buffer;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilderTest$1;
+
+        buffer := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        bufferStart := @parameter2: int;
+
+        bufferEnd := @parameter3: int;
+
+        $stack5 = buffer[pos];
+
+        $i0 = (int) $stack5;
+
+        if $i0 != 65 goto label1;
+
+        pos#2 = pos + 1;
+
+        if pos#2 >= bufferEnd goto label1;
+
+        $stack7 = buffer[pos#2];
+
+        $i1 = (int) $stack7;
+
+        if $i1 < 48 goto label1;
+
+        $stack8 = buffer[pos#2];
+
+        $i2 = (int) $stack8;
+
+        if $i2 > 57 goto label1;
+
+        return 2;
+
+     label1:
+        return 0;
+    }
+}

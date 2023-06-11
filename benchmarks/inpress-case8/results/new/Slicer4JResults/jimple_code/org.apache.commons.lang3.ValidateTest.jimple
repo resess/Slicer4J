@@ -1,0 +1,2446 @@
+public class org.apache.commons.lang3.ValidateTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testIsTrue1()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean)>(1);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated expression is false", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsTrue2()
+    {
+        java.lang.Object[] $stack2, $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack6;
+        java.lang.IllegalArgumentException $stack4;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>(1, "MSG", $stack2);
+
+     label1:
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>(0, "MSG", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsTrue3()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,long)>(1, "MSG", 6L);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,long)>(0, "MSG", 6L);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsTrue4()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,long)>(1, "MSG", 7L);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,long)>(0, "MSG", 7L);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsTrue5()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,double)>(1, "MSG", 7.4);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,double)>(0, "MSG", 7.4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotNull1()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.Object $stack3, $stack6;
+        java.lang.String $stack9, $stack12;
+        java.lang.NullPointerException $stack7;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.lang.Object;
+
+        specialinvoke $stack3.<java.lang.Object: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>($stack3);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated object is null", $stack9);
+
+     label4:
+        $stack6 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>("Hi");
+
+        $stack12 = (java.lang.String) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack12);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testNotNull2()
+    {
+        java.lang.Object[] $stack4, $stack6, $stack8;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.NullPointerException $stack10;
+        java.lang.Object $stack3, $stack9;
+        java.lang.String $stack12, $stack17;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.lang.Object;
+
+        specialinvoke $stack3.<java.lang.Object: void <init>()>();
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack4);
+
+     label1:
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(null, "MSG", $stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack10 := @caughtexception;
+
+        $stack12 = virtualinvoke $stack10.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack12);
+
+     label4:
+        $stack8 = newarray (java.lang.Object)[0];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>("Hi", "Message", $stack8);
+
+        $stack17 = (java.lang.String) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack17);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testNotEmptyArray1()
+    {
+        java.lang.Object[] $stack3, $stack5, $stack7, $stack10;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack9, $stack18;
+        java.lang.IllegalArgumentException $stack11;
+        java.lang.NullPointerException $stack21;
+        java.lang.String $stack13, $stack23;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = null;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[])>($stack3);
+
+     label1:
+        $stack5 = (java.lang.Object[]) null;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack21 := @caughtexception;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated array is empty", $stack23);
+
+     label4:
+        $stack7 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack11 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated array is empty", $stack13);
+
+     label7:
+        $stack9 = newarray (java.lang.String)[1];
+
+        $stack9[0] = "hi";
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[])>($stack9);
+
+        $stack18 = (java.lang.String[]) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack18);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyArray2()
+    {
+        java.lang.Object[] $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack13, $stack14;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack12, $stack24;
+        java.lang.IllegalArgumentException $stack15;
+        java.lang.NullPointerException $stack27;
+        java.lang.String $stack17, $stack29;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack3[0] = null;
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack4);
+
+     label1:
+        $stack7 = (java.lang.Object[]) null;
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack7, "MSG", $stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack27 := @caughtexception;
+
+        $stack29 = virtualinvoke $stack27.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack29);
+
+     label4:
+        $stack10 = newarray (java.lang.Object)[0];
+
+        $stack9 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack10, "MSG", $stack9);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack15 := @caughtexception;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack17);
+
+     label7:
+        $stack12 = newarray (java.lang.String)[1];
+
+        $stack12[0] = "hi";
+
+        $stack13 = newarray (java.lang.Object)[0];
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] notEmpty(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack12, "Message", $stack13);
+
+        $stack24 = (java.lang.String[]) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack24);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyCollection1()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.util.Collection $stack10;
+        java.lang.IllegalArgumentException $stack11;
+        java.lang.Integer $stack7;
+        java.lang.NullPointerException $stack20;
+        java.util.ArrayList $stack3;
+        java.lang.String $stack13, $stack22;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack20 := @caughtexception;
+
+        $stack22 = virtualinvoke $stack20.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated collection is empty", $stack22);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection)>($stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack11 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated collection is empty", $stack13);
+
+     label7:
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        interfaceinvoke $stack3.<java.util.Collection: boolean add(java.lang.Object)>($stack7);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection)>($stack3);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack10);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyCollection2()
+    {
+        java.lang.Object[] $stack4, $stack7, $stack11, $stack13;
+        org.apache.commons.lang3.ValidateTest this;
+        java.util.Collection $stack14;
+        java.lang.IllegalArgumentException $stack15;
+        java.lang.Integer $stack9;
+        java.lang.NullPointerException $stack28;
+        java.util.ArrayList $stack3;
+        java.lang.String $stack17, $stack30;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+     label1:
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection,java.lang.String,java.lang.Object[])>(null, "MSG", $stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack28 := @caughtexception;
+
+        $stack30 = virtualinvoke $stack28.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack30);
+
+     label4:
+        $stack7 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack15 := @caughtexception;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack17);
+
+     label7:
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        interfaceinvoke $stack3.<java.util.Collection: boolean add(java.lang.Object)>($stack9);
+
+        $stack11 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack11);
+
+        $stack13 = newarray (java.lang.Object)[0];
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection notEmpty(java.util.Collection,java.lang.String,java.lang.Object[])>($stack3, "Message", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack14);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyMap1()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.util.HashMap $stack3;
+        java.lang.IllegalArgumentException $stack12;
+        java.lang.Integer $stack8;
+        java.lang.NullPointerException $stack21;
+        java.util.Map $stack11;
+        java.lang.String $stack14, $stack23;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.HashMap;
+
+        specialinvoke $stack3.<java.util.HashMap: void <init>()>();
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack21 := @caughtexception;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated map is empty", $stack23);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map)>($stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack12 := @caughtexception;
+
+        $stack14 = virtualinvoke $stack12.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated map is empty", $stack14);
+
+     label7:
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("ll", $stack8);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map)>($stack3);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack11);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyMap2()
+    {
+        java.lang.Object[] $stack4, $stack7, $stack12, $stack14;
+        org.apache.commons.lang3.ValidateTest this;
+        java.util.HashMap $stack3;
+        java.lang.IllegalArgumentException $stack16;
+        java.lang.Integer $stack10;
+        java.lang.NullPointerException $stack29;
+        java.util.Map $stack15;
+        java.lang.String $stack18, $stack31;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.HashMap;
+
+        specialinvoke $stack3.<java.util.HashMap: void <init>()>();
+
+     label1:
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map,java.lang.String,java.lang.Object[])>(null, "MSG", $stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack29 := @caughtexception;
+
+        $stack31 = virtualinvoke $stack29.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack31);
+
+     label4:
+        $stack7 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack16 := @caughtexception;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack18);
+
+     label7:
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("ll", $stack10);
+
+        $stack12 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack12);
+
+        $stack14 = newarray (java.lang.Object)[0];
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Map notEmpty(java.util.Map,java.lang.String,java.lang.Object[])>($stack3, "Message", $stack14);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack15);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyString1()
+    {
+        java.lang.CharSequence $stack7;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack10, $stack13, $stack18;
+        java.lang.IllegalArgumentException $stack8;
+        java.lang.NullPointerException $stack16;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence)>("hjl");
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack16 := @caughtexception;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is empty", $stack18);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence)>("");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack8 := @caughtexception;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is empty", $stack10);
+
+     label7:
+        $stack7 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence)>("Hi");
+
+        $stack13 = (java.lang.String) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack13);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotEmptyString2()
+    {
+        java.lang.Object[] $stack3, $stack5, $stack8, $stack10;
+        java.lang.CharSequence $stack11;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.IllegalArgumentException $stack12;
+        java.lang.NullPointerException $stack22;
+        java.lang.String $stack14, $stack19, $stack24;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("a", "MSG", $stack3);
+
+     label1:
+        $stack5 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(null, "MSG", $stack5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack22 := @caughtexception;
+
+        $stack24 = virtualinvoke $stack22.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack24);
+
+     label4:
+        $stack8 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("", "MSG", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack12 := @caughtexception;
+
+        $stack14 = virtualinvoke $stack12.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack14);
+
+     label7:
+        $stack10 = newarray (java.lang.Object)[0];
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notEmpty(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("Hi", "Message", $stack10);
+
+        $stack19 = (java.lang.String) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack19);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testNotBlankNullStringShouldThrow()
+    {
+        java.lang.String $stack6;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.NullPointerException $stack4;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is blank", $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankMsgNullStringShouldThrow()
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.NullPointerException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(null, "Message", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Message", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankEmptyStringShouldThrow()
+    {
+        java.lang.String $stack6;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>("");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is blank", $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankBlankStringWithWhitespacesShouldThrow()
+    {
+        java.lang.String $stack6;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>("   ");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is blank", $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankBlankStringWithNewlinesShouldThrow()
+    {
+        java.lang.String $stack6;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>(" \n \t \r \n ");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence is blank", $stack6);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankMsgBlankStringShouldThrow()
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.IllegalArgumentException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(" \n \t \r \n ", "Message", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Message", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankMsgBlankStringWithWhitespacesShouldThrow()
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.IllegalArgumentException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("   ", "Message", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Message", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankMsgEmptyStringShouldThrow()
+    {
+        java.lang.Object[] $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.IllegalArgumentException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("", "Message", $stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Message", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testNotBlankNotBlankStringShouldNotThrow()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>("abc");
+
+        return;
+    }
+
+    public void testNotBlankNotBlankStringWithWhitespacesShouldNotThrow()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>("  abc   ");
+
+        return;
+    }
+
+    public void testNotBlankNotBlankStringWithNewlinesShouldNotThrow()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>(" \n \t abc \r \n ");
+
+        return;
+    }
+
+    public void testNotBlankMsgNotBlankStringShouldNotThrow()
+    {
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("abc", "Message", $stack2);
+
+        return;
+    }
+
+    public void testNotBlankMsgNotBlankStringWithWhitespacesShouldNotThrow()
+    {
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("  abc   ", "Message", $stack2);
+
+        return;
+    }
+
+    public void testNotBlankMsgNotBlankStringWithNewlinesShouldNotThrow()
+    {
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>(" \n \t abc \r \n ", "Message", $stack2);
+
+        return;
+    }
+
+    public void testNotBlankReturnValues1()
+    {
+        java.lang.String test;
+        java.lang.CharSequence $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence)>("Hi");
+
+        test = (java.lang.String) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", test);
+
+        return;
+    }
+
+    public void testNotBlankReturnValues2()
+    {
+        java.lang.Object[] $stack3;
+        java.lang.CharSequence $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String test;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence notBlank(java.lang.CharSequence,java.lang.String,java.lang.Object[])>("Hi", "Message", $stack3);
+
+        test = (java.lang.String) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", test);
+
+        return;
+    }
+
+    public void testNoNullElementsArray1()
+    {
+        java.lang.Object[] $stack5, $stack9;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack3, $stack8, $stack19;
+        java.lang.IllegalArgumentException $stack10;
+        java.lang.NullPointerException $stack22;
+        java.lang.String $stack12, $stack24;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.String)[2];
+
+        $stack3[0] = "a";
+
+        $stack3[1] = "b";
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>($stack3);
+
+     label1:
+        $stack5 = (java.lang.Object[]) null;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack22 := @caughtexception;
+
+        $stack24 = virtualinvoke $stack22.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated object is null", $stack24);
+
+     label4:
+        $stack3[1] = null;
+
+     label5:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>($stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack10 := @caughtexception;
+
+        $stack12 = virtualinvoke $stack10.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated array contains null element at index: 1", $stack12);
+
+     label8:
+        $stack8 = newarray (java.lang.String)[2];
+
+        $stack8[0] = "a";
+
+        $stack8[1] = "b";
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>($stack8);
+
+        $stack19 = (java.lang.String[]) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack19);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testNoNullElementsArray2()
+    {
+        java.lang.Object[] $stack4, $stack6, $stack7, $stack9, $stack12, $stack13;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack3, $stack11, $stack25;
+        java.lang.IllegalArgumentException $stack14;
+        java.lang.NullPointerException $stack28;
+        java.lang.String $stack16, $stack30;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.String)[2];
+
+        $stack3[0] = "a";
+
+        $stack3[1] = "b";
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack4);
+
+     label1:
+        $stack7 = (java.lang.Object[]) null;
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack7, "MSG", $stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack28 := @caughtexception;
+
+        $stack30 = virtualinvoke $stack28.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated object is null", $stack30);
+
+     label4:
+        $stack3[1] = null;
+
+     label5:
+        $stack9 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack9);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack14 := @caughtexception;
+
+        $stack16 = virtualinvoke $stack14.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack16);
+
+     label8:
+        $stack11 = newarray (java.lang.String)[2];
+
+        $stack11[0] = "a";
+
+        $stack11[1] = "b";
+
+        $stack12 = newarray (java.lang.Object)[0];
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack11, "Message", $stack12);
+
+        $stack25 = (java.lang.String[]) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack25);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testNoNullElementsCollection1()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.IllegalArgumentException $stack13;
+        java.lang.Iterable $stack12;
+        java.lang.NullPointerException $stack23;
+        java.util.ArrayList $stack3;
+        java.util.List $stack20;
+        java.lang.String $stack15, $stack25;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>("a");
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>("b");
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable)>($stack3);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack23 := @caughtexception;
+
+        $stack25 = virtualinvoke $stack23.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated object is null", $stack25);
+
+     label4:
+        interfaceinvoke $stack3.<java.util.List: java.lang.Object set(int,java.lang.Object)>(1, null);
+
+     label5:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable)>($stack3);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack13 := @caughtexception;
+
+        $stack15 = virtualinvoke $stack13.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated collection contains null element at index: 1", $stack15);
+
+     label8:
+        interfaceinvoke $stack3.<java.util.List: java.lang.Object set(int,java.lang.Object)>(1, "b");
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable)>($stack3);
+
+        $stack20 = (java.util.List) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack20);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testNoNullElementsCollection2()
+    {
+        java.lang.Object[] $stack6, $stack8, $stack12, $stack15;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.IllegalArgumentException $stack17;
+        java.lang.Iterable $stack16;
+        java.lang.NullPointerException $stack29;
+        java.util.ArrayList $stack3;
+        java.util.List $stack26;
+        java.lang.String $stack19, $stack31;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>("a");
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>("b");
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack6);
+
+     label1:
+        $stack8 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable,java.lang.String,java.lang.Object[])>(null, "MSG", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting NullPointerException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack29 := @caughtexception;
+
+        $stack31 = virtualinvoke $stack29.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated object is null", $stack31);
+
+     label4:
+        interfaceinvoke $stack3.<java.util.List: java.lang.Object set(int,java.lang.Object)>(1, null);
+
+     label5:
+        $stack12 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable,java.lang.String,java.lang.Object[])>($stack3, "MSG", $stack12);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack17 := @caughtexception;
+
+        $stack19 = virtualinvoke $stack17.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MSG", $stack19);
+
+     label8:
+        interfaceinvoke $stack3.<java.util.List: java.lang.Object set(int,java.lang.Object)>(1, "b");
+
+        $stack15 = newarray (java.lang.Object)[0];
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Iterable noNullElements(java.lang.Iterable,java.lang.String,java.lang.Object[])>($stack3, "Message", $stack15);
+
+        $stack26 = (java.util.List) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack26);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        org.apache.commons.lang3.Validate $stack2;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = new org.apache.commons.lang3.Validate;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.Validate: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/Validate;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/Validate;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/Validate;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testValidIndex_withMessage_array()
+    {
+        java.lang.IndexOutOfBoundsException $stack15, $stack27;
+        java.lang.Object[] array, $stack4, $stack6, $stack8, $stack10, $stack13, $stack14;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack12, $stack24;
+        int $i0;
+        java.lang.String $stack17, $stack29;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        array = newarray (java.lang.Object)[2];
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int,java.lang.String,java.lang.Object[])>(array, 0, "Broken: ", $stack4);
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int,java.lang.String,java.lang.Object[])>(array, 1, "Broken: ", $stack6);
+
+     label1:
+        $stack8 = newarray (java.lang.Object)[0];
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int,java.lang.String,java.lang.Object[])>(array, $i0, "Broken: ", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack27 := @caughtexception;
+
+        $stack29 = virtualinvoke $stack27.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack29);
+
+     label4:
+        $stack10 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int,java.lang.String,java.lang.Object[])>(array, 2, "Broken: ", $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack15 := @caughtexception;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack17);
+
+     label7:
+        $stack12 = newarray (java.lang.String)[1];
+
+        $stack12[0] = "Hi";
+
+        $stack13 = newarray (java.lang.Object)[0];
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[],java.lang.String,java.lang.Object[])>($stack12, "Message", $stack13);
+
+        $stack24 = (java.lang.String[]) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack24);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testValidIndex_array()
+    {
+        java.lang.IndexOutOfBoundsException $stack10, $stack20;
+        java.lang.Object[] array, $stack9;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack8, $stack17;
+        int $i0;
+        java.lang.String $stack12, $stack22;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        array = newarray (java.lang.Object)[2];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int)>(array, 0);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int)>(array, 1);
+
+     label1:
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int)>(array, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack20 := @caughtexception;
+
+        $stack22 = virtualinvoke $stack20.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated array index is invalid: -1", $stack22);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] validIndex(java.lang.Object[],int)>(array, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack10 := @caughtexception;
+
+        $stack12 = virtualinvoke $stack10.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated array index is invalid: 2", $stack12);
+
+     label7:
+        $stack8 = newarray (java.lang.String)[1];
+
+        $stack8[0] = "Hi";
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>($stack8);
+
+        $stack17 = (java.lang.String[]) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack17);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testValidIndex_withMessage_collection()
+    {
+        java.lang.IndexOutOfBoundsException $stack19, $stack32;
+        java.lang.Object[] $stack7, $stack9, $stack11, $stack13, $stack17;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String[] $stack15;
+        java.util.ArrayList $u0;
+        int $i0;
+        java.lang.String $stack21, $stack34;
+        java.util.Collection $stack18;
+        java.util.List $stack16, $stack29;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $u0 = new java.util.ArrayList;
+
+        specialinvoke $u0.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $u0.<java.util.Collection: boolean add(java.lang.Object)>(null);
+
+        interfaceinvoke $u0.<java.util.Collection: boolean add(java.lang.Object)>(null);
+
+        $stack7 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>($u0, 0, "Broken: ", $stack7);
+
+        $stack9 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>($u0, 1, "Broken: ", $stack9);
+
+     label1:
+        $stack11 = newarray (java.lang.Object)[0];
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>($u0, $i0, "Broken: ", $stack11);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack32 := @caughtexception;
+
+        $stack34 = virtualinvoke $stack32.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack34);
+
+     label4:
+        $stack13 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>($u0, 2, "Broken: ", $stack13);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack19 := @caughtexception;
+
+        $stack21 = virtualinvoke $stack19.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack21);
+
+     label7:
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "Hi";
+
+        $stack16 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack15);
+
+        $stack17 = newarray (java.lang.Object)[0];
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int,java.lang.String,java.lang.Object[])>($stack16, 0, "Message", $stack17);
+
+        $stack29 = (java.util.List) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack16, $stack29);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testValidIndex_collection()
+    {
+        java.lang.IndexOutOfBoundsException $stack14, $stack25;
+        org.apache.commons.lang3.ValidateTest this;
+        java.util.Collection $stack13;
+        java.lang.String[] $stack11;
+        java.util.ArrayList $u0;
+        java.util.List $stack12, $stack22;
+        int $i0;
+        java.lang.String $stack16, $stack27;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $u0 = new java.util.ArrayList;
+
+        specialinvoke $u0.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $u0.<java.util.Collection: boolean add(java.lang.Object)>(null);
+
+        interfaceinvoke $u0.<java.util.Collection: boolean add(java.lang.Object)>(null);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int)>($u0, 0);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int)>($u0, 1);
+
+     label1:
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int)>($u0, $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack25 := @caughtexception;
+
+        $stack27 = virtualinvoke $stack25.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated collection index is invalid: -1", $stack27);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int)>($u0, 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack14 := @caughtexception;
+
+        $stack16 = virtualinvoke $stack14.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated collection index is invalid: 2", $stack16);
+
+     label7:
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "Hi";
+
+        $stack12 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.Validate: java.util.Collection validIndex(java.util.Collection,int)>($stack12, 0);
+
+        $stack22 = (java.util.List) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack22);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testValidIndex_withMessage_charSequence()
+    {
+        java.lang.IndexOutOfBoundsException $stack14, $stack25;
+        java.lang.Object[] $stack4, $stack6, $stack8, $stack10, $stack12;
+        java.lang.CharSequence $stack13;
+        org.apache.commons.lang3.ValidateTest this;
+        int $i0;
+        java.lang.String $stack16, $stack22, $stack27;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>("Hi", 0, "Broken: ", $stack4);
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>("Hi", 1, "Broken: ", $stack6);
+
+     label1:
+        $stack8 = newarray (java.lang.Object)[0];
+
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>("Hi", $i0, "Broken: ", $stack8);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack25 := @caughtexception;
+
+        $stack27 = virtualinvoke $stack25.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack27);
+
+     label4:
+        $stack10 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>("Hi", 2, "Broken: ", $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack14 := @caughtexception;
+
+        $stack16 = virtualinvoke $stack14.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Broken: ", $stack16);
+
+     label7:
+        $stack12 = newarray (java.lang.Object)[0];
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int,java.lang.String,java.lang.Object[])>("Hi", 0, "Message", $stack12);
+
+        $stack22 = (java.lang.String) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack22);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testValidIndex_charSequence()
+    {
+        java.lang.IndexOutOfBoundsException $stack9, $stack18;
+        java.lang.CharSequence $stack8;
+        org.apache.commons.lang3.ValidateTest this;
+        int $i0;
+        java.lang.String $stack11, $stack15, $stack20;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int)>("Hi", 0);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int)>("Hi", 1);
+
+     label1:
+        $i0 = (int) -1;
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int)>("Hi", $i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack18 := @caughtexception;
+
+        $stack20 = virtualinvoke $stack18.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence index is invalid: -1", $stack20);
+
+     label4:
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int)>("Hi", 2);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IndexOutOfBoundsException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack9 := @caughtexception;
+
+        $stack11 = virtualinvoke $stack9.<java.lang.IndexOutOfBoundsException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The validated character sequence index is invalid: 2", $stack11);
+
+     label7:
+        $stack8 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.CharSequence validIndex(java.lang.CharSequence,int)>("Hi", 0);
+
+        $stack15 = (java.lang.String) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Hi", $stack15);
+
+        return;
+
+        catch java.lang.IndexOutOfBoundsException from label1 to label2 with label3;
+        catch java.lang.IndexOutOfBoundsException from label4 to label5 with label6;
+    }
+
+    public void testMatchesPattern()
+    {
+        java.lang.String $stack5;
+        java.lang.IllegalArgumentException $stack3;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void matchesPattern(java.lang.CharSequence,java.lang.String)>("hi", "[a-z]*");
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void matchesPattern(java.lang.CharSequence,java.lang.String)>("hi", "[0-9]*");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        $stack5 = virtualinvoke $stack3.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The string hi does not match the pattern [0-9]*", $stack5);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testMatchesPattern_withMessage()
+    {
+        java.lang.Object[] $stack3, $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.IllegalArgumentException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void matchesPattern(java.lang.CharSequence,java.lang.String,java.lang.String,java.lang.Object[])>("hi", "[a-z]*", "Does not match", $stack3);
+
+     label1:
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void matchesPattern(java.lang.CharSequence,java.lang.String,java.lang.String,java.lang.Object[])>("hi", "[0-9]*", "Does not match", $stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Does not match", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testInclusiveBetween()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.IllegalArgumentException $stack11;
+        java.lang.Integer $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10;
+        java.lang.String $stack13;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>("a", "c", "b");
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack2, $stack3, $stack4);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack5, $stack6, $stack7);
+
+     label1:
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack8, $stack9, $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack11 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The value 6 is not in the specified inclusive range of 0 to 5", $stack13);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testInclusiveBetween_withMessage()
+    {
+        java.lang.Object[] $stack2, $stack6, $stack10, $stack14;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.Integer $stack3, $stack4, $stack5, $stack7, $stack8, $stack9, $stack11, $stack12, $stack13;
+        java.lang.String $stack17;
+        java.lang.IllegalArgumentException $stack15;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>("a", "c", "b", "Error", $stack2);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack3, $stack4, $stack5, "Error", $stack6);
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack10 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack7, $stack8, $stack9, "Error", $stack10);
+
+     label1:
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack14 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void inclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack11, $stack12, $stack13, "Error", $stack14);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack15 := @caughtexception;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Error", $stack17);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testExclusiveBetween()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.IllegalArgumentException $stack11, $stack14;
+        java.lang.Integer $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10;
+        java.lang.String $stack13, $stack16;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>("a", "c", "b");
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack2, $stack3, $stack4);
+
+     label1:
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack5, $stack6, $stack7);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack14 := @caughtexception;
+
+        $stack16 = virtualinvoke $stack14.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The value 6 is not in the specified exclusive range of 0 to 5", $stack16);
+
+     label4:
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable)>($stack8, $stack9, $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack11 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The value 5 is not in the specified exclusive range of 0 to 5", $stack13);
+
+     label7:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testExclusiveBetween_withMessage()
+    {
+        java.lang.Object[] $stack2, $stack6, $stack10, $stack14;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.Integer $stack3, $stack4, $stack5, $stack7, $stack8, $stack9, $stack11, $stack12, $stack13;
+        java.lang.String $stack17, $stack20;
+        java.lang.IllegalArgumentException $stack15, $stack18;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>("a", "c", "b", "Error", $stack2);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack3, $stack4, $stack5, "Error", $stack6);
+
+     label1:
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack10 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack7, $stack8, $stack9, "Error", $stack10);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack18 := @caughtexception;
+
+        $stack20 = virtualinvoke $stack18.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Error", $stack20);
+
+     label4:
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack14 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void exclusiveBetween(java.lang.Object,java.lang.Object,java.lang.Comparable,java.lang.String,java.lang.Object[])>($stack11, $stack12, $stack13, "Error", $stack14);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack15 := @caughtexception;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Error", $stack17);
+
+     label7:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label4 to label5 with label6;
+    }
+
+    public void testIsInstanceOf()
+    {
+        java.lang.Integer $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object)>(class "Ljava/lang/String;", "hi");
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object)>(class "Ljava/lang/Integer;", $stack2);
+
+        return;
+    }
+
+    public void testIsInstanceOfExceptionMessage()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object)>(class "Ljava/util/List;", "hi");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Expected type: java.util.List, actual: java.lang.String", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsInstanceOf_withMessage()
+    {
+        java.lang.Object[] $stack2, $stack5, $stack6;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack9;
+        java.lang.IllegalArgumentException $stack7;
+        java.lang.Integer $stack4;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object,java.lang.String,java.lang.Object[])>(class "Ljava/lang/String;", "hi", "Error", $stack2);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack5 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object,java.lang.String,java.lang.Object[])>(class "Ljava/lang/Integer;", $stack4, "Error", $stack5);
+
+     label1:
+        $stack6 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isInstanceOf(java.lang.Class,java.lang.Object,java.lang.String,java.lang.Object[])>(class "Ljava/util/List;", "hi", "Error", $stack6);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Error", $stack9);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsAssignable()
+    {
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class)>(class "Ljava/lang/CharSequence;", class "Ljava/lang/String;");
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class)>(class "Ljava/util/AbstractList;", class "Ljava/util/ArrayList;");
+
+        return;
+    }
+
+    public void testIsAssignableExceptionMessage()
+    {
+        java.lang.String $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.ValidateTest this;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class)>(class "Ljava/util/List;", class "Ljava/lang/String;");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Cannot assign a java.lang.String to a java.util.List", $stack4);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testIsAssignable_withMessage()
+    {
+        java.lang.Object[] $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.ValidateTest this;
+        java.lang.String $stack7;
+        java.lang.IllegalArgumentException $stack5;
+
+        this := @this: org.apache.commons.lang3.ValidateTest;
+
+        $stack2 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class,java.lang.String,java.lang.Object[])>(class "Ljava/lang/CharSequence;", class "Ljava/lang/String;", "Error", $stack2);
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class,java.lang.String,java.lang.Object[])>(class "Ljava/util/AbstractList;", class "Ljava/util/ArrayList;", "Error", $stack3);
+
+     label1:
+        $stack4 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isAssignableFrom(java.lang.Class,java.lang.Class,java.lang.String,java.lang.Object[])>(class "Ljava/util/List;", class "Ljava/lang/String;", "Error", $stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Expecting IllegalArgumentException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.IllegalArgumentException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Error", $stack7);
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+}

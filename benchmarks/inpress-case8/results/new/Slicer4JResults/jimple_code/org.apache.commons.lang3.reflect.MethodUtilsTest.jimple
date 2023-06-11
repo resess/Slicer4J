@@ -1,0 +1,1120 @@
+public class org.apache.commons.lang3.reflect.MethodUtilsTest extends java.lang.Object
+{
+    private org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean;
+    private java.util.Map classCache;
+
+    public void <init>()
+    {
+        java.util.HashMap $stack1;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.HashMap;
+
+        specialinvoke $stack1.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.util.Map classCache> = $stack1;
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean $stack1;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.util.Map $stack2;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean: void <init>()>();
+
+        this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean> = $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.util.Map classCache>;
+
+        interfaceinvoke $stack2.<java.util.Map: void clear()>();
+
+        return;
+    }
+
+    public void testConstructor() throws java.lang.Exception
+    {
+        java.lang.Class $stack1;
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack1 = class "Lorg/apache/commons/lang3/reflect/MethodUtils;";
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Class: java.lang.Object newInstance()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        return;
+    }
+
+    public void testInvokeMethod() throws java.lang.Exception
+    {
+        java.lang.Integer $stack32;
+        java.lang.Long $stack42;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.Byte $stack37;
+        org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean $stack3, $stack7, $stack12, $stack16, $stack22, $stack28, $stack33, $stack38, $stack43, $stack48;
+        java.lang.Object[] $stack2, $stack6, $stack11, $stack15, $stack19, $stack26, $stack31, $stack36, $stack41, $stack46;
+        java.lang.Double $stack47;
+        java.lang.Boolean $stack27;
+        java.lang.Class[] $stack1, $stack10;
+        java.lang.Object $stack5, $stack9, $stack14, $stack18, $stack20, $stack25, $stack30, $stack35, $stack40, $stack45, $stack50;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack3 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack1 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack2 = (java.lang.Object[]) $stack1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack3, "foo", $stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack6 = (java.lang.Object[]) null;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack7, "foo", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack9);
+
+        $stack12 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack11 = (java.lang.Object[]) null;
+
+        $stack10 = (java.lang.Class[]) null;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[],java.lang.Class[])>($stack12, "foo", $stack11, $stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack14);
+
+        $stack16 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack15 = newarray (java.lang.Object)[1];
+
+        $stack15[0] = "";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack16, "foo", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(String)", $stack18);
+
+        $stack22 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack19 = newarray (java.lang.Object)[1];
+
+        $stack20 = new java.lang.Object;
+
+        specialinvoke $stack20.<java.lang.Object: void <init>()>();
+
+        $stack19[0] = $stack20;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack22, "foo", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(Object)", $stack25);
+
+        $stack28 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack26 = newarray (java.lang.Object)[1];
+
+        $stack27 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack26[0] = $stack27;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack28, "foo", $stack26);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(Object)", $stack30);
+
+        $stack33 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack31 = newarray (java.lang.Object)[1];
+
+        $stack32 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        $stack31[0] = $stack32;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack33, "foo", $stack31);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(Integer)", $stack35);
+
+        $stack38 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack36 = newarray (java.lang.Object)[1];
+
+        $stack37 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ONE>;
+
+        $stack36[0] = $stack37;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack38, "foo", $stack36);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(int)", $stack40);
+
+        $stack43 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack41 = newarray (java.lang.Object)[1];
+
+        $stack42 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ONE>;
+
+        $stack41[0] = $stack42;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack43, "foo", $stack41);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(double)", $stack45);
+
+        $stack48 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack46 = newarray (java.lang.Object)[1];
+
+        $stack47 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ONE>;
+
+        $stack46[0] = $stack47;
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack48, "foo", $stack46);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(double)", $stack50);
+
+        return;
+    }
+
+    public void testInvokeExactMethod() throws java.lang.Exception
+    {
+        java.lang.NoSuchMethodException $stack51, $stack52, $stack58;
+        java.lang.Integer $stack28;
+        java.lang.Long $stack44;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.Byte $stack40;
+        org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean $stack4, $stack8, $stack13, $stack17, $stack23, $stack29, $stack36, $stack41, $stack45, $stack49;
+        java.lang.Object[] $stack3, $stack7, $stack12, $stack16, $stack20, $stack27, $stack32, $stack39, $stack43, $stack47;
+        java.lang.Double $stack33;
+        java.lang.Boolean $stack48;
+        java.lang.Class[] $stack2, $stack11, $stack34;
+        java.lang.Object $stack6, $stack10, $stack15, $stack19, $stack21, $stack26, $stack31, $stack38;
+        java.lang.Class $stack35;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack4 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack2 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack3 = (java.lang.Object[]) $stack2;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack4, "foo", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack7 = (java.lang.Object[]) null;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack8, "foo", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack10);
+
+        $stack13 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack12 = (java.lang.Object[]) null;
+
+        $stack11 = (java.lang.Class[]) null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[],java.lang.Class[])>($stack13, "foo", $stack12, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo()", $stack15);
+
+        $stack17 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack16 = newarray (java.lang.Object)[1];
+
+        $stack16[0] = "";
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack17, "foo", $stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(String)", $stack19);
+
+        $stack23 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack20 = newarray (java.lang.Object)[1];
+
+        $stack21 = new java.lang.Object;
+
+        specialinvoke $stack21.<java.lang.Object: void <init>()>();
+
+        $stack20[0] = $stack21;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack23, "foo", $stack20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(Object)", $stack26);
+
+        $stack29 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack27 = newarray (java.lang.Object)[1];
+
+        $stack28 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        $stack27[0] = $stack28;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack29, "foo", $stack27);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(Integer)", $stack31);
+
+        $stack36 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack32 = newarray (java.lang.Object)[1];
+
+        $stack33 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ONE>;
+
+        $stack32[0] = $stack33;
+
+        $stack34 = newarray (java.lang.Class)[1];
+
+        $stack35 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack34[0] = $stack35;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[],java.lang.Class[])>($stack36, "foo", $stack32, $stack34);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo(double)", $stack38);
+
+     label01:
+        $stack41 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack39 = newarray (java.lang.Object)[1];
+
+        $stack40 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ONE>;
+
+        $stack39[0] = $stack40;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack41, "foo", $stack39);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack58 := @caughtexception;
+
+     label04:
+        $stack45 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack43 = newarray (java.lang.Object)[1];
+
+        $stack44 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ONE>;
+
+        $stack43[0] = $stack44;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack45, "foo", $stack43);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack52 := @caughtexception;
+
+     label07:
+        $stack49 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: org.apache.commons.lang3.reflect.MethodUtilsTest$TestBean testBean>;
+
+        $stack47 = newarray (java.lang.Object)[1];
+
+        $stack48 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack47[0] = $stack48;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactMethod(java.lang.Object,java.lang.String,java.lang.Object[])>($stack49, "foo", $stack47);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack51 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.NoSuchMethodException from label01 to label02 with label03;
+        catch java.lang.NoSuchMethodException from label04 to label05 with label06;
+        catch java.lang.NoSuchMethodException from label07 to label08 with label09;
+    }
+
+    public void testInvokeStaticMethod() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack3, $stack6, $stack10, $stack13, $stack16, $stack23, $stack27, $stack31, $stack35, $stack39, $stack43;
+        java.lang.Double $stack40;
+        java.lang.NoSuchMethodException $stack45;
+        java.lang.Integer $stack28;
+        java.lang.Long $stack36;
+        java.lang.Boolean $stack24;
+        java.lang.Byte $stack32;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.Class[] $stack2, $stack9;
+        java.lang.Object $stack5, $stack8, $stack12, $stack15, $stack17, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack2 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack3 = (java.lang.Object[]) $stack2;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack5);
+
+        $stack6 = (java.lang.Object[]) null;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack8);
+
+        $stack10 = (java.lang.Object[]) null;
+
+        $stack9 = (java.lang.Class[]) null;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack10, $stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack12);
+
+        $stack13 = newarray (java.lang.Object)[1];
+
+        $stack13[0] = "";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(String)", $stack15);
+
+        $stack16 = newarray (java.lang.Object)[1];
+
+        $stack17 = new java.lang.Object;
+
+        specialinvoke $stack17.<java.lang.Object: void <init>()>();
+
+        $stack16[0] = $stack17;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(Object)", $stack22);
+
+        $stack23 = newarray (java.lang.Object)[1];
+
+        $stack24 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack23[0] = $stack24;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(Object)", $stack26);
+
+        $stack27 = newarray (java.lang.Object)[1];
+
+        $stack28 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        $stack27[0] = $stack28;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack27);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(Integer)", $stack30);
+
+        $stack31 = newarray (java.lang.Object)[1];
+
+        $stack32 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ONE>;
+
+        $stack31[0] = $stack32;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack31);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(int)", $stack34);
+
+        $stack35 = newarray (java.lang.Object)[1];
+
+        $stack36 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ONE>;
+
+        $stack35[0] = $stack36;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack35);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(double)", $stack38);
+
+        $stack39 = newarray (java.lang.Object)[1];
+
+        $stack40 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ONE>;
+
+        $stack39[0] = $stack40;
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack39);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(double)", $stack42);
+
+     label1:
+        $stack43 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "does_not_exist", $stack43);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack45 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.NoSuchMethodException from label1 to label2 with label3;
+    }
+
+    public void testInvokeExactStaticMethod() throws java.lang.Exception
+    {
+        java.lang.Object[] $stack3, $stack6, $stack10, $stack13, $stack16, $stack23, $stack27, $stack33, $stack36, $stack39;
+        java.lang.Double $stack28;
+        java.lang.NoSuchMethodException $stack42, $stack43, $stack49;
+        java.lang.Integer $stack24;
+        java.lang.Long $stack37;
+        java.lang.Boolean $stack40;
+        java.lang.Byte $stack34;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.Class[] $stack2, $stack9, $stack29;
+        java.lang.Object $stack5, $stack8, $stack12, $stack15, $stack17, $stack22, $stack26, $stack32;
+        java.lang.Class $stack30;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack2 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack3 = (java.lang.Object[]) $stack2;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack5);
+
+        $stack6 = (java.lang.Object[]) null;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack8);
+
+        $stack10 = (java.lang.Object[]) null;
+
+        $stack9 = (java.lang.Class[]) null;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack10, $stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar()", $stack12);
+
+        $stack13 = newarray (java.lang.Object)[1];
+
+        $stack13[0] = "";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(String)", $stack15);
+
+        $stack16 = newarray (java.lang.Object)[1];
+
+        $stack17 = new java.lang.Object;
+
+        specialinvoke $stack17.<java.lang.Object: void <init>()>();
+
+        $stack16[0] = $stack17;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(Object)", $stack22);
+
+        $stack23 = newarray (java.lang.Object)[1];
+
+        $stack24 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE>;
+
+        $stack23[0] = $stack24;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(Integer)", $stack26);
+
+        $stack27 = newarray (java.lang.Object)[1];
+
+        $stack28 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ONE>;
+
+        $stack27[0] = $stack28;
+
+        $stack29 = newarray (java.lang.Class)[1];
+
+        $stack30 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack29[0] = $stack30;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack27, $stack29);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar(double)", $stack32);
+
+     label01:
+        $stack33 = newarray (java.lang.Object)[1];
+
+        $stack34 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ONE>;
+
+        $stack33[0] = $stack34;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack33);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack49 := @caughtexception;
+
+     label04:
+        $stack36 = newarray (java.lang.Object)[1];
+
+        $stack37 = <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ONE>;
+
+        $stack36[0] = $stack37;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack36);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack43 := @caughtexception;
+
+     label07:
+        $stack39 = newarray (java.lang.Object)[1];
+
+        $stack40 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack39[0] = $stack40;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeExactStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "bar", $stack39);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("should throw NoSuchMethodException");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack42 := @caughtexception;
+
+     label10:
+        return;
+
+        catch java.lang.NoSuchMethodException from label01 to label02 with label03;
+        catch java.lang.NoSuchMethodException from label04 to label05 with label06;
+        catch java.lang.NoSuchMethodException from label07 to label08 with label09;
+    }
+
+    public void testGetAccessibleInterfaceMethod() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack9, element;
+        int len$, i$;
+        java.lang.Class $stack10, $stack14;
+        java.lang.Class[][] $stack8;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack11, $stack12;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack8 = newarray (java.lang.Class[])[2];
+
+        $stack9 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack8[0] = $stack9;
+
+        $stack8[1] = null;
+
+        len$ = lengthof $stack8;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        element = $stack8[i$];
+
+        $stack10 = class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestMutable;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getValue", element);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.reflect.Method)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertNotSame(java.lang.Object,java.lang.Object)>($stack12, $stack11);
+
+        $stack14 = virtualinvoke $stack12.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/mutable/Mutable;", $stack14);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testGetAccessibleMethodPrivateInterface() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack3, $stack6;
+        java.lang.Class $stack4;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack4 = class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBeanWithInterfaces;";
+
+        $stack3 = newarray (java.lang.Class)[0];
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("foo", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack5);
+
+        $stack6 = newarray (java.lang.Class)[0];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.Class,java.lang.String,java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBeanWithInterfaces;", "foo", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack7);
+
+        return;
+    }
+
+    public void testGetAccessibleInterfaceMethodFromDescription() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack8, element;
+        int len$, i$;
+        java.lang.Class $stack11;
+        java.lang.Class[][] $stack7;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack9;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack7 = newarray (java.lang.Class[])[2];
+
+        $stack8 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack7[0] = $stack8;
+
+        $stack7[1] = null;
+
+        len$ = lengthof $stack7;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        element = $stack7[i$];
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.Class,java.lang.String,java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestMutable;", "getValue", element);
+
+        $stack11 = virtualinvoke $stack9.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/mutable/Mutable;", $stack11);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testGetAccessiblePublicMethod() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack1;
+        java.lang.Class $stack2, $stack6;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack2 = class "Lorg/apache/commons/lang3/mutable/MutableObject;";
+
+        $stack1 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack4 = virtualinvoke $stack2.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>("getValue", $stack1);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.reflect.Method)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/mutable/MutableObject;", $stack6);
+
+        return;
+    }
+
+    public void testGetAccessiblePublicMethodFromDescription() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack1;
+        java.lang.Class $stack4;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack3;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.Class,java.lang.String,java.lang.Class[])>(class "Lorg/apache/commons/lang3/mutable/MutableObject;", "getValue", $stack1);
+
+        $stack4 = virtualinvoke $stack3.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(class "Lorg/apache/commons/lang3/mutable/MutableObject;", $stack4);
+
+        return;
+    }
+
+    public void testGetAccessibleMethodInaccessible() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack3;
+        java.lang.Class $stack4;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack4 = class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;";
+
+        $stack3 = newarray (java.lang.Class)[0];
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: java.lang.reflect.Method getDeclaredMethod(java.lang.String,java.lang.Class[])>("privateStuff", $stack3);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getAccessibleMethod(java.lang.reflect.Method)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack6);
+
+        return;
+    }
+
+    public void testGetMatchingAccessibleMethod() throws java.lang.Exception
+    {
+        java.lang.Class[] $stack1, $stack2, $stack3, $stack6, $stack7, $stack10, $stack11, $stack14, $stack15, $stack18, $stack20, $stack24, $stack26, $stack29, $stack31, $stack35, $stack37, $stack40, $stack42, $stack46, $stack48, $stack51, $stack52, $stack56, $stack58, $stack61, $stack63, $stack67, $stack69, $stack72, $stack74, $stack78, $stack80, $stack83, $stack85, $stack89, $stack91, $stack95, $stack97, $stack100, $stack101, $stack104, $stack105, $stack108, $stack109, $stack112, $stack113;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.Class $stack19, $stack21, $stack25, $stack30, $stack32, $stack36, $stack41, $stack43, $stack47, $stack53, $stack57, $stack62, $stack64, $stack68, $stack73, $stack75, $stack79, $stack84, $stack86, $stack90, $stack92, $stack96;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack2 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        $stack1 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack2, $stack1);
+
+        $stack3 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", null, $stack3);
+
+        $stack6 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/String;");
+
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/String;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack6, $stack7);
+
+        $stack10 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Object;");
+
+        $stack11 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Object;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack10, $stack11);
+
+        $stack14 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Boolean;");
+
+        $stack15 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Object;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack14, $stack15);
+
+        $stack18 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Byte;");
+
+        $stack19 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack20 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack19);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack18, $stack20);
+
+        $stack21 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack24 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack21);
+
+        $stack25 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack26 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack25);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack24, $stack26);
+
+        $stack29 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Short;");
+
+        $stack30 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack31 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack30);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack29, $stack31);
+
+        $stack32 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack35 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack32);
+
+        $stack36 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack37 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack36);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack35, $stack37);
+
+        $stack40 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Character;");
+
+        $stack41 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack42 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack41);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack40, $stack42);
+
+        $stack43 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack46 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack43);
+
+        $stack47 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack48 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack47);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack46, $stack48);
+
+        $stack51 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Integer;");
+
+        $stack52 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Integer;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack51, $stack52);
+
+        $stack53 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack56 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack53);
+
+        $stack57 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack58 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack57);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack56, $stack58);
+
+        $stack61 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Long;");
+
+        $stack62 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack63 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack62);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack61, $stack63);
+
+        $stack64 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack67 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack64);
+
+        $stack68 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack69 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack68);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack67, $stack69);
+
+        $stack72 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Float;");
+
+        $stack73 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack74 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack73);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack72, $stack74);
+
+        $stack75 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack78 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack75);
+
+        $stack79 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack80 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack79);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack78, $stack80);
+
+        $stack83 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/Double;");
+
+        $stack84 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack85 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack84);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack83, $stack85);
+
+        $stack86 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack89 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack86);
+
+        $stack90 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack91 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack90);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack89, $stack91);
+
+        $stack92 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack95 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack92);
+
+        $stack96 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack97 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>($stack96);
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "foo", $stack95, $stack97);
+
+        $stack100 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ParentObject;");
+
+        $stack101 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ParentObject;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$InheritanceBean;", "testOne", $stack100, $stack101);
+
+        $stack104 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ChildObject;");
+
+        $stack105 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ParentObject;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$InheritanceBean;", "testOne", $stack104, $stack105);
+
+        $stack108 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ParentObject;");
+
+        $stack109 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$GrandParentObject;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$InheritanceBean;", "testTwo", $stack108, $stack109);
+
+        $stack112 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ChildObject;");
+
+        $stack113 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$ChildInterface;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$InheritanceBean;", "testTwo", $stack112, $stack113);
+
+        return;
+    }
+
+    public void testNullArgument()
+    {
+        java.lang.Class[] $stack3, $stack4;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(null);
+
+        $stack4 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.Class[] singletonArray(java.lang.Class)>(class "Ljava/lang/String;");
+
+        specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: void expectMatchingAccessibleMethodParameterTypes(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Class[])>(class "Lorg/apache/commons/lang3/reflect/MethodUtilsTest$TestBean;", "oneParameter", $stack3, $stack4);
+
+        return;
+    }
+
+    private void expectMatchingAccessibleMethodParameterTypes(java.lang.Class, java.lang.String, java.lang.Class[], java.lang.Class[])
+    {
+        java.lang.String methodName, $stack9, $stack12, $stack14;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+        java.lang.reflect.Method $stack6;
+        boolean $stack16;
+        java.lang.Class[] requestTypes, $stack8, actualTypes, $stack15;
+        java.lang.Class 'cls';
+        java.lang.StringBuilder $stack7, $stack10, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        methodName := @parameter1: java.lang.String;
+
+        requestTypes := @parameter2: java.lang.Class[];
+
+        actualTypes := @parameter3: java.lang.Class[];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.reflect.Method getMatchingAccessibleMethod(java.lang.Class,java.lang.String,java.lang.Class[])>('cls', methodName, requestTypes);
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack6.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack9 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.String toString(java.lang.Class[])>($stack8);
+
+        $stack10 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" not equals ");
+
+        $stack12 = specialinvoke this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.lang.String toString(java.lang.Class[])>(actualTypes);
+
+        $stack13 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack15 = virtualinvoke $stack6.<java.lang.reflect.Method: java.lang.Class[] getParameterTypes()>();
+
+        $stack16 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>(actualTypes, $stack15);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack14, $stack16);
+
+        return;
+    }
+
+    private java.lang.String toString(java.lang.Class[])
+    {
+        java.util.List $stack2;
+        java.lang.Class[] c;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        c := @parameter0: java.lang.Class[];
+
+        $stack2 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>(c);
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: java.lang.String toString()>();
+
+        return $stack3;
+    }
+
+    private java.lang.Class[] singletonArray(java.lang.Class)
+    {
+        java.util.Map $stack3, $stack6;
+        java.lang.Class[] $stack5, result;
+        java.lang.Class c;
+        java.lang.Object $stack4;
+        org.apache.commons.lang3.reflect.MethodUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.reflect.MethodUtilsTest;
+
+        c := @parameter0: java.lang.Class;
+
+        $stack3 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.util.Map classCache>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: java.lang.Object get(java.lang.Object)>(c);
+
+        result = (java.lang.Class[]) $stack4;
+
+        if result != null goto label1;
+
+        $stack5 = newarray (java.lang.Class)[1];
+
+        $stack5[0] = c;
+
+        result = $stack5;
+
+        $stack6 = this.<org.apache.commons.lang3.reflect.MethodUtilsTest: java.util.Map classCache>;
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(c, $stack5);
+
+     label1:
+        return result;
+    }
+}

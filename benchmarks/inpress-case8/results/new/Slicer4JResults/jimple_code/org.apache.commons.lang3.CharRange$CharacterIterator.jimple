@@ -1,0 +1,283 @@
+class org.apache.commons.lang3.CharRange$CharacterIterator extends java.lang.Object implements java.util.Iterator
+{
+    private char current;
+    private final org.apache.commons.lang3.CharRange range;
+    private boolean hasNext;
+
+    private void <init>(org.apache.commons.lang3.CharRange)
+    {
+        org.apache.commons.lang3.CharRange r, $stack2, $stack4, $stack6, $stack8, $stack10;
+        int $stack12, $i0, $i1, $i2;
+        boolean $stack3;
+        char $stack5, $stack7, $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        r := @parameter0: org.apache.commons.lang3.CharRange;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range> = r;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext> = 1;
+
+        $stack2 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharRange: boolean access$100(org.apache.commons.lang3.CharRange)>($stack2);
+
+        if $stack3 == 0 goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.CharRange: char access$200(org.apache.commons.lang3.CharRange)>($stack6);
+
+        if $stack7 != 0 goto label2;
+
+        $stack8 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.CharRange: char access$300(org.apache.commons.lang3.CharRange)>($stack8);
+
+        $i0 = (int) $stack9;
+
+        $i1 = (int) 65535;
+
+        if $i0 != $i1 goto label1;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext> = 0;
+
+        goto label4;
+
+     label1:
+        $stack10 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.CharRange: char access$300(org.apache.commons.lang3.CharRange)>($stack10);
+
+        $i2 = (int) $stack11;
+
+        $stack12 = $i2 + 1;
+
+        $stack13 = (char) $stack12;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = $stack13;
+
+        goto label4;
+
+     label2:
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = 0;
+
+        goto label4;
+
+     label3:
+        $stack4 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.CharRange: char access$200(org.apache.commons.lang3.CharRange)>($stack4);
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = $stack5;
+
+     label4:
+        return;
+    }
+
+    private void prepareNext()
+    {
+        org.apache.commons.lang3.CharRange $stack1, $stack3, $stack11, $stack17, $stack19;
+        boolean $stack2;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+        int $stack7, $stack12, $stack15, $stack21, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10;
+        char $stack4, $stack5, $stack6, $stack8, $stack9, $stack10, $stack13, $stack14, $stack16, $stack18, $stack20, $stack22;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharRange: boolean access$100(org.apache.commons.lang3.CharRange)>($stack1);
+
+        if $stack2 == 0 goto label4;
+
+        $stack9 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        $i0 = (int) $stack9;
+
+        $i1 = (int) 65535;
+
+        if $i0 != $i1 goto label1;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext> = 0;
+
+        goto label6;
+
+     label1:
+        $stack10 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        $i2 = (int) $stack10;
+
+        $stack12 = $i2 + 1;
+
+        $stack11 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.CharRange: char access$200(org.apache.commons.lang3.CharRange)>($stack11);
+
+        $i3 = (int) $stack13;
+
+        if $stack12 != $i3 goto label3;
+
+        $stack17 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharRange: char access$300(org.apache.commons.lang3.CharRange)>($stack17);
+
+        $i4 = (int) $stack18;
+
+        $i5 = (int) 65535;
+
+        if $i4 != $i5 goto label2;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext> = 0;
+
+        goto label6;
+
+     label2:
+        $stack19 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.CharRange: char access$300(org.apache.commons.lang3.CharRange)>($stack19);
+
+        $i6 = (int) $stack20;
+
+        $stack21 = $i6 + 1;
+
+        $stack22 = (char) $stack21;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = $stack22;
+
+        goto label6;
+
+     label3:
+        $stack14 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        $i7 = (int) $stack14;
+
+        $stack15 = $i7 + 1;
+
+        $stack16 = (char) $stack15;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = $stack16;
+
+        goto label6;
+
+     label4:
+        $stack4 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        $stack3 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: org.apache.commons.lang3.CharRange range>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.CharRange: char access$300(org.apache.commons.lang3.CharRange)>($stack3);
+
+        $i8 = (int) $stack4;
+
+        $i9 = (int) $stack5;
+
+        if $i8 >= $i9 goto label5;
+
+        $stack6 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        $i10 = (int) $stack6;
+
+        $stack7 = $i10 + 1;
+
+        $stack8 = (char) $stack7;
+
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current> = $stack8;
+
+        goto label6;
+
+     label5:
+        this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext> = 0;
+
+     label6:
+        return;
+    }
+
+    public boolean hasNext()
+    {
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext>;
+
+        return $stack1;
+    }
+
+    public java.lang.Character next()
+    {
+        java.lang.Character $stack3;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+        char cur;
+        java.util.NoSuchElementException $stack4;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        $stack2 = this.<org.apache.commons.lang3.CharRange$CharacterIterator: boolean hasNext>;
+
+        if $stack2 != 0 goto label1;
+
+        $stack4 = new java.util.NoSuchElementException;
+
+        specialinvoke $stack4.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $stack4;
+
+     label1:
+        cur = this.<org.apache.commons.lang3.CharRange$CharacterIterator: char current>;
+
+        specialinvoke this.<org.apache.commons.lang3.CharRange$CharacterIterator: void prepareNext()>();
+
+        $stack3 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(cur);
+
+        return $stack3;
+    }
+
+    public void remove()
+    {
+        java.lang.UnsupportedOperationException $stack1;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        $stack1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack1;
+    }
+
+    public volatile java.lang.Object next()
+    {
+        java.lang.Character $stack1;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.CharRange$CharacterIterator: java.lang.Character next()>();
+
+        return $stack1;
+    }
+
+    void <init>(org.apache.commons.lang3.CharRange, org.apache.commons.lang3.CharRange$1)
+    {
+        org.apache.commons.lang3.CharRange$1 x1;
+        org.apache.commons.lang3.CharRange x0;
+        org.apache.commons.lang3.CharRange$CharacterIterator this;
+
+        this := @this: org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        x0 := @parameter0: org.apache.commons.lang3.CharRange;
+
+        x1 := @parameter1: org.apache.commons.lang3.CharRange$1;
+
+        specialinvoke this.<org.apache.commons.lang3.CharRange$CharacterIterator: void <init>(org.apache.commons.lang3.CharRange)>(x0);
+
+        return;
+    }
+}

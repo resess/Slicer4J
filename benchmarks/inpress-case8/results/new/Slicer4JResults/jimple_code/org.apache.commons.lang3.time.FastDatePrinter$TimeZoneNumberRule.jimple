@@ -1,0 +1,135 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$Rule
+{
+    static final org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_COLON;
+    static final org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_NO_COLON;
+    final boolean mColon;
+
+    void <init>(boolean)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule this;
+        boolean colon;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule;
+
+        colon := @parameter0: boolean;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: boolean mColon> = colon;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule;
+
+        return 5;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        int $stack6, $stack7, $stack9, $stack10, $stack13, $stack14, $stack18, $stack19, $stack20, $stack21, $stack24, $stack25, $stack33, $stack45, offset, $i0;
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule this;
+        boolean $stack17;
+        char $stack11, $stack15, $stack22, $stack26;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack6 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(15);
+
+        $stack7 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(16);
+
+        offset = $stack6 + $stack7;
+
+        if offset >= 0 goto label1;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(45);
+
+        offset = neg offset;
+
+        goto label2;
+
+     label1:
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(43);
+
+     label2:
+        $stack45 = offset / 3600000;
+
+        $stack9 = $stack45 / 10;
+
+        $stack10 = $stack9 + 48;
+
+        $stack11 = (char) $stack10;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack11);
+
+        $stack13 = $stack45 % 10;
+
+        $stack14 = $stack13 + 48;
+
+        $stack15 = (char) $stack14;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack15);
+
+        $stack17 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: boolean mColon>;
+
+        if $stack17 == 0 goto label3;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(58);
+
+     label3:
+        $i0 = (int) 60000;
+
+        $stack19 = offset / $i0;
+
+        $stack18 = 60 * $stack45;
+
+        $stack33 = $stack19 - $stack18;
+
+        $stack20 = $stack33 / 10;
+
+        $stack21 = $stack20 + 48;
+
+        $stack22 = (char) $stack21;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack22);
+
+        $stack24 = $stack33 % 10;
+
+        $stack25 = $stack24 + 48;
+
+        $stack26 = (char) $stack25;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack26);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule $stack0, $stack1;
+
+        $stack0 = new org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: void <init>(boolean)>(1);
+
+        <org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_COLON> = $stack0;
+
+        $stack1 = new org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: void <init>(boolean)>(0);
+
+        <org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNumberRule INSTANCE_NO_COLON> = $stack1;
+
+        return;
+    }
+}

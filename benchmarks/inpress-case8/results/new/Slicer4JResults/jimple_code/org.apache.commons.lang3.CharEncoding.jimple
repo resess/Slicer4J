@@ -1,0 +1,63 @@
+public class org.apache.commons.lang3.CharEncoding extends java.lang.Object
+{
+    public static final java.lang.String ISO_8859_1;
+    public static final java.lang.String US_ASCII;
+    public static final java.lang.String UTF_16;
+    public static final java.lang.String UTF_16BE;
+    public static final java.lang.String UTF_16LE;
+    public static final java.lang.String UTF_8;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharEncoding this;
+
+        this := @this: org.apache.commons.lang3.CharEncoding;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean isSupported(java.lang.String)
+    {
+        java.nio.charset.IllegalCharsetNameException $stack3;
+        java.lang.String name;
+        boolean $stack2;
+
+        name := @parameter0: java.lang.String;
+
+        if name != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack2 = staticinvoke <java.nio.charset.Charset: boolean isSupported(java.lang.String)>(name);
+
+     label2:
+        return $stack2;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        return 0;
+
+        catch java.nio.charset.IllegalCharsetNameException from label1 to label2 with label3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.CharEncoding: java.lang.String UTF_8> = "UTF-8";
+
+        <org.apache.commons.lang3.CharEncoding: java.lang.String UTF_16LE> = "UTF-16LE";
+
+        <org.apache.commons.lang3.CharEncoding: java.lang.String UTF_16BE> = "UTF-16BE";
+
+        <org.apache.commons.lang3.CharEncoding: java.lang.String UTF_16> = "UTF-16";
+
+        <org.apache.commons.lang3.CharEncoding: java.lang.String US_ASCII> = "US-ASCII";
+
+        <org.apache.commons.lang3.CharEncoding: java.lang.String ISO_8859_1> = "ISO-8859-1";
+
+        return;
+    }
+}

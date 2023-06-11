@@ -1,0 +1,69 @@
+class org.apache.commons.lang3.event.EventListenerSupportTest$2$1 extends org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler
+{
+    final org.apache.commons.lang3.event.EventListenerSupportTest$2 this$1;
+
+    void <init>(org.apache.commons.lang3.event.EventListenerSupportTest$2)
+    {
+        org.apache.commons.lang3.event.EventListenerSupportTest$2$1 this;
+        org.apache.commons.lang3.event.EventListenerSupportTest$2 l1;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest$2$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.event.EventListenerSupportTest$2;
+
+        this.<org.apache.commons.lang3.event.EventListenerSupportTest$2$1: org.apache.commons.lang3.event.EventListenerSupportTest$2 this$1> = l1;
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler: void <init>(org.apache.commons.lang3.event.EventListenerSupport)>(l1);
+
+        return;
+    }
+
+    public java.lang.Object invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[]) throws java.lang.Throwable
+    {
+        java.lang.Object[] args;
+        java.lang.Object proxy, $stack8, $stack7;
+        java.lang.String $stack4, $stack5, $stack10, $stack11;
+        org.apache.commons.lang3.event.EventListenerSupportTest$2$1 this;
+        java.lang.reflect.Method method;
+        java.beans.PropertyChangeEvent $stack9;
+        boolean $stack6, $stack12;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest$2$1;
+
+        proxy := @parameter0: java.lang.Object;
+
+        method := @parameter1: java.lang.reflect.Method;
+
+        args := @parameter2: java.lang.Object[];
+
+        $stack4 = "vetoableChange";
+
+        $stack5 = virtualinvoke method.<java.lang.reflect.Method: java.lang.String getName()>();
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: boolean equals(java.lang.Object)>($stack5);
+
+        if $stack6 == 0 goto label1;
+
+        $stack10 = "Hour";
+
+        $stack8 = args[0];
+
+        $stack9 = (java.beans.PropertyChangeEvent) $stack8;
+
+        $stack11 = virtualinvoke $stack9.<java.beans.PropertyChangeEvent: java.lang.String getPropertyName()>();
+
+        $stack12 = virtualinvoke $stack10.<java.lang.String: boolean equals(java.lang.Object)>($stack11);
+
+        if $stack12 == 0 goto label1;
+
+        $stack7 = null;
+
+        goto label2;
+
+     label1:
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupport$ProxyInvocationHandler: java.lang.Object invoke(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])>(proxy, method, args);
+
+     label2:
+        return $stack7;
+    }
+}

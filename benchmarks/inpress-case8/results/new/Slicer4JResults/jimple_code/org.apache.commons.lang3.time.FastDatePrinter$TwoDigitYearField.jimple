@@ -1,0 +1,91 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$NumberRule
+{
+    static final org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField INSTANCE;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField;
+
+        return 2;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        int $stack3, $stack4;
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack3 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(1);
+
+        $stack4 = $stack3 % 100;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField: void appendTo(java.lang.StringBuffer,int)>(buffer, $stack4);
+
+        return;
+    }
+
+    public final void appendTo(java.lang.StringBuffer, int)
+    {
+        char $stack5, $stack9;
+        java.lang.StringBuffer buffer;
+        int value, $stack3, $stack4, $stack7, $stack8;
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        value := @parameter1: int;
+
+        $stack3 = value / 10;
+
+        $stack4 = $stack3 + 48;
+
+        $stack5 = (char) $stack4;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack5);
+
+        $stack7 = value % 10;
+
+        $stack8 = $stack7 + 48;
+
+        $stack9 = (char) $stack8;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack9);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField $stack0;
+
+        $stack0 = new org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField: void <init>()>();
+
+        <org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField: org.apache.commons.lang3.time.FastDatePrinter$TwoDigitYearField INSTANCE> = $stack0;
+
+        return;
+    }
+}

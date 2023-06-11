@@ -1,0 +1,311 @@
+public class org.apache.commons.lang3.exception.ContextedException extends java.lang.Exception implements org.apache.commons.lang3.exception.ExceptionContext
+{
+    private static final long serialVersionUID;
+    private final org.apache.commons.lang3.exception.ExceptionContext exceptionContext;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack1;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        specialinvoke this.<java.lang.Exception: void <init>()>();
+
+        $stack1 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack1;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.String message;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        message := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Exception: void <init>(java.lang.String)>(message);
+
+        $stack2 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.Throwable)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Throwable cause;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        cause := @parameter0: java.lang.Throwable;
+
+        specialinvoke this.<java.lang.Exception: void <init>(java.lang.Throwable)>(cause);
+
+        $stack2 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.Throwable)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Throwable cause;
+        java.lang.String message;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        message := @parameter0: java.lang.String;
+
+        cause := @parameter1: java.lang.Throwable;
+
+        specialinvoke this.<java.lang.Exception: void <init>(java.lang.String,java.lang.Throwable)>(message, cause);
+
+        $stack3 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack3;
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.Throwable, org.apache.commons.lang3.exception.ExceptionContext)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Throwable cause;
+        java.lang.String message;
+        org.apache.commons.lang3.exception.ExceptionContext context;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack4;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        message := @parameter0: java.lang.String;
+
+        cause := @parameter1: java.lang.Throwable;
+
+        context := @parameter2: org.apache.commons.lang3.exception.ExceptionContext;
+
+        specialinvoke this.<java.lang.Exception: void <init>(java.lang.String,java.lang.Throwable)>(message, cause);
+
+        if context != null goto label1;
+
+        $stack4 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        context = $stack4;
+
+     label1:
+        this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = context;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Object value;
+        java.lang.String label;
+        org.apache.commons.lang3.exception.ExceptionContext $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        label := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.Object;
+
+        $stack3 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String,java.lang.Object)>(label, value);
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.exception.ContextedException setContextValue(java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Object value;
+        java.lang.String label;
+        org.apache.commons.lang3.exception.ExceptionContext $stack3;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        label := @parameter0: java.lang.String;
+
+        value := @parameter1: java.lang.Object;
+
+        $stack3 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        interfaceinvoke $stack3.<org.apache.commons.lang3.exception.ExceptionContext: org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String,java.lang.Object)>(label, value);
+
+        return this;
+    }
+
+    public java.util.List getContextValues(java.lang.String)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.util.List $stack3;
+        java.lang.String label;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        label := @parameter0: java.lang.String;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack3 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextValues(java.lang.String)>(label);
+
+        return $stack3;
+    }
+
+    public java.lang.Object getFirstContextValue(java.lang.String)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.Object $stack3;
+        java.lang.String label;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        label := @parameter0: java.lang.String;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack3 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.Object getFirstContextValue(java.lang.String)>(label);
+
+        return $stack3;
+    }
+
+    public java.util.List getContextEntries()
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.util.List $stack2;
+        org.apache.commons.lang3.exception.ExceptionContext $stack1;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack2 = interfaceinvoke $stack1.<org.apache.commons.lang3.exception.ExceptionContext: java.util.List getContextEntries()>();
+
+        return $stack2;
+    }
+
+    public java.util.Set getContextLabels()
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.util.Set $stack2;
+        org.apache.commons.lang3.exception.ExceptionContext $stack1;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        $stack1 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack2 = interfaceinvoke $stack1.<org.apache.commons.lang3.exception.ExceptionContext: java.util.Set getContextLabels()>();
+
+        return $stack2;
+    }
+
+    public java.lang.String getMessage()
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.String $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        $stack1 = specialinvoke this.<java.lang.Exception: java.lang.String getMessage()>();
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getFormattedExceptionMessage(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public java.lang.String getRawMessage()
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        $stack1 = specialinvoke this.<java.lang.Exception: java.lang.String getMessage()>();
+
+        return $stack1;
+    }
+
+    public java.lang.String getFormattedExceptionMessage(java.lang.String)
+    {
+        org.apache.commons.lang3.exception.ContextedException this;
+        java.lang.String baseMessage, $stack3;
+        org.apache.commons.lang3.exception.ExceptionContext $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        baseMessage := @parameter0: java.lang.String;
+
+        $stack2 = this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack3 = interfaceinvoke $stack2.<org.apache.commons.lang3.exception.ExceptionContext: java.lang.String getFormattedExceptionMessage(java.lang.String)>(baseMessage);
+
+        return $stack3;
+    }
+
+    public volatile org.apache.commons.lang3.exception.ExceptionContext setContextValue(java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.exception.ContextedException this, $stack3;
+        java.lang.Object x1;
+        java.lang.String x0;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        x0 := @parameter0: java.lang.String;
+
+        x1 := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException setContextValue(java.lang.String,java.lang.Object)>(x0, x1);
+
+        return $stack3;
+    }
+
+    public volatile org.apache.commons.lang3.exception.ExceptionContext addContextValue(java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.exception.ContextedException this, $stack3;
+        java.lang.Object x1;
+        java.lang.String x0;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedException;
+
+        x0 := @parameter0: java.lang.String;
+
+        x1 := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>(x0, x1);
+
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.exception.ContextedException: long serialVersionUID> = 20110706L;
+
+        return;
+    }
+}

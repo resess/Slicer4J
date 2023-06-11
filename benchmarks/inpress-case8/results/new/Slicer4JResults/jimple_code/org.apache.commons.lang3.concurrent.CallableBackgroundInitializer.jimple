@@ -1,0 +1,80 @@
+public class org.apache.commons.lang3.concurrent.CallableBackgroundInitializer extends org.apache.commons.lang3.concurrent.BackgroundInitializer
+{
+    private final java.util.concurrent.Callable callable;
+
+    public void <init>(java.util.concurrent.Callable)
+    {
+        java.util.concurrent.Callable call;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        call := @parameter0: java.util.concurrent.Callable;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void checkCallable(java.util.concurrent.Callable)>(call);
+
+        this.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: java.util.concurrent.Callable callable> = call;
+
+        return;
+    }
+
+    public void <init>(java.util.concurrent.Callable, java.util.concurrent.ExecutorService)
+    {
+        java.util.concurrent.Callable call;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer this;
+        java.util.concurrent.ExecutorService exec;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        call := @parameter0: java.util.concurrent.Callable;
+
+        exec := @parameter1: java.util.concurrent.ExecutorService;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>(java.util.concurrent.ExecutorService)>(exec);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: void checkCallable(java.util.concurrent.Callable)>(call);
+
+        this.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: java.util.concurrent.Callable callable> = call;
+
+        return;
+    }
+
+    protected java.lang.Object initialize() throws java.lang.Exception
+    {
+        java.util.concurrent.Callable $stack1;
+        java.lang.Object $stack2;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.CallableBackgroundInitializer: java.util.concurrent.Callable callable>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.concurrent.Callable: java.lang.Object call()>();
+
+        return $stack2;
+    }
+
+    private void checkCallable(java.util.concurrent.Callable)
+    {
+        java.util.concurrent.Callable call;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.concurrent.CallableBackgroundInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.CallableBackgroundInitializer;
+
+        call := @parameter0: java.util.concurrent.Callable;
+
+        if call != null goto label1;
+
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Callable must not be null!");
+
+        throw $stack2;
+
+     label1:
+        return;
+    }
+}

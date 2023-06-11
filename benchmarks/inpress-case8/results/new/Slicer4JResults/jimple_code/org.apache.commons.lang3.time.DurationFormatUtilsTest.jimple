@@ -1,0 +1,2517 @@
+public class org.apache.commons.lang3.time.DurationFormatUtilsTest extends java.lang.Object
+{
+    private static final int FOUR_YEARS;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        org.apache.commons.lang3.time.DurationFormatUtils $stack2;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.time.DurationFormatUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.time.DurationFormatUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/time/DurationFormatUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/time/DurationFormatUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/time/DurationFormatUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testFormatDurationWords()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        long $stack31, $stack32;
+        int $stack28, $stack29, $stack30, i;
+        java.lang.String $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(50000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("50 seconds", $stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(65000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 minute 5 seconds", $stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(120000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 minutes 0 seconds", $stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(121000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 minutes 1 second", $stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(4320000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 hour 12 minutes 0 seconds", $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(86400000L, 1, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day 0 hours 0 minutes 0 seconds", $stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(50000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("50 seconds", $stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(65000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 minute 5 seconds", $stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(120000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 minutes", $stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(121000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 minutes 1 second", $stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(4320000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 hour 12 minutes", $stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(86400000L, 1, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day", $stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(50000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 0 minutes 50 seconds", $stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(65000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 1 minute 5 seconds", $stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(120000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 2 minutes", $stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(121000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 2 minutes 1 second", $stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(4320000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 1 hour 12 minutes", $stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(86400000L, 0, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day", $stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(50000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 0 minutes 50 seconds", $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(65000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 1 minute 5 seconds", $stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(120000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 2 minutes 0 seconds", $stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(121000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 2 minutes 1 second", $stack24);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(4320000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 1 hour 12 minutes 0 seconds", $stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(90720000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day 1 hour 12 minutes 0 seconds", $stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(177120000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 days 1 hour 12 minutes 0 seconds", $stack27);
+
+        i = 2;
+
+     label1:
+        if i >= 31 goto label2;
+
+        $stack28 = i * 24;
+
+        $stack29 = $stack28 * 60;
+
+        $stack30 = $stack29 * 60;
+
+        $stack31 = (long) $stack30;
+
+        $stack32 = $stack31 * 1000L;
+
+        staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>($stack32, 0, 0);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testFormatDurationPluralWords()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.lang.String $stack10, $stack12, $stack14, $stack15, $stack17, $stack19, $stack21, $stack22, $stack24, $stack26, $stack29, $stack30, $stack32, $stack34, $stack38;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(1000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 0 minutes 1 second", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(2000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 0 minutes 2 seconds", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(11000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 0 minutes 11 seconds", $stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(60000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 1 minute 0 seconds", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(120000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 2 minutes 0 seconds", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(660000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 11 minutes 0 seconds", $stack19);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(61000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 0 hours 1 minute 1 second", $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(3600000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 1 hour 0 minutes 0 seconds", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(7200000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 2 hours 0 minutes 0 seconds", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(39600000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 11 hours 0 minutes 0 seconds", $stack26);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(3661000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0 days 1 hour 1 minute 1 second", $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(86400000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day 0 hours 0 minutes 0 seconds", $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(172800000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2 days 0 hours 0 minutes 0 seconds", $stack32);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(950400000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("11 days 0 hours 0 minutes 0 seconds", $stack34);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationWords(long,boolean,boolean)>(90061000L, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 day 1 hour 1 minute 1 second", $stack38);
+
+        return;
+    }
+
+    public void testFormatDurationHMS()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.lang.String $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(0L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:00.000", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(1L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:00.001", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(15L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:00.015", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(165L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:00.165", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(1675L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:01.675", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(13465L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:13.465", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(72789L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:01:12.789", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(1932789L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:32:12.789", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>(3732789L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1:02:12.789", $stack20);
+
+        return;
+    }
+
+    public void testFormatDurationISO()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationISO(long)>(0L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P0Y0M0DT0H0M0.000S", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationISO(long)>(1L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P0Y0M0DT0H0M0.001S", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationISO(long)>(10L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P0Y0M0DT0H0M0.010S", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationISO(long)>(100L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P0Y0M0DT0H0M0.100S", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationISO(long)>(75321L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P0Y0M0DT0H1M15.321S", $stack10);
+
+        return;
+    }
+
+    public void testFormatDuration()
+    {
+        java.util.Date $stack44, $stack46;
+        long $stack45, $stack47, duration;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.util.Calendar $stack42, $stack43;
+        java.lang.String $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39, $stack41, $stack51, $stack52;
+        java.lang.StringBuilder $stack48, $stack49, $stack50;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "M");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "H");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "m");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "S");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack19);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "SSSS");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "yyyy");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack23);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(0L, "yyMM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "M");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack29);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack31);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "H");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "m");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1", $stack35);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("60", $stack37);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "S");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("60000", $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(60000L, "mm:ss");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("01:00", $stack41);
+
+        $stack42 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack42.<java.util.Calendar: void set(int,int,int,int,int,int)>(2000, 0, 1, 0, 0, 0);
+
+        virtualinvoke $stack42.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack43 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack43.<java.util.Calendar: void set(int,int,int,int,int,int)>(2003, 1, 1, 0, 0, 0);
+
+        virtualinvoke $stack43.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack44 = virtualinvoke $stack43.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack45 = virtualinvoke $stack44.<java.util.Date: long getTime()>();
+
+        $stack46 = virtualinvoke $stack42.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack47 = virtualinvoke $stack46.<java.util.Date: long getTime()>();
+
+        duration = $stack45 - $stack47;
+
+        $stack48 = new java.lang.StringBuilder;
+
+        specialinvoke $stack48.<java.lang.StringBuilder: void <init>()>();
+
+        $stack49 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("0 0 ");
+
+        $stack50 = virtualinvoke $stack49.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(1127);
+
+        $stack51 = virtualinvoke $stack50.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(duration, "y M d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack51, $stack52);
+
+        return;
+    }
+
+    public void testFormatPeriodISO()
+    {
+        java.util.Date $stack10, $stack12, $stack15, $stack17;
+        long $stack11, $stack13, $stack16, $stack18;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.util.Calendar $stack6, $stack7;
+        java.lang.String $stack9, $stack14, $stack19;
+        java.util.TimeZone $stack5;
+        org.apache.commons.lang3.time.FastDateFormat $stack8;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack5 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("GMT-3");
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance(java.util.TimeZone)>($stack5);
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int,int,int,int,int)>(1970, 0, 1, 0, 0, 0);
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack7 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance(java.util.TimeZone)>($stack5);
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int,int,int,int,int)>(2002, 1, 23, 9, 11, 12);
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int)>(14, 1);
+
+        $stack8 = <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_TIME_ZONE_FORMAT>;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2002-02-23T09:11:12-03:00", $stack9);
+
+        $stack10 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack11 = virtualinvoke $stack10.<java.util.Date: long getTime()>();
+
+        $stack12 = virtualinvoke $stack7.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack13 = virtualinvoke $stack12.<java.util.Date: long getTime()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String,boolean,java.util.TimeZone)>($stack11, $stack13, "\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'", 0, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P32Y1M22DT9H11M12.001S", $stack14);
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int,int,int,int,int)>(1971, 1, 3, 10, 30, 0);
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack15 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack16 = virtualinvoke $stack15.<java.util.Date: long getTime()>();
+
+        $stack17 = virtualinvoke $stack7.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack18 = virtualinvoke $stack17.<java.util.Date: long getTime()>();
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String,boolean,java.util.TimeZone)>($stack16, $stack18, "\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'", 0, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("P1Y1M2DT10H30M0.000S", $stack19);
+
+        return;
+    }
+
+    public void testFormatPeriod()
+    {
+        java.util.Date $stack8, $stack47, $stack55, $stack63;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        long $stack9, $stack48, $stack56, $stack64, time;
+        java.util.Calendar $stack7, $stack46;
+        java.lang.String $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39, $stack41, $stack43, $stack45, $stack50, $stack52, $stack54, $stack58, $stack60, $stack62, $stack66, $stack68, $stack70, $stack72, $stack74, $stack76;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack7 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int,int,int,int,int)>(1970, 0, 1, 0, 0, 0);
+
+        virtualinvoke $stack7.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack8 = virtualinvoke $stack7.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack9 = virtualinvoke $stack8.<java.util.Date: long getTime()>();
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "M");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "H");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "m");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack19);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "S");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack23);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "SSSS");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "yyyy");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack9, "yyMM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0000", $stack29);
+
+        time = $stack9 + 60000L;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack31);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "M");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack35);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "H");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0", $stack37);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "m");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1", $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("60", $stack41);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "S");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("60000", $stack43);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, time, "mm:ss");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("01:00", $stack45);
+
+        $stack46 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int,int,int,int,int)>(1973, 6, 1, 0, 0, 0);
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack47 = virtualinvoke $stack46.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack48 = virtualinvoke $stack47.<java.util.Date: long getTime()>();
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack48, "yM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("36", $stack50);
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack48, "y\' years \'M\' months\'");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("3 years 6 months", $stack52);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack48, "yy/MM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("03/06", $stack54);
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int,int,int,int,int)>(1973, 10, 1, 0, 0, 0);
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack55 = virtualinvoke $stack46.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack56 = virtualinvoke $stack55.<java.util.Date: long getTime()>();
+
+        $stack58 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack56, "yM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("310", $stack58);
+
+        $stack60 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack56, "y\' years \'M\' months\'");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("3 years 10 months", $stack60);
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack56, "yy/MM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("03/10", $stack62);
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int,int,int,int,int)>(1974, 0, 1, 0, 0, 0);
+
+        virtualinvoke $stack46.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack63 = virtualinvoke $stack46.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack64 = virtualinvoke $stack63.<java.util.Date: long getTime()>();
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "yM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("40", $stack66);
+
+        $stack68 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "y\' years \'M\' months\'");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("4 years 0 months", $stack68);
+
+        $stack70 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "yy/MM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("04/00", $stack70);
+
+        $stack72 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "M");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("48", $stack72);
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "MM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("48", $stack74);
+
+        $stack76 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack9, $stack64, "MMM");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("048", $stack76);
+
+        return;
+    }
+
+    public void testLexx()
+    {
+        java.lang.Integer $stack110;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45, $stack50, $stack53, $stack56, $stack59, $stack62, $stack65, $stack68, $stack71, $stack74, $stack77, $stack80, $stack83, $stack86, $stack89, $stack92, $stack96, $stack101, $stack105, $stack109;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] $stack3, $stack25, $stack26, $stack48, $stack49, $stack95;
+        java.lang.StringBuffer $stack31, $stack37, $stack43, $stack51, $stack57, $stack63, $stack69, $stack75, $stack81, $stack87, $stack93;
+        boolean $stack100, $stack104, $stack108, $stack112;
+        java.lang.Object $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack28, $stack34, $stack40, $stack46, $stack54, $stack60, $stack66, $stack72, $stack78, $stack84, $stack90, $stack97, $stack98, $stack102, $stack106;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack3 = newarray (org.apache.commons.lang3.time.DurationFormatUtils$Token)[7];
+
+        $stack4 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack5 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack5, 1);
+
+        $stack3[0] = $stack4;
+
+        $stack7 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack8 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M>;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack8, 1);
+
+        $stack3[1] = $stack7;
+
+        $stack10 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack11 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack11, 1);
+
+        $stack3[2] = $stack10;
+
+        $stack13 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack14 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack14, 1);
+
+        $stack3[3] = $stack13;
+
+        $stack16 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack17 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack17, 1);
+
+        $stack3[4] = $stack16;
+
+        $stack19 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack20 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack20, 1);
+
+        $stack3[5] = $stack19;
+
+        $stack22 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack23 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack23, 1);
+
+        $stack3[6] = $stack22;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)>("yMdHmsS");
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertArrayEquals(org.apache.commons.lang3.time.DurationFormatUtils$Token[],org.apache.commons.lang3.time.DurationFormatUtils$Token[])>($stack3, $stack25);
+
+        $stack26 = newarray (org.apache.commons.lang3.time.DurationFormatUtils$Token)[7];
+
+        $stack27 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack28 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        specialinvoke $stack27.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack28, 1);
+
+        $stack26[0] = $stack27;
+
+        $stack30 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack31 = new java.lang.StringBuffer;
+
+        specialinvoke $stack31.<java.lang.StringBuffer: void <init>(java.lang.String)>(":");
+
+        specialinvoke $stack30.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack31, 1);
+
+        $stack26[1] = $stack30;
+
+        $stack33 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack34 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        specialinvoke $stack33.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack34, 2);
+
+        $stack26[2] = $stack33;
+
+        $stack36 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack37 = new java.lang.StringBuffer;
+
+        specialinvoke $stack37.<java.lang.StringBuffer: void <init>(java.lang.String)>(":");
+
+        specialinvoke $stack36.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack37, 1);
+
+        $stack26[3] = $stack36;
+
+        $stack39 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack40 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        specialinvoke $stack39.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack40, 2);
+
+        $stack26[4] = $stack39;
+
+        $stack42 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack43 = new java.lang.StringBuffer;
+
+        specialinvoke $stack43.<java.lang.StringBuffer: void <init>(java.lang.String)>(".");
+
+        specialinvoke $stack42.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack43, 1);
+
+        $stack26[5] = $stack42;
+
+        $stack45 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack46 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        specialinvoke $stack45.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack46, 3);
+
+        $stack26[6] = $stack45;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)>("H:mm:ss.SSS");
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertArrayEquals(org.apache.commons.lang3.time.DurationFormatUtils$Token[],org.apache.commons.lang3.time.DurationFormatUtils$Token[])>($stack26, $stack48);
+
+        $stack49 = newarray (org.apache.commons.lang3.time.DurationFormatUtils$Token)[15];
+
+        $stack50 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack51 = new java.lang.StringBuffer;
+
+        specialinvoke $stack51.<java.lang.StringBuffer: void <init>(java.lang.String)>("P");
+
+        specialinvoke $stack50.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack51, 1);
+
+        $stack49[0] = $stack50;
+
+        $stack53 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack54 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        specialinvoke $stack53.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack54, 4);
+
+        $stack49[1] = $stack53;
+
+        $stack56 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack57 = new java.lang.StringBuffer;
+
+        specialinvoke $stack57.<java.lang.StringBuffer: void <init>(java.lang.String)>("Y");
+
+        specialinvoke $stack56.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack57, 1);
+
+        $stack49[2] = $stack56;
+
+        $stack59 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack60 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M>;
+
+        specialinvoke $stack59.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack60, 1);
+
+        $stack49[3] = $stack59;
+
+        $stack62 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack63 = new java.lang.StringBuffer;
+
+        specialinvoke $stack63.<java.lang.StringBuffer: void <init>(java.lang.String)>("M");
+
+        specialinvoke $stack62.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack63, 1);
+
+        $stack49[4] = $stack62;
+
+        $stack65 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack66 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        specialinvoke $stack65.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack66, 1);
+
+        $stack49[5] = $stack65;
+
+        $stack68 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack69 = new java.lang.StringBuffer;
+
+        specialinvoke $stack69.<java.lang.StringBuffer: void <init>(java.lang.String)>("DT");
+
+        specialinvoke $stack68.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack69, 1);
+
+        $stack49[6] = $stack68;
+
+        $stack71 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack72 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        specialinvoke $stack71.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack72, 1);
+
+        $stack49[7] = $stack71;
+
+        $stack74 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack75 = new java.lang.StringBuffer;
+
+        specialinvoke $stack75.<java.lang.StringBuffer: void <init>(java.lang.String)>("H");
+
+        specialinvoke $stack74.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack75, 1);
+
+        $stack49[8] = $stack74;
+
+        $stack77 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack78 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        specialinvoke $stack77.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack78, 1);
+
+        $stack49[9] = $stack77;
+
+        $stack80 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack81 = new java.lang.StringBuffer;
+
+        specialinvoke $stack81.<java.lang.StringBuffer: void <init>(java.lang.String)>("M");
+
+        specialinvoke $stack80.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack81, 1);
+
+        $stack49[10] = $stack80;
+
+        $stack83 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack84 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        specialinvoke $stack83.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack84, 1);
+
+        $stack49[11] = $stack83;
+
+        $stack86 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack87 = new java.lang.StringBuffer;
+
+        specialinvoke $stack87.<java.lang.StringBuffer: void <init>(java.lang.String)>(".");
+
+        specialinvoke $stack86.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack87, 1);
+
+        $stack49[12] = $stack86;
+
+        $stack89 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack90 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        specialinvoke $stack89.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack90, 1);
+
+        $stack49[13] = $stack89;
+
+        $stack92 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack93 = new java.lang.StringBuffer;
+
+        specialinvoke $stack93.<java.lang.StringBuffer: void <init>(java.lang.String)>("S");
+
+        specialinvoke $stack92.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack93, 1);
+
+        $stack49[14] = $stack92;
+
+        $stack95 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)>("\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'");
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertArrayEquals(org.apache.commons.lang3.time.DurationFormatUtils$Token[],org.apache.commons.lang3.time.DurationFormatUtils$Token[])>($stack49, $stack95);
+
+        $stack96 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack97 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        specialinvoke $stack96.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack97, 4);
+
+        $stack98 = new java.lang.Object;
+
+        specialinvoke $stack98.<java.lang.Object: void <init>()>();
+
+        $stack100 = virtualinvoke $stack96.<org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean equals(java.lang.Object)>($stack98);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Token equal to non-Token class. ", $stack100);
+
+        $stack101 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack102 = new java.lang.Object;
+
+        specialinvoke $stack102.<java.lang.Object: void <init>()>();
+
+        specialinvoke $stack101.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object)>($stack102);
+
+        $stack104 = virtualinvoke $stack96.<org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean equals(java.lang.Object)>($stack101);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Token equal to Token with wrong value class. ", $stack104);
+
+        $stack105 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack106 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        specialinvoke $stack105.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack106, 1);
+
+        $stack108 = virtualinvoke $stack96.<org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean equals(java.lang.Object)>($stack105);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Token equal to Token with different count. ", $stack108);
+
+        $stack109 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        $stack110 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        specialinvoke $stack109.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object,int)>($stack110, 4);
+
+        $stack112 = virtualinvoke $stack109.<org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean equals(java.lang.Object)>($stack109);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Token with Number value not equal to itself. ", $stack112);
+
+        return;
+    }
+
+    public void testBugzilla38401()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack1 = newarray (int)[6];
+
+        $stack1[0] = 2006;
+
+        $stack1[1] = 0;
+
+        $stack1[2] = 26;
+
+        $stack1[3] = 18;
+
+        $stack1[4] = 47;
+
+        $stack1[5] = 34;
+
+        $stack2 = newarray (int)[6];
+
+        $stack2[0] = 2006;
+
+        $stack2[1] = 1;
+
+        $stack2[2] = 26;
+
+        $stack2[3] = 10;
+
+        $stack2[4] = 47;
+
+        $stack2[5] = 34;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("0000/00/30 16:00:00 000", $stack1, $stack2, "yyyy/MM/dd HH:mm:ss SSS");
+
+        return;
+    }
+
+    public void testJiraLang281()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack1 = newarray (int)[6];
+
+        $stack1[0] = 2005;
+
+        $stack1[1] = 11;
+
+        $stack1[2] = 31;
+
+        $stack1[3] = 0;
+
+        $stack1[4] = 0;
+
+        $stack1[5] = 0;
+
+        $stack2 = newarray (int)[6];
+
+        $stack2[0] = 2006;
+
+        $stack2[1] = 9;
+
+        $stack2[2] = 6;
+
+        $stack2[3] = 0;
+
+        $stack2[4] = 0;
+
+        $stack2[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("09", $stack1, $stack2, "MM");
+
+        return;
+    }
+
+    public void testLANG815()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.util.Calendar $stack6;
+        long $stack7, $stack8;
+        java.lang.String $stack10;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int,int,int,int,int)>(2012, 6, 30, 0, 0, 0);
+
+        $stack7 = virtualinvoke $stack6.<java.util.Calendar: long getTimeInMillis()>();
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int,int)>(2012, 8, 8);
+
+        $stack8 = virtualinvoke $stack6.<java.util.Calendar: long getTimeInMillis()>();
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack7, $stack8, "M d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("1 9", $stack10);
+
+        return;
+    }
+
+    public void testLowDurations()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] $stack15, $stack16;
+        int hr, min, sec;
+        java.lang.StringBuilder $stack8, $stack9, $stack10, $stack11, $stack12, $stack13;
+        java.lang.String $stack14;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        hr = 0;
+
+     label1:
+        if hr >= 24 goto label6;
+
+        min = 0;
+
+     label2:
+        if min >= 60 goto label5;
+
+        sec = 0;
+
+     label3:
+        if sec >= 60 goto label4;
+
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(hr);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(min);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(":");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(sec);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack15 = newarray (int)[7];
+
+        $stack15[0] = 2000;
+
+        $stack15[1] = 0;
+
+        $stack15[2] = 1;
+
+        $stack15[3] = 0;
+
+        $stack15[4] = 0;
+
+        $stack15[5] = 0;
+
+        $stack15[6] = 0;
+
+        $stack16 = newarray (int)[6];
+
+        $stack16[0] = 2000;
+
+        $stack16[1] = 0;
+
+        $stack16[2] = 1;
+
+        $stack16[3] = hr;
+
+        $stack16[4] = min;
+
+        $stack16[5] = sec;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>($stack14, $stack15, $stack16, "H:m:s");
+
+        sec = sec + 1;
+
+        goto label3;
+
+     label4:
+        min = min + 1;
+
+        goto label2;
+
+     label5:
+        hr = hr + 1;
+
+        goto label1;
+
+     label6:
+        return;
+    }
+
+    public void testEdgeDurations()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $stack44, $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack51, $stack52, $stack53, $stack54, $stack55, $stack56, $stack57, $stack58, $stack59, $stack60, $stack61, $stack62;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        $stack1 = newarray (int)[6];
+
+        $stack1[0] = 2006;
+
+        $stack1[1] = 0;
+
+        $stack1[2] = 15;
+
+        $stack1[3] = 0;
+
+        $stack1[4] = 0;
+
+        $stack1[5] = 0;
+
+        $stack2 = newarray (int)[6];
+
+        $stack2[0] = 2006;
+
+        $stack2[1] = 2;
+
+        $stack2[2] = 10;
+
+        $stack2[3] = 0;
+
+        $stack2[4] = 0;
+
+        $stack2[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("01", $stack1, $stack2, "MM");
+
+        $stack3 = newarray (int)[6];
+
+        $stack3[0] = 2005;
+
+        $stack3[1] = 0;
+
+        $stack3[2] = 15;
+
+        $stack3[3] = 0;
+
+        $stack3[4] = 0;
+
+        $stack3[5] = 0;
+
+        $stack4 = newarray (int)[6];
+
+        $stack4[0] = 2006;
+
+        $stack4[1] = 0;
+
+        $stack4[2] = 15;
+
+        $stack4[3] = 0;
+
+        $stack4[4] = 0;
+
+        $stack4[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("12", $stack3, $stack4, "MM");
+
+        $stack5 = newarray (int)[6];
+
+        $stack5[0] = 2005;
+
+        $stack5[1] = 0;
+
+        $stack5[2] = 15;
+
+        $stack5[3] = 0;
+
+        $stack5[4] = 0;
+
+        $stack5[5] = 0;
+
+        $stack6 = newarray (int)[6];
+
+        $stack6[0] = 2006;
+
+        $stack6[1] = 0;
+
+        $stack6[2] = 16;
+
+        $stack6[3] = 0;
+
+        $stack6[4] = 0;
+
+        $stack6[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("12", $stack5, $stack6, "MM");
+
+        $stack7 = newarray (int)[6];
+
+        $stack7[0] = 2005;
+
+        $stack7[1] = 0;
+
+        $stack7[2] = 15;
+
+        $stack7[3] = 0;
+
+        $stack7[4] = 0;
+
+        $stack7[5] = 0;
+
+        $stack8 = newarray (int)[6];
+
+        $stack8[0] = 2006;
+
+        $stack8[1] = 0;
+
+        $stack8[2] = 14;
+
+        $stack8[3] = 0;
+
+        $stack8[4] = 0;
+
+        $stack8[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("11", $stack7, $stack8, "MM");
+
+        $stack9 = newarray (int)[6];
+
+        $stack9[0] = 2006;
+
+        $stack9[1] = 0;
+
+        $stack9[2] = 15;
+
+        $stack9[3] = 0;
+
+        $stack9[4] = 0;
+
+        $stack9[5] = 0;
+
+        $stack10 = newarray (int)[6];
+
+        $stack10[0] = 2006;
+
+        $stack10[1] = 2;
+
+        $stack10[2] = 10;
+
+        $stack10[3] = 0;
+
+        $stack10[4] = 0;
+
+        $stack10[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("01 26", $stack9, $stack10, "MM dd");
+
+        $stack11 = newarray (int)[6];
+
+        $stack11[0] = 2006;
+
+        $stack11[1] = 0;
+
+        $stack11[2] = 15;
+
+        $stack11[3] = 0;
+
+        $stack11[4] = 0;
+
+        $stack11[5] = 0;
+
+        $stack12 = newarray (int)[6];
+
+        $stack12[0] = 2006;
+
+        $stack12[1] = 2;
+
+        $stack12[2] = 10;
+
+        $stack12[3] = 0;
+
+        $stack12[4] = 0;
+
+        $stack12[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("54", $stack11, $stack12, "dd");
+
+        $stack13 = newarray (int)[6];
+
+        $stack13[0] = 2006;
+
+        $stack13[1] = 1;
+
+        $stack13[2] = 20;
+
+        $stack13[3] = 0;
+
+        $stack13[4] = 0;
+
+        $stack13[5] = 0;
+
+        $stack14 = newarray (int)[6];
+
+        $stack14[0] = 2006;
+
+        $stack14[1] = 11;
+
+        $stack14[2] = 4;
+
+        $stack14[3] = 0;
+
+        $stack14[4] = 0;
+
+        $stack14[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("09 12", $stack13, $stack14, "MM dd");
+
+        $stack15 = newarray (int)[6];
+
+        $stack15[0] = 2006;
+
+        $stack15[1] = 1;
+
+        $stack15[2] = 20;
+
+        $stack15[3] = 0;
+
+        $stack15[4] = 0;
+
+        $stack15[5] = 0;
+
+        $stack16 = newarray (int)[6];
+
+        $stack16[0] = 2006;
+
+        $stack16[1] = 11;
+
+        $stack16[2] = 4;
+
+        $stack16[3] = 0;
+
+        $stack16[4] = 0;
+
+        $stack16[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("287", $stack15, $stack16, "dd");
+
+        $stack17 = newarray (int)[6];
+
+        $stack17[0] = 2006;
+
+        $stack17[1] = 0;
+
+        $stack17[2] = 2;
+
+        $stack17[3] = 0;
+
+        $stack17[4] = 0;
+
+        $stack17[5] = 0;
+
+        $stack18 = newarray (int)[6];
+
+        $stack18[0] = 2007;
+
+        $stack18[1] = 0;
+
+        $stack18[2] = 1;
+
+        $stack18[3] = 0;
+
+        $stack18[4] = 0;
+
+        $stack18[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("11 30", $stack17, $stack18, "MM dd");
+
+        $stack19 = newarray (int)[6];
+
+        $stack19[0] = 2006;
+
+        $stack19[1] = 0;
+
+        $stack19[2] = 2;
+
+        $stack19[3] = 0;
+
+        $stack19[4] = 0;
+
+        $stack19[5] = 0;
+
+        $stack20 = newarray (int)[6];
+
+        $stack20[0] = 2007;
+
+        $stack20[1] = 0;
+
+        $stack20[2] = 1;
+
+        $stack20[3] = 0;
+
+        $stack20[4] = 0;
+
+        $stack20[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("364", $stack19, $stack20, "dd");
+
+        $stack21 = newarray (int)[6];
+
+        $stack21[0] = 2006;
+
+        $stack21[1] = 0;
+
+        $stack21[2] = 1;
+
+        $stack21[3] = 0;
+
+        $stack21[4] = 0;
+
+        $stack21[5] = 0;
+
+        $stack22 = newarray (int)[6];
+
+        $stack22[0] = 2007;
+
+        $stack22[1] = 0;
+
+        $stack22[2] = 1;
+
+        $stack22[3] = 0;
+
+        $stack22[4] = 0;
+
+        $stack22[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("12 00", $stack21, $stack22, "MM dd");
+
+        $stack23 = newarray (int)[6];
+
+        $stack23[0] = 2006;
+
+        $stack23[1] = 0;
+
+        $stack23[2] = 1;
+
+        $stack23[3] = 0;
+
+        $stack23[4] = 0;
+
+        $stack23[5] = 0;
+
+        $stack24 = newarray (int)[6];
+
+        $stack24[0] = 2007;
+
+        $stack24[1] = 0;
+
+        $stack24[2] = 1;
+
+        $stack24[3] = 0;
+
+        $stack24[4] = 0;
+
+        $stack24[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("365", $stack23, $stack24, "dd");
+
+        $stack25 = newarray (int)[6];
+
+        $stack25[0] = 2006;
+
+        $stack25[1] = 0;
+
+        $stack25[2] = 1;
+
+        $stack25[3] = 0;
+
+        $stack25[4] = 0;
+
+        $stack25[5] = 0;
+
+        $stack26 = newarray (int)[6];
+
+        $stack26[0] = 2006;
+
+        $stack26[1] = 1;
+
+        $stack26[2] = 1;
+
+        $stack26[3] = 0;
+
+        $stack26[4] = 0;
+
+        $stack26[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("31", $stack25, $stack26, "dd");
+
+        $stack27 = newarray (int)[6];
+
+        $stack27[0] = 2005;
+
+        $stack27[1] = 9;
+
+        $stack27[2] = 1;
+
+        $stack27[3] = 0;
+
+        $stack27[4] = 0;
+
+        $stack27[5] = 0;
+
+        $stack28 = newarray (int)[6];
+
+        $stack28[0] = 2006;
+
+        $stack28[1] = 0;
+
+        $stack28[2] = 1;
+
+        $stack28[3] = 0;
+
+        $stack28[4] = 0;
+
+        $stack28[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("92", $stack27, $stack28, "dd");
+
+        $stack29 = newarray (int)[6];
+
+        $stack29[0] = 2005;
+
+        $stack29[1] = 9;
+
+        $stack29[2] = 16;
+
+        $stack29[3] = 0;
+
+        $stack29[4] = 0;
+
+        $stack29[5] = 0;
+
+        $stack30 = newarray (int)[6];
+
+        $stack30[0] = 2006;
+
+        $stack30[1] = 0;
+
+        $stack30[2] = 1;
+
+        $stack30[3] = 0;
+
+        $stack30[4] = 0;
+
+        $stack30[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("77", $stack29, $stack30, "dd");
+
+        $stack31 = newarray (int)[6];
+
+        $stack31[0] = 2005;
+
+        $stack31[1] = 9;
+
+        $stack31[2] = 16;
+
+        $stack31[3] = 0;
+
+        $stack31[4] = 0;
+
+        $stack31[5] = 0;
+
+        $stack32 = newarray (int)[6];
+
+        $stack32[0] = 2006;
+
+        $stack32[1] = 2;
+
+        $stack32[2] = 1;
+
+        $stack32[3] = 0;
+
+        $stack32[4] = 0;
+
+        $stack32[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("136", $stack31, $stack32, "dd");
+
+        $stack33 = newarray (int)[6];
+
+        $stack33[0] = 2004;
+
+        $stack33[1] = 9;
+
+        $stack33[2] = 16;
+
+        $stack33[3] = 0;
+
+        $stack33[4] = 0;
+
+        $stack33[5] = 0;
+
+        $stack34 = newarray (int)[6];
+
+        $stack34[0] = 2005;
+
+        $stack34[1] = 2;
+
+        $stack34[2] = 1;
+
+        $stack34[3] = 0;
+
+        $stack34[4] = 0;
+
+        $stack34[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("136", $stack33, $stack34, "dd");
+
+        $stack35 = newarray (int)[6];
+
+        $stack35[0] = 2003;
+
+        $stack35[1] = 9;
+
+        $stack35[2] = 16;
+
+        $stack35[3] = 0;
+
+        $stack35[4] = 0;
+
+        $stack35[5] = 0;
+
+        $stack36 = newarray (int)[6];
+
+        $stack36[0] = 2004;
+
+        $stack36[1] = 2;
+
+        $stack36[2] = 1;
+
+        $stack36[3] = 0;
+
+        $stack36[4] = 0;
+
+        $stack36[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("137", $stack35, $stack36, "dd");
+
+        $stack37 = newarray (int)[6];
+
+        $stack37[0] = 2003;
+
+        $stack37[1] = 9;
+
+        $stack37[2] = 16;
+
+        $stack37[3] = 0;
+
+        $stack37[4] = 0;
+
+        $stack37[5] = 0;
+
+        $stack38 = newarray (int)[6];
+
+        $stack38[0] = 2004;
+
+        $stack38[1] = 1;
+
+        $stack38[2] = 28;
+
+        $stack38[3] = 0;
+
+        $stack38[4] = 0;
+
+        $stack38[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("135", $stack37, $stack38, "dd");
+
+        $stack39 = newarray (int)[6];
+
+        $stack39[0] = 2007;
+
+        $stack39[1] = 0;
+
+        $stack39[2] = 2;
+
+        $stack39[3] = 0;
+
+        $stack39[4] = 0;
+
+        $stack39[5] = 0;
+
+        $stack40 = newarray (int)[6];
+
+        $stack40[0] = 2008;
+
+        $stack40[1] = 0;
+
+        $stack40[2] = 1;
+
+        $stack40[3] = 0;
+
+        $stack40[4] = 0;
+
+        $stack40[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("364", $stack39, $stack40, "dd");
+
+        $stack41 = newarray (int)[6];
+
+        $stack41[0] = 2006;
+
+        $stack41[1] = 0;
+
+        $stack41[2] = 2;
+
+        $stack41[3] = 0;
+
+        $stack41[4] = 0;
+
+        $stack41[5] = 0;
+
+        $stack42 = newarray (int)[6];
+
+        $stack42[0] = 2008;
+
+        $stack42[1] = 0;
+
+        $stack42[2] = 1;
+
+        $stack42[3] = 0;
+
+        $stack42[4] = 0;
+
+        $stack42[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("729", $stack41, $stack42, "dd");
+
+        $stack43 = newarray (int)[6];
+
+        $stack43[0] = 2007;
+
+        $stack43[1] = 2;
+
+        $stack43[2] = 2;
+
+        $stack43[3] = 0;
+
+        $stack43[4] = 0;
+
+        $stack43[5] = 0;
+
+        $stack44 = newarray (int)[6];
+
+        $stack44[0] = 2008;
+
+        $stack44[1] = 2;
+
+        $stack44[2] = 1;
+
+        $stack44[3] = 0;
+
+        $stack44[4] = 0;
+
+        $stack44[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("365", $stack43, $stack44, "dd");
+
+        $stack45 = newarray (int)[6];
+
+        $stack45[0] = 2007;
+
+        $stack45[1] = 1;
+
+        $stack45[2] = 2;
+
+        $stack45[3] = 0;
+
+        $stack45[4] = 0;
+
+        $stack45[5] = 0;
+
+        $stack46 = newarray (int)[6];
+
+        $stack46[0] = 2008;
+
+        $stack46[1] = 0;
+
+        $stack46[2] = 1;
+
+        $stack46[3] = 0;
+
+        $stack46[4] = 0;
+
+        $stack46[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("333", $stack45, $stack46, "dd");
+
+        $stack47 = newarray (int)[6];
+
+        $stack47[0] = 2008;
+
+        $stack47[1] = 1;
+
+        $stack47[2] = 2;
+
+        $stack47[3] = 0;
+
+        $stack47[4] = 0;
+
+        $stack47[5] = 0;
+
+        $stack48 = newarray (int)[6];
+
+        $stack48[0] = 2008;
+
+        $stack48[1] = 2;
+
+        $stack48[2] = 1;
+
+        $stack48[3] = 0;
+
+        $stack48[4] = 0;
+
+        $stack48[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("28", $stack47, $stack48, "dd");
+
+        $stack49 = newarray (int)[6];
+
+        $stack49[0] = 2007;
+
+        $stack49[1] = 1;
+
+        $stack49[2] = 2;
+
+        $stack49[3] = 0;
+
+        $stack49[4] = 0;
+
+        $stack49[5] = 0;
+
+        $stack50 = newarray (int)[6];
+
+        $stack50[0] = 2008;
+
+        $stack50[1] = 2;
+
+        $stack50[2] = 1;
+
+        $stack50[3] = 0;
+
+        $stack50[4] = 0;
+
+        $stack50[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("393", $stack49, $stack50, "dd");
+
+        $stack51 = newarray (int)[6];
+
+        $stack51[0] = 2004;
+
+        $stack51[1] = 0;
+
+        $stack51[2] = 29;
+
+        $stack51[3] = 0;
+
+        $stack51[4] = 0;
+
+        $stack51[5] = 0;
+
+        $stack52 = newarray (int)[6];
+
+        $stack52[0] = 2005;
+
+        $stack52[1] = 1;
+
+        $stack52[2] = 1;
+
+        $stack52[3] = 0;
+
+        $stack52[4] = 0;
+
+        $stack52[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("369", $stack51, $stack52, "dd");
+
+        $stack53 = newarray (int)[6];
+
+        $stack53[0] = 2004;
+
+        $stack53[1] = 1;
+
+        $stack53[2] = 29;
+
+        $stack53[3] = 0;
+
+        $stack53[4] = 0;
+
+        $stack53[5] = 0;
+
+        $stack54 = newarray (int)[6];
+
+        $stack54[0] = 2005;
+
+        $stack54[1] = 1;
+
+        $stack54[2] = 1;
+
+        $stack54[3] = 0;
+
+        $stack54[4] = 0;
+
+        $stack54[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("338", $stack53, $stack54, "dd");
+
+        $stack55 = newarray (int)[6];
+
+        $stack55[0] = 2004;
+
+        $stack55[1] = 2;
+
+        $stack55[2] = 8;
+
+        $stack55[3] = 0;
+
+        $stack55[4] = 0;
+
+        $stack55[5] = 0;
+
+        $stack56 = newarray (int)[6];
+
+        $stack56[0] = 2004;
+
+        $stack56[1] = 3;
+
+        $stack56[2] = 5;
+
+        $stack56[3] = 0;
+
+        $stack56[4] = 0;
+
+        $stack56[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("28", $stack55, $stack56, "dd");
+
+        $stack57 = newarray (int)[6];
+
+        $stack57[0] = 1992;
+
+        $stack57[1] = 1;
+
+        $stack57[2] = 29;
+
+        $stack57[3] = 0;
+
+        $stack57[4] = 0;
+
+        $stack57[5] = 0;
+
+        $stack58 = newarray (int)[6];
+
+        $stack58[0] = 1996;
+
+        $stack58[1] = 1;
+
+        $stack58[2] = 29;
+
+        $stack58[3] = 0;
+
+        $stack58[4] = 0;
+
+        $stack58[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("48", $stack57, $stack58, "M");
+
+        $stack59 = newarray (int)[6];
+
+        $stack59[0] = 1996;
+
+        $stack59[1] = 1;
+
+        $stack59[2] = 29;
+
+        $stack59[3] = 0;
+
+        $stack59[4] = 0;
+
+        $stack59[5] = 0;
+
+        $stack60 = newarray (int)[6];
+
+        $stack60[0] = 1997;
+
+        $stack60[1] = 1;
+
+        $stack60[2] = 28;
+
+        $stack60[3] = 0;
+
+        $stack60[4] = 0;
+
+        $stack60[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("11", $stack59, $stack60, "M");
+
+        $stack61 = newarray (int)[6];
+
+        $stack61[0] = 1996;
+
+        $stack61[1] = 1;
+
+        $stack61[2] = 29;
+
+        $stack61[3] = 0;
+
+        $stack61[4] = 0;
+
+        $stack61[5] = 0;
+
+        $stack62 = newarray (int)[6];
+
+        $stack62[0] = 1997;
+
+        $stack62[1] = 1;
+
+        $stack62[2] = 28;
+
+        $stack62[3] = 0;
+
+        $stack62[4] = 0;
+
+        $stack62[5] = 0;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,int[],int[],java.lang.String)>("11 28", $stack61, $stack62, "M d");
+
+        return;
+    }
+
+    public void testDurationsByBruteForce()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(2006, 0, 1, "d", 5);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(2006, 0, 2, "d", 5);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(2007, 1, 2, "d", 5);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(2004, 1, 29, "d", 5);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(1996, 1, 29, "d", 5);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void bruteForce(int,int,int,java.lang.String,int)>(1969, 1, 28, "M", 2);
+
+        return;
+    }
+
+    private void bruteForce(int, int, int, java.lang.String, int)
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] $stack21, $stack22;
+        java.lang.StringBuilder $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack29, $stack30, $stack32, $stack33, $stack35, $stack36, $stack38, $stack39, $stack41, $stack42, $stack43;
+        java.util.Calendar $stack20;
+        int year, month, day, $stack24, $stack26, $stack28, $stack31, $stack34, $stack37, calendarType, i;
+        java.lang.String $stack19, $stack40, $stack44, $stack45, format;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        year := @parameter0: int;
+
+        month := @parameter1: int;
+
+        day := @parameter2: int;
+
+        format := @parameter3: java.lang.String;
+
+        calendarType := @parameter4: int;
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(year);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(month);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(day);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" to ");
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack20 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack20.<java.util.Calendar: void set(int,int,int,int,int,int)>(year, month, day, 0, 0, 0);
+
+        $stack21 = newarray (int)[6];
+
+        $stack21[0] = year;
+
+        $stack21[1] = month;
+
+        $stack21[2] = day;
+
+        $stack21[3] = 0;
+
+        $stack21[4] = 0;
+
+        $stack21[5] = 0;
+
+        $stack22 = newarray (int)[6];
+
+        $stack22[0] = year;
+
+        $stack22[1] = month;
+
+        $stack22[2] = day;
+
+        $stack22[3] = 0;
+
+        $stack22[4] = 0;
+
+        $stack22[5] = 0;
+
+        i = 0;
+
+     label1:
+        if i >= 1461 goto label2;
+
+        $stack24 = virtualinvoke $stack20.<java.util.Calendar: int get(int)>(1);
+
+        $stack22[0] = $stack24;
+
+        $stack26 = virtualinvoke $stack20.<java.util.Calendar: int get(int)>(2);
+
+        $stack22[1] = $stack26;
+
+        $stack28 = virtualinvoke $stack20.<java.util.Calendar: int get(int)>(5);
+
+        $stack22[2] = $stack28;
+
+        $stack29 = new java.lang.StringBuilder;
+
+        specialinvoke $stack29.<java.lang.StringBuilder: void <init>()>();
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack19);
+
+        $stack31 = $stack22[0];
+
+        $stack32 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack31);
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $stack34 = $stack22[1];
+
+        $stack35 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack34);
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("-");
+
+        $stack37 = $stack22[2];
+
+        $stack38 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack37);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" at ");
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack41 = new java.lang.StringBuilder;
+
+        specialinvoke $stack41.<java.lang.StringBuilder: void <init>()>();
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack40);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack45 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(i);
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,java.lang.String,int[],int[],java.lang.String)>($stack44, $stack45, $stack21, $stack22, format);
+
+        virtualinvoke $stack20.<java.util.Calendar: void add(int,int)>(calendarType, 1);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void assertEqualDuration(java.lang.String, int[], int[], java.lang.String)
+    {
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int[] start, end;
+        java.lang.String expected, format;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        expected := @parameter0: java.lang.String;
+
+        start := @parameter1: int[];
+
+        end := @parameter2: int[];
+
+        format := @parameter3: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.time.DurationFormatUtilsTest: void assertEqualDuration(java.lang.String,java.lang.String,int[],int[],java.lang.String)>(null, expected, start, end, format);
+
+        return;
+    }
+
+    private void assertEqualDuration(java.lang.String, java.lang.String, int[], int[], java.lang.String)
+    {
+        java.util.Date $stack27, $stack29;
+        long $stack28, $stack30;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        java.util.Calendar $stack13, $stack20;
+        int[] start, end;
+        int $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26;
+        java.lang.String format, $stack31, message, expected;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        message := @parameter0: java.lang.String;
+
+        expected := @parameter1: java.lang.String;
+
+        start := @parameter2: int[];
+
+        end := @parameter3: int[];
+
+        format := @parameter4: java.lang.String;
+
+        $stack13 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack19 = start[0];
+
+        $stack18 = start[1];
+
+        $stack17 = start[2];
+
+        $stack16 = start[3];
+
+        $stack15 = start[4];
+
+        $stack14 = start[5];
+
+        virtualinvoke $stack13.<java.util.Calendar: void set(int,int,int,int,int,int)>($stack19, $stack18, $stack17, $stack16, $stack15, $stack14);
+
+        virtualinvoke $stack13.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack20 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack26 = end[0];
+
+        $stack25 = end[1];
+
+        $stack24 = end[2];
+
+        $stack23 = end[3];
+
+        $stack22 = end[4];
+
+        $stack21 = end[5];
+
+        virtualinvoke $stack20.<java.util.Calendar: void set(int,int,int,int,int,int)>($stack26, $stack25, $stack24, $stack23, $stack22, $stack21);
+
+        virtualinvoke $stack20.<java.util.Calendar: void set(int,int)>(14, 0);
+
+        $stack27 = virtualinvoke $stack13.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack28 = virtualinvoke $stack27.<java.util.Date: long getTime()>();
+
+        $stack29 = virtualinvoke $stack20.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack30 = virtualinvoke $stack29.<java.util.Date: long getTime()>();
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String)>($stack28, $stack30, format);
+
+        if message != null goto label1;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expected, $stack31);
+
+        goto label2;
+
+     label1:
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, $stack31);
+
+     label2:
+        return;
+    }
+
+    private void assertArrayEquals(org.apache.commons.lang3.time.DurationFormatUtils$Token[], org.apache.commons.lang3.time.DurationFormatUtils$Token[])
+    {
+        long $stack6, $stack7;
+        org.apache.commons.lang3.time.DurationFormatUtilsTest this;
+        int $stack4, $stack5, $stack8, i;
+        java.lang.String $stack18;
+        boolean $stack21;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token $stack13, $stack16, $stack19, $stack20;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] obj1, obj2;
+        java.lang.StringBuilder $stack9, $stack10, $stack11, $stack12, $stack14, $stack15, $stack17;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtilsTest;
+
+        obj1 := @parameter0: org.apache.commons.lang3.time.DurationFormatUtils$Token[];
+
+        obj2 := @parameter1: org.apache.commons.lang3.time.DurationFormatUtils$Token[];
+
+        $stack4 = lengthof obj1;
+
+        $stack7 = (long) $stack4;
+
+        $stack5 = lengthof obj2;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Arrays are unequal length. ", $stack7, $stack6);
+
+        i = 0;
+
+     label1:
+        $stack8 = lengthof obj1;
+
+        if i >= $stack8 goto label2;
+
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Index ");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" not equal, ");
+
+        $stack13 = obj1[i];
+
+        $stack14 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack13);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" vs ");
+
+        $stack16 = obj2[i];
+
+        $stack17 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack16);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack20 = obj1[i];
+
+        $stack19 = obj2[i];
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean equals(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack18, $stack21);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.DurationFormatUtilsTest: int FOUR_YEARS> = 1461;
+
+        return;
+    }
+}

@@ -1,0 +1,748 @@
+public class org.apache.commons.lang3.time.FastDatePrinterTest extends java.lang.Object
+{
+    private static final java.lang.String YYYY_MM_DD;
+    private static final java.util.TimeZone NEW_YORK;
+    private static final java.util.Locale SWEDEN;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.TimeZone $stack2;
+        java.util.Locale $stack3;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String format;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        format := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack3 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(format, $stack2, $stack3);
+
+        return $stack4;
+    }
+
+    private org.apache.commons.lang3.time.DatePrinter getDateInstance(int, java.util.Locale)
+    {
+        java.util.TimeZone $stack5;
+        java.lang.Integer $stack3;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Locale locale, $stack6;
+        int dateStyle;
+        org.apache.commons.lang3.time.DatePrinter $stack7;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        dateStyle := @parameter0: int;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(dateStyle);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FormatCache: java.lang.String getPatternForStyle(java.lang.Integer,java.lang.Integer,java.util.Locale)>($stack3, null, locale);
+
+        $stack5 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack6 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>($stack4, $stack5, $stack6);
+
+        return $stack7;
+    }
+
+    private org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.TimeZone $stack3;
+        java.util.Locale locale;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String format;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        format := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack3 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(format, $stack3, locale);
+
+        return $stack4;
+    }
+
+    private org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String, java.util.TimeZone)
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.TimeZone timeZone;
+        java.util.Locale $stack3;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String format;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        format := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        $stack3 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(format, timeZone, $stack3);
+
+        return $stack4;
+    }
+
+    protected org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        org.apache.commons.lang3.time.FastDatePrinter $stack4;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String format;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        format := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack4 = new org.apache.commons.lang3.time.FastDatePrinter;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.time.FastDatePrinter: void <init>(java.lang.String,java.util.TimeZone,java.util.Locale)>(format, timeZone, locale);
+
+        return $stack4;
+    }
+
+    public void testFormat()
+    {
+        java.util.Date $stack21, $stack22;
+        java.util.Locale $stack15, $stack17;
+        java.util.GregorianCalendar $stack19, $stack20;
+        java.util.TimeZone $stack16, $stack18;
+        org.apache.commons.lang3.time.DatePrinter $stack25, $stack41, $stack54, $stack67;
+        java.lang.Throwable $stack75;
+        java.text.SimpleDateFormat $stack26, $stack68;
+        long $stack23, $stack24;
+        java.lang.String $stack27, $stack28, $stack30, $stack32, $stack34, $stack36, $stack38, $stack40, $stack43, $stack45, $stack47, $stack49, $stack51, $stack53, $stack56, $stack58, $stack60, $stack62, $stack64, $stack66, $stack69, $stack70, $stack71, $stack72, $stack73, $stack74;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack15 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack16 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+     label1:
+        $stack17 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack17);
+
+        $stack18 = <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.TimeZone NEW_YORK>;
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack18);
+
+        $stack19 = new java.util.GregorianCalendar;
+
+        specialinvoke $stack19.<java.util.GregorianCalendar: void <init>(int,int,int,int,int,int)>(2003, 0, 10, 15, 33, 20);
+
+        $stack20 = new java.util.GregorianCalendar;
+
+        specialinvoke $stack20.<java.util.GregorianCalendar: void <init>(int,int,int,int,int,int)>(2003, 6, 10, 9, 0, 0);
+
+        $stack21 = virtualinvoke $stack19.<java.util.GregorianCalendar: java.util.Date getTime()>();
+
+        $stack22 = virtualinvoke $stack20.<java.util.GregorianCalendar: java.util.Date getTime()>();
+
+        $stack23 = virtualinvoke $stack21.<java.util.Date: long getTime()>();
+
+        $stack24 = virtualinvoke $stack22.<java.util.Date: long getTime()>();
+
+        $stack25 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ss");
+
+        $stack26 = new java.text.SimpleDateFormat;
+
+        specialinvoke $stack26.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ss");
+
+        $stack27 = virtualinvoke $stack26.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($stack21);
+
+        $stack28 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        $stack30 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-01-10T15:33:20", $stack30);
+
+        $stack32 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-01-10T15:33:20", $stack32);
+
+        $stack34 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-01-10T15:33:20", $stack34);
+
+        $stack36 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-07-10T09:00:00", $stack36);
+
+        $stack38 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-07-10T09:00:00", $stack38);
+
+        $stack40 = interfaceinvoke $stack25.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2003-07-10T09:00:00", $stack40);
+
+        $stack41 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("Z");
+
+        $stack43 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0500", $stack43);
+
+        $stack45 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0500", $stack45);
+
+        $stack47 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0500", $stack47);
+
+        $stack49 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0400", $stack49);
+
+        $stack51 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0400", $stack51);
+
+        $stack53 = interfaceinvoke $stack41.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-0400", $stack53);
+
+        $stack54 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("ZZ");
+
+        $stack56 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-05:00", $stack56);
+
+        $stack58 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-05:00", $stack58);
+
+        $stack60 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-05:00", $stack60);
+
+        $stack62 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-04:00", $stack62);
+
+        $stack64 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-04:00", $stack64);
+
+        $stack66 = interfaceinvoke $stack54.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(long)>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("-04:00", $stack66);
+
+        $stack67 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("GGGG GGG GG G yyyy yyy yy y MMMM MMM MM M dddd ddd dd d DDDD DDD DD D EEEE EEE EE E aaaa aaa aa a zzzz zzz zz z");
+
+        $stack68 = new java.text.SimpleDateFormat;
+
+        specialinvoke $stack68.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("GGGG GGG GG G yyyy yyy yy y MMMM MMM MM M dddd ddd dd d DDDD DDD DD D EEEE EEE EE E aaaa aaa aa a zzzz zzz zz z");
+
+        $stack69 = virtualinvoke $stack68.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($stack21);
+
+        $stack70 = virtualinvoke $stack69.<java.lang.String: java.lang.String replaceAll(java.lang.String,java.lang.String)>("2003 03 03 03", "2003 2003 03 2003");
+
+        $stack71 = interfaceinvoke $stack67.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack70, $stack71);
+
+        $stack72 = virtualinvoke $stack68.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($stack22);
+
+        $stack73 = virtualinvoke $stack72.<java.lang.String: java.lang.String replaceAll(java.lang.String,java.lang.String)>("2003 03 03 03", "2003 2003 03 2003");
+
+        $stack74 = interfaceinvoke $stack67.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack73, $stack74);
+
+     label2:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack15);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack16);
+
+        goto label5;
+
+     label3:
+        $stack75 := @caughtexception;
+
+     label4:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack15);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack16);
+
+        throw $stack75;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void testShortDateStyleWithLocales()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack6;
+        java.util.Locale usLocale, $stack5;
+        org.apache.commons.lang3.time.DatePrinter $stack7, $stack10;
+        java.lang.String $stack9, $stack12;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        usLocale = <java.util.Locale: java.util.Locale US>;
+
+        $stack5 = new java.util.Locale;
+
+        specialinvoke $stack5.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("sv", "SE");
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int,int)>(2004, 1, 3);
+
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getDateInstance(int,java.util.Locale)>(3, usLocale);
+
+        $stack9 = interfaceinvoke $stack7.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2/3/04", $stack9);
+
+        $stack10 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getDateInstance(int,java.util.Locale)>(3, $stack5);
+
+        $stack12 = interfaceinvoke $stack10.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2004-02-03", $stack12);
+
+        return;
+    }
+
+    public void testLowYearPadding()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String $stack6, $stack8, $stack10, $stack12;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(1, 0, 1);
+
+        $stack6 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0001/01/01", $stack6);
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(10, 0, 1);
+
+        $stack8 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0010/01/01", $stack8);
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(100, 0, 1);
+
+        $stack10 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0100/01/01", $stack10);
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(999, 0, 1);
+
+        $stack12 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0999/01/01", $stack12);
+
+        return;
+    }
+
+    public void testMilleniumBug()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("dd.MM.yyyy");
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(1000, 0, 1);
+
+        $stack6 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("01.01.1000", $stack6);
+
+        return;
+    }
+
+    public void testSimpleDate()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack3;
+        org.apache.commons.lang3.time.DatePrinter $stack4;
+        java.lang.String $stack6, $stack8, $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(2004, 11, 31);
+
+        $stack6 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2004/12/31", $stack6);
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(999, 11, 31);
+
+        $stack8 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0999/12/31", $stack8);
+
+        virtualinvoke $stack3.<java.util.Calendar: void set(int,int,int)>(1, 2, 2);
+
+        $stack10 = interfaceinvoke $stack4.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0001/03/02", $stack10);
+
+        return;
+    }
+
+    public void testLang303()
+    {
+        byte[] $stack8;
+        java.io.Serializable $stack7;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack4;
+        org.apache.commons.lang3.time.DatePrinter $stack5, format;
+        java.lang.Object $stack9;
+        java.lang.String $stack6, $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack4 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack4.<java.util.Calendar: void set(int,int,int)>(2004, 11, 31);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        $stack6 = interfaceinvoke $stack5.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack4);
+
+        $stack7 = (java.io.Serializable) $stack5;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>($stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack8);
+
+        format = (org.apache.commons.lang3.time.DatePrinter) $stack9;
+
+        $stack10 = interfaceinvoke format.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack10);
+
+        return;
+    }
+
+    public void testLang538()
+    {
+        java.util.GregorianCalendar $stack3;
+        java.util.TimeZone $stack4, $stack6;
+        java.util.Date $stack10;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        org.apache.commons.lang3.time.DatePrinter $stack7;
+        java.lang.String $stack11, $stack14;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack3 = new java.util.GregorianCalendar;
+
+        $stack4 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("GMT-8");
+
+        specialinvoke $stack3.<java.util.GregorianCalendar: void <init>(java.util.TimeZone)>($stack4);
+
+        virtualinvoke $stack3.<java.util.GregorianCalendar: void clear()>();
+
+        virtualinvoke $stack3.<java.util.GregorianCalendar: void set(int,int,int,int,int,int)>(2009, 9, 16, 8, 42, 16);
+
+        $stack6 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("GMT");
+
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone)>("yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'", $stack6);
+
+        $stack10 = virtualinvoke $stack3.<java.util.GregorianCalendar: java.util.Date getTime()>();
+
+        $stack11 = interfaceinvoke $stack7.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("dateTime", "2009-10-16T16:42:16.000Z", $stack11);
+
+        $stack14 = interfaceinvoke $stack7.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Calendar)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("dateTime", "2009-10-16T08:42:16.000Z", $stack14);
+
+        return;
+    }
+
+    public void testLang645()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack6;
+        java.util.Locale $stack5;
+        java.util.Date $stack7;
+        org.apache.commons.lang3.time.DatePrinter $stack8;
+        java.lang.String $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack5 = new java.util.Locale;
+
+        specialinvoke $stack5.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("sv", "SE");
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int,int,int,int,int)>(2010, 0, 1, 12, 0, 0);
+
+        $stack7 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack8 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.Locale)>("EEEE\', week \'ww", $stack5);
+
+        $stack10 = interfaceinvoke $stack8.<org.apache.commons.lang3.time.DatePrinter: java.lang.String format(java.util.Date)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fredag, week 53", $stack10);
+
+        return;
+    }
+
+    public void testEquals()
+    {
+        long $stack6, $stack8;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        int $stack5, $stack7;
+        org.apache.commons.lang3.time.DatePrinter $stack3, $stack4;
+        java.lang.Object $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack5 = virtualinvoke $stack3.<java.lang.Object: int hashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        $stack7 = virtualinvoke $stack4.<java.lang.Object: int hashCode()>();
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack6, $stack8);
+
+        $stack9 = new java.lang.Object;
+
+        specialinvoke $stack9.<java.lang.Object: void <init>()>();
+
+        $stack10 = virtualinvoke $stack3.<java.lang.Object: boolean equals(java.lang.Object)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testToStringContainsName()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        org.apache.commons.lang3.time.DatePrinter $stack2;
+        java.lang.String $stack3;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Object: java.lang.String toString()>();
+
+        $stack4 = virtualinvoke $stack3.<java.lang.String: boolean startsWith(java.lang.String)>("FastDate");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        return;
+    }
+
+    public void testPatternMatches()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        org.apache.commons.lang3.time.DatePrinter $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String)>("yyyy/MM/dd");
+
+        $stack4 = interfaceinvoke $stack2.<org.apache.commons.lang3.time.DatePrinter: java.lang.String getPattern()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("yyyy/MM/dd", $stack4);
+
+        return;
+    }
+
+    public void testLocaleMatches()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Locale $stack2, $stack4, $stack5;
+        org.apache.commons.lang3.time.DatePrinter $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.Locale SWEDEN>;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.Locale)>("yyyy/MM/dd", $stack2);
+
+        $stack4 = <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.Locale SWEDEN>;
+
+        $stack5 = interfaceinvoke $stack3.<org.apache.commons.lang3.time.DatePrinter: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        return;
+    }
+
+    public void testTimeZoneMatches()
+    {
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.TimeZone $stack2, $stack4, $stack5;
+        org.apache.commons.lang3.time.DatePrinter $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack2 = <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.TimeZone NEW_YORK>;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.time.FastDatePrinterTest: org.apache.commons.lang3.time.DatePrinter getInstance(java.lang.String,java.util.TimeZone)>("yyyy/MM/dd", $stack2);
+
+        $stack4 = <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.TimeZone NEW_YORK>;
+
+        $stack5 = interfaceinvoke $stack3.<org.apache.commons.lang3.time.DatePrinter: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        return;
+    }
+
+    public void testCalendarTimezoneRespected()
+    {
+        java.util.TimeZone $stack10, anotherZone;
+        java.util.Date $stack13;
+        java.text.SimpleDateFormat $stack12;
+        java.lang.String[] $stack9;
+        org.apache.commons.lang3.time.FastDateFormat $stack15;
+        org.apache.commons.lang3.time.FastDatePrinterTest this;
+        java.util.Calendar $stack11;
+        int len$, i$;
+        java.lang.String $stack14, $stack16, $stack17, zone;
+        boolean $stack18;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinterTest;
+
+        $stack9 = staticinvoke <java.util.TimeZone: java.lang.String[] getAvailableIDs()>();
+
+        $stack10 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        anotherZone = null;
+
+        len$ = lengthof $stack9;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        zone = $stack9[i$];
+
+        $stack17 = virtualinvoke $stack10.<java.util.TimeZone: java.lang.String getID()>();
+
+        $stack18 = virtualinvoke zone.<java.lang.String: boolean equals(java.lang.Object)>($stack17);
+
+        if $stack18 != 0 goto label2;
+
+        anotherZone = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>(zone);
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("Cannot find another timezone", anotherZone);
+
+        $stack11 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance(java.util.TimeZone)>(anotherZone);
+
+        $stack12 = new java.text.SimpleDateFormat;
+
+        specialinvoke $stack12.<java.text.SimpleDateFormat: void <init>(java.lang.String)>("h:mma z");
+
+        virtualinvoke $stack12.<java.text.SimpleDateFormat: void setTimeZone(java.util.TimeZone)>(anotherZone);
+
+        $stack13 = virtualinvoke $stack11.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack14 = virtualinvoke $stack12.<java.text.SimpleDateFormat: java.lang.String format(java.util.Date)>($stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("h:mma z");
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack16);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.TimeZone $stack0;
+        java.util.Locale $stack1;
+
+        <org.apache.commons.lang3.time.FastDatePrinterTest: java.lang.String YYYY_MM_DD> = "yyyy/MM/dd";
+
+        $stack0 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.TimeZone NEW_YORK> = $stack0;
+
+        $stack1 = new java.util.Locale;
+
+        specialinvoke $stack1.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("sv", "SE");
+
+        <org.apache.commons.lang3.time.FastDatePrinterTest: java.util.Locale SWEDEN> = $stack1;
+
+        return;
+    }
+}

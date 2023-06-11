@@ -1,0 +1,394 @@
+public class org.apache.commons.lang3.math.IEEE754rUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.math.IEEE754rUtils this;
+
+        this := @this: org.apache.commons.lang3.math.IEEE754rUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static double min(double[])
+    {
+        double[] array;
+        java.lang.IllegalArgumentException $stack10, $stack11;
+        int $stack4, $stack5, i;
+        double $stack6, min;
+
+        array := @parameter0: double[];
+
+        if array != null goto label1;
+
+        $stack11 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack11;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack10;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if i >= $stack5 goto label4;
+
+        $stack6 = array[i];
+
+        min = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double,double)>($stack6, min);
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        return min;
+    }
+
+    public static float min(float[])
+    {
+        float[] array;
+        java.lang.IllegalArgumentException $stack9, $stack10;
+        int $stack3, $stack4, i;
+        float $stack5, min;
+
+        array := @parameter0: float[];
+
+        if array != null goto label1;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack10;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack9;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label4;
+
+        $stack5 = array[i];
+
+        min = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float,float)>($stack5, min);
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        return min;
+    }
+
+    public static double min(double, double, double)
+    {
+        double a, b, $stack6, c, $stack7;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        c := @parameter2: double;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double,double)>(a, b);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double min(double,double)>($stack6, c);
+
+        return $stack7;
+    }
+
+    public static double min(double, double)
+    {
+        double a, b, $stack6;
+        boolean $stack4, $stack5;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        $stack4 = staticinvoke <java.lang.Double: boolean isNaN(double)>(a);
+
+        if $stack4 == 0 goto label1;
+
+        return b;
+
+     label1:
+        $stack5 = staticinvoke <java.lang.Double: boolean isNaN(double)>(b);
+
+        if $stack5 == 0 goto label2;
+
+        return a;
+
+     label2:
+        $stack6 = staticinvoke <java.lang.Math: double min(double,double)>(a, b);
+
+        return $stack6;
+    }
+
+    public static float min(float, float, float)
+    {
+        float a, b, $stack3, c, $stack4;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        c := @parameter2: float;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float,float)>(a, b);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float min(float,float)>($stack3, c);
+
+        return $stack4;
+    }
+
+    public static float min(float, float)
+    {
+        float a, b, $stack4;
+        boolean $stack2, $stack3;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        $stack2 = staticinvoke <java.lang.Float: boolean isNaN(float)>(a);
+
+        if $stack2 == 0 goto label1;
+
+        return b;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Float: boolean isNaN(float)>(b);
+
+        if $stack3 == 0 goto label2;
+
+        return a;
+
+     label2:
+        $stack4 = staticinvoke <java.lang.Math: float min(float,float)>(a, b);
+
+        return $stack4;
+    }
+
+    public static double max(double[])
+    {
+        double[] array;
+        java.lang.IllegalArgumentException $stack10, $stack11;
+        int $stack4, $stack5, j;
+        double $stack6, max;
+
+        array := @parameter0: double[];
+
+        if array != null goto label1;
+
+        $stack11 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack11;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack10;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if j >= $stack5 goto label4;
+
+        $stack6 = array[j];
+
+        max = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double,double)>($stack6, max);
+
+        j = j + 1;
+
+        goto label3;
+
+     label4:
+        return max;
+    }
+
+    public static float max(float[])
+    {
+        float[] array;
+        java.lang.IllegalArgumentException $stack9, $stack10;
+        int $stack3, $stack4, j;
+        float $stack5, max;
+
+        array := @parameter0: float[];
+
+        if array != null goto label1;
+
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack10;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack9;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if j >= $stack4 goto label4;
+
+        $stack5 = array[j];
+
+        max = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float,float)>($stack5, max);
+
+        j = j + 1;
+
+        goto label3;
+
+     label4:
+        return max;
+    }
+
+    public static double max(double, double, double)
+    {
+        double a, b, $stack6, c, $stack7;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        c := @parameter2: double;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double,double)>(a, b);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: double max(double,double)>($stack6, c);
+
+        return $stack7;
+    }
+
+    public static double max(double, double)
+    {
+        double a, b, $stack6;
+        boolean $stack4, $stack5;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        $stack4 = staticinvoke <java.lang.Double: boolean isNaN(double)>(a);
+
+        if $stack4 == 0 goto label1;
+
+        return b;
+
+     label1:
+        $stack5 = staticinvoke <java.lang.Double: boolean isNaN(double)>(b);
+
+        if $stack5 == 0 goto label2;
+
+        return a;
+
+     label2:
+        $stack6 = staticinvoke <java.lang.Math: double max(double,double)>(a, b);
+
+        return $stack6;
+    }
+
+    public static float max(float, float, float)
+    {
+        float a, b, $stack3, c, $stack4;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        c := @parameter2: float;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float,float)>(a, b);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.math.IEEE754rUtils: float max(float,float)>($stack3, c);
+
+        return $stack4;
+    }
+
+    public static float max(float, float)
+    {
+        float a, b, $stack4;
+        boolean $stack2, $stack3;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        $stack2 = staticinvoke <java.lang.Float: boolean isNaN(float)>(a);
+
+        if $stack2 == 0 goto label1;
+
+        return b;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Float: boolean isNaN(float)>(b);
+
+        if $stack3 == 0 goto label2;
+
+        return a;
+
+     label2:
+        $stack4 = staticinvoke <java.lang.Math: float max(float,float)>(a, b);
+
+        return $stack4;
+    }
+}

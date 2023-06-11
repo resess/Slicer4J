@@ -1,0 +1,413 @@
+public class org.apache.commons.lang3.tuple.MutableTripleTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testBasic() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack3, $stack15;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        long $stack10;
+        java.lang.Integer $stack4, $stack8;
+        int $stack9;
+        java.lang.Boolean $stack5, $stack13;
+        java.lang.Object $stack7, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack3 = new org.apache.commons.lang3.tuple.MutableTriple;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.tuple.MutableTriple: void <init>(java.lang.Object,java.lang.Object,java.lang.Object)>($stack4, "foo", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        $stack8 = (java.lang.Integer) $stack7;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Integer: int intValue()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack12);
+
+        $stack13 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = new org.apache.commons.lang3.tuple.MutableTriple;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: void <init>(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "bar", "hello");
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack16);
+
+        $stack18 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack18);
+
+        $stack20 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("hello", $stack20);
+
+        return;
+    }
+
+    public void testDefault() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack2;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        java.lang.Object $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack2 = new org.apache.commons.lang3.tuple.MutableTriple;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack4);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack5);
+
+        return;
+    }
+
+    public void testMutate() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack2;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        long $stack11;
+        java.lang.Integer $stack3, $stack5, $stack9;
+        int $stack10;
+        java.lang.Boolean $stack4, $stack6, $stack14;
+        java.lang.Object $stack8, $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack2 = new org.apache.commons.lang3.tuple.MutableTriple;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: void <init>(java.lang.Object,java.lang.Object,java.lang.Object)>($stack3, "foo", $stack4);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(42);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: void setLeft(java.lang.Object)>($stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: void setMiddle(java.lang.Object)>("bar");
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: void setRight(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        $stack9 = (java.lang.Integer) $stack8;
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Integer: int intValue()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(42L, $stack11);
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack13);
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        return;
+    }
+
+    public void testTripleOf() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack5, $stack15;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        long $stack10;
+        java.lang.Integer $stack3, $stack8;
+        int $stack9;
+        java.lang.Boolean $stack4, $stack13;
+        java.lang.Object $stack7, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>($stack3, "foo", $stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        $stack8 = (java.lang.Integer) $stack7;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Integer: int intValue()>();
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        $stack12 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack12);
+
+        $stack13 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack14 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "bar", "hello");
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getLeft()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack16);
+
+        $stack18 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getMiddle()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack18);
+
+        $stack20 = virtualinvoke $stack15.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.Object getRight()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("hello", $stack20);
+
+        return;
+    }
+
+    public void testEquals() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack2, $stack3, $stack7, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17;
+        java.lang.Integer $stack5;
+        java.lang.Boolean $stack6, $stack8;
+        boolean $stack10, $stack13, $stack16, $stack18, $stack20;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        java.lang.Object $stack19;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "foo", "baz");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "foo", "baz");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", $stack5, $stack6);
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", null, $stack8);
+
+        $stack10 = virtualinvoke $stack7.<org.apache.commons.lang3.tuple.MutableTriple: boolean equals(java.lang.Object)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", "bar", "baz");
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("xyz", "bar", "baz");
+
+        $stack13 = virtualinvoke $stack11.<org.apache.commons.lang3.tuple.MutableTriple: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", "bar", "baz");
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", "bar", "blo");
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.tuple.MutableTriple: boolean equals(java.lang.Object)>($stack15);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("foo", "bar", "baz");
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.tuple.MutableTriple: boolean equals(java.lang.Object)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = new java.lang.Object;
+
+        specialinvoke $stack19.<java.lang.Object: void <init>()>();
+
+        $stack20 = virtualinvoke $stack17.<org.apache.commons.lang3.tuple.MutableTriple: boolean equals(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        return;
+    }
+
+    public void testHashCode() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack1, $stack4;
+        int $stack2, $stack5;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        long $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "foo", "baz");
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.tuple.MutableTriple: int hashCode()>();
+
+        $stack3 = (long) $stack2;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "foo", "baz");
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.tuple.MutableTriple: int hashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack3, $stack6);
+
+        return;
+    }
+
+    public void testToString() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.tuple.MutableTriple $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        java.lang.String $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, null, null);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(null,null,null)", $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "two", null);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(null,two,null)", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("one", null, null);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(one,null,null)", $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("one", "two", null);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(one,two,null)", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>(null, "two", "three");
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(null,two,three)", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("one", null, "three");
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(one,null,three)", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>("one", "two", "three");
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.tuple.MutableTriple: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("(one,two,three)", $stack21);
+
+        return;
+    }
+
+    public void testSerialization() throws java.lang.Exception
+    {
+        byte[] $stack12;
+        org.apache.commons.lang3.tuple.MutableTriple $stack7, deserializedTriple;
+        java.io.ByteArrayOutputStream $stack8;
+        java.io.ObjectInputStream $stack10;
+        org.apache.commons.lang3.tuple.MutableTripleTest this;
+        long $stack15, $stack17;
+        java.lang.Integer $stack5;
+        java.io.ByteArrayInputStream $stack11;
+        int $stack14, $stack16;
+        java.lang.Boolean $stack6;
+        java.io.ObjectOutputStream $stack9;
+        java.lang.Object $stack13;
+
+        this := @this: org.apache.commons.lang3.tuple.MutableTripleTest;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.tuple.MutableTriple: org.apache.commons.lang3.tuple.MutableTriple of(java.lang.Object,java.lang.Object,java.lang.Object)>($stack5, "foo", $stack6);
+
+        $stack8 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack8.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack9 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack9.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack8);
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack7);
+
+        $stack10 = new java.io.ObjectInputStream;
+
+        $stack11 = new java.io.ByteArrayInputStream;
+
+        $stack12 = virtualinvoke $stack8.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        specialinvoke $stack11.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack12);
+
+        specialinvoke $stack10.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>($stack11);
+
+        $stack13 = virtualinvoke $stack10.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        deserializedTriple = (org.apache.commons.lang3.tuple.MutableTriple) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, deserializedTriple);
+
+        $stack14 = virtualinvoke $stack7.<org.apache.commons.lang3.tuple.MutableTriple: int hashCode()>();
+
+        $stack15 = (long) $stack14;
+
+        $stack16 = virtualinvoke deserializedTriple.<org.apache.commons.lang3.tuple.MutableTriple: int hashCode()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack17);
+
+        return;
+    }
+}

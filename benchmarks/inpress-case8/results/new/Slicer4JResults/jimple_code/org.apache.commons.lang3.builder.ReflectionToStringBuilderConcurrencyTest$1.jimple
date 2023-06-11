@@ -1,0 +1,69 @@
+class org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1 extends java.lang.Object implements java.util.concurrent.Callable
+{
+    final org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder val$holder;
+    final org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this$0;
+
+    void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest, org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1 this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest l1;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder l2;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest;
+
+        l2 := @parameter1: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder val$holder> = l2;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Integer call()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1 this;
+        int i;
+        java.lang.String $stack5;
+        java.lang.Integer $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1;
+
+        i = 0;
+
+     label1:
+        if i >= 100 goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$CollectionHolder val$holder>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toString(java.lang.Object)>($stack4);
+
+        staticinvoke <junit.framework.Assert: void assertNotNull(java.lang.Object)>($stack5);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(100);
+
+        return $stack3;
+    }
+
+    public volatile java.lang.Object call() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1 this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderConcurrencyTest$1: java.lang.Integer call()>();
+
+        return $stack1;
+    }
+}

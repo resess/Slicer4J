@@ -1,0 +1,559 @@
+public class org.apache.commons.lang3.exception.ContextedExceptionTest extends org.apache.commons.lang3.exception.AbstractExceptionContextTest
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        specialinvoke this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack1;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+        java.lang.Exception $stack2;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack1 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack2 = new java.lang.Exception;
+
+        specialinvoke $stack2.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        specialinvoke $stack1.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.Throwable)>($stack2);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack1;
+
+        specialinvoke this.<org.apache.commons.lang3.exception.AbstractExceptionContextTest: void setUp()>();
+
+        return;
+    }
+
+    public void testContextedException()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack3, $stack5;
+        java.lang.Throwable $stack8;
+        int $stack10;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+        java.lang.String $stack6, $stack9;
+        org.apache.commons.lang3.exception.ExceptionContext $stack4, $stack7;
+        boolean $stack11, $stack12;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack3 = new org.apache.commons.lang3.exception.ContextedException;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.exception.ContextedException: void <init>()>();
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack5 = (org.apache.commons.lang3.exception.ContextedException) $stack4;
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack8 = (java.lang.Throwable) $stack7;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.String: int indexOf(java.lang.String)>("ContextedException");
+
+        if $stack10 < 0 goto label1;
+
+        $stack12 = 1;
+
+        goto label2;
+
+     label1:
+        $stack12 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testContextedExceptionString()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack2, $stack4;
+        java.lang.Throwable $stack8;
+        int $stack10;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+        java.lang.String $stack6, $stack9;
+        org.apache.commons.lang3.exception.ExceptionContext $stack3, $stack7;
+        boolean $stack11;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack2 = new org.apache.commons.lang3.exception.ContextedException;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String)>("Test Message");
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack2;
+
+        $stack3 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack4 = (org.apache.commons.lang3.exception.ContextedException) $stack3;
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Test Message", $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack8 = (java.lang.Throwable) $stack7;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack10 < 0 goto label1;
+
+        $stack11 = 1;
+
+        goto label2;
+
+     label1:
+        $stack11 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testContextedExceptionThrowable()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack3, $stack6;
+        java.lang.Throwable $stack9;
+        java.lang.Exception $stack4;
+        int $stack11, $stack12, $stack13;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+        java.lang.String $stack7, $stack10;
+        org.apache.commons.lang3.exception.ExceptionContext $stack5, $stack8;
+        boolean $stack18, $stack15, $stack14;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack3 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack4 = new java.lang.Exception;
+
+        specialinvoke $stack4.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        specialinvoke $stack3.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.Throwable)>($stack4);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack3;
+
+        $stack5 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack6 = (org.apache.commons.lang3.exception.ContextedException) $stack5;
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        $stack8 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack9 = (java.lang.Throwable) $stack8;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.String: int indexOf(java.lang.String)>("ContextedException");
+
+        if $stack11 < 0 goto label1;
+
+        $stack18 = 1;
+
+        goto label2;
+
+     label1:
+        $stack18 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack12 = virtualinvoke $stack10.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack12 < 0 goto label3;
+
+        $stack15 = 1;
+
+        goto label4;
+
+     label3:
+        $stack15 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack13 = virtualinvoke $stack7.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack13 < 0 goto label5;
+
+        $stack14 = 1;
+
+        goto label6;
+
+     label5:
+        $stack14 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testContextedExceptionStringThrowable()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack3, $stack7;
+        java.lang.Throwable $stack10;
+        int $stack12, $stack13, $stack14, $stack15;
+        java.lang.String $stack8, $stack11;
+        org.apache.commons.lang3.exception.ExceptionContext $stack6, $stack9;
+        boolean $stack23, $stack20, $stack17, $stack16;
+        java.lang.Exception $stack4;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack3 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack4 = new java.lang.Exception;
+
+        specialinvoke $stack4.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        specialinvoke $stack3.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String,java.lang.Throwable)>("This is monotonous", $stack4);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack3;
+
+        $stack6 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack7 = (org.apache.commons.lang3.exception.ContextedException) $stack6;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        $stack9 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack10 = (java.lang.Throwable) $stack9;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.String: int indexOf(java.lang.String)>("ContextedException");
+
+        if $stack12 < 0 goto label1;
+
+        $stack23 = 1;
+
+        goto label2;
+
+     label1:
+        $stack23 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack13 = virtualinvoke $stack11.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack13 < 0 goto label3;
+
+        $stack20 = 1;
+
+        goto label4;
+
+     label3:
+        $stack20 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack14 = virtualinvoke $stack11.<java.lang.String: int indexOf(java.lang.String)>("This is monotonous");
+
+        if $stack14 < 0 goto label5;
+
+        $stack17 = 1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack15 = virtualinvoke $stack8.<java.lang.String: int indexOf(java.lang.String)>("This is monotonous");
+
+        if $stack15 < 0 goto label7;
+
+        $stack16 = 1;
+
+        goto label8;
+
+     label7:
+        $stack16 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testContextedExceptionStringThrowableContext()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack3, $stack8;
+        java.lang.Throwable $stack11;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack6;
+        int $stack13, $stack14, $stack15, $stack16;
+        java.lang.String $stack9, $stack12;
+        org.apache.commons.lang3.exception.ExceptionContext $stack7, $stack10;
+        boolean $stack24, $stack21, $stack18, $stack17;
+        java.lang.Exception $stack4;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack3 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack4 = new java.lang.Exception;
+
+        specialinvoke $stack4.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        $stack6 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        specialinvoke $stack3.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String,java.lang.Throwable,org.apache.commons.lang3.exception.ExceptionContext)>("This is monotonous", $stack4, $stack6);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack3;
+
+        $stack7 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack8 = (org.apache.commons.lang3.exception.ContextedException) $stack7;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        $stack10 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack11 = (java.lang.Throwable) $stack10;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.exception.ExceptionUtils: java.lang.String getStackTrace(java.lang.Throwable)>($stack11);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.String: int indexOf(java.lang.String)>("ContextedException");
+
+        if $stack13 < 0 goto label1;
+
+        $stack24 = 1;
+
+        goto label2;
+
+     label1:
+        $stack24 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack14 = virtualinvoke $stack12.<java.lang.String: int indexOf(java.lang.String)>("Test Message");
+
+        if $stack14 < 0 goto label3;
+
+        $stack21 = 1;
+
+        goto label4;
+
+     label3:
+        $stack21 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack15 = virtualinvoke $stack12.<java.lang.String: int indexOf(java.lang.String)>("This is monotonous");
+
+        if $stack15 < 0 goto label5;
+
+        $stack18 = 1;
+
+        goto label6;
+
+     label5:
+        $stack18 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack16 = virtualinvoke $stack9.<java.lang.String: int indexOf(java.lang.String)>("This is monotonous");
+
+        if $stack16 < 0 goto label7;
+
+        $stack17 = 1;
+
+        goto label8;
+
+     label7:
+        $stack17 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testNullExceptionPassing()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack2, $stack5, $stack6, $stack9, $stack12, $stack15, $stack17;
+        java.util.Date $stack7;
+        org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString $stack13;
+        java.lang.Integer $stack11;
+        java.lang.Exception $stack3;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+        java.lang.String $stack18;
+        org.apache.commons.lang3.exception.ExceptionContext $stack16;
+        boolean $stack19;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack2 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        specialinvoke $stack2.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String,java.lang.Throwable,org.apache.commons.lang3.exception.ExceptionContext)>("This is monotonous", $stack3, null);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>("test1", null);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>("test2", "some value");
+
+        $stack7 = new java.util.Date;
+
+        specialinvoke $stack7.<java.util.Date: void <init>()>();
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>("test Date", $stack7);
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack12 = virtualinvoke $stack9.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>("test Nbr", $stack11);
+
+        $stack13 = new org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.exception.AbstractExceptionContextTest$ObjectWithFaultyToString: void <init>()>();
+
+        $stack15 = virtualinvoke $stack12.<org.apache.commons.lang3.exception.ContextedException: org.apache.commons.lang3.exception.ContextedException addContextValue(java.lang.String,java.lang.Object)>("test Poorly written obj", $stack13);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack15;
+
+        $stack16 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack17 = (org.apache.commons.lang3.exception.ContextedException) $stack16;
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getMessage()>();
+
+        if $stack18 == null goto label1;
+
+        $stack19 = 1;
+
+        goto label2;
+
+     label1:
+        $stack19 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        return;
+    }
+
+    public void testRawMessage()
+    {
+        org.apache.commons.lang3.exception.ContextedException $stack9, $stack11, $stack16, $stack19, $stack24;
+        org.apache.commons.lang3.exception.DefaultExceptionContext $stack14, $stack22;
+        java.lang.String $stack3, $stack7, $stack10, $stack18, $stack25;
+        org.apache.commons.lang3.exception.ExceptionContext $stack8, $stack15, $stack23;
+        java.lang.Exception $stack12, $stack20;
+        java.lang.StringBuilder $stack1, $stack4, $stack5, $stack6;
+        java.lang.Class $stack2;
+        org.apache.commons.lang3.exception.ContextedExceptionTest this;
+
+        this := @this: org.apache.commons.lang3.exception.ContextedExceptionTest;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = class "Ljava/lang/Exception;";
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test Message");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack8 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack9 = (org.apache.commons.lang3.exception.ContextedException) $stack8;
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getRawMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack10);
+
+        $stack11 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack12 = new java.lang.Exception;
+
+        specialinvoke $stack12.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        $stack14 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        specialinvoke $stack11.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String,java.lang.Throwable,org.apache.commons.lang3.exception.ExceptionContext)>("This is monotonous", $stack12, $stack14);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack11;
+
+        $stack15 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack16 = (org.apache.commons.lang3.exception.ContextedException) $stack15;
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getRawMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("This is monotonous", $stack18);
+
+        $stack19 = new org.apache.commons.lang3.exception.ContextedException;
+
+        $stack20 = new java.lang.Exception;
+
+        specialinvoke $stack20.<java.lang.Exception: void <init>(java.lang.String)>("Test Message");
+
+        $stack22 = new org.apache.commons.lang3.exception.DefaultExceptionContext;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.exception.DefaultExceptionContext: void <init>()>();
+
+        specialinvoke $stack19.<org.apache.commons.lang3.exception.ContextedException: void <init>(java.lang.String,java.lang.Throwable,org.apache.commons.lang3.exception.ExceptionContext)>(null, $stack20, $stack22);
+
+        this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext> = $stack19;
+
+        $stack23 = this.<org.apache.commons.lang3.exception.ContextedExceptionTest: org.apache.commons.lang3.exception.ExceptionContext exceptionContext>;
+
+        $stack24 = (org.apache.commons.lang3.exception.ContextedException) $stack23;
+
+        $stack25 = virtualinvoke $stack24.<org.apache.commons.lang3.exception.ContextedException: java.lang.String getRawMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack25);
+
+        return;
+    }
+}

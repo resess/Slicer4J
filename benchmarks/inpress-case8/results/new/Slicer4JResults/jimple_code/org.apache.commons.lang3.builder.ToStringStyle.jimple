@@ -1,0 +1,3274 @@
+public abstract class org.apache.commons.lang3.builder.ToStringStyle extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    public static final org.apache.commons.lang3.builder.ToStringStyle DEFAULT_STYLE;
+    public static final org.apache.commons.lang3.builder.ToStringStyle MULTI_LINE_STYLE;
+    public static final org.apache.commons.lang3.builder.ToStringStyle NO_FIELD_NAMES_STYLE;
+    public static final org.apache.commons.lang3.builder.ToStringStyle SHORT_PREFIX_STYLE;
+    public static final org.apache.commons.lang3.builder.ToStringStyle SIMPLE_STYLE;
+    private static final java.lang.ThreadLocal REGISTRY;
+    private boolean useFieldNames;
+    private boolean useClassName;
+    private boolean useShortClassName;
+    private boolean useIdentityHashCode;
+    private java.lang.String contentStart;
+    private java.lang.String contentEnd;
+    private java.lang.String fieldNameValueSeparator;
+    private boolean fieldSeparatorAtStart;
+    private boolean fieldSeparatorAtEnd;
+    private java.lang.String fieldSeparator;
+    private java.lang.String arrayStart;
+    private java.lang.String arraySeparator;
+    private boolean arrayContentDetail;
+    private java.lang.String arrayEnd;
+    private boolean defaultFullDetail;
+    private java.lang.String nullText;
+    private java.lang.String sizeStartText;
+    private java.lang.String sizeEndText;
+    private java.lang.String summaryObjectStartText;
+    private java.lang.String summaryObjectEndText;
+
+    static java.util.Map getRegistry()
+    {
+        java.lang.ThreadLocal $stack0;
+        java.lang.Object $stack1;
+        java.util.Map $stack2;
+
+        $stack0 = <org.apache.commons.lang3.builder.ToStringStyle: java.lang.ThreadLocal REGISTRY>;
+
+        $stack1 = virtualinvoke $stack0.<java.lang.ThreadLocal: java.lang.Object get()>();
+
+        $stack2 = (java.util.Map) $stack1;
+
+        return $stack2;
+    }
+
+    static boolean isRegistered(java.lang.Object)
+    {
+        java.util.Map $stack2;
+        java.lang.Object value;
+        boolean $stack3, $stack4;
+
+        value := @parameter0: java.lang.Object;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: java.util.Map getRegistry()>();
+
+        if $stack2 == null goto label1;
+
+        $stack3 = interfaceinvoke $stack2.<java.util.Map: boolean containsKey(java.lang.Object)>(value);
+
+        if $stack3 == 0 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    static void register(java.lang.Object)
+    {
+        java.lang.ThreadLocal $stack6;
+        java.util.Map $stack2, $stack3;
+        java.lang.Object value;
+        java.util.WeakHashMap $stack5;
+
+        value := @parameter0: java.lang.Object;
+
+        if value == null goto label2;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: java.util.Map getRegistry()>();
+
+        if $stack2 != null goto label1;
+
+        $stack6 = <org.apache.commons.lang3.builder.ToStringStyle: java.lang.ThreadLocal REGISTRY>;
+
+        $stack5 = new java.util.WeakHashMap;
+
+        specialinvoke $stack5.<java.util.WeakHashMap: void <init>()>();
+
+        virtualinvoke $stack6.<java.lang.ThreadLocal: void set(java.lang.Object)>($stack5);
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: java.util.Map getRegistry()>();
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(value, null);
+
+     label2:
+        return;
+    }
+
+    static void unregister(java.lang.Object)
+    {
+        java.lang.ThreadLocal $stack5;
+        java.util.Map $stack2;
+        java.lang.Object value;
+        boolean $stack4;
+
+        value := @parameter0: java.lang.Object;
+
+        if value == null goto label1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: java.util.Map getRegistry()>();
+
+        if $stack2 == null goto label1;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object remove(java.lang.Object)>(value);
+
+        $stack4 = interfaceinvoke $stack2.<java.util.Map: boolean isEmpty()>();
+
+        if $stack4 == 0 goto label1;
+
+        $stack5 = <org.apache.commons.lang3.builder.ToStringStyle: java.lang.ThreadLocal REGISTRY>;
+
+        virtualinvoke $stack5.<java.lang.ThreadLocal: void remove()>();
+
+     label1:
+        return;
+    }
+
+    protected void <init>()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useFieldNames> = 1;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useClassName> = 1;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useShortClassName> = 0;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useIdentityHashCode> = 1;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart> = "[";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentEnd> = "]";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldNameValueSeparator> = "=";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtStart> = 0;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtEnd> = 0;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator> = ",";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart> = "{";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator> = ",";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean arrayContentDetail> = 1;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd> = "}";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean defaultFullDetail> = 1;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String nullText> = "<null>";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeStartText> = "<size=";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeEndText> = ">";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectStartText> = "<";
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectEndText> = ">";
+
+        return;
+    }
+
+    public void appendSuper(java.lang.StringBuffer, java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String superToString;
+        java.lang.StringBuffer buffer;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        superToString := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendToString(java.lang.StringBuffer,java.lang.String)>(buffer, superToString);
+
+        return;
+    }
+
+    public void appendToString(java.lang.StringBuffer, java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack7, $stack9, pos1, $stack11;
+        java.lang.String toString, $stack6, $stack8, $stack10, $stack12;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        toString := @parameter1: java.lang.String;
+
+        if toString == null goto label2;
+
+        $stack6 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart>;
+
+        $stack7 = virtualinvoke toString.<java.lang.String: int indexOf(java.lang.String)>($stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart>;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.String: int length()>();
+
+        pos1 = $stack7 + $stack9;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentEnd>;
+
+        $stack11 = virtualinvoke toString.<java.lang.String: int lastIndexOf(java.lang.String)>($stack10);
+
+        if pos1 == $stack11 goto label2;
+
+        if pos1 < 0 goto label2;
+
+        if $stack11 < 0 goto label2;
+
+        $stack12 = virtualinvoke toString.<java.lang.String: java.lang.String substring(int,int)>(pos1, $stack11);
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtStart>;
+
+        if $stack13 == 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void removeLastFieldSeparator(java.lang.StringBuffer)>(buffer);
+
+     label1:
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack12);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldSeparator(java.lang.StringBuffer)>(buffer);
+
+     label2:
+        return;
+    }
+
+    public void appendStart(java.lang.StringBuffer, java.lang.Object)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Object object;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        object := @parameter1: java.lang.Object;
+
+        if object == null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendClassName(java.lang.StringBuffer,java.lang.Object)>(buffer, object);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendIdentityHashCode(java.lang.StringBuffer,java.lang.Object)>(buffer, object);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendContentStart(java.lang.StringBuffer)>(buffer);
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtStart>;
+
+        if $stack3 == 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldSeparator(java.lang.StringBuffer)>(buffer);
+
+     label1:
+        return;
+    }
+
+    public void appendEnd(java.lang.StringBuffer, java.lang.Object)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Object object;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        object := @parameter1: java.lang.Object;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtEnd>;
+
+        if $stack3 != 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void removeLastFieldSeparator(java.lang.StringBuffer)>(buffer);
+
+     label1:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendContentEnd(java.lang.StringBuffer)>(buffer);
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void unregister(java.lang.Object)>(object);
+
+        return;
+    }
+
+    protected void removeLastFieldSeparator(java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack6, $stack8, $stack9, $stack10, $stack11, $stack13, $stack14, i, $i0, $i1;
+        java.lang.String $stack7, $stack15;
+        boolean match;
+        char $stack12, $stack16;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        $stack6 = virtualinvoke buffer.<java.lang.StringBuffer: int length()>();
+
+        $stack7 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator>;
+
+        $stack8 = virtualinvoke $stack7.<java.lang.String: int length()>();
+
+        if $stack6 <= 0 goto label4;
+
+        if $stack8 <= 0 goto label4;
+
+        if $stack6 < $stack8 goto label4;
+
+        match = 1;
+
+        i = 0;
+
+     label1:
+        if i >= $stack8 goto label3;
+
+        $stack10 = $stack6 - 1;
+
+        $stack11 = $stack10 - i;
+
+        $stack12 = virtualinvoke buffer.<java.lang.StringBuffer: char charAt(int)>($stack11);
+
+        $stack15 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator>;
+
+        $stack13 = $stack8 - 1;
+
+        $stack14 = $stack13 - i;
+
+        $stack16 = virtualinvoke $stack15.<java.lang.String: char charAt(int)>($stack14);
+
+        $i0 = (int) $stack12;
+
+        $i1 = (int) $stack16;
+
+        if $i0 == $i1 goto label2;
+
+        match = 0;
+
+        goto label3;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        if match == 0 goto label4;
+
+        $stack9 = $stack6 - $stack8;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: void setLength(int)>($stack9);
+
+     label4:
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, java.lang.Object, java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.Object value;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: java.lang.Object;
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if value != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label2;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendInternal(java.lang.StringBuffer,java.lang.String,java.lang.Object,boolean)>(buffer, fieldName, value, $stack5);
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendInternal(java.lang.StringBuffer, java.lang.String, java.lang.Object, boolean)
+    {
+        byte[] $stack40, $stack41, $stack42, $stack43;
+        java.util.Map $stack56, $stack58;
+        java.lang.Throwable $stack67;
+        java.lang.Object[] $stack20, $stack21, $stack22, $stack23;
+        double[] $stack32, $stack33, $stack34, $stack35;
+        float[] $stack28, $stack29, $stack30, $stack31;
+        java.lang.StringBuffer buffer;
+        java.lang.String fieldName;
+        boolean[] $stack24, $stack25, $stack26, $stack27;
+        char[] $stack36, $stack37, $stack38, $stack39;
+        int[] $stack48, $stack49, $stack50, $stack51;
+        boolean $stack6, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack18, detail, $stack62, $stack65, $stack66, $stack7;
+        java.util.Collection $stack59, $stack61;
+        short[] $stack44, $stack45, $stack46, $stack47;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        long[] $stack52, $stack53, $stack54, $stack55;
+        int $stack57, $stack60;
+        java.lang.Object value;
+        java.lang.Class $stack17;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: java.lang.Object;
+
+        detail := @parameter3: boolean;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: boolean isRegistered(java.lang.Object)>(value);
+
+        if $stack6 == 0 goto label01;
+
+        $stack62 = value instanceof java.lang.Number;
+
+        if $stack62 != 0 goto label01;
+
+        $stack65 = value instanceof java.lang.Boolean;
+
+        if $stack65 != 0 goto label01;
+
+        $stack66 = value instanceof java.lang.Character;
+
+        if $stack66 != 0 goto label01;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendCyclicObject(java.lang.StringBuffer,java.lang.String,java.lang.Object)>(buffer, fieldName, value);
+
+        return;
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void register(java.lang.Object)>(value);
+
+     label02:
+        $stack7 = value instanceof java.util.Collection;
+
+        if $stack7 == 0 goto label04;
+
+        if detail == 0 goto label03;
+
+        $stack61 = (java.util.Collection) value;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Collection)>(buffer, fieldName, $stack61);
+
+        goto label26;
+
+     label03:
+        $stack59 = (java.util.Collection) value;
+
+        $stack60 = interfaceinvoke $stack59.<java.util.Collection: int size()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack60);
+
+        goto label26;
+
+     label04:
+        $stack8 = value instanceof java.util.Map;
+
+        if $stack8 == 0 goto label06;
+
+        if detail == 0 goto label05;
+
+        $stack58 = (java.util.Map) value;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Map)>(buffer, fieldName, $stack58);
+
+        goto label26;
+
+     label05:
+        $stack56 = (java.util.Map) value;
+
+        $stack57 = interfaceinvoke $stack56.<java.util.Map: int size()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack57);
+
+        goto label26;
+
+     label06:
+        $stack9 = value instanceof long[];
+
+        if $stack9 == 0 goto label08;
+
+        if detail == 0 goto label07;
+
+        $stack54 = (long[]) value;
+
+        $stack55 = (long[]) $stack54;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,long[])>(buffer, fieldName, $stack55);
+
+        goto label26;
+
+     label07:
+        $stack52 = (long[]) value;
+
+        $stack53 = (long[]) $stack52;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,long[])>(buffer, fieldName, $stack53);
+
+        goto label26;
+
+     label08:
+        $stack10 = value instanceof int[];
+
+        if $stack10 == 0 goto label10;
+
+        if detail == 0 goto label09;
+
+        $stack50 = (int[]) value;
+
+        $stack51 = (int[]) $stack50;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,int[])>(buffer, fieldName, $stack51);
+
+        goto label26;
+
+     label09:
+        $stack48 = (int[]) value;
+
+        $stack49 = (int[]) $stack48;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,int[])>(buffer, fieldName, $stack49);
+
+        goto label26;
+
+     label10:
+        $stack11 = value instanceof short[];
+
+        if $stack11 == 0 goto label12;
+
+        if detail == 0 goto label11;
+
+        $stack46 = (short[]) value;
+
+        $stack47 = (short[]) $stack46;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,short[])>(buffer, fieldName, $stack47);
+
+        goto label26;
+
+     label11:
+        $stack44 = (short[]) value;
+
+        $stack45 = (short[]) $stack44;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,short[])>(buffer, fieldName, $stack45);
+
+        goto label26;
+
+     label12:
+        $stack12 = value instanceof byte[];
+
+        if $stack12 == 0 goto label14;
+
+        if detail == 0 goto label13;
+
+        $stack42 = (byte[]) value;
+
+        $stack43 = (byte[]) $stack42;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,byte[])>(buffer, fieldName, $stack43);
+
+        goto label26;
+
+     label13:
+        $stack40 = (byte[]) value;
+
+        $stack41 = (byte[]) $stack40;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,byte[])>(buffer, fieldName, $stack41);
+
+        goto label26;
+
+     label14:
+        $stack13 = value instanceof char[];
+
+        if $stack13 == 0 goto label16;
+
+        if detail == 0 goto label15;
+
+        $stack38 = (char[]) value;
+
+        $stack39 = (char[]) $stack38;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,char[])>(buffer, fieldName, $stack39);
+
+        goto label26;
+
+     label15:
+        $stack36 = (char[]) value;
+
+        $stack37 = (char[]) $stack36;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,char[])>(buffer, fieldName, $stack37);
+
+        goto label26;
+
+     label16:
+        $stack14 = value instanceof double[];
+
+        if $stack14 == 0 goto label18;
+
+        if detail == 0 goto label17;
+
+        $stack34 = (double[]) value;
+
+        $stack35 = (double[]) $stack34;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,double[])>(buffer, fieldName, $stack35);
+
+        goto label26;
+
+     label17:
+        $stack32 = (double[]) value;
+
+        $stack33 = (double[]) $stack32;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,double[])>(buffer, fieldName, $stack33);
+
+        goto label26;
+
+     label18:
+        $stack15 = value instanceof float[];
+
+        if $stack15 == 0 goto label20;
+
+        if detail == 0 goto label19;
+
+        $stack30 = (float[]) value;
+
+        $stack31 = (float[]) $stack30;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,float[])>(buffer, fieldName, $stack31);
+
+        goto label26;
+
+     label19:
+        $stack28 = (float[]) value;
+
+        $stack29 = (float[]) $stack28;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,float[])>(buffer, fieldName, $stack29);
+
+        goto label26;
+
+     label20:
+        $stack16 = value instanceof boolean[];
+
+        if $stack16 == 0 goto label22;
+
+        if detail == 0 goto label21;
+
+        $stack26 = (boolean[]) value;
+
+        $stack27 = (boolean[]) $stack26;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,boolean[])>(buffer, fieldName, $stack27);
+
+        goto label26;
+
+     label21:
+        $stack24 = (boolean[]) value;
+
+        $stack25 = (boolean[]) $stack24;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,boolean[])>(buffer, fieldName, $stack25);
+
+        goto label26;
+
+     label22:
+        $stack17 = virtualinvoke value.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Class: boolean isArray()>();
+
+        if $stack18 == 0 goto label24;
+
+        if detail == 0 goto label23;
+
+        $stack22 = (java.lang.Object[]) value;
+
+        $stack23 = (java.lang.Object[]) $stack22;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object[])>(buffer, fieldName, $stack23);
+
+        goto label26;
+
+     label23:
+        $stack20 = (java.lang.Object[]) value;
+
+        $stack21 = (java.lang.Object[]) $stack20;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,java.lang.Object[])>(buffer, fieldName, $stack21);
+
+        goto label26;
+
+     label24:
+        if detail == 0 goto label25;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object)>(buffer, fieldName, value);
+
+        goto label26;
+
+     label25:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,java.lang.Object)>(buffer, fieldName, value);
+
+     label26:
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void unregister(java.lang.Object)>(value);
+
+        goto label29;
+
+     label27:
+        $stack67 := @caughtexception;
+
+     label28:
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void unregister(java.lang.Object)>(value);
+
+        throw $stack67;
+
+     label29:
+        return;
+
+        catch java.lang.Throwable from label02 to label26 with label27;
+        catch java.lang.Throwable from label27 to label28 with label27;
+    }
+
+    protected void appendCyclicObject(java.lang.StringBuffer, java.lang.String, java.lang.Object)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Object value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: java.lang.Object;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: void identityToString(java.lang.StringBuffer,java.lang.Object)>(buffer, value);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, java.lang.Object)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Object value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: java.lang.Object;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>(value);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, java.util.Collection)
+    {
+        java.lang.StringBuffer buffer;
+        java.util.Collection coll;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        coll := @parameter2: java.util.Collection;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>(coll);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, java.util.Map)
+    {
+        java.lang.StringBuffer buffer;
+        java.util.Map map;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        map := @parameter2: java.util.Map;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>(map);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        java.lang.Object value;
+        java.lang.Class $stack6;
+        java.lang.String $stack4, $stack7, $stack9, fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: java.lang.Object;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectStartText>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack4);
+
+        $stack6 = virtualinvoke value.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String getShortClassName(java.lang.Class)>($stack6);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack7);
+
+        $stack9 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectEndText>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack9);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, long)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        long value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: long;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,long)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, long)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        long value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: long;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(long)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, int)
+    {
+        java.lang.StringBuffer buffer;
+        int value;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: int;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, int)
+    {
+        java.lang.StringBuffer buffer;
+        int value;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: int;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(int)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, short)
+    {
+        short value;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: short;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,short)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, short)
+    {
+        short value;
+        java.lang.StringBuffer buffer;
+        int $i0;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: short;
+
+        $i0 = (int) value;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(int)>($i0);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, byte)
+    {
+        byte value;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: byte;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,byte)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, byte)
+    {
+        byte value;
+        java.lang.StringBuffer buffer;
+        int $i0;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: byte;
+
+        $i0 = (int) value;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(int)>($i0);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, char)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        char value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: char;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,char)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, char)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        char value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: char;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, double)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        double value;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: double;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,double)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, double)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        double value;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: double;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(double)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, float)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        float value;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: float;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,float)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, float)
+    {
+        java.lang.StringBuffer buffer;
+        float value;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: float;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(float)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        boolean value;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,boolean)>(buffer, fieldName, value);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        boolean value;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        value := @parameter2: boolean;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(boolean)>(value);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, java.lang.Object[], java.lang.Boolean)
+    {
+        java.lang.Object[] array;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: java.lang.Object[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,java.lang.Object[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack8, i;
+        java.lang.Object item;
+        java.lang.String $stack6, $stack9, fieldName, $stack14;
+        boolean $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: java.lang.Object[];
+
+        $stack6 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack6);
+
+        i = 0;
+
+     label1:
+        $stack8 = lengthof array;
+
+        if i >= $stack8 goto label5;
+
+        item = array[i];
+
+        if i <= 0 goto label2;
+
+        $stack14 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack14);
+
+     label2:
+        if item != null goto label3;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label4;
+
+     label3:
+        $stack11 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean arrayContentDetail>;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendInternal(java.lang.StringBuffer,java.lang.String,java.lang.Object,boolean)>(buffer, fieldName, item, $stack11);
+
+     label4:
+        i = i + 1;
+
+        goto label1;
+
+     label5:
+        $stack9 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack9);
+
+        return;
+    }
+
+    protected void reflectionAppendArrayDetail(java.lang.StringBuffer, java.lang.String, java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack9, i;
+        java.lang.Object array, $stack12;
+        java.lang.String $stack7, $stack10, fieldName, $stack16;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: java.lang.Object;
+
+        $stack7 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack7);
+
+        $stack9 = staticinvoke <java.lang.reflect.Array: int getLength(java.lang.Object)>(array);
+
+        i = 0;
+
+     label1:
+        if i >= $stack9 goto label5;
+
+        $stack12 = staticinvoke <java.lang.reflect.Array: java.lang.Object get(java.lang.Object,int)>(array, i);
+
+        if i <= 0 goto label2;
+
+        $stack16 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack16);
+
+     label2:
+        if $stack12 != null goto label3;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label4;
+
+     label3:
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean arrayContentDetail>;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendInternal(java.lang.StringBuffer,java.lang.String,java.lang.Object,boolean)>(buffer, fieldName, $stack12, $stack13);
+
+     label4:
+        i = i + 1;
+
+        goto label1;
+
+     label5:
+        $stack10 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack10);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] array;
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: java.lang.Object[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, long[], java.lang.Boolean)
+    {
+        long[] array;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: long[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,long[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,long[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, long[])
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        long $stack10;
+        long[] array;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: long[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,long)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, long[])
+    {
+        long[] array;
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: long[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, int[], java.lang.Boolean)
+    {
+        int[] array;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: int[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,int[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,int[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, int[])
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        int[] array;
+        java.lang.StringBuffer buffer;
+        int $stack7, $stack10, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: int[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, int[])
+    {
+        int[] array;
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: int[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, short[], java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        short[] array;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: short[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,short[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,short[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, short[])
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        short $stack10;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+        short[] array;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: short[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,short)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, short[])
+    {
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        short[] array;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: short[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, byte[], java.lang.Boolean)
+    {
+        byte[] array;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: byte[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,byte[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,byte[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, byte[])
+    {
+        byte[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        byte $stack10;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: byte[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,byte)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, byte[])
+    {
+        byte[] array;
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: byte[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, char[], java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        char[] array;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: char[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,char[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,char[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, char[])
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        char $stack10;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        char[] array;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: char[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,char)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, char[])
+    {
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        char[] array;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: char[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, double[], java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        double[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: double[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,double[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,double[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, double[])
+    {
+        double[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+        double $stack10;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: double[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,double)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, double[])
+    {
+        java.lang.StringBuffer buffer;
+        double[] array;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: double[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, float[], java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        float[] array;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: float[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,float[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,float[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, float[])
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        float[] array;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        float $stack10;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: float[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,float)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, float[])
+    {
+        java.lang.StringBuffer buffer;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        float[] array;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: float[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    public void append(java.lang.StringBuffer, java.lang.String, boolean[], java.lang.Boolean)
+    {
+        java.lang.StringBuffer buffer;
+        boolean[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Boolean fullDetail;
+        java.lang.String fieldName;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: boolean[];
+
+        fullDetail := @parameter3: java.lang.Boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldStart(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        if array != null goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendNullText(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        goto label3;
+
+     label1:
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isFullDetail(java.lang.Boolean)>(fullDetail);
+
+        if $stack5 == 0 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,boolean[])>(buffer, fieldName, array);
+
+        goto label3;
+
+     label2:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummary(java.lang.StringBuffer,java.lang.String,boolean[])>(buffer, fieldName, array);
+
+     label3:
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldEnd(java.lang.StringBuffer,java.lang.String)>(buffer, fieldName);
+
+        return;
+    }
+
+    protected void appendDetail(java.lang.StringBuffer, java.lang.String, boolean[])
+    {
+        boolean[] array;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        int $stack7, i;
+        java.lang.String $stack5, $stack8, fieldName, $stack13;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: boolean[];
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+        i = 0;
+
+     label1:
+        $stack7 = lengthof array;
+
+        if i >= $stack7 goto label3;
+
+        if i <= 0 goto label2;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack13);
+
+     label2:
+        $stack10 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendDetail(java.lang.StringBuffer,java.lang.String,boolean)>(buffer, fieldName, $stack10);
+
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+        return;
+    }
+
+    protected void appendSummary(java.lang.StringBuffer, java.lang.String, boolean[])
+    {
+        java.lang.StringBuffer buffer;
+        boolean[] array;
+        int $stack4;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        array := @parameter2: boolean[];
+
+        $stack4 = lengthof array;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendSummarySize(java.lang.StringBuffer,java.lang.String,int)>(buffer, fieldName, $stack4);
+
+        return;
+    }
+
+    protected void appendClassName(java.lang.StringBuffer, java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.StringBuffer buffer;
+        java.lang.Object object;
+        java.lang.Class $stack5, $stack8;
+        java.lang.String $stack6, $stack9;
+        boolean $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        object := @parameter1: java.lang.Object;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useClassName>;
+
+        if $stack3 == 0 goto label2;
+
+        if object == null goto label2;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void register(java.lang.Object)>(object);
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useShortClassName>;
+
+        if $stack4 == 0 goto label1;
+
+        $stack8 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack9 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String getShortClassName(java.lang.Class)>($stack8);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack9);
+
+        goto label2;
+
+     label1:
+        $stack5 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Class: java.lang.String getName()>();
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack6);
+
+     label2:
+        return;
+    }
+
+    protected void appendIdentityHashCode(java.lang.StringBuffer, java.lang.Object)
+    {
+        java.lang.StringBuffer buffer;
+        int $stack5;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Object object;
+        java.lang.String $stack6;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        object := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: boolean isUseIdentityHashCode()>();
+
+        if $stack3 == 0 goto label1;
+
+        if object == null goto label1;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringStyle: void register(java.lang.Object)>(object);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(64);
+
+        $stack5 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>(object);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack5);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack6);
+
+     label1:
+        return;
+    }
+
+    protected void appendContentStart(java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack2;
+        java.lang.StringBuffer buffer;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack2);
+
+        return;
+    }
+
+    protected void appendContentEnd(java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack2;
+        java.lang.StringBuffer buffer;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentEnd>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack2);
+
+        return;
+    }
+
+    protected void appendNullText(java.lang.StringBuffer, java.lang.String)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack3, fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String nullText>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack3);
+
+        return;
+    }
+
+    protected void appendFieldSeparator(java.lang.StringBuffer)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack2;
+        java.lang.StringBuffer buffer;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack2);
+
+        return;
+    }
+
+    protected void appendFieldStart(java.lang.StringBuffer, java.lang.String)
+    {
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName, $stack5;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useFieldNames>;
+
+        if $stack3 == 0 goto label1;
+
+        if fieldName == null goto label1;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(fieldName);
+
+        $stack5 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldNameValueSeparator>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack5);
+
+     label1:
+        return;
+    }
+
+    protected void appendFieldEnd(java.lang.StringBuffer, java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldName;
+        java.lang.StringBuffer buffer;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void appendFieldSeparator(java.lang.StringBuffer)>(buffer);
+
+        return;
+    }
+
+    protected void appendSummarySize(java.lang.StringBuffer, java.lang.String, int)
+    {
+        java.lang.StringBuffer buffer;
+        int size;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack4, $stack7, fieldName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        fieldName := @parameter1: java.lang.String;
+
+        size := @parameter2: int;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeStartText>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack4);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(int)>(size);
+
+        $stack7 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeEndText>;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack7);
+
+        return;
+    }
+
+    protected boolean isFullDetail(java.lang.Boolean)
+    {
+        java.lang.Boolean fullDetailRequest;
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        fullDetailRequest := @parameter0: java.lang.Boolean;
+
+        if fullDetailRequest != null goto label1;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean defaultFullDetail>;
+
+        return $stack3;
+
+     label1:
+        $stack2 = virtualinvoke fullDetailRequest.<java.lang.Boolean: boolean booleanValue()>();
+
+        return $stack2;
+    }
+
+    protected java.lang.String getShortClassName(java.lang.Class)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.Class 'cls';
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortClassName(java.lang.Class)>('cls');
+
+        return $stack2;
+    }
+
+    protected boolean isUseClassName()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useClassName>;
+
+        return $stack1;
+    }
+
+    protected void setUseClassName(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean useClassName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        useClassName := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useClassName> = useClassName;
+
+        return;
+    }
+
+    protected boolean isUseShortClassName()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useShortClassName>;
+
+        return $stack1;
+    }
+
+    protected void setUseShortClassName(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean useShortClassName;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        useShortClassName := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useShortClassName> = useShortClassName;
+
+        return;
+    }
+
+    protected boolean isUseIdentityHashCode()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useIdentityHashCode>;
+
+        return $stack1;
+    }
+
+    protected void setUseIdentityHashCode(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean useIdentityHashCode;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        useIdentityHashCode := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useIdentityHashCode> = useIdentityHashCode;
+
+        return;
+    }
+
+    protected boolean isUseFieldNames()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useFieldNames>;
+
+        return $stack1;
+    }
+
+    protected void setUseFieldNames(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean useFieldNames;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        useFieldNames := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean useFieldNames> = useFieldNames;
+
+        return;
+    }
+
+    protected boolean isDefaultFullDetail()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean defaultFullDetail>;
+
+        return $stack1;
+    }
+
+    protected void setDefaultFullDetail(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean defaultFullDetail;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        defaultFullDetail := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean defaultFullDetail> = defaultFullDetail;
+
+        return;
+    }
+
+    protected boolean isArrayContentDetail()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean arrayContentDetail>;
+
+        return $stack1;
+    }
+
+    protected void setArrayContentDetail(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean arrayContentDetail;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        arrayContentDetail := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean arrayContentDetail> = arrayContentDetail;
+
+        return;
+    }
+
+    protected java.lang.String getArrayStart()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart>;
+
+        return $stack1;
+    }
+
+    protected void setArrayStart(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String arrayStart;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        arrayStart := @parameter0: java.lang.String;
+
+        if arrayStart != null goto label1;
+
+        arrayStart = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayStart> = arrayStart;
+
+        return;
+    }
+
+    protected java.lang.String getArrayEnd()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd>;
+
+        return $stack1;
+    }
+
+    protected void setArrayEnd(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String arrayEnd;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        arrayEnd := @parameter0: java.lang.String;
+
+        if arrayEnd != null goto label1;
+
+        arrayEnd = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arrayEnd> = arrayEnd;
+
+        return;
+    }
+
+    protected java.lang.String getArraySeparator()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator>;
+
+        return $stack1;
+    }
+
+    protected void setArraySeparator(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String arraySeparator;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        arraySeparator := @parameter0: java.lang.String;
+
+        if arraySeparator != null goto label1;
+
+        arraySeparator = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String arraySeparator> = arraySeparator;
+
+        return;
+    }
+
+    protected java.lang.String getContentStart()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart>;
+
+        return $stack1;
+    }
+
+    protected void setContentStart(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String contentStart;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        contentStart := @parameter0: java.lang.String;
+
+        if contentStart != null goto label1;
+
+        contentStart = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentStart> = contentStart;
+
+        return;
+    }
+
+    protected java.lang.String getContentEnd()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentEnd>;
+
+        return $stack1;
+    }
+
+    protected void setContentEnd(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String contentEnd;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        contentEnd := @parameter0: java.lang.String;
+
+        if contentEnd != null goto label1;
+
+        contentEnd = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String contentEnd> = contentEnd;
+
+        return;
+    }
+
+    protected java.lang.String getFieldNameValueSeparator()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldNameValueSeparator>;
+
+        return $stack1;
+    }
+
+    protected void setFieldNameValueSeparator(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldNameValueSeparator;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        fieldNameValueSeparator := @parameter0: java.lang.String;
+
+        if fieldNameValueSeparator != null goto label1;
+
+        fieldNameValueSeparator = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldNameValueSeparator> = fieldNameValueSeparator;
+
+        return;
+    }
+
+    protected java.lang.String getFieldSeparator()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator>;
+
+        return $stack1;
+    }
+
+    protected void setFieldSeparator(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String fieldSeparator;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        fieldSeparator := @parameter0: java.lang.String;
+
+        if fieldSeparator != null goto label1;
+
+        fieldSeparator = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String fieldSeparator> = fieldSeparator;
+
+        return;
+    }
+
+    protected boolean isFieldSeparatorAtStart()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtStart>;
+
+        return $stack1;
+    }
+
+    protected void setFieldSeparatorAtStart(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean fieldSeparatorAtStart;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        fieldSeparatorAtStart := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtStart> = fieldSeparatorAtStart;
+
+        return;
+    }
+
+    protected boolean isFieldSeparatorAtEnd()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtEnd>;
+
+        return $stack1;
+    }
+
+    protected void setFieldSeparatorAtEnd(boolean)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        boolean fieldSeparatorAtEnd;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        fieldSeparatorAtEnd := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.builder.ToStringStyle: boolean fieldSeparatorAtEnd> = fieldSeparatorAtEnd;
+
+        return;
+    }
+
+    protected java.lang.String getNullText()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String nullText>;
+
+        return $stack1;
+    }
+
+    protected void setNullText(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String nullText;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        nullText := @parameter0: java.lang.String;
+
+        if nullText != null goto label1;
+
+        nullText = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String nullText> = nullText;
+
+        return;
+    }
+
+    protected java.lang.String getSizeStartText()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeStartText>;
+
+        return $stack1;
+    }
+
+    protected void setSizeStartText(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String sizeStartText;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        sizeStartText := @parameter0: java.lang.String;
+
+        if sizeStartText != null goto label1;
+
+        sizeStartText = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeStartText> = sizeStartText;
+
+        return;
+    }
+
+    protected java.lang.String getSizeEndText()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeEndText>;
+
+        return $stack1;
+    }
+
+    protected void setSizeEndText(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String sizeEndText;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        sizeEndText := @parameter0: java.lang.String;
+
+        if sizeEndText != null goto label1;
+
+        sizeEndText = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String sizeEndText> = sizeEndText;
+
+        return;
+    }
+
+    protected java.lang.String getSummaryObjectStartText()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectStartText>;
+
+        return $stack1;
+    }
+
+    protected void setSummaryObjectStartText(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String summaryObjectStartText;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        summaryObjectStartText := @parameter0: java.lang.String;
+
+        if summaryObjectStartText != null goto label1;
+
+        summaryObjectStartText = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectStartText> = summaryObjectStartText;
+
+        return;
+    }
+
+    protected java.lang.String getSummaryObjectEndText()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectEndText>;
+
+        return $stack1;
+    }
+
+    protected void setSummaryObjectEndText(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ToStringStyle this;
+        java.lang.String summaryObjectEndText;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle;
+
+        summaryObjectEndText := @parameter0: java.lang.String;
+
+        if summaryObjectEndText != null goto label1;
+
+        summaryObjectEndText = "";
+
+     label1:
+        this.<org.apache.commons.lang3.builder.ToStringStyle: java.lang.String summaryObjectEndText> = summaryObjectEndText;
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.ThreadLocal $stack5;
+        org.apache.commons.lang3.builder.ToStringStyle$DefaultToStringStyle $stack0;
+        org.apache.commons.lang3.builder.ToStringStyle$NoFieldNameToStringStyle $stack2;
+        org.apache.commons.lang3.builder.ToStringStyle$ShortPrefixToStringStyle $stack3;
+        org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle $stack1;
+        org.apache.commons.lang3.builder.ToStringStyle$SimpleToStringStyle $stack4;
+
+        <org.apache.commons.lang3.builder.ToStringStyle: long serialVersionUID> = -2587890625525655916L;
+
+        $stack0 = new org.apache.commons.lang3.builder.ToStringStyle$DefaultToStringStyle;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.builder.ToStringStyle$DefaultToStringStyle: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle DEFAULT_STYLE> = $stack0;
+
+        $stack1 = new org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle MULTI_LINE_STYLE> = $stack1;
+
+        $stack2 = new org.apache.commons.lang3.builder.ToStringStyle$NoFieldNameToStringStyle;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ToStringStyle$NoFieldNameToStringStyle: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle NO_FIELD_NAMES_STYLE> = $stack2;
+
+        $stack3 = new org.apache.commons.lang3.builder.ToStringStyle$ShortPrefixToStringStyle;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.ToStringStyle$ShortPrefixToStringStyle: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle SHORT_PREFIX_STYLE> = $stack3;
+
+        $stack4 = new org.apache.commons.lang3.builder.ToStringStyle$SimpleToStringStyle;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.builder.ToStringStyle$SimpleToStringStyle: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle SIMPLE_STYLE> = $stack4;
+
+        $stack5 = new java.lang.ThreadLocal;
+
+        specialinvoke $stack5.<java.lang.ThreadLocal: void <init>()>();
+
+        <org.apache.commons.lang3.builder.ToStringStyle: java.lang.ThreadLocal REGISTRY> = $stack5;
+
+        return;
+    }
+}

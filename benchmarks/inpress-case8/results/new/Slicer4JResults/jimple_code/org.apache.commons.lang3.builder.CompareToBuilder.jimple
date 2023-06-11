@@ -1,0 +1,1754 @@
+public class org.apache.commons.lang3.builder.CompareToBuilder extends java.lang.Object implements org.apache.commons.lang3.builder.Builder
+{
+    private int comparison;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 0;
+
+        return;
+    }
+
+    public static int reflectionCompare(java.lang.Object, java.lang.Object)
+    {
+        int $stack3;
+        java.lang.Object lhs, rhs;
+        java.lang.String[] $stack2;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        $stack2 = newarray (java.lang.String)[0];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: int reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(lhs, rhs, 0, null, $stack2);
+
+        return $stack3;
+    }
+
+    public static int reflectionCompare(java.lang.Object, java.lang.Object, boolean)
+    {
+        int $stack4;
+        java.lang.Object lhs, rhs;
+        java.lang.String[] $stack3;
+        boolean compareTransients;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        compareTransients := @parameter2: boolean;
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: int reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(lhs, rhs, compareTransients, null, $stack3);
+
+        return $stack4;
+    }
+
+    public static int reflectionCompare(java.lang.Object, java.lang.Object, java.util.Collection)
+    {
+        java.util.Collection excludeFields;
+        int $stack4;
+        java.lang.Object lhs, rhs;
+        java.lang.String[] $stack3;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        excludeFields := @parameter2: java.util.Collection;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] toNoNullStringArray(java.util.Collection)>(excludeFields);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: int reflectionCompare(java.lang.Object,java.lang.Object,java.lang.String[])>(lhs, rhs, $stack3);
+
+        return $stack4;
+    }
+
+    public static transient int reflectionCompare(java.lang.Object, java.lang.Object, java.lang.String[])
+    {
+        int $stack3;
+        java.lang.Object lhs, rhs;
+        java.lang.String[] excludeFields;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        excludeFields := @parameter2: java.lang.String[];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: int reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(lhs, rhs, 0, null, excludeFields);
+
+        return $stack3;
+    }
+
+    public static transient int reflectionCompare(java.lang.Object, java.lang.Object, boolean, java.lang.Class, java.lang.String[])
+    {
+        java.lang.String[] excludeFields;
+        org.apache.commons.lang3.builder.CompareToBuilder $stack10;
+        java.lang.ClassCastException $stack16;
+        java.lang.NullPointerException $stack7;
+        int $stack12;
+        java.lang.Object lhs, rhs;
+        java.lang.Class $stack8, $stack11, reflectUpToClass, $stack14, lhsClazz;
+        boolean $stack9, compareTransients;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        compareTransients := @parameter2: boolean;
+
+        reflectUpToClass := @parameter3: java.lang.Class;
+
+        excludeFields := @parameter4: java.lang.String[];
+
+        if lhs != rhs goto label1;
+
+        return 0;
+
+     label1:
+        if lhs == null goto label2;
+
+        if rhs != null goto label3;
+
+     label2:
+        $stack7 = new java.lang.NullPointerException;
+
+        specialinvoke $stack7.<java.lang.NullPointerException: void <init>()>();
+
+        throw $stack7;
+
+     label3:
+        $stack8 = virtualinvoke lhs.<java.lang.Object: java.lang.Class getClass()>();
+
+        lhsClazz = $stack8;
+
+        $stack9 = virtualinvoke $stack8.<java.lang.Class: boolean isInstance(java.lang.Object)>(rhs);
+
+        if $stack9 != 0 goto label4;
+
+        $stack16 = new java.lang.ClassCastException;
+
+        specialinvoke $stack16.<java.lang.ClassCastException: void <init>()>();
+
+        throw $stack16;
+
+     label4:
+        $stack10 = new org.apache.commons.lang3.builder.CompareToBuilder;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.builder.CompareToBuilder: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: void reflectionAppend(java.lang.Object,java.lang.Object,java.lang.Class,org.apache.commons.lang3.builder.CompareToBuilder,boolean,java.lang.String[])>(lhs, rhs, $stack8, $stack10, compareTransients, excludeFields);
+
+     label5:
+        $stack11 = virtualinvoke lhsClazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $stack11 == null goto label6;
+
+        if lhsClazz == reflectUpToClass goto label6;
+
+        $stack14 = virtualinvoke lhsClazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        lhsClazz = $stack14;
+
+        staticinvoke <org.apache.commons.lang3.builder.CompareToBuilder: void reflectionAppend(java.lang.Object,java.lang.Object,java.lang.Class,org.apache.commons.lang3.builder.CompareToBuilder,boolean,java.lang.String[])>(lhs, rhs, $stack14, $stack10, compareTransients, excludeFields);
+
+        goto label5;
+
+     label6:
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.builder.CompareToBuilder: int toComparison()>();
+
+        return $stack12;
+    }
+
+    private static void reflectionAppend(java.lang.Object, java.lang.Object, java.lang.Class, org.apache.commons.lang3.builder.CompareToBuilder, boolean, java.lang.String[])
+    {
+        java.lang.String[] excludeFields;
+        int $stack11, $stack12, $stack18, $stack19, $stack24, i, $i0;
+        java.lang.InternalError $u0;
+        java.lang.String $stack13, $stack17;
+        boolean $stack14, useTransients, $stack20, $stack25;
+        java.lang.IllegalAccessException $stack27;
+        java.lang.reflect.Field f;
+        org.apache.commons.lang3.builder.CompareToBuilder builder;
+        java.lang.reflect.Field[] $stack10;
+        java.lang.Class clazz;
+        java.lang.Object lhs, $stack21, rhs, $stack22;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        clazz := @parameter2: java.lang.Class;
+
+        builder := @parameter3: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        useTransients := @parameter4: boolean;
+
+        excludeFields := @parameter5: java.lang.String[];
+
+        $stack10 = virtualinvoke clazz.<java.lang.Class: java.lang.reflect.Field[] getDeclaredFields()>();
+
+        staticinvoke <java.lang.reflect.AccessibleObject: void setAccessible(java.lang.reflect.AccessibleObject[],boolean)>($stack10, 1);
+
+        i = 0;
+
+     label1:
+        $stack11 = lengthof $stack10;
+
+        if i >= $stack11 goto label7;
+
+        $stack12 = builder.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack12 != 0 goto label7;
+
+        f = $stack10[i];
+
+        $stack13 = virtualinvoke f.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>(excludeFields, $stack13);
+
+        if $stack14 != 0 goto label6;
+
+        $stack17 = virtualinvoke f.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack18 = virtualinvoke $stack17.<java.lang.String: int indexOf(int)>(36);
+
+        $i0 = (int) -1;
+
+        if $stack18 != $i0 goto label6;
+
+        if useTransients != 0 goto label2;
+
+        $stack24 = virtualinvoke f.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack25 = staticinvoke <java.lang.reflect.Modifier: boolean isTransient(int)>($stack24);
+
+        if $stack25 != 0 goto label6;
+
+     label2:
+        $stack19 = virtualinvoke f.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack20 = staticinvoke <java.lang.reflect.Modifier: boolean isStatic(int)>($stack19);
+
+        if $stack20 != 0 goto label6;
+
+     label3:
+        $stack21 = virtualinvoke f.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>(lhs);
+
+        $stack22 = virtualinvoke f.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>(rhs);
+
+        virtualinvoke builder.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack27 := @caughtexception;
+
+        $u0 = new java.lang.InternalError;
+
+        specialinvoke $u0.<java.lang.InternalError: void <init>(java.lang.String)>("Unexpected IllegalAccessException");
+
+        throw $u0;
+
+     label6:
+        i = i + 1;
+
+        goto label1;
+
+     label7:
+        return;
+
+        catch java.lang.IllegalAccessException from label3 to label4 with label5;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder appendSuper(int)
+    {
+        int $stack2, superCompareTo;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        superCompareTo := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack2 == 0 goto label1;
+
+        return this;
+
+     label1:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = superCompareTo;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object, java.lang.Object)
+    {
+        java.lang.Object lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object,java.lang.Object,java.util.Comparator)>(lhs, rhs, null);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object, java.lang.Object, java.util.Comparator)
+    {
+        byte[] $stack39, $stack40, $stack41, $stack42;
+        int[] $stack54, $stack55, $stack56, $stack57;
+        boolean $stack7, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18;
+        short[] $stack49, $stack50, $stack51, $stack52;
+        java.lang.Object[] $stack19, $stack20, $stack21, $stack22;
+        double[] $stack34, $stack35, $stack36, $stack37;
+        float[] $stack29, $stack30, $stack31, $stack32;
+        long[] $stack59, $stack60, $stack61, $stack62;
+        int $stack5, $stack8, $stack9, $i0;
+        boolean[] $stack24, $stack25, $stack26, $stack27;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        char[] $stack44, $stack45, $stack46, $stack47;
+        java.lang.Object lhs, rhs;
+        java.lang.Class $stack6;
+        java.lang.Comparable comparable;
+        java.util.Comparator comparator;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: java.lang.Object;
+
+        rhs := @parameter1: java.lang.Object;
+
+        comparator := @parameter2: java.util.Comparator;
+
+        $stack5 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack5 == 0 goto label01;
+
+        return this;
+
+     label01:
+        if lhs != rhs goto label02;
+
+        return this;
+
+     label02:
+        if lhs != null goto label03;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label03:
+        if rhs != null goto label04;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label04:
+        $stack6 = virtualinvoke lhs.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Class: boolean isArray()>();
+
+        if $stack7 == 0 goto label13;
+
+        $stack11 = lhs instanceof long[];
+
+        if $stack11 == 0 goto label05;
+
+        $stack59 = (long[]) lhs;
+
+        $stack62 = (long[]) $stack59;
+
+        $stack60 = (long[]) rhs;
+
+        $stack61 = (long[]) $stack60;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(long[],long[])>($stack62, $stack61);
+
+        goto label15;
+
+     label05:
+        $stack12 = lhs instanceof int[];
+
+        if $stack12 == 0 goto label06;
+
+        $stack54 = (int[]) lhs;
+
+        $stack57 = (int[]) $stack54;
+
+        $stack55 = (int[]) rhs;
+
+        $stack56 = (int[]) $stack55;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(int[],int[])>($stack57, $stack56);
+
+        goto label15;
+
+     label06:
+        $stack13 = lhs instanceof short[];
+
+        if $stack13 == 0 goto label07;
+
+        $stack49 = (short[]) lhs;
+
+        $stack52 = (short[]) $stack49;
+
+        $stack50 = (short[]) rhs;
+
+        $stack51 = (short[]) $stack50;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(short[],short[])>($stack52, $stack51);
+
+        goto label15;
+
+     label07:
+        $stack14 = lhs instanceof char[];
+
+        if $stack14 == 0 goto label08;
+
+        $stack44 = (char[]) lhs;
+
+        $stack47 = (char[]) $stack44;
+
+        $stack45 = (char[]) rhs;
+
+        $stack46 = (char[]) $stack45;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(char[],char[])>($stack47, $stack46);
+
+        goto label15;
+
+     label08:
+        $stack15 = lhs instanceof byte[];
+
+        if $stack15 == 0 goto label09;
+
+        $stack39 = (byte[]) lhs;
+
+        $stack42 = (byte[]) $stack39;
+
+        $stack40 = (byte[]) rhs;
+
+        $stack41 = (byte[]) $stack40;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(byte[],byte[])>($stack42, $stack41);
+
+        goto label15;
+
+     label09:
+        $stack16 = lhs instanceof double[];
+
+        if $stack16 == 0 goto label10;
+
+        $stack34 = (double[]) lhs;
+
+        $stack37 = (double[]) $stack34;
+
+        $stack35 = (double[]) rhs;
+
+        $stack36 = (double[]) $stack35;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(double[],double[])>($stack37, $stack36);
+
+        goto label15;
+
+     label10:
+        $stack17 = lhs instanceof float[];
+
+        if $stack17 == 0 goto label11;
+
+        $stack29 = (float[]) lhs;
+
+        $stack32 = (float[]) $stack29;
+
+        $stack30 = (float[]) rhs;
+
+        $stack31 = (float[]) $stack30;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(float[],float[])>($stack32, $stack31);
+
+        goto label15;
+
+     label11:
+        $stack18 = lhs instanceof boolean[];
+
+        if $stack18 == 0 goto label12;
+
+        $stack24 = (boolean[]) lhs;
+
+        $stack27 = (boolean[]) $stack24;
+
+        $stack25 = (boolean[]) rhs;
+
+        $stack26 = (boolean[]) $stack25;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(boolean[],boolean[])>($stack27, $stack26);
+
+        goto label15;
+
+     label12:
+        $stack19 = (java.lang.Object[]) lhs;
+
+        $stack22 = (java.lang.Object[]) $stack19;
+
+        $stack20 = (java.lang.Object[]) rhs;
+
+        $stack21 = (java.lang.Object[]) $stack20;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object[],java.lang.Object[],java.util.Comparator)>($stack22, $stack21, comparator);
+
+        goto label15;
+
+     label13:
+        if comparator != null goto label14;
+
+        comparable = (java.lang.Comparable) lhs;
+
+        $stack9 = interfaceinvoke comparable.<java.lang.Comparable: int compareTo(java.lang.Object)>(rhs);
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack9;
+
+        goto label15;
+
+     label14:
+        $stack8 = interfaceinvoke comparator.<java.util.Comparator: int compare(java.lang.Object,java.lang.Object)>(lhs, rhs);
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack8;
+
+     label15:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(long, long)
+    {
+        long lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack6, $stack7, $stack8;
+        int $stack5, $i0, $i1;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: long;
+
+        rhs := @parameter1: long;
+
+        $stack5 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack5 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $stack6 = lhs cmp rhs;
+
+        $i0 = (int) $stack6;
+
+        if $i0 >= 0 goto label2;
+
+        $stack8 = -1;
+
+        goto label4;
+
+     label2:
+        $stack7 = lhs cmp rhs;
+
+        $i1 = (int) $stack7;
+
+        if $i1 <= 0 goto label3;
+
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack8;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(int, int)
+    {
+        byte $stack4;
+        int $stack3, lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: int;
+
+        rhs := @parameter1: int;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs >= rhs goto label2;
+
+        $stack4 = -1;
+
+        goto label4;
+
+     label2:
+        if lhs <= rhs goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack4;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(short, short)
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        short lhs, rhs;
+        byte $stack4;
+        int $stack3, $i0, $i1, $i2, $i3;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: short;
+
+        rhs := @parameter1: short;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $i0 = (int) lhs;
+
+        $i1 = (int) rhs;
+
+        if $i0 >= $i1 goto label2;
+
+        $stack4 = -1;
+
+        goto label4;
+
+     label2:
+        $i2 = (int) lhs;
+
+        $i3 = (int) rhs;
+
+        if $i2 <= $i3 goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack4;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(char, char)
+    {
+        char lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack4;
+        int $stack3, $i0, $i1, $i2, $i3;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: char;
+
+        rhs := @parameter1: char;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $i0 = (int) lhs;
+
+        $i1 = (int) rhs;
+
+        if $i0 >= $i1 goto label2;
+
+        $stack4 = -1;
+
+        goto label4;
+
+     label2:
+        $i2 = (int) lhs;
+
+        $i3 = (int) rhs;
+
+        if $i2 <= $i3 goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack4;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(byte, byte)
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte lhs, rhs, $stack4;
+        int $stack3, $i0, $i1, $i2, $i3;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: byte;
+
+        rhs := @parameter1: byte;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $i0 = (int) lhs;
+
+        $i1 = (int) rhs;
+
+        if $i0 >= $i1 goto label2;
+
+        $stack4 = -1;
+
+        goto label4;
+
+     label2:
+        $i2 = (int) lhs;
+
+        $i3 = (int) rhs;
+
+        if $i2 <= $i3 goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack4;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(double, double)
+    {
+        int $stack5, $stack6;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        double lhs, rhs;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: double;
+
+        rhs := @parameter1: double;
+
+        $stack5 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack5 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $stack6 = staticinvoke <java.lang.Double: int compare(double,double)>(lhs, rhs);
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack6;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(float, float)
+    {
+        int $stack3, $stack4;
+        float lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: float;
+
+        rhs := @parameter1: float;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        $stack4 = staticinvoke <java.lang.Float: int compare(float,float)>(lhs, rhs);
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack4;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(boolean, boolean)
+    {
+        int $stack3, $i0;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        boolean lhs, rhs;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: boolean;
+
+        rhs := @parameter1: boolean;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack3 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != 0 goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        goto label4;
+
+     label3:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+     label4:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object[], java.lang.Object[])
+    {
+        java.lang.Object[] lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: java.lang.Object[];
+
+        rhs := @parameter1: java.lang.Object[];
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object[],java.lang.Object[],java.util.Comparator)>(lhs, rhs, null);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object[], java.lang.Object[], java.util.Comparator)
+    {
+        java.lang.Object[] lhs, rhs;
+        byte $stack18;
+        int $stack5, $stack6, $stack7, $stack8, $stack9, $stack16, $stack17, i, $i0;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        java.lang.Object $stack11, $stack12;
+        java.util.Comparator comparator;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: java.lang.Object[];
+
+        rhs := @parameter1: java.lang.Object[];
+
+        comparator := @parameter2: java.util.Comparator;
+
+        $stack5 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack5 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack7 = lengthof lhs;
+
+        $stack6 = lengthof rhs;
+
+        if $stack7 == $stack6 goto label7;
+
+        $stack17 = lengthof lhs;
+
+        $stack16 = lengthof rhs;
+
+        if $stack17 >= $stack16 goto label5;
+
+        $stack18 = -1;
+
+        goto label6;
+
+     label5:
+        $stack18 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack18;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack8 = lengthof lhs;
+
+        if i >= $stack8 goto label9;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack9 != 0 goto label9;
+
+        $stack12 = lhs[i];
+
+        $stack11 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(java.lang.Object,java.lang.Object,java.util.Comparator)>($stack12, $stack11, comparator);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(long[], long[])
+    {
+        long $stack10, $stack11;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        long[] lhs, rhs;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: long[];
+
+        rhs := @parameter1: long[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(long,long)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(int[], int[])
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack17;
+        int[] lhs, rhs;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack10, $stack11, $stack15, $stack16, i, $i0;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: int[];
+
+        rhs := @parameter1: int[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(int,int)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(short[], short[])
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        short $stack10, $stack11;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+        short[] lhs, rhs;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: short[];
+
+        rhs := @parameter1: short[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(short,short)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(char[], char[])
+    {
+        char $stack10, $stack11;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+        char[] lhs, rhs;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: char[];
+
+        rhs := @parameter1: char[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(char,char)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(byte[], byte[])
+    {
+        byte[] lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack10, $stack11, $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: byte[];
+
+        rhs := @parameter1: byte[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(byte,byte)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(double[], double[])
+    {
+        double[] lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+        double $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: double[];
+
+        rhs := @parameter1: double[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(double,double)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(float[], float[])
+    {
+        float[] lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+        float $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: float[];
+
+        rhs := @parameter1: float[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(float,float)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.CompareToBuilder append(boolean[], boolean[])
+    {
+        boolean[] lhs, rhs;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        byte $stack17;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, i, $i0;
+        boolean $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        lhs := @parameter0: boolean[];
+
+        rhs := @parameter1: boolean[];
+
+        $stack4 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack4 == 0 goto label1;
+
+        return this;
+
+     label1:
+        if lhs != rhs goto label2;
+
+        return this;
+
+     label2:
+        if lhs != null goto label3;
+
+        $i0 = (int) -1;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $i0;
+
+        return this;
+
+     label3:
+        if rhs != null goto label4;
+
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = 1;
+
+        return this;
+
+     label4:
+        $stack6 = lengthof lhs;
+
+        $stack5 = lengthof rhs;
+
+        if $stack6 == $stack5 goto label7;
+
+        $stack16 = lengthof lhs;
+
+        $stack15 = lengthof rhs;
+
+        if $stack16 >= $stack15 goto label5;
+
+        $stack17 = -1;
+
+        goto label6;
+
+     label5:
+        $stack17 = 1;
+
+     label6:
+        this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison> = $stack17;
+
+        return this;
+
+     label7:
+        i = 0;
+
+     label8:
+        $stack7 = lengthof lhs;
+
+        if i >= $stack7 goto label9;
+
+        $stack8 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        if $stack8 != 0 goto label9;
+
+        $stack11 = lhs[i];
+
+        $stack10 = rhs[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: org.apache.commons.lang3.builder.CompareToBuilder append(boolean,boolean)>($stack11, $stack10);
+
+        i = i + 1;
+
+        goto label8;
+
+     label9:
+        return this;
+    }
+
+    public int toComparison()
+    {
+        int $stack1;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.CompareToBuilder: int comparison>;
+
+        return $stack1;
+    }
+
+    public java.lang.Integer build()
+    {
+        int $stack1;
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: int toComparison()>();
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack1);
+
+        return $stack2;
+    }
+
+    public volatile java.lang.Object build()
+    {
+        org.apache.commons.lang3.builder.CompareToBuilder this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.CompareToBuilder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.CompareToBuilder: java.lang.Integer build()>();
+
+        return $stack1;
+    }
+}

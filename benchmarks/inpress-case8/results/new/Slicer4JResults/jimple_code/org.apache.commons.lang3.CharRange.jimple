@@ -1,0 +1,560 @@
+final class org.apache.commons.lang3.CharRange extends java.lang.Object implements java.lang.Iterable, java.io.Serializable
+{
+    private static final long serialVersionUID;
+    private final char start;
+    private final char end;
+    private final boolean negated;
+    private transient java.lang.String iToString;
+
+    private void <init>(char, char, boolean)
+    {
+        org.apache.commons.lang3.CharRange this;
+        int $i0, $i1;
+        char temp, start, end;
+        boolean negated;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        start := @parameter0: char;
+
+        end := @parameter1: char;
+
+        negated := @parameter2: boolean;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $i0 = (int) start;
+
+        $i1 = (int) end;
+
+        if $i0 <= $i1 goto label1;
+
+        temp = start;
+
+        start = end;
+
+        end = temp;
+
+     label1:
+        this.<org.apache.commons.lang3.CharRange: char start> = start;
+
+        this.<org.apache.commons.lang3.CharRange: char end> = end;
+
+        this.<org.apache.commons.lang3.CharRange: boolean negated> = negated;
+
+        return;
+    }
+
+    public static org.apache.commons.lang3.CharRange is(char)
+    {
+        char ch;
+        org.apache.commons.lang3.CharRange $stack1;
+
+        ch := @parameter0: char;
+
+        $stack1 = new org.apache.commons.lang3.CharRange;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharRange: void <init>(char,char,boolean)>(ch, ch, 0);
+
+        return $stack1;
+    }
+
+    public static org.apache.commons.lang3.CharRange isNot(char)
+    {
+        char ch;
+        org.apache.commons.lang3.CharRange $stack1;
+
+        ch := @parameter0: char;
+
+        $stack1 = new org.apache.commons.lang3.CharRange;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharRange: void <init>(char,char,boolean)>(ch, ch, 1);
+
+        return $stack1;
+    }
+
+    public static org.apache.commons.lang3.CharRange isIn(char, char)
+    {
+        char start, end;
+        org.apache.commons.lang3.CharRange $stack2;
+
+        start := @parameter0: char;
+
+        end := @parameter1: char;
+
+        $stack2 = new org.apache.commons.lang3.CharRange;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.CharRange: void <init>(char,char,boolean)>(start, end, 0);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.CharRange isNotIn(char, char)
+    {
+        char start, end;
+        org.apache.commons.lang3.CharRange $stack2;
+
+        start := @parameter0: char;
+
+        end := @parameter1: char;
+
+        $stack2 = new org.apache.commons.lang3.CharRange;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.CharRange: void <init>(char,char,boolean)>(start, end, 1);
+
+        return $stack2;
+    }
+
+    public char getStart()
+    {
+        char $stack1;
+        org.apache.commons.lang3.CharRange this;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        return $stack1;
+    }
+
+    public char getEnd()
+    {
+        char $stack1;
+        org.apache.commons.lang3.CharRange this;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        return $stack1;
+    }
+
+    public boolean isNegated()
+    {
+        org.apache.commons.lang3.CharRange this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        return $stack1;
+    }
+
+    public boolean contains(char)
+    {
+        org.apache.commons.lang3.CharRange this;
+        char ch, $stack2, $stack5;
+        int $i0, $i1, $i2, $i3;
+        boolean $stack7, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        ch := @parameter0: char;
+
+        $stack2 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i0 = (int) ch;
+
+        $i1 = (int) $stack2;
+
+        if $i0 < $i1 goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i2 = (int) ch;
+
+        $i3 = (int) $stack5;
+
+        if $i2 > $i3 goto label1;
+
+        $stack7 = 1;
+
+        goto label2;
+
+     label1:
+        $stack7 = 0;
+
+     label2:
+        $stack3 = this.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack7 == $stack3 goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        return $stack4;
+    }
+
+    public boolean contains(org.apache.commons.lang3.CharRange)
+    {
+        org.apache.commons.lang3.CharRange range, this;
+        boolean $stack2, $stack3, $stack12, $stack22, $stack17, $stack11, $stack8;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13;
+        char $stack4, $stack5, $stack6, $stack7, $stack9, $stack10, $stack13, $stack14, $stack15, $stack16, $stack18, $stack19, $stack20, $stack21;
+        java.lang.IllegalArgumentException $u0;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        range := @parameter0: org.apache.commons.lang3.CharRange;
+
+        if range != null goto label01;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Range must not be null");
+
+        throw $u0;
+
+     label01:
+        $stack2 = this.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack2 == 0 goto label08;
+
+        $stack12 = range.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack12 == 0 goto label04;
+
+        $stack19 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $stack18 = range.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i0 = (int) $stack19;
+
+        $i1 = (int) $stack18;
+
+        if $i0 < $i1 goto label02;
+
+        $stack21 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $stack20 = range.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i2 = (int) $stack21;
+
+        $i3 = (int) $stack20;
+
+        if $i2 > $i3 goto label02;
+
+        $stack22 = 1;
+
+        goto label03;
+
+     label02:
+        $stack22 = 0;
+
+     label03:
+        return $stack22;
+
+     label04:
+        $stack14 = range.<org.apache.commons.lang3.CharRange: char end>;
+
+        $stack13 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i4 = (int) $stack14;
+
+        $i5 = (int) $stack13;
+
+        if $i4 < $i5 goto label05;
+
+        $stack16 = range.<org.apache.commons.lang3.CharRange: char start>;
+
+        $stack15 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i6 = (int) $stack16;
+
+        $i7 = (int) $stack15;
+
+        if $i6 <= $i7 goto label06;
+
+     label05:
+        $stack17 = 1;
+
+        goto label07;
+
+     label06:
+        $stack17 = 0;
+
+     label07:
+        return $stack17;
+
+     label08:
+        $stack3 = range.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack3 == 0 goto label11;
+
+        $stack9 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        if $stack9 != 0 goto label09;
+
+        $stack10 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i8 = (int) $stack10;
+
+        $i9 = (int) 65535;
+
+        if $i8 != $i9 goto label09;
+
+        $stack11 = 1;
+
+        goto label10;
+
+     label09:
+        $stack11 = 0;
+
+     label10:
+        return $stack11;
+
+     label11:
+        $stack5 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $stack4 = range.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i10 = (int) $stack5;
+
+        $i11 = (int) $stack4;
+
+        if $i10 > $i11 goto label12;
+
+        $stack7 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $stack6 = range.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i12 = (int) $stack7;
+
+        $i13 = (int) $stack6;
+
+        if $i12 < $i13 goto label12;
+
+        $stack8 = 1;
+
+        goto label13;
+
+     label12:
+        $stack8 = 0;
+
+     label13:
+        return $stack8;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.CharRange this, other;
+        char $stack4, $stack5, $stack6, $stack7;
+        int $i0, $i1, $i2, $i3;
+        java.lang.Object obj;
+        boolean $stack3, $stack9, $stack10, $stack8;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof org.apache.commons.lang3.CharRange;
+
+        if $stack3 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        other = (org.apache.commons.lang3.CharRange) obj;
+
+        $stack5 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $stack4 = other.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) $stack4;
+
+        if $i0 != $i1 goto label3;
+
+        $stack7 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $stack6 = other.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i2 = (int) $stack7;
+
+        $i3 = (int) $stack6;
+
+        if $i2 != $i3 goto label3;
+
+        $stack10 = this.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        $stack9 = other.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack10 != $stack9 goto label3;
+
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        return $stack8;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.CharRange this;
+        char $stack1, $stack2;
+        int $stack3, $stack4, $stack6, $stack7, $i0, $i1;
+        boolean $stack5, $stack8;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack1 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $i0 = (int) $stack1;
+
+        $stack4 = 83 + $i0;
+
+        $stack2 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i1 = (int) $stack2;
+
+        $stack3 = 7 * $i1;
+
+        $stack6 = $stack4 + $stack3;
+
+        $stack5 = this.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        if $stack5 == 0 goto label1;
+
+        $stack8 = 1;
+
+        goto label2;
+
+     label1:
+        $stack8 = 0;
+
+     label2:
+        $stack7 = $stack6 + $stack8;
+
+        return $stack7;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.CharRange this;
+        char $stack6, $stack8, $stack9, $stack13;
+        int $i0, $i1;
+        java.lang.StringBuilder $u0;
+        java.lang.String $stack2, $stack10, $stack3;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack2 = this.<org.apache.commons.lang3.CharRange: java.lang.String iToString>;
+
+        if $stack2 != null goto label3;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(int)>(4);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.CharRange: boolean isNegated()>();
+
+        if $stack5 == 0 goto label1;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(94);
+
+     label1:
+        $stack6 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack6);
+
+        $stack9 = this.<org.apache.commons.lang3.CharRange: char start>;
+
+        $stack8 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        $i0 = (int) $stack9;
+
+        $i1 = (int) $stack8;
+
+        if $i0 == $i1 goto label2;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(45);
+
+        $stack13 = this.<org.apache.commons.lang3.CharRange: char end>;
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack13);
+
+     label2:
+        $stack10 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.CharRange: java.lang.String iToString> = $stack10;
+
+     label3:
+        $stack3 = this.<org.apache.commons.lang3.CharRange: java.lang.String iToString>;
+
+        return $stack3;
+    }
+
+    public java.util.Iterator iterator()
+    {
+        org.apache.commons.lang3.CharRange this;
+        org.apache.commons.lang3.CharRange$CharacterIterator $stack1;
+
+        this := @this: org.apache.commons.lang3.CharRange;
+
+        $stack1 = new org.apache.commons.lang3.CharRange$CharacterIterator;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharRange$CharacterIterator: void <init>(org.apache.commons.lang3.CharRange,org.apache.commons.lang3.CharRange$1)>(this, null);
+
+        return $stack1;
+    }
+
+    static boolean access$100(org.apache.commons.lang3.CharRange)
+    {
+        org.apache.commons.lang3.CharRange x0;
+        boolean $stack1;
+
+        x0 := @parameter0: org.apache.commons.lang3.CharRange;
+
+        $stack1 = x0.<org.apache.commons.lang3.CharRange: boolean negated>;
+
+        return $stack1;
+    }
+
+    static char access$200(org.apache.commons.lang3.CharRange)
+    {
+        char $stack1;
+        org.apache.commons.lang3.CharRange x0;
+
+        x0 := @parameter0: org.apache.commons.lang3.CharRange;
+
+        $stack1 = x0.<org.apache.commons.lang3.CharRange: char start>;
+
+        return $stack1;
+    }
+
+    static char access$300(org.apache.commons.lang3.CharRange)
+    {
+        char $stack1;
+        org.apache.commons.lang3.CharRange x0;
+
+        x0 := @parameter0: org.apache.commons.lang3.CharRange;
+
+        $stack1 = x0.<org.apache.commons.lang3.CharRange: char end>;
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.CharRange: long serialVersionUID> = 8270183163158333422L;
+
+        return;
+    }
+}

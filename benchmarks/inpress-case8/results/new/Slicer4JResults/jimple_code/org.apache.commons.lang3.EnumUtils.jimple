@@ -1,0 +1,588 @@
+public class org.apache.commons.lang3.EnumUtils extends java.lang.Object
+{
+    private static final java.lang.String NULL_ELEMENTS_NOT_PERMITTED;
+    private static final java.lang.String CANNOT_STORE_S_S_VALUES_IN_S_BITS;
+    private static final java.lang.String S_DOES_NOT_SEEM_TO_BE_AN_ENUM_TYPE;
+    private static final java.lang.String ENUM_CLASS_MUST_BE_DEFINED;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.EnumUtils this;
+
+        this := @this: org.apache.commons.lang3.EnumUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.util.Map getEnumMap(java.lang.Class)
+    {
+        java.lang.Object[] $stack7;
+        java.util.LinkedHashMap $stack6;
+        java.lang.Enum e;
+        int len$, i$;
+        java.lang.Enum[] arr$;
+        java.lang.Class enumClass;
+        java.lang.String $stack8;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        $stack6 = new java.util.LinkedHashMap;
+
+        specialinvoke $stack6.<java.util.LinkedHashMap: void <init>()>();
+
+        $stack7 = virtualinvoke enumClass.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        arr$ = (java.lang.Enum[]) $stack7;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        e = arr$[i$];
+
+        $stack8 = virtualinvoke e.<java.lang.Enum: java.lang.String name()>();
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack8, e);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return $stack6;
+    }
+
+    public static java.util.List getEnumList(java.lang.Class)
+    {
+        java.util.List $stack3;
+        java.lang.Object[] $stack2;
+        java.lang.Class enumClass;
+        java.util.ArrayList $stack1;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        $stack1 = new java.util.ArrayList;
+
+        $stack2 = virtualinvoke enumClass.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $stack3 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack2);
+
+        specialinvoke $stack1.<java.util.ArrayList: void <init>(java.util.Collection)>($stack3);
+
+        return $stack1;
+    }
+
+    public static boolean isValidEnum(java.lang.Class, java.lang.String)
+    {
+        java.lang.Class enumClass;
+        java.lang.String enumName;
+        java.lang.IllegalArgumentException $stack4;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        enumName := @parameter1: java.lang.String;
+
+        if enumName != null goto label1;
+
+        return 0;
+
+     label1:
+        staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(enumClass, enumName);
+
+     label2:
+        return 1;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return 0;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public static java.lang.Enum getEnum(java.lang.Class, java.lang.String)
+    {
+        java.lang.Enum $stack3;
+        java.lang.Class enumClass;
+        java.lang.String enumName;
+        java.lang.IllegalArgumentException $stack4;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        enumName := @parameter1: java.lang.String;
+
+        if enumName != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Enum: java.lang.Enum valueOf(java.lang.Class,java.lang.String)>(enumClass, enumName);
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return null;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public static long generateBitVector(java.lang.Class, java.lang.Iterable)
+    {
+        java.lang.Object[] $stack11;
+        java.util.Iterator $stack8;
+        long $stack15, total;
+        java.lang.Iterable values;
+        java.lang.Enum constant;
+        int $stack13, $stack14;
+        java.lang.Class enumClass;
+        java.lang.Object $stack10;
+        boolean $stack9, $stack18;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        values := @parameter1: java.lang.Iterable;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class checkBitVectorable(java.lang.Class)>(enumClass);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(values);
+
+        total = 0L;
+
+        $stack8 = interfaceinvoke values.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $stack9 = interfaceinvoke $stack8.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack9 == 0 goto label4;
+
+        $stack10 = interfaceinvoke $stack8.<java.util.Iterator: java.lang.Object next()>();
+
+        constant = (java.lang.Enum) $stack10;
+
+        if constant == null goto label2;
+
+        $stack18 = 1;
+
+        goto label3;
+
+     label2:
+        $stack18 = 0;
+
+     label3:
+        $stack11 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack18, "null elements not permitted", $stack11);
+
+        $stack13 = virtualinvoke constant.<java.lang.Enum: int ordinal()>();
+
+        $stack14 = 1 << $stack13;
+
+        $stack15 = (long) $stack14;
+
+        total = total | $stack15;
+
+        goto label1;
+
+     label4:
+        return total;
+    }
+
+    public static long[] generateBitVectors(java.lang.Class, java.lang.Iterable)
+    {
+        java.lang.Object[] $stack11, $stack31;
+        long $stack22, $stack27, $stack28;
+        java.lang.Iterable values;
+        long[] i$;
+        java.lang.Enum value, constant;
+        int $stack13, $stack14, $stack15, $stack16, $stack20, $stack21, $stack24, $stack25, $stack26;
+        java.util.EnumSet $stack8;
+        boolean $stack10, $stack18, $stack35;
+        java.util.Iterator $stack9, $stack17;
+        java.lang.Enum[] $stack12;
+        java.lang.Class enumClass;
+        java.lang.Object $stack19, $stack30;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        values := @parameter1: java.lang.Iterable;
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class asEnum(java.lang.Class)>(enumClass);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(values);
+
+        $stack8 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(enumClass);
+
+        $stack9 = interfaceinvoke values.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $stack10 = interfaceinvoke $stack9.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack10 == 0 goto label4;
+
+        $stack30 = interfaceinvoke $stack9.<java.util.Iterator: java.lang.Object next()>();
+
+        constant = (java.lang.Enum) $stack30;
+
+        if constant == null goto label2;
+
+        $stack35 = 1;
+
+        goto label3;
+
+     label2:
+        $stack35 = 0;
+
+     label3:
+        $stack31 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack35, "null elements not permitted", $stack31);
+
+        virtualinvoke $stack8.<java.util.EnumSet: boolean add(java.lang.Object)>(constant);
+
+        goto label1;
+
+     label4:
+        $stack11 = virtualinvoke enumClass.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $stack12 = (java.lang.Enum[]) $stack11;
+
+        $stack13 = lengthof $stack12;
+
+        $stack14 = $stack13 - 1;
+
+        $stack15 = $stack14 / 64;
+
+        $stack16 = $stack15 + 1;
+
+        i$ = newarray (long)[$stack16];
+
+        $stack17 = virtualinvoke $stack8.<java.util.EnumSet: java.util.Iterator iterator()>();
+
+     label5:
+        $stack18 = interfaceinvoke $stack17.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack18 == 0 goto label6;
+
+        $stack19 = interfaceinvoke $stack17.<java.util.Iterator: java.lang.Object next()>();
+
+        value = (java.lang.Enum) $stack19;
+
+        $stack20 = virtualinvoke value.<java.lang.Enum: int ordinal()>();
+
+        $stack21 = $stack20 / 64;
+
+        $stack22 = i$[$stack21];
+
+        $stack24 = virtualinvoke value.<java.lang.Enum: int ordinal()>();
+
+        $stack25 = $stack24 % 64;
+
+        $stack26 = 1 << $stack25;
+
+        $stack27 = (long) $stack26;
+
+        $stack28 = $stack22 | $stack27;
+
+        i$[$stack21] = $stack28;
+
+        goto label5;
+
+     label6:
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: void reverse(long[])>(i$);
+
+        return i$;
+    }
+
+    public static transient long generateBitVector(java.lang.Class, java.lang.Enum[])
+    {
+        java.util.List $stack3;
+        java.lang.Enum[] values;
+        java.lang.Class enumClass;
+        long $stack4;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        values := @parameter1: java.lang.Enum[];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>(values);
+
+        $stack3 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>(values);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.EnumUtils: long generateBitVector(java.lang.Class,java.lang.Iterable)>(enumClass, $stack3);
+
+        return $stack4;
+    }
+
+    public static transient long[] generateBitVectors(java.lang.Class, java.lang.Enum[])
+    {
+        java.lang.Object[] $stack10;
+        long $stack21, $stack26, $stack27;
+        long[] result;
+        java.lang.Enum value;
+        int $stack12, $stack13, $stack14, $stack15, $stack19, $stack20, $stack23, $stack24, $stack25;
+        java.util.EnumSet $stack8;
+        boolean $stack17;
+        java.util.Iterator $stack16;
+        java.lang.Enum[] values, $stack11;
+        java.lang.Class enumClass;
+        java.lang.Object $stack18;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        values := @parameter1: java.lang.Enum[];
+
+        staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class asEnum(java.lang.Class)>(enumClass);
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object[] noNullElements(java.lang.Object[])>(values);
+
+        $stack8 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>(enumClass);
+
+        staticinvoke <java.util.Collections: boolean addAll(java.util.Collection,java.lang.Object[])>($stack8, values);
+
+        $stack10 = virtualinvoke enumClass.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $stack11 = (java.lang.Enum[]) $stack10;
+
+        $stack12 = lengthof $stack11;
+
+        $stack13 = $stack12 - 1;
+
+        $stack14 = $stack13 / 64;
+
+        $stack15 = $stack14 + 1;
+
+        result = newarray (long)[$stack15];
+
+        $stack16 = virtualinvoke $stack8.<java.util.EnumSet: java.util.Iterator iterator()>();
+
+     label1:
+        $stack17 = interfaceinvoke $stack16.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack17 == 0 goto label2;
+
+        $stack18 = interfaceinvoke $stack16.<java.util.Iterator: java.lang.Object next()>();
+
+        value = (java.lang.Enum) $stack18;
+
+        $stack19 = virtualinvoke value.<java.lang.Enum: int ordinal()>();
+
+        $stack20 = $stack19 / 64;
+
+        $stack21 = result[$stack20];
+
+        $stack23 = virtualinvoke value.<java.lang.Enum: int ordinal()>();
+
+        $stack24 = $stack23 % 64;
+
+        $stack25 = 1 << $stack24;
+
+        $stack26 = (long) $stack25;
+
+        $stack27 = $stack21 | $stack26;
+
+        result[$stack20] = $stack27;
+
+        goto label1;
+
+     label2:
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: void reverse(long[])>(result);
+
+        return result;
+    }
+
+    public static java.util.EnumSet processBitVector(java.lang.Class, long)
+    {
+        long[] $stack5;
+        java.lang.Class enumClass, $stack3;
+        long value;
+        java.util.EnumSet $stack6;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        value := @parameter1: long;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class checkBitVectorable(java.lang.Class)>(enumClass);
+
+        virtualinvoke $stack3.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        $stack5 = newarray (long)[1];
+
+        $stack5[0] = value;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.util.EnumSet processBitVectors(java.lang.Class,long[])>(enumClass, $stack5);
+
+        return $stack6;
+    }
+
+    public static transient java.util.EnumSet processBitVectors(java.lang.Class, long[])
+    {
+        java.lang.Object[] $stack13;
+        long $stack18, $stack23, $stack24;
+        long[] $stack11, $stack12, values;
+        java.lang.Enum constant;
+        byte $stack25;
+        int len$, $stack14, block, $stack15, $stack20, $stack21, $stack22, i$;
+        java.util.EnumSet $stack9;
+        java.lang.Enum[] arr$;
+        java.lang.Class enumClass, $stack8;
+        java.lang.Object $stack10;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        values := @parameter1: long[];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class asEnum(java.lang.Class)>(enumClass);
+
+        $stack9 = staticinvoke <java.util.EnumSet: java.util.EnumSet noneOf(java.lang.Class)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object)>(values);
+
+        $stack11 = (long[]) $stack10;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ArrayUtils: long[] clone(long[])>($stack11);
+
+        staticinvoke <org.apache.commons.lang3.ArrayUtils: void reverse(long[])>($stack12);
+
+        $stack13 = virtualinvoke enumClass.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        arr$ = (java.lang.Enum[]) $stack13;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        constant = arr$[i$];
+
+        $stack14 = virtualinvoke constant.<java.lang.Enum: int ordinal()>();
+
+        block = $stack14 / 64;
+
+        $stack15 = lengthof $stack12;
+
+        if block >= $stack15 goto label2;
+
+        $stack18 = $stack12[block];
+
+        $stack20 = virtualinvoke constant.<java.lang.Enum: int ordinal()>();
+
+        $stack21 = $stack20 % 64;
+
+        $stack22 = 1 << $stack21;
+
+        $stack23 = (long) $stack22;
+
+        $stack24 = $stack18 & $stack23;
+
+        $stack25 = $stack24 cmp 0L;
+
+        if $stack25 == 0 goto label2;
+
+        virtualinvoke $stack9.<java.util.EnumSet: boolean add(java.lang.Object)>(constant);
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return $stack9;
+    }
+
+    private static java.lang.Class checkBitVectorable(java.lang.Class)
+    {
+        java.lang.Object[] $stack3, $stack5;
+        java.lang.Integer $stack10, $stack14;
+        int $stack4, $stack6;
+        java.lang.Enum[] constants;
+        java.lang.Class enumClass, $stack2;
+        java.lang.String $stack12;
+        boolean $stack7;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.EnumUtils: java.lang.Class asEnum(java.lang.Class)>(enumClass);
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.Object[] getEnumConstants()>();
+
+        constants = (java.lang.Enum[]) $stack3;
+
+        $stack4 = lengthof constants;
+
+        if $stack4 > 64 goto label1;
+
+        $stack7 = 1;
+
+        goto label2;
+
+     label1:
+        $stack7 = 0;
+
+     label2:
+        $stack5 = newarray (java.lang.Object)[3];
+
+        $stack6 = lengthof constants;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack6);
+
+        $stack5[0] = $stack10;
+
+        $stack12 = virtualinvoke enumClass.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        $stack5[1] = $stack12;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(64);
+
+        $stack5[2] = $stack14;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack7, "Cannot store %s %s values in %s bits", $stack5);
+
+        return enumClass;
+    }
+
+    private static java.lang.Class asEnum(java.lang.Class)
+    {
+        java.lang.Object[] $stack1, $stack4;
+        java.lang.Class enumClass;
+        boolean $stack3;
+
+        enumClass := @parameter0: java.lang.Class;
+
+        $stack1 = newarray (java.lang.Object)[0];
+
+        staticinvoke <org.apache.commons.lang3.Validate: java.lang.Object notNull(java.lang.Object,java.lang.String,java.lang.Object[])>(enumClass, "EnumClass must be defined.", $stack1);
+
+        $stack3 = virtualinvoke enumClass.<java.lang.Class: boolean isEnum()>();
+
+        $stack4 = newarray (java.lang.Object)[1];
+
+        $stack4[0] = enumClass;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,java.lang.Object[])>($stack3, "%s does not seem to be an Enum type", $stack4);
+
+        return enumClass;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.EnumUtils: java.lang.String ENUM_CLASS_MUST_BE_DEFINED> = "EnumClass must be defined.";
+
+        <org.apache.commons.lang3.EnumUtils: java.lang.String S_DOES_NOT_SEEM_TO_BE_AN_ENUM_TYPE> = "%s does not seem to be an Enum type";
+
+        <org.apache.commons.lang3.EnumUtils: java.lang.String CANNOT_STORE_S_S_VALUES_IN_S_BITS> = "Cannot store %s %s values in %s bits";
+
+        <org.apache.commons.lang3.EnumUtils: java.lang.String NULL_ELEMENTS_NOT_PERMITTED> = "null elements not permitted";
+
+        return;
+    }
+}

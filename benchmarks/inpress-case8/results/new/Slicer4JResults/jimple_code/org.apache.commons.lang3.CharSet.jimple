@@ -1,0 +1,465 @@
+public class org.apache.commons.lang3.CharSet extends java.lang.Object implements java.io.Serializable
+{
+    private static final long serialVersionUID;
+    public static final org.apache.commons.lang3.CharSet EMPTY;
+    public static final org.apache.commons.lang3.CharSet ASCII_ALPHA;
+    public static final org.apache.commons.lang3.CharSet ASCII_ALPHA_LOWER;
+    public static final org.apache.commons.lang3.CharSet ASCII_ALPHA_UPPER;
+    public static final org.apache.commons.lang3.CharSet ASCII_NUMERIC;
+    protected static final java.util.Map COMMON;
+    private final java.util.Set set;
+
+    public static transient org.apache.commons.lang3.CharSet getInstance(java.lang.String[])
+    {
+        org.apache.commons.lang3.CharSet $stack3, common;
+        java.util.Map $stack5;
+        int $stack2;
+        java.lang.String[] setStrs;
+        java.lang.Object $stack6;
+        java.lang.String $stack4;
+
+        setStrs := @parameter0: java.lang.String[];
+
+        if setStrs != null goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = lengthof setStrs;
+
+        if $stack2 != 1 goto label2;
+
+        $stack5 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack4 = setStrs[0];
+
+        $stack6 = interfaceinvoke $stack5.<java.util.Map: java.lang.Object get(java.lang.Object)>($stack4);
+
+        common = (org.apache.commons.lang3.CharSet) $stack6;
+
+        if common == null goto label2;
+
+        return common;
+
+     label2:
+        $stack3 = new org.apache.commons.lang3.CharSet;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>(setStrs);
+
+        return $stack3;
+    }
+
+    protected transient void <init>(java.lang.String[])
+    {
+        java.util.HashSet $stack4;
+        org.apache.commons.lang3.CharSet this;
+        int sz, i;
+        java.util.Set $stack5;
+        java.lang.String[] set;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        set := @parameter0: java.lang.String[];
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack4 = new java.util.HashSet;
+
+        specialinvoke $stack4.<java.util.HashSet: void <init>()>();
+
+        $stack5 = staticinvoke <java.util.Collections: java.util.Set synchronizedSet(java.util.Set)>($stack4);
+
+        this.<org.apache.commons.lang3.CharSet: java.util.Set set> = $stack5;
+
+        sz = lengthof set;
+
+        i = 0;
+
+     label1:
+        if i >= sz goto label2;
+
+        $stack6 = set[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.CharSet: void add(java.lang.String)>($stack6);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    protected void add(java.lang.String)
+    {
+        org.apache.commons.lang3.CharRange $stack8, $stack19, $stack29, $stack41;
+        org.apache.commons.lang3.CharSet this;
+        java.util.Set $stack6, $stack17, $stack25, $stack37;
+        int $stack5, remainder, $stack16, $stack21, $stack27, $stack34, $stack36, $stack39, pos, $i0, $i1, $i2, $i3;
+        java.lang.String str;
+        char $stack7, $stack12, $stack18, $stack22, $stack26, $stack28, $stack31, $stack35, $stack38, $stack40;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return;
+
+     label1:
+        $stack5 = virtualinvoke str.<java.lang.String: int length()>();
+
+        pos = 0;
+
+     label2:
+        if pos >= $stack5 goto label7;
+
+        remainder = $stack5 - pos;
+
+        if remainder < 4 goto label3;
+
+        $stack31 = virtualinvoke str.<java.lang.String: char charAt(int)>(pos);
+
+        $i0 = (int) $stack31;
+
+        if $i0 != 94 goto label3;
+
+        $stack34 = pos + 2;
+
+        $stack35 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack34);
+
+        $i1 = (int) $stack35;
+
+        if $i1 != 45 goto label3;
+
+        $stack37 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack36 = pos + 1;
+
+        $stack38 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack36);
+
+        $stack39 = pos + 3;
+
+        $stack40 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>($stack38, $stack40);
+
+        interfaceinvoke $stack37.<java.util.Set: boolean add(java.lang.Object)>($stack41);
+
+        pos = pos + 4;
+
+        goto label6;
+
+     label3:
+        if remainder < 3 goto label4;
+
+        $stack21 = pos + 1;
+
+        $stack22 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack21);
+
+        $i2 = (int) $stack22;
+
+        if $i2 != 45 goto label4;
+
+        $stack25 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack26 = virtualinvoke str.<java.lang.String: char charAt(int)>(pos);
+
+        $stack27 = pos + 2;
+
+        $stack28 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>($stack26, $stack28);
+
+        interfaceinvoke $stack25.<java.util.Set: boolean add(java.lang.Object)>($stack29);
+
+        pos = pos + 3;
+
+        goto label6;
+
+     label4:
+        if remainder < 2 goto label5;
+
+        $stack12 = virtualinvoke str.<java.lang.String: char charAt(int)>(pos);
+
+        $i3 = (int) $stack12;
+
+        if $i3 != 94 goto label5;
+
+        $stack17 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack16 = pos + 1;
+
+        $stack18 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack16);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>($stack18);
+
+        interfaceinvoke $stack17.<java.util.Set: boolean add(java.lang.Object)>($stack19);
+
+        pos = pos + 2;
+
+        goto label6;
+
+     label5:
+        $stack6 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack7 = virtualinvoke str.<java.lang.String: char charAt(int)>(pos);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>($stack7);
+
+        interfaceinvoke $stack6.<java.util.Set: boolean add(java.lang.Object)>($stack8);
+
+        pos = pos + 1;
+
+     label6:
+        goto label2;
+
+     label7:
+        return;
+    }
+
+    org.apache.commons.lang3.CharRange[] getCharRanges()
+    {
+        org.apache.commons.lang3.CharSet this;
+        java.lang.Object[] $stack5;
+        org.apache.commons.lang3.CharRange[] $stack4, $stack6;
+        int $stack3;
+        java.util.Set $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        $stack2 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack1 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack3 = interfaceinvoke $stack1.<java.util.Set: int size()>();
+
+        $stack4 = newarray (org.apache.commons.lang3.CharRange)[$stack3];
+
+        $stack5 = interfaceinvoke $stack2.<java.util.Set: java.lang.Object[] toArray(java.lang.Object[])>($stack4);
+
+        $stack6 = (org.apache.commons.lang3.CharRange[]) $stack5;
+
+        return $stack6;
+    }
+
+    public boolean contains(char)
+    {
+        java.util.Iterator $stack5;
+        org.apache.commons.lang3.CharRange range;
+        java.util.Set $stack4;
+        char ch;
+        org.apache.commons.lang3.CharSet this;
+        java.lang.Object $stack7;
+        boolean $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        ch := @parameter0: char;
+
+        $stack4 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $stack6 = interfaceinvoke $stack5.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack6 == 0 goto label3;
+
+        $stack7 = interfaceinvoke $stack5.<java.util.Iterator: java.lang.Object next()>();
+
+        range = (org.apache.commons.lang3.CharRange) $stack7;
+
+        $stack8 = virtualinvoke range.<org.apache.commons.lang3.CharRange: boolean contains(char)>(ch);
+
+        if $stack8 == 0 goto label2;
+
+        return 1;
+
+     label2:
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.CharSet this, other;
+        java.util.Set $stack4, $stack5;
+        java.lang.Object obj;
+        boolean $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof org.apache.commons.lang3.CharSet;
+
+        if $stack3 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        other = (org.apache.commons.lang3.CharSet) obj;
+
+        $stack5 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack4 = other.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack6 = interfaceinvoke $stack5.<java.util.Set: boolean equals(java.lang.Object)>($stack4);
+
+        return $stack6;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.CharSet this;
+        int $stack3, $stack4;
+        java.util.Set $stack1;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        $stack1 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack3 = interfaceinvoke $stack1.<java.util.Set: int hashCode()>();
+
+        $stack4 = 89 + $stack3;
+
+        return $stack4;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.CharSet this;
+        java.util.Set $stack1;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.CharSet;
+
+        $stack1 = this.<org.apache.commons.lang3.CharSet: java.util.Set set>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Object: java.lang.String toString()>();
+
+        return $stack2;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.String[] $stack1, $stack4, $stack6, $stack8, $stack10;
+        java.util.HashMap $stack11;
+        org.apache.commons.lang3.CharSet $stack0, $stack3, $stack5, $stack7, $stack9, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28, $stack31;
+        java.util.Map $stack12, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32;
+
+        <org.apache.commons.lang3.CharSet: long serialVersionUID> = 5947847346149275958L;
+
+        $stack0 = new org.apache.commons.lang3.CharSet;
+
+        $stack1 = newarray (java.lang.String)[1];
+
+        $stack1[0] = null;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>($stack1);
+
+        <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY> = $stack0;
+
+        $stack3 = new org.apache.commons.lang3.CharSet;
+
+        $stack4 = newarray (java.lang.String)[1];
+
+        $stack4[0] = "a-zA-Z";
+
+        specialinvoke $stack3.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>($stack4);
+
+        <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA> = $stack3;
+
+        $stack5 = new org.apache.commons.lang3.CharSet;
+
+        $stack6 = newarray (java.lang.String)[1];
+
+        $stack6[0] = "a-z";
+
+        specialinvoke $stack5.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>($stack6);
+
+        <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_LOWER> = $stack5;
+
+        $stack7 = new org.apache.commons.lang3.CharSet;
+
+        $stack8 = newarray (java.lang.String)[1];
+
+        $stack8[0] = "A-Z";
+
+        specialinvoke $stack7.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>($stack8);
+
+        <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_UPPER> = $stack7;
+
+        $stack9 = new org.apache.commons.lang3.CharSet;
+
+        $stack10 = newarray (java.lang.String)[1];
+
+        $stack10[0] = "0-9";
+
+        specialinvoke $stack9.<org.apache.commons.lang3.CharSet: void <init>(java.lang.String[])>($stack10);
+
+        <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_NUMERIC> = $stack9;
+
+        $stack11 = new java.util.HashMap;
+
+        specialinvoke $stack11.<java.util.HashMap: void <init>()>();
+
+        $stack12 = staticinvoke <java.util.Collections: java.util.Map synchronizedMap(java.util.Map)>($stack11);
+
+        <org.apache.commons.lang3.CharSet: java.util.Map COMMON> = $stack12;
+
+        $stack14 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack13 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY>;
+
+        interfaceinvoke $stack14.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack17 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack16 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY>;
+
+        interfaceinvoke $stack17.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack20 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack19 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA>;
+
+        interfaceinvoke $stack20.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("a-zA-Z", $stack19);
+
+        $stack23 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack22 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA>;
+
+        interfaceinvoke $stack23.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("A-Za-z", $stack22);
+
+        $stack26 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack25 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_LOWER>;
+
+        interfaceinvoke $stack26.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("a-z", $stack25);
+
+        $stack29 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack28 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_UPPER>;
+
+        interfaceinvoke $stack29.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("A-Z", $stack28);
+
+        $stack32 = <org.apache.commons.lang3.CharSet: java.util.Map COMMON>;
+
+        $stack31 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_NUMERIC>;
+
+        interfaceinvoke $stack32.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("0-9", $stack31);
+
+        return;
+    }
+}

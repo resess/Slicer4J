@@ -1,0 +1,64 @@
+class org.apache.commons.lang3.time.FastDateFormatTest$1 extends java.text.SimpleDateFormat
+{
+    private static final long serialVersionUID;
+    final org.apache.commons.lang3.time.FastDateFormatTest this$0;
+
+    void <init>(org.apache.commons.lang3.time.FastDateFormatTest, java.lang.String)
+    {
+        java.lang.String x0;
+        org.apache.commons.lang3.time.FastDateFormatTest$1 this;
+        org.apache.commons.lang3.time.FastDateFormatTest l1;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        x0 := @parameter1: java.lang.String;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$1: org.apache.commons.lang3.time.FastDateFormatTest this$0> = l1;
+
+        specialinvoke this.<java.text.SimpleDateFormat: void <init>(java.lang.String)>(x0);
+
+        return;
+    }
+
+    public java.lang.Object parseObject(java.lang.String) throws java.text.ParseException
+    {
+        java.lang.Throwable $stack7;
+        org.apache.commons.lang3.time.FastDateFormatTest$1 this;
+        java.util.Date $stack5;
+        java.lang.String formattedDate;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest$1;
+
+        formattedDate := @parameter0: java.lang.String;
+
+        entermonitor this;
+
+     label1:
+        $stack5 = specialinvoke this.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String)>(formattedDate);
+
+        exitmonitor this;
+
+     label2:
+        return $stack5;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        exitmonitor this;
+
+     label4:
+        throw $stack7;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.FastDateFormatTest$1: long serialVersionUID> = 1L;
+
+        return;
+    }
+}

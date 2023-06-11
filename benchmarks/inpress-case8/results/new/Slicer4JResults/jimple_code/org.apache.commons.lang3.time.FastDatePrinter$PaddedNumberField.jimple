@@ -1,0 +1,167 @@
+class org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$NumberRule
+{
+    private final int mField;
+    private final int mSize;
+
+    void <init>(int, int)
+    {
+        int size, field;
+        org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField this;
+        java.lang.IllegalArgumentException $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField;
+
+        field := @parameter0: int;
+
+        size := @parameter1: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        if size >= 3 goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>()>();
+
+        throw $stack3;
+
+     label1:
+        this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: int mField> = field;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: int mSize> = size;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField;
+
+        return 4;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        int $stack3, $stack4;
+        org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: int mField>;
+
+        $stack4 = virtualinvoke calendar.<java.util.Calendar: int get(int)>($stack3);
+
+        virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: void appendTo(java.lang.StringBuffer,int)>(buffer, $stack4);
+
+        return;
+    }
+
+    public final void appendTo(java.lang.StringBuffer, int)
+    {
+        long $stack5;
+        java.lang.StringBuffer buffer;
+        int value, $stack19, $stack20, $stack23, $stack24, i_1, i_2, $i0, $i1, $i2;
+        org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField this;
+        java.lang.String $stack6, $stack8;
+        boolean $stack14;
+        char $stack21, $stack25;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        value := @parameter1: int;
+
+        if value >= 100 goto label03;
+
+        i_1 = this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: int mSize>;
+
+     label01:
+        $i0 = (int) -1;
+
+        i_1 = i_1 + $i0;
+
+        if i_1 < 2 goto label02;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(48);
+
+        goto label01;
+
+     label02:
+        $stack19 = value / 10;
+
+        $stack20 = $stack19 + 48;
+
+        $stack21 = (char) $stack20;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack21);
+
+        $stack23 = value % 10;
+
+        $stack24 = $stack23 + 48;
+
+        $stack25 = (char) $stack24;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack25);
+
+        goto label10;
+
+     label03:
+        if value >= 1000 goto label04;
+
+        i_1 = 3;
+
+        goto label07;
+
+     label04:
+        $i1 = (int) -1;
+
+        if value <= $i1 goto label05;
+
+        $stack14 = 1;
+
+        goto label06;
+
+     label05:
+        $stack14 = 0;
+
+     label06:
+        $stack5 = (long) value;
+
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean,java.lang.String,long)>($stack14, "Negative values should not be possible", $stack5);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(value);
+
+        i_1 = virtualinvoke $stack6.<java.lang.String: int length()>();
+
+     label07:
+        i_2 = this.<org.apache.commons.lang3.time.FastDatePrinter$PaddedNumberField: int mSize>;
+
+     label08:
+        $i2 = (int) -1;
+
+        i_2 = i_2 + $i2;
+
+        if i_2 < i_1 goto label09;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(48);
+
+        goto label08;
+
+     label09:
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(value);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+     label10:
+        return;
+    }
+}

@@ -1,0 +1,52 @@
+class org.apache.commons.lang3.text.StrLookup$MapStrLookup extends org.apache.commons.lang3.text.StrLookup
+{
+    private final java.util.Map map;
+
+    void <init>(java.util.Map)
+    {
+        org.apache.commons.lang3.text.StrLookup$MapStrLookup this;
+        java.util.Map map;
+
+        this := @this: org.apache.commons.lang3.text.StrLookup$MapStrLookup;
+
+        map := @parameter0: java.util.Map;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrLookup: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: java.util.Map map> = map;
+
+        return;
+    }
+
+    public java.lang.String lookup(java.lang.String)
+    {
+        java.util.Map $stack3, $stack4;
+        org.apache.commons.lang3.text.StrLookup$MapStrLookup this;
+        java.lang.Object $stack5;
+        java.lang.String key, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrLookup$MapStrLookup;
+
+        key := @parameter0: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: java.util.Map map>;
+
+        if $stack3 != null goto label1;
+
+        return null;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.text.StrLookup$MapStrLookup: java.util.Map map>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.Map: java.lang.Object get(java.lang.Object)>(key);
+
+        if $stack5 != null goto label2;
+
+        return null;
+
+     label2:
+        $stack6 = virtualinvoke $stack5.<java.lang.Object: java.lang.String toString()>();
+
+        return $stack6;
+    }
+}

@@ -1,0 +1,80 @@
+class org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl extends org.apache.commons.lang3.concurrent.BackgroundInitializer
+{
+    java.lang.Exception ex;
+    boolean shouldSleep;
+    volatile int initializeCalls;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(java.util.concurrent.ExecutorService)
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl this;
+        java.util.concurrent.ExecutorService exec;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        exec := @parameter0: java.util.concurrent.ExecutorService;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>(java.util.concurrent.ExecutorService)>(exec);
+
+        return;
+    }
+
+    protected java.lang.Integer initialize() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl this;
+        int $stack3, $stack4;
+        java.lang.Integer $stack5;
+        java.lang.Exception $stack1, $stack8;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Exception ex>;
+
+        if $stack1 == null goto label1;
+
+        $stack8 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Exception ex>;
+
+        throw $stack8;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean shouldSleep>;
+
+        if $stack2 == 0 goto label2;
+
+        staticinvoke <java.lang.Thread: void sleep(long)>(60000L);
+
+     label2:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: int initializeCalls>;
+
+        $stack4 = $stack3 + 1;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: int initializeCalls> = $stack4;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack4);
+
+        return $stack5;
+    }
+
+    protected volatile java.lang.Object initialize() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Integer initialize()>();
+
+        return $stack1;
+    }
+}

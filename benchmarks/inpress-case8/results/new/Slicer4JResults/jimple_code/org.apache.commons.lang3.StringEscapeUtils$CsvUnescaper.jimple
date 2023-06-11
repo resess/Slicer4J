@@ -1,0 +1,149 @@
+class org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+    private static final char CSV_DELIMITER;
+    private static final char CSV_QUOTE;
+    private static final java.lang.String CSV_QUOTE_STR;
+    private static final char[] CSV_SEARCH_CHARS;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper this;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        return;
+    }
+
+    public int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper this;
+        java.lang.IllegalStateException $u0;
+        int index, $stack7, $stack8, $stack9, $stack12, $stack13, $stack19, $i0, $i1;
+        java.lang.String $stack6, $stack15, $stack18, $stack21, $stack23, $stack25, $stack26, $stack27;
+        boolean $stack17;
+        java.lang.CharSequence input, $stack14;
+        char $stack5, $stack10;
+        java.io.Writer out;
+        char[] $stack16;
+        java.lang.StringBuilder $stack22, $stack24, $u1;
+
+        this := @this: org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        if index == 0 goto label1;
+
+        $u0 = new java.lang.IllegalStateException;
+
+        specialinvoke $u0.<java.lang.IllegalStateException: void <init>(java.lang.String)>("CsvUnescaper should never reach the [1] index");
+
+        throw $u0;
+
+     label1:
+        $stack5 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>(0);
+
+        $i0 = (int) $stack5;
+
+        if $i0 != 34 goto label2;
+
+        $stack8 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        $stack9 = $stack8 - 1;
+
+        $stack10 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>($stack9);
+
+        $i1 = (int) $stack10;
+
+        if $i1 == 34 goto label3;
+
+     label2:
+        $stack6 = interfaceinvoke input.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack6);
+
+        $stack7 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        return $stack7;
+
+     label3:
+        $stack12 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        $stack13 = $stack12 - 1;
+
+        $stack14 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(1, $stack13);
+
+        $stack15 = interfaceinvoke $stack14.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack16 = <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: char[] CSV_SEARCH_CHARS>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>($stack15, $stack16);
+
+        if $stack17 == 0 goto label4;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: java.lang.String CSV_QUOTE_STR>;
+
+        $stack22 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack21);
+
+        $stack23 = <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: java.lang.String CSV_QUOTE_STR>;
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack26 = <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: java.lang.String CSV_QUOTE_STR>;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replace(java.lang.String,java.lang.String,java.lang.String)>($stack15, $stack25, $stack26);
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack27);
+
+        goto label5;
+
+     label4:
+        $stack18 = interfaceinvoke input.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke out.<java.io.Writer: void write(java.lang.String)>($stack18);
+
+     label5:
+        $stack19 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        return $stack19;
+    }
+
+    static void <clinit>()
+    {
+        char[] $stack1;
+        java.lang.String $stack0;
+
+        <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: char CSV_QUOTE> = 34;
+
+        <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: char CSV_DELIMITER> = 44;
+
+        $stack0 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(34);
+
+        <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: java.lang.String CSV_QUOTE_STR> = $stack0;
+
+        $stack1 = newarray (char)[4];
+
+        $stack1[0] = 44;
+
+        $stack1[1] = 34;
+
+        $stack1[2] = 13;
+
+        $stack1[3] = 10;
+
+        <org.apache.commons.lang3.StringEscapeUtils$CsvUnescaper: char[] CSV_SEARCH_CHARS> = $stack1;
+
+        return;
+    }
+}

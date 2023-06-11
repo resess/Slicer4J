@@ -1,0 +1,553 @@
+public class org.apache.commons.lang3.concurrent.BackgroundInitializerTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)
+    {
+        long $stack7, $stack9;
+        java.lang.Integer result;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl init;
+        java.util.concurrent.Future $stack11;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack12;
+        int $stack6, $stack8;
+        java.lang.Object $stack3;
+        java.lang.StringBuilder $stack13, $stack14, $stack15;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.lang.String $stack16;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        init := @parameter0: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+     label1:
+        $stack3 = virtualinvoke init.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+        result = (java.lang.Integer) $stack3;
+
+        $stack6 = virtualinvoke result.<java.lang.Integer: int intValue()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong result", 1L, $stack7);
+
+        $stack8 = init.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: int initializeCalls>;
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of invocations", 1L, $stack9);
+
+        $stack11 = virtualinvoke init.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.Future getFuture()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No future", $stack11);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack12 := @caughtexception;
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected exception: ");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack12);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack16);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+    }
+
+    public void testInitialize()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack2);
+
+        return;
+    }
+
+    public void testGetActiveExecutorBeforeStart()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got an executor", $stack4);
+
+        return;
+    }
+
+    public void testGetActiveExecutorExternal()
+    {
+        java.lang.Throwable $stack9;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack5;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack4, $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack4 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>(java.util.concurrent.ExecutorService)>($stack4);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong executor", $stack4, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack5);
+
+     label2:
+        interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        goto label5;
+
+     label3:
+        $stack9 := @caughtexception;
+
+     label4:
+        interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        throw $stack9;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void testGetActiveExecutorTemp()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No active executor", $stack5);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack2);
+
+        return;
+    }
+
+    public void testInitializeTempExecutor()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack6;
+        boolean $stack4, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong result of start()", $stack4);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack2);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        $stack7 = interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Executor not shutdown", $stack7);
+
+        return;
+    }
+
+    public void testSetExternalExecutor() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack14;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack5;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack4, $stack7, $stack11;
+        boolean $stack9, $stack13;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack4 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newCachedThreadPool()>();
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void setExternalExecutor(java.util.concurrent.ExecutorService)>($stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getExternalExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong executor service", $stack4, $stack7);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong result of start()", $stack9);
+
+        $stack11 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong active executor", $stack4, $stack11);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack5);
+
+        $stack13 = interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Executor was shutdown", $stack13);
+
+     label2:
+        interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        goto label5;
+
+     label3:
+        $stack14 := @caughtexception;
+
+     label4:
+        interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        throw $stack14;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void testSetExternalExecutorAfterStart() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.IllegalStateException $stack6;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack3;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+     label1:
+        $stack5 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void setExternalExecutor(java.util.concurrent.ExecutorService)>($stack5);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Could set executor after start()!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+     label4:
+        return;
+
+        catch java.lang.IllegalStateException from label1 to label2 with label3;
+    }
+
+    public void testStartMultipleTimes()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack3;
+        int i;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        boolean $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong result for start()", $stack5);
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Could start again", $stack7);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack3);
+
+        return;
+    }
+
+    public void testGetBeforeStart() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+        return;
+    }
+
+    public void testGetRuntimeException() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack4;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.lang.RuntimeException $stack5;
+        java.lang.Exception $stack8;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack4 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack5 = new java.lang.RuntimeException;
+
+        specialinvoke $stack5.<java.lang.RuntimeException: void <init>()>();
+
+        $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Exception ex> = $stack5;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+     label1:
+        virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack8 := @caughtexception;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Runtime exception not thrown", $stack5, $stack8);
+
+     label4:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public void testGetCheckedException() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack10;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack4;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack8;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.lang.Exception $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack4 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack5 = new java.lang.Exception;
+
+        specialinvoke $stack5.<java.lang.Exception: void <init>()>();
+
+        $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Exception ex> = $stack5;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+     label1:
+        virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack8 := @caughtexception;
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Exception not thrown", $stack5, $stack10);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+    }
+
+    public void testGetInterruptedException() throws java.lang.Exception
+    {
+        java.util.concurrent.atomic.AtomicReference $stack10;
+        java.util.concurrent.TimeUnit $stack13;
+        java.util.concurrent.CountDownLatch $stack8;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack7;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1 $stack11;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        java.lang.Object $stack16;
+        java.util.concurrent.ExecutorService $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack6 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        $stack7 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>(java.util.concurrent.ExecutorService)>($stack6);
+
+        $stack8 = new java.util.concurrent.CountDownLatch;
+
+        specialinvoke $stack8.<java.util.concurrent.CountDownLatch: void <init>(int)>(1);
+
+        $stack7.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean shouldSleep> = 1;
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        $stack10 = new java.util.concurrent.atomic.AtomicReference;
+
+        specialinvoke $stack10.<java.util.concurrent.atomic.AtomicReference: void <init>()>();
+
+        $stack11 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: void <init>(org.apache.commons.lang3.concurrent.BackgroundInitializerTest,org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl,java.util.concurrent.atomic.AtomicReference,java.util.concurrent.CountDownLatch)>(this, $stack7, $stack10, $stack8);
+
+        virtualinvoke $stack11.<java.lang.Thread: void start()>();
+
+        virtualinvoke $stack11.<java.lang.Thread: void interrupt()>();
+
+        virtualinvoke $stack8.<java.util.concurrent.CountDownLatch: void await()>();
+
+        interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+        $stack13 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit MILLISECONDS>;
+
+        interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: boolean awaitTermination(long,java.util.concurrent.TimeUnit)>(9223372036854775807L, $stack13);
+
+        $stack16 = virtualinvoke $stack10.<java.util.concurrent.atomic.AtomicReference: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("No interrupted exception", $stack16);
+
+        return;
+    }
+
+    public void testIsStartedFalse()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean isStarted()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Already started", $stack4);
+
+        return;
+    }
+
+    public void testIsStartedTrue()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean isStarted()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not started", $stack5);
+
+        return;
+    }
+
+    public void testIsStartedAfterGet()
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest this;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: void <init>()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean start()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest: void checkInitialize(org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl)>($stack2);
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: boolean isStarted()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Not started", $stack5);
+
+        return;
+    }
+}

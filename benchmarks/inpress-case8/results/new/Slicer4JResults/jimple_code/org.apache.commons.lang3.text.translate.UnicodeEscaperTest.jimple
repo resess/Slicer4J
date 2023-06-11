@@ -1,0 +1,65 @@
+public class org.apache.commons.lang3.text.translate.UnicodeEscaperTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaperTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testBelow()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaperTest this;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: org.apache.commons.lang3.text.translate.UnicodeEscaper below(int)>(70);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape Unicode characters via the below method", "\\u0041\\u0044FGZ", $stack5);
+
+        return;
+    }
+
+    public void testBetween()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaperTest this;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: org.apache.commons.lang3.text.translate.UnicodeEscaper between(int,int)>(70, 76);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape Unicode characters via the between method", "AD\\u0046\\u0047Z", $stack5);
+
+        return;
+    }
+
+    public void testAbove()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeEscaperTest this;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.UnicodeEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.UnicodeEscaper: org.apache.commons.lang3.text.translate.UnicodeEscaper above(int)>(70);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape Unicode characters via the above method", "ADF\\u0047\\u005A", $stack5);
+
+        return;
+    }
+}

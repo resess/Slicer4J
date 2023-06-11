@@ -1,0 +1,1654 @@
+public class org.apache.commons.lang3.RangeTest extends java.lang.Object
+{
+    private org.apache.commons.lang3.Range byteRange;
+    private org.apache.commons.lang3.Range byteRange2;
+    private org.apache.commons.lang3.Range byteRange3;
+    private org.apache.commons.lang3.Range intRange;
+    private org.apache.commons.lang3.Range longRange;
+    private org.apache.commons.lang3.Range floatRange;
+    private org.apache.commons.lang3.Range doubleRange;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp()
+    {
+        java.lang.Float $stack16, $stack17;
+        java.lang.Double $stack19, $stack20;
+        java.lang.Integer $stack10, $stack11;
+        java.lang.Long $stack13, $stack14;
+        java.lang.Byte $stack1, $stack2, $stack4, $stack5, $stack7, $stack8;
+        org.apache.commons.lang3.Range $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(0);
+
+        $stack2 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(5);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack1, $stack2);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange> = $stack3;
+
+        $stack4 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(0);
+
+        $stack5 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2> = $stack6;
+
+        $stack7 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(0);
+
+        $stack8 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(10);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack7, $stack8);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange3> = $stack9;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack10, $stack11);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange> = $stack12;
+
+        $stack13 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(10L);
+
+        $stack14 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(20L);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack13, $stack14);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange> = $stack15;
+
+        $stack16 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(10.0F);
+
+        $stack17 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(20.0F);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack16, $stack17);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange> = $stack18;
+
+        $stack19 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(10.0);
+
+        $stack20 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(20.0);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack19, $stack20);
+
+        this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange> = $stack21;
+
+        return;
+    }
+
+    public void testComparableConstructors()
+    {
+        org.apache.commons.lang3.RangeTest$1 $stack4;
+        org.apache.commons.lang3.RangeTest this;
+        java.lang.Boolean $stack7, $stack9, $stack10, $stack12;
+        org.apache.commons.lang3.Range $stack5, $stack6;
+        boolean $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack4 = new org.apache.commons.lang3.RangeTest$1;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.RangeTest$1: void <init>(org.apache.commons.lang3.RangeTest)>(this);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range is(java.lang.Comparable)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack4);
+
+        $stack7 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.Range: boolean isNaturalOrdering()>();
+
+        $stack9 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack10 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $stack11 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean isNaturalOrdering()>();
+
+        $stack12 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack12);
+
+        return;
+    }
+
+    public void testIsWithCompare()
+    {
+        java.lang.Integer $stack4, $stack9, $stack12, $stack14, $stack19, $stack22;
+        org.apache.commons.lang3.Range $stack5, $stack15;
+        boolean $stack7, $stack10, $stack13, $stack17, $stack20, $stack23;
+        org.apache.commons.lang3.RangeTest this;
+        org.apache.commons.lang3.RangeTest$2 $stack3;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack3 = new org.apache.commons.lang3.RangeTest$2;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.RangeTest$2: void <init>(org.apache.commons.lang3.RangeTest)>(this);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range is(java.lang.Comparable)>($stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain null", $stack7);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack10 = virtualinvoke $stack5.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 10", $stack10);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(11);
+
+        $stack13 = virtualinvoke $stack5.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain 11", $stack13);
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range is(java.lang.Object,java.util.Comparator)>($stack14, $stack3);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain null", $stack17);
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack20 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 10", $stack20);
+
+        $stack22 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(11);
+
+        $stack23 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 11", $stack23);
+
+        return;
+    }
+
+    public void testBetweenWithCompare()
+    {
+        java.lang.Integer $stack4, $stack5, $stack10, $stack13, $stack16, $stack19, $stack21, $stack22, $stack27, $stack30, $stack33, $stack36;
+        boolean $stack8, $stack11, $stack14, $stack17, $stack20, $stack25, $stack28, $stack31, $stack34, $stack37;
+        org.apache.commons.lang3.RangeTest$3 $u0;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        org.apache.commons.lang3.Range $stack6, $stack23;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $u0 = new org.apache.commons.lang3.RangeTest$3;
+
+        specialinvoke $u0.<org.apache.commons.lang3.RangeTest$3: void <init>(org.apache.commons.lang3.RangeTest)>(this);
+
+        $i0 = (int) -10;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain null", $stack8);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack11 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 10", $stack11);
+
+        $i1 = (int) -10;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $stack14 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain -10", $stack14);
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack17 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain 21", $stack17);
+
+        $i2 = (int) -11;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        $stack20 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain -11", $stack20);
+
+        $i3 = (int) -10;
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i3);
+
+        $stack22 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Object,java.lang.Object,java.util.Comparator)>($stack21, $stack22, $u0);
+
+        $stack25 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("should not contain null", $stack25);
+
+        $stack27 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack28 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 10", $stack28);
+
+        $i4 = (int) -10;
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i4);
+
+        $stack31 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack30);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain -10", $stack31);
+
+        $stack33 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack34 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack33);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain 21", $stack34);
+
+        $i5 = (int) -11;
+
+        $stack36 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i5);
+
+        $stack37 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack36);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("should contain -11", $stack37);
+
+        return;
+    }
+
+    public void testRangeOfChars()
+    {
+        java.lang.Character $stack2, $stack3, $stack5, $stack7;
+        org.apache.commons.lang3.RangeTest this;
+        org.apache.commons.lang3.Range $stack4;
+        boolean $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack2 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(97);
+
+        $stack3 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(122);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack2, $stack3);
+
+        $stack5 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(98);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(66);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        return;
+    }
+
+    public void testEqualsObject()
+    {
+        org.apache.commons.lang3.Range $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack10, $stack11, $stack13, $stack14, $stack16, $stack17, $stack19, $stack21;
+        boolean $stack9, $stack12, $stack15, $stack18, $stack20, $stack22;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack2 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack1);
+
+        $stack4 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack3);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack5 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack5);
+
+        $stack8 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack7 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack11 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack10 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack14 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange3>;
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange3>;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack17 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack16 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange3>;
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        $stack19 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack21 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack22 = virtualinvoke $stack21.<org.apache.commons.lang3.Range: boolean equals(java.lang.Object)>("Ni!");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testHashCode()
+    {
+        long $stack4, $stack6, $stack14, $stack16;
+        int $stack2, $stack5, $stack8, $stack10, $stack12, $stack15, $stack18;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack7, $stack9, $stack11, $stack13, $stack17;
+        boolean $stack20, $stack19;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        $stack4 = (long) $stack2;
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange2>;
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack4, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange3>;
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        if $stack8 != $stack10 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack11 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        $stack14 = (long) $stack12;
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack14, $stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.Range: int hashCode()>();
+
+        if $stack18 == 0 goto label3;
+
+        $stack19 = 1;
+
+        goto label4;
+
+     label3:
+        $stack19 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        return;
+    }
+
+    public void testToString()
+    {
+        java.lang.Integer $stack7, $stack8;
+        org.apache.commons.lang3.RangeTest this;
+        int $i0, $i1;
+        java.lang.String $stack3, $stack5, $stack10;
+        org.apache.commons.lang3.Range $stack2, $stack4, $stack9;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack2 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.Range: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.Range: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[10..20]", $stack5);
+
+        $i0 = (int) -20;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i1 = (int) -10;
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack7, $stack8);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[-20..-10]", $stack10);
+
+        return;
+    }
+
+    public void testToStringFormat()
+    {
+        org.apache.commons.lang3.RangeTest this;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.Range $stack2;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack2 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.Range: java.lang.String toString(java.lang.String)>("From %1$s to %2$s");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("From 10 to 20", $stack3);
+
+        return;
+    }
+
+    public void testGetMinimum()
+    {
+        java.lang.Float $stack15;
+        java.lang.Double $stack20;
+        long $stack6, $stack11;
+        java.lang.Integer $stack4;
+        java.lang.Long $stack10;
+        int $stack5;
+        org.apache.commons.lang3.Range $stack1, $stack7, $stack12, $stack17;
+        double $stack21;
+        org.apache.commons.lang3.RangeTest this;
+        float $stack16;
+        java.lang.Object $stack3, $stack9, $stack14, $stack19;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: java.lang.Object getMinimum()>();
+
+        $stack4 = (java.lang.Integer) $stack3;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Integer: int intValue()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange>;
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.Range: java.lang.Object getMinimum()>();
+
+        $stack10 = (java.lang.Long) $stack9;
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Long: long longValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(10L, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange>;
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: java.lang.Object getMinimum()>();
+
+        $stack15 = (java.lang.Float) $stack14;
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Float: float floatValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(float,float,float)>(10.0F, $stack16, 1.0E-5F);
+
+        $stack17 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange>;
+
+        $stack19 = virtualinvoke $stack17.<org.apache.commons.lang3.Range: java.lang.Object getMinimum()>();
+
+        $stack20 = (java.lang.Double) $stack19;
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Double: double doubleValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(10.0, $stack21, 1.0E-5);
+
+        return;
+    }
+
+    public void testGetMaximum()
+    {
+        java.lang.Float $stack15;
+        java.lang.Double $stack20;
+        long $stack6, $stack11;
+        java.lang.Integer $stack4;
+        java.lang.Long $stack10;
+        int $stack5;
+        org.apache.commons.lang3.Range $stack1, $stack7, $stack12, $stack17;
+        double $stack21;
+        org.apache.commons.lang3.RangeTest this;
+        float $stack16;
+        java.lang.Object $stack3, $stack9, $stack14, $stack19;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: java.lang.Object getMaximum()>();
+
+        $stack4 = (java.lang.Integer) $stack3;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Integer: int intValue()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(20L, $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange>;
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.Range: java.lang.Object getMaximum()>();
+
+        $stack10 = (java.lang.Long) $stack9;
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Long: long longValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(20L, $stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange>;
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: java.lang.Object getMaximum()>();
+
+        $stack15 = (java.lang.Float) $stack14;
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Float: float floatValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(float,float,float)>(20.0F, $stack16, 1.0E-5F);
+
+        $stack17 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange>;
+
+        $stack19 = virtualinvoke $stack17.<org.apache.commons.lang3.Range: java.lang.Object getMaximum()>();
+
+        $stack20 = (java.lang.Double) $stack19;
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Double: double doubleValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(20.0, $stack21, 1.0E-5);
+
+        return;
+    }
+
+    public void testContains()
+    {
+        java.lang.Integer $stack4, $stack7, $stack10, $stack13, $stack16;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack9, $stack12, $stack15;
+        boolean $stack2, $stack5, $stack8, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean contains(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testIsAfter()
+    {
+        java.lang.Integer $stack4, $stack7, $stack10, $stack13, $stack16;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack9, $stack12, $stack15;
+        boolean $stack2, $stack5, $stack8, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean isAfter(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testIsStartedBy()
+    {
+        java.lang.Integer $stack4, $stack7, $stack10, $stack13, $stack16;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack9, $stack12, $stack15;
+        boolean $stack2, $stack5, $stack8, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean isStartedBy(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testIsEndedBy()
+    {
+        java.lang.Integer $stack4, $stack7, $stack10, $stack13, $stack16;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack9, $stack12, $stack15;
+        boolean $stack2, $stack5, $stack8, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean isEndedBy(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testIsBefore()
+    {
+        java.lang.Integer $stack4, $stack7, $stack10, $stack13, $stack16;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack9, $stack12, $stack15;
+        boolean $stack2, $stack5, $stack8, $stack11, $stack14, $stack17;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack7 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: boolean isBefore(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testElementCompareTo()
+    {
+        long $stack8, $stack13, $stack18, $stack23, $stack28;
+        java.lang.Integer $stack6, $stack11, $stack16, $stack21, $stack26;
+        java.lang.NullPointerException $stack29;
+        int $stack7, $stack12, $stack17, $stack22, $stack27;
+        org.apache.commons.lang3.Range $stack2, $stack5, $stack10, $stack15, $stack20, $stack25;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("NullPointerException should have been thrown");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack29 := @caughtexception;
+
+     label4:
+        $stack5 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>($stack6);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack8);
+
+        $stack10 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>($stack11);
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack13);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack17 = virtualinvoke $stack15.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>($stack16);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack20 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack22 = virtualinvoke $stack20.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>($stack21);
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack23);
+
+        $stack25 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack27 = virtualinvoke $stack25.<org.apache.commons.lang3.Range: int elementCompareTo(java.lang.Object)>($stack26);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack28);
+
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testContainsRange()
+    {
+        java.lang.Integer $stack4, $stack5, $stack9, $stack10, $stack14, $stack15, $stack19, $stack20, $stack24, $stack25, $stack29, $stack30, $stack34, $stack35, $stack39, $stack40, $stack44, $stack45, $stack49, $stack50, $stack54, $stack55;
+        boolean $stack2, $stack7, $stack12, $stack17, $stack22, $stack27, $stack32, $stack37, $stack42, $stack47, $stack52, $stack57;
+        int $i0, $i1;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack8, $stack11, $stack13, $stack16, $stack18, $stack21, $stack23, $stack26, $stack28, $stack31, $stack33, $stack36, $stack38, $stack41, $stack43, $stack46, $stack48, $stack51, $stack53, $stack56;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(12);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(18);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(32);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(45);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack9, $stack10);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack14, $stack15);
+
+        $stack17 = virtualinvoke $stack13.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack19, $stack20);
+
+        $stack22 = virtualinvoke $stack18.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack24 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(14);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack24, $stack25);
+
+        $stack27 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack29 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(16);
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack29, $stack30);
+
+        $stack32 = virtualinvoke $stack28.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack32);
+
+        $stack33 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack35 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(19);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack34, $stack35);
+
+        $stack37 = virtualinvoke $stack33.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack36);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        $stack38 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack39 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack40 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack39, $stack40);
+
+        $stack42 = virtualinvoke $stack38.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack41);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack44 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(11);
+
+        $stack45 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack44, $stack45);
+
+        $stack47 = virtualinvoke $stack43.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack46);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack48 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack49 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack50 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack49, $stack50);
+
+        $stack52 = virtualinvoke $stack48.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack51);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack52);
+
+        $stack53 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $i0 = (int) -11;
+
+        $stack54 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i1 = (int) -18;
+
+        $stack55 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack54, $stack55);
+
+        $stack57 = virtualinvoke $stack53.<org.apache.commons.lang3.Range: boolean containsRange(org.apache.commons.lang3.Range)>($stack56);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack57);
+
+        return;
+    }
+
+    public void testIsAfterRange()
+    {
+        java.lang.Integer $stack4, $stack5, $stack9, $stack10, $stack14, $stack15, $stack19, $stack20, $stack24, $stack25, $stack29, $stack30, $stack34, $stack35;
+        boolean $stack2, $stack7, $stack12, $stack17, $stack22, $stack27, $stack32, $stack37;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack8, $stack11, $stack13, $stack16, $stack18, $stack21, $stack23, $stack26, $stack28, $stack31, $stack33, $stack36;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack9, $stack10);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack14, $stack15);
+
+        $stack17 = virtualinvoke $stack13.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack19, $stack20);
+
+        $stack22 = virtualinvoke $stack18.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack24 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack24, $stack25);
+
+        $stack27 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack29 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack29, $stack30);
+
+        $stack32 = virtualinvoke $stack28.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack32);
+
+        $stack33 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack35 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack34, $stack35);
+
+        $stack37 = virtualinvoke $stack33.<org.apache.commons.lang3.Range: boolean isAfterRange(org.apache.commons.lang3.Range)>($stack36);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack37);
+
+        return;
+    }
+
+    public void testIsOverlappedBy()
+    {
+        java.lang.Integer $stack4, $stack5, $stack9, $stack10, $stack14, $stack15, $stack19, $stack20, $stack24, $stack25, $stack29, $stack30, $stack34, $stack35, $stack39, $stack40, $stack44, $stack45, $stack49, $stack50, $stack54, $stack55;
+        boolean $stack2, $stack7, $stack12, $stack17, $stack22, $stack27, $stack32, $stack37, $stack42, $stack47, $stack52, $stack57;
+        int $i0, $i1;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack8, $stack11, $stack13, $stack16, $stack18, $stack21, $stack23, $stack26, $stack28, $stack31, $stack33, $stack36, $stack38, $stack41, $stack43, $stack46, $stack48, $stack51, $stack53, $stack56;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(12);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(18);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(32);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(45);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack9, $stack10);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack14, $stack15);
+
+        $stack17 = virtualinvoke $stack13.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack19, $stack20);
+
+        $stack22 = virtualinvoke $stack18.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack24 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(14);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack24, $stack25);
+
+        $stack27 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack29 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(16);
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack29, $stack30);
+
+        $stack32 = virtualinvoke $stack28.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack35 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(19);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack34, $stack35);
+
+        $stack37 = virtualinvoke $stack33.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack36);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        $stack38 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack39 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack40 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack39, $stack40);
+
+        $stack42 = virtualinvoke $stack38.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack41);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack42);
+
+        $stack43 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack44 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(11);
+
+        $stack45 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack44, $stack45);
+
+        $stack47 = virtualinvoke $stack43.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack46);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack48 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack49 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack50 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack49, $stack50);
+
+        $stack52 = virtualinvoke $stack48.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack51);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack52);
+
+        $stack53 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $i0 = (int) -11;
+
+        $stack54 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $i1 = (int) -18;
+
+        $stack55 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack54, $stack55);
+
+        $stack57 = virtualinvoke $stack53.<org.apache.commons.lang3.Range: boolean isOverlappedBy(org.apache.commons.lang3.Range)>($stack56);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack57);
+
+        return;
+    }
+
+    public void testIsBeforeRange()
+    {
+        java.lang.Integer $stack4, $stack5, $stack9, $stack10, $stack14, $stack15, $stack19, $stack20, $stack24, $stack25, $stack29, $stack30, $stack34, $stack35;
+        boolean $stack2, $stack7, $stack12, $stack17, $stack22, $stack27, $stack32, $stack37;
+        org.apache.commons.lang3.Range $stack1, $stack3, $stack6, $stack8, $stack11, $stack13, $stack16, $stack18, $stack21, $stack23, $stack26, $stack28, $stack31, $stack33, $stack36;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = virtualinvoke $stack1.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack9, $stack10);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack14, $stack15);
+
+        $stack17 = virtualinvoke $stack13.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack19, $stack20);
+
+        $stack22 = virtualinvoke $stack18.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack24 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack24, $stack25);
+
+        $stack27 = virtualinvoke $stack23.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        $stack28 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack29 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(21);
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(25);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack29, $stack30);
+
+        $stack32 = virtualinvoke $stack28.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack35 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack34, $stack35);
+
+        $stack37 = virtualinvoke $stack33.<org.apache.commons.lang3.Range: boolean isBeforeRange(org.apache.commons.lang3.Range)>($stack36);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack37);
+
+        return;
+    }
+
+    public void testIntersectionWith()
+    {
+        java.lang.Integer $stack21, $stack22, $stack25, $stack26;
+        org.apache.commons.lang3.Range $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack23, $stack24, $stack27, $stack28;
+        org.apache.commons.lang3.RangeTest this;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack3 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack7 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack6 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack5 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range byteRange>;
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack11 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange>;
+
+        $stack10 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange>;
+
+        $stack9 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range longRange>;
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack15 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange>;
+
+        $stack14 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange>;
+
+        $stack13 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range floatRange>;
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        $stack19 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange>;
+
+        $stack18 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange>;
+
+        $stack17 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range doubleRange>;
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack19, $stack20);
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack22 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack21, $stack22);
+
+        $stack24 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(15);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack25, $stack26);
+
+        $stack28 = virtualinvoke $stack24.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack28);
+
+        return;
+    }
+
+    public void testIntersectionWithNull()
+    {
+        org.apache.commons.lang3.RangeTest this;
+        org.apache.commons.lang3.Range $stack1;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>(null);
+
+        return;
+    }
+
+    public void testIntersectionWithNonOverlapping()
+    {
+        org.apache.commons.lang3.RangeTest this;
+        java.lang.Integer $stack2, $stack3;
+        org.apache.commons.lang3.Range $stack1, $stack4;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.Range: org.apache.commons.lang3.Range between(java.lang.Comparable,java.lang.Comparable)>($stack2, $stack3);
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.Range: org.apache.commons.lang3.Range intersectionWith(org.apache.commons.lang3.Range)>($stack4);
+
+        return;
+    }
+
+    public void testSerializing()
+    {
+        org.apache.commons.lang3.RangeTest this;
+        org.apache.commons.lang3.Range $stack1;
+
+        this := @this: org.apache.commons.lang3.RangeTest;
+
+        $stack1 = this.<org.apache.commons.lang3.RangeTest: org.apache.commons.lang3.Range intRange>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack1);
+
+        return;
+    }
+}

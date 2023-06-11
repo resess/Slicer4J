@@ -1,0 +1,1360 @@
+public class org.apache.commons.lang3.builder.HashCodeBuilder extends java.lang.Object implements org.apache.commons.lang3.builder.Builder
+{
+    private static final java.lang.ThreadLocal REGISTRY;
+    private final int iConstant;
+    private int iTotal;
+
+    static java.util.Set getRegistry()
+    {
+        java.util.Set $stack2;
+        java.lang.ThreadLocal $stack0;
+        java.lang.Object $stack1;
+
+        $stack0 = <org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.ThreadLocal REGISTRY>;
+
+        $stack1 = virtualinvoke $stack0.<java.lang.ThreadLocal: java.lang.Object get()>();
+
+        $stack2 = (java.util.Set) $stack1;
+
+        return $stack2;
+    }
+
+    static boolean isRegistered(java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.IDKey $stack3;
+        java.util.Set $stack2;
+        java.lang.Object value;
+        boolean $stack4, $stack5;
+
+        value := @parameter0: java.lang.Object;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        if $stack2 == null goto label1;
+
+        $stack3 = new org.apache.commons.lang3.builder.IDKey;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.IDKey: void <init>(java.lang.Object)>(value);
+
+        $stack4 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack3);
+
+        if $stack4 == 0 goto label1;
+
+        $stack5 = 1;
+
+        goto label2;
+
+     label1:
+        $stack5 = 0;
+
+     label2:
+        return $stack5;
+    }
+
+    private static void reflectionAppend(java.lang.Object, java.lang.Class, org.apache.commons.lang3.builder.HashCodeBuilder, boolean, java.lang.String[])
+    {
+        java.lang.Throwable $stack27;
+        java.lang.String[] excludeFields;
+        int len$, $stack19, $stack20, $stack24, i$, $i0;
+        org.apache.commons.lang3.builder.HashCodeBuilder builder;
+        java.lang.InternalError $u0;
+        java.lang.String $stack14, $stack18;
+        boolean $stack12, $stack15, useTransients, $stack21, $stack25;
+        java.lang.IllegalAccessException $stack28;
+        java.lang.reflect.Field field;
+        java.lang.reflect.Field[] $stack13;
+        java.lang.Object object, $stack22;
+        java.lang.Class clazz;
+
+        object := @parameter0: java.lang.Object;
+
+        clazz := @parameter1: java.lang.Class;
+
+        builder := @parameter2: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        useTransients := @parameter3: boolean;
+
+        excludeFields := @parameter4: java.lang.String[];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: boolean isRegistered(java.lang.Object)>(object);
+
+        if $stack12 == 0 goto label01;
+
+        return;
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: void register(java.lang.Object)>(object);
+
+        $stack13 = virtualinvoke clazz.<java.lang.Class: java.lang.reflect.Field[] getDeclaredFields()>();
+
+        staticinvoke <java.lang.reflect.AccessibleObject: void setAccessible(java.lang.reflect.AccessibleObject[],boolean)>($stack13, 1);
+
+        len$ = lengthof $stack13;
+
+        i$ = 0;
+
+     label02:
+        if i$ >= len$ goto label08;
+
+        field = $stack13[i$];
+
+        $stack14 = virtualinvoke field.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>(excludeFields, $stack14);
+
+        if $stack15 != 0 goto label07;
+
+        $stack18 = virtualinvoke field.<java.lang.reflect.Field: java.lang.String getName()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.String: int indexOf(int)>(36);
+
+        $i0 = (int) -1;
+
+        if $stack19 != $i0 goto label07;
+
+        if useTransients != 0 goto label03;
+
+        $stack24 = virtualinvoke field.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack25 = staticinvoke <java.lang.reflect.Modifier: boolean isTransient(int)>($stack24);
+
+        if $stack25 != 0 goto label07;
+
+     label03:
+        $stack20 = virtualinvoke field.<java.lang.reflect.Field: int getModifiers()>();
+
+        $stack21 = staticinvoke <java.lang.reflect.Modifier: boolean isStatic(int)>($stack20);
+
+        if $stack21 != 0 goto label07;
+
+     label04:
+        $stack22 = virtualinvoke field.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>(object);
+
+        virtualinvoke builder.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>($stack22);
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack28 := @caughtexception;
+
+        $u0 = new java.lang.InternalError;
+
+        specialinvoke $u0.<java.lang.InternalError: void <init>(java.lang.String)>("Unexpected IllegalAccessException");
+
+        throw $u0;
+
+     label07:
+        i$ = i$ + 1;
+
+        goto label02;
+
+     label08:
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: void unregister(java.lang.Object)>(object);
+
+        goto label11;
+
+     label09:
+        $stack27 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: void unregister(java.lang.Object)>(object);
+
+        throw $stack27;
+
+     label11:
+        return;
+
+        catch java.lang.IllegalAccessException from label04 to label05 with label06;
+        catch java.lang.Throwable from label01 to label08 with label09;
+        catch java.lang.Throwable from label09 to label10 with label09;
+    }
+
+    public static int reflectionHashCode(int, int, java.lang.Object)
+    {
+        int initialNonZeroOddNumber, multiplierNonZeroOddNumber, $stack4;
+        java.lang.Object object;
+        java.lang.String[] $stack3;
+
+        initialNonZeroOddNumber := @parameter0: int;
+
+        multiplierNonZeroOddNumber := @parameter1: int;
+
+        object := @parameter2: java.lang.Object;
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(initialNonZeroOddNumber, multiplierNonZeroOddNumber, object, 0, null, $stack3);
+
+        return $stack4;
+    }
+
+    public static int reflectionHashCode(int, int, java.lang.Object, boolean)
+    {
+        int initialNonZeroOddNumber, multiplierNonZeroOddNumber, $stack5;
+        java.lang.Object object;
+        java.lang.String[] $stack4;
+        boolean testTransients;
+
+        initialNonZeroOddNumber := @parameter0: int;
+
+        multiplierNonZeroOddNumber := @parameter1: int;
+
+        object := @parameter2: java.lang.Object;
+
+        testTransients := @parameter3: boolean;
+
+        $stack4 = newarray (java.lang.String)[0];
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(initialNonZeroOddNumber, multiplierNonZeroOddNumber, object, testTransients, null, $stack4);
+
+        return $stack5;
+    }
+
+    public static transient int reflectionHashCode(int, int, java.lang.Object, boolean, java.lang.Class, java.lang.String[])
+    {
+        java.lang.String[] excludeFields;
+        java.lang.IllegalArgumentException $stack15;
+        org.apache.commons.lang3.builder.HashCodeBuilder $stack8;
+        int initialNonZeroOddNumber, multiplierNonZeroOddNumber, $stack11;
+        java.lang.Object object;
+        java.lang.Class $stack9, $stack10, reflectUpToClass, $stack13, clazz;
+        boolean testTransients;
+
+        initialNonZeroOddNumber := @parameter0: int;
+
+        multiplierNonZeroOddNumber := @parameter1: int;
+
+        object := @parameter2: java.lang.Object;
+
+        testTransients := @parameter3: boolean;
+
+        reflectUpToClass := @parameter4: java.lang.Class;
+
+        excludeFields := @parameter5: java.lang.String[];
+
+        if object != null goto label1;
+
+        $stack15 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack15.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The object to build a hash code for must not be null");
+
+        throw $stack15;
+
+     label1:
+        $stack8 = new org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: void <init>(int,int)>(initialNonZeroOddNumber, multiplierNonZeroOddNumber);
+
+        $stack9 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        clazz = $stack9;
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: void reflectionAppend(java.lang.Object,java.lang.Class,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[])>(object, $stack9, $stack8, testTransients, excludeFields);
+
+     label2:
+        $stack10 = virtualinvoke clazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        if $stack10 == null goto label3;
+
+        if clazz == reflectUpToClass goto label3;
+
+        $stack13 = virtualinvoke clazz.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        clazz = $stack13;
+
+        staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: void reflectionAppend(java.lang.Object,java.lang.Class,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[])>(object, $stack13, $stack8, testTransients, excludeFields);
+
+        goto label2;
+
+     label3:
+        $stack11 = virtualinvoke $stack8.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        return $stack11;
+    }
+
+    public static int reflectionHashCode(java.lang.Object, boolean)
+    {
+        int $stack3;
+        java.lang.Object object;
+        java.lang.String[] $stack2;
+        boolean testTransients;
+
+        object := @parameter0: java.lang.Object;
+
+        testTransients := @parameter1: boolean;
+
+        $stack2 = newarray (java.lang.String)[0];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(17, 37, object, testTransients, null, $stack2);
+
+        return $stack3;
+    }
+
+    public static int reflectionHashCode(java.lang.Object, java.util.Collection)
+    {
+        java.util.Collection excludeFields;
+        int $stack3;
+        java.lang.Object object;
+        java.lang.String[] $stack2;
+
+        object := @parameter0: java.lang.Object;
+
+        excludeFields := @parameter1: java.util.Collection;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String[] toNoNullStringArray(java.util.Collection)>(excludeFields);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(java.lang.Object,java.lang.String[])>(object, $stack2);
+
+        return $stack3;
+    }
+
+    public static transient int reflectionHashCode(java.lang.Object, java.lang.String[])
+    {
+        int $stack2;
+        java.lang.Object object;
+        java.lang.String[] excludeFields;
+
+        object := @parameter0: java.lang.Object;
+
+        excludeFields := @parameter1: java.lang.String[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: int reflectionHashCode(int,int,java.lang.Object,boolean,java.lang.Class,java.lang.String[])>(17, 37, object, 0, null, excludeFields);
+
+        return $stack2;
+    }
+
+    static void register(java.lang.Object)
+    {
+        java.util.HashSet $stack8;
+        java.lang.Throwable $stack10;
+        java.lang.ThreadLocal $stack9;
+        org.apache.commons.lang3.builder.IDKey $stack6;
+        java.util.Set $stack3, $stack5;
+        java.lang.Object value;
+
+        value := @parameter0: java.lang.Object;
+
+        entermonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label1:
+        $stack3 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        if $stack3 != null goto label2;
+
+        $stack9 = <org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.ThreadLocal REGISTRY>;
+
+        $stack8 = new java.util.HashSet;
+
+        specialinvoke $stack8.<java.util.HashSet: void <init>()>();
+
+        virtualinvoke $stack9.<java.lang.ThreadLocal: void set(java.lang.Object)>($stack8);
+
+     label2:
+        exitmonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label3:
+        goto label6;
+
+     label4:
+        $stack10 := @caughtexception;
+
+        exitmonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label5:
+        throw $stack10;
+
+     label6:
+        $stack5 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        $stack6 = new org.apache.commons.lang3.builder.IDKey;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.IDKey: void <init>(java.lang.Object)>(value);
+
+        interfaceinvoke $stack5.<java.util.Set: boolean add(java.lang.Object)>($stack6);
+
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    static void unregister(java.lang.Object)
+    {
+        java.lang.Throwable $stack11;
+        java.lang.ThreadLocal $stack10;
+        org.apache.commons.lang3.builder.IDKey $stack5;
+        java.util.Set $stack4, $stack7;
+        java.lang.Object value;
+        boolean $stack9;
+
+        value := @parameter0: java.lang.Object;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        if $stack4 == null goto label6;
+
+        $stack5 = new org.apache.commons.lang3.builder.IDKey;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.IDKey: void <init>(java.lang.Object)>(value);
+
+        interfaceinvoke $stack4.<java.util.Set: boolean remove(java.lang.Object)>($stack5);
+
+        entermonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label1:
+        $stack7 = staticinvoke <org.apache.commons.lang3.builder.HashCodeBuilder: java.util.Set getRegistry()>();
+
+        if $stack7 == null goto label2;
+
+        $stack9 = interfaceinvoke $stack7.<java.util.Set: boolean isEmpty()>();
+
+        if $stack9 == 0 goto label2;
+
+        $stack10 = <org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.ThreadLocal REGISTRY>;
+
+        virtualinvoke $stack10.<java.lang.ThreadLocal: void remove()>();
+
+     label2:
+        exitmonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label3:
+        goto label6;
+
+     label4:
+        $stack11 := @caughtexception;
+
+        exitmonitor class "Lorg/apache/commons/lang3/builder/HashCodeBuilder;";
+
+     label5:
+        throw $stack11;
+
+     label6:
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = 0;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant> = 37;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = 17;
+
+        return;
+    }
+
+    public void <init>(int, int)
+    {
+        java.lang.IllegalArgumentException $stack5, $stack6, $stack7, $stack8;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int initialNonZeroOddNumber, $stack3, multiplierNonZeroOddNumber, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        initialNonZeroOddNumber := @parameter0: int;
+
+        multiplierNonZeroOddNumber := @parameter1: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = 0;
+
+        if initialNonZeroOddNumber != 0 goto label1;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HashCodeBuilder requires a non zero initial value");
+
+        throw $stack8;
+
+     label1:
+        $stack3 = initialNonZeroOddNumber % 2;
+
+        if $stack3 != 0 goto label2;
+
+        $stack7 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack7.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HashCodeBuilder requires an odd initial value");
+
+        throw $stack7;
+
+     label2:
+        if multiplierNonZeroOddNumber != 0 goto label3;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HashCodeBuilder requires a non zero multiplier");
+
+        throw $stack6;
+
+     label3:
+        $stack4 = multiplierNonZeroOddNumber % 2;
+
+        if $stack4 != 0 goto label4;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("HashCodeBuilder requires an odd multiplier");
+
+        throw $stack5;
+
+     label4:
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant> = multiplierNonZeroOddNumber;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = initialNonZeroOddNumber;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(boolean)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, $stack4, $stack5;
+        boolean value, $stack6;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: boolean;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        if value == 0 goto label1;
+
+        $stack6 = 0;
+
+        goto label2;
+
+     label1:
+        $stack6 = 1;
+
+     label2:
+        $stack5 = $stack4 + $stack6;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])
+    {
+        boolean[] array;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        boolean element;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: boolean[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(byte)
+    {
+        byte value;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, $stack4, $stack5, $i0;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: byte;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $i0 = (int) value;
+
+        $stack5 = $stack4 + $i0;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])
+    {
+        byte[] array;
+        byte element;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: byte[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(char)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, $stack4, $stack5, $i0;
+        char value;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: char;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $i0 = (int) value;
+
+        $stack5 = $stack4 + $i0;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(char[])
+    {
+        char element;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        char[] array;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: char[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(double)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this, $stack4;
+        long $stack3;
+        double value;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: double;
+
+        $stack3 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>(value);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long)>($stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(double[])
+    {
+        double[] array;
+        int len$, $stack10, $stack11, $stack12, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        double element;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: double[];
+
+        if array != null goto label1;
+
+        $stack11 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack12 = $stack11 * $stack10;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack12;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(float)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, $stack4, $stack5, $stack6;
+        float value;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: float;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $stack5 = staticinvoke <java.lang.Float: int floatToIntBits(float)>(value);
+
+        $stack6 = $stack4 + $stack5;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack6;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(float[])
+    {
+        float[] array;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        float element;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: float[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(int)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, value, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: int;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $stack5 = $stack4 + value;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(int[])
+    {
+        int[] array;
+        int len$, element, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: int[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(long)
+    {
+        long value, $stack5, $stack6;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack3, $stack4, $stack7, $stack8, $stack9;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: long;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack8 = $stack4 * $stack3;
+
+        $stack5 = value >> 32;
+
+        $stack6 = value ^ $stack5;
+
+        $stack7 = (int) $stack6;
+
+        $stack9 = $stack8 + $stack7;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack9;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(long[])
+    {
+        long element;
+        long[] array;
+        int len$, $stack10, $stack11, $stack12, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: long[];
+
+        if array != null goto label1;
+
+        $stack11 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack12 = $stack11 * $stack10;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack12;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)
+    {
+        byte[] $stack30, $stack31;
+        int[] $stack39, $stack40;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        boolean $stack3, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16;
+        short[] $stack36, $stack37;
+        java.lang.Object[] $stack17, $stack18;
+        double[] $stack27, $stack28;
+        float[] $stack24, $stack25;
+        long[] $stack42, $stack43;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack45, $stack46, $stack47;
+        boolean[] $stack21, $stack22;
+        char[] $stack33, $stack34;
+        java.lang.Object object;
+        java.lang.Class $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        object := @parameter0: java.lang.Object;
+
+        if object != null goto label01;
+
+        $stack46 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack45 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack47 = $stack46 * $stack45;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack47;
+
+        goto label11;
+
+     label01:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: boolean isArray()>();
+
+        if $stack3 == 0 goto label10;
+
+        $stack9 = object instanceof long[];
+
+        if $stack9 == 0 goto label02;
+
+        $stack42 = (long[]) object;
+
+        $stack43 = (long[]) $stack42;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(long[])>($stack43);
+
+        goto label11;
+
+     label02:
+        $stack10 = object instanceof int[];
+
+        if $stack10 == 0 goto label03;
+
+        $stack39 = (int[]) object;
+
+        $stack40 = (int[]) $stack39;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(int[])>($stack40);
+
+        goto label11;
+
+     label03:
+        $stack11 = object instanceof short[];
+
+        if $stack11 == 0 goto label04;
+
+        $stack36 = (short[]) object;
+
+        $stack37 = (short[]) $stack36;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short[])>($stack37);
+
+        goto label11;
+
+     label04:
+        $stack12 = object instanceof char[];
+
+        if $stack12 == 0 goto label05;
+
+        $stack33 = (char[]) object;
+
+        $stack34 = (char[]) $stack33;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(char[])>($stack34);
+
+        goto label11;
+
+     label05:
+        $stack13 = object instanceof byte[];
+
+        if $stack13 == 0 goto label06;
+
+        $stack30 = (byte[]) object;
+
+        $stack31 = (byte[]) $stack30;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(byte[])>($stack31);
+
+        goto label11;
+
+     label06:
+        $stack14 = object instanceof double[];
+
+        if $stack14 == 0 goto label07;
+
+        $stack27 = (double[]) object;
+
+        $stack28 = (double[]) $stack27;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(double[])>($stack28);
+
+        goto label11;
+
+     label07:
+        $stack15 = object instanceof float[];
+
+        if $stack15 == 0 goto label08;
+
+        $stack24 = (float[]) object;
+
+        $stack25 = (float[]) $stack24;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(float[])>($stack25);
+
+        goto label11;
+
+     label08:
+        $stack16 = object instanceof boolean[];
+
+        if $stack16 == 0 goto label09;
+
+        $stack21 = (boolean[]) object;
+
+        $stack22 = (boolean[]) $stack21;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(boolean[])>($stack22);
+
+        goto label11;
+
+     label09:
+        $stack17 = (java.lang.Object[]) object;
+
+        $stack18 = (java.lang.Object[]) $stack17;
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])>($stack18);
+
+        goto label11;
+
+     label10:
+        $stack5 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack4 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack6 = $stack5 * $stack4;
+
+        $stack7 = virtualinvoke object.<java.lang.Object: int hashCode()>();
+
+        $stack8 = $stack6 + $stack7;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack8;
+
+     label11:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object[])
+    {
+        java.lang.Object[] array;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        java.lang.Object element;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: java.lang.Object[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(java.lang.Object)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(short)
+    {
+        short value;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, $stack4, $stack5, $i0;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        value := @parameter0: short;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $i0 = (int) value;
+
+        $stack5 = $stack4 + $i0;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder append(short[])
+    {
+        short element;
+        int len$, $stack9, $stack10, $stack11, i$;
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        short[] array;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        array := @parameter0: short[];
+
+        if array != null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack9 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack11 = $stack10 * $stack9;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack11;
+
+        goto label3;
+
+     label1:
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label3;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: org.apache.commons.lang3.builder.HashCodeBuilder append(short)>(element);
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.builder.HashCodeBuilder appendSuper(int)
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack2, $stack3, superHashCode, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        superHashCode := @parameter0: int;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        $stack2 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iConstant>;
+
+        $stack4 = $stack3 * $stack2;
+
+        $stack5 = $stack4 + superHashCode;
+
+        this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal> = $stack5;
+
+        return this;
+    }
+
+    public int toHashCode()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.HashCodeBuilder: int iTotal>;
+
+        return $stack1;
+    }
+
+    public java.lang.Integer build()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack1;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($stack1);
+
+        return $stack2;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        int $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: int toHashCode()>();
+
+        return $stack1;
+    }
+
+    public volatile java.lang.Object build()
+    {
+        org.apache.commons.lang3.builder.HashCodeBuilder this;
+        java.lang.Integer $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.HashCodeBuilder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.Integer build()>();
+
+        return $stack1;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.ThreadLocal $stack0;
+
+        $stack0 = new java.lang.ThreadLocal;
+
+        specialinvoke $stack0.<java.lang.ThreadLocal: void <init>()>();
+
+        <org.apache.commons.lang3.builder.HashCodeBuilder: java.lang.ThreadLocal REGISTRY> = $stack0;
+
+        return;
+    }
+}

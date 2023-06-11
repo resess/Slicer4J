@@ -1,0 +1,1303 @@
+public class org.apache.commons.lang3.text.StrSubstitutorTest extends java.lang.Object
+{
+    private java.util.Map values;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4;
+        java.util.HashMap $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack1 = new java.util.HashMap;
+
+        specialinvoke $stack1.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values> = $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal", "quick brown fox");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("target", "lazy dog");
+
+        return;
+    }
+
+    public void tearDown() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values> = null;
+
+        return;
+    }
+
+    public void testReplaceSimple()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The quick brown fox jumps over the lazy dog.", "The ${animal} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceSolo()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("quick brown fox", "${animal}", 0);
+
+        return;
+    }
+
+    public void testReplaceNoVariables()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("The balloon arrived.");
+
+        return;
+    }
+
+    public void testReplaceNull()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>(null);
+
+        return;
+    }
+
+    public void testReplaceEmpty()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("");
+
+        return;
+    }
+
+    public void testReplaceChangedMap()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack3, $stack4;
+        java.lang.String $stack7;
+        org.apache.commons.lang3.text.StrSubstitutor $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack3);
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("target", "moon");
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("The quick brown fox jumps over the moon.", $stack7);
+
+        return;
+    }
+
+    public void testReplaceUnknownKey()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${person} jumps over the lazy dog.", "The ${person} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceAdjacentAtStart()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4, $stack7;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.text.StrSubstitutor $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("code", "GBP");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("amount", "12.50");
+
+        $stack6 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("${code}${amount} charged");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("GBP12.50 charged", $stack9);
+
+        return;
+    }
+
+    public void testReplaceAdjacentAtEnd()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4, $stack7;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.text.StrSubstitutor $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("code", "GBP");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("amount", "12.50");
+
+        $stack6 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("Amount is ${code}${amount}");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Amount is GBP12.50", $stack9);
+
+        return;
+    }
+
+    public void testReplaceRecursive()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack1, $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal", "${critter}");
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("target", "${pet}");
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack5.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("pet", "${petCharacteristic} dog");
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack7.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("petCharacteristic", "lazy");
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack9.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critter", "${critterSpeed} ${critterColor} ${critterType}");
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack11.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterSpeed", "quick");
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack13.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterColor", "brown");
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack15.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterType", "fox");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The quick brown fox jumps over the lazy dog.", "The ${animal} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceEscaping()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${animal} jumps over the lazy dog.", "The $${animal} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceSoloEscaping()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("${animal}", "$${animal}", 0);
+
+        return;
+    }
+
+    public void testReplaceComplexEscaping()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${quick brown fox} jumps over the lazy dog.", "The $${${animal}} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceNoPrefixNoSuffix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The animal jumps over the lazy dog.", "The animal jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceIncompletePrefix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The {animal} jumps over the lazy dog.", "The {animal} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplacePrefixNoSuffix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${animal jumps over the ${target} lazy dog.", "The ${animal jumps over the ${target} ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceNoPrefixSuffix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The animal} jumps over the lazy dog.", "The animal} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceEmptyKeys()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${} jumps over the lazy dog.", "The ${} jumps over the ${target}.", 1);
+
+        return;
+    }
+
+    public void testReplaceToIdentical()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack1, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal", "$${${thing}}");
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("thing", "animal");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestReplace(java.lang.String,java.lang.String,boolean)>("The ${animal} jumps.", "The ${animal} jumps.", 1);
+
+        return;
+    }
+
+    public void testCyclicReplacement()
+    {
+        java.lang.IllegalStateException $stack15;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.HashMap $stack4;
+        org.apache.commons.lang3.text.StrSubstitutor $stack13;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack4 = new java.util.HashMap;
+
+        specialinvoke $stack4.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal", "${critter}");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("target", "${pet}");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("pet", "${petCharacteristic} dog");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("petCharacteristic", "lazy");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critter", "${critterSpeed} ${critterColor} ${critterType}");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterSpeed", "quick");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterColor", "brown");
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("critterType", "${animal}");
+
+        $stack13 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack4);
+
+     label1:
+        virtualinvoke $stack13.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Cyclic replacement was not detected!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack15 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalStateException from label1 to label2 with label3;
+    }
+
+    public void testReplaceWeirdPattens()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${ }");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${\t}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${\n}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${\u0008}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("$}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${}$");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${${");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${${}}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${$${}}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${$$${}}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${$$${$}}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${${}}");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutorTest: void doTestNoReplace(java.lang.String)>("${${ }}");
+
+        return;
+    }
+
+    public void testReplacePartialString_noReplace()
+    {
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrSubstitutor $stack2;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String,int,int)>("The ${animal} jumps over the ${target}.", 4, 15);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("${animal} jumps", $stack4);
+
+        return;
+    }
+
+    public void testReplaceInVariable()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4, $stack6, $stack9, $stack13;
+        java.lang.String $stack12, $stack17;
+        org.apache.commons.lang3.text.StrSubstitutor $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.1", "fox");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.2", "mouse");
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("species", "2");
+
+        $stack8 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack9);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: void setEnableSubstitutionInVariables(boolean)>(1);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal.${species}} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result (1)", "The mouse jumps over the lazy dog.", $stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack13.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("species", "1");
+
+        $stack17 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal.${species}} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result (2)", "The fox jumps over the lazy dog.", $stack17);
+
+        return;
+    }
+
+    public void testReplaceInVariableDisabled()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4, $stack6, $stack9;
+        java.lang.String $stack12;
+        org.apache.commons.lang3.text.StrSubstitutor $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.1", "fox");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.2", "mouse");
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("species", "2");
+
+        $stack8 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack9);
+
+        $stack12 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal.${species}} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", "The ${animal.${species}} jumps over the lazy dog.", $stack12);
+
+        return;
+    }
+
+    public void testReplaceInVariableRecursive()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack2, $stack4, $stack6, $stack8, $stack10, $stack13;
+        java.lang.String $stack16;
+        org.apache.commons.lang3.text.StrSubstitutor $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.2", "brown fox");
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("animal.1", "white mouse");
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("color", "white");
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack8.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("species.white", "1");
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        interfaceinvoke $stack10.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("species.brown", "2");
+
+        $stack12 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack13);
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.text.StrSubstitutor: void setEnableSubstitutionInVariables(boolean)>(1);
+
+        $stack16 = virtualinvoke $stack12.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("The ${animal.${species.${color}}} jumps over the ${target}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result", "The white mouse jumps over the lazy dog.", $stack16);
+
+        return;
+    }
+
+    public void testResolveVariable()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest$1 $stack7;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.HashMap $stack5;
+        java.lang.String $stack10;
+        org.apache.commons.lang3.text.StrBuilder $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack4 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>("Hi ${name}!");
+
+        $stack5 = new java.util.HashMap;
+
+        specialinvoke $stack5.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack5.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack7 = new org.apache.commons.lang3.text.StrSubstitutorTest$1;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.text.StrSubstitutorTest$1: void <init>(org.apache.commons.lang3.text.StrSubstitutorTest,java.util.Map,org.apache.commons.lang3.text.StrBuilder)>(this, $stack5, $stack4);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder)>($stack4);
+
+        $stack10 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi jakarta!", $stack10);
+
+        return;
+    }
+
+    public void testConstructorNoArgs()
+    {
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrSubstitutor $stack2;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("Hi ${name}");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi ${name}", $stack4);
+
+        return;
+    }
+
+    public void testConstructorMapPrefixSuffix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.HashMap $stack3;
+        java.lang.String $stack7;
+        org.apache.commons.lang3.text.StrSubstitutor $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack3 = new java.util.HashMap;
+
+        specialinvoke $stack3.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack5 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map,java.lang.String,java.lang.String)>($stack3, "<", ">");
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("Hi $< <name>");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi < commons", $stack7);
+
+        return;
+    }
+
+    public void testConstructorMapFull()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.HashMap $stack3;
+        java.lang.String $stack7;
+        org.apache.commons.lang3.text.StrSubstitutor $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack3 = new java.util.HashMap;
+
+        specialinvoke $stack3.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack5 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map,java.lang.String,java.lang.String,char)>($stack3, "<", ">", 33);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>("Hi !< <name>");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi < commons", $stack7);
+
+        return;
+    }
+
+    public void testGetSetEscape()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        char $stack4, $stack7;
+        long $stack5, $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: char getEscapeChar()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(36L, $stack5);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void setEscapeChar(char)>(60);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: char getEscapeChar()>();
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(60L, $stack8);
+
+        return;
+    }
+
+    public void testGetSetPrefix()
+    {
+        java.lang.IllegalArgumentException $stack23, $stack26;
+        org.apache.commons.lang3.text.StrMatcher $stack5, $stack8, $stack11, $stack15, $stack17, $stack19, $stack22;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        org.apache.commons.lang3.text.StrSubstitutor $stack4;
+        boolean $stack6, $stack9, $stack12, $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack4 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        $stack6 = $stack5 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(char)>(60);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        $stack9 = $stack8 instanceof org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(java.lang.String)>("<<");
+
+        $stack11 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        $stack12 = $stack11 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+     label1:
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack26 := @caughtexception;
+
+     label4:
+        $stack15 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        $stack16 = $stack15 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher commaMatcher()>();
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack17);
+
+        $stack19 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack19);
+
+     label5:
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack23 := @caughtexception;
+
+     label8:
+        $stack22 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack22);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testGetSetSuffix()
+    {
+        java.lang.IllegalArgumentException $stack23, $stack26;
+        org.apache.commons.lang3.text.StrMatcher $stack5, $stack8, $stack11, $stack15, $stack17, $stack19, $stack22;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        org.apache.commons.lang3.text.StrSubstitutor $stack4;
+        boolean $stack6, $stack9, $stack12, $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack4 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        $stack6 = $stack5 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(char)>(60);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        $stack9 = $stack8 instanceof org.apache.commons.lang3.text.StrMatcher$CharMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(java.lang.String)>("<<");
+
+        $stack11 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        $stack12 = $stack11 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+     label1:
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack26 := @caughtexception;
+
+     label4:
+        $stack15 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        $stack16 = $stack15 instanceof org.apache.commons.lang3.text.StrMatcher$StringMatcher;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher commaMatcher()>();
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack17);
+
+        $stack19 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack19);
+
+     label5:
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack23 := @caughtexception;
+
+     label8:
+        $stack22 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack22);
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    public void testStaticReplace()
+    {
+        java.util.HashMap $stack2;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Map)>("Hi ${name}!", $stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi commons!", $stack5);
+
+        return;
+    }
+
+    public void testStaticReplacePrefixSuffix()
+    {
+        java.util.HashMap $stack2;
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Map,java.lang.String,java.lang.String)>("Hi <name>!", $stack2, "<", ">");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi commons!", $stack5);
+
+        return;
+    }
+
+    public void testStaticReplaceSystemProperties()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.lang.String $stack4, $stack7, $stack10, $stack13, $stack14;
+        org.apache.commons.lang3.text.StrBuilder $stack2, $stack3, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("Hi ");
+
+        $stack4 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("user.name");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack4);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(", you are working with ");
+
+        $stack7 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack7);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(", your home directory is ");
+
+        $stack10 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("user.home");
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack10);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(46);
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replaceSystemProperties(java.lang.Object)>("Hi ${user.name}, you are working with ${os.name}, your home directory is ${user.home}.");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        return;
+    }
+
+    public void testSubstituteDefaultProperties()
+    {
+        java.util.Properties $stack4, $stack5;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.lang.String $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        staticinvoke <java.lang.System: java.lang.String setProperty(java.lang.String,java.lang.String)>("doesnotwork", "It works!");
+
+        $stack4 = new java.util.Properties;
+
+        $stack5 = staticinvoke <java.lang.System: java.util.Properties getProperties()>();
+
+        specialinvoke $stack4.<java.util.Properties: void <init>(java.util.Properties)>($stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Properties)>("${doesnotwork}", $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("It works!", $stack7);
+
+        return;
+    }
+
+    public void testSamePrefixAndSuffix()
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.HashMap $stack2;
+        java.lang.String $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("greeting", "Hello");
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(" there ", "XXX");
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("name", "commons");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Map,java.lang.String,java.lang.String)>("Hi @name@!", $stack2, "@", "@");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hi commons!", $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Map,java.lang.String,java.lang.String)>("@greeting@ there @name@!", $stack2, "@", "@");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello there commons!", $stack9);
+
+        return;
+    }
+
+    private void doTestReplace(java.lang.String, java.lang.String, boolean)
+    {
+        java.util.Map $stack15;
+        org.apache.commons.lang3.text.StrSubstitutor $stack14;
+        org.apache.commons.lang3.mutable.MutableObject $stack23;
+        boolean substring, $stack26, $stack29, $stack35, $stack41;
+        org.apache.commons.lang3.text.StrBuilder $stack21, $stack28, $stack31;
+        java.lang.StringBuffer $stack19, $stack25, $stack37;
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        int $stack11, $stack12, $stack33, $stack34, $stack39, $stack40, $stack50, $stack51, $stack64, $stack65, $stack72, $stack73, $stack81, $stack82;
+        java.lang.String expectedResult, $stack13, replaceTemplate, $stack16, $stack18, $stack20, $stack22, $stack24, $stack27, $stack30, $stack36, $stack42, $stack52, $stack66, $stack74, $stack83;
+        char[] $stack17;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        expectedResult := @parameter0: java.lang.String;
+
+        replaceTemplate := @parameter1: java.lang.String;
+
+        substring := @parameter2: boolean;
+
+        $stack11 = virtualinvoke expectedResult.<java.lang.String: int length()>();
+
+        $stack12 = $stack11 - 1;
+
+        $stack13 = virtualinvoke expectedResult.<java.lang.String: java.lang.String substring(int,int)>(1, $stack12);
+
+        $stack14 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack15);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>(replaceTemplate);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack16);
+
+        if substring == 0 goto label1;
+
+        $stack81 = virtualinvoke replaceTemplate.<java.lang.String: int length()>();
+
+        $stack82 = $stack81 - 2;
+
+        $stack83 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String,int,int)>(replaceTemplate, 1, $stack82);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack83);
+
+     label1:
+        $stack17 = virtualinvoke replaceTemplate.<java.lang.String: char[] toCharArray()>();
+
+        $stack18 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(char[])>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack18);
+
+        if substring == 0 goto label2;
+
+        $stack72 = lengthof $stack17;
+
+        $stack73 = $stack72 - 2;
+
+        $stack74 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(char[],int,int)>($stack17, 1, $stack73);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack74);
+
+     label2:
+        $stack19 = new java.lang.StringBuffer;
+
+        specialinvoke $stack19.<java.lang.StringBuffer: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack20 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.StringBuffer)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack20);
+
+        if substring == 0 goto label3;
+
+        $stack64 = virtualinvoke $stack19.<java.lang.StringBuffer: int length()>();
+
+        $stack65 = $stack64 - 2;
+
+        $stack66 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.StringBuffer,int,int)>($stack19, 1, $stack65);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack66);
+
+     label3:
+        $stack21 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack22 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(org.apache.commons.lang3.text.StrBuilder)>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack22);
+
+        if substring == 0 goto label4;
+
+        $stack50 = virtualinvoke $stack21.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack51 = $stack50 - 2;
+
+        $stack52 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack21, 1, $stack51);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack52);
+
+     label4:
+        $stack23 = new org.apache.commons.lang3.mutable.MutableObject;
+
+        specialinvoke $stack23.<org.apache.commons.lang3.mutable.MutableObject: void <init>(java.lang.Object)>(replaceTemplate);
+
+        $stack24 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object)>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack24);
+
+        $stack25 = new java.lang.StringBuffer;
+
+        specialinvoke $stack25.<java.lang.StringBuffer: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack26 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(java.lang.StringBuffer)>($stack25);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $stack27 = virtualinvoke $stack25.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack27);
+
+        if substring == 0 goto label5;
+
+        $stack37 = new java.lang.StringBuffer;
+
+        specialinvoke $stack37.<java.lang.StringBuffer: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack39 = virtualinvoke $stack37.<java.lang.StringBuffer: int length()>();
+
+        $stack40 = $stack39 - 2;
+
+        $stack41 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(java.lang.StringBuffer,int,int)>($stack37, 1, $stack40);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack41);
+
+        $stack42 = virtualinvoke $stack37.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack42);
+
+     label5:
+        $stack28 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack28.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack29 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder)>($stack28);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack30 = virtualinvoke $stack28.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack30);
+
+        if substring == 0 goto label6;
+
+        $stack31 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack31.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack33 = virtualinvoke $stack31.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack34 = $stack33 - 2;
+
+        $stack35 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack31, 1, $stack34);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        $stack36 = virtualinvoke $stack31.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(expectedResult, $stack36);
+
+     label6:
+        return;
+    }
+
+    private void doTestNoReplace(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrSubstitutorTest this;
+        java.util.Map $stack5;
+        java.lang.String replaceTemplate, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36;
+        org.apache.commons.lang3.text.StrSubstitutor $stack4;
+        boolean $stack8, $stack38, $stack40, $stack42, $stack44;
+        char[] $stack16, $stack19;
+        org.apache.commons.lang3.text.StrBuilder $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutorTest;
+
+        replaceTemplate := @parameter0: java.lang.String;
+
+        $stack4 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrSubstitutorTest: java.util.Map values>;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>($stack5);
+
+        if replaceTemplate != null goto label1;
+
+        $stack12 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack12);
+
+        $stack15 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String,int,int)>(null, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack16 = (char[]) null;
+
+        $stack18 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(char[])>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack18);
+
+        $stack19 = (char[]) null;
+
+        $stack21 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(char[],int,int)>($stack19, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack21);
+
+        $stack24 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.StringBuffer)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack24);
+
+        $stack27 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.StringBuffer,int,int)>(null, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack27);
+
+        $stack30 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(org.apache.commons.lang3.text.StrBuilder)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack30);
+
+        $stack33 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(org.apache.commons.lang3.text.StrBuilder,int,int)>(null, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack33);
+
+        $stack36 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack36);
+
+        $stack38 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(java.lang.StringBuffer)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack38);
+
+        $stack40 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(java.lang.StringBuffer,int,int)>(null, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack40);
+
+        $stack42 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack42);
+
+        $stack44 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder,int,int)>(null, 0, 100);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack44);
+
+        goto label2;
+
+     label1:
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.String)>(replaceTemplate);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(replaceTemplate, $stack6);
+
+        $stack7 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>(replaceTemplate);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(org.apache.commons.lang3.text.StrBuilder)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = virtualinvoke $stack7.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(replaceTemplate, $stack9);
+
+     label2:
+        return;
+    }
+}

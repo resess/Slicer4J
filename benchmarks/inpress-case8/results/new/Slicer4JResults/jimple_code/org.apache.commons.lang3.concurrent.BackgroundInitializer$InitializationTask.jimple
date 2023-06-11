@@ -1,0 +1,72 @@
+class org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask extends java.lang.Object implements java.util.concurrent.Callable
+{
+    private final java.util.concurrent.ExecutorService execFinally;
+    final org.apache.commons.lang3.concurrent.BackgroundInitializer this$0;
+
+    public void <init>(org.apache.commons.lang3.concurrent.BackgroundInitializer, java.util.concurrent.ExecutorService)
+    {
+        org.apache.commons.lang3.concurrent.BackgroundInitializer l1;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask this;
+        java.util.concurrent.ExecutorService exec;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask;
+
+        l1 := @parameter0: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        exec := @parameter1: java.util.concurrent.ExecutorService;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: org.apache.commons.lang3.concurrent.BackgroundInitializer this$0> = l1;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: java.util.concurrent.ExecutorService execFinally> = exec;
+
+        return;
+    }
+
+    public java.lang.Object call() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack8;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask this;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer $stack3;
+        java.lang.Object $stack4;
+        java.util.concurrent.ExecutorService $stack5, $stack6, $stack9, $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: org.apache.commons.lang3.concurrent.BackgroundInitializer this$0>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.lang.Object initialize()>();
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: java.util.concurrent.ExecutorService execFinally>;
+
+        if $stack5 == null goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: java.util.concurrent.ExecutorService execFinally>;
+
+        interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+     label3:
+        return $stack4;
+
+     label4:
+        $stack8 := @caughtexception;
+
+     label5:
+        $stack9 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: java.util.concurrent.ExecutorService execFinally>;
+
+        if $stack9 == null goto label6;
+
+        $stack10 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializer$InitializationTask: java.util.concurrent.ExecutorService execFinally>;
+
+        interfaceinvoke $stack10.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+     label6:
+        throw $stack8;
+
+        catch java.lang.Throwable from label1 to label2 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+}

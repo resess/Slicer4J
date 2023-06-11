@@ -1,0 +1,1920 @@
+public final class org.apache.commons.lang3.math.Fraction extends java.lang.Number implements java.lang.Comparable
+{
+    private static final long serialVersionUID;
+    public static final org.apache.commons.lang3.math.Fraction ZERO;
+    public static final org.apache.commons.lang3.math.Fraction ONE;
+    public static final org.apache.commons.lang3.math.Fraction ONE_HALF;
+    public static final org.apache.commons.lang3.math.Fraction ONE_THIRD;
+    public static final org.apache.commons.lang3.math.Fraction TWO_THIRDS;
+    public static final org.apache.commons.lang3.math.Fraction ONE_QUARTER;
+    public static final org.apache.commons.lang3.math.Fraction TWO_QUARTERS;
+    public static final org.apache.commons.lang3.math.Fraction THREE_QUARTERS;
+    public static final org.apache.commons.lang3.math.Fraction ONE_FIFTH;
+    public static final org.apache.commons.lang3.math.Fraction TWO_FIFTHS;
+    public static final org.apache.commons.lang3.math.Fraction THREE_FIFTHS;
+    public static final org.apache.commons.lang3.math.Fraction FOUR_FIFTHS;
+    private final int numerator;
+    private final int denominator;
+    private transient int hashCode;
+    private transient java.lang.String toString;
+    private transient java.lang.String toProperString;
+
+    private void <init>(int, int)
+    {
+        int numerator, denominator;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        numerator := @parameter0: int;
+
+        denominator := @parameter1: int;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        this.<org.apache.commons.lang3.math.Fraction: int hashCode> = 0;
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toString> = null;
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = null;
+
+        this.<org.apache.commons.lang3.math.Fraction: int numerator> = numerator;
+
+        this.<org.apache.commons.lang3.math.Fraction: int denominator> = denominator;
+
+        return;
+    }
+
+    public static org.apache.commons.lang3.math.Fraction getFraction(int, int)
+    {
+        int numerator, denominator;
+        java.lang.ArithmeticException $stack3, $stack7;
+        org.apache.commons.lang3.math.Fraction $stack2;
+
+        numerator := @parameter0: int;
+
+        denominator := @parameter1: int;
+
+        if denominator != 0 goto label1;
+
+        $stack7 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack7.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The denominator must not be zero");
+
+        throw $stack7;
+
+     label1:
+        if denominator >= 0 goto label4;
+
+        if numerator == -2147483648 goto label2;
+
+        if denominator != -2147483648 goto label3;
+
+     label2:
+        $stack3 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack3.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: can\'t negate");
+
+        throw $stack3;
+
+     label3:
+        numerator = neg numerator;
+
+        denominator = neg denominator;
+
+     label4:
+        $stack2 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(numerator, denominator);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.math.Fraction getFraction(int, int, int)
+    {
+        long $stack5, $stack6, $stack7, $stack8, $stack15, $stack16, $stack17, $stack18, numeratorValue;
+        byte $stack9, $stack11;
+        int denominator, numerator, whole, $stack13, $i0, $i1;
+        java.lang.ArithmeticException $u0, $u1, $u2, $u3;
+        org.apache.commons.lang3.math.Fraction $u4;
+
+        whole := @parameter0: int;
+
+        numerator := @parameter1: int;
+
+        denominator := @parameter2: int;
+
+        if denominator != 0 goto label1;
+
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The denominator must not be zero");
+
+        throw $u0;
+
+     label1:
+        if denominator >= 0 goto label2;
+
+        $u1 = new java.lang.ArithmeticException;
+
+        specialinvoke $u1.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The denominator must not be negative");
+
+        throw $u1;
+
+     label2:
+        if numerator >= 0 goto label3;
+
+        $u2 = new java.lang.ArithmeticException;
+
+        specialinvoke $u2.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The numerator must not be negative");
+
+        throw $u2;
+
+     label3:
+        if whole >= 0 goto label4;
+
+        $stack16 = (long) whole;
+
+        $stack15 = (long) denominator;
+
+        $stack18 = $stack16 * $stack15;
+
+        $stack17 = (long) numerator;
+
+        numeratorValue = $stack18 - $stack17;
+
+        goto label5;
+
+     label4:
+        $stack6 = (long) whole;
+
+        $stack5 = (long) denominator;
+
+        $stack8 = $stack6 * $stack5;
+
+        $stack7 = (long) numerator;
+
+        numeratorValue = $stack8 + $stack7;
+
+     label5:
+        $stack9 = numeratorValue cmp -2147483648L;
+
+        $i0 = (int) $stack9;
+
+        if $i0 < 0 goto label6;
+
+        $stack11 = numeratorValue cmp 2147483647L;
+
+        $i1 = (int) $stack11;
+
+        if $i1 <= 0 goto label7;
+
+     label6:
+        $u3 = new java.lang.ArithmeticException;
+
+        specialinvoke $u3.<java.lang.ArithmeticException: void <init>(java.lang.String)>("Numerator too large to represent as an Integer.");
+
+        throw $u3;
+
+     label7:
+        $u4 = new org.apache.commons.lang3.math.Fraction;
+
+        $stack13 = (int) numeratorValue;
+
+        specialinvoke $u4.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack13, denominator);
+
+        return $u4;
+    }
+
+    public static org.apache.commons.lang3.math.Fraction getReducedFraction(int, int)
+    {
+        int $stack3, $stack10, $stack13, $stack17, numerator, denominator;
+        java.lang.ArithmeticException $stack5, $stack20;
+        org.apache.commons.lang3.math.Fraction $stack4, $stack19;
+
+        numerator := @parameter0: int;
+
+        denominator := @parameter1: int;
+
+        if denominator != 0 goto label1;
+
+        $stack20 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack20.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The denominator must not be zero");
+
+        throw $stack20;
+
+     label1:
+        if numerator != 0 goto label2;
+
+        $stack19 = <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ZERO>;
+
+        return $stack19;
+
+     label2:
+        if denominator != -2147483648 goto label3;
+
+        $stack17 = numerator & 1;
+
+        if $stack17 != 0 goto label3;
+
+        numerator = numerator / 2;
+
+        denominator = denominator / 2;
+
+     label3:
+        if denominator >= 0 goto label6;
+
+        if numerator == -2147483648 goto label4;
+
+        if denominator != -2147483648 goto label5;
+
+     label4:
+        $stack5 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack5.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: can\'t negate");
+
+        throw $stack5;
+
+     label5:
+        numerator = neg numerator;
+
+        denominator = neg denominator;
+
+     label6:
+        $stack3 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>(numerator, denominator);
+
+        $stack10 = numerator / $stack3;
+
+        $stack13 = denominator / $stack3;
+
+        $stack4 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack10, $stack13);
+
+        return $stack4;
+    }
+
+    public static org.apache.commons.lang3.math.Fraction getFraction(double)
+    {
+        byte $stack27, sign, $stack29, $stack43, $stack83;
+        java.lang.ArithmeticException $u0, $u1;
+        boolean $stack31;
+        org.apache.commons.lang3.math.Fraction $stack47;
+        int wholeNumber, $stack37, $stack38, $stack44, $stack45, $stack46, $stack54, $stack63, $stack67, numer0, denom0, numer1, denom1, a1, i, $i0, $i1, $i2;
+        double $stack28, $stack32, $stack33, delta1, $stack34, $stack35, $stack36, $stack39, $stack40, $stack41, $stack42, $stack59, $stack70, value, value#4, x1, y1, delta2;
+
+        value := @parameter0: double;
+
+        $stack27 = value cmpg 0.0;
+
+        $i0 = (int) $stack27;
+
+        if $i0 >= 0 goto label1;
+
+        $stack83 = -1;
+
+        goto label2;
+
+     label1:
+        $stack83 = 1;
+
+     label2:
+        sign = $stack83;
+
+        $stack28 = staticinvoke <java.lang.Math: double abs(double)>(value);
+
+        $stack29 = $stack28 cmpl 2.147483647E9;
+
+        $i1 = (int) $stack29;
+
+        if $i1 > 0 goto label3;
+
+        $stack31 = staticinvoke <java.lang.Double: boolean isNaN(double)>($stack28);
+
+        if $stack31 == 0 goto label4;
+
+     label3:
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The value must not be greater than Integer.MAX_VALUE or NaN");
+
+        throw $u0;
+
+     label4:
+        wholeNumber = (int) $stack28;
+
+        $stack32 = (double) wholeNumber;
+
+        value#4 = $stack28 - $stack32;
+
+        numer0 = 0;
+
+        denom0 = 1;
+
+        numer1 = 1;
+
+        denom1 = 0;
+
+        a1 = (int) value#4;
+
+        x1 = 1.0;
+
+        $stack33 = (double) a1;
+
+        y1 = value#4 - $stack33;
+
+        delta2 = 1.7976931348623157E308;
+
+        i = 1;
+
+     label5:
+        delta1 = delta2;
+
+        $stack34 = x1 / y1;
+
+        $stack54 = (int) $stack34;
+
+        $stack35 = (double) $stack54;
+
+        $stack36 = $stack35 * y1;
+
+        $stack59 = x1 - $stack36;
+
+        $stack37 = a1 * numer1;
+
+        $stack63 = $stack37 + numer0;
+
+        $stack38 = a1 * denom1;
+
+        $stack67 = $stack38 + denom0;
+
+        $stack40 = (double) $stack63;
+
+        $stack39 = (double) $stack67;
+
+        $stack70 = $stack40 / $stack39;
+
+        $stack41 = value#4 - $stack70;
+
+        $stack42 = staticinvoke <java.lang.Math: double abs(double)>($stack41);
+
+        delta2 = $stack42;
+
+        a1 = $stack54;
+
+        x1 = y1;
+
+        y1 = $stack59;
+
+        numer0 = numer1;
+
+        denom0 = denom1;
+
+        numer1 = $stack63;
+
+        denom1 = $stack67;
+
+        i = i + 1;
+
+        $stack43 = delta1 cmpl $stack42;
+
+        $i2 = (int) $stack43;
+
+        if $i2 <= 0 goto label6;
+
+        if $stack67 > 10000 goto label6;
+
+        if $stack67 <= 0 goto label6;
+
+        if i < 25 goto label5;
+
+     label6:
+        if i != 25 goto label7;
+
+        $u1 = new java.lang.ArithmeticException;
+
+        specialinvoke $u1.<java.lang.ArithmeticException: void <init>(java.lang.String)>("Unable to convert double to fraction");
+
+        throw $u1;
+
+     label7:
+        $stack44 = wholeNumber * denom0;
+
+        $stack45 = numer0 + $stack44;
+
+        $stack46 = $stack45 * sign;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getReducedFraction(int,int)>($stack46, denom0);
+
+        return $stack47;
+    }
+
+    public static org.apache.commons.lang3.math.Fraction getFraction(java.lang.String)
+    {
+        int $stack5, $stack6, $stack7, $stack9, $stack10, $stack12, $stack14, $stack17, $stack18, $stack20, $stack22, $stack23, $stack25;
+        java.lang.String $stack8, $stack11, $stack16, $stack19, $stack21, $stack24, str;
+        double $stack28;
+        java.lang.NumberFormatException $stack27;
+        java.lang.IllegalArgumentException $stack30;
+        org.apache.commons.lang3.math.Fraction $stack13, $stack15, $stack26, $stack29;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        $stack30 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack30.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The string must not be null");
+
+        throw $stack30;
+
+     label1:
+        $stack5 = virtualinvoke str.<java.lang.String: int indexOf(int)>(46);
+
+        if $stack5 < 0 goto label2;
+
+        $stack28 = staticinvoke <java.lang.Double: double parseDouble(java.lang.String)>(str);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getFraction(double)>($stack28);
+
+        return $stack29;
+
+     label2:
+        $stack6 = virtualinvoke str.<java.lang.String: int indexOf(int)>(32);
+
+        if $stack6 <= 0 goto label4;
+
+        $stack16 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, $stack6);
+
+        $stack17 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack16);
+
+        $stack18 = $stack6 + 1;
+
+        $stack19 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.String: int indexOf(int)>(47);
+
+        if $stack20 >= 0 goto label3;
+
+        $stack27 = new java.lang.NumberFormatException;
+
+        specialinvoke $stack27.<java.lang.NumberFormatException: void <init>(java.lang.String)>("The fraction could not be parsed as the format X Y/Z");
+
+        throw $stack27;
+
+     label3:
+        $stack21 = virtualinvoke $stack19.<java.lang.String: java.lang.String substring(int,int)>(0, $stack20);
+
+        $stack22 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack21);
+
+        $stack23 = $stack20 + 1;
+
+        $stack24 = virtualinvoke $stack19.<java.lang.String: java.lang.String substring(int)>($stack23);
+
+        $stack25 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getFraction(int,int,int)>($stack17, $stack22, $stack25);
+
+        return $stack26;
+
+     label4:
+        $stack7 = virtualinvoke str.<java.lang.String: int indexOf(int)>(47);
+
+        if $stack7 >= 0 goto label5;
+
+        $stack14 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(str);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getFraction(int,int)>($stack14, 1);
+
+        return $stack15;
+
+     label5:
+        $stack8 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, $stack7);
+
+        $stack9 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack8);
+
+        $stack10 = $stack7 + 1;
+
+        $stack11 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>($stack10);
+
+        $stack12 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack11);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getFraction(int,int)>($stack9, $stack12);
+
+        return $stack13;
+    }
+
+    public int getNumerator()
+    {
+        int $stack1;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        return $stack1;
+    }
+
+    public int getDenominator()
+    {
+        int $stack1;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        return $stack1;
+    }
+
+    public int getProperNumerator()
+    {
+        int $stack1, $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = $stack2 % $stack1;
+
+        $stack4 = staticinvoke <java.lang.Math: int abs(int)>($stack3);
+
+        return $stack4;
+    }
+
+    public int getProperWhole()
+    {
+        int $stack1, $stack2, $stack3;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = $stack2 / $stack1;
+
+        return $stack3;
+    }
+
+    public int intValue()
+    {
+        int $stack1, $stack2, $stack3;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = $stack2 / $stack1;
+
+        return $stack3;
+    }
+
+    public long longValue()
+    {
+        int $stack1, $stack2;
+        long $stack3, $stack4, $stack5;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack4 = (long) $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = (long) $stack2;
+
+        $stack5 = $stack4 / $stack3;
+
+        return $stack5;
+    }
+
+    public float floatValue()
+    {
+        int $stack1, $stack2;
+        float $stack3, $stack4, $stack5;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack4 = (float) $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = (float) $stack2;
+
+        $stack5 = $stack4 / $stack3;
+
+        return $stack5;
+    }
+
+    public double doubleValue()
+    {
+        int $stack1, $stack2;
+        org.apache.commons.lang3.math.Fraction this;
+        double $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack4 = (double) $stack1;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack3 = (double) $stack2;
+
+        $stack5 = $stack4 / $stack3;
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.math.Fraction reduce()
+    {
+        int $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10;
+        org.apache.commons.lang3.math.Fraction this, $stack11, $stack12, $stack14;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack2 != 0 goto label3;
+
+        $stack12 = <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ZERO>;
+
+        $stack13 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: boolean equals(java.lang.Object)>($stack12);
+
+        if $stack13 == 0 goto label1;
+
+        $stack14 = this;
+
+        goto label2;
+
+     label1:
+        $stack14 = <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ZERO>;
+
+     label2:
+        return $stack14;
+
+     label3:
+        $stack3 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack4 = staticinvoke <java.lang.Math: int abs(int)>($stack3);
+
+        $stack5 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>($stack4, $stack5);
+
+        if $stack6 != 1 goto label4;
+
+        return this;
+
+     label4:
+        $stack7 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack10 = $stack7 / $stack6;
+
+        $stack8 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack9 = $stack8 / $stack6;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getFraction(int,int)>($stack10, $stack9);
+
+        return $stack11;
+    }
+
+    public org.apache.commons.lang3.math.Fraction invert()
+    {
+        int $stack1, $stack2, $stack3, $stack5, $stack6, $stack8, $stack9, $stack10, $stack11;
+        java.lang.ArithmeticException $stack12, $stack13;
+        org.apache.commons.lang3.math.Fraction this, $stack4, $stack7;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack1 != 0 goto label1;
+
+        $stack13 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack13.<java.lang.ArithmeticException: void <init>(java.lang.String)>("Unable to invert zero.");
+
+        throw $stack13;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack2 != -2147483648 goto label2;
+
+        $stack12 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack12.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: can\'t negate numerator");
+
+        throw $stack12;
+
+     label2:
+        $stack3 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack3 >= 0 goto label3;
+
+        $stack7 = new org.apache.commons.lang3.math.Fraction;
+
+        $stack8 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack11 = neg $stack8;
+
+        $stack9 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack10 = neg $stack9;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack11, $stack10);
+
+        return $stack7;
+
+     label3:
+        $stack4 = new org.apache.commons.lang3.math.Fraction;
+
+        $stack6 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack5 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack6, $stack5);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.math.Fraction negate()
+    {
+        int $stack1, $stack3, $stack4, $stack5;
+        java.lang.ArithmeticException $stack6;
+        org.apache.commons.lang3.math.Fraction this, $stack2;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack1 != -2147483648 goto label1;
+
+        $stack6 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack6.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: too large to negate");
+
+        throw $stack6;
+
+     label1:
+        $stack2 = new org.apache.commons.lang3.math.Fraction;
+
+        $stack3 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack5 = neg $stack3;
+
+        $stack4 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack5, $stack4);
+
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.math.Fraction abs()
+    {
+        int $stack1;
+        org.apache.commons.lang3.math.Fraction this, $stack2;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack1 < 0 goto label1;
+
+        return this;
+
+     label1:
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction negate()>();
+
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.math.Fraction pow(int)
+    {
+        int power, $stack4, $stack5, $stack8, $stack11, $stack15, $stack16;
+        org.apache.commons.lang3.math.Fraction this, $stack3, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack14, $stack17, $stack18;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        power := @parameter0: int;
+
+        if power != 1 goto label1;
+
+        return this;
+
+     label1:
+        if power != 0 goto label2;
+
+        $stack18 = <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE>;
+
+        return $stack18;
+
+     label2:
+        if power >= 0 goto label4;
+
+        if power != -2147483648 goto label3;
+
+        $stack13 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction invert()>();
+
+        $stack14 = virtualinvoke $stack13.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction pow(int)>(2);
+
+        $stack15 = power / 2;
+
+        $stack16 = neg $stack15;
+
+        $stack17 = virtualinvoke $stack14.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction pow(int)>($stack16);
+
+        return $stack17;
+
+     label3:
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction invert()>();
+
+        $stack11 = neg power;
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction pow(int)>($stack11);
+
+        return $stack12;
+
+     label4:
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction multiplyBy(org.apache.commons.lang3.math.Fraction)>(this);
+
+        $stack4 = power % 2;
+
+        if $stack4 != 0 goto label5;
+
+        $stack8 = power / 2;
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction pow(int)>($stack8);
+
+        return $stack9;
+
+     label5:
+        $stack5 = power / 2;
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction pow(int)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction multiplyBy(org.apache.commons.lang3.math.Fraction)>(this);
+
+        return $stack7;
+    }
+
+    private static int greatestCommonDivisor(int, int)
+    {
+        int $stack5, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack18, $stack19, $stack20, $stack24, $stack28, u, v, k, $stack11, $stack26, t, $stack14;
+        java.lang.ArithmeticException $stack4, $stack27;
+
+        u := @parameter0: int;
+
+        v := @parameter1: int;
+
+        if u == 0 goto label01;
+
+        if v != 0 goto label04;
+
+     label01:
+        if u == -2147483648 goto label02;
+
+        if v != -2147483648 goto label03;
+
+     label02:
+        $stack4 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack4.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: gcd is 2^31");
+
+        throw $stack4;
+
+     label03:
+        $stack5 = staticinvoke <java.lang.Math: int abs(int)>(u);
+
+        $stack6 = staticinvoke <java.lang.Math: int abs(int)>(v);
+
+        $stack7 = $stack5 + $stack6;
+
+        return $stack7;
+
+     label04:
+        $stack9 = staticinvoke <java.lang.Math: int abs(int)>(u);
+
+        if $stack9 == 1 goto label05;
+
+        $stack10 = staticinvoke <java.lang.Math: int abs(int)>(v);
+
+        if $stack10 != 1 goto label06;
+
+     label05:
+        return 1;
+
+     label06:
+        if u <= 0 goto label07;
+
+        u = neg u;
+
+     label07:
+        if v <= 0 goto label08;
+
+        v = neg v;
+
+     label08:
+        k = 0;
+
+     label09:
+        $stack11 = u & 1;
+
+        if $stack11 != 0 goto label10;
+
+        $stack28 = v & 1;
+
+        if $stack28 != 0 goto label10;
+
+        if k >= 31 goto label10;
+
+        u = u / 2;
+
+        v = v / 2;
+
+        k = k + 1;
+
+        goto label09;
+
+     label10:
+        if k != 31 goto label11;
+
+        $stack27 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack27.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: gcd is 2^31");
+
+        throw $stack27;
+
+     label11:
+        $stack12 = u & 1;
+
+        if $stack12 != 1 goto label12;
+
+        $stack26 = v;
+
+        goto label13;
+
+     label12:
+        $stack13 = u / 2;
+
+        $stack26 = neg $stack13;
+
+     label13:
+        t = $stack26;
+
+     label14:
+        $stack14 = t & 1;
+
+        if $stack14 != 0 goto label15;
+
+        t = t / 2;
+
+        goto label14;
+
+     label15:
+        if t <= 0 goto label16;
+
+        u = neg t;
+
+        goto label17;
+
+     label16:
+        v = t;
+
+     label17:
+        $stack15 = v - u;
+
+        $stack24 = $stack15 / 2;
+
+        t = $stack24;
+
+        if $stack24 != 0 goto label14;
+
+        $stack19 = neg u;
+
+        $stack18 = 1 << k;
+
+        $stack20 = $stack19 * $stack18;
+
+        return $stack20;
+    }
+
+    private static int mulAndCheck(int, int)
+    {
+        long $stack4, $stack5, m;
+        byte $stack6, $stack8;
+        int x, y, $stack9, $i0, $i1;
+        java.lang.ArithmeticException $u0;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        $stack5 = (long) x;
+
+        $stack4 = (long) y;
+
+        m = $stack5 * $stack4;
+
+        $stack6 = m cmp -2147483648L;
+
+        $i0 = (int) $stack6;
+
+        if $i0 < 0 goto label1;
+
+        $stack8 = m cmp 2147483647L;
+
+        $i1 = (int) $stack8;
+
+        if $i1 <= 0 goto label2;
+
+     label1:
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: mul");
+
+        throw $u0;
+
+     label2:
+        $stack9 = (int) m;
+
+        return $stack9;
+    }
+
+    private static int mulPosAndCheck(int, int)
+    {
+        long $stack4, $stack5, m;
+        byte $stack6;
+        int x, y, $stack7, $i0;
+        java.lang.ArithmeticException $u0;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        $stack5 = (long) x;
+
+        $stack4 = (long) y;
+
+        m = $stack5 * $stack4;
+
+        $stack6 = m cmp 2147483647L;
+
+        $i0 = (int) $stack6;
+
+        if $i0 <= 0 goto label1;
+
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: mulPos");
+
+        throw $u0;
+
+     label1:
+        $stack7 = (int) m;
+
+        return $stack7;
+    }
+
+    private static int addAndCheck(int, int)
+    {
+        long $stack4, $stack5, s;
+        byte $stack6, $stack8;
+        int x, y, $stack9, $i0, $i1;
+        java.lang.ArithmeticException $u0;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        $stack5 = (long) x;
+
+        $stack4 = (long) y;
+
+        s = $stack5 + $stack4;
+
+        $stack6 = s cmp -2147483648L;
+
+        $i0 = (int) $stack6;
+
+        if $i0 < 0 goto label1;
+
+        $stack8 = s cmp 2147483647L;
+
+        $i1 = (int) $stack8;
+
+        if $i1 <= 0 goto label2;
+
+     label1:
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: add");
+
+        throw $u0;
+
+     label2:
+        $stack9 = (int) s;
+
+        return $stack9;
+    }
+
+    private static int subAndCheck(int, int)
+    {
+        long $stack4, $stack5, s;
+        byte $stack6, $stack8;
+        int x, y, $stack9, $i0, $i1;
+        java.lang.ArithmeticException $u0;
+
+        x := @parameter0: int;
+
+        y := @parameter1: int;
+
+        $stack5 = (long) x;
+
+        $stack4 = (long) y;
+
+        s = $stack5 - $stack4;
+
+        $stack6 = s cmp -2147483648L;
+
+        $i0 = (int) $stack6;
+
+        if $i0 < 0 goto label1;
+
+        $stack8 = s cmp 2147483647L;
+
+        $i1 = (int) $stack8;
+
+        if $i1 <= 0 goto label2;
+
+     label1:
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: add");
+
+        throw $u0;
+
+     label2:
+        $stack9 = (int) s;
+
+        return $stack9;
+    }
+
+    public org.apache.commons.lang3.math.Fraction add(org.apache.commons.lang3.math.Fraction)
+    {
+        org.apache.commons.lang3.math.Fraction this, fraction, $stack2;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        fraction := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction addSub(org.apache.commons.lang3.math.Fraction,boolean)>(fraction, 1);
+
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.math.Fraction subtract(org.apache.commons.lang3.math.Fraction)
+    {
+        org.apache.commons.lang3.math.Fraction this, fraction, $stack2;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        fraction := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction addSub(org.apache.commons.lang3.math.Fraction,boolean)>(fraction, 0);
+
+        return $stack2;
+    }
+
+    private org.apache.commons.lang3.math.Fraction addSub(org.apache.commons.lang3.math.Fraction, boolean)
+    {
+        java.math.BigInteger $stack17, $stack21, $stack22, $stack25, $stack29, $stack30, t, $stack33, $stack34, $stack38, $stack39, $stack31;
+        java.lang.ArithmeticException $stack48;
+        boolean isAdd;
+        org.apache.commons.lang3.math.Fraction fraction, this, $stack41, $stack63, $stack71;
+        long $stack16, $stack20, $stack24, $stack28, $stack32, $stack37;
+        int $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack18, $stack19, $stack23, $stack26, $stack27, $stack35, $stack40, $stack42, $stack43, $stack44, $stack45, $stack46, $stack47, $stack57, $stack58, $stack59, $stack60, $stack61, $stack62, $stack65, $stack66, $stack67, $stack64, $stack36;
+        java.lang.IllegalArgumentException $stack72;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        fraction := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        isAdd := @parameter1: boolean;
+
+        if fraction != null goto label01;
+
+        $stack72 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack72.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The fraction must not be null");
+
+        throw $stack72;
+
+     label01:
+        $stack10 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack10 != 0 goto label04;
+
+        if isAdd == 0 goto label02;
+
+        $stack71 = fraction;
+
+        goto label03;
+
+     label02:
+        $stack71 = virtualinvoke fraction.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction negate()>();
+
+     label03:
+        return $stack71;
+
+     label04:
+        $stack11 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack11 != 0 goto label05;
+
+        return this;
+
+     label05:
+        $stack13 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack12 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>($stack13, $stack12);
+
+        if $stack14 != 1 goto label08;
+
+        $stack58 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack57 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulAndCheck(int,int)>($stack58, $stack57);
+
+        $stack61 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack60 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulAndCheck(int,int)>($stack61, $stack60);
+
+        $stack63 = new org.apache.commons.lang3.math.Fraction;
+
+        if isAdd == 0 goto label06;
+
+        $stack64 = staticinvoke <org.apache.commons.lang3.math.Fraction: int addAndCheck(int,int)>($stack59, $stack62);
+
+        goto label07;
+
+     label06:
+        $stack64 = staticinvoke <org.apache.commons.lang3.math.Fraction: int subAndCheck(int,int)>($stack59, $stack62);
+
+     label07:
+        $stack66 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack65 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack67 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulPosAndCheck(int,int)>($stack66, $stack65);
+
+        specialinvoke $stack63.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack64, $stack67);
+
+        return $stack63;
+
+     label08:
+        $stack15 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack16 = (long) $stack15;
+
+        $stack17 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack16);
+
+        $stack18 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack19 = $stack18 / $stack14;
+
+        $stack20 = (long) $stack19;
+
+        $stack21 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack20);
+
+        $stack22 = virtualinvoke $stack17.<java.math.BigInteger: java.math.BigInteger multiply(java.math.BigInteger)>($stack21);
+
+        $stack23 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack24 = (long) $stack23;
+
+        $stack25 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack24);
+
+        $stack26 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack27 = $stack26 / $stack14;
+
+        $stack28 = (long) $stack27;
+
+        $stack29 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack28);
+
+        $stack30 = virtualinvoke $stack25.<java.math.BigInteger: java.math.BigInteger multiply(java.math.BigInteger)>($stack29);
+
+        if isAdd == 0 goto label09;
+
+        $stack31 = virtualinvoke $stack22.<java.math.BigInteger: java.math.BigInteger add(java.math.BigInteger)>($stack30);
+
+        goto label10;
+
+     label09:
+        $stack31 = virtualinvoke $stack22.<java.math.BigInteger: java.math.BigInteger subtract(java.math.BigInteger)>($stack30);
+
+     label10:
+        t = $stack31;
+
+        $stack32 = (long) $stack14;
+
+        $stack33 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack32);
+
+        $stack34 = virtualinvoke $stack31.<java.math.BigInteger: java.math.BigInteger mod(java.math.BigInteger)>($stack33);
+
+        $stack35 = virtualinvoke $stack34.<java.math.BigInteger: int intValue()>();
+
+        if $stack35 != 0 goto label11;
+
+        $stack36 = $stack14;
+
+        goto label12;
+
+     label11:
+        $stack36 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>($stack35, $stack14);
+
+     label12:
+        $stack37 = (long) $stack36;
+
+        $stack38 = staticinvoke <java.math.BigInteger: java.math.BigInteger valueOf(long)>($stack37);
+
+        $stack39 = virtualinvoke t.<java.math.BigInteger: java.math.BigInteger divide(java.math.BigInteger)>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<java.math.BigInteger: int bitLength()>();
+
+        if $stack40 <= 31 goto label13;
+
+        $stack48 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack48.<java.lang.ArithmeticException: void <init>(java.lang.String)>("overflow: numerator too large after multiply");
+
+        throw $stack48;
+
+     label13:
+        $stack41 = new org.apache.commons.lang3.math.Fraction;
+
+        $stack42 = virtualinvoke $stack39.<java.math.BigInteger: int intValue()>();
+
+        $stack43 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack46 = $stack43 / $stack14;
+
+        $stack44 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack45 = $stack44 / $stack36;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulPosAndCheck(int,int)>($stack46, $stack45);
+
+        specialinvoke $stack41.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>($stack42, $stack47);
+
+        return $stack41;
+    }
+
+    public org.apache.commons.lang3.math.Fraction multiplyBy(org.apache.commons.lang3.math.Fraction)
+    {
+        int $stack4, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22;
+        java.lang.IllegalArgumentException $stack24;
+        org.apache.commons.lang3.math.Fraction fraction, this, $stack5, $stack23;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        fraction := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        if fraction != null goto label1;
+
+        $stack24 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack24.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The fraction must not be null");
+
+        throw $stack24;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack4 == 0 goto label2;
+
+        $stack6 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack6 != 0 goto label3;
+
+     label2:
+        $stack5 = <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ZERO>;
+
+        return $stack5;
+
+     label3:
+        $stack8 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack7 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>($stack8, $stack7);
+
+        $stack11 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack10 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.math.Fraction: int greatestCommonDivisor(int,int)>($stack11, $stack10);
+
+        $stack13 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack16 = $stack13 / $stack9;
+
+        $stack14 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack15 = $stack14 / $stack12;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulAndCheck(int,int)>($stack16, $stack15);
+
+        $stack18 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack21 = $stack18 / $stack12;
+
+        $stack19 = fraction.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack20 = $stack19 / $stack9;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.math.Fraction: int mulPosAndCheck(int,int)>($stack21, $stack20);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction getReducedFraction(int,int)>($stack17, $stack22);
+
+        return $stack23;
+    }
+
+    public org.apache.commons.lang3.math.Fraction divideBy(org.apache.commons.lang3.math.Fraction)
+    {
+        int $stack2;
+        java.lang.ArithmeticException $stack5;
+        org.apache.commons.lang3.math.Fraction fraction, this, $stack3, $stack4;
+        java.lang.IllegalArgumentException $stack6;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        fraction := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        if fraction != null goto label1;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The fraction must not be null");
+
+        throw $stack6;
+
+     label1:
+        $stack2 = fraction.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack2 != 0 goto label2;
+
+        $stack5 = new java.lang.ArithmeticException;
+
+        specialinvoke $stack5.<java.lang.ArithmeticException: void <init>(java.lang.String)>("The fraction to divide by must not be zero");
+
+        throw $stack5;
+
+     label2:
+        $stack3 = virtualinvoke fraction.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction invert()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction multiplyBy(org.apache.commons.lang3.math.Fraction)>($stack3);
+
+        return $stack4;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        int $stack4, $stack5, $stack6, $stack7;
+        java.lang.Object obj;
+        org.apache.commons.lang3.math.Fraction this, other;
+        boolean $stack3, $stack8;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        $stack3 = obj instanceof org.apache.commons.lang3.math.Fraction;
+
+        if $stack3 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        other = (org.apache.commons.lang3.math.Fraction) obj;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getNumerator()>();
+
+        $stack5 = virtualinvoke other.<org.apache.commons.lang3.math.Fraction: int getNumerator()>();
+
+        if $stack4 != $stack5 goto label3;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        $stack7 = virtualinvoke other.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        if $stack6 != $stack7 goto label3;
+
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        return $stack8;
+    }
+
+    public int hashCode()
+    {
+        int $stack1, $stack2, $stack5, $stack6, $stack7, $stack8, $stack9;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: int hashCode>;
+
+        if $stack1 != 0 goto label1;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getNumerator()>();
+
+        $stack6 = 629 + $stack5;
+
+        $stack7 = 37 * $stack6;
+
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        $stack9 = $stack7 + $stack8;
+
+        this.<org.apache.commons.lang3.math.Fraction: int hashCode> = $stack9;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: int hashCode>;
+
+        return $stack2;
+    }
+
+    public int compareTo(org.apache.commons.lang3.math.Fraction)
+    {
+        long $stack10, $stack11, $stack14, $stack15, $stack22, $stack25;
+        byte $stack16, $stack17;
+        int $stack6, $stack7, $stack8, $stack9, $stack12, $stack13, $stack18, $stack19, $i0, $i1;
+        org.apache.commons.lang3.math.Fraction this, other;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        other := @parameter0: org.apache.commons.lang3.math.Fraction;
+
+        if this != other goto label1;
+
+        return 0;
+
+     label1:
+        $stack7 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack6 = other.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack7 != $stack6 goto label2;
+
+        $stack19 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack18 = other.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        if $stack19 != $stack18 goto label2;
+
+        return 0;
+
+     label2:
+        $stack8 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack11 = (long) $stack8;
+
+        $stack9 = other.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack10 = (long) $stack9;
+
+        $stack22 = $stack11 * $stack10;
+
+        $stack12 = other.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack15 = (long) $stack12;
+
+        $stack13 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack14 = (long) $stack13;
+
+        $stack25 = $stack15 * $stack14;
+
+        $stack16 = $stack22 cmp $stack25;
+
+        if $stack16 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $stack17 = $stack22 cmp $stack25;
+
+        $i0 = (int) $stack17;
+
+        if $i0 >= 0 goto label4;
+
+        $i1 = (int) -1;
+
+        return $i1;
+
+     label4:
+        return 1;
+    }
+
+    public java.lang.String toString()
+    {
+        int $stack4, $stack7;
+        java.lang.StringBuilder $stack3, $stack5, $stack6, $stack8;
+        java.lang.String $stack1, $stack2, $stack9;
+        org.apache.commons.lang3.math.Fraction this;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack1 = this.<org.apache.commons.lang3.math.Fraction: java.lang.String toString>;
+
+        if $stack1 != null goto label1;
+
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>(int)>(32);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getNumerator()>();
+
+        $stack5 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(47);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toString> = $stack9;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: java.lang.String toString>;
+
+        return $stack2;
+    }
+
+    public java.lang.String toProperString()
+    {
+        java.lang.StringBuilder $stack16, $stack17, $stack19, $stack25, $stack26, $stack27, $stack28, $stack30, $u0, $u1;
+        org.apache.commons.lang3.math.Fraction this;
+        int $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack15, $stack18, $stack22, $stack24, $stack29, $stack32, $stack34, $stack13, $i0;
+        java.lang.String $stack2, $stack20, $stack31, $stack33, $stack3;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        $stack2 = this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString>;
+
+        if $stack2 != null goto label9;
+
+        $stack4 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack4 != 0 goto label1;
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = "0";
+
+        goto label9;
+
+     label1:
+        $stack6 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack5 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        if $stack6 != $stack5 goto label2;
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = "1";
+
+        goto label9;
+
+     label2:
+        $stack9 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack7 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $i0 = (int) -1;
+
+        $stack8 = $i0 * $stack7;
+
+        if $stack9 != $stack8 goto label3;
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = "-1";
+
+        goto label9;
+
+     label3:
+        $stack10 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        if $stack10 <= 0 goto label4;
+
+        $stack34 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+        $stack13 = neg $stack34;
+
+        goto label5;
+
+     label4:
+        $stack13 = this.<org.apache.commons.lang3.math.Fraction: int numerator>;
+
+     label5:
+        $stack11 = this.<org.apache.commons.lang3.math.Fraction: int denominator>;
+
+        $stack12 = neg $stack11;
+
+        if $stack13 >= $stack12 goto label8;
+
+        $stack22 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getProperNumerator()>();
+
+        if $stack22 != 0 goto label6;
+
+        $stack32 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getProperWhole()>();
+
+        $stack33 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($stack32);
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = $stack33;
+
+        goto label7;
+
+     label6:
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(int)>(32);
+
+        $stack24 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getProperWhole()>();
+
+        $stack25 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack22);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(47);
+
+        $stack29 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        $stack30 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack29);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = $stack31;
+
+     label7:
+        goto label9;
+
+     label8:
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>(int)>(32);
+
+        $stack15 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getNumerator()>();
+
+        $stack16 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack15);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(47);
+
+        $stack18 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int getDenominator()>();
+
+        $stack19 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString> = $stack20;
+
+     label9:
+        $stack3 = this.<org.apache.commons.lang3.math.Fraction: java.lang.String toProperString>;
+
+        return $stack3;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        int $stack3;
+        java.lang.Object x0;
+        org.apache.commons.lang3.math.Fraction this, $stack2;
+
+        this := @this: org.apache.commons.lang3.math.Fraction;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.math.Fraction) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.math.Fraction: int compareTo(org.apache.commons.lang3.math.Fraction)>($stack2);
+
+        return $stack3;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.math.Fraction $stack0, $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11;
+
+        <org.apache.commons.lang3.math.Fraction: long serialVersionUID> = 65382027393090L;
+
+        $stack0 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(0, 1);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ZERO> = $stack0;
+
+        $stack1 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(1, 1);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE> = $stack1;
+
+        $stack2 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(1, 2);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE_HALF> = $stack2;
+
+        $stack3 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(1, 3);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE_THIRD> = $stack3;
+
+        $stack4 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(2, 3);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction TWO_THIRDS> = $stack4;
+
+        $stack5 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(1, 4);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE_QUARTER> = $stack5;
+
+        $stack6 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(2, 4);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction TWO_QUARTERS> = $stack6;
+
+        $stack7 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(3, 4);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction THREE_QUARTERS> = $stack7;
+
+        $stack8 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(1, 5);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction ONE_FIFTH> = $stack8;
+
+        $stack9 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(2, 5);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction TWO_FIFTHS> = $stack9;
+
+        $stack10 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(3, 5);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction THREE_FIFTHS> = $stack10;
+
+        $stack11 = new org.apache.commons.lang3.math.Fraction;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.math.Fraction: void <init>(int,int)>(4, 5);
+
+        <org.apache.commons.lang3.math.Fraction: org.apache.commons.lang3.math.Fraction FOUR_FIFTHS> = $stack11;
+
+        return;
+    }
+}

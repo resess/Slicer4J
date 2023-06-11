@@ -1,0 +1,429 @@
+public class org.apache.commons.lang3.time.StopWatch extends java.lang.Object
+{
+    private static final long NANO_2_MILLIS;
+    private static final int STATE_UNSTARTED;
+    private static final int STATE_RUNNING;
+    private static final int STATE_STOPPED;
+    private static final int STATE_SUSPENDED;
+    private static final int STATE_UNSPLIT;
+    private static final int STATE_SPLIT;
+    private int runningState;
+    private int splitState;
+    private long startTime;
+    private long startTimeMillis;
+    private long stopTime;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 0;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int splitState> = 10;
+
+        return;
+    }
+
+    public void start()
+    {
+        java.lang.IllegalStateException $stack5, $stack6;
+        int $stack1, $stack2;
+        long $stack3, $stack4;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 != 2 goto label1;
+
+        $stack6 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack6.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch must be reset before being restarted. ");
+
+        throw $stack6;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack2 == 0 goto label2;
+
+        $stack5 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack5.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch already started. ");
+
+        throw $stack5;
+
+     label2:
+        $stack3 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: long startTime> = $stack3;
+
+        $stack4 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: long startTimeMillis> = $stack4;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 1;
+
+        return;
+    }
+
+    public void stop()
+    {
+        java.lang.IllegalStateException $stack9;
+        int $stack1, $stack2, $stack6;
+        long $stack3;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 == 1 goto label1;
+
+        $stack6 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack6 == 3 goto label1;
+
+        $stack9 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack9.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch is not running. ");
+
+        throw $stack9;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack2 != 1 goto label2;
+
+        $stack3 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: long stopTime> = $stack3;
+
+     label2:
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 2;
+
+        return;
+    }
+
+    public void reset()
+    {
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 0;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int splitState> = 10;
+
+        return;
+    }
+
+    public void split()
+    {
+        java.lang.IllegalStateException $stack3;
+        int $stack1;
+        long $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 == 1 goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch is not running. ");
+
+        throw $stack3;
+
+     label1:
+        $stack2 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: long stopTime> = $stack2;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int splitState> = 11;
+
+        return;
+    }
+
+    public void unsplit()
+    {
+        int $stack1;
+        java.lang.IllegalStateException $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int splitState>;
+
+        if $stack1 == 11 goto label1;
+
+        $stack2 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch has not been split. ");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.time.StopWatch: int splitState> = 10;
+
+        return;
+    }
+
+    public void suspend()
+    {
+        java.lang.IllegalStateException $stack3;
+        int $stack1;
+        long $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 == 1 goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch must be running to suspend. ");
+
+        throw $stack3;
+
+     label1:
+        $stack2 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        this.<org.apache.commons.lang3.time.StopWatch: long stopTime> = $stack2;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 3;
+
+        return;
+    }
+
+    public void resume()
+    {
+        java.lang.IllegalStateException $stack7;
+        long $stack2, $stack3, $stack4, $stack5, $stack6;
+        org.apache.commons.lang3.time.StopWatch this;
+        int $stack1;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 == 3 goto label1;
+
+        $stack7 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack7.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch must be suspended to resume. ");
+
+        throw $stack7;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: long startTime>;
+
+        $stack3 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        $stack4 = this.<org.apache.commons.lang3.time.StopWatch: long stopTime>;
+
+        $stack5 = $stack3 - $stack4;
+
+        $stack6 = $stack2 + $stack5;
+
+        this.<org.apache.commons.lang3.time.StopWatch: long startTime> = $stack6;
+
+        this.<org.apache.commons.lang3.time.StopWatch: int runningState> = 1;
+
+        return;
+    }
+
+    public long getTime()
+    {
+        long $stack1, $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.time.StopWatch: long getNanoTime()>();
+
+        $stack2 = $stack1 / 1000000L;
+
+        return $stack2;
+    }
+
+    public long getNanoTime()
+    {
+        long $stack2, $stack3, $stack4, $stack9, $stack10, $stack11;
+        org.apache.commons.lang3.time.StopWatch this;
+        java.lang.RuntimeException $stack8;
+        int $stack1, $stack5, $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 == 2 goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack5 != 3 goto label2;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.time.StopWatch: long stopTime>;
+
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: long startTime>;
+
+        $stack4 = $stack3 - $stack2;
+
+        return $stack4;
+
+     label2:
+        $stack6 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack6 != 0 goto label3;
+
+        return 0L;
+
+     label3:
+        $stack7 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack7 != 1 goto label4;
+
+        $stack9 = staticinvoke <java.lang.System: long nanoTime()>();
+
+        $stack10 = this.<org.apache.commons.lang3.time.StopWatch: long startTime>;
+
+        $stack11 = $stack9 - $stack10;
+
+        return $stack11;
+
+     label4:
+        $stack8 = new java.lang.RuntimeException;
+
+        specialinvoke $stack8.<java.lang.RuntimeException: void <init>(java.lang.String)>("Illegal running state has occured. ");
+
+        throw $stack8;
+    }
+
+    public long getSplitTime()
+    {
+        long $stack1, $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.time.StopWatch: long getSplitNanoTime()>();
+
+        $stack2 = $stack1 / 1000000L;
+
+        return $stack2;
+    }
+
+    public long getSplitNanoTime()
+    {
+        java.lang.IllegalStateException $stack5;
+        int $stack1;
+        long $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int splitState>;
+
+        if $stack1 == 11 goto label1;
+
+        $stack5 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack5.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch must be split to get the split time. ");
+
+        throw $stack5;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.time.StopWatch: long stopTime>;
+
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: long startTime>;
+
+        $stack4 = $stack3 - $stack2;
+
+        return $stack4;
+    }
+
+    public long getStartTime()
+    {
+        java.lang.IllegalStateException $stack3;
+        int $stack1;
+        long $stack2;
+        org.apache.commons.lang3.time.StopWatch this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = this.<org.apache.commons.lang3.time.StopWatch: int runningState>;
+
+        if $stack1 != 0 goto label1;
+
+        $stack3 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("Stopwatch has not been started");
+
+        throw $stack3;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.time.StopWatch: long startTimeMillis>;
+
+        return $stack2;
+    }
+
+    public java.lang.String toString()
+    {
+        long $stack1;
+        org.apache.commons.lang3.time.StopWatch this;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>($stack1);
+
+        return $stack2;
+    }
+
+    public java.lang.String toSplitString()
+    {
+        long $stack1;
+        org.apache.commons.lang3.time.StopWatch this;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.time.StopWatch;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.time.StopWatch: long getSplitTime()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDurationHMS(long)>($stack1);
+
+        return $stack2;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.StopWatch: int STATE_SPLIT> = 11;
+
+        <org.apache.commons.lang3.time.StopWatch: int STATE_UNSPLIT> = 10;
+
+        <org.apache.commons.lang3.time.StopWatch: int STATE_SUSPENDED> = 3;
+
+        <org.apache.commons.lang3.time.StopWatch: int STATE_STOPPED> = 2;
+
+        <org.apache.commons.lang3.time.StopWatch: int STATE_RUNNING> = 1;
+
+        <org.apache.commons.lang3.time.StopWatch: int STATE_UNSTARTED> = 0;
+
+        <org.apache.commons.lang3.time.StopWatch: long NANO_2_MILLIS> = 1000000L;
+
+        return;
+    }
+}

@@ -1,0 +1,63 @@
+public abstract class org.apache.commons.lang3.concurrent.LazyInitializer extends java.lang.Object implements org.apache.commons.lang3.concurrent.ConcurrentInitializer
+{
+    private volatile java.lang.Object object;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.LazyInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.LazyInitializer;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.Object get() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack8;
+        java.lang.Object $stack7, result;
+        org.apache.commons.lang3.concurrent.LazyInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.LazyInitializer;
+
+        result = this.<org.apache.commons.lang3.concurrent.LazyInitializer: java.lang.Object object>;
+
+        if result != null goto label6;
+
+        entermonitor this;
+
+     label1:
+        result = this.<org.apache.commons.lang3.concurrent.LazyInitializer: java.lang.Object object>;
+
+        if result != null goto label2;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.concurrent.LazyInitializer: java.lang.Object initialize()>();
+
+        result = $stack7;
+
+        this.<org.apache.commons.lang3.concurrent.LazyInitializer: java.lang.Object object> = $stack7;
+
+     label2:
+        exitmonitor this;
+
+     label3:
+        goto label6;
+
+     label4:
+        $stack8 := @caughtexception;
+
+        exitmonitor this;
+
+     label5:
+        throw $stack8;
+
+     label6:
+        return result;
+
+        catch java.lang.Throwable from label1 to label3 with label4;
+        catch java.lang.Throwable from label4 to label5 with label4;
+    }
+
+    protected abstract java.lang.Object initialize() throws org.apache.commons.lang3.concurrent.ConcurrentException;
+}

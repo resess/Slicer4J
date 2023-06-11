@@ -1,0 +1,68 @@
+public class org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest extends org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest
+{
+    private org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl initializer;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest this;
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl: void <init>(org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$1)>(null);
+
+        this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl initializer> = $stack1;
+
+        return;
+    }
+
+    protected org.apache.commons.lang3.concurrent.ConcurrentInitializer createInitializer()
+    {
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest this;
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl initializer>;
+
+        return $stack1;
+    }
+
+    public void testNumberOfInitializeInvocations() throws org.apache.commons.lang3.concurrent.ConcurrentException, java.lang.InterruptedException
+    {
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest this;
+        java.util.concurrent.atomic.AtomicInteger $stack2;
+        int $stack5;
+        long $stack6;
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest;
+
+        virtualinvoke this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest: void testGetConcurrent()>();
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest: org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl initializer>;
+
+        $stack2 = $stack1.<org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest$AtomicSafeInitializerTestImpl: java.util.concurrent.atomic.AtomicInteger initCounter>;
+
+        $stack5 = virtualinvoke $stack2.<java.util.concurrent.atomic.AtomicInteger: int get()>();
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of invocations", 1L, $stack6);
+
+        return;
+    }
+}

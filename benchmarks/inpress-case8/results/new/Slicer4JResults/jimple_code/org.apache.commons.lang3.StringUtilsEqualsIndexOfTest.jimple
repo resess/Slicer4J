@@ -1,0 +1,4350 @@
+public class org.apache.commons.lang3.StringUtilsEqualsIndexOfTest extends java.lang.Object
+{
+    private static final java.lang.String BAR;
+    private static final java.lang.String CharU20000;
+    private static final java.lang.String CharU20001;
+    private static final java.lang.String CharUSuppCharHigh;
+    private static final java.lang.String CharUSuppCharLow;
+    private static final java.lang.String FOO;
+    private static final java.lang.String FOOBAR;
+    private static final java.lang.String[] FOOBAR_SUB_ARRAY;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testContains_Char()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>(null, 32);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>("", 32);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>("abc", 97);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>("abc", 98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>("abc", 99);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,int)>("abc", 122);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        return;
+    }
+
+    public void testContains_String()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>(null, "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("", "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("abc", "b");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("abc", "c");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("abc", "abc");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("abc", "z");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testContains_StringWithBadSupplementaryChars()
+    {
+        long $stack7;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack6;
+        java.lang.String $stack4;
+        boolean $stack1, $stack2, $stack3, $stack8, $stack9, $stack10;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01", "\udc00");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = "\ud840\udc01";
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("\ud840");
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01", "\ud840");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01\ud840a", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01\udc00a", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testContains_StringWithSupplementaryChars()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        boolean $stack1, $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean contains(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        return;
+    }
+
+    public void testContainsAny_StringCharArray()
+    {
+        boolean $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack1, $stack3, $stack5, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = (char[]) null;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>(null, $stack1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = newarray (char)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>(null, $stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = newarray (char)[2];
+
+        $stack5[0] = 97;
+
+        $stack5[1] = 98;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>(null, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = (char[]) null;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = newarray (char)[0];
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = newarray (char)[2];
+
+        $stack11[0] = 97;
+
+        $stack11[1] = 98;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("", $stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = (char[]) null;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = newarray (char)[0];
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = newarray (char)[2];
+
+        $stack17[0] = 122;
+
+        $stack17[1] = 97;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = newarray (char)[2];
+
+        $stack19[0] = 98;
+
+        $stack19[1] = 121;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = newarray (char)[1];
+
+        $stack21[0] = 122;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("ab", $stack21);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testContainsAny_StringCharArrayWithBadSupplementaryChars()
+    {
+        long $stack12, $stack24;
+        int $stack11, $stack23;
+        java.lang.String $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25;
+        boolean $stack4, $stack8, $stack16, $stack20, $stack28;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack3, $stack7, $stack15, $stack19, $stack27;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc01";
+
+        $stack3 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\udc00", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = "\ud840\udc01";
+
+        $stack7 = virtualinvoke $stack5.<java.lang.String: char[] toCharArray()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("abc\udc00xyz", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = "\ud840";
+
+        $stack11 = virtualinvoke $stack9.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack13 = "\ud840\udc01";
+
+        $stack15 = virtualinvoke $stack13.<java.lang.String: char[] toCharArray()>();
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = "\udc00";
+
+        $stack19 = virtualinvoke $stack17.<java.lang.String: char[] toCharArray()>();
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc01", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack21 = "\ud840\udc01";
+
+        $stack23 = virtualinvoke $stack21.<java.lang.String: int indexOf(java.lang.String)>("\ud840");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack24);
+
+        $stack25 = "\ud840";
+
+        $stack27 = virtualinvoke $stack25.<java.lang.String: char[] toCharArray()>();
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc01", $stack27);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        return;
+    }
+
+    public void testContainsAny_StringCharArrayWithSupplementaryChars()
+    {
+        boolean $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack44, $stack48;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        long $stack28, $stack34, $stack40;
+        int $stack27, $stack33, $stack39, $i0, $i1;
+        java.lang.String $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack31, $stack35, $stack37, $stack41, $stack45;
+        char $stack32, $stack38;
+        char[] $stack3, $stack7, $stack11, $stack15, $stack19, $stack23, $stack43, $stack47;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc00";
+
+        $stack3 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = "a";
+
+        $stack7 = virtualinvoke $stack5.<java.lang.String: char[] toCharArray()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("a\ud840\udc00\ud840\udc01", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = "a";
+
+        $stack11 = virtualinvoke $stack9.<java.lang.String: char[] toCharArray()>();
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00a\ud840\udc01", $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = "a";
+
+        $stack15 = virtualinvoke $stack13.<java.lang.String: char[] toCharArray()>();
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01a", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = "\ud840\udc01";
+
+        $stack19 = virtualinvoke $stack17.<java.lang.String: char[] toCharArray()>();
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = "\ud840\udc00";
+
+        $stack23 = virtualinvoke $stack21.<java.lang.String: char[] toCharArray()>();
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00", $stack23);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = "\ud840\udc00";
+
+        $stack27 = virtualinvoke $stack25.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack28);
+
+        $stack31 = "\ud840\udc00";
+
+        $stack29 = "\ud840\udc01";
+
+        $stack32 = virtualinvoke $stack29.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack32;
+
+        $stack33 = virtualinvoke $stack31.<java.lang.String: int indexOf(int)>($i0);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack34);
+
+        $stack37 = "\ud840\udc00";
+
+        $stack35 = "\ud840\udc01";
+
+        $stack38 = virtualinvoke $stack35.<java.lang.String: char charAt(int)>(1);
+
+        $i1 = (int) $stack38;
+
+        $stack39 = virtualinvoke $stack37.<java.lang.String: int indexOf(int)>($i1);
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack40);
+
+        $stack41 = "\ud840\udc01";
+
+        $stack43 = virtualinvoke $stack41.<java.lang.String: char[] toCharArray()>();
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc00", $stack43);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack44);
+
+        $stack45 = "\ud840\udc00";
+
+        $stack47 = virtualinvoke $stack45.<java.lang.String: char[] toCharArray()>();
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,char[])>("\ud840\udc01", $stack47);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack48);
+
+        return;
+    }
+
+    public void testContainsAny_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        boolean $stack2, $stack3, $stack4, $stack6, $stack7, $stack8, $stack10, $stack11, $stack12, $stack13, $stack14;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>(null, "ab");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("", "ab");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "za");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "by");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("ab", "z");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testContainsAny_StringWithBadSupplementaryChars()
+    {
+        long $stack5, $stack11;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack4, $stack10;
+        java.lang.String $stack2, $stack8;
+        boolean $stack1, $stack6, $stack7, $stack12;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = "\ud840";
+
+        $stack4 = virtualinvoke $stack2.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01", "\udc00");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = "\ud840\udc01";
+
+        $stack10 = virtualinvoke $stack8.<java.lang.String: int indexOf(java.lang.String)>("\ud840");
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01", "\ud840");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        return;
+    }
+
+    public void testContainsAny_StringWithSupplementaryChars()
+    {
+        long $stack7, $stack13, $stack19;
+        int $stack6, $stack12, $stack18, $i0, $i1;
+        java.lang.String $stack4, $stack8, $stack10, $stack14, $stack16;
+        boolean $stack1, $stack2, $stack3, $stack20, $stack21;
+        char $stack11, $stack17;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack4 = "\ud840\udc00";
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack7);
+
+        $stack10 = "\ud840\udc00";
+
+        $stack8 = "\ud840\udc01";
+
+        $stack11 = virtualinvoke $stack8.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack11;
+
+        $stack12 = virtualinvoke $stack10.<java.lang.String: int indexOf(int)>($i0);
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack13);
+
+        $stack16 = "\ud840\udc00";
+
+        $stack14 = "\ud840\udc01";
+
+        $stack17 = virtualinvoke $stack14.<java.lang.String: char charAt(int)>(1);
+
+        $i1 = (int) $stack17;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.String: int indexOf(int)>($i1);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsAny(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc01", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        return;
+    }
+
+    public void testContainsIgnoreCase_LocaleIndependence()
+    {
+        java.util.Locale $stack11, $stack13, $stack14, $stack17, locale, $stack31, $stack52;
+        boolean $stack48, $stack69;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $stack30, $stack32, $stack33, $stack34, $stack35, $stack38, $stack39, $stack42, $stack51, $stack53, $stack54, $stack55, $stack56, $stack59, $stack60, $stack63;
+        java.lang.Throwable $stack72;
+        java.lang.String[] $stack19, $stack20, $stack21, $stack22, $stack23, $stack25, $stack36, $stack40, $stack44, $stack45, $stack57, $stack61, $stack65, $stack66;
+        int len$, $stack26, $stack27, i$, j;
+        java.lang.String $stack37, $stack41, $stack43, $stack46, $stack47, $stack58, $stack62, $stack64, $stack67, $stack68;
+        java.util.Locale[] $stack12;
+        java.lang.String[][] $stack18, $stack24;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack11 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack12 = newarray (java.util.Locale)[3];
+
+        $stack13 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        $stack12[0] = $stack13;
+
+        $stack14 = new java.util.Locale;
+
+        specialinvoke $stack14.<java.util.Locale: void <init>(java.lang.String)>("tr");
+
+        $stack12[1] = $stack14;
+
+        $stack17 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack12[2] = $stack17;
+
+        $stack18 = newarray (java.lang.String[])[5];
+
+        $stack19 = newarray (java.lang.String)[2];
+
+        $stack19[0] = "i";
+
+        $stack19[1] = "I";
+
+        $stack18[0] = $stack19;
+
+        $stack20 = newarray (java.lang.String)[2];
+
+        $stack20[0] = "I";
+
+        $stack20[1] = "i";
+
+        $stack18[1] = $stack20;
+
+        $stack21 = newarray (java.lang.String)[2];
+
+        $stack21[0] = "\u03c2";
+
+        $stack21[1] = "\u03c3";
+
+        $stack18[2] = $stack21;
+
+        $stack22 = newarray (java.lang.String)[2];
+
+        $stack22[0] = "\u03a3";
+
+        $stack22[1] = "\u03c2";
+
+        $stack18[3] = $stack22;
+
+        $stack23 = newarray (java.lang.String)[2];
+
+        $stack23[0] = "\u03a3";
+
+        $stack23[1] = "\u03c3";
+
+        $stack18[4] = $stack23;
+
+        $stack24 = newarray (java.lang.String[])[1];
+
+        $stack25 = newarray (java.lang.String)[2];
+
+        $stack25[0] = "\u00df";
+
+        $stack25[1] = "SS";
+
+        $stack24[0] = $stack25;
+
+     label01:
+        len$ = lengthof $stack12;
+
+        i$ = 0;
+
+     label02:
+        if i$ >= len$ goto label07;
+
+        locale = $stack12[i$];
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>(locale);
+
+        j = 0;
+
+     label03:
+        $stack26 = lengthof $stack18;
+
+        if j >= $stack26 goto label04;
+
+        $stack51 = new java.lang.StringBuilder;
+
+        specialinvoke $stack51.<java.lang.StringBuilder: void <init>()>();
+
+        $stack52 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack53 = virtualinvoke $stack51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack52);
+
+        $stack54 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack55 = virtualinvoke $stack54.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(j);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack57 = $stack18[j];
+
+        $stack58 = $stack57[0];
+
+        $stack59 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack58);
+
+        $stack60 = virtualinvoke $stack59.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack61 = $stack18[j];
+
+        $stack62 = $stack61[1];
+
+        $stack63 = virtualinvoke $stack60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack62);
+
+        $stack64 = virtualinvoke $stack63.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack65 = $stack18[j];
+
+        $stack68 = $stack65[0];
+
+        $stack66 = $stack18[j];
+
+        $stack67 = $stack66[1];
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>($stack68, $stack67);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack64, $stack69);
+
+        j = j + 1;
+
+        goto label03;
+
+     label04:
+        j = 0;
+
+     label05:
+        $stack27 = lengthof $stack24;
+
+        if j >= $stack27 goto label06;
+
+        $stack30 = new java.lang.StringBuilder;
+
+        specialinvoke $stack30.<java.lang.StringBuilder: void <init>()>();
+
+        $stack31 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack32 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack31);
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack34 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(j);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack36 = $stack24[j];
+
+        $stack37 = $stack36[0];
+
+        $stack38 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack37);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack40 = $stack24[j];
+
+        $stack41 = $stack40[1];
+
+        $stack42 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack41);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack44 = $stack24[j];
+
+        $stack47 = $stack44[0];
+
+        $stack45 = $stack24[j];
+
+        $stack46 = $stack45[1];
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>($stack47, $stack46);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>($stack43, $stack48);
+
+        j = j + 1;
+
+        goto label05;
+
+     label06:
+        i$ = i$ + 1;
+
+        goto label02;
+
+     label07:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack11);
+
+        goto label10;
+
+     label08:
+        $stack72 := @caughtexception;
+
+     label09:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack11);
+
+        throw $stack72;
+
+     label10:
+        return;
+
+        catch java.lang.Throwable from label01 to label07 with label08;
+        catch java.lang.Throwable from label08 to label09 with label08;
+    }
+
+    public void testContainsIgnoreCase_StringString()
+    {
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "abc");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("abc", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("abc", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "A");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", "A");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("abc", "A");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "abc");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", "abc");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("xabcz", "abc");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "ABC");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("a", "ABC");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("xabcz", "ABC");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testContainsNone_CharArray()
+    {
+        boolean $stack12, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack8, $stack9, $stack10, emptyChars, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack8 = newarray (char)[1];
+
+        $stack8[0] = 98;
+
+        $stack9 = newarray (char)[1];
+
+        $stack9[0] = 46;
+
+        $stack10 = newarray (char)[2];
+
+        $stack10[0] = 99;
+
+        $stack10[1] = 100;
+
+        emptyChars = newarray (char)[0];
+
+        $stack11 = (char[]) null;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>(null, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = (char[]) null;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>(null, emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("a", emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("", emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("a", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("a", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("a", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("b", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("b", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("b", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("ab.", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("ab.", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("ab.", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        return;
+    }
+
+    public void testContainsNone_CharArrayWithBadSupplementaryChars()
+    {
+        long $stack8, $stack16, $stack24;
+        int $stack7, $stack15, $stack23;
+        java.lang.String $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25;
+        boolean $stack4, $stack12, $stack20, $stack28;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack3, $stack11, $stack19, $stack27;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc01";
+
+        $stack3 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\udc00", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = "\ud840";
+
+        $stack7 = virtualinvoke $stack5.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack8);
+
+        $stack9 = "\ud840\udc01";
+
+        $stack11 = virtualinvoke $stack9.<java.lang.String: char[] toCharArray()>();
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840", $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = "\ud840\udc01";
+
+        $stack15 = virtualinvoke $stack13.<java.lang.String: int indexOf(java.lang.String)>("\udc00");
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack16);
+
+        $stack17 = "\udc00";
+
+        $stack19 = virtualinvoke $stack17.<java.lang.String: char[] toCharArray()>();
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc01", $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = "\ud840\udc01";
+
+        $stack23 = virtualinvoke $stack21.<java.lang.String: int indexOf(java.lang.String)>("\ud840");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack24);
+
+        $stack25 = "\ud840";
+
+        $stack27 = virtualinvoke $stack25.<java.lang.String: char[] toCharArray()>();
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc01", $stack27);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack28);
+
+        return;
+    }
+
+    public void testContainsNone_CharArrayWithSupplementaryChars()
+    {
+        long $stack16, $stack22, $stack28;
+        int $stack15, $stack21, $stack27, $i0, $i1;
+        java.lang.String $stack1, $stack5, $stack9, $stack13, $stack17, $stack19, $stack23, $stack25, $stack29, $stack33;
+        boolean $stack4, $stack8, $stack12, $stack32, $stack36;
+        char $stack20, $stack26;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack3, $stack7, $stack11, $stack31, $stack35;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc00";
+
+        $stack3 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = "\ud840\udc01";
+
+        $stack7 = virtualinvoke $stack5.<java.lang.String: char[] toCharArray()>();
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = "\ud840\udc00";
+
+        $stack11 = virtualinvoke $stack9.<java.lang.String: char[] toCharArray()>();
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc00", $stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = "\ud840\udc00";
+
+        $stack15 = virtualinvoke $stack13.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack16);
+
+        $stack19 = "\ud840\udc00";
+
+        $stack17 = "\ud840\udc01";
+
+        $stack20 = virtualinvoke $stack17.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack20;
+
+        $stack21 = virtualinvoke $stack19.<java.lang.String: int indexOf(int)>($i0);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack22);
+
+        $stack25 = "\ud840\udc00";
+
+        $stack23 = "\ud840\udc01";
+
+        $stack26 = virtualinvoke $stack23.<java.lang.String: char charAt(int)>(1);
+
+        $i1 = (int) $stack26;
+
+        $stack27 = virtualinvoke $stack25.<java.lang.String: int indexOf(int)>($i1);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack28);
+
+        $stack29 = "\ud840\udc01";
+
+        $stack31 = virtualinvoke $stack29.<java.lang.String: char[] toCharArray()>();
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc00", $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = "\ud840\udc00";
+
+        $stack35 = virtualinvoke $stack33.<java.lang.String: char[] toCharArray()>();
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,char[])>("\ud840\udc01", $stack35);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack36);
+
+        return;
+    }
+
+    public void testContainsNone_String()
+    {
+        boolean $stack8, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("a", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("", "b");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("a", "b");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("a", ".");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("a", "cd");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("b", "b");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("b", ".");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("b", "cd");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("ab.", "b");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("ab.", ".");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("ab.", "cd");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        return;
+    }
+
+    public void testContainsNone_StringWithBadSupplementaryChars()
+    {
+        long $stack5, $stack10, $stack15;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack4, $stack9, $stack14;
+        java.lang.String $stack2, $stack7, $stack12;
+        boolean $stack1, $stack6, $stack11, $stack16;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = "\ud840";
+
+        $stack4 = virtualinvoke $stack2.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = "\ud840\udc01";
+
+        $stack9 = virtualinvoke $stack7.<java.lang.String: int indexOf(java.lang.String)>("\udc00");
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc01", "\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = "\ud840\udc01";
+
+        $stack14 = virtualinvoke $stack12.<java.lang.String: int indexOf(java.lang.String)>("\ud840");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc01", "\ud840");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testContainsNone_StringWithSupplementaryChars()
+    {
+        long $stack7, $stack13, $stack19;
+        int $stack6, $stack12, $stack18, $i0, $i1;
+        java.lang.String $stack4, $stack8, $stack10, $stack14, $stack16;
+        boolean $stack1, $stack2, $stack3, $stack20, $stack21;
+        char $stack11, $stack17;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc00\ud840\udc01", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc00\ud840\udc01", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc00", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = "\ud840\udc00";
+
+        $stack6 = virtualinvoke $stack4.<java.lang.String: int indexOf(java.lang.String)>("\ud840\udc01");
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack7);
+
+        $stack10 = "\ud840\udc00";
+
+        $stack8 = "\ud840\udc01";
+
+        $stack11 = virtualinvoke $stack8.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack11;
+
+        $stack12 = virtualinvoke $stack10.<java.lang.String: int indexOf(int)>($i0);
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack13);
+
+        $stack16 = "\ud840\udc00";
+
+        $stack14 = "\ud840\udc01";
+
+        $stack17 = virtualinvoke $stack14.<java.lang.String: char charAt(int)>(1);
+
+        $i1 = (int) $stack17;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.String: int indexOf(int)>($i1);
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc00", "\ud840\udc01");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsNone(java.lang.CharSequence,java.lang.String)>("\ud840\udc01", "\ud840\udc00");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        return;
+    }
+
+    public void testContainsOnly_CharArray()
+    {
+        boolean $stack12, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack8, $stack9, $stack10, emptyChars, $stack11, $stack13;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack8 = newarray (char)[1];
+
+        $stack8[0] = 98;
+
+        $stack9 = newarray (char)[1];
+
+        $stack9[0] = 97;
+
+        $stack10 = newarray (char)[2];
+
+        $stack10[0] = 97;
+
+        $stack10[1] = 98;
+
+        emptyChars = newarray (char)[0];
+
+        $stack11 = (char[]) null;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>(null, $stack11);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = (char[]) null;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("", $stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>(null, emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("a", emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("", emptyChars);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("a", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("a", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("a", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("b", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("b", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("b", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("ab", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("ab", $stack9);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,char[])>("ab", $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        return;
+    }
+
+    public void testContainsOnly_String()
+    {
+        boolean $stack8, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("a", "");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("", "b");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("a", "b");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("a", "a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("a", "ab");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("b", "b");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("b", "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("b", "ab");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("ab", "b");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("ab", "a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsOnly(java.lang.CharSequence,java.lang.String)>("ab", "ab");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        return;
+    }
+
+    public void testContainsWhitespace()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>("");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>(" ");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>("a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>("a ");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>(" a");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>("a\t");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean containsWhitespace(java.lang.CharSequence)>("\n");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        return;
+    }
+
+    public void testCustomCharSequence()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        org.hamcrest.Matcher $stack2, $stack5;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence $stack1, $stack3, $stack6, $stack7;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        $stack2 = staticinvoke <org.hamcrest.core.IsNot: org.hamcrest.Matcher not(java.lang.Object)>("foo");
+
+        staticinvoke <org.junit.Assert: void assertThat(java.lang.Object,org.hamcrest.Matcher)>($stack1, $stack2);
+
+        $stack3 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        $stack5 = staticinvoke <org.hamcrest.core.IsNot: org.hamcrest.Matcher not(java.lang.Object)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertThat(java.lang.Object,org.hamcrest.Matcher)>("foo", $stack5);
+
+        $stack6 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        $stack7 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        return;
+    }
+
+    public void testEquals()
+    {
+        java.lang.String $stack8, $stack15;
+        boolean $stack4, $stack5, $stack7, $stack10, $stack12, $stack14, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence $stack11, $stack13;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack9, $stack16;
+        java.lang.StringBuilder $stack6;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "foo");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>(java.lang.String)>("foo");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = new java.lang.String;
+
+        $stack9 = newarray (char)[3];
+
+        $stack9[0] = 102;
+
+        $stack9[1] = 111;
+
+        $stack9[2] = 111;
+
+        specialinvoke $stack8.<java.lang.String: void <init>(char[])>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = new org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.StringUtilsEqualsIndexOfTest$CustomCharSequence: void <init>(java.lang.CharSequence)>("foo");
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>($stack13, "foo");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = new java.lang.String;
+
+        $stack16 = newarray (char)[3];
+
+        $stack16[0] = 102;
+
+        $stack16[1] = 79;
+
+        $stack16[2] = 79;
+
+        specialinvoke $stack15.<java.lang.String: void <init>(char[])>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack15);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "bar");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(null, "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "foobar");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foobar", "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        return;
+    }
+
+    public void testEqualsOnStrings()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack4, $stack8;
+        java.lang.String $stack3, $stack7;
+        boolean $stack1, $stack2, $stack6, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "foo");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = new java.lang.String;
+
+        $stack4 = newarray (char)[3];
+
+        $stack4[0] = 102;
+
+        $stack4[1] = 111;
+
+        $stack4[2] = 111;
+
+        specialinvoke $stack3.<java.lang.String: void <init>(char[])>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = new java.lang.String;
+
+        $stack8 = newarray (char)[3];
+
+        $stack8[0] = 102;
+
+        $stack8[1] = 79;
+
+        $stack8[2] = 79;
+
+        specialinvoke $stack7.<java.lang.String: void <init>(char[])>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "bar");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>(null, "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foo", "foobar");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equals(java.lang.CharSequence,java.lang.CharSequence)>("foobar", "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testEqualsIgnoreCase()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack4, $stack8;
+        java.lang.String $stack3, $stack7;
+        boolean $stack1, $stack2, $stack6, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("foo", "foo");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = new java.lang.String;
+
+        $stack4 = newarray (char)[3];
+
+        $stack4[0] = 102;
+
+        $stack4[1] = 111;
+
+        $stack4[2] = 111;
+
+        specialinvoke $stack3.<java.lang.String: void <init>(char[])>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack7 = new java.lang.String;
+
+        $stack8 = newarray (char)[3];
+
+        $stack8[0] = 102;
+
+        $stack8[1] = 79;
+
+        $stack8[2] = 79;
+
+        specialinvoke $stack7.<java.lang.String: void <init>(char[])>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("foo", $stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("foo", "bar");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean equalsIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("abcd", "abcd ");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testIndexOf_char()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack16;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack2, $stack5, $stack8, $stack11, $stack15;
+        java.lang.StringBuilder $stack13;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int)>(null, 32);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int)>("", 32);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int)>("aabaabaa", 97);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int)>("aabaabaa", 98);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack12);
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int)>($stack13, 98);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack16);
+
+        return;
+    }
+
+    public void testIndexOf_charInt()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack31;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack30, $i0, $i1, $i2;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>(null, 32, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>(null, 32, $i0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("", 32, 0);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("", 32, $i1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("aabaabaa", 97, 0);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 0);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 3);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 9);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $i2 = (int) -1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, $i2);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack27);
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,int,int)>($u0, 98, 3);
+
+        $stack31 = (long) $stack30;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack31);
+
+        return;
+    }
+
+    public void testIndexOf_String()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack25;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack24;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $stack22;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "a");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "b");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "ab");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "");
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack21);
+
+        $stack22 = new java.lang.StringBuilder;
+
+        specialinvoke $stack22.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence)>($stack22, "b");
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack25);
+
+        return;
+    }
+
+    public void testIndexOf_StringInt()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $u0;
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45, $stack48, $stack51, $stack54, $stack57, $stack60, $stack64;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44, $stack47, $stack50, $stack53, $stack56, $stack59, $stack63, $i0, $i1, $i2, $i3, $i4, $i5;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, $i0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", 0);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", $i1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 0);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack15);
+
+        $i2 = (int) -1;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, $i2);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 0);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack21);
+
+        $i3 = (int) -1;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", $i3);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 9);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack30);
+
+        $i4 = (int) -1;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", $i4);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 9);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 3);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 0);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack42);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 0);
+
+        $stack45 = (long) $stack44;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack45);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 0);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack48);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 3);
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack51);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 9);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack54);
+
+        $i5 = (int) -1;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", $i5);
+
+        $stack57 = (long) $stack56;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack57);
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 2);
+
+        $stack60 = (long) $stack59;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack60);
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOf(java.lang.CharSequence,java.lang.CharSequence,int)>($u0, "b", 3);
+
+        $stack64 = (long) $stack63;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack64);
+
+        return;
+    }
+
+    public void testIndexOfAny_StringCharArray()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        long $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36, $stack40, $stack44;
+        int $stack3, $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39, $stack43;
+        char[] $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = (char[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>(null, $stack1);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack5 = newarray (char)[0];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>(null, $stack5);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack8);
+
+        $stack9 = newarray (char)[2];
+
+        $stack9[0] = 97;
+
+        $stack9[1] = 98;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>(null, $stack9);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack13 = (char[]) null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("", $stack13);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack16);
+
+        $stack17 = newarray (char)[0];
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("", $stack17);
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack20);
+
+        $stack21 = newarray (char)[2];
+
+        $stack21[0] = 97;
+
+        $stack21[1] = 98;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("", $stack21);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack25 = (char[]) null;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack25);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack28);
+
+        $stack29 = newarray (char)[0];
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack29);
+
+        $stack32 = (long) $stack31;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack32);
+
+        $stack33 = newarray (char)[2];
+
+        $stack33[0] = 122;
+
+        $stack33[1] = 97;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack33);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack36);
+
+        $stack37 = newarray (char)[2];
+
+        $stack37[0] = 98;
+
+        $stack37[1] = 121;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("zzabyycdxx", $stack37);
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack40);
+
+        $stack41 = newarray (char)[1];
+
+        $stack41[0] = 122;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("ab", $stack41);
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack44);
+
+        return;
+    }
+
+    public void testIndexOfAny_StringCharArrayWithSupplementaryChars()
+    {
+        long $stack6, $stack12, $stack18, $stack24;
+        int $stack5, $stack11, $stack17, $stack23;
+        java.lang.String $stack1, $stack7, $stack13, $stack19;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack4, $stack10, $stack16, $stack22;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc00";
+
+        $stack4 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack4);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack7 = "\ud840\udc01";
+
+        $stack10 = virtualinvoke $stack7.<java.lang.String: char[] toCharArray()>();
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack10);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack12);
+
+        $stack13 = "\ud840\udc00";
+
+        $stack16 = virtualinvoke $stack13.<java.lang.String: char[] toCharArray()>();
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("\ud840\udc00", $stack16);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack19 = "\ud840\udc01";
+
+        $stack22 = virtualinvoke $stack19.<java.lang.String: char[] toCharArray()>();
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,char[])>("\ud840\udc00", $stack22);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        return;
+    }
+
+    public void testIndexOfAny_StringString()
+    {
+        long $stack4, $stack7, $stack10, $stack14, $stack17, $stack20, $stack24, $stack27, $stack30, $stack33, $stack36;
+        int $stack3, $stack6, $stack9, $stack13, $stack16, $stack19, $stack23, $stack26, $stack29, $stack32, $stack35;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>(null, null);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>(null, "");
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>(null, "ab");
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("", null);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("", "");
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("", "ab");
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack20);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("zzabyycdxx", null);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("zzabyycdxx", "");
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("zzabyycdxx", "za");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("zzabyycdxx", "by");
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("ab", "z");
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack36);
+
+        return;
+    }
+
+    public void testIndexOfAny_StringStringArray()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.String[] $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53;
+        long $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36, $stack40, $stack44, $stack48, $stack52, $stack56;
+        int $stack3, $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39, $stack43, $stack47, $stack51, $stack55;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = (java.lang.String[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack1);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack5 = <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String[] FOOBAR_SUB_ARRAY>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack5);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack8);
+
+        $stack9 = (java.lang.String[]) null;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack9);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack13 = <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String[] FOOBAR_SUB_ARRAY>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack13);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack16);
+
+        $stack17 = newarray (java.lang.String)[0];
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack17);
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack20);
+
+        $stack21 = newarray (java.lang.String)[0];
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack21);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack25 = newarray (java.lang.String)[0];
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack25);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack28);
+
+        $stack29 = newarray (java.lang.String)[1];
+
+        $stack29[0] = "llll";
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack29);
+
+        $stack32 = (long) $stack31;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack32);
+
+        $stack33 = newarray (java.lang.String)[1];
+
+        $stack33[0] = "";
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack33);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack36);
+
+        $stack37 = newarray (java.lang.String)[1];
+
+        $stack37[0] = "";
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack37);
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack40);
+
+        $stack41 = newarray (java.lang.String)[1];
+
+        $stack41[0] = "a";
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack41);
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack44);
+
+        $stack45 = newarray (java.lang.String)[1];
+
+        $stack45[0] = null;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack45);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack48);
+
+        $stack49 = newarray (java.lang.String)[1];
+
+        $stack49[0] = null;
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack49);
+
+        $stack52 = (long) $stack51;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack52);
+
+        $stack53 = newarray (java.lang.String)[1];
+
+        $stack53[0] = null;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack53);
+
+        $stack56 = (long) $stack55;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack56);
+
+        return;
+    }
+
+    public void testIndexOfAny_StringStringWithSupplementaryChars()
+    {
+        long $stack3, $stack6, $stack9, $stack12;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack2, $stack5, $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("\ud840\udc00\ud840\udc01", "\ud840\udc00");
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("\ud840\udc00\ud840\udc01", "\ud840\udc01");
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("\ud840\udc00", "\ud840\udc00");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAny(java.lang.CharSequence,java.lang.String)>("\ud840\udc00", "\ud840\udc01");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        return;
+    }
+
+    public void testIndexOfAnyBut_StringCharArray()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        long $stack4, $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36, $stack40, $stack44, $stack48;
+        int $stack3, $stack7, $stack11, $stack15, $stack19, $stack23, $stack27, $stack31, $stack35, $stack39, $stack43, $stack47;
+        char[] $stack1, $stack5, $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = (char[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>(null, $stack1);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack5 = newarray (char)[0];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>(null, $stack5);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack8);
+
+        $stack9 = newarray (char)[2];
+
+        $stack9[0] = 97;
+
+        $stack9[1] = 98;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>(null, $stack9);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack13 = (char[]) null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("", $stack13);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack16);
+
+        $stack17 = newarray (char)[0];
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("", $stack17);
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack20);
+
+        $stack21 = newarray (char)[2];
+
+        $stack21[0] = 97;
+
+        $stack21[1] = 98;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("", $stack21);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack25 = (char[]) null;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("zzabyycdxx", $stack25);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack28);
+
+        $stack29 = newarray (char)[0];
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("zzabyycdxx", $stack29);
+
+        $stack32 = (long) $stack31;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack32);
+
+        $stack33 = newarray (char)[2];
+
+        $stack33[0] = 122;
+
+        $stack33[1] = 97;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("zzabyycdxx", $stack33);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack36);
+
+        $stack37 = newarray (char)[2];
+
+        $stack37[0] = 98;
+
+        $stack37[1] = 121;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("zzabyycdxx", $stack37);
+
+        $stack40 = (long) $stack39;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack40);
+
+        $stack41 = newarray (char)[2];
+
+        $stack41[0] = 97;
+
+        $stack41[1] = 98;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("aba", $stack41);
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack44);
+
+        $stack45 = newarray (char)[1];
+
+        $stack45[0] = 122;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("aba", $stack45);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack48);
+
+        return;
+    }
+
+    public void testIndexOfAnyBut_StringCharArrayWithSupplementaryChars()
+    {
+        long $stack6, $stack12, $stack18, $stack24;
+        int $stack5, $stack11, $stack17, $stack23;
+        java.lang.String $stack1, $stack7, $stack13, $stack19;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        char[] $stack4, $stack10, $stack16, $stack22;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = "\ud840\udc00";
+
+        $stack4 = virtualinvoke $stack1.<java.lang.String: char[] toCharArray()>();
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack4);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack6);
+
+        $stack7 = "\ud840\udc01";
+
+        $stack10 = virtualinvoke $stack7.<java.lang.String: char[] toCharArray()>();
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("\ud840\udc00\ud840\udc01", $stack10);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack13 = "\ud840\udc00";
+
+        $stack16 = virtualinvoke $stack13.<java.lang.String: char[] toCharArray()>();
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("\ud840\udc00", $stack16);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack19 = "\ud840\udc01";
+
+        $stack22 = virtualinvoke $stack19.<java.lang.String: char[] toCharArray()>();
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,char[])>("\ud840\udc00", $stack22);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack24);
+
+        return;
+    }
+
+    public void testIndexOfAnyBut_StringString()
+    {
+        long $stack4, $stack7, $stack10, $stack14, $stack17, $stack20, $stack24, $stack27, $stack30, $stack33, $stack36;
+        int $stack3, $stack6, $stack9, $stack13, $stack16, $stack19, $stack23, $stack26, $stack29, $stack32, $stack35;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>(null, "ab");
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack10);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("", "ab");
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack20);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", null);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "");
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "za");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("zzabyycdxx", "by");
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("ab", "z");
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack36);
+
+        return;
+    }
+
+    public void testIndexOfAnyBut_StringStringWithSupplementaryChars()
+    {
+        long $stack3, $stack6, $stack9, $stack12;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack2, $stack5, $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc00");
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00\ud840\udc01", "\ud840\udc01");
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc00");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfAnyBut(java.lang.CharSequence,java.lang.CharSequence)>("\ud840\udc00", "\ud840\udc01");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        return;
+    }
+
+    public void testIndexOfIgnoreCase_String()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "a");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "A");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "b");
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "B");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "ab");
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "AB");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "");
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack33);
+
+        return;
+    }
+
+    public void testIndexOfIgnoreCase_StringInt()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $i0;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $i0 = (int) -1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", $i0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 1);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 2);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 3);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 4);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 5);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 6);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 7);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 8);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aab", "AB", 1);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 5);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("ab", "AAB", 0);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int indexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aab", "AAB", 1);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        return;
+    }
+
+    public void testLastIndexOf_char()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack16;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack2, $stack5, $stack8, $stack11, $stack15;
+        java.lang.StringBuilder $stack13;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int)>(null, 32);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int)>("", 32);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int)>("aabaabaa", 97);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int)>("aabaabaa", 98);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack12);
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int)>($stack13, 98);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack16);
+
+        return;
+    }
+
+    public void testLastIndexOf_charInt()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack34;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack33, $i0, $i1, $i2;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $u0;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>(null, 32, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>(null, 32, $i0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("", 32, 0);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("", 32, $i1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 97, 8);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 8);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 3);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, 9);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack24);
+
+        $i2 = (int) -1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 98, $i2);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>("aabaabaa", 97, 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack30);
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,int,int)>($u0, 98, 2);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack34);
+
+        return;
+    }
+
+    public void testLastIndexOf_String()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack28;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack27;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $stack25;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("", "a");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "a");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "b");
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "ab");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack24);
+
+        $stack25 = new java.lang.StringBuilder;
+
+        specialinvoke $stack25.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence)>($stack25, "ab");
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack28);
+
+        return;
+    }
+
+    public void testLastIndexOf_StringInt()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        java.lang.StringBuilder $u0;
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45, $stack48, $stack51, $stack54, $stack57, $stack60, $stack64;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44, $stack47, $stack50, $stack53, $stack56, $stack59, $stack63, $i0, $i1, $i2, $i3, $i4, $i5;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, $i0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", 0);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", $i1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 0);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack15);
+
+        $i2 = (int) -1;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, $i2);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 0);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack21);
+
+        $i3 = (int) -1;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", $i3);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 9);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack30);
+
+        $i4 = (int) -1;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", $i4);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 9);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 8);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 8);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack42);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 8);
+
+        $stack45 = (long) $stack44;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack45);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 3);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack48);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 9);
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack51);
+
+        $i5 = (int) -1;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", $i5);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack54);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 0);
+
+        $stack57 = (long) $stack56;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack57);
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 0);
+
+        $stack60 = (long) $stack59;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack60);
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(java.lang.String)>("aabaabaa");
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>($u0, "b", 3);
+
+        $stack64 = (long) $stack63;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack64);
+
+        return;
+    }
+
+    public void testLastIndexOfAny_StringStringArray()
+    {
+        java.lang.CharSequence[] $stack1, $stack6, $stack10, $stack18, $stack23, $stack27;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        long $stack5, $stack9, $stack13, $stack17, $stack22, $stack26, $stack30, $stack34, $stack38, $stack42, $stack46, $stack50, $stack54, $stack58, $stack62, $stack66, $stack70, $stack74;
+        java.lang.String[] $stack14, $stack31, $stack35, $stack39, $stack43, $stack47, $stack51, $stack55, $stack59, $stack63, $stack67, $stack71;
+        int $stack4, $stack8, $stack12, $stack16, $stack21, $stack25, $stack29, $stack33, $stack37, $stack41, $stack45, $stack49, $stack53, $stack57, $stack61, $stack65, $stack69, $stack73;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack1 = newarray (java.lang.CharSequence)[1];
+
+        $stack1[0] = null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack1);
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack5);
+
+        $stack6 = (java.lang.CharSequence[]) null;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack6);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack10 = newarray (java.lang.CharSequence)[0];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack10);
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack13);
+
+        $stack14 = <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String[] FOOBAR_SUB_ARRAY>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack14);
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack17);
+
+        $stack18 = newarray (java.lang.CharSequence)[1];
+
+        $stack18[0] = null;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack18);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack22);
+
+        $stack23 = (java.lang.CharSequence[]) null;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack23);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack26);
+
+        $stack27 = newarray (java.lang.CharSequence)[0];
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack27);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $stack31 = <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String[] FOOBAR_SUB_ARRAY>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack31);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack34);
+
+        $stack35 = newarray (java.lang.String)[0];
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack35);
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack38);
+
+        $stack39 = newarray (java.lang.String)[0];
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack39);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack43 = newarray (java.lang.String)[0];
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack43);
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack46);
+
+        $stack47 = newarray (java.lang.String)[1];
+
+        $stack47[0] = "llll";
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack47);
+
+        $stack50 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack50);
+
+        $stack51 = newarray (java.lang.String)[1];
+
+        $stack51[0] = "";
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack51);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack54);
+
+        $stack55 = newarray (java.lang.String)[1];
+
+        $stack55[0] = "";
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack55);
+
+        $stack58 = (long) $stack57;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack58);
+
+        $stack59 = newarray (java.lang.String)[1];
+
+        $stack59[0] = "a";
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack59);
+
+        $stack62 = (long) $stack61;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack62);
+
+        $stack63 = newarray (java.lang.String)[1];
+
+        $stack63[0] = null;
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("", $stack63);
+
+        $stack66 = (long) $stack65;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack66);
+
+        $stack67 = newarray (java.lang.String)[1];
+
+        $stack67[0] = null;
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>("foobar", $stack67);
+
+        $stack70 = (long) $stack69;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack70);
+
+        $stack71 = newarray (java.lang.String)[1];
+
+        $stack71[0] = null;
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfAny(java.lang.CharSequence,java.lang.CharSequence[])>(null, $stack71);
+
+        $stack74 = (long) $stack73;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack74);
+
+        return;
+    }
+
+    public void testLastIndexOfIgnoreCase_String()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", null);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>(null, "");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "a");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "a");
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "A");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "b");
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "B");
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "ab");
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aabaabaa", "AB");
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("ab", "AAB");
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence)>("aab", "AAB");
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack42);
+
+        return;
+    }
+
+    public void testLastIndexOfIgnoreCase_StringInt()
+    {
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45, $stack48, $stack51, $stack54, $stack57, $stack60, $stack63;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44, $stack47, $stack50, $stack53, $stack56, $stack59, $stack62, $i0, $i1, $i2, $i3, $i4, $i5;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 0);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, $i0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", 0);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $i1 = (int) -1;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "", $i1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 0);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack15);
+
+        $i2 = (int) -1;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, $i2);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 0);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack21);
+
+        $i3 = (int) -1;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", $i3);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 9);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 0);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack30);
+
+        $i4 = (int) -1;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", $i4);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack33);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("abc", "", 9);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack36);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "A", 8);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack39);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "B", 8);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack42);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "AB", 8);
+
+        $stack45 = (long) $stack44;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack45);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "B", 3);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack48);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "B", 9);
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack51);
+
+        $i5 = (int) -1;
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "B", $i5);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack54);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "B", 0);
+
+        $stack57 = (long) $stack56;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack57);
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "A", 0);
+
+        $stack60 = (long) $stack59;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack60);
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastIndexOfIgnoreCase(java.lang.CharSequence,java.lang.CharSequence,int)>("aab", "AB", 1);
+
+        $stack63 = (long) $stack62;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack63);
+
+        return;
+    }
+
+    public void testLastOrdinalIndexOf()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, "*", 42);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("*", null, 42);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 42);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 1);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 2);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 1);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 2);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 1);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 2);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack27);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 1);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int lastOrdinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 2);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack33);
+
+        return;
+    }
+
+    public void testOrdinalIndexOf()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42, $stack45, $stack48, $stack51, $stack54, $stack57, $stack60, $stack63, $stack66, $stack69, $stack72, $stack75, $stack78, $stack81, $stack84, $stack87, $stack90, $stack93, $stack96, $stack99, $stack102, $stack105, $stack108, $stack111, $stack114, $stack117, $stack120, $stack123, $stack126, $stack129, $stack132, $stack135, $stack138, $stack141, $stack144, $stack147, $stack150, $stack153, $stack156, $stack159;
+        org.apache.commons.lang3.StringUtilsEqualsIndexOfTest this;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44, $stack47, $stack50, $stack53, $stack56, $stack59, $stack62, $stack65, $stack68, $stack71, $stack74, $stack77, $stack80, $stack83, $stack86, $stack89, $stack92, $stack95, $stack98, $stack101, $stack104, $stack107, $stack110, $stack113, $stack116, $stack119, $stack122, $stack125, $stack128, $stack131, $stack134, $stack137, $stack140, $stack143, $stack146, $stack149, $stack152, $stack155, $stack158, $i0, $i1, $i2, $i3, $i4, $i5, $i6;
+
+        this := @this: org.apache.commons.lang3.StringUtilsEqualsIndexOfTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, -2147483648);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, -2147483648);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", -2147483648);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", -2147483648);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", -2147483648);
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", -2147483648);
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", -2147483648);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack21);
+
+        $i0 = (int) -1;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, $i0);
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack24);
+
+        $i1 = (int) -1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, $i1);
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack27);
+
+        $i2 = (int) -1;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", $i2);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack30);
+
+        $i3 = (int) -1;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", $i3);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack33);
+
+        $i4 = (int) -1;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", $i4);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack36);
+
+        $i5 = (int) -1;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", $i5);
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack39);
+
+        $i6 = (int) -1;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", $i6);
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack42);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 0);
+
+        $stack45 = (long) $stack44;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack45);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 0);
+
+        $stack48 = (long) $stack47;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack48);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 0);
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack51);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 0);
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack54);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 0);
+
+        $stack57 = (long) $stack56;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack57);
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 0);
+
+        $stack60 = (long) $stack59;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack60);
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 0);
+
+        $stack63 = (long) $stack62;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack63);
+
+        $stack65 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 1);
+
+        $stack66 = (long) $stack65;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack66);
+
+        $stack68 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 1);
+
+        $stack69 = (long) $stack68;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack69);
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 1);
+
+        $stack72 = (long) $stack71;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack72);
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 1);
+
+        $stack75 = (long) $stack74;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack75);
+
+        $stack77 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 1);
+
+        $stack78 = (long) $stack77;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack78);
+
+        $stack80 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 1);
+
+        $stack81 = (long) $stack80;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack81);
+
+        $stack83 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 1);
+
+        $stack84 = (long) $stack83;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack84);
+
+        $stack86 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 2);
+
+        $stack87 = (long) $stack86;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack87);
+
+        $stack89 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 2);
+
+        $stack90 = (long) $stack89;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack90);
+
+        $stack92 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 2);
+
+        $stack93 = (long) $stack92;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack93);
+
+        $stack95 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 2);
+
+        $stack96 = (long) $stack95;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack96);
+
+        $stack98 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 2);
+
+        $stack99 = (long) $stack98;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack99);
+
+        $stack101 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 2);
+
+        $stack102 = (long) $stack101;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack102);
+
+        $stack104 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 2);
+
+        $stack105 = (long) $stack104;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack105);
+
+        $stack107 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>(null, null, 2147483647);
+
+        $stack108 = (long) $stack107;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack108);
+
+        $stack110 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", null, 2147483647);
+
+        $stack111 = (long) $stack110;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack111);
+
+        $stack113 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("", "", 2147483647);
+
+        $stack114 = (long) $stack113;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack114);
+
+        $stack116 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "a", 2147483647);
+
+        $stack117 = (long) $stack116;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack117);
+
+        $stack119 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "b", 2147483647);
+
+        $stack120 = (long) $stack119;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack120);
+
+        $stack122 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "ab", 2147483647);
+
+        $stack123 = (long) $stack122;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack123);
+
+        $stack125 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aabaabaa", "", 2147483647);
+
+        $stack126 = (long) $stack125;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack126);
+
+        $stack128 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 0);
+
+        $stack129 = (long) $stack128;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack129);
+
+        $stack131 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 1);
+
+        $stack132 = (long) $stack131;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack132);
+
+        $stack134 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 2);
+
+        $stack135 = (long) $stack134;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack135);
+
+        $stack137 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 3);
+
+        $stack138 = (long) $stack137;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack138);
+
+        $stack140 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 4);
+
+        $stack141 = (long) $stack140;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack141);
+
+        $stack143 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 5);
+
+        $stack144 = (long) $stack143;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack144);
+
+        $stack146 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 6);
+
+        $stack147 = (long) $stack146;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(5L, $stack147);
+
+        $stack149 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 7);
+
+        $stack150 = (long) $stack149;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack150);
+
+        $stack152 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 8);
+
+        $stack153 = (long) $stack152;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack153);
+
+        $stack155 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 9);
+
+        $stack156 = (long) $stack155;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack156);
+
+        $stack158 = staticinvoke <org.apache.commons.lang3.StringUtils: int ordinalIndexOf(java.lang.CharSequence,java.lang.CharSequence,int)>("aaaaaaaaa", "a", 10);
+
+        $stack159 = (long) $stack158;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack159);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.String[] $stack0;
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String FOOBAR> = "foobar";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String FOO> = "foo";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String CharUSuppCharLow> = "\ud840";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String CharUSuppCharHigh> = "\udc00";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String CharU20001> = "\ud840\udc01";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String CharU20000> = "\ud840\udc00";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String BAR> = "bar";
+
+        $stack0 = newarray (java.lang.String)[2];
+
+        $stack0[0] = "ob";
+
+        $stack0[1] = "ba";
+
+        <org.apache.commons.lang3.StringUtilsEqualsIndexOfTest: java.lang.String[] FOOBAR_SUB_ARRAY> = $stack0;
+
+        return;
+    }
+}

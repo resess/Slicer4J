@@ -1,0 +1,1129 @@
+public class org.apache.commons.lang3.time.DurationFormatUtils extends java.lang.Object
+{
+    public static final java.lang.String ISO_EXTENDED_FORMAT_PATTERN;
+    static final java.lang.Object y;
+    static final java.lang.Object M;
+    static final java.lang.Object d;
+    static final java.lang.Object H;
+    static final java.lang.Object m;
+    static final java.lang.Object s;
+    static final java.lang.Object S;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DurationFormatUtils this;
+
+        this := @this: org.apache.commons.lang3.time.DurationFormatUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String formatDurationHMS(long)
+    {
+        long durationMillis;
+        java.lang.String $stack2;
+
+        durationMillis := @parameter0: long;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(durationMillis, "H:mm:ss.SSS");
+
+        return $stack2;
+    }
+
+    public static java.lang.String formatDurationISO(long)
+    {
+        long durationMillis;
+        java.lang.String $stack2;
+
+        durationMillis := @parameter0: long;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String,boolean)>(durationMillis, "\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'", 0);
+
+        return $stack2;
+    }
+
+    public static java.lang.String formatDuration(long, java.lang.String)
+    {
+        long durationMillis;
+        java.lang.String format, $stack3;
+
+        durationMillis := @parameter0: long;
+
+        format := @parameter1: java.lang.String;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String,boolean)>(durationMillis, format, 1);
+
+        return $stack3;
+    }
+
+    public static java.lang.String formatDuration(long, java.lang.String, boolean)
+    {
+        boolean $stack12, $stack14, $stack16, $stack18, $stack20, padWithZeros;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] $stack10;
+        long $stack31, $stack32, $stack33, $stack35, $stack36, $stack37, $stack39, $stack40, $stack41, $stack43, $stack44, $stack45, durationMillis;
+        int days, hours, minutes, seconds, milliseconds;
+        java.lang.String format, $stack21;
+        java.lang.Object $stack11, $stack13, $stack15, $stack17, $stack19;
+
+        durationMillis := @parameter0: long;
+
+        format := @parameter1: java.lang.String;
+
+        padWithZeros := @parameter2: boolean;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)>(format);
+
+        days = 0;
+
+        hours = 0;
+
+        minutes = 0;
+
+        seconds = 0;
+
+        milliseconds = 0;
+
+        $stack11 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack10, $stack11);
+
+        if $stack12 == 0 goto label1;
+
+        $stack43 = durationMillis / 86400000L;
+
+        days = (int) $stack43;
+
+        $stack44 = (long) days;
+
+        $stack45 = $stack44 * 86400000L;
+
+        durationMillis = durationMillis - $stack45;
+
+     label1:
+        $stack13 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack10, $stack13);
+
+        if $stack14 == 0 goto label2;
+
+        $stack39 = durationMillis / 3600000L;
+
+        hours = (int) $stack39;
+
+        $stack40 = (long) hours;
+
+        $stack41 = $stack40 * 3600000L;
+
+        durationMillis = durationMillis - $stack41;
+
+     label2:
+        $stack15 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack10, $stack15);
+
+        if $stack16 == 0 goto label3;
+
+        $stack35 = durationMillis / 60000L;
+
+        minutes = (int) $stack35;
+
+        $stack36 = (long) minutes;
+
+        $stack37 = $stack36 * 60000L;
+
+        durationMillis = durationMillis - $stack37;
+
+     label3:
+        $stack17 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack10, $stack17);
+
+        if $stack18 == 0 goto label4;
+
+        $stack31 = durationMillis / 1000L;
+
+        seconds = (int) $stack31;
+
+        $stack32 = (long) seconds;
+
+        $stack33 = $stack32 * 1000L;
+
+        durationMillis = durationMillis - $stack33;
+
+     label4:
+        $stack19 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack10, $stack19);
+
+        if $stack20 == 0 goto label5;
+
+        milliseconds = (int) durationMillis;
+
+     label5:
+        $stack21 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String format(org.apache.commons.lang3.time.DurationFormatUtils$Token[],int,int,int,int,int,int,int,boolean)>($stack10, 0, 0, days, hours, minutes, seconds, milliseconds, padWithZeros);
+
+        return $stack21;
+    }
+
+    public static java.lang.String formatDurationWords(long, boolean, boolean)
+    {
+        boolean suppressLeadingZeroElements, suppressTrailingZeroElements;
+        java.lang.StringBuilder $stack41, $stack42, $stack43, $stack7, $stack8, $stack9;
+        long durationMillis;
+        int $stack17, $stack18, $stack35, $stack36, $stack38, $stack39, $stack46, $stack47, $stack52, $stack53, $stack56, $stack57, $stack48;
+        java.lang.String $stack6, $stack16, $stack34, $stack37, $stack44, $stack45, $stack51, $stack55, duration, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15;
+
+        durationMillis := @parameter0: long;
+
+        suppressLeadingZeroElements := @parameter1: boolean;
+
+        suppressTrailingZeroElements := @parameter2: boolean;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatDuration(long,java.lang.String)>(durationMillis, "d\' days \'H\' hours \'m\' minutes \'s\' seconds\'");
+
+        duration = $stack6;
+
+        if suppressLeadingZeroElements == 0 goto label2;
+
+        $stack41 = new java.lang.StringBuilder;
+
+        specialinvoke $stack41.<java.lang.StringBuilder: void <init>()>();
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        duration = $stack44;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack44, " 0 days", "");
+
+        $stack46 = virtualinvoke $stack45.<java.lang.String: int length()>();
+
+        $stack47 = virtualinvoke $stack44.<java.lang.String: int length()>();
+
+        if $stack46 == $stack47 goto label1;
+
+        duration = $stack45;
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack45, " 0 hours", "");
+
+        $stack52 = virtualinvoke $stack51.<java.lang.String: int length()>();
+
+        $stack53 = virtualinvoke $stack45.<java.lang.String: int length()>();
+
+        if $stack52 == $stack53 goto label1;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack51, " 0 minutes", "");
+
+        duration = $stack55;
+
+        $stack56 = virtualinvoke $stack55.<java.lang.String: int length()>();
+
+        $stack57 = virtualinvoke $stack55.<java.lang.String: int length()>();
+
+        if $stack56 == $stack57 goto label1;
+
+        duration = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack55, " 0 seconds", "");
+
+     label1:
+        $stack48 = virtualinvoke duration.<java.lang.String: int length()>();
+
+        if $stack48 == 0 goto label2;
+
+        duration = virtualinvoke duration.<java.lang.String: java.lang.String substring(int)>(1);
+
+     label2:
+        if suppressTrailingZeroElements == 0 goto label3;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>(duration, " 0 seconds", "");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.String: int length()>();
+
+        $stack18 = virtualinvoke duration.<java.lang.String: int length()>();
+
+        if $stack17 == $stack18 goto label3;
+
+        duration = $stack16;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack16, " 0 minutes", "");
+
+        $stack35 = virtualinvoke $stack34.<java.lang.String: int length()>();
+
+        $stack36 = virtualinvoke $stack16.<java.lang.String: int length()>();
+
+        if $stack35 == $stack36 goto label3;
+
+        duration = $stack34;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack34, " 0 hours", "");
+
+        $stack38 = virtualinvoke $stack37.<java.lang.String: int length()>();
+
+        $stack39 = virtualinvoke $stack34.<java.lang.String: int length()>();
+
+        if $stack38 == $stack39 goto label3;
+
+        duration = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack37, " 0 days", "");
+
+     label3:
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(duration);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack10, " 1 seconds", " 1 second");
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack11, " 1 minutes", " 1 minute");
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack12, " 1 hours", " 1 hour");
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String replaceOnce(java.lang.String,java.lang.String,java.lang.String)>($stack13, " 1 days", " 1 day");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.String: java.lang.String trim()>();
+
+        return $stack15;
+    }
+
+    public static java.lang.String formatPeriodISO(long, long)
+    {
+        java.util.TimeZone $stack6;
+        long startMillis, endMillis;
+        java.lang.String $stack7;
+
+        startMillis := @parameter0: long;
+
+        endMillis := @parameter1: long;
+
+        $stack6 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String,boolean,java.util.TimeZone)>(startMillis, endMillis, "\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'", 0, $stack6);
+
+        return $stack7;
+    }
+
+    public static java.lang.String formatPeriod(long, long, java.lang.String)
+    {
+        java.util.TimeZone $stack6;
+        long startMillis, endMillis;
+        java.lang.String format, $stack7;
+
+        startMillis := @parameter0: long;
+
+        endMillis := @parameter1: long;
+
+        format := @parameter2: java.lang.String;
+
+        $stack6 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String formatPeriod(long,long,java.lang.String,boolean,java.util.TimeZone)>(startMillis, endMillis, format, 1, $stack6);
+
+        return $stack7;
+    }
+
+    public static java.lang.String formatPeriod(long, long, java.lang.String, boolean, java.util.TimeZone)
+    {
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] $stack18;
+        long startMillis, endMillis;
+        java.util.Calendar $stack19, $stack21;
+        java.lang.String format, $stack51;
+        java.util.Date $u0, $u1;
+        boolean $stack38, $stack40, $stack46, $stack48, $stack50, padWithZeros, $stack80, $stack95, $stack44;
+        java.util.TimeZone timezone;
+        int $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack52, $stack62, $stack64, $stack66, $stack68, $stack70, $stack75, $stack77, $stack78, $stack79, $stack85, $stack93, $stack97, $stack100, milliseconds, seconds, minutes, hours, days, months, years, target, $stack76, $stack81, $stack41, $stack42, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        java.lang.Object $stack37, $stack39, $stack45, $stack47, $stack49, $stack94, $stack43;
+
+        startMillis := @parameter0: long;
+
+        endMillis := @parameter1: long;
+
+        format := @parameter2: java.lang.String;
+
+        padWithZeros := @parameter3: boolean;
+
+        timezone := @parameter4: java.util.TimeZone;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)>(format);
+
+        $stack19 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance(java.util.TimeZone)>(timezone);
+
+        $u0 = new java.util.Date;
+
+        specialinvoke $u0.<java.util.Date: void <init>(long)>(startMillis);
+
+        virtualinvoke $stack19.<java.util.Calendar: void setTime(java.util.Date)>($u0);
+
+        $stack21 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance(java.util.TimeZone)>(timezone);
+
+        $u1 = new java.util.Date;
+
+        specialinvoke $u1.<java.util.Date: void <init>(long)>(endMillis);
+
+        virtualinvoke $stack21.<java.util.Calendar: void setTime(java.util.Date)>($u1);
+
+        $stack23 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(14);
+
+        $stack24 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(14);
+
+        milliseconds = $stack23 - $stack24;
+
+        $stack25 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(13);
+
+        $stack26 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(13);
+
+        seconds = $stack25 - $stack26;
+
+        $stack27 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(12);
+
+        $stack28 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(12);
+
+        minutes = $stack27 - $stack28;
+
+        $stack29 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(11);
+
+        $stack30 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(11);
+
+        hours = $stack29 - $stack30;
+
+        $stack31 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(5);
+
+        $stack32 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(5);
+
+        days = $stack31 - $stack32;
+
+        $stack33 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(2);
+
+        $stack34 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(2);
+
+        months = $stack33 - $stack34;
+
+        $stack35 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(1);
+
+        $stack36 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(1);
+
+        years = $stack35 - $stack36;
+
+     label01:
+        if milliseconds >= 0 goto label02;
+
+        milliseconds = milliseconds + 1000;
+
+        $i0 = (int) -1;
+
+        seconds = seconds + $i0;
+
+        goto label01;
+
+     label02:
+        if seconds >= 0 goto label03;
+
+        seconds = seconds + 60;
+
+        $i1 = (int) -1;
+
+        minutes = minutes + $i1;
+
+        goto label02;
+
+     label03:
+        if minutes >= 0 goto label04;
+
+        minutes = minutes + 60;
+
+        $i2 = (int) -1;
+
+        hours = hours + $i2;
+
+        goto label03;
+
+     label04:
+        if hours >= 0 goto label05;
+
+        hours = hours + 24;
+
+        $i3 = (int) -1;
+
+        days = days + $i3;
+
+        goto label04;
+
+     label05:
+        $stack37 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M>;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack37);
+
+        if $stack38 == 0 goto label10;
+
+     label06:
+        if days >= 0 goto label07;
+
+        $stack100 = virtualinvoke $stack19.<java.util.Calendar: int getActualMaximum(int)>(5);
+
+        days = days + $stack100;
+
+        $i4 = (int) -1;
+
+        months = months + $i4;
+
+        virtualinvoke $stack19.<java.util.Calendar: void add(int,int)>(2, 1);
+
+        goto label06;
+
+     label07:
+        if months >= 0 goto label08;
+
+        months = months + 12;
+
+        $i5 = (int) -1;
+
+        years = years + $i5;
+
+        goto label07;
+
+     label08:
+        $stack94 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        $stack95 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack94);
+
+        if $stack95 != 0 goto label17;
+
+        if years == 0 goto label17;
+
+     label09:
+        if years == 0 goto label17;
+
+        $stack97 = 12 * years;
+
+        months = months + $stack97;
+
+        years = 0;
+
+        goto label09;
+
+     label10:
+        $stack39 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack39);
+
+        if $stack40 != 0 goto label14;
+
+        $stack75 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(1);
+
+        target = $stack75;
+
+        if months >= 0 goto label11;
+
+        $i6 = (int) -1;
+
+        target = $stack75 + $i6;
+
+     label11:
+        $stack76 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(1);
+
+        if $stack76 == target goto label13;
+
+        $stack77 = virtualinvoke $stack19.<java.util.Calendar: int getActualMaximum(int)>(6);
+
+        $stack78 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(6);
+
+        $stack79 = $stack77 - $stack78;
+
+        days = days + $stack79;
+
+        $stack80 = $stack19 instanceof java.util.GregorianCalendar;
+
+        if $stack80 == 0 goto label12;
+
+        $stack85 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(2);
+
+        if $stack85 != 1 goto label12;
+
+        $stack93 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(5);
+
+        if $stack93 != 29 goto label12;
+
+        days = days + 1;
+
+     label12:
+        virtualinvoke $stack19.<java.util.Calendar: void add(int,int)>(1, 1);
+
+        $stack81 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(6);
+
+        days = days + $stack81;
+
+        goto label11;
+
+     label13:
+        years = 0;
+
+     label14:
+        $stack41 = virtualinvoke $stack19.<java.util.Calendar: int get(int)>(2);
+
+        $stack42 = virtualinvoke $stack21.<java.util.Calendar: int get(int)>(2);
+
+        if $stack41 == $stack42 goto label15;
+
+        $stack70 = virtualinvoke $stack19.<java.util.Calendar: int getActualMaximum(int)>(5);
+
+        days = days + $stack70;
+
+        virtualinvoke $stack19.<java.util.Calendar: void add(int,int)>(2, 1);
+
+        goto label14;
+
+     label15:
+        months = 0;
+
+     label16:
+        if days >= 0 goto label17;
+
+        $stack68 = virtualinvoke $stack19.<java.util.Calendar: int getActualMaximum(int)>(5);
+
+        days = days + $stack68;
+
+        $i7 = (int) -1;
+
+        months = months + $i7;
+
+        virtualinvoke $stack19.<java.util.Calendar: void add(int,int)>(2, 1);
+
+        goto label16;
+
+     label17:
+        $stack43 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack43);
+
+        if $stack44 != 0 goto label18;
+
+        $stack66 = 24 * days;
+
+        hours = hours + $stack66;
+
+        days = 0;
+
+     label18:
+        $stack45 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack45);
+
+        if $stack46 != 0 goto label19;
+
+        $stack64 = 60 * hours;
+
+        minutes = minutes + $stack64;
+
+        hours = 0;
+
+     label19:
+        $stack47 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack47);
+
+        if $stack48 != 0 goto label20;
+
+        $stack62 = 60 * minutes;
+
+        seconds = seconds + $stack62;
+
+        minutes = 0;
+
+     label20:
+        $stack49 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils$Token: boolean containsTokenWithValue(org.apache.commons.lang3.time.DurationFormatUtils$Token[],java.lang.Object)>($stack18, $stack49);
+
+        if $stack50 != 0 goto label21;
+
+        $stack52 = 1000 * seconds;
+
+        milliseconds = milliseconds + $stack52;
+
+        seconds = 0;
+
+     label21:
+        $stack51 = staticinvoke <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String format(org.apache.commons.lang3.time.DurationFormatUtils$Token[],int,int,int,int,int,int,int,boolean)>($stack18, years, months, days, hours, minutes, seconds, milliseconds, padWithZeros);
+
+        return $stack51;
+    }
+
+    static java.lang.String format(org.apache.commons.lang3.time.DurationFormatUtils$Token[], int, int, int, int, int, int, int, boolean)
+    {
+        boolean $stack21, padWithZeros, lastOutputSeconds;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token token;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] tokens;
+        java.lang.StringBuffer $stack17;
+        int sz, $stack20, seconds, minutes, hours, days, months, years, milliseconds, i;
+        java.lang.String $stack18, $stack33, $stack38, $stack40, $stack47, $stack53, $stack59, $stack65, $stack71, $stack77, $stack81, $stack75, $stack69, $stack63, $stack57, $stack51, $stack45, $stack37, $stack31;
+        java.lang.Object $stack19, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28;
+
+        tokens := @parameter0: org.apache.commons.lang3.time.DurationFormatUtils$Token[];
+
+        years := @parameter1: int;
+
+        months := @parameter2: int;
+
+        days := @parameter3: int;
+
+        hours := @parameter4: int;
+
+        minutes := @parameter5: int;
+
+        seconds := @parameter6: int;
+
+        milliseconds := @parameter7: int;
+
+        padWithZeros := @parameter8: boolean;
+
+        $stack17 = new java.lang.StringBuffer;
+
+        specialinvoke $stack17.<java.lang.StringBuffer: void <init>()>();
+
+        lastOutputSeconds = 0;
+
+        sz = lengthof tokens;
+
+        i = 0;
+
+     label01:
+        if i >= sz goto label28;
+
+        token = tokens[i];
+
+        $stack19 = virtualinvoke token.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object getValue()>();
+
+        $stack20 = virtualinvoke token.<org.apache.commons.lang3.time.DurationFormatUtils$Token: int getCount()>();
+
+        $stack21 = $stack19 instanceof java.lang.StringBuffer;
+
+        if $stack21 == 0 goto label02;
+
+        $stack81 = virtualinvoke $stack19.<java.lang.Object: java.lang.String toString()>();
+
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack81);
+
+        goto label27;
+
+     label02:
+        $stack22 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        if $stack19 != $stack22 goto label05;
+
+        if padWithZeros == 0 goto label03;
+
+        $stack77 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(years);
+
+        $stack75 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack77, $stack20, 48);
+
+        goto label04;
+
+     label03:
+        $stack75 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(years);
+
+     label04:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack75);
+
+        lastOutputSeconds = 0;
+
+        goto label27;
+
+     label05:
+        $stack23 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M>;
+
+        if $stack19 != $stack23 goto label08;
+
+        if padWithZeros == 0 goto label06;
+
+        $stack71 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(months);
+
+        $stack69 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack71, $stack20, 48);
+
+        goto label07;
+
+     label06:
+        $stack69 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(months);
+
+     label07:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack69);
+
+        lastOutputSeconds = 0;
+
+        goto label27;
+
+     label08:
+        $stack24 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        if $stack19 != $stack24 goto label11;
+
+        if padWithZeros == 0 goto label09;
+
+        $stack65 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(days);
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack65, $stack20, 48);
+
+        goto label10;
+
+     label09:
+        $stack63 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(days);
+
+     label10:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack63);
+
+        lastOutputSeconds = 0;
+
+        goto label27;
+
+     label11:
+        $stack25 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        if $stack19 != $stack25 goto label14;
+
+        if padWithZeros == 0 goto label12;
+
+        $stack59 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(hours);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack59, $stack20, 48);
+
+        goto label13;
+
+     label12:
+        $stack57 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(hours);
+
+     label13:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack57);
+
+        lastOutputSeconds = 0;
+
+        goto label27;
+
+     label14:
+        $stack26 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        if $stack19 != $stack26 goto label17;
+
+        if padWithZeros == 0 goto label15;
+
+        $stack53 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(minutes);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack53, $stack20, 48);
+
+        goto label16;
+
+     label15:
+        $stack51 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(minutes);
+
+     label16:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack51);
+
+        lastOutputSeconds = 0;
+
+        goto label27;
+
+     label17:
+        $stack27 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        if $stack19 != $stack27 goto label20;
+
+        if padWithZeros == 0 goto label18;
+
+        $stack47 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(seconds);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack47, $stack20, 48);
+
+        goto label19;
+
+     label18:
+        $stack45 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(seconds);
+
+     label19:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack45);
+
+        lastOutputSeconds = 1;
+
+        goto label27;
+
+     label20:
+        $stack28 = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        if $stack19 != $stack28 goto label27;
+
+        if lastOutputSeconds == 0 goto label23;
+
+        milliseconds = milliseconds + 1000;
+
+        if padWithZeros == 0 goto label21;
+
+        $stack40 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(milliseconds);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack40, $stack20, 48);
+
+        goto label22;
+
+     label21:
+        $stack37 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(milliseconds);
+
+     label22:
+        $stack38 = virtualinvoke $stack37.<java.lang.String: java.lang.String substring(int)>(1);
+
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack38);
+
+        goto label26;
+
+     label23:
+        if padWithZeros == 0 goto label24;
+
+        $stack33 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(milliseconds);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String leftPad(java.lang.String,int,char)>($stack33, $stack20, 48);
+
+        goto label25;
+
+     label24:
+        $stack31 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(milliseconds);
+
+     label25:
+        virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack31);
+
+     label26:
+        lastOutputSeconds = 0;
+
+     label27:
+        i = i + 1;
+
+        goto label01;
+
+     label28:
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        return $stack18;
+    }
+
+    static org.apache.commons.lang3.time.DurationFormatUtils$Token[] lexx(java.lang.String)
+    {
+        java.lang.Object[] $stack16;
+        java.util.ArrayList $u0;
+        java.lang.StringBuffer buffer, $u1, $u3;
+        int $stack13, sz, $stack14, i, $i0, $i1;
+        java.lang.String format;
+        boolean inLiteral, inLiteral#1_2;
+        char ch;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token previous, $u2, $u4, $u5;
+        char[] $stack11;
+        org.apache.commons.lang3.time.DurationFormatUtils$Token[] $stack15, $stack17;
+        java.lang.Object $stack22, value;
+
+        format := @parameter0: java.lang.String;
+
+        $stack11 = virtualinvoke format.<java.lang.String: char[] toCharArray()>();
+
+        $u0 = new java.util.ArrayList;
+
+        $stack13 = lengthof $stack11;
+
+        specialinvoke $u0.<java.util.ArrayList: void <init>(int)>($stack13);
+
+        inLiteral = 0;
+
+        inLiteral#1_2 = 0;
+
+        inLiteral = 0;
+
+        buffer = null;
+
+        previous = null;
+
+        sz = lengthof $stack11;
+
+        i = 0;
+
+     label01:
+        if i >= sz goto label18;
+
+        ch = $stack11[i];
+
+        if inLiteral == 0 goto label02;
+
+        $i0 = (int) ch;
+
+        if $i0 == 39 goto label02;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(ch);
+
+        goto label17;
+
+     label02:
+        value = null;
+
+        $i1 = (int) ch;
+
+        lookupswitch($i1)
+        {
+            case 39: goto label03;
+            case 72: goto label08;
+            case 77: goto label06;
+            case 83: goto label11;
+            case 100: goto label07;
+            case 109: goto label09;
+            case 115: goto label10;
+            case 121: goto label05;
+            default: goto label12;
+        };
+
+     label03:
+        if inLiteral#1_2 == 0 goto label04;
+
+        buffer = null;
+
+        inLiteral = 0;
+
+        inLiteral#1_2 = 0;
+
+        inLiteral = 0;
+
+        goto label14;
+
+     label04:
+        $u1 = new java.lang.StringBuffer;
+
+        specialinvoke $u1.<java.lang.StringBuffer: void <init>()>();
+
+        buffer = $u1;
+
+        $u2 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        specialinvoke $u2.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object)>($u1);
+
+        virtualinvoke $u0.<java.util.ArrayList: boolean add(java.lang.Object)>($u2);
+
+        inLiteral = 1;
+
+        inLiteral#1_2 = 1;
+
+        inLiteral = 1;
+
+        goto label14;
+
+     label05:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y>;
+
+        goto label14;
+
+     label06:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M>;
+
+        goto label14;
+
+     label07:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d>;
+
+        goto label14;
+
+     label08:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H>;
+
+        goto label14;
+
+     label09:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m>;
+
+        goto label14;
+
+     label10:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s>;
+
+        goto label14;
+
+     label11:
+        value = <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S>;
+
+        goto label14;
+
+     label12:
+        if buffer != null goto label13;
+
+        $u3 = new java.lang.StringBuffer;
+
+        specialinvoke $u3.<java.lang.StringBuffer: void <init>()>();
+
+        buffer = $u3;
+
+        $u4 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        specialinvoke $u4.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object)>($u3);
+
+        virtualinvoke $u0.<java.util.ArrayList: boolean add(java.lang.Object)>($u4);
+
+     label13:
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(ch);
+
+     label14:
+        if value == null goto label17;
+
+        if previous == null goto label15;
+
+        $stack22 = virtualinvoke previous.<org.apache.commons.lang3.time.DurationFormatUtils$Token: java.lang.Object getValue()>();
+
+        if $stack22 != value goto label15;
+
+        virtualinvoke previous.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void increment()>();
+
+        goto label16;
+
+     label15:
+        $u5 = new org.apache.commons.lang3.time.DurationFormatUtils$Token;
+
+        specialinvoke $u5.<org.apache.commons.lang3.time.DurationFormatUtils$Token: void <init>(java.lang.Object)>(value);
+
+        virtualinvoke $u0.<java.util.ArrayList: boolean add(java.lang.Object)>($u5);
+
+        previous = $u5;
+
+     label16:
+        buffer = null;
+
+     label17:
+        i = i + 1;
+
+        goto label01;
+
+     label18:
+        $stack14 = virtualinvoke $u0.<java.util.ArrayList: int size()>();
+
+        $stack15 = newarray (org.apache.commons.lang3.time.DurationFormatUtils$Token)[$stack14];
+
+        $stack16 = virtualinvoke $u0.<java.util.ArrayList: java.lang.Object[] toArray(java.lang.Object[])>($stack15);
+
+        $stack17 = (org.apache.commons.lang3.time.DurationFormatUtils$Token[]) $stack16;
+
+        return $stack17;
+    }
+
+    static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.String ISO_EXTENDED_FORMAT_PATTERN> = "\'P\'yyyy\'Y\'M\'M\'d\'DT\'H\'H\'m\'M\'s.S\'S\'";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object y> = "y";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object M> = "M";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object d> = "d";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object H> = "H";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object m> = "m";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object s> = "s";
+
+        <org.apache.commons.lang3.time.DurationFormatUtils: java.lang.Object S> = "S";
+
+        return;
+    }
+}

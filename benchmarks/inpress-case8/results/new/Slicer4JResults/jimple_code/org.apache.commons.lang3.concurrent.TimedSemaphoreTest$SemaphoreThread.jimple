@@ -1,0 +1,89 @@
+class org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread extends java.lang.Thread
+{
+    private final org.apache.commons.lang3.concurrent.TimedSemaphore semaphore;
+    private final java.util.concurrent.CountDownLatch latch;
+    private final int count;
+    private final int latchCount;
+
+    public void <init>(org.apache.commons.lang3.concurrent.TimedSemaphore, java.util.concurrent.CountDownLatch, int, int)
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread this;
+        java.util.concurrent.CountDownLatch l;
+        org.apache.commons.lang3.concurrent.TimedSemaphore b;
+        int c, lc;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+        b := @parameter0: org.apache.commons.lang3.concurrent.TimedSemaphore;
+
+        l := @parameter1: java.util.concurrent.CountDownLatch;
+
+        c := @parameter2: int;
+
+        lc := @parameter3: int;
+
+        specialinvoke this.<java.lang.Thread: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: org.apache.commons.lang3.concurrent.TimedSemaphore semaphore> = b;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: java.util.concurrent.CountDownLatch latch> = l;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: int count> = c;
+
+        this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: int latchCount> = lc;
+
+        return;
+    }
+
+    public void run()
+    {
+        org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread this;
+        org.apache.commons.lang3.concurrent.TimedSemaphore $stack3;
+        java.util.concurrent.CountDownLatch $stack7;
+        java.lang.InterruptedException $stack8;
+        java.lang.Thread $stack9;
+        int $stack2, $stack4, i;
+
+        this := @this: org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread;
+
+     label1:
+        i = 0;
+
+     label2:
+        $stack2 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: int count>;
+
+        if i >= $stack2 goto label4;
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: org.apache.commons.lang3.concurrent.TimedSemaphore semaphore>;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.TimedSemaphore: void acquire()>();
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: int latchCount>;
+
+        if i >= $stack4 goto label3;
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.TimedSemaphoreTest$SemaphoreThread: java.util.concurrent.CountDownLatch latch>;
+
+        virtualinvoke $stack7.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack8 := @caughtexception;
+
+        $stack9 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        virtualinvoke $stack9.<java.lang.Thread: void interrupt()>();
+
+     label6:
+        return;
+
+        catch java.lang.InterruptedException from label1 to label4 with label5;
+    }
+}

@@ -1,0 +1,737 @@
+public class org.apache.commons.lang3.time.StopWatchTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.StopWatchTest this;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testStopWatchSimple()
+    {
+        long $stack5, $stack6, $stack10;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $u0;
+        byte $stack7, $stack8;
+        java.lang.InterruptedException $stack17;
+        int $i0, $i1;
+        boolean $stack14, $stack11;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $u0 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label1:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack17 := @caughtexception;
+
+     label4:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack6 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack5, $stack6);
+
+        $stack7 = $stack5 cmp 500L;
+
+        $i0 = (int) $stack7;
+
+        if $i0 < 0 goto label5;
+
+        $stack14 = 1;
+
+        goto label6;
+
+     label5:
+        $stack14 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack8 = $stack5 cmp 700L;
+
+        $i1 = (int) $stack8;
+
+        if $i1 >= 0 goto label7;
+
+        $stack11 = 1;
+
+        goto label8;
+
+     label7:
+        $stack11 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void reset()>();
+
+        $stack10 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        return;
+
+        catch java.lang.InterruptedException from label1 to label2 with label3;
+    }
+
+    public void testStopWatchSimpleGet()
+    {
+        long $stack5, $stack8;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $u0;
+        byte $stack9;
+        java.lang.InterruptedException $stack11;
+        int $i0;
+        java.lang.String $stack7;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $u0 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+        $stack5 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack5);
+
+        $stack7 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("0:00:00.000", $stack7);
+
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label1:
+        staticinvoke <java.lang.Thread: void sleep(long)>(500L);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack11 := @caughtexception;
+
+     label4:
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack9 = $stack8 cmp 2000L;
+
+        $i0 = (int) $stack9;
+
+        if $i0 >= 0 goto label5;
+
+        $stack10 = 1;
+
+        goto label6;
+
+     label5:
+        $stack10 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        return;
+
+        catch java.lang.InterruptedException from label1 to label2 with label3;
+    }
+
+    public void testStopWatchSplit()
+    {
+        long $stack8, $stack10, $stack13;
+        byte $stack14, $stack15, $stack16, $stack17;
+        int $stack12, $i0, $i1, $i2, $i3;
+        java.lang.String $stack9;
+        boolean $stack25, $stack22, $stack19, $stack18;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $u0;
+        java.lang.InterruptedException $stack28, $stack35, $stack38;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $u0 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label01:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack38 := @caughtexception;
+
+     label04:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void split()>();
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getSplitTime()>();
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: java.lang.String toSplitString()>();
+
+     label05:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack35 := @caughtexception;
+
+     label08:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void unsplit()>();
+
+     label09:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack28 := @caughtexception;
+
+     label12:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        $stack10 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack12 = virtualinvoke $stack9.<java.lang.String: int length()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Formatted split string not the correct length", $stack13, 11L);
+
+        $stack14 = $stack8 cmp 500L;
+
+        $i0 = (int) $stack14;
+
+        if $i0 < 0 goto label13;
+
+        $stack25 = 1;
+
+        goto label14;
+
+     label13:
+        $stack25 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack15 = $stack8 cmp 700L;
+
+        $i1 = (int) $stack15;
+
+        if $i1 >= 0 goto label15;
+
+        $stack22 = 1;
+
+        goto label16;
+
+     label15:
+        $stack22 = 0;
+
+     label16:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack16 = $stack10 cmp 1500L;
+
+        $i2 = (int) $stack16;
+
+        if $i2 < 0 goto label17;
+
+        $stack19 = 1;
+
+        goto label18;
+
+     label17:
+        $stack19 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack17 = $stack10 cmp 1900L;
+
+        $i3 = (int) $stack17;
+
+        if $i3 >= 0 goto label19;
+
+        $stack18 = 1;
+
+        goto label20;
+
+     label19:
+        $stack18 = 0;
+
+     label20:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        return;
+
+        catch java.lang.InterruptedException from label01 to label02 with label03;
+        catch java.lang.InterruptedException from label05 to label06 with label07;
+        catch java.lang.InterruptedException from label09 to label10 with label11;
+    }
+
+    public void testStopWatchSuspend()
+    {
+        long $stack7, $stack8;
+        byte $stack9, $stack10, $stack11, $stack12;
+        int $i0, $i1, $i2, $i3;
+        boolean $stack20, $stack17, $stack14, $stack13;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $u0;
+        java.lang.InterruptedException $stack23, $stack28, $stack31;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $u0 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label01:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack31 := @caughtexception;
+
+     label04:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void suspend()>();
+
+        $stack7 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+     label05:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack28 := @caughtexception;
+
+     label08:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void resume()>();
+
+     label09:
+        staticinvoke <java.lang.Thread: void sleep(long)>(550L);
+
+     label10:
+        goto label12;
+
+     label11:
+        $stack23 := @caughtexception;
+
+     label12:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        $stack8 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack9 = $stack7 cmp 500L;
+
+        $i0 = (int) $stack9;
+
+        if $i0 < 0 goto label13;
+
+        $stack20 = 1;
+
+        goto label14;
+
+     label13:
+        $stack20 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack10 = $stack7 cmp 700L;
+
+        $i1 = (int) $stack10;
+
+        if $i1 >= 0 goto label15;
+
+        $stack17 = 1;
+
+        goto label16;
+
+     label15:
+        $stack17 = 0;
+
+     label16:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack11 = $stack8 cmp 1000L;
+
+        $i2 = (int) $stack11;
+
+        if $i2 < 0 goto label17;
+
+        $stack14 = 1;
+
+        goto label18;
+
+     label17:
+        $stack14 = 0;
+
+     label18:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack12 = $stack8 cmp 1300L;
+
+        $i3 = (int) $stack12;
+
+        if $i3 >= 0 goto label19;
+
+        $stack13 = 1;
+
+        goto label20;
+
+     label19:
+        $stack13 = 0;
+
+     label20:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        return;
+
+        catch java.lang.InterruptedException from label01 to label02 with label03;
+        catch java.lang.InterruptedException from label05 to label06 with label07;
+        catch java.lang.InterruptedException from label09 to label10 with label11;
+    }
+
+    public void testLang315()
+    {
+        long $stack7, $stack8;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $stack6;
+        byte $stack9;
+        java.lang.InterruptedException $stack11, $stack16;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $stack6 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label01:
+        staticinvoke <java.lang.Thread: void sleep(long)>(200L);
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack16 := @caughtexception;
+
+     label04:
+        virtualinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: void suspend()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+     label05:
+        staticinvoke <java.lang.Thread: void sleep(long)>(200L);
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack11 := @caughtexception;
+
+     label08:
+        virtualinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.time.StopWatch: long getTime()>();
+
+        $stack9 = $stack7 cmp $stack8;
+
+        if $stack9 != 0 goto label09;
+
+        $stack10 = 1;
+
+        goto label10;
+
+     label09:
+        $stack10 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        return;
+
+        catch java.lang.InterruptedException from label01 to label02 with label03;
+        catch java.lang.InterruptedException from label05 to label06 with label07;
+    }
+
+    public void testBadStates()
+    {
+        java.lang.IllegalStateException $stack5, $stack6, $stack10, $stack13, $stack16, $stack19, $stack23, $stack26, $stack29, $stack32, $stack35;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $stack3;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $stack3 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+     label01:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling stop on an unstarted StopWatch should throw an exception. ");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack35 := @caughtexception;
+
+     label04:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling stop on an unstarted StopWatch should throw an exception. ");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack32 := @caughtexception;
+
+     label07:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void suspend()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling suspend on an unstarted StopWatch should throw an exception. ");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack29 := @caughtexception;
+
+     label10:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void split()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling split on a non-running StopWatch should throw an exception. ");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack26 := @caughtexception;
+
+     label13:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void unsplit()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling unsplit on an unsplit StopWatch should throw an exception. ");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack23 := @caughtexception;
+
+     label16:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void resume()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling resume on an unsuspended StopWatch should throw an exception. ");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack19 := @caughtexception;
+
+     label19:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label20:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling start on a started StopWatch should throw an exception. ");
+
+     label21:
+        goto label23;
+
+     label22:
+        $stack16 := @caughtexception;
+
+     label23:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void unsplit()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling unsplit on an unsplit StopWatch should throw an exception. ");
+
+     label24:
+        goto label26;
+
+     label25:
+        $stack13 := @caughtexception;
+
+     label26:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: long getSplitTime()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling getSplitTime on an unsplit StopWatch should throw an exception. ");
+
+     label27:
+        goto label29;
+
+     label28:
+        $stack10 := @caughtexception;
+
+     label29:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void resume()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling resume on an unsuspended StopWatch should throw an exception. ");
+
+     label30:
+        goto label32;
+
+     label31:
+        $stack6 := @caughtexception;
+
+     label32:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void stop()>();
+
+     label33:
+        virtualinvoke $stack3.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling start on a stopped StopWatch should throw an exception as it needs to be reset. ");
+
+     label34:
+        goto label36;
+
+     label35:
+        $stack5 := @caughtexception;
+
+     label36:
+        return;
+
+        catch java.lang.IllegalStateException from label01 to label02 with label03;
+        catch java.lang.IllegalStateException from label04 to label05 with label06;
+        catch java.lang.IllegalStateException from label07 to label08 with label09;
+        catch java.lang.IllegalStateException from label10 to label11 with label12;
+        catch java.lang.IllegalStateException from label13 to label14 with label15;
+        catch java.lang.IllegalStateException from label16 to label17 with label18;
+        catch java.lang.IllegalStateException from label20 to label21 with label22;
+        catch java.lang.IllegalStateException from label23 to label24 with label25;
+        catch java.lang.IllegalStateException from label26 to label27 with label28;
+        catch java.lang.IllegalStateException from label29 to label30 with label31;
+        catch java.lang.IllegalStateException from label33 to label34 with label35;
+    }
+
+    public void testGetStartTime()
+    {
+        java.lang.IllegalStateException $stack13, $stack14, $stack23;
+        long $stack5, $stack9;
+        org.apache.commons.lang3.time.StopWatchTest this;
+        org.apache.commons.lang3.time.StopWatch $u0;
+        byte $stack10;
+        int $i0;
+        java.lang.StringBuilder $stack16, $stack18, $u1;
+        java.lang.String $stack17, $stack19;
+        boolean $stack12;
+
+        this := @this: org.apache.commons.lang3.time.StopWatchTest;
+
+        $stack5 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $u0 = new org.apache.commons.lang3.time.StopWatch;
+
+        specialinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void <init>()>();
+
+     label01:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getStartTime()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling getStartTime on an unstarted StopWatch should throw an exception");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack23 := @caughtexception;
+
+     label04:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void start()>();
+
+     label05:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getStartTime()>();
+
+        $stack9 = virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getStartTime()>();
+
+        $stack10 = $stack9 cmp $stack5;
+
+        $i0 = (int) $stack10;
+
+        if $i0 < 0 goto label06;
+
+        $stack12 = 1;
+
+        goto label07;
+
+     label06:
+        $stack12 = 0;
+
+     label07:
+        staticinvoke <junit.framework.Assert: void assertTrue(boolean)>($stack12);
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack14 := @caughtexception;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Start time should be available: ");
+
+        $stack17 = virtualinvoke $stack14.<java.lang.IllegalStateException: java.lang.String getMessage()>();
+
+        $stack18 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack19);
+
+     label10:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: void reset()>();
+
+     label11:
+        virtualinvoke $u0.<org.apache.commons.lang3.time.StopWatch: long getStartTime()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Calling getStartTime on a reset, but unstarted StopWatch should throw an exception");
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack13 := @caughtexception;
+
+     label14:
+        return;
+
+        catch java.lang.IllegalStateException from label01 to label02 with label03;
+        catch java.lang.IllegalStateException from label05 to label08 with label09;
+        catch java.lang.IllegalStateException from label11 to label12 with label13;
+    }
+}

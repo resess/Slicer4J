@@ -1,0 +1,1004 @@
+public class org.apache.commons.lang3.text.ExtendedMessageFormatTest extends java.lang.Object
+{
+    private final java.util.Map registry;
+
+    public void <init>()
+    {
+        java.util.HashMap $stack1;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.HashMap;
+
+        specialinvoke $stack1.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry> = $stack1;
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.util.Map $stack2, $stack6;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory $stack1;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory $stack5;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack2 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        $stack1 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory: void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)>(null);
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("lower", $stack1);
+
+        $stack6 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        $stack5 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory: void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)>(null);
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("upper", $stack5);
+
+        return;
+    }
+
+    public void testExtendedFormats()
+    {
+        java.lang.Object[] $stack7, $stack10, $stack13, $stack16, $stack19;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $stack3;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.util.Map $stack4;
+        java.lang.String $stack6, $stack9, $stack12, $stack15, $stack18, $stack21;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack3 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack4 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Map)>("Lower: {0,lower} Upper: {1,upper}", $stack4);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void assertPatternsEqual(java.lang.String,java.lang.String,java.lang.String)>("TOPATTERN", "Lower: {0,lower} Upper: {1,upper}", $stack6);
+
+        $stack7 = newarray (java.lang.Object)[2];
+
+        $stack7[0] = "foo";
+
+        $stack7[1] = "bar";
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Lower: foo Upper: BAR", $stack9);
+
+        $stack10 = newarray (java.lang.Object)[2];
+
+        $stack10[0] = "Foo";
+
+        $stack10[1] = "Bar";
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Lower: foo Upper: BAR", $stack12);
+
+        $stack13 = newarray (java.lang.Object)[2];
+
+        $stack13[0] = "FOO";
+
+        $stack13[1] = "BAR";
+
+        $stack15 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Lower: foo Upper: BAR", $stack15);
+
+        $stack16 = newarray (java.lang.Object)[2];
+
+        $stack16[0] = "FOO";
+
+        $stack16[1] = "bar";
+
+        $stack18 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Lower: foo Upper: BAR", $stack18);
+
+        $stack19 = newarray (java.lang.Object)[2];
+
+        $stack19[0] = "foo";
+
+        $stack19[1] = "BAR";
+
+        $stack21 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Lower: foo Upper: BAR", $stack21);
+
+        return;
+    }
+
+    public void testEscapedQuote_LANG_477()
+    {
+        java.lang.Object[] $stack5;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $stack3;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.util.Map $stack4;
+        java.lang.String $stack7;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack3 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack4 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Map)>("it\'\'s a {0,lower} \'test\'!", $stack4);
+
+        $stack5 = newarray (java.lang.Object)[1];
+
+        $stack5[0] = "DUMMY";
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("it\'s a dummy test!", $stack7);
+
+        return;
+    }
+
+    public void testExtendedAndBuiltInFormats()
+    {
+        java.util.Date $stack18;
+        java.util.Locale locale;
+        java.util.Map $stack45, $stack72;
+        java.text.DateFormat df;
+        boolean $stack34;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $stack44, $stack71, emf;
+        java.util.List $stack27, $stack30;
+        java.lang.StringBuilder $stack21, $stack22, $stack23, $stack37, $stack38, $stack40, $stack60, $stack61, $stack62;
+        java.lang.Object[] $stack16;
+        java.lang.Double $stack20;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.text.NumberFormat nf;
+        java.text.MessageFormat $stack36;
+        java.util.HashSet $stack25;
+        java.util.Calendar $stack15;
+        java.lang.StringBuffer $stack46;
+        java.lang.String $stack24, $stack39, $stack41, $stack49, $stack50, $stack54, $stack58, $stack63, $stack64, $stack65, $stack66, $stack67;
+        java.util.Locale[] $stack26, $stack29;
+        java.util.Iterator $stack33;
+        java.lang.Object $stack35, $stack48, $stack53, $stack57;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack15 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack15.<java.util.Calendar: void set(int,int,int,int,int,int)>(2007, 0, 23, 18, 33, 5);
+
+        $stack16 = newarray (java.lang.Object)[3];
+
+        $stack16[0] = "John Doe";
+
+        $stack18 = virtualinvoke $stack15.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack16[1] = $stack18;
+
+        $stack20 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>("12345.67");
+
+        $stack16[2] = $stack20;
+
+        $stack21 = new java.lang.StringBuilder;
+
+        specialinvoke $stack21.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Name: {0,upper} ");
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("DOB: {1,date,short} Salary: {2,number,currency}");
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack25 = new java.util.HashSet;
+
+        specialinvoke $stack25.<java.util.HashSet: void <init>()>();
+
+        $stack26 = staticinvoke <java.text.DateFormat: java.util.Locale[] getAvailableLocales()>();
+
+        $stack27 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack26);
+
+        virtualinvoke $stack25.<java.util.HashSet: boolean addAll(java.util.Collection)>($stack27);
+
+        $stack29 = staticinvoke <java.text.NumberFormat: java.util.Locale[] getAvailableLocales()>();
+
+        $stack30 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack29);
+
+        virtualinvoke $stack25.<java.util.HashSet: boolean retainAll(java.util.Collection)>($stack30);
+
+        virtualinvoke $stack25.<java.util.HashSet: boolean add(java.lang.Object)>(null);
+
+        $stack33 = virtualinvoke $stack25.<java.util.HashSet: java.util.Iterator iterator()>();
+
+     label1:
+        $stack34 = interfaceinvoke $stack33.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack34 == 0 goto label4;
+
+        $stack35 = interfaceinvoke $stack33.<java.util.Iterator: java.lang.Object next()>();
+
+        locale = (java.util.Locale) $stack35;
+
+        $stack36 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.text.MessageFormat createMessageFormat(java.lang.String,java.util.Locale)>("DOB: {1,date,short} Salary: {2,number,currency}", locale);
+
+        $stack37 = new java.lang.StringBuilder;
+
+        specialinvoke $stack37.<java.lang.StringBuilder: void <init>()>();
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Name: {0,upper} ");
+
+        $stack39 = virtualinvoke $stack36.<java.text.MessageFormat: java.lang.String toPattern()>();
+
+        $stack40 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack39);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        if locale != null goto label2;
+
+        df = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateInstance(int)>(3);
+
+        nf = staticinvoke <java.text.NumberFormat: java.text.NumberFormat getCurrencyInstance()>();
+
+        $stack71 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack72 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        specialinvoke $stack71.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Map)>($stack24, $stack72);
+
+        emf = $stack71;
+
+        goto label3;
+
+     label2:
+        df = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateInstance(int,java.util.Locale)>(3, locale);
+
+        nf = staticinvoke <java.text.NumberFormat: java.text.NumberFormat getCurrencyInstance(java.util.Locale)>(locale);
+
+        $stack44 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack45 = this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.util.Map registry>;
+
+        specialinvoke $stack44.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>($stack24, locale, $stack45);
+
+        emf = $stack44;
+
+     label3:
+        $stack46 = new java.lang.StringBuffer;
+
+        specialinvoke $stack46.<java.lang.StringBuffer: void <init>()>();
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("Name: ");
+
+        $stack48 = $stack16[0];
+
+        $stack49 = virtualinvoke $stack48.<java.lang.Object: java.lang.String toString()>();
+
+        $stack50 = virtualinvoke $stack49.<java.lang.String: java.lang.String toUpperCase()>();
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack50);
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(" DOB: ");
+
+        $stack53 = $stack16[1];
+
+        $stack54 = virtualinvoke df.<java.text.DateFormat: java.lang.String format(java.lang.Object)>($stack53);
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack54);
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(" Salary: ");
+
+        $stack57 = $stack16[2];
+
+        $stack58 = virtualinvoke nf.<java.text.NumberFormat: java.lang.String format(java.lang.Object)>($stack57);
+
+        virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack58);
+
+        $stack60 = new java.lang.StringBuilder;
+
+        specialinvoke $stack60.<java.lang.StringBuilder: void <init>()>();
+
+        $stack61 = virtualinvoke $stack60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("pattern comparison for locale ");
+
+        $stack62 = virtualinvoke $stack61.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(locale);
+
+        $stack63 = virtualinvoke $stack62.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack64 = virtualinvoke emf.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void assertPatternsEqual(java.lang.String,java.lang.String,java.lang.String)>($stack63, $stack41, $stack64);
+
+        $stack65 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(locale);
+
+        $stack66 = virtualinvoke $stack46.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        $stack67 = virtualinvoke emf.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack65, $stack66, $stack67);
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    public void testBuiltInChoiceFormat()
+    {
+        java.lang.Object[] $stack21, $stack29;
+        java.lang.Double $stack12, $stack14;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.lang.Integer $stack10;
+        int len$, i$;
+        java.lang.String $stack20, $stack28;
+        java.lang.Number value;
+        java.util.Locale[] $stack15;
+        java.lang.Number[] $stack8;
+        java.lang.StringBuilder $stack16, $stack17, $stack18, $stack19, $stack24, $stack25, $stack26, $stack27;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack8 = newarray (java.lang.Number)[3];
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack8[0] = $stack10;
+
+        $stack12 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>("2.2");
+
+        $stack8[1] = $stack12;
+
+        $stack14 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>("1234.5");
+
+        $stack8[2] = $stack14;
+
+        $stack15 = staticinvoke <java.text.ChoiceFormat: java.util.Locale[] getAvailableLocales()>();
+
+        len$ = lengthof $stack8;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        value = $stack8[i$];
+
+        $stack24 = new java.lang.StringBuilder;
+
+        specialinvoke $stack24.<java.lang.StringBuilder: void <init>()>();
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(value);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("{0,choice,1#One|2#Two|3#Many {0,number}}");
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack29 = newarray (java.lang.Object)[1];
+
+        $stack29[0] = value;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>($stack28, $stack29, $stack15);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        len$ = lengthof $stack8;
+
+        i$ = 0;
+
+     label3:
+        if i$ >= len$ goto label4;
+
+        value = $stack8[i$];
+
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(value);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("{0,choice,1#\'\'One\'\'|2#\"Two\"|3#\'\'{Many}\'\' {0,number}}");
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack21 = newarray (java.lang.Object)[1];
+
+        $stack21[0] = value;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>($stack20, $stack21, $stack15);
+
+        i$ = i$ + 1;
+
+        goto label3;
+
+     label4:
+        return;
+    }
+
+    public void testBuiltInDateTimeFormat()
+    {
+        java.util.Locale[] $stack8;
+        java.util.Calendar $stack4;
+        java.lang.Object[] $stack5;
+        java.util.Date $stack7;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack4 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack4.<java.util.Calendar: void set(int,int,int,int,int,int)>(2007, 0, 23, 18, 33, 5);
+
+        $stack5 = newarray (java.lang.Object)[1];
+
+        $stack7 = virtualinvoke $stack4.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack5[0] = $stack7;
+
+        $stack8 = staticinvoke <java.text.DateFormat: java.util.Locale[] getAvailableLocales()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("1: {0,date,short}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("2: {0,date,medium}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("3: {0,date,long}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("4: {0,date,full}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("5: {0,date,d MMM yy}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("6: {0,time,short}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("7: {0,time,medium}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("8: {0,time,long}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("9: {0,time,full}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("10: {0,time,HH:mm}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("11: {0,date}", $stack5, $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("12: {0,time}", $stack5, $stack8);
+
+        return;
+    }
+
+    public void testOverriddenBuiltinFormat()
+    {
+        java.lang.Object[] $stack11;
+        java.util.Date $stack13;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.text.MessageFormat $stack19;
+        java.util.Calendar $stack10;
+        java.util.Locale $stack28;
+        java.util.Map $stack17;
+        int $stack18, i, $i0;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory $u0;
+        java.lang.String $stack22, $stack23, $stack25;
+        java.util.Locale[] $stack14;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $u1;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack10 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack10.<java.util.Calendar: void set(int,int,int)>(2007, 0, 23);
+
+        $stack11 = newarray (java.lang.Object)[1];
+
+        $stack13 = virtualinvoke $stack10.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack11[0] = $stack13;
+
+        $stack14 = staticinvoke <java.text.DateFormat: java.util.Locale[] getAvailableLocales()>();
+
+        $u0 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory;
+
+        specialinvoke $u0.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory: void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)>(null);
+
+        $stack17 = staticinvoke <java.util.Collections: java.util.Map singletonMap(java.lang.Object,java.lang.Object)>("date", $u0);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>("1: {0,date}", $stack17, $stack11, $stack14);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>("2: {0,date,medium}", $stack17, $stack11, $stack14);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>("3: {0,date,long}", $stack17, $stack11, $stack14);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>("4: {0,date,full}", $stack17, $stack11, $stack14);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>("5: {0,date,d MMM yy}", $stack17, $stack11, $stack14);
+
+        $i0 = (int) -1;
+
+        i = $i0;
+
+     label1:
+        $stack18 = lengthof $stack14;
+
+        if i >= $stack18 goto label4;
+
+        if i >= 0 goto label2;
+
+        $stack28 = null;
+
+        goto label3;
+
+     label2:
+        $stack28 = $stack14[i];
+
+     label3:
+        $stack19 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.text.MessageFormat createMessageFormat(java.lang.String,java.util.Locale)>("{0,date}", $stack28);
+
+        $u1 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("{0,date,short}", $stack28, $stack17);
+
+        $stack22 = virtualinvoke $stack19.<java.text.MessageFormat: java.lang.String format(java.lang.Object)>($stack11);
+
+        $stack23 = virtualinvoke $u1.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("overridden date,short format", $stack22, $stack23);
+
+        $stack25 = virtualinvoke $u1.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("overridden date,short pattern", "{0,date,short}", $stack25);
+
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        return;
+    }
+
+    public void testBuiltInNumberFormat()
+    {
+        java.util.Locale[] $stack6;
+        java.lang.Object[] $stack3;
+        java.lang.Double $stack5;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack3 = newarray (java.lang.Object)[1];
+
+        $stack5 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>("6543.21");
+
+        $stack3[0] = $stack5;
+
+        $stack6 = staticinvoke <java.text.NumberFormat: java.util.Locale[] getAvailableLocales()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("1: {0,number}", $stack3, $stack6);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("2: {0,number,integer}", $stack3, $stack6);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("3: {0,number,currency}", $stack3, $stack6);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("4: {0,number,percent}", $stack3, $stack6);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.lang.Object[],java.util.Locale[])>("5: {0,number,00000.000}", $stack3, $stack6);
+
+        return;
+    }
+
+    public void testEqualsHashcode()
+    {
+        java.util.Locale $stack13, $stack20, $stack27, $stack38, $stack45, $stack52;
+        java.util.Map $stack8, $stack11;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory $stack9;
+        boolean $stack15, $stack22, $stack29, $stack40, $stack47, $stack54, $stack88, $stack81, $stack73, $stack66, $stack59, $stack58;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $stack12, $stack19, $stack33, $stack44, $stack51;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$OtherExtendedMessageFormat $stack26;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory $stack6;
+        java.lang.StringBuilder $stack34, $stack35, $stack36;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        int $stack17, $stack18, $stack24, $stack25, $stack31, $stack32, $stack42, $stack43, $stack49, $stack50, $stack56, $stack57;
+        java.lang.String $stack37;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        $stack6 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$LowerCaseFormatFactory: void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)>(null);
+
+        $stack8 = staticinvoke <java.util.Collections: java.util.Map singletonMap(java.lang.Object,java.lang.Object)>("testfmt", $stack6);
+
+        $stack9 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$UpperCaseFormatFactory: void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)>(null);
+
+        $stack11 = staticinvoke <java.util.Collections: java.util.Map singletonMap(java.lang.Object,java.lang.Object)>("testfmt", $stack9);
+
+        $stack12 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack13 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("Pattern: {0,testfmt}", $stack13, $stack8);
+
+        $stack15 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("same, equals()", $stack15);
+
+        $stack17 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack18 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack17 != $stack18 goto label01;
+
+        $stack88 = 1;
+
+        goto label02;
+
+     label01:
+        $stack88 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("same, hashcode()", $stack88);
+
+        $stack19 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack20 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("Pattern: {0,testfmt}", $stack20, $stack8);
+
+        $stack22 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("equal, equals()", $stack22);
+
+        $stack24 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack25 = virtualinvoke $stack19.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack24 != $stack25 goto label03;
+
+        $stack81 = 1;
+
+        goto label04;
+
+     label03:
+        $stack81 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("equal, hashcode()", $stack81);
+
+        $stack26 = new org.apache.commons.lang3.text.ExtendedMessageFormatTest$OtherExtendedMessageFormat;
+
+        $stack27 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $stack26.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$OtherExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("Pattern: {0,testfmt}", $stack27, $stack8);
+
+        $stack29 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("class, equals()", $stack29);
+
+        $stack31 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack32 = virtualinvoke $stack26.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack31 != $stack32 goto label05;
+
+        $stack73 = 1;
+
+        goto label06;
+
+     label05:
+        $stack73 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("class, hashcode()", $stack73);
+
+        $stack33 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack34 = new java.lang.StringBuilder;
+
+        specialinvoke $stack34.<java.lang.StringBuilder: void <init>()>();
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("X");
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Pattern: {0,testfmt}");
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack38 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $stack33.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>($stack37, $stack38, $stack8);
+
+        $stack40 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack33);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("pattern, equals()", $stack40);
+
+        $stack42 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack43 = virtualinvoke $stack33.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack42 != $stack43 goto label07;
+
+        $stack66 = 1;
+
+        goto label08;
+
+     label07:
+        $stack66 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("pattern, hashcode()", $stack66);
+
+        $stack44 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack45 = <java.util.Locale: java.util.Locale US>;
+
+        specialinvoke $stack44.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("Pattern: {0,testfmt}", $stack45, $stack11);
+
+        $stack47 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack44);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("registry, equals()", $stack47);
+
+        $stack49 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack50 = virtualinvoke $stack44.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack49 != $stack50 goto label09;
+
+        $stack59 = 1;
+
+        goto label10;
+
+     label09:
+        $stack59 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("registry, hashcode()", $stack59);
+
+        $stack51 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack52 = <java.util.Locale: java.util.Locale FRANCE>;
+
+        specialinvoke $stack51.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>("Pattern: {0,testfmt}", $stack52, $stack8);
+
+        $stack54 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean equals(java.lang.Object)>($stack51);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("locale, equals()", $stack54);
+
+        $stack56 = virtualinvoke $stack12.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        $stack57 = virtualinvoke $stack51.<org.apache.commons.lang3.text.ExtendedMessageFormat: int hashCode()>();
+
+        if $stack56 != $stack57 goto label11;
+
+        $stack58 = 1;
+
+        goto label12;
+
+     label11:
+        $stack58 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("locale, hashcode()", $stack58);
+
+        return;
+    }
+
+    private void checkBuiltInFormat(java.lang.String, java.lang.Object[], java.util.Locale[])
+    {
+        java.util.Locale[] locales;
+        java.lang.Object[] args;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        pattern := @parameter0: java.lang.String;
+
+        args := @parameter1: java.lang.Object[];
+
+        locales := @parameter2: java.util.Locale[];
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale[])>(pattern, null, args, locales);
+
+        return;
+    }
+
+    private void checkBuiltInFormat(java.lang.String, java.util.Map, java.lang.Object[], java.util.Locale[])
+    {
+        java.util.Locale[] locales;
+        java.lang.Object[] args;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.util.Locale locale;
+        java.util.Map registry;
+        int len$, i$;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        pattern := @parameter0: java.lang.String;
+
+        registry := @parameter1: java.util.Map;
+
+        args := @parameter2: java.lang.Object[];
+
+        locales := @parameter3: java.util.Locale[];
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale)>(pattern, registry, args, null);
+
+        len$ = lengthof locales;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        locale = locales[i$];
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void checkBuiltInFormat(java.lang.String,java.util.Map,java.lang.Object[],java.util.Locale)>(pattern, registry, args, locale);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    private void checkBuiltInFormat(java.lang.String, java.util.Map, java.lang.Object[], java.util.Locale)
+    {
+        java.lang.Object[] args;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.text.MessageFormat $stack14;
+        java.lang.StringBuffer $stack8;
+        java.util.Locale locale;
+        java.util.Map registry;
+        java.lang.String pattern, $stack18, $stack20, $stack21, $stack22, $stack25, $stack27, $stack28, $stack29;
+        org.apache.commons.lang3.text.ExtendedMessageFormat $stack15, $stack30, emf;
+        java.lang.StringBuilder $stack16, $stack17, $stack19, $stack23, $stack24, $stack26;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        pattern := @parameter0: java.lang.String;
+
+        registry := @parameter1: java.util.Map;
+
+        args := @parameter2: java.lang.Object[];
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack8 = new java.lang.StringBuffer;
+
+        specialinvoke $stack8.<java.lang.StringBuffer: void <init>()>();
+
+        virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("Pattern=[");
+
+        virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>(pattern);
+
+        virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("], locale=[");
+
+        virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.Object)>(locale);
+
+        virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("]");
+
+        $stack14 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: java.text.MessageFormat createMessageFormat(java.lang.String,java.util.Locale)>(pattern, locale);
+
+        if locale != null goto label1;
+
+        $stack30 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        specialinvoke $stack30.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String)>(pattern);
+
+        emf = $stack30;
+
+        goto label2;
+
+     label1:
+        $stack15 = new org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        specialinvoke $stack15.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale)>(pattern, locale);
+
+        emf = $stack15;
+
+     label2:
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("format ");
+
+        $stack18 = virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        $stack19 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack21 = virtualinvoke $stack14.<java.text.MessageFormat: java.lang.String format(java.lang.Object)>(args);
+
+        $stack22 = virtualinvoke emf.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String format(java.lang.Object)>(args);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>($stack20, $stack21, $stack22);
+
+        $stack23 = new java.lang.StringBuilder;
+
+        specialinvoke $stack23.<java.lang.StringBuilder: void <init>()>();
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("toPattern ");
+
+        $stack25 = virtualinvoke $stack8.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack28 = virtualinvoke $stack14.<java.text.MessageFormat: java.lang.String toPattern()>();
+
+        $stack29 = virtualinvoke emf.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest: void assertPatternsEqual(java.lang.String,java.lang.String,java.lang.String)>($stack27, $stack28, $stack29);
+
+        return;
+    }
+
+    private void assertPatternsEqual(java.lang.String, java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        org.apache.commons.lang3.JavaVersion $stack4;
+        java.lang.String message, expected, actual;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        message := @parameter0: java.lang.String;
+
+        expected := @parameter1: java.lang.String;
+
+        actual := @parameter2: java.lang.String;
+
+        $stack4 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_4>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack4);
+
+        if $stack5 == 0 goto label1;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>(message, expected, actual);
+
+     label1:
+        return;
+    }
+
+    private java.text.MessageFormat createMessageFormat(java.lang.String, java.util.Locale)
+    {
+        java.util.Locale locale;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest this;
+        java.lang.String pattern;
+        java.text.MessageFormat $stack4;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest;
+
+        pattern := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        $stack4 = new java.text.MessageFormat;
+
+        specialinvoke $stack4.<java.text.MessageFormat: void <init>(java.lang.String)>(pattern);
+
+        if locale == null goto label1;
+
+        virtualinvoke $stack4.<java.text.MessageFormat: void setLocale(java.util.Locale)>(locale);
+
+        virtualinvoke $stack4.<java.text.MessageFormat: void applyPattern(java.lang.String)>(pattern);
+
+     label1:
+        return $stack4;
+    }
+}

@@ -1,0 +1,68 @@
+final class org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle extends org.apache.commons.lang3.builder.ToStringStyle
+{
+    private static final long serialVersionUID;
+
+    void <init>()
+    {
+        java.lang.StringBuilder $stack1, $stack3, $stack4, $stack6, $stack8, $stack9;
+        java.lang.String $stack2, $stack5, $stack7, $stack10;
+        org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle this;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ToStringStyle: void <init>()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: void setContentStart(java.lang.String)>("[");
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack2);
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  ");
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: void setFieldSeparator(java.lang.String)>($stack5);
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: void setFieldSeparatorAtStart(boolean)>(1);
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: void setContentEnd(java.lang.String)>($stack10);
+
+        return;
+    }
+
+    private java.lang.Object readResolve()
+    {
+        org.apache.commons.lang3.builder.ToStringStyle $stack1;
+        org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle this;
+
+        this := @this: org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle;
+
+        $stack1 = <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle MULTI_LINE_STYLE>;
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.builder.ToStringStyle$MultiLineToStringStyle: long serialVersionUID> = 1L;
+
+        return;
+    }
+}

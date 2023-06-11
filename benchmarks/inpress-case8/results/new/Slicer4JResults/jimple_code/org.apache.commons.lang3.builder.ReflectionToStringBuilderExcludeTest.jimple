@@ -1,0 +1,393 @@
+public class org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest extends java.lang.Object
+{
+    private static final java.lang.String NOT_SECRET_FIELD;
+    private static final java.lang.String NOT_SECRET_VALUE;
+    private static final java.lang.String SECRET_FIELD;
+    private static final java.lang.String SECRET_VALUE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void test_toStringExclude()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "secretField";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldAbsent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeArray()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "secretField";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldAbsent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeArrayWithNull()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeArrayWithNulls()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = newarray (java.lang.String)[2];
+
+        $stack3[0] = null;
+
+        $stack3[1] = null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeCollection()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack5;
+        java.lang.String $stack6;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>("secretField");
+
+        $stack5 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.util.Collection)>($stack5, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldAbsent(java.lang.String)>($stack6);
+
+        return;
+    }
+
+    public void test_toStringExcludeCollectionWithNull()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack5;
+        java.lang.String $stack6;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(null);
+
+        $stack5 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.util.Collection)>($stack5, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack6);
+
+        return;
+    }
+
+    public void test_toStringExcludeCollectionWithNulls()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack6;
+        java.lang.String $stack7;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(null);
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(null);
+
+        $stack6 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.util.Collection)>($stack6, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack7);
+
+        return;
+    }
+
+    public void test_toStringExcludeEmptyArray()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = <org.apache.commons.lang3.ArrayUtils: java.lang.String[] EMPTY_STRING_ARRAY>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeEmptyCollection()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+        java.util.ArrayList $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.util.Collection)>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeNullArray()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String[] $stack3;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack3 = (java.lang.String[]) null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.lang.String[])>($stack2, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    public void test_toStringExcludeNullCollection()
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture $stack2;
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        $stack2 = new org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest$TestFixture: void <init>(org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest)>(this);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.builder.ReflectionToStringBuilder: java.lang.String toStringExclude(java.lang.Object,java.util.Collection)>($stack2, null);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateSecretFieldPresent(java.lang.String)>($stack4);
+
+        return;
+    }
+
+    private void validateNonSecretField(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        int $stack2, $stack3, $i0, $i1;
+        java.lang.String toString;
+        boolean $stack5, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        toString := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke toString.<java.lang.String: int indexOf(java.lang.String)>("showField");
+
+        $i0 = (int) -1;
+
+        if $stack2 <= $i0 goto label1;
+
+        $stack5 = 1;
+
+        goto label2;
+
+     label1:
+        $stack5 = 0;
+
+     label2:
+        staticinvoke <junit.framework.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack3 = virtualinvoke toString.<java.lang.String: int indexOf(java.lang.String)>("Hello World!");
+
+        $i1 = (int) -1;
+
+        if $stack3 <= $i1 goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        staticinvoke <junit.framework.Assert: void assertTrue(boolean)>($stack4);
+
+        return;
+    }
+
+    private void validateSecretFieldAbsent(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        int $stack3, $i0;
+        java.lang.String toString;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        toString := @parameter0: java.lang.String;
+
+        $stack3 = virtualinvoke toString.<java.lang.String: int indexOf(java.lang.String)>("secret value");
+
+        $i0 = (int) -1;
+
+        staticinvoke <junit.framework.Assert: void assertEquals(int,int)>($i0, $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateNonSecretField(java.lang.String)>(toString);
+
+        return;
+    }
+
+    private void validateSecretFieldPresent(java.lang.String)
+    {
+        org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest this;
+        int $stack2;
+        java.lang.String toString;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest;
+
+        toString := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke toString.<java.lang.String: int indexOf(java.lang.String)>("secret value");
+
+        if $stack2 <= 0 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        staticinvoke <junit.framework.Assert: void assertTrue(boolean)>($stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: void validateNonSecretField(java.lang.String)>(toString);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: java.lang.String SECRET_VALUE> = "secret value";
+
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: java.lang.String SECRET_FIELD> = "secretField";
+
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: java.lang.String NOT_SECRET_VALUE> = "Hello World!";
+
+        <org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeTest: java.lang.String NOT_SECRET_FIELD> = "showField";
+
+        return;
+    }
+}

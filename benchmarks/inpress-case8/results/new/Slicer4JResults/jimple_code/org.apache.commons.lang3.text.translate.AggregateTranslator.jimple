@@ -1,0 +1,68 @@
+public class org.apache.commons.lang3.text.translate.AggregateTranslator extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+    private final org.apache.commons.lang3.text.translate.CharSequenceTranslator[] translators;
+
+    public transient void <init>(org.apache.commons.lang3.text.translate.CharSequenceTranslator[])
+    {
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator[] translators, $stack3;
+        org.apache.commons.lang3.text.translate.AggregateTranslator this;
+
+        this := @this: org.apache.commons.lang3.text.translate.AggregateTranslator;
+
+        translators := @parameter0: org.apache.commons.lang3.text.translate.CharSequenceTranslator[];
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.Object[] clone(java.lang.Object[])>(translators);
+
+        $stack3 = (org.apache.commons.lang3.text.translate.CharSequenceTranslator[]) $stack2;
+
+        this.<org.apache.commons.lang3.text.translate.AggregateTranslator: org.apache.commons.lang3.text.translate.CharSequenceTranslator[] translators> = $stack3;
+
+        return;
+    }
+
+    public int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        java.lang.CharSequence input;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator translator;
+        org.apache.commons.lang3.text.translate.CharSequenceTranslator[] arr$;
+        org.apache.commons.lang3.text.translate.AggregateTranslator this;
+        int len$, index, $stack9, i$;
+        java.io.Writer out;
+
+        this := @this: org.apache.commons.lang3.text.translate.AggregateTranslator;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        arr$ = this.<org.apache.commons.lang3.text.translate.AggregateTranslator: org.apache.commons.lang3.text.translate.CharSequenceTranslator[] translators>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        translator = arr$[i$];
+
+        $stack9 = virtualinvoke translator.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: int translate(java.lang.CharSequence,int,java.io.Writer)>(input, index, out);
+
+        if $stack9 == 0 goto label2;
+
+        return $stack9;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+}

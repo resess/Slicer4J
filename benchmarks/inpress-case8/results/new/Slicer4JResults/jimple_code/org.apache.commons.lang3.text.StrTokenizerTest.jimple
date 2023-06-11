@@ -1,0 +1,3027 @@
+public class org.apache.commons.lang3.text.StrTokenizerTest extends java.lang.Object
+{
+    private static final java.lang.String CSV_SIMPLE_FIXTURE;
+    private static final java.lang.String TSV_SIMPLE_FIXTURE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void checkClone(org.apache.commons.lang3.text.StrTokenizer)
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, tokenizer, $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        boolean $stack5, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        tokenizer := @parameter0: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance()>();
+
+        if $stack2 != tokenizer goto label1;
+
+        $stack5 = 1;
+
+        goto label2;
+
+     label1:
+        $stack5 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVInstance()>();
+
+        if $stack3 != tokenizer goto label3;
+
+        $stack4 = 1;
+
+        goto label4;
+
+     label3:
+        $stack4 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        return;
+    }
+
+    public void test1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack12, $stack13;
+        long $stack17, $stack18;
+        org.apache.commons.lang3.text.StrMatcher $stack9;
+        int $stack15, $stack16, $stack19, i;
+        java.lang.String $stack14, $stack24, $stack27, $stack30, $stack31, $stack32;
+        boolean $stack33;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack20, $stack21, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b;c;\"d;\"\"e\";f; ; ;  ");
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack12 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack13 = newarray (java.lang.String)[8];
+
+        $stack13[0] = "a";
+
+        $stack13[1] = "b";
+
+        $stack13[2] = "c";
+
+        $stack13[3] = "d;\"e";
+
+        $stack13[4] = "f";
+
+        $stack13[5] = "";
+
+        $stack13[6] = "";
+
+        $stack13[7] = "";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack12);
+
+        $stack15 = lengthof $stack13;
+
+        $stack18 = (long) $stack15;
+
+        $stack16 = lengthof $stack12;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack14, $stack18, $stack17);
+
+        i = 0;
+
+     label1:
+        $stack19 = lengthof $stack13;
+
+        if i >= $stack19 goto label2;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack24 = $stack12[i];
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack27 = $stack13[i];
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = $stack13[i];
+
+        $stack31 = $stack12[i];
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack32, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack30, $stack33);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack12, $stack13;
+        long $stack17, $stack18;
+        org.apache.commons.lang3.text.StrMatcher $stack9;
+        int $stack15, $stack16, $stack19, i;
+        java.lang.String $stack14, $stack24, $stack27, $stack30, $stack31, $stack32;
+        boolean $stack33;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack20, $stack21, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b;c ;\"d;\"\"e\";f; ; ;");
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack12 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack13 = newarray (java.lang.String)[8];
+
+        $stack13[0] = "a";
+
+        $stack13[1] = "b";
+
+        $stack13[2] = "c ";
+
+        $stack13[3] = "d;\"e";
+
+        $stack13[4] = "f";
+
+        $stack13[5] = " ";
+
+        $stack13[6] = " ";
+
+        $stack13[7] = "";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack12);
+
+        $stack15 = lengthof $stack13;
+
+        $stack18 = (long) $stack15;
+
+        $stack16 = lengthof $stack12;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack14, $stack18, $stack17);
+
+        i = 0;
+
+     label1:
+        $stack19 = lengthof $stack13;
+
+        if i >= $stack19 goto label2;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack24 = $stack12[i];
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack27 = $stack13[i];
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = $stack13[i];
+
+        $stack31 = $stack12[i];
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack32, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack30, $stack33);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test3()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack12, $stack13;
+        long $stack17, $stack18;
+        org.apache.commons.lang3.text.StrMatcher $stack9;
+        int $stack15, $stack16, $stack19, i;
+        java.lang.String $stack14, $stack24, $stack27, $stack30, $stack31, $stack32;
+        boolean $stack33;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack20, $stack21, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b; c;\"d;\"\"e\";f; ; ;");
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack12 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack13 = newarray (java.lang.String)[8];
+
+        $stack13[0] = "a";
+
+        $stack13[1] = "b";
+
+        $stack13[2] = " c";
+
+        $stack13[3] = "d;\"e";
+
+        $stack13[4] = "f";
+
+        $stack13[5] = " ";
+
+        $stack13[6] = " ";
+
+        $stack13[7] = "";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack12);
+
+        $stack15 = lengthof $stack13;
+
+        $stack18 = (long) $stack15;
+
+        $stack16 = lengthof $stack12;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack14, $stack18, $stack17);
+
+        i = 0;
+
+     label1:
+        $stack19 = lengthof $stack13;
+
+        if i >= $stack19 goto label2;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack24 = $stack12[i];
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack27 = $stack13[i];
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = $stack13[i];
+
+        $stack31 = $stack12[i];
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack32, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack30, $stack33);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test4()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack12, $stack13;
+        long $stack17, $stack18;
+        org.apache.commons.lang3.text.StrMatcher $stack9;
+        int $stack15, $stack16, $stack19, i;
+        java.lang.String $stack14, $stack24, $stack27, $stack30, $stack31, $stack32;
+        boolean $stack33;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack20, $stack21, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b; c;\"d;\"\"e\";f; ; ;");
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(1);
+
+        $stack12 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack13 = newarray (java.lang.String)[5];
+
+        $stack13[0] = "a";
+
+        $stack13[1] = "b";
+
+        $stack13[2] = "c";
+
+        $stack13[3] = "d;\"e";
+
+        $stack13[4] = "f";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack12);
+
+        $stack15 = lengthof $stack13;
+
+        $stack18 = (long) $stack15;
+
+        $stack16 = lengthof $stack12;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack14, $stack18, $stack17);
+
+        i = 0;
+
+     label1:
+        $stack19 = lengthof $stack13;
+
+        if i >= $stack19 goto label2;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack24 = $stack12[i];
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack27 = $stack13[i];
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = $stack13[i];
+
+        $stack31 = $stack12[i];
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack32, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack30, $stack33);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test5()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack13, $stack14;
+        long $stack18, $stack19;
+        org.apache.commons.lang3.text.StrMatcher $stack9;
+        int $stack16, $stack17, $stack20, i;
+        java.lang.String $stack15, $stack25, $stack28, $stack31, $stack32, $stack33;
+        boolean $stack34;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack21, $stack22, $stack23, $stack24, $stack26, $stack27, $stack29, $stack30;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b; c;\"d;\"\"e\";f; ; ;");
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack13 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack14 = newarray (java.lang.String)[8];
+
+        $stack14[0] = "a";
+
+        $stack14[1] = "b";
+
+        $stack14[2] = "c";
+
+        $stack14[3] = "d;\"e";
+
+        $stack14[4] = "f";
+
+        $stack14[5] = null;
+
+        $stack14[6] = null;
+
+        $stack14[7] = null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack13);
+
+        $stack16 = lengthof $stack14;
+
+        $stack19 = (long) $stack16;
+
+        $stack17 = lengthof $stack13;
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack15, $stack19, $stack18);
+
+        i = 0;
+
+     label1:
+        $stack20 = lengthof $stack14;
+
+        if i >= $stack20 goto label2;
+
+        $stack21 = new java.lang.StringBuilder;
+
+        specialinvoke $stack21.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack25 = $stack13[i];
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack28 = $stack14[i];
+
+        $stack29 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack28);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack33 = $stack14[i];
+
+        $stack32 = $stack13[i];
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack33, $stack32);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack31, $stack34);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test6()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack7;
+        java.lang.String[] $stack13, $stack14;
+        long $stack20, $stack21;
+        org.apache.commons.lang3.text.StrMatcher $stack10;
+        int $stack18, $stack19, $stack22, $stack23, nextCount, prevCount;
+        java.lang.String $stack17;
+        boolean $stack15, $stack16, $stack27, $stack25;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack7 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a;b; c;\"d;\"\"e\";f; ; ;");
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(59);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(34);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack10);
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack13 = virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack14 = newarray (java.lang.String)[8];
+
+        $stack14[0] = "a";
+
+        $stack14[1] = "b";
+
+        $stack14[2] = " c";
+
+        $stack14[3] = "d;\"e";
+
+        $stack14[4] = "f";
+
+        $stack14[5] = null;
+
+        $stack14[6] = null;
+
+        $stack14[7] = null;
+
+        nextCount = 0;
+
+     label1:
+        $stack15 = virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        if $stack15 == 0 goto label2;
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        nextCount = nextCount + 1;
+
+        goto label1;
+
+     label2:
+        prevCount = 0;
+
+     label3:
+        $stack16 = virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        if $stack16 == 0 goto label4;
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previous()>();
+
+        prevCount = prevCount + 1;
+
+        goto label3;
+
+     label4:
+        $stack17 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack13);
+
+        $stack18 = lengthof $stack14;
+
+        $stack21 = (long) $stack18;
+
+        $stack19 = lengthof $stack13;
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack17, $stack21, $stack20);
+
+        $stack22 = lengthof $stack14;
+
+        if nextCount != $stack22 goto label5;
+
+        $stack27 = 1;
+
+        goto label6;
+
+     label5:
+        $stack27 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("could not cycle through entire token list using the \'hasNext\' and \'next\' methods", $stack27);
+
+        $stack23 = lengthof $stack14;
+
+        if prevCount != $stack23 goto label7;
+
+        $stack25 = 1;
+
+        goto label8;
+
+     label7:
+        $stack25 = 0;
+
+     label8:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("could not cycle through entire token list using the \'hasPrevious\' and \'previous\' methods", $stack25);
+
+        return;
+    }
+
+    public void test7()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack14, $stack15;
+        long $stack19, $stack20;
+        org.apache.commons.lang3.text.StrMatcher $stack7, $stack9, $stack11;
+        int $stack17, $stack18, $stack21, i;
+        java.lang.String $stack16, $stack26, $stack29, $stack32, $stack33, $stack34;
+        boolean $stack35;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack22, $stack23, $stack24, $stack25, $stack27, $stack28, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a   b c \"d e\" f ");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher spaceMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack11);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack14 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack15 = newarray (java.lang.String)[8];
+
+        $stack15[0] = "a";
+
+        $stack15[1] = "";
+
+        $stack15[2] = "";
+
+        $stack15[3] = "b";
+
+        $stack15[4] = "c";
+
+        $stack15[5] = "d e";
+
+        $stack15[6] = "f";
+
+        $stack15[7] = "";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack14);
+
+        $stack17 = lengthof $stack15;
+
+        $stack20 = (long) $stack17;
+
+        $stack18 = lengthof $stack14;
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack16, $stack20, $stack19);
+
+        i = 0;
+
+     label1:
+        $stack21 = lengthof $stack15;
+
+        if i >= $stack21 goto label2;
+
+        $stack22 = new java.lang.StringBuilder;
+
+        specialinvoke $stack22.<java.lang.StringBuilder: void <init>()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack26 = $stack14[i];
+
+        $stack27 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack29 = $stack15[i];
+
+        $stack30 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack34 = $stack15[i];
+
+        $stack33 = $stack14[i];
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack34, $stack33);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack32, $stack35);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void test8()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack6;
+        java.lang.String[] $stack14, $stack15;
+        long $stack19, $stack20;
+        org.apache.commons.lang3.text.StrMatcher $stack7, $stack9, $stack11;
+        int $stack17, $stack18, $stack21, i;
+        java.lang.String $stack16, $stack26, $stack29, $stack32, $stack33, $stack34;
+        boolean $stack35;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.StringBuilder $stack22, $stack23, $stack24, $stack25, $stack27, $stack28, $stack30, $stack31;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack6 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a   b c \"d e\" f ");
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher spaceMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack11);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(1);
+
+        $stack14 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack15 = newarray (java.lang.String)[5];
+
+        $stack15[0] = "a";
+
+        $stack15[1] = "b";
+
+        $stack15[2] = "c";
+
+        $stack15[3] = "d e";
+
+        $stack15[4] = "f";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>($stack14);
+
+        $stack17 = lengthof $stack15;
+
+        $stack20 = (long) $stack17;
+
+        $stack18 = lengthof $stack14;
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>($stack16, $stack20, $stack19);
+
+        i = 0;
+
+     label1:
+        $stack21 = lengthof $stack15;
+
+        if i >= $stack21 goto label2;
+
+        $stack22 = new java.lang.StringBuilder;
+
+        specialinvoke $stack22.<java.lang.StringBuilder: void <init>()>();
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("token[");
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("] was \'");
+
+        $stack26 = $stack14[i];
+
+        $stack27 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\' but was expected to be \'");
+
+        $stack29 = $stack15[i];
+
+        $stack30 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\'");
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack34 = $stack15[i];
+
+        $stack33 = $stack14[i];
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>($stack34, $stack33);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack32, $stack35);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testBasic1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a  b c");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasic2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a \nb\fc");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasic3()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a \nb\u0001\fc");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b\u0001", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasic4()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a \"b\" c");
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("\"b\"", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasic5()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a:b\':c", 58, 39);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b\'", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasicDelim1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a:b:c", 58);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasicDelim2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5;
+        boolean $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a:b:c", 44);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a:b:c", $stack5);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void testBasicEmpty1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack6, $stack8, $stack10, $stack12;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a  b c");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack6);
+
+        $stack8 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack10);
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack12);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        return;
+    }
+
+    public void testBasicEmpty2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack7, $stack9, $stack11, $stack13;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a  b c");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicQuoted1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a \'b\' c", 32, 39);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack5);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasicQuoted2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack7, $stack9, $stack11;
+        boolean $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a:\'b\':", 58, 39);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack11);
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void testBasicQuoted3()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack7, $stack9;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a:\'b\'\'c\'", 58, 39);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b\'c", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasicQuoted4()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a: \'b\' \'c\' :d", 58, 39);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b c", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("d", $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicQuoted5()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a: \'b\'x\'c\' :d", 58, 39);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bxc", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("d", $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicQuoted6()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack7, $stack9;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a:\'b\'\"c\':d", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher quoteMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b\"c:d", $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        return;
+    }
+
+    public void testBasicQuoted7()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack7, $stack9, $stack11;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a:\"There\'s a reason here\":b", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher quoteMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("There\'s a reason here", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack11);
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void testBasicQuotedTrimmed1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a: \'b\' :", 58, 39);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicTrimmed1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a: b :  ", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicTrimmed2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a:  b  :", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("  ");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicIgnoreTrimmed1()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        org.apache.commons.lang3.text.StrMatcher $stack4, $stack6;
+        java.lang.String $stack11, $stack13, $stack15;
+        boolean $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a: bIGNOREc : ", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("IGNORE");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack6);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack13);
+
+        $stack15 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack16 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testBasicIgnoreTrimmed2()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        org.apache.commons.lang3.text.StrMatcher $stack4, $stack6;
+        java.lang.String $stack11, $stack13, $stack15;
+        boolean $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("IGNORE");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack6);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack13);
+
+        $stack15 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack16 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testBasicIgnoreTrimmed3()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack9, $stack11, $stack13;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        boolean $stack14;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("IGNOREaIGNORE: IGNORE bIGNOREc IGNORE : IGNORE ", 58);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("IGNORE");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  bc  ", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("  ", $stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        return;
+    }
+
+    public void testBasicIgnoreTrimmed4()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        org.apache.commons.lang3.text.StrMatcher $stack4, $stack6;
+        java.lang.String $stack11, $stack13, $stack15;
+        boolean $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("IGNOREaIGNORE: IGNORE \'bIGNOREc\'IGNORE\'d\' IGNORE : IGNORE ", 58, 39);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("IGNORE");
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack6);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(1);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack11);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bIGNOREcd", $stack13);
+
+        $stack15 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack16 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        return;
+    }
+
+    public void testListArray()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack5;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.util.List $stack7, $stack8;
+        int $stack10;
+        java.lang.String[] $stack6;
+        long $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack5 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a  b c");
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] getTokenArray()>();
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.util.List getTokenList()>();
+
+        $stack8 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack7);
+
+        $stack10 = interfaceinvoke $stack7.<java.util.List: int size()>();
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack11);
+
+        return;
+    }
+
+    private void testCSV(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack4;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack3;
+        java.lang.String data;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        data := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance(java.lang.String)>(data);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testXSVAbc(org.apache.commons.lang3.text.StrTokenizer)>($stack2);
+
+        $stack3 = virtualinvoke data.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance(char[])>($stack3);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testXSVAbc(org.apache.commons.lang3.text.StrTokenizer)>($stack4);
+
+        return;
+    }
+
+    public void testCSVEmpty()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack1, $stack2;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testEmpty(org.apache.commons.lang3.text.StrTokenizer)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance(java.lang.String)>("");
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testEmpty(org.apache.commons.lang3.text.StrTokenizer)>($stack2);
+
+        return;
+    }
+
+    public void testCSVSimple()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testCSV(java.lang.String)>("A,b,c");
+
+        return;
+    }
+
+    public void testCSVSimpleNeedsTrim()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testCSV(java.lang.String)>("   A,b,c");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testCSV(java.lang.String)>("   \n\t  A,b,c");
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testCSV(java.lang.String)>("   \n  A,b,c\n\n\r");
+
+        return;
+    }
+
+    void testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+    {
+        org.apache.commons.lang3.text.StrTokenizer tokenizer;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        long $stack9;
+        int $stack8;
+        java.lang.String $stack6;
+        java.util.NoSuchElementException $stack11;
+        boolean $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        tokenizer := @parameter0: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void checkClone(org.apache.commons.lang3.text.StrTokenizer)>(tokenizer);
+
+        $stack3 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack6 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int size()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+     label1:
+        virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack11 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.util.NoSuchElementException from label1 to label2 with label3;
+    }
+
+    public void testGetContent()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3, $stack5, $stack8;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack6;
+        java.lang.String input, $stack4, $stack7, $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        input = "a   b c \"d e\" f ";
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a   b c \"d e\" f ");
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String getContent()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a   b c \"d e\" f ", $stack4);
+
+        $stack5 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack6 = virtualinvoke input.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack6);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String getContent()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a   b c \"d e\" f ", $stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrTokenizer: void <init>()>();
+
+        $stack10 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String getContent()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack10);
+
+        return;
+    }
+
+    public void testChaining()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack3, $stack4, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack4);
+
+        $stack5 = newarray (char)[0];
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack6);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(32);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack7);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterString(java.lang.String)>(" ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack8);
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack9);
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(32);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack10);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack11);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredChar(char)>(32);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack12);
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack13);
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack14);
+
+        $stack15 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack15);
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack16);
+
+        return;
+    }
+
+    public void testCloneNotSupportedException()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.Object $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest$1 $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizerTest$1;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizerTest$1: void <init>(org.apache.commons.lang3.text.StrTokenizerTest)>(this);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizerTest$1: java.lang.Object clone()>();
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        return;
+    }
+
+    public void testCloneNull()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3, clonedTokenizer;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4;
+        java.lang.Object $stack10;
+        java.lang.String $stack6, $stack9, $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack4 = (char[]) null;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack4);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.Object clone()>();
+
+        clonedTokenizer = (org.apache.commons.lang3.text.StrTokenizer) $stack10;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack15 = virtualinvoke clonedTokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        return;
+    }
+
+    public void testCloneReset()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack5, clonedTokenizer;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4;
+        java.lang.Object $stack11;
+        java.lang.String $stack7, $stack10, $stack14, $stack16;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack4 = newarray (char)[1];
+
+        $stack4[0] = 97;
+
+        $stack5 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack4);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack7);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>($stack4);
+
+        $stack10 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack10);
+
+        $stack11 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.Object clone()>();
+
+        clonedTokenizer = (org.apache.commons.lang3.text.StrTokenizer) $stack11;
+
+        $stack4[0] = 98;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>($stack4);
+
+        $stack14 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack14);
+
+        $stack16 = virtualinvoke clonedTokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack16);
+
+        return;
+    }
+
+    public void testConstructor_String()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack8, $stack10;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack4, $stack6;
+        boolean $stack7, $stack9, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a b");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack4);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack6);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("");
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack9);
+
+        $stack10 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>(null);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void testConstructor_String_char()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack14, $stack16;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        long $stack8;
+        org.apache.commons.lang3.text.StrMatcher $stack4;
+        int $stack7;
+        char[] $stack6;
+        java.lang.String $stack5, $stack10, $stack12;
+        boolean $stack13, $stack15, $stack18;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("a b", 32);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack5 = " ";
+
+        $stack6 = virtualinvoke $stack5.<java.lang.String: char[] toCharArray()>();
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack6, 0, 0, 1);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack8);
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack10);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack12);
+
+        $stack13 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        $stack14 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>("", 32);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>(null, 32);
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        return;
+    }
+
+    public void testConstructor_String_char_char()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack20, $stack22;
+        long $stack8, $stack14;
+        org.apache.commons.lang3.text.StrMatcher $stack4, $stack10;
+        int $stack7, $stack13;
+        java.lang.String $stack5, $stack11, $stack16, $stack18;
+        boolean $stack19, $stack21, $stack24;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack6, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("a b", 32, 34);
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack5 = " ";
+
+        $stack6 = virtualinvoke $stack5.<java.lang.String: char[] toCharArray()>();
+
+        $stack7 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack6, 0, 0, 1);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack8);
+
+        $stack10 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getQuoteMatcher()>();
+
+        $stack11 = "\"";
+
+        $stack12 = virtualinvoke $stack11.<java.lang.String: char[] toCharArray()>();
+
+        $stack13 = virtualinvoke $stack10.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack12, 0, 0, 1);
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack16);
+
+        $stack18 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack18);
+
+        $stack19 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack20.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>("", 32, 34);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack22.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char,char)>(null, 32, 34);
+
+        $stack24 = virtualinvoke $stack22.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack24);
+
+        return;
+    }
+
+    public void testConstructor_charArray()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack10, $stack13;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4, $stack11, $stack14;
+        java.lang.String $stack3, $stack6, $stack8;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack3 = "a b";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack4);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack6);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack8);
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack9);
+
+        $stack10 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack11 = newarray (char)[0];
+
+        specialinvoke $stack10.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack11);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        $stack13 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack14 = (char[]) null;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>($stack14);
+
+        $stack15 = virtualinvoke $stack13.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testConstructor_charArray_char()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack16, $stack19;
+        long $stack10;
+        org.apache.commons.lang3.text.StrMatcher $stack6;
+        int $stack9;
+        java.lang.String $stack3, $stack7, $stack12, $stack14;
+        boolean $stack15, $stack18, $stack21;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4, $stack8, $stack17, $stack20;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack3 = "a b";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char)>($stack4, 32);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack7 = " ";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.String: char[] toCharArray()>();
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack8, 0, 0, 1);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack10);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack12);
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack14);
+
+        $stack15 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack17 = newarray (char)[0];
+
+        specialinvoke $stack16.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char)>($stack17, 32);
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        $stack19 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack20 = (char[]) null;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char)>($stack20, 32);
+
+        $stack21 = virtualinvoke $stack19.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        return;
+    }
+
+    public void testConstructor_charArray_char_char()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2, $stack22, $stack25;
+        long $stack10, $stack16;
+        org.apache.commons.lang3.text.StrMatcher $stack6, $stack12;
+        int $stack9, $stack15;
+        java.lang.String $stack3, $stack7, $stack13, $stack18, $stack20;
+        boolean $stack21, $stack24, $stack27;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4, $stack8, $stack14, $stack23, $stack26;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack3 = "a b";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.String: char[] toCharArray()>();
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char,char)>($stack4, 32, 34);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack7 = " ";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.String: char[] toCharArray()>();
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack8, 0, 0, 1);
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack10);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getQuoteMatcher()>();
+
+        $stack13 = "\"";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.String: char[] toCharArray()>();
+
+        $stack15 = virtualinvoke $stack12.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack14, 0, 0, 1);
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack16);
+
+        $stack18 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack18);
+
+        $stack20 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack20);
+
+        $stack21 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack23 = newarray (char)[0];
+
+        specialinvoke $stack22.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char,char)>($stack23, 32, 34);
+
+        $stack24 = virtualinvoke $stack22.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack24);
+
+        $stack25 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack26 = (char[]) null;
+
+        specialinvoke $stack25.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char,char)>($stack26, 32, 34);
+
+        $stack27 = virtualinvoke $stack25.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        return;
+    }
+
+    public void testReset()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack4, $stack6, $stack8, $stack12, $stack14, $stack16;
+        boolean $stack9, $stack17;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a b c");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack4);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack6);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack8);
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack9);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack12);
+
+        $stack14 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack14);
+
+        $stack16 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack16);
+
+        $stack17 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        return;
+    }
+
+    public void testReset_String()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack5, $stack7;
+        boolean $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("x x x");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)>("d e");
+
+        $stack5 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("d", $stack5);
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("e", $stack7);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)>(null);
+
+        $stack11 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testReset_charArray()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack4, $stack9;
+        java.lang.String $stack7;
+        boolean $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("x x x");
+
+        $stack4 = newarray (char)[3];
+
+        $stack4[0] = 97;
+
+        $stack4[1] = 98;
+
+        $stack4[2] = 99;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>($stack4);
+
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack7);
+
+        $stack8 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = (char[]) null;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>($stack9);
+
+        $stack11 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack11);
+
+        return;
+    }
+
+    public void testTSV()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack1, $stack4;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        char[] $stack3;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVInstance(java.lang.String)>("A\tb\tc");
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testXSVAbc(org.apache.commons.lang3.text.StrTokenizer)>($stack1);
+
+        $stack2 = "A\tb\tc";
+
+        $stack3 = virtualinvoke $stack2.<java.lang.String: char[] toCharArray()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVInstance(char[])>($stack3);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testXSVAbc(org.apache.commons.lang3.text.StrTokenizer)>($stack4);
+
+        return;
+    }
+
+    public void testTSVEmpty()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack1, $stack2;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testEmpty(org.apache.commons.lang3.text.StrTokenizer)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVInstance(java.lang.String)>("");
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void testEmpty(org.apache.commons.lang3.text.StrTokenizer)>($stack2);
+
+        return;
+    }
+
+    void testXSVAbc(org.apache.commons.lang3.text.StrTokenizer)
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        org.apache.commons.lang3.text.StrTokenizer tokenizer;
+        long $stack4, $stack7, $stack14, $stack19, $stack24, $stack29, $stack34, $stack39, $stack44, $stack49, $stack52, $stack55;
+        int $stack3, $stack6, $stack13, $stack18, $stack23, $stack28, $stack33, $stack38, $stack43, $stack48, $stack51, $stack54;
+        java.lang.String $stack9, $stack11, $stack16, $stack21, $stack26, $stack31, $stack36, $stack41, $stack46;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        tokenizer := @parameter0: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizerTest: void checkClone(org.apache.commons.lang3.text.StrTokenizer)>(tokenizer);
+
+        $stack3 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int previousIndex()>();
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack4);
+
+        $stack6 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack7);
+
+        $stack9 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previousToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        $stack11 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("A", $stack11);
+
+        $stack13 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack16 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack16);
+
+        $stack18 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack19);
+
+        $stack21 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack21);
+
+        $stack23 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack24);
+
+        $stack26 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String nextToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack26);
+
+        $stack28 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack29 = (long) $stack28;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack29);
+
+        $stack31 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previousToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack31);
+
+        $stack33 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack34);
+
+        $stack36 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previousToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack36);
+
+        $stack38 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack39);
+
+        $stack41 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previousToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("A", $stack41);
+
+        $stack43 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack44);
+
+        $stack46 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previousToken()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack46);
+
+        $stack48 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int nextIndex()>();
+
+        $stack49 = (long) $stack48;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack49);
+
+        $stack51 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int previousIndex()>();
+
+        $stack52 = (long) $stack51;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(-1L, $stack52);
+
+        $stack54 = virtualinvoke tokenizer.<org.apache.commons.lang3.text.StrTokenizer: int size()>();
+
+        $stack55 = (long) $stack54;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack55);
+
+        return;
+    }
+
+    public void testIteration()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack3;
+        java.lang.String $stack8, $stack12, $stack16;
+        java.util.NoSuchElementException $stack22, $stack41;
+        boolean $stack4, $stack6, $stack9, $stack10, $stack13, $stack14, $stack17, $stack18, $stack20, $stack21;
+        java.lang.UnsupportedOperationException $stack25, $stack35, $stack38;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack3 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a b c");
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+     label01:
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previous()>();
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack41 := @caughtexception;
+
+     label04:
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack8 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack8);
+
+     label05:
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void remove()>();
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label06:
+        goto label08;
+
+     label07:
+        $stack38 := @caughtexception;
+
+     label08:
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void set(java.lang.String)>("x");
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label09:
+        goto label11;
+
+     label10:
+        $stack35 := @caughtexception;
+
+     label11:
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: void add(java.lang.String)>("y");
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label12:
+        goto label14;
+
+     label13:
+        $stack25 := @caughtexception;
+
+     label14:
+        $stack9 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack12 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack12);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack16 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack16);
+
+        $stack17 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+     label15:
+        virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label16:
+        goto label18;
+
+     label17:
+        $stack22 := @caughtexception;
+
+     label18:
+        $stack20 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        return;
+
+        catch java.util.NoSuchElementException from label01 to label02 with label03;
+        catch java.lang.UnsupportedOperationException from label05 to label06 with label07;
+        catch java.lang.UnsupportedOperationException from label08 to label09 with label10;
+        catch java.lang.UnsupportedOperationException from label11 to label12 with label13;
+        catch java.util.NoSuchElementException from label15 to label16 with label17;
+    }
+
+    public void testTokenizeSubclassInputChange()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack4, $stack6;
+        org.apache.commons.lang3.text.StrTokenizerTest$2 $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizerTest$2;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizerTest$2: void <init>(org.apache.commons.lang3.text.StrTokenizerTest,java.lang.String)>(this, "a b c d e");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("x", $stack4);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("y", $stack6);
+
+        return;
+    }
+
+    public void testTokenizeSubclassOutputChange()
+    {
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack4, $stack6, $stack8;
+        org.apache.commons.lang3.text.StrTokenizerTest$3 $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizerTest$3;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizerTest$3: void <init>(org.apache.commons.lang3.text.StrTokenizerTest,java.lang.String)>(this, "a b c");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack4);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack6);
+
+        $stack8 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack8);
+
+        return;
+    }
+
+    public void testToString()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        org.apache.commons.lang3.text.StrTokenizerTest this;
+        java.lang.String $stack4, $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizerTest;
+
+        $stack2 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>("a b c d e");
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("StrTokenizer[not tokenized yet]", $stack4);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        $stack7 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("StrTokenizer[a, b, c, d, e]", $stack7);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.StrTokenizerTest: java.lang.String TSV_SIMPLE_FIXTURE> = "A\tb\tc";
+
+        <org.apache.commons.lang3.text.StrTokenizerTest: java.lang.String CSV_SIMPLE_FIXTURE> = "A,b,c";
+
+        return;
+    }
+}

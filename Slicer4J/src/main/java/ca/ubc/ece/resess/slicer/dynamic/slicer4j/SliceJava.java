@@ -1,11 +1,11 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
+import ca.ubc.ece.resess.slicer.dynamic.core.graph.Traversal;
+import ca.ubc.ece.resess.slicer.dynamic.core.statements.*;
 import ca.ubc.ece.resess.slicer.dynamic.slicer4j.datadependence.DynamicHeapAnalysis;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AliasSet;
@@ -14,10 +14,6 @@ import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.DynamicSlice;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SliceMethod;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SlicingWorkingSet;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementList;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementMap;
-import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisCache;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisLogger;
 import ca.ubc.ece.resess.slicer.dynamic.core.utils.AnalysisUtils;
@@ -33,26 +29,36 @@ import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
 import soot.toolkits.scalar.Pair;
 
-public class SliceJava extends SliceMethod{
+public class SliceJava extends SliceMethod {
 
     public SliceJava(DynamicControlFlowGraph icdg, boolean frameworkModel, boolean dataFlowsOnly, boolean controlFlowOnly, boolean sliceOnce, SlicingWorkingSet workingSet, AnalysisCache analysisCache) {
         super(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, workingSet, analysisCache);
     }
 
+
     public DynamicSlice slice(List<StatementInstance> start, Set<AccessPath> variables) {
+        processed.clear();
         DynamicSlice dynamicSlice = new DynamicSlice();
+        HashSet<Pair<Pair<StatementInstance, AccessPath>, Pair<StatementInstance, AccessPath>>> uniques = new HashSet<>();
         for (StatementInstance si: start) {
-            DynamicSlice newSlice = slice(si, variables);
-            dynamicSlice = dynamicSlice.union(newSlice);
+            if(si == null){
+                continue;
+            }
+            AnalysisLogger.log(true, "Next slice: {}", si);
+            AnalysisLogger.log(true, "Current slice size: {}", workingSet.getDynamicSlice().size());
+            slice(si, variables);
         }
-        return dynamicSlice;
+
+        uniques.addAll(workingSet.getDynamicSlice());
+        dynamicSlice.addAll(uniques);
+        return dynamicSlice.traceOrder();
     }
 
     @Override
     public StatementSet getDataDependence(SlicingWorkingSet workingSet, Pair<StatementInstance, AccessPath> p,
-            StatementInstance stmt, AccessPath var, StatementMap chunk, StatementSet def, AliasSet usedVars) {
+            StatementInstance stmt, AccessPath var, LazyStatementMap lazyChunk, StatementSet def, AliasSet usedVars) {
         if (var.getField().equals("")) {
-            def = localReachingDef(stmt, var, chunk, usedVars, frameworkModel);
+            def = localReachingDefLazyCached(stmt, var, lazyChunk, usedVars, frameworkModel);
             AnalysisLogger.log(Constants.DEBUG, "Local def {}", def);
         } else if (var.isStaticField()) {
             AnalysisLogger.log(Constants.DEBUG, "Getting static heap def of {}-{}", var, var.getClassPath());
@@ -64,21 +70,41 @@ public class SliceJava extends SliceMethod{
             }
         } else {
             AnalysisLogger.log(Constants.DEBUG, "Getting dynamic heap def of {}", var);
-            def = (new DynamicHeapAnalysis(icdg, analysisCache)).reachingDefinitions(stmt, var);
+            def = (new DynamicHeapAnalysis(icdg, analysisCache)).reachingDefinitionsNew(stmt, var);
             AnalysisLogger.log(Constants.DEBUG, "Dynamic heap def of {} is {}", var, def);
         }
         if (!usedVars.isEmpty() && def != null) {
             for (StatementInstance iu: def) {
                 for (AccessPath usedVar: usedVars) {
-                    workingSet.add(iu, usedVar, p, "data");
+                    if(usedVar.isUsedIn(iu)){
+                        workingSet.add(iu, usedVar, p, "data");
+                    }
                 }
             }
         }
         return def;
     }
 
+    static HashMap<String, Pair<StatementInstance, StatementSet>> staticDefs = new HashMap<>();
     private StatementSet staticFieldDef(StatementInstance iu, AccessPath ap) {
         AnalysisLogger.log(Constants.DEBUG, "Getting static heap def for {}", iu);
+        boolean usableDef = true;
+        if(staticDefs.containsKey(ap.getPathString())){
+            StatementInstance from = staticDefs.get(ap.getPathString()).getO1();
+            StatementSet defs = staticDefs.get(ap.getPathString()).getO2();
+            if(iu.getLineNo() > from.getLineNo()){
+                usableDef = false;
+            }
+            for(StatementInstance ins : defs){
+                if (ins.getLineNo() > iu.getLineNo()) {
+                    usableDef = false;
+                    break;
+                }
+            }
+            if(usableDef){
+                return defs;
+            }
+        }
         StatementSet aliasPath = new StatementSet();
         BackwardStaticFieldAnalysis bw = new BackwardStaticFieldAnalysis(icdg, iu, ap, aliasPath, analysisCache);
         bw.run();
@@ -104,7 +130,8 @@ public class SliceJava extends SliceMethod{
             int index = orderedPath.indexOf(defSubSig);
             ret.addAll(orderedPath.subList(index, index+1));
         }
-        return lastDefined(ret);
+        staticDefs.put(ap.getPathString(), new Pair<>(iu, lastDefined(ret)));
+        return staticDefs.get(ap.getPathString()).getO2();
     }
 
     private void addInstances(StatementList orderedPath) {
@@ -122,9 +149,12 @@ public class SliceJava extends SliceMethod{
     private boolean matchReferenceToVariable(StatementList orderedPath, boolean found, StatementInstance si)
         throws Error {
         Value base = ((InstanceInvokeExpr) AnalysisUtils.getCallerExp(si)).getBase();
-        StatementMap chunk = traversal.getChunk(si.getLineNo());
+        LazyStatementMap chunk = traversal.getLazyChunk(si.getLineNo());
         if (chunk != null) {
-            for (StatementInstance sii: chunk.values()) {
+            for (StatementInstance sii: chunk) {
+                if(sii == null){
+                    break;
+                }
                 if (sii.isAssign() && (((AssignStmt) sii.getUnit()).getLeftOp().equals(base))) {
                     orderedPath.add(sii);
                     found = true;
