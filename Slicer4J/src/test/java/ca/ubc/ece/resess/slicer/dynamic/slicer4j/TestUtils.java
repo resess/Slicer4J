@@ -4,10 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Set;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.*;
 
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.DynamicSlice;
@@ -43,6 +40,14 @@ public class TestUtils {
     protected static Set<String> sliceAndGetSourceLines(Slicer slicer, DynamicControlFlowGraph dcfg, Integer tracePositionToSliceFrom) {
         StatementInstance stmt = dcfg.mapNoUnits(tracePositionToSliceFrom);
         DynamicSlice dynamicSlice = slicer.slice(dcfg, true, false, false, false, stmt, new HashSet<>(), slicer.getWorkingSet());
+        Set<String> sliceLines = dynamicSlice.getSliceAsSourceLineNumbers();
+        System.out.println(sliceLines);
+        return sliceLines;
+    }
+
+    protected static Set<String> sliceAndGetSourceLines(Slicer slicer, DynamicControlFlowGraph dcfg, List<Integer> tracePositions) {
+        List<StatementInstance> stmts = dcfg.mapNoUnits(tracePositions);
+        DynamicSlice dynamicSlice = slicer.slice(dcfg, true, false, false, false, stmts, new HashSet<>(), slicer.getWorkingSet());
         Set<String> sliceLines = dynamicSlice.getSliceAsSourceLineNumbers();
         System.out.println(sliceLines);
         return sliceLines;
@@ -96,5 +101,14 @@ public class TestUtils {
             .forEach(File::delete);
         }
     }
-    
+
+    static List<Integer> getTracePositionFromSourceLine(int sourceLineNo, String javaSourceFile, DynamicControlFlowGraph dcfg) {
+        List<Integer> ret = new ArrayList<>();
+        for( StatementInstance stmt : dcfg.getTraceList() ){
+            if( stmt.getJavaSourceLineNo() == sourceLineNo && stmt.getJavaSourceFile().equals( javaSourceFile ) ){
+                ret.add( stmt.getLineNo() );
+            }
+        }
+        return ret;
+    }
 }
