@@ -70,7 +70,7 @@ public class SliceJava extends SliceMethod {
             }
         } else {
             AnalysisLogger.log(Constants.DEBUG, "Getting dynamic heap def of {}", var);
-            def = (new DynamicHeapAnalysis(icdg, analysisCache, workingSet)).reachingDefinitionsNew(stmt, var);
+            def = (new DynamicHeapAnalysis(icdg, analysisCache)).reachingDefinitionsNew(stmt, var);
             AnalysisLogger.log(Constants.DEBUG, "Dynamic heap def of {} is {}", var, def);
         }
         if (!usedVars.isEmpty() && def != null) {

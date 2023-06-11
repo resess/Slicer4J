@@ -26,11 +26,9 @@ import java.util.*;
 public class DynamicHeapAnalysis {
     private DynamicControlFlowGraph icdg;
     private Traversal traversal;
-    private SlicingWorkingSet workingSet;
-    public DynamicHeapAnalysis(DynamicControlFlowGraph icdg, AnalysisCache analysisCache, SlicingWorkingSet workingSet) {
+    public DynamicHeapAnalysis(DynamicControlFlowGraph icdg, AnalysisCache analysisCache) {
         this.icdg = icdg;
         this.traversal = new Traversal(icdg, analysisCache);
-        this.workingSet = workingSet;
     }
 
     static HashMap<Pair<StatementInstance, String>, StatementInstance> processed = new HashMap<>();

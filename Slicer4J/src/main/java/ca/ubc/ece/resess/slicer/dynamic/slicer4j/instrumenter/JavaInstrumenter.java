@@ -127,7 +127,7 @@ public class JavaInstrumenter extends Instrumenter {
                     return;
                 }
 
-                instrumetedClasses.add(cls.getName());
+                instrumentedClasses.add(cls.getName());
 
                 Long methodSize = 0L;
                 SootMethod mtd = b.getMethod();
