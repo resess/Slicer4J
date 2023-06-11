@@ -1,0 +1,118 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$Rule
+{
+    private final java.util.Locale mLocale;
+    private final int mStyle;
+    private final java.util.TimeZone zone;
+    private final java.lang.String mStandard;
+    private final java.lang.String mDaylight;
+
+    void <init>(java.util.TimeZone, java.util.Locale, int)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule this;
+        java.util.Locale locale;
+        java.util.TimeZone timeZone;
+        int style;
+        java.lang.String $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule;
+
+        timeZone := @parameter0: java.util.TimeZone;
+
+        locale := @parameter1: java.util.Locale;
+
+        style := @parameter2: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.Locale mLocale> = locale;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: int mStyle> = style;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.TimeZone zone> = timeZone;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getTimeZoneDisplay(java.util.TimeZone,boolean,int,java.util.Locale)>(timeZone, 0, style, locale);
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.lang.String mStandard> = $stack4;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getTimeZoneDisplay(java.util.TimeZone,boolean,int,java.util.Locale)>(timeZone, 1, style, locale);
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.lang.String mDaylight> = $stack5;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule this;
+        int $stack2, $stack4, $stack5;
+        java.lang.String $stack1, $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.lang.String mStandard>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.String: int length()>();
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.lang.String mDaylight>;
+
+        $stack4 = virtualinvoke $stack3.<java.lang.String: int length()>();
+
+        $stack5 = staticinvoke <java.lang.Math: int max(int,int)>($stack2, $stack4);
+
+        return $stack5;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule this;
+        java.util.TimeZone $stack3, $stack7, $stack18;
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        java.util.Locale $stack5, $stack16;
+        int $stack6, $stack10, $stack17;
+        java.lang.String $stack8, $stack19;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.TimeZone zone>;
+
+        $stack4 = virtualinvoke $stack3.<java.util.TimeZone: boolean useDaylightTime()>();
+
+        if $stack4 == 0 goto label1;
+
+        $stack10 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(16);
+
+        if $stack10 == 0 goto label1;
+
+        $stack18 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.TimeZone zone>;
+
+        $stack17 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: int mStyle>;
+
+        $stack16 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.Locale mLocale>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getTimeZoneDisplay(java.util.TimeZone,boolean,int,java.util.Locale)>($stack18, 1, $stack17, $stack16);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack19);
+
+        goto label2;
+
+     label1:
+        $stack7 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.TimeZone zone>;
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: int mStyle>;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter$TimeZoneNameRule: java.util.Locale mLocale>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.FastDatePrinter: java.lang.String getTimeZoneDisplay(java.util.TimeZone,boolean,int,java.util.Locale)>($stack7, 0, $stack6, $stack5);
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack8);
+
+     label2:
+        return;
+    }
+}

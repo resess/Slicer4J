@@ -1,0 +1,87 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$NumberRule
+{
+    private final org.apache.commons.lang3.time.FastDatePrinter$NumberRule mRule;
+
+    void <init>(org.apache.commons.lang3.time.FastDatePrinter$NumberRule)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField this;
+        org.apache.commons.lang3.time.FastDatePrinter$NumberRule rule;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField;
+
+        rule := @parameter0: org.apache.commons.lang3.time.FastDatePrinter$NumberRule;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField: org.apache.commons.lang3.time.FastDatePrinter$NumberRule mRule> = rule;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        int $stack2;
+        org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField this;
+        org.apache.commons.lang3.time.FastDatePrinter$NumberRule $stack1;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField;
+
+        $stack1 = this.<org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField: org.apache.commons.lang3.time.FastDatePrinter$NumberRule mRule>;
+
+        $stack2 = interfaceinvoke $stack1.<org.apache.commons.lang3.time.FastDatePrinter$NumberRule: int estimateLength()>();
+
+        return $stack2;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$NumberRule $stack5;
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        int $stack4, $stack6, value;
+        org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack4 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(10);
+
+        value = $stack4;
+
+        if $stack4 != 0 goto label1;
+
+        $stack6 = virtualinvoke calendar.<java.util.Calendar: int getLeastMaximum(int)>(10);
+
+        value = $stack6 + 1;
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField: org.apache.commons.lang3.time.FastDatePrinter$NumberRule mRule>;
+
+        interfaceinvoke $stack5.<org.apache.commons.lang3.time.FastDatePrinter$NumberRule: void appendTo(java.lang.StringBuffer,int)>(buffer, value);
+
+        return;
+    }
+
+    public void appendTo(java.lang.StringBuffer, int)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$NumberRule $stack3;
+        java.lang.StringBuffer buffer;
+        int value;
+        org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        value := @parameter1: int;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField: org.apache.commons.lang3.time.FastDatePrinter$NumberRule mRule>;
+
+        interfaceinvoke $stack3.<org.apache.commons.lang3.time.FastDatePrinter$NumberRule: void appendTo(java.lang.StringBuffer,int)>(buffer, value);
+
+        return;
+    }
+}

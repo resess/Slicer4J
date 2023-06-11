@@ -1,0 +1,859 @@
+public class org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest extends java.lang.Object
+{
+    private static final java.lang.String CHILD_INIT;
+    private org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack1;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer> = $stack1;
+
+        return;
+    }
+
+    private void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer, java.util.concurrent.ExecutorService) throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        long $stack9, $stack11;
+        java.lang.Integer result;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer child;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer cinit;
+        int $stack8, $stack10;
+        java.lang.Object $stack5;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService expExec, $stack12;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        child := @parameter0: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        expExec := @parameter1: java.util.concurrent.ExecutorService;
+
+        cinit = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer) child;
+
+        $stack5 = virtualinvoke cinit.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Object get()>();
+
+        result = (java.lang.Integer) $stack5;
+
+        $stack8 = virtualinvoke result.<java.lang.Integer: int intValue()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong result", 1L, $stack9);
+
+        $stack10 = cinit.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: int initializeCalls>;
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of executions", 1L, $stack11);
+
+        if expExec == null goto label1;
+
+        $stack12 = cinit.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.util.concurrent.ExecutorService currentExecutor>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong executor service", expExec, $stack12);
+
+     label1:
+        return;
+    }
+
+    public void testAddInitializerNullName()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack2;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack1 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>(null, $stack1);
+
+        return;
+    }
+
+    public void testAddInitializerNullInit()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack1;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", null);
+
+        return;
+    }
+
+    public void testInitializeNoChildren() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack2, $stack5, $stack10;
+        java.util.Set $stack8;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack6;
+        java.util.concurrent.ExecutorService $stack12;
+        boolean $stack4, $stack9, $stack13;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong result of start()", $stack4);
+
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        res = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack6;
+
+        $stack8 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Set initializerNames()>();
+
+        $stack9 = interfaceinvoke $stack8.<java.util.Set: boolean isEmpty()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Got child initializers", $stack9);
+
+        $stack10 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        $stack13 = interfaceinvoke $stack12.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Executor not shutdown", $stack13);
+
+        return;
+    }
+
+    private org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Integer $stack25;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer $stack31;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack30;
+        boolean $stack23, $stack28;
+        java.util.Set $stack11, $stack22;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack41;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.StringBuilder $stack14, $stack15, $stack16, $stack18, $stack19, $stack20, $stack36, $stack38, $stack39;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack5, $stack7, $stack32, $stack37;
+        long $stack13;
+        int $stack12, i_1, i_2;
+        java.lang.String $stack17, $stack21, $stack40;
+        java.util.concurrent.ExecutorService $stack33;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults i_1#2;
+        java.lang.Object $stack8, $stack26;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        i_1 = 0;
+
+     label1:
+        if i_1 >= 5 goto label2;
+
+        $stack37 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack36 = new java.lang.StringBuilder;
+
+        specialinvoke $stack36.<java.lang.StringBuilder: void <init>()>();
+
+        $stack38 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("childInitializer");
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i_1);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack41 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack41.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack37.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>($stack40, $stack41);
+
+        i_1 = i_1 + 1;
+
+        goto label1;
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        i_1#2 = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack8;
+
+        $stack11 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Set initializerNames()>();
+
+        $stack12 = interfaceinvoke $stack11.<java.util.Set: int size()>();
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of child initializers", 5L, $stack13);
+
+        i_2 = 0;
+
+     label3:
+        if i_2 >= 5 goto label4;
+
+        $stack14 = new java.lang.StringBuilder;
+
+        specialinvoke $stack14.<java.lang.StringBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("childInitializer");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i_2);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack18 = new java.lang.StringBuilder;
+
+        specialinvoke $stack18.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Name not found: ");
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack17);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack22 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Set initializerNames()>();
+
+        $stack23 = interfaceinvoke $stack22.<java.util.Set: boolean contains(java.lang.Object)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>($stack21, $stack23);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack26 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.lang.Object getResultObject(java.lang.String)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong result object", $stack25, $stack26);
+
+        $stack28 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: boolean isException(java.lang.String)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Exception flag", $stack28);
+
+        $stack30 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.ConcurrentException getException(java.lang.String)>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got an exception", $stack30);
+
+        $stack31 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer getInitializer(java.lang.String)>($stack17);
+
+        $stack32 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>($stack31, $stack33);
+
+        i_2 = i_2 + 1;
+
+        goto label3;
+
+     label4:
+        return i_1#2;
+    }
+
+    public void testInitializeTempExec() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack2;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack4;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack4 = virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        $stack5 = interfaceinvoke $stack4.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Executor not shutdown", $stack5);
+
+        return;
+    }
+
+    public void testInitializeExternalExec() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack11;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack4, $stack6;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack3, $stack8;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack3 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newCachedThreadPool()>();
+
+     label1:
+        $stack4 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void <init>(java.util.concurrent.ExecutorService)>($stack3);
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer> = $stack4;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong executor", $stack3, $stack8);
+
+        $stack10 = interfaceinvoke $stack3.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Executor was shutdown", $stack10);
+
+     label2:
+        interfaceinvoke $stack3.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        goto label5;
+
+     label3:
+        $stack11 := @caughtexception;
+
+     label4:
+        interfaceinvoke $stack3.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        throw $stack11;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void testInitializeChildWithExecutor() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack17;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack9, $stack10, $stack11, $stack13, $stack15;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack7, $stack8;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.util.concurrent.ExecutorService $stack6, $stack16;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack6 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+     label1:
+        $stack7 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        $stack8 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void setExternalExecutor(java.util.concurrent.ExecutorService)>($stack6);
+
+        $stack9 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack9.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack7);
+
+        $stack10 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack10.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializerWithExecutor", $stack8);
+
+        $stack11 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        $stack15 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>($stack7, $stack16);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>($stack8, $stack6);
+
+     label2:
+        interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        goto label5;
+
+     label3:
+        $stack17 := @caughtexception;
+
+     label4:
+        interfaceinvoke $stack6.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        throw $stack17;
+
+     label5:
+        return;
+
+        catch java.lang.Throwable from label1 to label2 with label3;
+        catch java.lang.Throwable from label3 to label4 with label3;
+    }
+
+    public void testAddInitializerAfterStart() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.IllegalStateException $stack7;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack4;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack2, $stack5, $stack8;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack4 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack4);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Could add initializer after start()!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack7 := @caughtexception;
+
+        $stack8 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+     label4:
+        return;
+
+        catch java.lang.IllegalStateException from label1 to label2 with label3;
+    }
+
+    public void testResultGetInitializerUnknown() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer getInitializer(java.lang.String)>("unknown");
+
+        return;
+    }
+
+    public void testResultGetResultObjectUnknown() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.lang.Object getResultObject(java.lang.String)>("unknown");
+
+        return;
+    }
+
+    public void testResultGetExceptionUnknown() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.ConcurrentException getException(java.lang.String)>("unknown");
+
+        return;
+    }
+
+    public void testResultIsExceptionUnknown() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: boolean isException(java.lang.String)>("unknown");
+
+        return;
+    }
+
+    public void testResultInitializerNamesModify() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.util.Iterator $stack7;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack4;
+        java.util.Set $stack6;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack5;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults checkInitialize()>();
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        res = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack5;
+
+        $stack6 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Set initializerNames()>();
+
+        $stack7 = interfaceinvoke $stack6.<java.util.Set: java.util.Iterator iterator()>();
+
+        interfaceinvoke $stack7.<java.util.Iterator: java.lang.Object next()>();
+
+        interfaceinvoke $stack7.<java.util.Iterator: void remove()>();
+
+        return;
+    }
+
+    public void testInitializeRuntimeEx()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack5, $stack6, $stack8;
+        java.lang.RuntimeException $stack4;
+        java.lang.Exception $stack10, $stack11;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack3;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        $stack4 = new java.lang.RuntimeException;
+
+        specialinvoke $stack4.<java.lang.RuntimeException: void <init>()>();
+
+        $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Exception ex> = $stack4;
+
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack3);
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+     label1:
+        $stack8 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Runtime exception not thrown!");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack10 := @caughtexception;
+
+        $stack11 = $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Exception ex>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong exception", $stack11, $stack10);
+
+     label4:
+        return;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    public void testInitializeEx() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        java.lang.Throwable $stack18;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack6, $stack7, $stack9;
+        java.lang.Exception $stack5, $stack17;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack15;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack4;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack10, $stack14;
+        boolean $stack12;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack4 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        $stack5 = new java.lang.Exception;
+
+        specialinvoke $stack5.<java.lang.Exception: void <init>()>();
+
+        $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Exception ex> = $stack5;
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack4);
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack9 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        res = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack10;
+
+        $stack12 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: boolean isException(java.lang.String)>("childInitializer");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("No exception flag", $stack12);
+
+        $stack14 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.lang.Object getResultObject(java.lang.String)>("childInitializer");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.String,java.lang.Object)>("Got a results object", $stack14);
+
+        $stack15 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.ConcurrentException getException(java.lang.String)>("childInitializer");
+
+        $stack17 = $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Exception ex>;
+
+        $stack18 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Wrong cause", $stack17, $stack18);
+
+        return;
+    }
+
+    public void testInitializeResultsIsSuccessfulTrue() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack4, $stack5, $stack7;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack3;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack8;
+        boolean $stack10;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack3);
+
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack8 = virtualinvoke $stack7.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        res = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack8;
+
+        $stack10 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: boolean isSuccessful()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Wrong success flag", $stack10);
+
+        return;
+    }
+
+    public void testInitializeResultsIsSuccessfulFalse() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack5, $stack6, $stack8;
+        java.lang.Exception $stack4;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack3;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack9;
+        boolean $stack11;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack3 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        $stack4 = new java.lang.Exception;
+
+        specialinvoke $stack4.<java.lang.Exception: void <init>()>();
+
+        $stack3.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: java.lang.Exception ex> = $stack4;
+
+        $stack5 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack3);
+
+        $stack6 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack8 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        res = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack9;
+
+        $stack11 = virtualinvoke res.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: boolean isSuccessful()>();
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("Wrong success flag", $stack11);
+
+        return;
+    }
+
+    public void testInitializeNested() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer $stack9, $stack11, $stack12, $stack13, $stack15, $stack17;
+        long $stack25;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer $stack19, $stack32;
+        int $stack24, i_1, i_2;
+        java.lang.String $stack31, $stack38;
+        java.util.concurrent.ExecutorService $stack18;
+        boolean $stack27;
+        java.util.Set $stack23;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults res2, i_1#2;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer $stack8, $stack39;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest this;
+        java.lang.Object $stack16, $stack20;
+        java.lang.StringBuilder $stack28, $stack29, $stack30, $stack35, $stack36, $stack37;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest;
+
+        $stack9 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack8 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack9.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("childInitializer", $stack8);
+
+        $stack11 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void <init>()>();
+
+        i_1 = 0;
+
+     label1:
+        if i_1 >= 3 goto label2;
+
+        $stack35 = new java.lang.StringBuilder;
+
+        specialinvoke $stack35.<java.lang.StringBuilder: void <init>()>();
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("childInitializer");
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i_1);
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack39 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer;
+
+        specialinvoke $stack39.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$ChildBackgroundInitializer: void <init>(org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest$1)>(null);
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>($stack38, $stack39);
+
+        i_1 = i_1 + 1;
+
+        goto label1;
+
+     label2:
+        $stack12 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: void addInitializer(java.lang.String,org.apache.commons.lang3.concurrent.BackgroundInitializer)>("multiChildInitializer", $stack11);
+
+        $stack13 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean start()>();
+
+        $stack15 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.lang.Object get()>();
+
+        i_1#2 = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack16;
+
+        $stack17 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer initializer>;
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        $stack19 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer getInitializer(java.lang.String)>("childInitializer");
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>($stack19, $stack18);
+
+        $stack20 = virtualinvoke i_1#2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.lang.Object getResultObject(java.lang.String)>("multiChildInitializer");
+
+        res2 = (org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults) $stack20;
+
+        $stack23 = virtualinvoke res2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Set initializerNames()>();
+
+        $stack24 = interfaceinvoke $stack23.<java.util.Set: int size()>();
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Wrong number of initializers", 3L, $stack25);
+
+        i_2 = 0;
+
+     label3:
+        if i_2 >= 3 goto label4;
+
+        $stack28 = new java.lang.StringBuilder;
+
+        specialinvoke $stack28.<java.lang.StringBuilder: void <init>()>();
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("childInitializer");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i_2);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = virtualinvoke res2.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer getInitializer(java.lang.String)>($stack31);
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: void checkChild(org.apache.commons.lang3.concurrent.BackgroundInitializer,java.util.concurrent.ExecutorService)>($stack32, $stack18);
+
+        i_2 = i_2 + 1;
+
+        goto label3;
+
+     label4:
+        $stack27 = interfaceinvoke $stack18.<java.util.concurrent.ExecutorService: boolean isShutdown()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Executor not shutdown", $stack27);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest: java.lang.String CHILD_INIT> = "childInitializer";
+
+        return;
+    }
+}

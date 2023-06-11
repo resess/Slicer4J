@@ -1,0 +1,2611 @@
+public class org.apache.commons.lang3.math.NumberUtils extends java.lang.Object
+{
+    public static final java.lang.Long LONG_ZERO;
+    public static final java.lang.Long LONG_ONE;
+    public static final java.lang.Long LONG_MINUS_ONE;
+    public static final java.lang.Integer INTEGER_ZERO;
+    public static final java.lang.Integer INTEGER_ONE;
+    public static final java.lang.Integer INTEGER_MINUS_ONE;
+    public static final java.lang.Short SHORT_ZERO;
+    public static final java.lang.Short SHORT_ONE;
+    public static final java.lang.Short SHORT_MINUS_ONE;
+    public static final java.lang.Byte BYTE_ZERO;
+    public static final java.lang.Byte BYTE_ONE;
+    public static final java.lang.Byte BYTE_MINUS_ONE;
+    public static final java.lang.Double DOUBLE_ZERO;
+    public static final java.lang.Double DOUBLE_ONE;
+    public static final java.lang.Double DOUBLE_MINUS_ONE;
+    public static final java.lang.Float FLOAT_ZERO;
+    public static final java.lang.Float FLOAT_ONE;
+    public static final java.lang.Float FLOAT_MINUS_ONE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.math.NumberUtils this;
+
+        this := @this: org.apache.commons.lang3.math.NumberUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static int toInt(java.lang.String)
+    {
+        int $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: int toInt(java.lang.String,int)>(str, 0);
+
+        return $stack1;
+    }
+
+    public static int toInt(java.lang.String, int)
+    {
+        int $stack3, defaultValue;
+        java.lang.NumberFormatException $stack4;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: int;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(str);
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static long toLong(java.lang.String)
+    {
+        long $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: long toLong(java.lang.String,long)>(str, 0L);
+
+        return $stack1;
+    }
+
+    public static long toLong(java.lang.String, long)
+    {
+        long $stack4, defaultValue;
+        java.lang.NumberFormatException $stack5;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: long;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack4 = staticinvoke <java.lang.Long: long parseLong(java.lang.String)>(str);
+
+     label2:
+        return $stack4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static float toFloat(java.lang.String)
+    {
+        float $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: float toFloat(java.lang.String,float)>(str, 0.0F);
+
+        return $stack1;
+    }
+
+    public static float toFloat(java.lang.String, float)
+    {
+        float $stack3, defaultValue;
+        java.lang.NumberFormatException $stack4;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: float;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Float: float parseFloat(java.lang.String)>(str);
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static double toDouble(java.lang.String)
+    {
+        java.lang.String str;
+        double $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: double toDouble(java.lang.String,double)>(str, 0.0);
+
+        return $stack1;
+    }
+
+    public static double toDouble(java.lang.String, double)
+    {
+        java.lang.NumberFormatException $stack5;
+        java.lang.String str;
+        double $stack4, defaultValue;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: double;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack4 = staticinvoke <java.lang.Double: double parseDouble(java.lang.String)>(str);
+
+     label2:
+        return $stack4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static byte toByte(java.lang.String)
+    {
+        java.lang.String str;
+        byte $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: byte toByte(java.lang.String,byte)>(str, 0);
+
+        return $stack1;
+    }
+
+    public static byte toByte(java.lang.String, byte)
+    {
+        byte $stack3, defaultValue;
+        java.lang.NumberFormatException $stack4;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: byte;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Byte: byte parseByte(java.lang.String)>(str);
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static short toShort(java.lang.String)
+    {
+        short $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: short toShort(java.lang.String,short)>(str, 0);
+
+        return $stack1;
+    }
+
+    public static short toShort(java.lang.String, short)
+    {
+        short $stack3, defaultValue;
+        java.lang.NumberFormatException $stack4;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: short;
+
+        if str != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack3 = staticinvoke <java.lang.Short: short parseShort(java.lang.String)>(str);
+
+     label2:
+        return $stack3;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return defaultValue;
+
+        catch java.lang.NumberFormatException from label1 to label2 with label3;
+    }
+
+    public static java.lang.Number createNumber(java.lang.String) throws java.lang.NumberFormatException
+    {
+        java.lang.Float $stack81, $stack36;
+        java.lang.Integer $stack15, $stack52;
+        java.math.BigDecimal $stack40, $stack85;
+        byte $stack42, $stack45, $stack88, $stack91;
+        java.lang.Long $stack16, $stack76, $stack148;
+        java.math.BigInteger $stack146, $stack156;
+        java.lang.StringBuilder $stack97, $stack98, $stack120, $stack121, $stack128, $stack129, $stack69, $stack70, $u1, $u3, $u5, $u7;
+        java.lang.Double $stack38, $stack83;
+        java.lang.String str, $stack77, $stack99, $stack122, $stack130, dec, mant, exp, $stack65, $stack71;
+        java.lang.NumberFormatException $stack140, $stack142, $stack145, $stack147, $stack149, $stack152, $stack154, $stack155, $u0, $u2, $u4, $u6, $u8;
+        boolean $stack10, $stack11, $stack12, $stack19, $stack25, $stack26, $stack35, $stack39, $stack47, $stack75, $stack78, $stack82, $stack100, $stack14, $stack34, $stack66, $stack101, allZeros, $stack84, $stack48, numeric, $stack37, $stack48#80_2, $stack101#43_4;
+        float $stack44, $stack86, $stack90;
+        int $stack27, $stack28, $stack30, $stack31, $stack32, $stack33, expPos, $stack53, $stack54, $stack57, $stack58, $stack103, $stack104, $stack110, $stack111, $stack112, $stack114, $stack123, $stack131, $stack132, $stack13, $stack22, hexDigits, $stack63, $stack64, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8;
+        double $stack41, $stack87;
+        char $stack29, $stack74;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label01;
+
+        return null;
+
+     label01:
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isBlank(java.lang.CharSequence)>(str);
+
+        if $stack10 == 0 goto label02;
+
+        $u0 = new java.lang.NumberFormatException;
+
+        specialinvoke $u0.<java.lang.NumberFormatException: void <init>(java.lang.String)>("A blank string is not a valid number");
+
+        throw $u0;
+
+     label02:
+        $stack11 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("--");
+
+        if $stack11 == 0 goto label03;
+
+        return null;
+
+     label03:
+        $stack12 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("0x");
+
+        if $stack12 != 0 goto label04;
+
+        $stack19 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("-0x");
+
+        if $stack19 != 0 goto label04;
+
+        $stack25 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("0X");
+
+        if $stack25 != 0 goto label04;
+
+        $stack26 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("-0X");
+
+        if $stack26 == 0 goto label07;
+
+     label04:
+        $stack13 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack22 = $stack13 - 2;
+
+        hexDigits = $stack22;
+
+        $stack14 = virtualinvoke str.<java.lang.String: boolean startsWith(java.lang.String)>("-");
+
+        if $stack14 == 0 goto label05;
+
+        $i0 = (int) -1;
+
+        hexDigits = $stack22 + $i0;
+
+     label05:
+        if hexDigits <= 8 goto label06;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Long createLong(java.lang.String)>(str);
+
+        return $stack16;
+
+     label06:
+        $stack15 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer createInteger(java.lang.String)>(str);
+
+        return $stack15;
+
+     label07:
+        $stack27 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack28 = $stack27 - 1;
+
+        $stack29 = virtualinvoke str.<java.lang.String: char charAt(int)>($stack28);
+
+        $stack30 = virtualinvoke str.<java.lang.String: int indexOf(int)>(46);
+
+        $stack31 = virtualinvoke str.<java.lang.String: int indexOf(int)>(101);
+
+        $stack32 = virtualinvoke str.<java.lang.String: int indexOf(int)>(69);
+
+        $stack33 = $stack31 + $stack32;
+
+        expPos = $stack33 + 1;
+
+        $i1 = (int) -1;
+
+        if $stack30 <= $i1 goto label12;
+
+        $i2 = (int) -1;
+
+        if expPos <= $i2 goto label10;
+
+        if expPos < $stack30 goto label08;
+
+        $stack131 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if expPos <= $stack131 goto label09;
+
+     label08:
+        $u2 = new java.lang.NumberFormatException;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack128 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack129 = virtualinvoke $stack128.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a valid number.");
+
+        $stack130 = virtualinvoke $stack129.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u2.<java.lang.NumberFormatException: void <init>(java.lang.String)>($stack130);
+
+        throw $u2;
+
+     label09:
+        $stack132 = $stack30 + 1;
+
+        dec = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>($stack132, expPos);
+
+        goto label11;
+
+     label10:
+        $stack123 = $stack30 + 1;
+
+        dec = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>($stack123);
+
+     label11:
+        mant = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, $stack30);
+
+        goto label16;
+
+     label12:
+        $i3 = (int) -1;
+
+        if expPos <= $i3 goto label14;
+
+        $stack114 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if expPos <= $stack114 goto label13;
+
+        $u4 = new java.lang.NumberFormatException;
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack120 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack121 = virtualinvoke $stack120.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a valid number.");
+
+        $stack122 = virtualinvoke $stack121.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u4.<java.lang.NumberFormatException: void <init>(java.lang.String)>($stack122);
+
+        throw $u4;
+
+     label13:
+        mant = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, expPos);
+
+        goto label15;
+
+     label14:
+        mant = str;
+
+     label15:
+        dec = null;
+
+     label16:
+        $stack34 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack29);
+
+        if $stack34 != 0 goto label39;
+
+        $i4 = (int) $stack29;
+
+        if $i4 == 46 goto label39;
+
+        $i5 = (int) -1;
+
+        if expPos <= $i5 goto label17;
+
+        $stack103 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack104 = $stack103 - 1;
+
+        if expPos >= $stack104 goto label17;
+
+        $stack110 = expPos + 1;
+
+        $stack111 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack112 = $stack111 - 1;
+
+        exp = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>($stack110, $stack112);
+
+        goto label18;
+
+     label17:
+        exp = null;
+
+     label18:
+        $stack63 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack64 = $stack63 - 1;
+
+        $stack65 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(0, $stack64);
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isAllZeros(java.lang.String)>(mant);
+
+        if $stack66 == 0 goto label19;
+
+        $stack100 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isAllZeros(java.lang.String)>(exp);
+
+        if $stack100 == 0 goto label19;
+
+        $stack101#43_4 = 1;
+
+        $stack101 = 1;
+
+        goto label20;
+
+     label19:
+        $stack101#43_4 = 0;
+
+        $stack101 = 0;
+
+     label20:
+        allZeros = $stack101;
+
+        $i6 = (int) $stack29;
+
+        lookupswitch($i6)
+        {
+            case 68: goto label31;
+            case 70: goto label27;
+            case 76: goto label21;
+            case 100: goto label31;
+            case 102: goto label27;
+            case 108: goto label21;
+            default: goto label38;
+        };
+
+     label21:
+        if dec != null goto label26;
+
+        if exp != null goto label26;
+
+        $stack74 = virtualinvoke $stack65.<java.lang.String: char charAt(int)>(0);
+
+        $i7 = (int) $stack74;
+
+        if $i7 != 45 goto label22;
+
+        $stack77 = virtualinvoke $stack65.<java.lang.String: java.lang.String substring(int)>(1);
+
+        $stack78 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isDigits(java.lang.String)>($stack77);
+
+        if $stack78 != 0 goto label23;
+
+     label22:
+        $stack75 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isDigits(java.lang.String)>($stack65);
+
+        if $stack75 == 0 goto label26;
+
+     label23:
+        $stack76 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Long createLong(java.lang.String)>($stack65);
+
+     label24:
+        return $stack76;
+
+     label25:
+        $stack155 := @caughtexception;
+
+        $stack156 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.math.BigInteger createBigInteger(java.lang.String)>($stack65);
+
+        return $stack156;
+
+     label26:
+        $u6 = new java.lang.NumberFormatException;
+
+        $u5 = new java.lang.StringBuilder;
+
+        specialinvoke $u5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack69 = virtualinvoke $u5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack70 = virtualinvoke $stack69.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a valid number.");
+
+        $stack71 = virtualinvoke $stack70.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u6.<java.lang.NumberFormatException: void <init>(java.lang.String)>($stack71);
+
+        throw $u6;
+
+     label27:
+        $stack81 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Float createFloat(java.lang.String)>($stack65);
+
+        $stack82 = virtualinvoke $stack81.<java.lang.Float: boolean isInfinite()>();
+
+        if $stack82 != 0 goto label29;
+
+        $stack90 = virtualinvoke $stack81.<java.lang.Float: float floatValue()>();
+
+        $stack91 = $stack90 cmpl 0.0F;
+
+        if $stack91 != 0 goto label28;
+
+        if $stack101#43_4 == 0 goto label29;
+
+     label28:
+        return $stack81;
+
+     label29:
+        goto label31;
+
+     label30:
+        $stack154 := @caughtexception;
+
+     label31:
+        $stack83 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Double createDouble(java.lang.String)>($stack65);
+
+        $stack84 = virtualinvoke $stack83.<java.lang.Double: boolean isInfinite()>();
+
+        if $stack84 != 0 goto label33;
+
+        $stack86 = virtualinvoke $stack83.<java.lang.Double: float floatValue()>();
+
+        $stack87 = (double) $stack86;
+
+        $stack88 = $stack87 cmpl 0.0;
+
+        if $stack88 != 0 goto label32;
+
+        if allZeros == 0 goto label33;
+
+     label32:
+        return $stack83;
+
+     label33:
+        goto label35;
+
+     label34:
+        $stack152 := @caughtexception;
+
+     label35:
+        $stack85 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.math.BigDecimal createBigDecimal(java.lang.String)>($stack65);
+
+     label36:
+        return $stack85;
+
+     label37:
+        $stack149 := @caughtexception;
+
+     label38:
+        $u8 = new java.lang.NumberFormatException;
+
+        $u7 = new java.lang.StringBuilder;
+
+        specialinvoke $u7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack97 = virtualinvoke $u7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack98 = virtualinvoke $stack97.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not a valid number.");
+
+        $stack99 = virtualinvoke $stack98.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u8.<java.lang.NumberFormatException: void <init>(java.lang.String)>($stack99);
+
+        throw $u8;
+
+     label39:
+        $i8 = (int) -1;
+
+        if expPos <= $i8 goto label40;
+
+        $stack53 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack54 = $stack53 - 1;
+
+        if expPos >= $stack54 goto label40;
+
+        $stack57 = expPos + 1;
+
+        $stack58 = virtualinvoke str.<java.lang.String: int length()>();
+
+        exp = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>($stack57, $stack58);
+
+        goto label41;
+
+     label40:
+        exp = null;
+
+     label41:
+        if dec != null goto label48;
+
+        if exp != null goto label48;
+
+     label42:
+        $stack52 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer createInteger(java.lang.String)>(str);
+
+     label43:
+        return $stack52;
+
+     label44:
+        $stack147 := @caughtexception;
+
+     label45:
+        $stack148 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Long createLong(java.lang.String)>(str);
+
+     label46:
+        return $stack148;
+
+     label47:
+        $stack145 := @caughtexception;
+
+        $stack146 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.math.BigInteger createBigInteger(java.lang.String)>(str);
+
+        return $stack146;
+
+     label48:
+        $stack35 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isAllZeros(java.lang.String)>(mant);
+
+        if $stack35 == 0 goto label49;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: boolean isAllZeros(java.lang.String)>(exp);
+
+        if $stack47 == 0 goto label49;
+
+        $stack48#80_2 = 1;
+
+        $stack48 = 1;
+
+        goto label50;
+
+     label49:
+        $stack48#80_2 = 0;
+
+        $stack48 = 0;
+
+     label50:
+        numeric = $stack48#80_2;
+
+     label51:
+        $stack36 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Float createFloat(java.lang.String)>(str);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.Float: boolean isInfinite()>();
+
+        if $stack37 != 0 goto label53;
+
+        $stack44 = virtualinvoke $stack36.<java.lang.Float: float floatValue()>();
+
+        $stack45 = $stack44 cmpl 0.0F;
+
+        if $stack45 != 0 goto label52;
+
+        if $stack48 == 0 goto label53;
+
+     label52:
+        return $stack36;
+
+     label53:
+        goto label55;
+
+     label54:
+        $stack142 := @caughtexception;
+
+     label55:
+        $stack38 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.lang.Double createDouble(java.lang.String)>(str);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.Double: boolean isInfinite()>();
+
+        if $stack39 != 0 goto label57;
+
+        $stack41 = virtualinvoke $stack38.<java.lang.Double: double doubleValue()>();
+
+        $stack42 = $stack41 cmpl 0.0;
+
+        if $stack42 != 0 goto label56;
+
+        if numeric == 0 goto label57;
+
+     label56:
+        return $stack38;
+
+     label57:
+        goto label59;
+
+     label58:
+        $stack140 := @caughtexception;
+
+     label59:
+        $stack40 = staticinvoke <org.apache.commons.lang3.math.NumberUtils: java.math.BigDecimal createBigDecimal(java.lang.String)>(str);
+
+        return $stack40;
+
+        catch java.lang.NumberFormatException from label23 to label24 with label25;
+        catch java.lang.NumberFormatException from label27 to label28 with label30;
+        catch java.lang.NumberFormatException from label31 to label32 with label34;
+        catch java.lang.NumberFormatException from label35 to label36 with label37;
+        catch java.lang.NumberFormatException from label42 to label43 with label44;
+        catch java.lang.NumberFormatException from label45 to label46 with label47;
+        catch java.lang.NumberFormatException from label51 to label52 with label54;
+        catch java.lang.NumberFormatException from label55 to label56 with label58;
+    }
+
+    private static boolean isAllZeros(java.lang.String)
+    {
+        char $stack5;
+        int $stack2, $stack3, i, $i0, $i1;
+        java.lang.String str;
+        boolean $stack4;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return 1;
+
+     label1:
+        $stack2 = virtualinvoke str.<java.lang.String: int length()>();
+
+        i = $stack2 - 1;
+
+     label2:
+        if i < 0 goto label4;
+
+        $stack5 = virtualinvoke str.<java.lang.String: char charAt(int)>(i);
+
+        $i0 = (int) $stack5;
+
+        if $i0 == 48 goto label3;
+
+        return 0;
+
+     label3:
+        $i1 = (int) -1;
+
+        i = i + $i1;
+
+        goto label2;
+
+     label4:
+        $stack3 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack3 <= 0 goto label5;
+
+        $stack4 = 1;
+
+        goto label6;
+
+     label5:
+        $stack4 = 0;
+
+     label6:
+        return $stack4;
+    }
+
+    public static java.lang.Float createFloat(java.lang.String)
+    {
+        java.lang.Float $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = staticinvoke <java.lang.Float: java.lang.Float valueOf(java.lang.String)>(str);
+
+        return $stack1;
+    }
+
+    public static java.lang.Double createDouble(java.lang.String)
+    {
+        java.lang.String str;
+        java.lang.Double $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = staticinvoke <java.lang.Double: java.lang.Double valueOf(java.lang.String)>(str);
+
+        return $stack1;
+    }
+
+    public static java.lang.Integer createInteger(java.lang.String)
+    {
+        java.lang.String str;
+        java.lang.Integer $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer decode(java.lang.String)>(str);
+
+        return $stack1;
+    }
+
+    public static java.lang.Long createLong(java.lang.String)
+    {
+        java.lang.String str;
+        java.lang.Long $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = staticinvoke <java.lang.Long: java.lang.Long decode(java.lang.String)>(str);
+
+        return $stack1;
+    }
+
+    public static java.math.BigInteger createBigInteger(java.lang.String)
+    {
+        java.math.BigInteger $stack1;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = new java.math.BigInteger;
+
+        specialinvoke $stack1.<java.math.BigInteger: void <init>(java.lang.String)>(str);
+
+        return $stack1;
+    }
+
+    public static java.math.BigDecimal createBigDecimal(java.lang.String)
+    {
+        java.math.BigDecimal $stack2;
+        java.lang.NumberFormatException $stack3;
+        java.lang.String str;
+        boolean $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isBlank(java.lang.CharSequence)>(str);
+
+        if $stack1 == 0 goto label2;
+
+        $stack3 = new java.lang.NumberFormatException;
+
+        specialinvoke $stack3.<java.lang.NumberFormatException: void <init>(java.lang.String)>("A blank string is not a valid number");
+
+        throw $stack3;
+
+     label2:
+        $stack2 = new java.math.BigDecimal;
+
+        specialinvoke $stack2.<java.math.BigDecimal: void <init>(java.lang.String)>(str);
+
+        return $stack2;
+    }
+
+    public static long min(long[])
+    {
+        long $stack6, min;
+        java.lang.IllegalArgumentException $u0, $u1;
+        long[] array;
+        byte $stack7;
+        int $stack4, $stack5, i, $i0;
+
+        array := @parameter0: long[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if i >= $stack5 goto label5;
+
+        $stack6 = array[i];
+
+        $stack7 = $stack6 cmp min;
+
+        $i0 = (int) $stack7;
+
+        if $i0 >= 0 goto label4;
+
+        min = array[i];
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        return min;
+    }
+
+    public static int min(int[])
+    {
+        java.lang.IllegalArgumentException $stack8, $stack9;
+        int[] array;
+        int $stack3, $stack4, $stack5, min, j;
+
+        array := @parameter0: int[];
+
+        if array != null goto label1;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack9;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack8;
+
+     label2:
+        min = array[0];
+
+        j = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if j >= $stack4 goto label5;
+
+        $stack5 = array[j];
+
+        if $stack5 >= min goto label4;
+
+        min = array[j];
+
+     label4:
+        j = j + 1;
+
+        goto label3;
+
+     label5:
+        return min;
+    }
+
+    public static short min(short[])
+    {
+        java.lang.IllegalArgumentException $u0, $u1;
+        short $stack5, min;
+        int $stack3, $stack4, i, $i0, $i1;
+        short[] array;
+
+        array := @parameter0: short[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label5;
+
+        $stack5 = array[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) min;
+
+        if $i0 >= $i1 goto label4;
+
+        min = array[i];
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        return min;
+    }
+
+    public static byte min(byte[])
+    {
+        byte[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack5, min;
+        int $stack3, $stack4, i, $i0, $i1;
+
+        array := @parameter0: byte[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label5;
+
+        $stack5 = array[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) min;
+
+        if $i0 >= $i1 goto label4;
+
+        min = array[i];
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        return min;
+    }
+
+    public static double min(double[])
+    {
+        double[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack9;
+        int $stack4, $stack5, i, $i0;
+        double $stack6, $stack8, min;
+        boolean $stack7;
+
+        array := @parameter0: double[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if i >= $stack5 goto label6;
+
+        $stack6 = array[i];
+
+        $stack7 = staticinvoke <java.lang.Double: boolean isNaN(double)>($stack6);
+
+        if $stack7 == 0 goto label4;
+
+        return #NaN;
+
+     label4:
+        $stack8 = array[i];
+
+        $stack9 = $stack8 cmpg min;
+
+        $i0 = (int) $stack9;
+
+        if $i0 >= 0 goto label5;
+
+        min = array[i];
+
+     label5:
+        i = i + 1;
+
+        goto label3;
+
+     label6:
+        return min;
+    }
+
+    public static float min(float[])
+    {
+        float[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack8;
+        int $stack3, $stack4, i, $i0;
+        float $stack5, $stack7, min;
+        boolean $stack6;
+
+        array := @parameter0: float[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        min = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label6;
+
+        $stack5 = array[i];
+
+        $stack6 = staticinvoke <java.lang.Float: boolean isNaN(float)>($stack5);
+
+        if $stack6 == 0 goto label4;
+
+        return #NaNF;
+
+     label4:
+        $stack7 = array[i];
+
+        $stack8 = $stack7 cmpg min;
+
+        $i0 = (int) $stack8;
+
+        if $i0 >= 0 goto label5;
+
+        min = array[i];
+
+     label5:
+        i = i + 1;
+
+        goto label3;
+
+     label6:
+        return min;
+    }
+
+    public static long max(long[])
+    {
+        long $stack6, max;
+        java.lang.IllegalArgumentException $u0, $u1;
+        long[] array;
+        byte $stack7;
+        int $stack4, $stack5, j, $i0;
+
+        array := @parameter0: long[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if j >= $stack5 goto label5;
+
+        $stack6 = array[j];
+
+        $stack7 = $stack6 cmp max;
+
+        $i0 = (int) $stack7;
+
+        if $i0 <= 0 goto label4;
+
+        max = array[j];
+
+     label4:
+        j = j + 1;
+
+        goto label3;
+
+     label5:
+        return max;
+    }
+
+    public static int max(int[])
+    {
+        java.lang.IllegalArgumentException $stack8, $stack9;
+        int[] array;
+        int $stack3, $stack4, $stack5, max, j;
+
+        array := @parameter0: int[];
+
+        if array != null goto label1;
+
+        $stack9 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack9.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $stack9;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack8 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack8.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $stack8;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if j >= $stack4 goto label5;
+
+        $stack5 = array[j];
+
+        if $stack5 <= max goto label4;
+
+        max = array[j];
+
+     label4:
+        j = j + 1;
+
+        goto label3;
+
+     label5:
+        return max;
+    }
+
+    public static short max(short[])
+    {
+        java.lang.IllegalArgumentException $u0, $u1;
+        short $stack5, max;
+        int $stack3, $stack4, i, $i0, $i1;
+        short[] array;
+
+        array := @parameter0: short[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        max = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label5;
+
+        $stack5 = array[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) max;
+
+        if $i0 <= $i1 goto label4;
+
+        max = array[i];
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        return max;
+    }
+
+    public static byte max(byte[])
+    {
+        byte[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack5, max;
+        int $stack3, $stack4, i, $i0, $i1;
+
+        array := @parameter0: byte[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        max = array[0];
+
+        i = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if i >= $stack4 goto label5;
+
+        $stack5 = array[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) max;
+
+        if $i0 <= $i1 goto label4;
+
+        max = array[i];
+
+     label4:
+        i = i + 1;
+
+        goto label3;
+
+     label5:
+        return max;
+    }
+
+    public static double max(double[])
+    {
+        double[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack9;
+        int $stack4, $stack5, j, $i0;
+        double $stack6, $stack8, max;
+        boolean $stack7;
+
+        array := @parameter0: double[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack4 = lengthof array;
+
+        if $stack4 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if j >= $stack5 goto label6;
+
+        $stack6 = array[j];
+
+        $stack7 = staticinvoke <java.lang.Double: boolean isNaN(double)>($stack6);
+
+        if $stack7 == 0 goto label4;
+
+        return #NaN;
+
+     label4:
+        $stack8 = array[j];
+
+        $stack9 = $stack8 cmpl max;
+
+        $i0 = (int) $stack9;
+
+        if $i0 <= 0 goto label5;
+
+        max = array[j];
+
+     label5:
+        j = j + 1;
+
+        goto label3;
+
+     label6:
+        return max;
+    }
+
+    public static float max(float[])
+    {
+        float[] array;
+        java.lang.IllegalArgumentException $u0, $u1;
+        byte $stack8;
+        int $stack3, $stack4, j, $i0;
+        float $stack5, $stack7, max;
+        boolean $stack6;
+
+        array := @parameter0: float[];
+
+        if array != null goto label1;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Array must not be null");
+
+        throw $u0;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Array cannot be empty.");
+
+        throw $u1;
+
+     label2:
+        max = array[0];
+
+        j = 1;
+
+     label3:
+        $stack4 = lengthof array;
+
+        if j >= $stack4 goto label6;
+
+        $stack5 = array[j];
+
+        $stack6 = staticinvoke <java.lang.Float: boolean isNaN(float)>($stack5);
+
+        if $stack6 == 0 goto label4;
+
+        return #NaNF;
+
+     label4:
+        $stack7 = array[j];
+
+        $stack8 = $stack7 cmpl max;
+
+        $i0 = (int) $stack8;
+
+        if $i0 <= 0 goto label5;
+
+        max = array[j];
+
+     label5:
+        j = j + 1;
+
+        goto label3;
+
+     label6:
+        return max;
+    }
+
+    public static long min(long, long, long)
+    {
+        byte $stack6, $stack7;
+        int $i0, $i1;
+        long b, c, a;
+
+        a := @parameter0: long;
+
+        b := @parameter1: long;
+
+        c := @parameter2: long;
+
+        $stack6 = b cmp a;
+
+        $i0 = (int) $stack6;
+
+        if $i0 >= 0 goto label1;
+
+        a = b;
+
+     label1:
+        $stack7 = c cmp a;
+
+        $i1 = (int) $stack7;
+
+        if $i1 >= 0 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static int min(int, int, int)
+    {
+        int b, c, a;
+
+        a := @parameter0: int;
+
+        b := @parameter1: int;
+
+        c := @parameter2: int;
+
+        if b >= a goto label1;
+
+        a = b;
+
+     label1:
+        if c >= a goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static short min(short, short, short)
+    {
+        short b, c, a;
+        int $i0, $i1, $i2, $i3;
+
+        a := @parameter0: short;
+
+        b := @parameter1: short;
+
+        c := @parameter2: short;
+
+        $i0 = (int) b;
+
+        $i1 = (int) a;
+
+        if $i0 >= $i1 goto label1;
+
+        a = b;
+
+     label1:
+        $i2 = (int) c;
+
+        $i3 = (int) a;
+
+        if $i2 >= $i3 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static byte min(byte, byte, byte)
+    {
+        byte b, c, a;
+        int $i0, $i1, $i2, $i3;
+
+        a := @parameter0: byte;
+
+        b := @parameter1: byte;
+
+        c := @parameter2: byte;
+
+        $i0 = (int) b;
+
+        $i1 = (int) a;
+
+        if $i0 >= $i1 goto label1;
+
+        a = b;
+
+     label1:
+        $i2 = (int) c;
+
+        $i3 = (int) a;
+
+        if $i2 >= $i3 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static double min(double, double, double)
+    {
+        double a, b, $stack6, c, $stack7;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        c := @parameter2: double;
+
+        $stack6 = staticinvoke <java.lang.Math: double min(double,double)>(a, b);
+
+        $stack7 = staticinvoke <java.lang.Math: double min(double,double)>($stack6, c);
+
+        return $stack7;
+    }
+
+    public static float min(float, float, float)
+    {
+        float a, b, $stack3, c, $stack4;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        c := @parameter2: float;
+
+        $stack3 = staticinvoke <java.lang.Math: float min(float,float)>(a, b);
+
+        $stack4 = staticinvoke <java.lang.Math: float min(float,float)>($stack3, c);
+
+        return $stack4;
+    }
+
+    public static long max(long, long, long)
+    {
+        byte $stack6, $stack7;
+        int $i0, $i1;
+        long b, c, a;
+
+        a := @parameter0: long;
+
+        b := @parameter1: long;
+
+        c := @parameter2: long;
+
+        $stack6 = b cmp a;
+
+        $i0 = (int) $stack6;
+
+        if $i0 <= 0 goto label1;
+
+        a = b;
+
+     label1:
+        $stack7 = c cmp a;
+
+        $i1 = (int) $stack7;
+
+        if $i1 <= 0 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static int max(int, int, int)
+    {
+        int b, c, a;
+
+        a := @parameter0: int;
+
+        b := @parameter1: int;
+
+        c := @parameter2: int;
+
+        if b <= a goto label1;
+
+        a = b;
+
+     label1:
+        if c <= a goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static short max(short, short, short)
+    {
+        short b, c, a;
+        int $i0, $i1, $i2, $i3;
+
+        a := @parameter0: short;
+
+        b := @parameter1: short;
+
+        c := @parameter2: short;
+
+        $i0 = (int) b;
+
+        $i1 = (int) a;
+
+        if $i0 <= $i1 goto label1;
+
+        a = b;
+
+     label1:
+        $i2 = (int) c;
+
+        $i3 = (int) a;
+
+        if $i2 <= $i3 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static byte max(byte, byte, byte)
+    {
+        byte b, c, a;
+        int $i0, $i1, $i2, $i3;
+
+        a := @parameter0: byte;
+
+        b := @parameter1: byte;
+
+        c := @parameter2: byte;
+
+        $i0 = (int) b;
+
+        $i1 = (int) a;
+
+        if $i0 <= $i1 goto label1;
+
+        a = b;
+
+     label1:
+        $i2 = (int) c;
+
+        $i3 = (int) a;
+
+        if $i2 <= $i3 goto label2;
+
+        a = c;
+
+     label2:
+        return a;
+    }
+
+    public static double max(double, double, double)
+    {
+        double a, b, $stack6, c, $stack7;
+
+        a := @parameter0: double;
+
+        b := @parameter1: double;
+
+        c := @parameter2: double;
+
+        $stack6 = staticinvoke <java.lang.Math: double max(double,double)>(a, b);
+
+        $stack7 = staticinvoke <java.lang.Math: double max(double,double)>($stack6, c);
+
+        return $stack7;
+    }
+
+    public static float max(float, float, float)
+    {
+        float a, b, $stack3, c, $stack4;
+
+        a := @parameter0: float;
+
+        b := @parameter1: float;
+
+        c := @parameter2: float;
+
+        $stack3 = staticinvoke <java.lang.Math: float max(float,float)>(a, b);
+
+        $stack4 = staticinvoke <java.lang.Math: float max(float,float)>($stack3, c);
+
+        return $stack4;
+    }
+
+    public static boolean isDigits(java.lang.String)
+    {
+        int $stack3, i;
+        char $stack4;
+        java.lang.String str;
+        boolean $stack2, $stack5;
+
+        str := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack2 == 0 goto label1;
+
+        return 0;
+
+     label1:
+        i = 0;
+
+     label2:
+        $stack3 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if i >= $stack3 goto label4;
+
+        $stack4 = virtualinvoke str.<java.lang.String: char charAt(int)>(i);
+
+        $stack5 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack4);
+
+        if $stack5 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        return 1;
+    }
+
+    public static boolean isNumber(java.lang.String)
+    {
+        byte start, $stack78#6_1, $stack78#6_4;
+        java.lang.String str;
+        char[] $stack10;
+        boolean $stack9, hasExp, hasDecPoint, allowSigns, foundDigit, $stack78, $stack36, $stack30, $stack78#6_3, $stack78#6_5, foundDigit#5_7, foundDigit#5_8, foundDigit#5_9, foundDigit#5_10, foundDigit#5_11, hasExp#2_13, hasExp#2_14, hasExp#2_15, hasDecPoint#3_17, hasDecPoint#3_18, allowSigns#4_20, allowSigns#4_21, allowSigns#4_22;
+        int $stack12, $stack28, $stack60, $stack62, sz, i, $stack29, $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, $i11, $i12, $i13, $i14, $i15, $i16, $i17, $i18, $i19, $i20, $i21, $i22, $i23, $i24, $i25, $i26, $i27;
+        char $stack11, $stack13, $stack14, $stack15, $stack18, $stack19, $stack20, $stack24, $stack31, $stack32, $stack33, $stack34, $stack35, $stack37, $stack39, $stack40, $stack42, $stack43, $stack49, $stack58, $stack61, $stack63, $stack64, $stack65, $stack66, $stack70, $stack74;
+
+        str := @parameter0: java.lang.String;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack9 == 0 goto label01;
+
+        return 0;
+
+     label01:
+        $stack10 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        sz = lengthof $stack10;
+
+        hasExp = 0;
+
+        hasExp#2_15 = 0;
+
+        hasExp#2_14 = 0;
+
+        hasExp#2_13 = 0;
+
+        hasExp = 0;
+
+        hasDecPoint = 0;
+
+        hasDecPoint#3_18 = 0;
+
+        hasDecPoint#3_17 = 0;
+
+        hasDecPoint = 0;
+
+        allowSigns = 0;
+
+        allowSigns#4_22 = 0;
+
+        allowSigns#4_21 = 0;
+
+        allowSigns#4_20 = 0;
+
+        allowSigns = 0;
+
+        foundDigit = 0;
+
+        foundDigit#5_11 = 0;
+
+        foundDigit#5_10 = 0;
+
+        foundDigit#5_9 = 0;
+
+        foundDigit#5_8 = 0;
+
+        foundDigit#5_7 = 0;
+
+        foundDigit = 0;
+
+        $stack11 = $stack10[0];
+
+        $i0 = (int) $stack11;
+
+        if $i0 != 45 goto label02;
+
+        $stack78#6_5 = 1;
+
+        $stack78#6_4 = 1;
+
+        $stack78#6_3 = 1;
+
+        $stack78 = 1;
+
+        $stack78#6_1 = 1;
+
+        goto label03;
+
+     label02:
+        $stack78#6_5 = 0;
+
+        $stack78#6_4 = 0;
+
+        $stack78#6_3 = 0;
+
+        $stack78 = 0;
+
+        $stack78#6_1 = 0;
+
+     label03:
+        start = $stack78#6_1;
+
+        $stack12 = $stack78#6_3 + 1;
+
+        if sz <= $stack12 goto label10;
+
+        $stack58 = $stack10[$stack78#6_4];
+
+        $i1 = (int) $stack58;
+
+        if $i1 != 48 goto label10;
+
+        $stack60 = $stack78 + 1;
+
+        $stack61 = $stack10[$stack60];
+
+        $i2 = (int) $stack61;
+
+        if $i2 != 120 goto label10;
+
+        i = $stack78#6_5 + 2;
+
+        if i != sz goto label04;
+
+        return 0;
+
+     label04:
+        $stack62 = lengthof $stack10;
+
+        if i >= $stack62 goto label09;
+
+        $stack63 = $stack10[i];
+
+        $i3 = (int) $stack63;
+
+        if $i3 < 48 goto label05;
+
+        $stack74 = $stack10[i];
+
+        $i4 = (int) $stack74;
+
+        if $i4 <= 57 goto label08;
+
+     label05:
+        $stack64 = $stack10[i];
+
+        $i5 = (int) $stack64;
+
+        if $i5 < 97 goto label06;
+
+        $stack70 = $stack10[i];
+
+        $i6 = (int) $stack70;
+
+        if $i6 <= 102 goto label08;
+
+     label06:
+        $stack65 = $stack10[i];
+
+        $i7 = (int) $stack65;
+
+        if $i7 < 65 goto label07;
+
+        $stack66 = $stack10[i];
+
+        $i8 = (int) $stack66;
+
+        if $i8 <= 70 goto label08;
+
+     label07:
+        return 0;
+
+     label08:
+        i = i + 1;
+
+        goto label04;
+
+     label09:
+        return 1;
+
+     label10:
+        $i9 = (int) -1;
+
+        sz = sz + $i9;
+
+        i = start;
+
+     label11:
+        if i < sz goto label12;
+
+        $stack28 = sz + 1;
+
+        if i >= $stack28 goto label25;
+
+        if allowSigns == 0 goto label25;
+
+        if foundDigit#5_7 != 0 goto label25;
+
+     label12:
+        $stack13 = $stack10[i];
+
+        $i10 = (int) $stack13;
+
+        if $i10 < 48 goto label13;
+
+        $stack24 = $stack10[i];
+
+        $i11 = (int) $stack24;
+
+        if $i11 > 57 goto label13;
+
+        foundDigit = 1;
+
+        foundDigit#5_11 = 1;
+
+        foundDigit#5_10 = 1;
+
+        foundDigit#5_9 = 1;
+
+        foundDigit#5_8 = 1;
+
+        foundDigit#5_7 = 1;
+
+        foundDigit = 1;
+
+        allowSigns = 0;
+
+        allowSigns#4_22 = 0;
+
+        allowSigns#4_21 = 0;
+
+        allowSigns#4_20 = 0;
+
+        allowSigns = 0;
+
+        goto label24;
+
+     label13:
+        $stack14 = $stack10[i];
+
+        $i12 = (int) $stack14;
+
+        if $i12 != 46 goto label16;
+
+        if hasDecPoint#3_18 != 0 goto label14;
+
+        if hasExp#2_14 == 0 goto label15;
+
+     label14:
+        return 0;
+
+     label15:
+        hasDecPoint = 1;
+
+        hasDecPoint#3_18 = 1;
+
+        hasDecPoint#3_17 = 1;
+
+        hasDecPoint = 1;
+
+        goto label24;
+
+     label16:
+        $stack15 = $stack10[i];
+
+        $i13 = (int) $stack15;
+
+        if $i13 == 101 goto label17;
+
+        $stack18 = $stack10[i];
+
+        $i14 = (int) $stack18;
+
+        if $i14 != 69 goto label20;
+
+     label17:
+        if hasExp#2_15 == 0 goto label18;
+
+        return 0;
+
+     label18:
+        if foundDigit != 0 goto label19;
+
+        return 0;
+
+     label19:
+        hasExp = 1;
+
+        hasExp#2_15 = 1;
+
+        hasExp#2_14 = 1;
+
+        hasExp#2_13 = 1;
+
+        hasExp = 1;
+
+        allowSigns = 1;
+
+        allowSigns#4_22 = 1;
+
+        allowSigns#4_21 = 1;
+
+        allowSigns#4_20 = 1;
+
+        allowSigns = 1;
+
+        goto label24;
+
+     label20:
+        $stack19 = $stack10[i];
+
+        $i15 = (int) $stack19;
+
+        if $i15 == 43 goto label21;
+
+        $stack20 = $stack10[i];
+
+        $i16 = (int) $stack20;
+
+        if $i16 != 45 goto label23;
+
+     label21:
+        if allowSigns#4_20 != 0 goto label22;
+
+        return 0;
+
+     label22:
+        allowSigns = 0;
+
+        allowSigns#4_22 = 0;
+
+        allowSigns#4_21 = 0;
+
+        allowSigns#4_20 = 0;
+
+        allowSigns = 0;
+
+        foundDigit = 0;
+
+        foundDigit#5_11 = 0;
+
+        foundDigit#5_10 = 0;
+
+        foundDigit#5_9 = 0;
+
+        foundDigit#5_8 = 0;
+
+        foundDigit#5_7 = 0;
+
+        foundDigit = 0;
+
+        goto label24;
+
+     label23:
+        return 0;
+
+     label24:
+        i = i + 1;
+
+        goto label11;
+
+     label25:
+        $stack29 = lengthof $stack10;
+
+        if i >= $stack29 goto label38;
+
+        $stack31 = $stack10[i];
+
+        $i17 = (int) $stack31;
+
+        if $i17 < 48 goto label26;
+
+        $stack49 = $stack10[i];
+
+        $i18 = (int) $stack49;
+
+        if $i18 > 57 goto label26;
+
+        return 1;
+
+     label26:
+        $stack32 = $stack10[i];
+
+        $i19 = (int) $stack32;
+
+        if $i19 == 101 goto label27;
+
+        $stack33 = $stack10[i];
+
+        $i20 = (int) $stack33;
+
+        if $i20 != 69 goto label28;
+
+     label27:
+        return 0;
+
+     label28:
+        $stack34 = $stack10[i];
+
+        $i21 = (int) $stack34;
+
+        if $i21 != 46 goto label31;
+
+        if hasDecPoint != 0 goto label29;
+
+        if hasExp#2_13 == 0 goto label30;
+
+     label29:
+        return 0;
+
+     label30:
+        return foundDigit#5_8;
+
+     label31:
+        if allowSigns#4_22 != 0 goto label33;
+
+        $stack39 = $stack10[i];
+
+        $i22 = (int) $stack39;
+
+        if $i22 == 100 goto label32;
+
+        $stack40 = $stack10[i];
+
+        $i23 = (int) $stack40;
+
+        if $i23 == 68 goto label32;
+
+        $stack42 = $stack10[i];
+
+        $i24 = (int) $stack42;
+
+        if $i24 == 102 goto label32;
+
+        $stack43 = $stack10[i];
+
+        $i25 = (int) $stack43;
+
+        if $i25 != 70 goto label33;
+
+     label32:
+        return foundDigit#5_9;
+
+     label33:
+        $stack35 = $stack10[i];
+
+        $i26 = (int) $stack35;
+
+        if $i26 == 108 goto label34;
+
+        $stack37 = $stack10[i];
+
+        $i27 = (int) $stack37;
+
+        if $i27 != 76 goto label37;
+
+     label34:
+        if foundDigit#5_10 == 0 goto label35;
+
+        if hasExp != 0 goto label35;
+
+        if hasDecPoint#3_17 != 0 goto label35;
+
+        $stack36 = 1;
+
+        goto label36;
+
+     label35:
+        $stack36 = 0;
+
+     label36:
+        return $stack36;
+
+     label37:
+        return 0;
+
+     label38:
+        if allowSigns#4_21 != 0 goto label39;
+
+        if foundDigit#5_11 == 0 goto label39;
+
+        $stack30 = 1;
+
+        goto label40;
+
+     label39:
+        $stack30 = 0;
+
+     label40:
+        return $stack30;
+    }
+
+    static void <clinit>()
+    {
+        java.lang.Float $stack15, $stack16, $stack17;
+        java.lang.Double $stack12, $stack13, $stack14;
+        java.lang.Integer $stack3, $stack4, $stack5;
+        short $s0;
+        java.lang.Long $stack0, $stack1, $stack2;
+        java.lang.Short $stack6, $stack7, $stack8;
+        int $i0;
+        java.lang.Byte $stack9, $stack10, $stack11;
+
+        $stack0 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(0L);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ZERO> = $stack0;
+
+        $stack1 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(1L);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_ONE> = $stack1;
+
+        $stack2 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(-1L);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Long LONG_MINUS_ONE> = $stack2;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ZERO> = $stack3;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_ONE> = $stack4;
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Integer INTEGER_MINUS_ONE> = $stack5;
+
+        $stack6 = staticinvoke <java.lang.Short: java.lang.Short valueOf(short)>(0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Short SHORT_ZERO> = $stack6;
+
+        $stack7 = staticinvoke <java.lang.Short: java.lang.Short valueOf(short)>(1);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Short SHORT_ONE> = $stack7;
+
+        $s0 = (short) -1;
+
+        $stack8 = staticinvoke <java.lang.Short: java.lang.Short valueOf(short)>($s0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Short SHORT_MINUS_ONE> = $stack8;
+
+        $stack9 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ZERO> = $stack9;
+
+        $stack10 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(1);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_ONE> = $stack10;
+
+        $stack11 = staticinvoke <java.lang.Byte: java.lang.Byte valueOf(byte)>(-1);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Byte BYTE_MINUS_ONE> = $stack11;
+
+        $stack12 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(0.0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ZERO> = $stack12;
+
+        $stack13 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(1.0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_ONE> = $stack13;
+
+        $stack14 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>(-1.0);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Double DOUBLE_MINUS_ONE> = $stack14;
+
+        $stack15 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(0.0F);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Float FLOAT_ZERO> = $stack15;
+
+        $stack16 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(1.0F);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Float FLOAT_ONE> = $stack16;
+
+        $stack17 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(-1.0F);
+
+        <org.apache.commons.lang3.math.NumberUtils: java.lang.Float FLOAT_MINUS_ONE> = $stack17;
+
+        return;
+    }
+}

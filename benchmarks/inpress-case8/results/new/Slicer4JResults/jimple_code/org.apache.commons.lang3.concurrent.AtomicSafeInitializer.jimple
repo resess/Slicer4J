@@ -1,0 +1,65 @@
+public abstract class org.apache.commons.lang3.concurrent.AtomicSafeInitializer extends java.lang.Object implements org.apache.commons.lang3.concurrent.ConcurrentInitializer
+{
+    private final java.util.concurrent.atomic.AtomicReference factory;
+    private final java.util.concurrent.atomic.AtomicReference reference;
+
+    public void <init>()
+    {
+        java.util.concurrent.atomic.AtomicReference $stack1, $stack2;
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializer this;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializer;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.concurrent.atomic.AtomicReference;
+
+        specialinvoke $stack1.<java.util.concurrent.atomic.AtomicReference: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.util.concurrent.atomic.AtomicReference factory> = $stack1;
+
+        $stack2 = new java.util.concurrent.atomic.AtomicReference;
+
+        specialinvoke $stack2.<java.util.concurrent.atomic.AtomicReference: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.util.concurrent.atomic.AtomicReference reference> = $stack2;
+
+        return;
+    }
+
+    public final java.lang.Object get() throws org.apache.commons.lang3.concurrent.ConcurrentException
+    {
+        org.apache.commons.lang3.concurrent.AtomicSafeInitializer this;
+        java.lang.Object $stack8, $stack3;
+        java.util.concurrent.atomic.AtomicReference $stack4, $stack7, $stack2;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.AtomicSafeInitializer;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.util.concurrent.atomic.AtomicReference reference>;
+
+        $stack3 = virtualinvoke $stack2.<java.util.concurrent.atomic.AtomicReference: java.lang.Object get()>();
+
+        if $stack3 != null goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.util.concurrent.atomic.AtomicReference factory>;
+
+        $stack5 = virtualinvoke $stack4.<java.util.concurrent.atomic.AtomicReference: boolean compareAndSet(java.lang.Object,java.lang.Object)>(null, this);
+
+        if $stack5 == 0 goto label1;
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.util.concurrent.atomic.AtomicReference reference>;
+
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.concurrent.AtomicSafeInitializer: java.lang.Object initialize()>();
+
+        virtualinvoke $stack7.<java.util.concurrent.atomic.AtomicReference: void set(java.lang.Object)>($stack8);
+
+        goto label1;
+
+     label2:
+        return $stack3;
+    }
+
+    protected abstract java.lang.Object initialize() throws org.apache.commons.lang3.concurrent.ConcurrentException;
+}

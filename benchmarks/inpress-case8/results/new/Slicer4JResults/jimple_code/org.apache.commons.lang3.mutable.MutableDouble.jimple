@@ -1,0 +1,479 @@
+public class org.apache.commons.lang3.mutable.MutableDouble extends java.lang.Number implements java.lang.Comparable, org.apache.commons.lang3.mutable.Mutable
+{
+    private static final long serialVersionUID;
+    private double value;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(double)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        value := @parameter0: double;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = value;
+
+        return;
+    }
+
+    public void <init>(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Number value;
+        double $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        value := @parameter0: java.lang.Number;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = virtualinvoke value.<java.lang.Number: double doubleValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String) throws java.lang.NumberFormatException
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.String value;
+        double $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        value := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Number: void <init>()>();
+
+        $stack2 = staticinvoke <java.lang.Double: double parseDouble(java.lang.String)>(value);
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack2;
+
+        return;
+    }
+
+    public java.lang.Double getValue()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Double $stack2;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($stack1);
+
+        return $stack2;
+    }
+
+    public void setValue(double)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        value := @parameter0: double;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = value;
+
+        return;
+    }
+
+    public void setValue(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Number value;
+        double $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        value := @parameter0: java.lang.Number;
+
+        $stack2 = virtualinvoke value.<java.lang.Number: double doubleValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack2;
+
+        return;
+    }
+
+    public boolean isNaN()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = staticinvoke <java.lang.Double: boolean isNaN(double)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean isInfinite()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = staticinvoke <java.lang.Double: boolean isInfinite(double)>($stack1);
+
+        return $stack2;
+    }
+
+    public void increment()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = $stack1 + 1.0;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack2;
+
+        return;
+    }
+
+    public void decrement()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = $stack1 - 1.0;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack2;
+
+        return;
+    }
+
+    public void add(double)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double operand, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        operand := @parameter0: double;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack4 = $stack3 + operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack4;
+
+        return;
+    }
+
+    public void add(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Number operand;
+        double $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: double doubleValue()>();
+
+        $stack4 = $stack2 + $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack4;
+
+        return;
+    }
+
+    public void subtract(double)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double operand, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        operand := @parameter0: double;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack4 = $stack3 - operand;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack4;
+
+        return;
+    }
+
+    public void subtract(java.lang.Number)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Number operand;
+        double $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        operand := @parameter0: java.lang.Number;
+
+        $stack2 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack3 = virtualinvoke operand.<java.lang.Number: double doubleValue()>();
+
+        $stack4 = $stack2 - $stack3;
+
+        this.<org.apache.commons.lang3.mutable.MutableDouble: double value> = $stack4;
+
+        return;
+    }
+
+    public int intValue()
+    {
+        int $stack2;
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = (int) $stack1;
+
+        return $stack2;
+    }
+
+    public long longValue()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        long $stack2;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = (long) $stack1;
+
+        return $stack2;
+    }
+
+    public float floatValue()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        float $stack2;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = (float) $stack1;
+
+        return $stack2;
+    }
+
+    public double doubleValue()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        return $stack1;
+    }
+
+    public java.lang.Double toDouble()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Double $stack2;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableDouble: double doubleValue()>();
+
+        $stack2 = staticinvoke <java.lang.Double: java.lang.Double valueOf(double)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        long $stack5, $stack7;
+        org.apache.commons.lang3.mutable.MutableDouble $stack3, this;
+        byte $stack8;
+        java.lang.Object obj;
+        boolean $stack2, $stack9;
+        double $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = obj instanceof org.apache.commons.lang3.mutable.MutableDouble;
+
+        if $stack2 == 0 goto label1;
+
+        $stack3 = (org.apache.commons.lang3.mutable.MutableDouble) obj;
+
+        $stack4 = $stack3.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack5 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($stack4);
+
+        $stack6 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack7 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($stack6);
+
+        $stack8 = $stack5 cmp $stack7;
+
+        if $stack8 != 0 goto label1;
+
+        $stack9 = 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = 0;
+
+     label2:
+        return $stack9;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        int $stack7;
+        long $stack4, $stack5, $stack6;
+        double $stack3;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack4 = staticinvoke <java.lang.Double: long doubleToLongBits(double)>($stack3);
+
+        $stack5 = $stack4 >>> 32;
+
+        $stack6 = $stack4 ^ $stack5;
+
+        $stack7 = (int) $stack6;
+
+        return $stack7;
+    }
+
+    public int compareTo(org.apache.commons.lang3.mutable.MutableDouble)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble other, this;
+        int $stack5;
+        double anotherVal, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        other := @parameter0: org.apache.commons.lang3.mutable.MutableDouble;
+
+        anotherVal = other.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack4 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack5 = staticinvoke <java.lang.Double: int compare(double,double)>($stack4, anotherVal);
+
+        return $stack5;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.String $stack2;
+        double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableDouble: double value>;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>($stack1);
+
+        return $stack2;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this, $stack2;
+        int $stack3;
+        java.lang.Object x0;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.mutable.MutableDouble) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableDouble: int compareTo(org.apache.commons.lang3.mutable.MutableDouble)>($stack2);
+
+        return $stack3;
+    }
+
+    public volatile void setValue(java.lang.Object)
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Object x0;
+        java.lang.Number $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.Number) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.mutable.MutableDouble: void setValue(java.lang.Number)>($stack2);
+
+        return;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        org.apache.commons.lang3.mutable.MutableDouble this;
+        java.lang.Double $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableDouble;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableDouble: java.lang.Double getValue()>();
+
+        return $stack1;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.mutable.MutableDouble: long serialVersionUID> = 1587163916L;
+
+        return;
+    }
+}

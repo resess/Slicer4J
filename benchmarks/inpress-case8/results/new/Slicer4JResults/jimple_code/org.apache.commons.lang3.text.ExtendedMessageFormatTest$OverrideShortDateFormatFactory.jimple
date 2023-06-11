@@ -1,0 +1,68 @@
+class org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory extends java.lang.Object implements org.apache.commons.lang3.text.FormatFactory
+{
+
+    private void <init>()
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.text.Format getFormat(java.lang.String, java.lang.String, java.util.Locale)
+    {
+        java.util.Locale locale;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory this;
+        java.lang.String arguments, $stack4, name;
+        java.text.DateFormat $stack6;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory;
+
+        name := @parameter0: java.lang.String;
+
+        arguments := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack4 = "short";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: boolean equals(java.lang.Object)>(arguments);
+
+        if $stack5 != 0 goto label1;
+
+        $stack6 = null;
+
+        goto label3;
+
+     label1:
+        if locale != null goto label2;
+
+        $stack6 = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateInstance(int)>(2);
+
+        goto label3;
+
+     label2:
+        $stack6 = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateInstance(int,java.util.Locale)>(2, locale);
+
+     label3:
+        return $stack6;
+    }
+
+    void <init>(org.apache.commons.lang3.text.ExtendedMessageFormatTest$1)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory this;
+        org.apache.commons.lang3.text.ExtendedMessageFormatTest$1 x0;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory;
+
+        x0 := @parameter0: org.apache.commons.lang3.text.ExtendedMessageFormatTest$1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormatTest$OverrideShortDateFormatFactory: void <init>()>();
+
+        return;
+    }
+}

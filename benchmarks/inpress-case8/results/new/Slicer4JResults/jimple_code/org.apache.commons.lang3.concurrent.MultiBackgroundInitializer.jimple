@@ -1,0 +1,294 @@
+public class org.apache.commons.lang3.concurrent.MultiBackgroundInitializer extends org.apache.commons.lang3.concurrent.BackgroundInitializer
+{
+    private final java.util.Map childInitializers;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        java.util.HashMap $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>()>();
+
+        $stack1 = new java.util.HashMap;
+
+        specialinvoke $stack1.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.Map childInitializers> = $stack1;
+
+        return;
+    }
+
+    public void <init>(java.util.concurrent.ExecutorService)
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        java.util.HashMap $stack2;
+        java.util.concurrent.ExecutorService exec;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        exec := @parameter0: java.util.concurrent.ExecutorService;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void <init>(java.util.concurrent.ExecutorService)>(exec);
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.Map childInitializers> = $stack2;
+
+        return;
+    }
+
+    public void addInitializer(java.lang.String, org.apache.commons.lang3.concurrent.BackgroundInitializer)
+    {
+        java.lang.Throwable $stack13;
+        java.lang.IllegalStateException $stack10;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        java.lang.IllegalArgumentException $stack11, $stack12;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer init;
+        java.util.Map $stack7;
+        java.lang.String name;
+        boolean $stack6;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        name := @parameter0: java.lang.String;
+
+        init := @parameter1: org.apache.commons.lang3.concurrent.BackgroundInitializer;
+
+        if name != null goto label1;
+
+        $stack12 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack12.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Name of child initializer must not be null!");
+
+        throw $stack12;
+
+     label1:
+        if init != null goto label2;
+
+        $stack11 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack11.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Child initializer must not be null!");
+
+        throw $stack11;
+
+     label2:
+        entermonitor this;
+
+     label3:
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: boolean isStarted()>();
+
+        if $stack6 == 0 goto label4;
+
+        $stack10 = new java.lang.IllegalStateException;
+
+        specialinvoke $stack10.<java.lang.IllegalStateException: void <init>(java.lang.String)>("addInitializer() must not be called after start()!");
+
+        throw $stack10;
+
+     label4:
+        $stack7 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.Map childInitializers>;
+
+        interfaceinvoke $stack7.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(name, init);
+
+        exitmonitor this;
+
+     label5:
+        goto label8;
+
+     label6:
+        $stack13 := @caughtexception;
+
+        exitmonitor this;
+
+     label7:
+        throw $stack13;
+
+     label8:
+        return;
+
+        catch java.lang.Throwable from label3 to label5 with label6;
+        catch java.lang.Throwable from label6 to label7 with label6;
+    }
+
+    protected int getTaskCount()
+    {
+        java.util.Iterator $stack6;
+        java.util.Collection $stack5;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer bi;
+        java.util.Map $stack4;
+        int $stack9, result;
+        java.lang.Object $stack8;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        result = 1;
+
+        $stack4 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.Map childInitializers>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.Map: java.util.Collection values()>();
+
+        $stack6 = interfaceinvoke $stack5.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label1:
+        $stack7 = interfaceinvoke $stack6.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack7 == 0 goto label2;
+
+        $stack8 = interfaceinvoke $stack6.<java.util.Iterator: java.lang.Object next()>();
+
+        bi = (org.apache.commons.lang3.concurrent.BackgroundInitializer) $stack8;
+
+        $stack9 = virtualinvoke bi.<org.apache.commons.lang3.concurrent.BackgroundInitializer: int getTaskCount()>();
+
+        result = result + $stack9;
+
+        goto label1;
+
+     label2:
+        return result;
+    }
+
+    protected org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults initialize() throws java.lang.Exception
+    {
+        java.lang.Throwable $stack37;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        java.util.HashMap $stack9, $stack16, $stack17;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer $stack25, bi;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack34;
+        java.util.Map $stack10;
+        java.util.concurrent.ExecutorService $stack12, $stack30;
+        boolean $stack15, $stack20;
+        java.util.Map$Entry e;
+        java.util.Iterator $stack14, $stack19;
+        java.util.Collection $stack13;
+        java.util.Set $stack18;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack21;
+        java.lang.Object $stack22, $stack23, $stack24, $stack26, $stack29, $stack35;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        entermonitor this;
+
+     label01:
+        $stack9 = new java.util.HashMap;
+
+        $stack10 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.Map childInitializers>;
+
+        specialinvoke $stack9.<java.util.HashMap: void <init>(java.util.Map)>($stack10);
+
+        exitmonitor this;
+
+     label02:
+        goto label05;
+
+     label03:
+        $stack37 := @caughtexception;
+
+        exitmonitor this;
+
+     label04:
+        throw $stack37;
+
+     label05:
+        $stack12 = virtualinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: java.util.concurrent.ExecutorService getActiveExecutor()>();
+
+        $stack13 = interfaceinvoke $stack9.<java.util.Map: java.util.Collection values()>();
+
+        $stack14 = interfaceinvoke $stack13.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label06:
+        $stack15 = interfaceinvoke $stack14.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack15 == 0 goto label08;
+
+        $stack29 = interfaceinvoke $stack14.<java.util.Iterator: java.lang.Object next()>();
+
+        bi = (org.apache.commons.lang3.concurrent.BackgroundInitializer) $stack29;
+
+        $stack30 = virtualinvoke bi.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.util.concurrent.ExecutorService getExternalExecutor()>();
+
+        if $stack30 != null goto label07;
+
+        virtualinvoke bi.<org.apache.commons.lang3.concurrent.BackgroundInitializer: void setExternalExecutor(java.util.concurrent.ExecutorService)>($stack12);
+
+     label07:
+        virtualinvoke bi.<org.apache.commons.lang3.concurrent.BackgroundInitializer: boolean start()>();
+
+        goto label06;
+
+     label08:
+        $stack16 = new java.util.HashMap;
+
+        specialinvoke $stack16.<java.util.HashMap: void <init>()>();
+
+        $stack17 = new java.util.HashMap;
+
+        specialinvoke $stack17.<java.util.HashMap: void <init>()>();
+
+        $stack18 = interfaceinvoke $stack9.<java.util.Map: java.util.Set entrySet()>();
+
+        $stack19 = interfaceinvoke $stack18.<java.util.Set: java.util.Iterator iterator()>();
+
+     label09:
+        $stack20 = interfaceinvoke $stack19.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack20 == 0 goto label14;
+
+        $stack22 = interfaceinvoke $stack19.<java.util.Iterator: java.lang.Object next()>();
+
+        e = (java.util.Map$Entry) $stack22;
+
+     label10:
+        $stack23 = interfaceinvoke e.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $stack24 = interfaceinvoke e.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $stack25 = (org.apache.commons.lang3.concurrent.BackgroundInitializer) $stack24;
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.concurrent.BackgroundInitializer: java.lang.Object get()>();
+
+        interfaceinvoke $stack16.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack23, $stack26);
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack34 := @caughtexception;
+
+        $stack35 = interfaceinvoke e.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        interfaceinvoke $stack17.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack35, $stack34);
+
+     label13:
+        goto label09;
+
+     label14:
+        $stack21 = new org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        specialinvoke $stack21.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: void <init>(java.util.Map,java.util.Map,java.util.Map,org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$1)>($stack9, $stack16, $stack17, null);
+
+        return $stack21;
+
+        catch java.lang.Throwable from label01 to label02 with label03;
+        catch java.lang.Throwable from label03 to label04 with label03;
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label10 to label11 with label12;
+    }
+
+    protected volatile java.lang.Object initialize() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer this;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults $stack1;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults initialize()>();
+
+        return $stack1;
+    }
+}

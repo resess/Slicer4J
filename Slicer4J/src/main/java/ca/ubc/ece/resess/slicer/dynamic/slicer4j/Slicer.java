@@ -10,16 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
 
 import com.google.common.base.Optional;
@@ -315,6 +306,7 @@ public class Slicer {
         boolean dataFlowsOnly = false;
         boolean controlFlowOnly = false;
         boolean sliceOnce = false;
+        boolean noprint = false;
         if (commands.containsKey("data")) {
             dataFlowsOnly = true;
         }
@@ -323,6 +315,9 @@ public class Slicer {
         }
         if (commands.containsKey("once")) {
             sliceOnce = true;
+        }
+        if (commands.containsKey("noprint")) {
+            noprint = true;
         }
 
         String frameworkPath = commands.get("f");
@@ -367,7 +362,9 @@ public class Slicer {
         slicer.setWorkingSet(new SlicingWorkingSet(false));
         DynamicSlice dynamicSlice = slicer.slice(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, stmts, accessPaths, slicer.getWorkingSet());
         slicer.dynamicPrint = new LinkedHashSet<>();
-        SlicePrinter.printSlices(dynamicSlice);
+        if(!noprint){
+            SlicePrinter.printSlices(dynamicSlice);
+        }
         SlicePrinter.printSliceGraph(dynamicSlice);
         SlicePrinter.printDotGraph(slicer.outDir, dynamicSlice);
         SlicePrinter.printSliceLines(slicer.outDir, dynamicSlice);
@@ -378,6 +375,7 @@ public class Slicer {
         String resultFileName = slicer.outDir + File.separator + "result_" +mode+"_"+ dtf.format(now) + ".csv";
         SlicePrinter.printToCSV(resultFileName, dynamicSlice);
 
+        AnalysisLogger.log(true, "Slice size: {}", dynamicSlice.size());
         terminate(slicer.outDir, mode, startTime);
     }
 
@@ -395,6 +393,13 @@ public class Slicer {
         AnalysisLogger.log(Constants.DEBUG, "Printing graph...");
         List <String> listToPrint = new ArrayList<>();
         Iterator<Entry<Integer, StatementInstance>> entries = icdg.getMapNumberUnits().entrySet().iterator();
+        AnalysisLogger.log(Constants.DEBUG, "Printing to {}", outFile);
+        BufferedWriter writer = null;
+        try {
+            writer = Files.newBufferedWriter(Paths.get(outFile));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         while (entries.hasNext()) {
             Entry<Integer, StatementInstance> thisEntry = entries.next();
             Integer lineNumber = thisEntry.getKey();
@@ -407,12 +412,23 @@ public class Slicer {
             for (int vertex: icdg.successorListOf(lineNumber)) {
                 nexts.add(vertex + " (" + icdg.getEdge(lineNumber, vertex).getEdgeType() + ")");
             }
-            listToPrint.add(statementInstance.toString() 
+            String toPrint = statementInstance.toString()
             + ":PRED:"+preds
             + ":SUCC:"+nexts
-            + ":TID:"+statementInstance.getThreadID());
+            + ":TID:"+statementInstance.getThreadID();
+            try {
+                writer.write(toPrint);
+                writer.write("\n");
+            } catch (IOException e) {
+                AnalysisLogger.error("Unable to print file {}, {}", outFile, e);
+                break;
+            }
         }
-        printList(listToPrint, outFile);
+        try {
+            writer.close();
+        } catch (IOException e) {
+            AnalysisLogger.error("Unable to print file {}, {}", outFile, e);
+        }
         AnalysisLogger.log(Constants.DEBUG, "Printing Complete.");
         return listToPrint;
     }
@@ -472,7 +488,7 @@ public class Slicer {
         
         long endTime = System.nanoTime();
         double totalTime = (endTime-startTime)/1000000000.0;
-        AnalysisLogger.log(Constants.DEBUG, "Time: {}", totalTime);
+        AnalysisLogger.log(true, "Time: {}", totalTime);
     }
 
     private static void deleteFolder(File folder) {

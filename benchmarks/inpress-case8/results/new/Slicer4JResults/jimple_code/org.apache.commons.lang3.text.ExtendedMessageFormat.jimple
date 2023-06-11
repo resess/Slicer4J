@@ -1,0 +1,1240 @@
+public class org.apache.commons.lang3.text.ExtendedMessageFormat extends java.text.MessageFormat
+{
+    private static final long serialVersionUID;
+    private static final int HASH_SEED;
+    private static final java.lang.String DUMMY_PATTERN;
+    private static final java.lang.String ESCAPED_QUOTE;
+    private static final char START_FMT;
+    private static final char END_FE;
+    private static final char START_FE;
+    private static final char QUOTE;
+    private java.lang.String toPattern;
+    private final java.util.Map registry;
+
+    public void <init>(java.lang.String)
+    {
+        java.lang.String pattern;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Locale $stack2;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale)>(pattern, $stack2);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.util.Locale)
+    {
+        java.lang.String pattern;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Locale locale;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>(pattern, locale, null);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.util.Map)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Locale $stack3;
+        java.util.Map registry;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        registry := @parameter1: java.util.Map;
+
+        $stack3 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void <init>(java.lang.String,java.util.Locale,java.util.Map)>(pattern, $stack3, registry);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.util.Locale, java.util.Map)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Locale locale;
+        java.util.Map registry;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        registry := @parameter2: java.util.Map;
+
+        specialinvoke this.<java.text.MessageFormat: void <init>(java.lang.String)>("");
+
+        virtualinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void setLocale(java.util.Locale)>(locale);
+
+        this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry> = registry;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void applyPattern(java.lang.String)>(pattern);
+
+        return;
+    }
+
+    public java.lang.String toPattern()
+    {
+        java.lang.String $stack1;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack1 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern>;
+
+        return $stack1;
+    }
+
+    public final void applyPattern(java.lang.String)
+    {
+        java.text.Format $stack69, format, formatDescription#18;
+        java.util.Map $stack12;
+        boolean $stack24, $stack27, $stack60, $stack56;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.text.Format[] $stack25;
+        java.lang.StringBuilder $stack35, $stack53, $stack54, $stack73, $u2, $u4;
+        java.text.ParsePosition $stack33, $stack67, $u3;
+        java.util.ArrayList $u0, $u1;
+        int $stack16, $stack19, $stack20, $stack30, $stack32, $stack34, $stack37, $stack41, $stack42, $stack43, $stack45, fmtCount, index, $i0, $i1, $i2;
+        java.lang.String pattern, $stack21, $stack22, $stack23, $stack55, $stack68, $stack81, formatDescription, $stack63;
+        java.util.Iterator $stack26;
+        char $stack31, $stack38, $stack44, $stack46;
+        java.lang.IllegalArgumentException $u5;
+        char[] $stack18;
+        java.lang.Object $stack28;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        $stack12 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        if $stack12 != null goto label01;
+
+        specialinvoke this.<java.text.MessageFormat: void applyPattern(java.lang.String)>(pattern);
+
+        $stack81 = specialinvoke this.<java.text.MessageFormat: java.lang.String toPattern()>();
+
+        this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern> = $stack81;
+
+        return;
+
+     label01:
+        $u0 = new java.util.ArrayList;
+
+        specialinvoke $u0.<java.util.ArrayList: void <init>()>();
+
+        $u1 = new java.util.ArrayList;
+
+        specialinvoke $u1.<java.util.ArrayList: void <init>()>();
+
+        $u2 = new java.lang.StringBuilder;
+
+        $stack16 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>(int)>($stack16);
+
+        $u3 = new java.text.ParsePosition;
+
+        specialinvoke $u3.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $stack18 = virtualinvoke pattern.<java.lang.String: char[] toCharArray()>();
+
+        fmtCount = 0;
+
+     label02:
+        $stack19 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack20 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if $stack19 >= $stack20 goto label14;
+
+        $stack30 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack31 = $stack18[$stack30];
+
+        $i0 = (int) $stack31;
+
+        lookupswitch($i0)
+        {
+            case 39: goto label03;
+            case 123: goto label04;
+            default: goto label12;
+        };
+
+     label03:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.StringBuilder appendQuotedString(java.lang.String,java.text.ParsePosition,java.lang.StringBuilder,boolean)>(pattern, $u3, $u2, 1);
+
+        goto label13;
+
+     label04:
+        fmtCount = fmtCount + 1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void seekNonWs(java.lang.String,java.text.ParsePosition)>(pattern, $u3);
+
+        $stack32 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack33 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>($u3);
+
+        $stack34 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: int readArgumentIndex(java.lang.String,java.text.ParsePosition)>(pattern, $stack33);
+
+        $stack35 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(123);
+
+        virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack34);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void seekNonWs(java.lang.String,java.text.ParsePosition)>(pattern, $u3);
+
+        format = null;
+
+        formatDescription = null;
+
+        $stack37 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack38 = $stack18[$stack37];
+
+        $i1 = (int) $stack38;
+
+        if $i1 != 44 goto label05;
+
+        $stack67 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>($u3);
+
+        $stack68 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String parseFormatDescription(java.lang.String,java.text.ParsePosition)>(pattern, $stack67);
+
+        formatDescription = $stack68;
+
+        $stack69 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.Format getFormat(java.lang.String)>($stack68);
+
+        format = $stack69;
+
+        if $stack69 != null goto label05;
+
+        $stack73 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+        virtualinvoke $stack73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack68);
+
+     label05:
+        virtualinvoke $u0.<java.util.ArrayList: boolean add(java.lang.Object)>(format);
+
+        if format != null goto label06;
+
+        $stack63 = null;
+
+        goto label07;
+
+     label06:
+        $stack63 = formatDescription;
+
+     label07:
+        virtualinvoke $u1.<java.util.ArrayList: boolean add(java.lang.Object)>($stack63);
+
+        $stack41 = virtualinvoke $u0.<java.util.ArrayList: int size()>();
+
+        if $stack41 != fmtCount goto label08;
+
+        $stack60 = 1;
+
+        goto label09;
+
+     label08:
+        $stack60 = 0;
+
+     label09:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean)>($stack60);
+
+        $stack42 = virtualinvoke $u1.<java.util.ArrayList: int size()>();
+
+        if $stack42 != fmtCount goto label10;
+
+        $stack56 = 1;
+
+        goto label11;
+
+     label10:
+        $stack56 = 0;
+
+     label11:
+        staticinvoke <org.apache.commons.lang3.Validate: void isTrue(boolean)>($stack56);
+
+        $stack43 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack44 = $stack18[$stack43];
+
+        $i2 = (int) $stack44;
+
+        if $i2 == 125 goto label12;
+
+        $u5 = new java.lang.IllegalArgumentException;
+
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack53 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unreadable format element at position ");
+
+        $stack54 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack32);
+
+        $stack55 = virtualinvoke $stack54.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack55);
+
+        throw $u5;
+
+     label12:
+        $stack45 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack46 = $stack18[$stack45];
+
+        virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack46);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>($u3);
+
+     label13:
+        goto label02;
+
+     label14:
+        $stack21 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke this.<java.text.MessageFormat: void applyPattern(java.lang.String)>($stack21);
+
+        $stack22 = specialinvoke this.<java.text.MessageFormat: java.lang.String toPattern()>();
+
+        $stack23 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String insertFormats(java.lang.String,java.util.ArrayList)>($stack22, $u1);
+
+        this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern> = $stack23;
+
+        $stack24 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean containsElements(java.util.Collection)>($u0);
+
+        if $stack24 == 0 goto label18;
+
+        $stack25 = virtualinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.Format[] getFormats()>();
+
+        index = 0;
+
+        $stack26 = virtualinvoke $u0.<java.util.ArrayList: java.util.Iterator iterator()>();
+
+     label15:
+        $stack27 = interfaceinvoke $stack26.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack27 == 0 goto label17;
+
+        $stack28 = interfaceinvoke $stack26.<java.util.Iterator: java.lang.Object next()>();
+
+        formatDescription#18 = (java.text.Format) $stack28;
+
+        if formatDescription#18 == null goto label16;
+
+        $stack25[index] = formatDescription#18;
+
+     label16:
+        index = index + 1;
+
+        goto label15;
+
+     label17:
+        specialinvoke this.<java.text.MessageFormat: void setFormats(java.text.Format[])>($stack25);
+
+     label18:
+        return;
+    }
+
+    public void setFormat(int, java.text.Format)
+    {
+        java.lang.UnsupportedOperationException $stack3;
+        java.text.Format newFormat;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        int formatElementIndex;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        formatElementIndex := @parameter0: int;
+
+        newFormat := @parameter1: java.text.Format;
+
+        $stack3 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack3.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack3;
+    }
+
+    public void setFormatByArgumentIndex(int, java.text.Format)
+    {
+        java.lang.UnsupportedOperationException $stack3;
+        java.text.Format newFormat;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        int argumentIndex;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        argumentIndex := @parameter0: int;
+
+        newFormat := @parameter1: java.text.Format;
+
+        $stack3 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack3.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack3;
+    }
+
+    public void setFormats(java.text.Format[])
+    {
+        java.text.Format[] newFormats;
+        java.lang.UnsupportedOperationException $stack2;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        newFormats := @parameter0: java.text.Format[];
+
+        $stack2 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack2.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack2;
+    }
+
+    public void setFormatsByArgumentIndex(java.text.Format[])
+    {
+        java.text.Format[] newFormats;
+        java.lang.UnsupportedOperationException $stack2;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        newFormats := @parameter0: java.text.Format[];
+
+        $stack2 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack2.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this, rhs;
+        java.util.Map $stack10, $stack11;
+        java.lang.Object obj;
+        java.lang.Class $stack4, $stack5;
+        java.lang.String $stack7, $stack8;
+        boolean $stack3, $stack6, $stack9, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != this goto label1;
+
+        return 1;
+
+     label1:
+        if obj != null goto label2;
+
+        return 0;
+
+     label2:
+        $stack3 = specialinvoke this.<java.text.MessageFormat: boolean equals(java.lang.Object)>(obj);
+
+        if $stack3 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        $stack4 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack5 = virtualinvoke obj.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        if $stack6 == 0 goto label4;
+
+        return 0;
+
+     label4:
+        rhs = (org.apache.commons.lang3.text.ExtendedMessageFormat) obj;
+
+        $stack8 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern>;
+
+        $stack7 = rhs.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>($stack8, $stack7);
+
+        if $stack9 == 0 goto label5;
+
+        return 0;
+
+     label5:
+        $stack11 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        $stack10 = rhs.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>($stack11, $stack10);
+
+        if $stack12 == 0 goto label6;
+
+        return 0;
+
+     label6:
+        return 1;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Map $stack3;
+        int $stack2, $stack4, $stack5, $stack7, $stack8, result;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        $stack2 = specialinvoke this.<java.text.MessageFormat: int hashCode()>();
+
+        $stack4 = 31 * $stack2;
+
+        $stack3 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCode(java.lang.Object)>($stack3);
+
+        result = $stack4 + $stack5;
+
+        $stack7 = 31 * result;
+
+        $stack6 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String toPattern>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCode(java.lang.Object)>($stack6);
+
+        result = $stack7 + $stack8;
+
+        return result;
+    }
+
+    private java.text.Format getFormat(java.lang.String)
+    {
+        org.apache.commons.lang3.text.FormatFactory $stack20;
+        java.text.Format $stack12;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Locale $stack11;
+        java.util.Map $stack6, $stack8;
+        int $stack7, $stack15;
+        java.lang.Object $stack9;
+        java.lang.String desc, $stack13, $stack16, name, args;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        desc := @parameter0: java.lang.String;
+
+        $stack6 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        if $stack6 == null goto label2;
+
+        name = desc;
+
+        args = null;
+
+        $stack7 = virtualinvoke desc.<java.lang.String: int indexOf(int)>(44);
+
+        if $stack7 <= 0 goto label1;
+
+        $stack13 = virtualinvoke desc.<java.lang.String: java.lang.String substring(int,int)>(0, $stack7);
+
+        name = virtualinvoke $stack13.<java.lang.String: java.lang.String trim()>();
+
+        $stack15 = $stack7 + 1;
+
+        $stack16 = virtualinvoke desc.<java.lang.String: java.lang.String substring(int)>($stack15);
+
+        args = virtualinvoke $stack16.<java.lang.String: java.lang.String trim()>();
+
+     label1:
+        $stack8 = this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Map registry>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.Map: java.lang.Object get(java.lang.Object)>(name);
+
+        $stack20 = (org.apache.commons.lang3.text.FormatFactory) $stack9;
+
+        if $stack20 == null goto label2;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.util.Locale getLocale()>();
+
+        $stack12 = interfaceinvoke $stack20.<org.apache.commons.lang3.text.FormatFactory: java.text.Format getFormat(java.lang.String,java.lang.String,java.util.Locale)>(name, args, $stack11);
+
+        return $stack12;
+
+     label2:
+        return null;
+    }
+
+    private int readArgumentIndex(java.lang.String, java.text.ParsePosition)
+    {
+        boolean $stack29, error, $stack31, $stack35;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.lang.StringBuilder $stack12, $stack13, $stack17, $stack18, $stack19, $stack22, $u1, $u3;
+        java.text.ParsePosition pos;
+        java.lang.StringBuffer $u0;
+        int $stack8, $stack20, $stack24, $stack25, $stack27, $stack30, $stack41, $stack44, $i0, $i1, $i2, $i3;
+        java.lang.String pattern, $stack14, $stack21, $stack23, $stack40;
+        char $stack28, $stack45, c;
+        java.lang.NumberFormatException $stack48;
+        java.lang.IllegalArgumentException $u2, $u4;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack8 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void seekNonWs(java.lang.String,java.text.ParsePosition)>(pattern, pos);
+
+        $u0 = new java.lang.StringBuffer;
+
+        specialinvoke $u0.<java.lang.StringBuffer: void <init>()>();
+
+        error = 0;
+
+     label01:
+        if error != 0 goto label11;
+
+        $stack24 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack25 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if $stack24 >= $stack25 goto label11;
+
+        $stack27 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack28 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack27);
+
+        c = $stack28;
+
+        $stack29 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>($stack28);
+
+        if $stack29 == 0 goto label02;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void seekNonWs(java.lang.String,java.text.ParsePosition)>(pattern, pos);
+
+        $stack44 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack45 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack44);
+
+        c = $stack45;
+
+        $i0 = (int) $stack45;
+
+        if $i0 == 44 goto label02;
+
+        $i1 = (int) $stack45;
+
+        if $i1 == 125 goto label02;
+
+        error = 1;
+
+        goto label10;
+
+     label02:
+        $i2 = (int) c;
+
+        if $i2 == 44 goto label03;
+
+        $i3 = (int) c;
+
+        if $i3 != 125 goto label07;
+
+     label03:
+        $stack30 = virtualinvoke $u0.<java.lang.StringBuffer: int length()>();
+
+        if $stack30 <= 0 goto label07;
+
+     label04:
+        $stack40 = virtualinvoke $u0.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        $stack41 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>($stack40);
+
+     label05:
+        return $stack41;
+
+     label06:
+        $stack48 := @caughtexception;
+
+     label07:
+        $stack31 = staticinvoke <java.lang.Character: boolean isDigit(char)>(c);
+
+        if $stack31 != 0 goto label08;
+
+        $stack35 = 1;
+
+        goto label09;
+
+     label08:
+        $stack35 = 0;
+
+     label09:
+        error = $stack35;
+
+        virtualinvoke $u0.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>(c);
+
+     label10:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>(pos);
+
+        goto label01;
+
+     label11:
+        if error == 0 goto label12;
+
+        $u2 = new java.lang.IllegalArgumentException;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid format argument index at position ");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack8);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack20 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack21 = virtualinvoke pattern.<java.lang.String: java.lang.String substring(int,int)>($stack8, $stack20);
+
+        $stack22 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack21);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack23);
+
+        throw $u2;
+
+     label12:
+        $u4 = new java.lang.IllegalArgumentException;
+
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unterminated format element at position ");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack8);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack14);
+
+        throw $u4;
+
+        catch java.lang.NumberFormatException from label04 to label05 with label06;
+    }
+
+    private java.lang.String parseFormatDescription(java.lang.String, java.text.ParsePosition)
+    {
+        java.text.ParsePosition pos;
+        int $stack6, $stack7, $stack8, $stack9, $stack15, $stack20, depth, $i0, $i1;
+        java.lang.String pattern, $stack14, $stack21;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        char $stack16;
+        java.lang.IllegalArgumentException $u1;
+        java.lang.StringBuilder $stack12, $stack13, $u0;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack6 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void seekNonWs(java.lang.String,java.text.ParsePosition)>(pattern, pos);
+
+        $stack7 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        depth = 1;
+
+     label1:
+        $stack8 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack9 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if $stack8 >= $stack9 goto label6;
+
+        $stack15 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack16 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack15);
+
+        $i0 = (int) $stack16;
+
+        lookupswitch($i0)
+        {
+            case 39: goto label4;
+            case 123: goto label2;
+            case 125: goto label3;
+            default: goto label5;
+        };
+
+     label2:
+        depth = depth + 1;
+
+        goto label5;
+
+     label3:
+        $i1 = (int) -1;
+
+        depth = depth + $i1;
+
+        if depth != 0 goto label5;
+
+        $stack20 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack21 = virtualinvoke pattern.<java.lang.String: java.lang.String substring(int,int)>($stack7, $stack20);
+
+        return $stack21;
+
+     label4:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: void getQuotedString(java.lang.String,java.text.ParsePosition,boolean)>(pattern, pos, 0);
+
+     label5:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>(pos);
+
+        goto label1;
+
+     label6:
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unterminated format element at position ");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack6);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack14);
+
+        throw $u1;
+    }
+
+    private java.lang.String insertFormats(java.lang.String, java.util.ArrayList)
+    {
+        java.text.ParsePosition $stack24, $u1;
+        java.util.ArrayList customPatterns;
+        int $stack11, $stack12, $stack14, $stack15, $stack17, $stack25, fe, depth, $i0, $i1, $i2;
+        java.lang.String pattern, $stack16, customPattern;
+        boolean $stack9;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        char $stack18;
+        java.lang.StringBuilder $stack23, $stack28, $u0;
+        java.lang.Object $stack27;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        customPatterns := @parameter1: java.util.ArrayList;
+
+        $stack9 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: boolean containsElements(java.util.Collection)>(customPatterns);
+
+        if $stack9 != 0 goto label1;
+
+        return pattern;
+
+     label1:
+        $u0 = new java.lang.StringBuilder;
+
+        $stack11 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        $stack12 = $stack11 * 2;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(int)>($stack12);
+
+        $u1 = new java.text.ParsePosition;
+
+        specialinvoke $u1.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $i0 = (int) -1;
+
+        fe = $i0;
+
+        depth = 0;
+
+     label2:
+        $stack14 = virtualinvoke $u1.<java.text.ParsePosition: int getIndex()>();
+
+        $stack15 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if $stack14 >= $stack15 goto label9;
+
+        $stack17 = virtualinvoke $u1.<java.text.ParsePosition: int getIndex()>();
+
+        $stack18 = virtualinvoke pattern.<java.lang.String: char charAt(int)>($stack17);
+
+        $i1 = (int) $stack18;
+
+        lookupswitch($i1)
+        {
+            case 39: goto label3;
+            case 123: goto label4;
+            case 125: goto label6;
+            default: goto label7;
+        };
+
+     label3:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.StringBuilder appendQuotedString(java.lang.String,java.text.ParsePosition,java.lang.StringBuilder,boolean)>(pattern, $u1, $u0, 0);
+
+        goto label8;
+
+     label4:
+        depth = depth + 1;
+
+        if depth != 1 goto label8;
+
+        fe = fe + 1;
+
+        $stack23 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(123);
+
+        $stack24 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>($u1);
+
+        $stack25 = specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: int readArgumentIndex(java.lang.String,java.text.ParsePosition)>(pattern, $stack24);
+
+        virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack25);
+
+        $stack27 = virtualinvoke customPatterns.<java.util.ArrayList: java.lang.Object get(int)>(fe);
+
+        customPattern = (java.lang.String) $stack27;
+
+        if customPattern == null goto label5;
+
+        $stack28 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(44);
+
+        virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(customPattern);
+
+     label5:
+        goto label8;
+
+     label6:
+        $i2 = (int) -1;
+
+        depth = depth + $i2;
+
+     label7:
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>($stack18);
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>($u1);
+
+     label8:
+        goto label2;
+
+     label9:
+        $stack16 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack16;
+    }
+
+    private void seekNonWs(java.lang.String, java.text.ParsePosition)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.text.ParsePosition pos;
+        org.apache.commons.lang3.text.StrMatcher $stack6;
+        int $stack7, $stack8, $stack9, $stack10, $stack11, $stack12;
+        char[] $stack5;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        $stack5 = virtualinvoke pattern.<java.lang.String: char[] toCharArray()>();
+
+     label1:
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        $stack7 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int)>($stack5, $stack7);
+
+        $stack9 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack10 = $stack9 + $stack8;
+
+        virtualinvoke pos.<java.text.ParsePosition: void setIndex(int)>($stack10);
+
+        if $stack8 <= 0 goto label2;
+
+        $stack11 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack12 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if $stack11 < $stack12 goto label1;
+
+     label2:
+        return;
+    }
+
+    private java.text.ParsePosition next(java.text.ParsePosition)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.text.ParsePosition pos;
+        int $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pos := @parameter0: java.text.ParsePosition;
+
+        $stack2 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack3 = $stack2 + 1;
+
+        virtualinvoke pos.<java.text.ParsePosition: void setIndex(int)>($stack3);
+
+        return pos;
+    }
+
+    private java.lang.StringBuilder appendQuotedString(java.lang.String, java.text.ParsePosition, java.lang.StringBuilder, boolean)
+    {
+        boolean escapingOn, $stack28;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.lang.StringBuilder $stack15, $stack16, appendTo, $stack33, $stack43, $stack23, $u0;
+        java.text.ParsePosition pos;
+        int $stack9, $stack18, $stack21, $stack22, $stack31, $stack32, $stack36, $stack37, lastHold, i, $stack12, $i0, $i1;
+        java.lang.String pattern, $stack17, $stack27, $stack35;
+        char $stack19, $stack39;
+        java.lang.IllegalArgumentException $u1;
+        char[] $stack10;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        appendTo := @parameter2: java.lang.StringBuilder;
+
+        escapingOn := @parameter3: boolean;
+
+        $stack9 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack10 = virtualinvoke pattern.<java.lang.String: char[] toCharArray()>();
+
+        if escapingOn == 0 goto label03;
+
+        $stack39 = $stack10[$stack9];
+
+        $i0 = (int) $stack39;
+
+        if $i0 != 39 goto label03;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>(pos);
+
+        if appendTo != null goto label01;
+
+        $stack43 = null;
+
+        goto label02;
+
+     label01:
+        $stack43 = virtualinvoke appendTo.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+     label02:
+        return $stack43;
+
+     label03:
+        lastHold = $stack9;
+
+        i = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+     label04:
+        $stack12 = virtualinvoke pattern.<java.lang.String: int length()>();
+
+        if i >= $stack12 goto label11;
+
+        if escapingOn == 0 goto label05;
+
+        $stack27 = virtualinvoke pattern.<java.lang.String: java.lang.String substring(int)>(i);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.String: boolean startsWith(java.lang.String)>("\'\'");
+
+        if $stack28 == 0 goto label05;
+
+        $stack31 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack32 = $stack31 - lastHold;
+
+        $stack33 = virtualinvoke appendTo.<java.lang.StringBuilder: java.lang.StringBuilder append(char[],int,int)>($stack10, lastHold, $stack32);
+
+        virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(39);
+
+        $stack35 = "\'\'";
+
+        $stack36 = virtualinvoke $stack35.<java.lang.String: int length()>();
+
+        $stack37 = i + $stack36;
+
+        virtualinvoke pos.<java.text.ParsePosition: void setIndex(int)>($stack37);
+
+        lastHold = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        goto label10;
+
+     label05:
+        $stack18 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack19 = $stack10[$stack18];
+
+        $i1 = (int) $stack19;
+
+        lookupswitch($i1)
+        {
+            case 39: goto label06;
+            default: goto label09;
+        };
+
+     label06:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>(pos);
+
+        if appendTo != null goto label07;
+
+        $stack23 = null;
+
+        goto label08;
+
+     label07:
+        $stack21 = virtualinvoke pos.<java.text.ParsePosition: int getIndex()>();
+
+        $stack22 = $stack21 - lastHold;
+
+        $stack23 = virtualinvoke appendTo.<java.lang.StringBuilder: java.lang.StringBuilder append(char[],int,int)>($stack10, lastHold, $stack22);
+
+     label08:
+        return $stack23;
+
+     label09:
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.text.ParsePosition next(java.text.ParsePosition)>(pos);
+
+     label10:
+        i = i + 1;
+
+        goto label04;
+
+     label11:
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack15 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unterminated quoted string at position ");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack9);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack17);
+
+        throw $u1;
+    }
+
+    private void getQuotedString(java.lang.String, java.text.ParsePosition, boolean)
+    {
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.text.ParsePosition pos;
+        java.lang.String pattern;
+        boolean escapingOn;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        pattern := @parameter0: java.lang.String;
+
+        pos := @parameter1: java.text.ParsePosition;
+
+        escapingOn := @parameter2: boolean;
+
+        specialinvoke this.<org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.StringBuilder appendQuotedString(java.lang.String,java.text.ParsePosition,java.lang.StringBuilder,boolean)>(pattern, pos, null, escapingOn);
+
+        return;
+    }
+
+    private boolean containsElements(java.util.Collection)
+    {
+        java.util.Iterator $stack5;
+        org.apache.commons.lang3.text.ExtendedMessageFormat this;
+        java.util.Collection coll;
+        java.lang.Object $stack7;
+        boolean $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.ExtendedMessageFormat;
+
+        coll := @parameter0: java.util.Collection;
+
+        if coll == null goto label1;
+
+        $stack4 = interfaceinvoke coll.<java.util.Collection: boolean isEmpty()>();
+
+        if $stack4 == 0 goto label2;
+
+     label1:
+        return 0;
+
+     label2:
+        $stack5 = interfaceinvoke coll.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label3:
+        $stack6 = interfaceinvoke $stack5.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack6 == 0 goto label5;
+
+        $stack7 = interfaceinvoke $stack5.<java.util.Iterator: java.lang.Object next()>();
+
+        if $stack7 == null goto label4;
+
+        return 1;
+
+     label4:
+        goto label3;
+
+     label5:
+        return 0;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: char QUOTE> = 39;
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: char START_FE> = 123;
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: char END_FE> = 125;
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: char START_FMT> = 44;
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String ESCAPED_QUOTE> = "\'\'";
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: java.lang.String DUMMY_PATTERN> = "";
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: int HASH_SEED> = 31;
+
+        <org.apache.commons.lang3.text.ExtendedMessageFormat: long serialVersionUID> = -2362048321261811743L;
+
+        return;
+    }
+}

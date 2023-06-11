@@ -1,0 +1,389 @@
+public class org.apache.commons.lang3.time.DateFormatUtils extends java.lang.Object
+{
+    private static final java.util.TimeZone UTC_TIME_ZONE;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_TIME_ZONE_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_DATE_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_DATE_TIME_ZONE_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_TIME_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_TIME_TIME_ZONE_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_TIME_NO_T_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat ISO_TIME_NO_T_TIME_ZONE_FORMAT;
+    public static final org.apache.commons.lang3.time.FastDateFormat SMTP_DATETIME_FORMAT;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DateFormatUtils this;
+
+        this := @this: org.apache.commons.lang3.time.DateFormatUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String formatUTC(long, java.lang.String)
+    {
+        java.util.Date $stack3;
+        java.util.TimeZone $stack4;
+        long millis;
+        java.lang.String pattern, $stack5;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack3 = new java.util.Date;
+
+        specialinvoke $stack3.<java.util.Date: void <init>(long)>(millis);
+
+        $stack4 = <org.apache.commons.lang3.time.DateFormatUtils: java.util.TimeZone UTC_TIME_ZONE>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack3, pattern, $stack4, null);
+
+        return $stack5;
+    }
+
+    public static java.lang.String formatUTC(java.util.Date, java.lang.String)
+    {
+        java.util.Date date;
+        java.util.TimeZone $stack2;
+        java.lang.String pattern, $stack3;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack2 = <org.apache.commons.lang3.time.DateFormatUtils: java.util.TimeZone UTC_TIME_ZONE>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>(date, pattern, $stack2, null);
+
+        return $stack3;
+    }
+
+    public static java.lang.String formatUTC(long, java.lang.String, java.util.Locale)
+    {
+        java.util.Date $stack4;
+        java.util.Locale locale;
+        java.util.TimeZone $stack5;
+        long millis;
+        java.lang.String pattern, $stack6;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack4 = new java.util.Date;
+
+        specialinvoke $stack4.<java.util.Date: void <init>(long)>(millis);
+
+        $stack5 = <org.apache.commons.lang3.time.DateFormatUtils: java.util.TimeZone UTC_TIME_ZONE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack4, pattern, $stack5, locale);
+
+        return $stack6;
+    }
+
+    public static java.lang.String formatUTC(java.util.Date, java.lang.String, java.util.Locale)
+    {
+        java.util.Date date;
+        java.util.Locale locale;
+        java.util.TimeZone $stack3;
+        java.lang.String pattern, $stack4;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = <org.apache.commons.lang3.time.DateFormatUtils: java.util.TimeZone UTC_TIME_ZONE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>(date, pattern, $stack3, locale);
+
+        return $stack4;
+    }
+
+    public static java.lang.String format(long, java.lang.String)
+    {
+        java.util.Date $stack3;
+        long millis;
+        java.lang.String pattern, $stack4;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack3 = new java.util.Date;
+
+        specialinvoke $stack3.<java.util.Date: void <init>(long)>(millis);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack3, pattern, null, null);
+
+        return $stack4;
+    }
+
+    public static java.lang.String format(java.util.Date, java.lang.String)
+    {
+        java.lang.String pattern, $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>(date, pattern, null, null);
+
+        return $stack2;
+    }
+
+    public static java.lang.String format(java.util.Calendar, java.lang.String)
+    {
+        java.util.Calendar calendar;
+        java.lang.String pattern, $stack2;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        pattern := @parameter1: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Calendar,java.lang.String,java.util.TimeZone,java.util.Locale)>(calendar, pattern, null, null);
+
+        return $stack2;
+    }
+
+    public static java.lang.String format(long, java.lang.String, java.util.TimeZone)
+    {
+        java.util.Date $stack4;
+        java.util.TimeZone timeZone;
+        long millis;
+        java.lang.String pattern, $stack5;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        $stack4 = new java.util.Date;
+
+        specialinvoke $stack4.<java.util.Date: void <init>(long)>(millis);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack4, pattern, timeZone, null);
+
+        return $stack5;
+    }
+
+    public static java.lang.String format(java.util.Date, java.lang.String, java.util.TimeZone)
+    {
+        java.util.Date date;
+        java.util.TimeZone timeZone;
+        java.lang.String pattern, $stack3;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>(date, pattern, timeZone, null);
+
+        return $stack3;
+    }
+
+    public static java.lang.String format(java.util.Calendar, java.lang.String, java.util.TimeZone)
+    {
+        java.util.Calendar calendar;
+        java.util.TimeZone timeZone;
+        java.lang.String pattern, $stack3;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Calendar,java.lang.String,java.util.TimeZone,java.util.Locale)>(calendar, pattern, timeZone, null);
+
+        return $stack3;
+    }
+
+    public static java.lang.String format(long, java.lang.String, java.util.Locale)
+    {
+        java.util.Date $stack4;
+        java.util.Locale locale;
+        long millis;
+        java.lang.String pattern, $stack5;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack4 = new java.util.Date;
+
+        specialinvoke $stack4.<java.util.Date: void <init>(long)>(millis);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack4, pattern, null, locale);
+
+        return $stack5;
+    }
+
+    public static java.lang.String format(java.util.Date, java.lang.String, java.util.Locale)
+    {
+        java.util.Date date;
+        java.util.Locale locale;
+        java.lang.String pattern, $stack3;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>(date, pattern, null, locale);
+
+        return $stack3;
+    }
+
+    public static java.lang.String format(java.util.Calendar, java.lang.String, java.util.Locale)
+    {
+        java.util.Calendar calendar;
+        java.util.Locale locale;
+        java.lang.String pattern, $stack3;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        pattern := @parameter1: java.lang.String;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Calendar,java.lang.String,java.util.TimeZone,java.util.Locale)>(calendar, pattern, null, locale);
+
+        return $stack3;
+    }
+
+    public static java.lang.String format(long, java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        java.util.Date $stack5;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        long millis;
+        java.lang.String pattern, $stack6;
+
+        millis := @parameter0: long;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack5 = new java.util.Date;
+
+        specialinvoke $stack5.<java.util.Date: void <init>(long)>(millis);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateFormatUtils: java.lang.String format(java.util.Date,java.lang.String,java.util.TimeZone,java.util.Locale)>($stack5, pattern, timeZone, locale);
+
+        return $stack6;
+    }
+
+    public static java.lang.String format(java.util.Date, java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.util.Date date;
+        java.lang.String pattern, $stack6;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        date := @parameter0: java.util.Date;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Date)>(date);
+
+        return $stack6;
+    }
+
+    public static java.lang.String format(java.util.Calendar, java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        java.util.Calendar calendar;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String pattern, $stack6;
+        org.apache.commons.lang3.time.FastDateFormat $stack5;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        pattern := @parameter1: java.lang.String;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        locale := @parameter3: java.util.Locale;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String format(java.util.Calendar)>(calendar);
+
+        return $stack6;
+    }
+
+    static void <clinit>()
+    {
+        java.util.TimeZone $stack0;
+        org.apache.commons.lang3.time.FastDateFormat $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack10;
+        java.util.Locale $stack9;
+
+        $stack0 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("GMT");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: java.util.TimeZone UTC_TIME_ZONE> = $stack0;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ss");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_FORMAT> = $stack1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ssZZ");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATETIME_TIME_ZONE_FORMAT> = $stack2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-dd");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATE_FORMAT> = $stack3;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-ddZZ");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_DATE_TIME_ZONE_FORMAT> = $stack4;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("\'T\'HH:mm:ss");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_TIME_FORMAT> = $stack5;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("\'T\'HH:mm:ssZZ");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_TIME_TIME_ZONE_FORMAT> = $stack6;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("HH:mm:ss");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_TIME_NO_T_FORMAT> = $stack7;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("HH:mm:ssZZ");
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat ISO_TIME_NO_T_TIME_ZONE_FORMAT> = $stack8;
+
+        $stack9 = <java.util.Locale: java.util.Locale US>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.Locale)>("EEE, dd MMM yyyy HH:mm:ss Z", $stack9);
+
+        <org.apache.commons.lang3.time.DateFormatUtils: org.apache.commons.lang3.time.FastDateFormat SMTP_DATETIME_FORMAT> = $stack10;
+
+        return;
+    }
+}

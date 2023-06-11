@@ -1,0 +1,1322 @@
+public class org.apache.commons.lang3.text.StrSubstitutor extends java.lang.Object
+{
+    public static final char DEFAULT_ESCAPE;
+    public static final org.apache.commons.lang3.text.StrMatcher DEFAULT_PREFIX;
+    public static final org.apache.commons.lang3.text.StrMatcher DEFAULT_SUFFIX;
+    private char escapeChar;
+    private org.apache.commons.lang3.text.StrMatcher prefixMatcher;
+    private org.apache.commons.lang3.text.StrMatcher suffixMatcher;
+    private org.apache.commons.lang3.text.StrLookup variableResolver;
+    private boolean enableSubstitutionInVariables;
+
+    public static java.lang.String replace(java.lang.Object, java.util.Map)
+    {
+        java.util.Map valueMap;
+        java.lang.Object source;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrSubstitutor $stack2;
+
+        source := @parameter0: java.lang.Object;
+
+        valueMap := @parameter1: java.util.Map;
+
+        $stack2 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map)>(valueMap);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object)>(source);
+
+        return $stack3;
+    }
+
+    public static java.lang.String replace(java.lang.Object, java.util.Map, java.lang.String, java.lang.String)
+    {
+        java.util.Map valueMap;
+        java.lang.Object source;
+        java.lang.String prefix, suffix, $stack5;
+        org.apache.commons.lang3.text.StrSubstitutor $stack4;
+
+        source := @parameter0: java.lang.Object;
+
+        valueMap := @parameter1: java.util.Map;
+
+        prefix := @parameter2: java.lang.String;
+
+        suffix := @parameter3: java.lang.String;
+
+        $stack4 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(java.util.Map,java.lang.String,java.lang.String)>(valueMap, prefix, suffix);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object)>(source);
+
+        return $stack5;
+    }
+
+    public static java.lang.String replace(java.lang.Object, java.util.Properties)
+    {
+        java.util.Properties valueProperties;
+        java.util.Enumeration $stack7;
+        java.util.HashMap $stack6;
+        java.lang.Object source, $stack10;
+        java.lang.String $stack9, propName, $stack11, $stack14;
+        boolean $stack8;
+
+        source := @parameter0: java.lang.Object;
+
+        valueProperties := @parameter1: java.util.Properties;
+
+        if valueProperties != null goto label1;
+
+        $stack14 = virtualinvoke source.<java.lang.Object: java.lang.String toString()>();
+
+        return $stack14;
+
+     label1:
+        $stack6 = new java.util.HashMap;
+
+        specialinvoke $stack6.<java.util.HashMap: void <init>()>();
+
+        $stack7 = virtualinvoke valueProperties.<java.util.Properties: java.util.Enumeration propertyNames()>();
+
+     label2:
+        $stack8 = interfaceinvoke $stack7.<java.util.Enumeration: boolean hasMoreElements()>();
+
+        if $stack8 == 0 goto label3;
+
+        $stack10 = interfaceinvoke $stack7.<java.util.Enumeration: java.lang.Object nextElement()>();
+
+        propName = (java.lang.String) $stack10;
+
+        $stack11 = virtualinvoke valueProperties.<java.util.Properties: java.lang.String getProperty(java.lang.String)>(propName);
+
+        interfaceinvoke $stack6.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(propName, $stack11);
+
+        goto label2;
+
+     label3:
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object,java.util.Map)>(source, $stack6);
+
+        return $stack9;
+    }
+
+    public static java.lang.String replaceSystemProperties(java.lang.Object)
+    {
+        java.lang.Object source;
+        org.apache.commons.lang3.text.StrLookup $stack2;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrSubstitutor $stack1;
+
+        source := @parameter0: java.lang.Object;
+
+        $stack1 = new org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup)>($stack2);
+
+        $stack3 = virtualinvoke $stack1.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String replace(java.lang.Object)>(source);
+
+        return $stack3;
+    }
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack2 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_PREFIX>;
+
+        $stack1 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_SUFFIX>;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup,org.apache.commons.lang3.text.StrMatcher,org.apache.commons.lang3.text.StrMatcher,char)>(null, $stack2, $stack1, 36);
+
+        return;
+    }
+
+    public void <init>(java.util.Map)
+    {
+        java.util.Map valueMap;
+        org.apache.commons.lang3.text.StrLookup $stack2;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        valueMap := @parameter0: java.util.Map;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(valueMap);
+
+        $stack4 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_PREFIX>;
+
+        $stack3 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_SUFFIX>;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup,org.apache.commons.lang3.text.StrMatcher,org.apache.commons.lang3.text.StrMatcher,char)>($stack2, $stack4, $stack3, 36);
+
+        return;
+    }
+
+    public void <init>(java.util.Map, java.lang.String, java.lang.String)
+    {
+        java.util.Map valueMap;
+        org.apache.commons.lang3.text.StrLookup $stack4;
+        java.lang.String prefix, suffix;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        valueMap := @parameter0: java.util.Map;
+
+        prefix := @parameter1: java.lang.String;
+
+        suffix := @parameter2: java.lang.String;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(valueMap);
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup,java.lang.String,java.lang.String,char)>($stack4, prefix, suffix, 36);
+
+        return;
+    }
+
+    public void <init>(java.util.Map, java.lang.String, java.lang.String, char)
+    {
+        java.util.Map valueMap;
+        char escape;
+        org.apache.commons.lang3.text.StrLookup $stack5;
+        java.lang.String prefix, suffix;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        valueMap := @parameter0: java.util.Map;
+
+        prefix := @parameter1: java.lang.String;
+
+        suffix := @parameter2: java.lang.String;
+
+        escape := @parameter3: char;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(valueMap);
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup,java.lang.String,java.lang.String,char)>($stack5, prefix, suffix, escape);
+
+        return;
+    }
+
+    public void <init>(org.apache.commons.lang3.text.StrLookup)
+    {
+        org.apache.commons.lang3.text.StrLookup variableResolver;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        variableResolver := @parameter0: org.apache.commons.lang3.text.StrLookup;
+
+        $stack3 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_PREFIX>;
+
+        $stack2 = <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_SUFFIX>;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void <init>(org.apache.commons.lang3.text.StrLookup,org.apache.commons.lang3.text.StrMatcher,org.apache.commons.lang3.text.StrMatcher,char)>(variableResolver, $stack3, $stack2, 36);
+
+        return;
+    }
+
+    public void <init>(org.apache.commons.lang3.text.StrLookup, java.lang.String, java.lang.String, char)
+    {
+        char escape;
+        org.apache.commons.lang3.text.StrLookup variableResolver;
+        java.lang.String prefix, suffix;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        variableResolver := @parameter0: org.apache.commons.lang3.text.StrLookup;
+
+        prefix := @parameter1: java.lang.String;
+
+        suffix := @parameter2: java.lang.String;
+
+        escape := @parameter3: char;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void setVariableResolver(org.apache.commons.lang3.text.StrLookup)>(variableResolver);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(java.lang.String)>(prefix);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(java.lang.String)>(suffix);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void setEscapeChar(char)>(escape);
+
+        return;
+    }
+
+    public void <init>(org.apache.commons.lang3.text.StrLookup, org.apache.commons.lang3.text.StrMatcher, org.apache.commons.lang3.text.StrMatcher, char)
+    {
+        char escape;
+        org.apache.commons.lang3.text.StrLookup variableResolver;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher prefixMatcher, suffixMatcher;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        variableResolver := @parameter0: org.apache.commons.lang3.text.StrLookup;
+
+        prefixMatcher := @parameter1: org.apache.commons.lang3.text.StrMatcher;
+
+        suffixMatcher := @parameter2: org.apache.commons.lang3.text.StrMatcher;
+
+        escape := @parameter3: char;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void setVariableResolver(org.apache.commons.lang3.text.StrLookup)>(variableResolver);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)>(prefixMatcher);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)>(suffixMatcher);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void setEscapeChar(char)>(escape);
+
+        return;
+    }
+
+    public java.lang.String replace(java.lang.String)
+    {
+        int $stack5;
+        java.lang.String source, $stack7;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack3;
+        boolean $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.String;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>(source);
+
+        $stack5 = virtualinvoke source.<java.lang.String: int length()>();
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack3, 0, $stack5);
+
+        if $stack6 != 0 goto label2;
+
+        return source;
+
+     label2:
+        $stack7 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack7;
+    }
+
+    public java.lang.String replace(java.lang.String, int, int)
+    {
+        int length, offset, $stack9;
+        java.lang.String source, $stack8, $stack10;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack6;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.String;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(length);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>(source, offset, length);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack6, 0, length);
+
+        if $stack7 != 0 goto label2;
+
+        $stack9 = offset + length;
+
+        $stack10 = virtualinvoke source.<java.lang.String: java.lang.String substring(int,int)>(offset, $stack9);
+
+        return $stack10;
+
+     label2:
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public java.lang.String replace(char[])
+    {
+        int $stack4, $stack6;
+        char[] source;
+        java.lang.String $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: char[];
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        $stack4 = lengthof source;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>($stack4);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[])>(source);
+
+        $stack6 = lengthof source;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack5, 0, $stack6);
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public java.lang.String replace(char[], int, int)
+    {
+        int length, offset;
+        char[] source;
+        java.lang.String $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: char[];
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(length);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>(source, offset, length);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack6, 0, length);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public java.lang.String replace(java.lang.StringBuffer)
+    {
+        java.lang.StringBuffer source;
+        int $stack4, $stack7;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.StringBuffer;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        $stack4 = virtualinvoke source.<java.lang.StringBuffer: int length()>();
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>($stack4);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>(source);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack5, 0, $stack7);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack9;
+    }
+
+    public java.lang.String replace(java.lang.StringBuffer, int, int)
+    {
+        java.lang.StringBuffer source;
+        int length, offset;
+        java.lang.String $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.StringBuffer;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(length);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>(source, offset, length);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack6, 0, length);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public java.lang.String replace(org.apache.commons.lang3.text.StrBuilder)
+    {
+        int $stack4, $stack7;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder source, $stack3, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        $stack4 = virtualinvoke source.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>($stack4);
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>(source);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack5, 0, $stack7);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack9;
+    }
+
+    public java.lang.String replace(org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int length, offset;
+        java.lang.String $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder source, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(length);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>(source, offset, length);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack6, 0, length);
+
+        $stack8 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public java.lang.String replace(java.lang.Object)
+    {
+        int $stack6;
+        java.lang.Object source;
+        java.lang.String $stack8;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.Object;
+
+        if source != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>(source);
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack4, 0, $stack6);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack8;
+    }
+
+    public boolean replaceIn(java.lang.StringBuffer)
+    {
+        java.lang.StringBuffer source;
+        int $stack3;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.StringBuffer;
+
+        if source != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = virtualinvoke source.<java.lang.StringBuffer: int length()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean replaceIn(java.lang.StringBuffer,int,int)>(source, 0, $stack3);
+
+        return $stack4;
+    }
+
+    public boolean replaceIn(java.lang.StringBuffer, int, int)
+    {
+        java.lang.StringBuffer source;
+        int length, offset, $stack8;
+        java.lang.String $stack9;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack6;
+        boolean $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: java.lang.StringBuffer;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(length);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>(source, offset, length);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($stack6, 0, length);
+
+        if $stack7 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $stack8 = offset + length;
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        virtualinvoke source.<java.lang.StringBuffer: java.lang.StringBuffer replace(int,int,java.lang.String)>(offset, $stack8, $stack9);
+
+        return 1;
+    }
+
+    public boolean replaceIn(org.apache.commons.lang3.text.StrBuilder)
+    {
+        int $stack3;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder source;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        if source != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack3 = virtualinvoke source.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>(source, 0, $stack3);
+
+        return $stack4;
+    }
+
+    public boolean replaceIn(org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int offset, length;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder source;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        source := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if source != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>(source, offset, length);
+
+        return $stack4;
+    }
+
+    protected boolean substitute(org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int offset, length, $stack4;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder buf;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        buf := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        $stack4 = specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: int substitute(org.apache.commons.lang3.text.StrBuilder,int,int,java.util.List)>(buf, offset, length, null);
+
+        if $stack4 <= 0 goto label1;
+
+        $stack5 = 1;
+
+        goto label2;
+
+     label1:
+        $stack5 = 0;
+
+     label2:
+        return $stack5;
+    }
+
+    private int substitute(org.apache.commons.lang3.text.StrBuilder, int, int, java.util.List)
+    {
+        byte $stack26;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        boolean top, $stack30, $stack38, $stack93, altered;
+        java.util.List priorVariables;
+        org.apache.commons.lang3.text.StrBuilder buf, $u1;
+        org.apache.commons.lang3.text.StrMatcher $stack23, $stack24;
+        java.util.ArrayList $u2;
+        int offset, length, $stack27, startPos, $stack31, $stack35, $stack36, $stack37, $stack41, $stack42, $stack44, $stack46, $stack47, $stack48, $stack68, $stack73, $stack76, $stack83, $stack91, lengthChange, bufEnd, pos, nestedVarCount, change, $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack40, varName, $u0, $u3;
+        char $stack25, $stack84;
+        char[] chars;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        buf := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        offset := @parameter1: int;
+
+        length := @parameter2: int;
+
+        priorVariables := @parameter3: java.util.List;
+
+        $stack23 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()>();
+
+        $stack24 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()>();
+
+        $stack25 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: char getEscapeChar()>();
+
+        if priorVariables != null goto label01;
+
+        $stack93 = 1;
+
+        goto label02;
+
+     label01:
+        $stack93 = 0;
+
+     label02:
+        top = $stack93;
+
+        altered = 0;
+
+        lengthChange = 0;
+
+        chars = buf.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        bufEnd = offset + length;
+
+        pos = offset;
+
+     label03:
+        if pos >= bufEnd goto label14;
+
+        $stack27 = virtualinvoke $stack23.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, offset, bufEnd);
+
+        if $stack27 != 0 goto label04;
+
+        pos = pos + 1;
+
+        goto label13;
+
+     label04:
+        if pos <= offset goto label05;
+
+        $stack83 = pos - 1;
+
+        $stack84 = chars[$stack83];
+
+        $i0 = (int) $stack84;
+
+        $i1 = (int) $stack25;
+
+        if $i0 != $i1 goto label05;
+
+        $stack91 = pos - 1;
+
+        virtualinvoke buf.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder deleteCharAt(int)>($stack91);
+
+        chars = buf.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $i2 = (int) -1;
+
+        lengthChange = lengthChange + $i2;
+
+        altered = 1;
+
+        $i3 = (int) -1;
+
+        bufEnd = bufEnd + $i3;
+
+        goto label13;
+
+     label05:
+        startPos = pos;
+
+        pos = pos + $stack27;
+
+        nestedVarCount = 0;
+
+     label06:
+        if pos >= bufEnd goto label13;
+
+        $stack30 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean isEnableSubstitutionInVariables()>();
+
+        if $stack30 == 0 goto label07;
+
+        $stack76 = virtualinvoke $stack23.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, offset, bufEnd);
+
+        if $stack76 == 0 goto label07;
+
+        nestedVarCount = nestedVarCount + 1;
+
+        pos = pos + $stack76;
+
+        goto label06;
+
+     label07:
+        $stack31 = virtualinvoke $stack24.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, offset, bufEnd);
+
+        if $stack31 != 0 goto label08;
+
+        pos = pos + 1;
+
+        goto label06;
+
+     label08:
+        if nestedVarCount != 0 goto label12;
+
+        $u0 = new java.lang.String;
+
+        $stack37 = startPos + $stack27;
+
+        $stack35 = pos - startPos;
+
+        $stack36 = $stack35 - $stack27;
+
+        specialinvoke $u0.<java.lang.String: void <init>(char[],int,int)>(chars, $stack37, $stack36);
+
+        varName = $u0;
+
+        $stack38 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean isEnableSubstitutionInVariables()>();
+
+        if $stack38 == 0 goto label09;
+
+        $u1 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: void <init>(java.lang.String)>($u0);
+
+        $stack68 = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: boolean substitute(org.apache.commons.lang3.text.StrBuilder,int,int)>($u1, 0, $stack68);
+
+        varName = virtualinvoke $u1.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+     label09:
+        $stack73 = pos + $stack31;
+
+        pos = $stack73;
+
+        if priorVariables != null goto label10;
+
+        $u2 = new java.util.ArrayList;
+
+        specialinvoke $u2.<java.util.ArrayList: void <init>()>();
+
+        priorVariables = $u2;
+
+        $u3 = new java.lang.String;
+
+        specialinvoke $u3.<java.lang.String: void <init>(char[],int,int)>(chars, offset, length);
+
+        interfaceinvoke $u2.<java.util.List: boolean add(java.lang.Object)>($u3);
+
+     label10:
+        specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: void checkCyclicSubstitution(java.lang.String,java.util.List)>(varName, priorVariables);
+
+        interfaceinvoke priorVariables.<java.util.List: boolean add(java.lang.Object)>(varName);
+
+        $stack40 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: java.lang.String resolveVariable(java.lang.String,org.apache.commons.lang3.text.StrBuilder,int,int)>(varName, buf, startPos, $stack73);
+
+        if $stack40 == null goto label11;
+
+        $stack44 = virtualinvoke $stack40.<java.lang.String: int length()>();
+
+        virtualinvoke buf.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replace(int,int,java.lang.String)>(startPos, $stack73, $stack40);
+
+        altered = 1;
+
+        $stack46 = specialinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: int substitute(org.apache.commons.lang3.text.StrBuilder,int,int,java.util.List)>(buf, startPos, $stack44, priorVariables);
+
+        $stack48 = $stack46 + $stack44;
+
+        $stack47 = $stack73 - startPos;
+
+        change = $stack48 - $stack47;
+
+        pos = $stack73 + change;
+
+        bufEnd = bufEnd + change;
+
+        lengthChange = lengthChange + change;
+
+        chars = buf.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+     label11:
+        $stack41 = interfaceinvoke priorVariables.<java.util.List: int size()>();
+
+        $stack42 = $stack41 - 1;
+
+        interfaceinvoke priorVariables.<java.util.List: java.lang.Object remove(int)>($stack42);
+
+        goto label13;
+
+     label12:
+        $i4 = (int) -1;
+
+        nestedVarCount = nestedVarCount + $i4;
+
+        pos = pos + $stack31;
+
+        goto label06;
+
+     label13:
+        goto label03;
+
+     label14:
+        if top == 0 goto label17;
+
+        if altered == 0 goto label15;
+
+        $stack26 = 1;
+
+        goto label16;
+
+     label15:
+        $stack26 = 0;
+
+     label16:
+        return $stack26;
+
+     label17:
+        return lengthChange;
+    }
+
+    private void checkCyclicSubstitution(java.lang.String, java.util.List)
+    {
+        java.lang.IllegalStateException $stack12;
+        java.util.List priorVariables;
+        java.lang.Object $stack7;
+        java.lang.String varName, $stack8, $stack13;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder $stack5;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        varName := @parameter0: java.lang.String;
+
+        priorVariables := @parameter1: java.util.List;
+
+        $stack4 = interfaceinvoke priorVariables.<java.util.List: boolean contains(java.lang.Object)>(varName);
+
+        if $stack4 != 0 goto label1;
+
+        return;
+
+     label1:
+        $stack5 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(256);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>("Infinite loop in property interpolation of ");
+
+        $stack7 = interfaceinvoke priorVariables.<java.util.List: java.lang.Object remove(int)>(0);
+
+        $stack8 = (java.lang.String) $stack7;
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack8);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(": ");
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable,java.lang.String)>(priorVariables, "->");
+
+        $stack12 = new java.lang.IllegalStateException;
+
+        $stack13 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack12.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack13);
+
+        throw $stack12;
+    }
+
+    protected java.lang.String resolveVariable(java.lang.String, org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int startPos, endPos;
+        org.apache.commons.lang3.text.StrLookup $stack6;
+        java.lang.String variableName, $stack7;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrBuilder buf;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        variableName := @parameter0: java.lang.String;
+
+        buf := @parameter1: org.apache.commons.lang3.text.StrBuilder;
+
+        startPos := @parameter2: int;
+
+        endPos := @parameter3: int;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrLookup getVariableResolver()>();
+
+        if $stack6 != null goto label1;
+
+        return null;
+
+     label1:
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>(variableName);
+
+        return $stack7;
+    }
+
+    public char getEscapeChar()
+    {
+        char $stack1;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutor: char escapeChar>;
+
+        return $stack1;
+    }
+
+    public void setEscapeChar(char)
+    {
+        char escapeCharacter;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        escapeCharacter := @parameter0: char;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutor: char escapeChar> = escapeCharacter;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getVariablePrefixMatcher()
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher prefixMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.text.StrMatcher prefixMatcher;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        prefixMatcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if prefixMatcher != null goto label1;
+
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Variable prefix matcher must not be null!");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher prefixMatcher> = prefixMatcher;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(char)
+    {
+        char prefix;
+        org.apache.commons.lang3.text.StrSubstitutor this, $stack3;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        prefix := @parameter0: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(prefix);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariablePrefix(java.lang.String)
+    {
+        java.lang.String prefix;
+        org.apache.commons.lang3.text.StrSubstitutor this, $stack3;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        prefix := @parameter0: java.lang.String;
+
+        if prefix != null goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Variable prefix must not be null!");
+
+        throw $stack4;
+
+     label1:
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>(prefix);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariablePrefixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getVariableSuffixMatcher()
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher suffixMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.text.StrMatcher suffixMatcher;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        suffixMatcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if suffixMatcher != null goto label1;
+
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Variable suffix matcher must not be null!");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher suffixMatcher> = suffixMatcher;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(char)
+    {
+        char suffix;
+        org.apache.commons.lang3.text.StrSubstitutor this, $stack3;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        suffix := @parameter0: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(suffix);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrSubstitutor setVariableSuffix(java.lang.String)
+    {
+        java.lang.String suffix;
+        org.apache.commons.lang3.text.StrSubstitutor this, $stack3;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        suffix := @parameter0: java.lang.String;
+
+        if suffix != null goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Variable suffix must not be null!");
+
+        throw $stack4;
+
+     label1:
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>(suffix);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrSubstitutor setVariableSuffixMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrLookup getVariableResolver()
+    {
+        org.apache.commons.lang3.text.StrLookup $stack1;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrLookup variableResolver>;
+
+        return $stack1;
+    }
+
+    public void setVariableResolver(org.apache.commons.lang3.text.StrLookup)
+    {
+        org.apache.commons.lang3.text.StrLookup variableResolver;
+        org.apache.commons.lang3.text.StrSubstitutor this;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        variableResolver := @parameter0: org.apache.commons.lang3.text.StrLookup;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrLookup variableResolver> = variableResolver;
+
+        return;
+    }
+
+    public boolean isEnableSubstitutionInVariables()
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrSubstitutor: boolean enableSubstitutionInVariables>;
+
+        return $stack1;
+    }
+
+    public void setEnableSubstitutionInVariables(boolean)
+    {
+        org.apache.commons.lang3.text.StrSubstitutor this;
+        boolean enableSubstitutionInVariables;
+
+        this := @this: org.apache.commons.lang3.text.StrSubstitutor;
+
+        enableSubstitutionInVariables := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.text.StrSubstitutor: boolean enableSubstitutionInVariables> = enableSubstitutionInVariables;
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.text.StrMatcher $stack0, $stack1;
+
+        <org.apache.commons.lang3.text.StrSubstitutor: char DEFAULT_ESCAPE> = 36;
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("${");
+
+        <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_PREFIX> = $stack0;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>("}");
+
+        <org.apache.commons.lang3.text.StrSubstitutor: org.apache.commons.lang3.text.StrMatcher DEFAULT_SUFFIX> = $stack1;
+
+        return;
+    }
+}

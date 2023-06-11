@@ -1,0 +1,103 @@
+class org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$NumberRule
+{
+    static final org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField INSTANCE;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField;
+
+        return 2;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField this;
+        int $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack3 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(2);
+
+        $stack4 = $stack3 + 1;
+
+        virtualinvoke this.<org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField: void appendTo(java.lang.StringBuffer,int)>(buffer, $stack4);
+
+        return;
+    }
+
+    public final void appendTo(java.lang.StringBuffer, int)
+    {
+        char $stack5, $stack9, $stack12;
+        java.lang.StringBuffer buffer;
+        int value, $stack3, $stack4, $stack7, $stack8, $stack11;
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField this;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        value := @parameter1: int;
+
+        if value >= 10 goto label1;
+
+        $stack11 = value + 48;
+
+        $stack12 = (char) $stack11;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack12);
+
+        goto label2;
+
+     label1:
+        $stack3 = value / 10;
+
+        $stack4 = $stack3 + 48;
+
+        $stack5 = (char) $stack4;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack5);
+
+        $stack7 = value % 10;
+
+        $stack8 = $stack7 + 48;
+
+        $stack9 = (char) $stack8;
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(char)>($stack9);
+
+     label2:
+        return;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField $stack0;
+
+        $stack0 = new org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField: void <init>()>();
+
+        <org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField: org.apache.commons.lang3.time.FastDatePrinter$UnpaddedMonthField INSTANCE> = $stack0;
+
+        return;
+    }
+}

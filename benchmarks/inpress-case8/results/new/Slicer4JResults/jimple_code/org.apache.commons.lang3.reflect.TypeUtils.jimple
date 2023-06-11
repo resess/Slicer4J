@@ -1,0 +1,2010 @@
+public class org.apache.commons.lang3.reflect.TypeUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.reflect.TypeUtils this;
+
+        this := @this: org.apache.commons.lang3.reflect.TypeUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.Type)
+    {
+        java.lang.reflect.Type type, toType;
+        boolean $stack2;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toType := @parameter1: java.lang.reflect.Type;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>(type, toType, null);
+
+        return $stack2;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.Type, java.util.Map)
+    {
+        java.lang.reflect.GenericArrayType $stack19;
+        java.lang.IllegalStateException $stack10;
+        java.lang.reflect.WildcardType $stack17;
+        java.util.Map typeVarAssigns;
+        java.lang.String $stack14;
+        boolean $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack16, $stack18, $stack20, $stack22;
+        java.lang.reflect.TypeVariable $stack15;
+        java.lang.reflect.ParameterizedType $stack21;
+        java.lang.reflect.Type toType, type;
+        java.lang.Class $stack3;
+        java.lang.StringBuilder $stack11, $stack12, $stack13;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toType := @parameter1: java.lang.reflect.Type;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        if toType == null goto label1;
+
+        $stack5 = toType instanceof java.lang.Class;
+
+        if $stack5 == 0 goto label2;
+
+     label1:
+        $stack3 = (java.lang.Class) toType;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>(type, $stack3);
+
+        return $stack4;
+
+     label2:
+        $stack6 = toType instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack6 == 0 goto label3;
+
+        $stack21 = (java.lang.reflect.ParameterizedType) toType;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.ParameterizedType,java.util.Map)>(type, $stack21, typeVarAssigns);
+
+        return $stack22;
+
+     label3:
+        $stack7 = toType instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack7 == 0 goto label4;
+
+        $stack19 = (java.lang.reflect.GenericArrayType) toType;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.GenericArrayType,java.util.Map)>(type, $stack19, typeVarAssigns);
+
+        return $stack20;
+
+     label4:
+        $stack8 = toType instanceof java.lang.reflect.WildcardType;
+
+        if $stack8 == 0 goto label5;
+
+        $stack17 = (java.lang.reflect.WildcardType) toType;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.WildcardType,java.util.Map)>(type, $stack17, typeVarAssigns);
+
+        return $stack18;
+
+     label5:
+        $stack9 = toType instanceof java.lang.reflect.TypeVariable;
+
+        if $stack9 == 0 goto label6;
+
+        $stack15 = (java.lang.reflect.TypeVariable) toType;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.TypeVariable,java.util.Map)>(type, $stack15, typeVarAssigns);
+
+        return $stack16;
+
+     label6:
+        $stack10 = new java.lang.IllegalStateException;
+
+        $stack11 = new java.lang.StringBuilder;
+
+        specialinvoke $stack11.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("found an unhandled type: ");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(toType);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack10.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack14);
+
+        throw $stack10;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.Class)
+    {
+        java.lang.reflect.GenericArrayType $stack20;
+        java.lang.IllegalStateException $stack12;
+        boolean $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack17, $stack18, $stack23, $stack26, $stack31, $stack33, $stack34, $stack35, $stack19;
+        java.lang.reflect.Type type, $stack21, bound;
+        java.lang.reflect.Type[] $stack25;
+        java.lang.StringBuilder $stack13, $stack14, $stack15;
+        int len$, i$;
+        java.lang.String $stack16;
+        java.lang.reflect.TypeVariable $stack24;
+        java.lang.reflect.ParameterizedType $stack29;
+        java.lang.Class toClass, $stack22, $stack30, $stack32;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toClass := @parameter1: java.lang.Class;
+
+        if type != null goto label04;
+
+        if toClass == null goto label01;
+
+        $stack34 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack34 != 0 goto label02;
+
+     label01:
+        $stack35 = 1;
+
+        goto label03;
+
+     label02:
+        $stack35 = 0;
+
+     label03:
+        return $stack35;
+
+     label04:
+        if toClass != null goto label05;
+
+        return 0;
+
+     label05:
+        $stack6 = virtualinvoke toClass.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack6 == 0 goto label06;
+
+        return 1;
+
+     label06:
+        $stack7 = type instanceof java.lang.Class;
+
+        if $stack7 == 0 goto label07;
+
+        $stack32 = (java.lang.Class) type;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class,java.lang.Class)>($stack32, toClass);
+
+        return $stack33;
+
+     label07:
+        $stack8 = type instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack8 == 0 goto label08;
+
+        $stack29 = (java.lang.reflect.ParameterizedType) type;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>($stack29);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>($stack30, toClass);
+
+        return $stack31;
+
+     label08:
+        $stack9 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack9 == 0 goto label12;
+
+        $stack24 = (java.lang.reflect.TypeVariable) type;
+
+        $stack25 = interfaceinvoke $stack24.<java.lang.reflect.TypeVariable: java.lang.reflect.Type[] getBounds()>();
+
+        len$ = lengthof $stack25;
+
+        i$ = 0;
+
+     label09:
+        if i$ >= len$ goto label11;
+
+        bound = $stack25[i$];
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>(bound, toClass);
+
+        if $stack26 == 0 goto label10;
+
+        return 1;
+
+     label10:
+        i$ = i$ + 1;
+
+        goto label09;
+
+     label11:
+        return 0;
+
+     label12:
+        $stack10 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack10 == 0 goto label16;
+
+        $stack17 = virtualinvoke toClass.<java.lang.Object: boolean equals(java.lang.Object)>(class "Ljava/lang/Object;");
+
+        if $stack17 != 0 goto label13;
+
+        $stack18 = virtualinvoke toClass.<java.lang.Class: boolean isArray()>();
+
+        if $stack18 == 0 goto label14;
+
+        $stack20 = (java.lang.reflect.GenericArrayType) type;
+
+        $stack21 = interfaceinvoke $stack20.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $stack22 = virtualinvoke toClass.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>($stack21, $stack22);
+
+        if $stack23 == 0 goto label14;
+
+     label13:
+        $stack19 = 1;
+
+        goto label15;
+
+     label14:
+        $stack19 = 0;
+
+     label15:
+        return $stack19;
+
+     label16:
+        $stack11 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack11 == 0 goto label17;
+
+        return 0;
+
+     label17:
+        $stack12 = new java.lang.IllegalStateException;
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("found an unhandled type: ");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack12.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack16);
+
+        throw $stack12;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.ParameterizedType, java.util.Map)
+    {
+        java.util.Map $stack12, typeVarAssigns, $stack14;
+        boolean $stack10, $stack13, $stack17, $stack22, $stack23, $stack24;
+        java.util.Iterator $stack16;
+        java.lang.reflect.TypeVariable var;
+        java.util.Set $stack15;
+        java.lang.reflect.ParameterizedType toParameterizedType;
+        java.lang.reflect.Type type, $stack19, $stack20;
+        java.lang.Class $stack11;
+        java.lang.Object $stack18;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toParameterizedType := @parameter1: java.lang.reflect.ParameterizedType;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        if type != null goto label1;
+
+        return 1;
+
+     label1:
+        if toParameterizedType != null goto label2;
+
+        return 0;
+
+     label2:
+        $stack10 = virtualinvoke toParameterizedType.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack10 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(toParameterizedType);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>(type, $stack11, null);
+
+        if $stack12 != null goto label4;
+
+        return 0;
+
+     label4:
+        $stack13 = interfaceinvoke $stack12.<java.util.Map: boolean isEmpty()>();
+
+        if $stack13 == 0 goto label5;
+
+        return 1;
+
+     label5:
+        $stack14 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType,java.lang.Class,java.util.Map)>(toParameterizedType, $stack11, typeVarAssigns);
+
+        $stack15 = interfaceinvoke $stack14.<java.util.Map: java.util.Set keySet()>();
+
+        $stack16 = interfaceinvoke $stack15.<java.util.Set: java.util.Iterator iterator()>();
+
+     label6:
+        $stack17 = interfaceinvoke $stack16.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack17 == 0 goto label9;
+
+        $stack18 = interfaceinvoke $stack16.<java.util.Iterator: java.lang.Object next()>();
+
+        var = (java.lang.reflect.TypeVariable) $stack18;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type unrollVariableAssignments(java.lang.reflect.TypeVariable,java.util.Map)>(var, $stack14);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type unrollVariableAssignments(java.lang.reflect.TypeVariable,java.util.Map)>(var, $stack12);
+
+        if $stack20 == null goto label8;
+
+        $stack22 = virtualinvoke $stack19.<java.lang.Object: boolean equals(java.lang.Object)>($stack20);
+
+        if $stack22 != 0 goto label8;
+
+        $stack23 = $stack19 instanceof java.lang.reflect.WildcardType;
+
+        if $stack23 == 0 goto label7;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack20, $stack19, typeVarAssigns);
+
+        if $stack24 != 0 goto label8;
+
+     label7:
+        return 0;
+
+     label8:
+        goto label6;
+
+     label9:
+        return 1;
+    }
+
+    private static java.lang.reflect.Type unrollVariableAssignments(java.lang.reflect.TypeVariable, java.util.Map)
+    {
+        java.lang.reflect.Type $stack9;
+        java.util.Map typeVarAssigns;
+        java.lang.reflect.TypeVariable var;
+        java.lang.Object $stack3;
+        boolean $stack4, $stack5;
+
+        var := @parameter0: java.lang.reflect.TypeVariable;
+
+        typeVarAssigns := @parameter1: java.util.Map;
+
+     label1:
+        $stack3 = interfaceinvoke typeVarAssigns.<java.util.Map: java.lang.Object get(java.lang.Object)>(var);
+
+        $stack9 = (java.lang.reflect.Type) $stack3;
+
+        $stack4 = $stack9 instanceof java.lang.reflect.TypeVariable;
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = virtualinvoke $stack9.<java.lang.Object: boolean equals(java.lang.Object)>(var);
+
+        if $stack5 != 0 goto label2;
+
+        var = (java.lang.reflect.TypeVariable) $stack9;
+
+        goto label1;
+
+     label2:
+        return $stack9;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.GenericArrayType, java.util.Map)
+    {
+        java.lang.reflect.GenericArrayType toGenericArrayType, $stack30;
+        java.lang.IllegalStateException $stack15;
+        java.util.Map typeVarAssigns;
+        boolean $stack8, $stack10, $stack11, $stack12, $stack13, $stack14, $stack22, $stack27, $stack32, $stack33, $stack35, $stack36;
+        java.lang.reflect.Type type, $stack9, $stack31, bound;
+        java.lang.reflect.Type[] $stack21, $stack26;
+        java.lang.StringBuilder $stack16, $stack17, $stack18;
+        java.lang.reflect.WildcardType $stack25;
+        int len$, i$;
+        java.lang.String $stack19;
+        java.lang.reflect.TypeVariable $stack20;
+        java.lang.Class $stack34, 'cls';
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toGenericArrayType := @parameter1: java.lang.reflect.GenericArrayType;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        if type != null goto label01;
+
+        return 1;
+
+     label01:
+        if toGenericArrayType != null goto label02;
+
+        return 0;
+
+     label02:
+        $stack8 = virtualinvoke toGenericArrayType.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack8 == 0 goto label03;
+
+        return 1;
+
+     label03:
+        $stack9 = interfaceinvoke toGenericArrayType.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $stack10 = type instanceof java.lang.Class;
+
+        if $stack10 == 0 goto label06;
+
+        'cls' = (java.lang.Class) type;
+
+        $stack33 = virtualinvoke 'cls'.<java.lang.Class: boolean isArray()>();
+
+        if $stack33 == 0 goto label04;
+
+        $stack34 = virtualinvoke 'cls'.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack34, $stack9, typeVarAssigns);
+
+        if $stack35 == 0 goto label04;
+
+        $stack36 = 1;
+
+        goto label05;
+
+     label04:
+        $stack36 = 0;
+
+     label05:
+        return $stack36;
+
+     label06:
+        $stack11 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack11 == 0 goto label07;
+
+        $stack30 = (java.lang.reflect.GenericArrayType) type;
+
+        $stack31 = interfaceinvoke $stack30.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack31, $stack9, typeVarAssigns);
+
+        return $stack32;
+
+     label07:
+        $stack12 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack12 == 0 goto label11;
+
+        $stack25 = (java.lang.reflect.WildcardType) type;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitUpperBounds(java.lang.reflect.WildcardType)>($stack25);
+
+        len$ = lengthof $stack26;
+
+        i$ = 0;
+
+     label08:
+        if i$ >= len$ goto label10;
+
+        bound = $stack26[i$];
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type)>(bound, toGenericArrayType);
+
+        if $stack27 == 0 goto label09;
+
+        return 1;
+
+     label09:
+        i$ = i$ + 1;
+
+        goto label08;
+
+     label10:
+        return 0;
+
+     label11:
+        $stack13 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack13 == 0 goto label15;
+
+        $stack20 = (java.lang.reflect.TypeVariable) type;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitBounds(java.lang.reflect.TypeVariable)>($stack20);
+
+        len$ = lengthof $stack21;
+
+        i$ = 0;
+
+     label12:
+        if i$ >= len$ goto label14;
+
+        bound = $stack21[i$];
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type)>(bound, toGenericArrayType);
+
+        if $stack22 == 0 goto label13;
+
+        return 1;
+
+     label13:
+        i$ = i$ + 1;
+
+        goto label12;
+
+     label14:
+        return 0;
+
+     label15:
+        $stack14 = type instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack14 == 0 goto label16;
+
+        return 0;
+
+     label16:
+        $stack15 = new java.lang.IllegalStateException;
+
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("found an unhandled type: ");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack15.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack19);
+
+        throw $stack15;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.WildcardType, java.util.Map)
+    {
+        java.lang.reflect.WildcardType toWildcardType, wildcardType;
+        java.util.Map typeVarAssigns;
+        int len$_1, i$_1, len$_2, i$_2, upperBounds, lowerBounds;
+        boolean $stack16, $stack19, $stack21, $stack25, $stack33, $stack39;
+        java.lang.reflect.Type type, $stack20, $stack24, $stack30, $stack36, toBound, bound, arr$_1;
+        java.lang.reflect.Type[] $stack17, $stack18, $stack28, $stack29;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toWildcardType := @parameter1: java.lang.reflect.WildcardType;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        if type != null goto label01;
+
+        return 1;
+
+     label01:
+        if toWildcardType != null goto label02;
+
+        return 0;
+
+     label02:
+        $stack16 = virtualinvoke toWildcardType.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack16 == 0 goto label03;
+
+        return 1;
+
+     label03:
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitUpperBounds(java.lang.reflect.WildcardType)>(toWildcardType);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitLowerBounds(java.lang.reflect.WildcardType)>(toWildcardType);
+
+        $stack19 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack19 == 0 goto label14;
+
+        wildcardType = (java.lang.reflect.WildcardType) type;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitUpperBounds(java.lang.reflect.WildcardType)>(wildcardType);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitLowerBounds(java.lang.reflect.WildcardType)>(wildcardType);
+
+        len$_1 = lengthof $stack17;
+
+        i$_1 = 0;
+
+     label04:
+        if i$_1 >= len$_1 goto label08;
+
+        toBound = $stack17[i$_1];
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type,java.util.Map)>(toBound, typeVarAssigns);
+
+        len$_2 = lengthof $stack28;
+
+        i$_2 = 0;
+
+     label05:
+        if i$_2 >= len$_2 goto label07;
+
+        bound = $stack28[i$_2];
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>(bound, $stack36, typeVarAssigns);
+
+        if $stack39 != 0 goto label06;
+
+        return 0;
+
+     label06:
+        i$_2 = i$_2 + 1;
+
+        goto label05;
+
+     label07:
+        i$_1 = i$_1 + 1;
+
+        goto label04;
+
+     label08:
+        len$_1 = lengthof $stack18;
+
+        i$_1 = 0;
+
+     label09:
+        if i$_1 >= len$_1 goto label13;
+
+        toBound = $stack18[i$_1];
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type,java.util.Map)>(toBound, typeVarAssigns);
+
+        len$_2 = lengthof $stack29;
+
+        i$_2 = 0;
+
+     label10:
+        if i$_2 >= len$_2 goto label12;
+
+        bound = $stack29[i$_2];
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack30, bound, typeVarAssigns);
+
+        if $stack33 != 0 goto label11;
+
+        return 0;
+
+     label11:
+        i$_2 = i$_2 + 1;
+
+        goto label10;
+
+     label12:
+        i$_1 = i$_1 + 1;
+
+        goto label09;
+
+     label13:
+        return 1;
+
+     label14:
+        upperBounds = lengthof $stack17;
+
+        lowerBounds = 0;
+
+     label15:
+        if lowerBounds >= upperBounds goto label17;
+
+        arr$_1 = $stack17[lowerBounds];
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type,java.util.Map)>(arr$_1, typeVarAssigns);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>(type, $stack24, typeVarAssigns);
+
+        if $stack25 != 0 goto label16;
+
+        return 0;
+
+     label16:
+        lowerBounds = lowerBounds + 1;
+
+        goto label15;
+
+     label17:
+        upperBounds = lengthof $stack18;
+
+        lowerBounds = 0;
+
+     label18:
+        if lowerBounds >= upperBounds goto label20;
+
+        arr$_1 = $stack18[lowerBounds];
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type,java.util.Map)>(arr$_1, typeVarAssigns);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack20, type, typeVarAssigns);
+
+        if $stack21 != 0 goto label19;
+
+        return 0;
+
+     label19:
+        lowerBounds = lowerBounds + 1;
+
+        goto label18;
+
+     label20:
+        return 1;
+    }
+
+    private static boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.TypeVariable, java.util.Map)
+    {
+        java.lang.IllegalStateException $stack15;
+        java.util.Map typeVarAssigns;
+        int len$, i$;
+        java.lang.String $stack19;
+        boolean $stack8, $stack9, $stack10, $stack11, $stack13, $stack14, $stack23;
+        java.lang.reflect.TypeVariable toTypeVariable, $stack20;
+        java.lang.reflect.Type type, bound;
+        java.lang.reflect.Type[] $stack21;
+        java.lang.StringBuilder $stack16, $stack17, $stack18;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toTypeVariable := @parameter1: java.lang.reflect.TypeVariable;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        if type != null goto label1;
+
+        return 1;
+
+     label1:
+        if toTypeVariable != null goto label2;
+
+        return 0;
+
+     label2:
+        $stack8 = virtualinvoke toTypeVariable.<java.lang.Object: boolean equals(java.lang.Object)>(type);
+
+        if $stack8 == 0 goto label3;
+
+        return 1;
+
+     label3:
+        $stack9 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack9 == 0 goto label6;
+
+        $stack20 = (java.lang.reflect.TypeVariable) type;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitBounds(java.lang.reflect.TypeVariable)>($stack20);
+
+        len$ = lengthof $stack21;
+
+        i$ = 0;
+
+     label4:
+        if i$ >= len$ goto label6;
+
+        bound = $stack21[i$];
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.TypeVariable,java.util.Map)>(bound, toTypeVariable, typeVarAssigns);
+
+        if $stack23 == 0 goto label5;
+
+        return 1;
+
+     label5:
+        i$ = i$ + 1;
+
+        goto label4;
+
+     label6:
+        $stack10 = type instanceof java.lang.Class;
+
+        if $stack10 != 0 goto label7;
+
+        $stack11 = type instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack11 != 0 goto label7;
+
+        $stack13 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack13 != 0 goto label7;
+
+        $stack14 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack14 == 0 goto label8;
+
+     label7:
+        return 0;
+
+     label8:
+        $stack15 = new java.lang.IllegalStateException;
+
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("found an unhandled type: ");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack15.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack19);
+
+        throw $stack15;
+    }
+
+    private static java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type, java.util.Map)
+    {
+        java.lang.IllegalArgumentException $stack6;
+        java.lang.reflect.Type type, replacementType;
+        java.util.Map typeVarAssigns;
+        java.lang.Object $stack5;
+        java.lang.StringBuilder $stack7, $stack8, $stack9;
+        java.lang.String $stack10;
+        boolean $stack3;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        typeVarAssigns := @parameter1: java.util.Map;
+
+        $stack3 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack3 == 0 goto label2;
+
+        if typeVarAssigns == null goto label2;
+
+        $stack5 = interfaceinvoke typeVarAssigns.<java.util.Map: java.lang.Object get(java.lang.Object)>(type);
+
+        replacementType = (java.lang.reflect.Type) $stack5;
+
+        if replacementType != null goto label1;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("missing assignment type for type variable ");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack10);
+
+        throw $stack6;
+
+     label1:
+        return replacementType;
+
+     label2:
+        return type;
+    }
+
+    public static java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType)
+    {
+        java.lang.Class $stack1;
+        java.lang.reflect.ParameterizedType type;
+        java.util.Map $stack2;
+
+        type := @parameter0: java.lang.reflect.ParameterizedType;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(type);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType,java.lang.Class,java.util.Map)>(type, $stack1, null);
+
+        return $stack2;
+    }
+
+    public static java.util.Map getTypeArguments(java.lang.reflect.Type, java.lang.Class)
+    {
+        java.lang.Class toClass;
+        java.lang.reflect.Type type;
+        java.util.Map $stack2;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toClass := @parameter1: java.lang.Class;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>(type, toClass, null);
+
+        return $stack2;
+    }
+
+    private static java.util.Map getTypeArguments(java.lang.reflect.Type, java.lang.Class, java.util.Map)
+    {
+        java.lang.reflect.GenericArrayType $stack29;
+        java.lang.IllegalStateException $stack12;
+        java.util.Map subtypeVarAssigns, $stack22, $stack28, $stack32, $stack36, $stack38;
+        boolean $stack7, $stack8, $stack9, $stack10, $stack11, $stack19, $stack25, $stack31;
+        java.lang.reflect.Type type, $stack30, bound;
+        java.lang.reflect.Type[] $stack18, $stack24;
+        java.lang.StringBuilder $stack13, $stack14, $stack15;
+        java.lang.reflect.WildcardType $stack23;
+        int len$, i$;
+        java.lang.String $stack16;
+        java.lang.reflect.TypeVariable $stack17;
+        java.lang.reflect.ParameterizedType $stack35;
+        java.lang.Class toClass, $stack37, $stack33;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        toClass := @parameter1: java.lang.Class;
+
+        subtypeVarAssigns := @parameter2: java.util.Map;
+
+        $stack7 = type instanceof java.lang.Class;
+
+        if $stack7 == 0 goto label01;
+
+        $stack37 = (java.lang.Class) type;
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.Class,java.lang.Class,java.util.Map)>($stack37, toClass, subtypeVarAssigns);
+
+        return $stack38;
+
+     label01:
+        $stack8 = type instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack8 == 0 goto label02;
+
+        $stack35 = (java.lang.reflect.ParameterizedType) type;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType,java.lang.Class,java.util.Map)>($stack35, toClass, subtypeVarAssigns);
+
+        return $stack36;
+
+     label02:
+        $stack9 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack9 == 0 goto label05;
+
+        $stack29 = (java.lang.reflect.GenericArrayType) type;
+
+        $stack30 = interfaceinvoke $stack29.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $stack31 = virtualinvoke toClass.<java.lang.Class: boolean isArray()>();
+
+        if $stack31 == 0 goto label03;
+
+        $stack33 = virtualinvoke toClass.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        goto label04;
+
+     label03:
+        $stack33 = toClass;
+
+     label04:
+        $stack32 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>($stack30, $stack33, subtypeVarAssigns);
+
+        return $stack32;
+
+     label05:
+        $stack10 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack10 == 0 goto label09;
+
+        $stack23 = (java.lang.reflect.WildcardType) type;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitUpperBounds(java.lang.reflect.WildcardType)>($stack23);
+
+        len$ = lengthof $stack24;
+
+        i$ = 0;
+
+     label06:
+        if i$ >= len$ goto label08;
+
+        bound = $stack24[i$];
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>(bound, toClass);
+
+        if $stack25 == 0 goto label07;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>(bound, toClass, subtypeVarAssigns);
+
+        return $stack28;
+
+     label07:
+        i$ = i$ + 1;
+
+        goto label06;
+
+     label08:
+        return null;
+
+     label09:
+        $stack11 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack11 == 0 goto label13;
+
+        $stack17 = (java.lang.reflect.TypeVariable) type;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitBounds(java.lang.reflect.TypeVariable)>($stack17);
+
+        len$ = lengthof $stack18;
+
+        i$ = 0;
+
+     label10:
+        if i$ >= len$ goto label12;
+
+        bound = $stack18[i$];
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>(bound, toClass);
+
+        if $stack19 == 0 goto label11;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>(bound, toClass, subtypeVarAssigns);
+
+        return $stack22;
+
+     label11:
+        i$ = i$ + 1;
+
+        goto label10;
+
+     label12:
+        return null;
+
+     label13:
+        $stack12 = new java.lang.IllegalStateException;
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("found an unhandled type: ");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack12.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack16);
+
+        throw $stack12;
+    }
+
+    private static java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType, java.lang.Class, java.util.Map)
+    {
+        java.util.HashMap $stack14;
+        java.util.Map subtypeVarAssigns, $stack20, $stack28, typeVarAssigns;
+        int i, $stack17;
+        boolean $stack11, $stack13, $stack18, $stack22;
+        java.lang.reflect.TypeVariable $stack21;
+        java.lang.reflect.ParameterizedType parameterizedType, parameterizedOwnerType;
+        java.lang.reflect.Type $stack12, $stack19, typeArg, $stack27;
+        java.lang.reflect.TypeVariable[] $stack16;
+        java.lang.reflect.Type[] $stack15;
+        java.lang.Class $stack10, toClass, $stack33;
+        java.lang.Object $stack26;
+
+        parameterizedType := @parameter0: java.lang.reflect.ParameterizedType;
+
+        toClass := @parameter1: java.lang.Class;
+
+        subtypeVarAssigns := @parameter2: java.util.Map;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(parameterizedType);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>($stack10, toClass);
+
+        if $stack11 != 0 goto label01;
+
+        return null;
+
+     label01:
+        $stack12 = interfaceinvoke parameterizedType.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type getOwnerType()>();
+
+        $stack13 = $stack12 instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack13 == 0 goto label02;
+
+        parameterizedOwnerType = (java.lang.reflect.ParameterizedType) $stack12;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(parameterizedOwnerType);
+
+        typeVarAssigns = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType,java.lang.Class,java.util.Map)>(parameterizedOwnerType, $stack33, subtypeVarAssigns);
+
+        goto label05;
+
+     label02:
+        if subtypeVarAssigns != null goto label03;
+
+        $stack14 = new java.util.HashMap;
+
+        specialinvoke $stack14.<java.util.HashMap: void <init>()>();
+
+        goto label04;
+
+     label03:
+        $stack14 = new java.util.HashMap;
+
+        specialinvoke $stack14.<java.util.HashMap: void <init>(java.util.Map)>(subtypeVarAssigns);
+
+     label04:
+        typeVarAssigns = $stack14;
+
+     label05:
+        $stack15 = interfaceinvoke parameterizedType.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type[] getActualTypeArguments()>();
+
+        $stack16 = virtualinvoke $stack10.<java.lang.Class: java.lang.reflect.TypeVariable[] getTypeParameters()>();
+
+        i = 0;
+
+     label06:
+        $stack17 = lengthof $stack16;
+
+        if i >= $stack17 goto label09;
+
+        typeArg = $stack15[i];
+
+        $stack28 = typeVarAssigns;
+
+        $stack21 = $stack16[i];
+
+        $stack22 = interfaceinvoke typeVarAssigns.<java.util.Map: boolean containsKey(java.lang.Object)>(typeArg);
+
+        if $stack22 == 0 goto label07;
+
+        $stack26 = interfaceinvoke typeVarAssigns.<java.util.Map: java.lang.Object get(java.lang.Object)>(typeArg);
+
+        $stack27 = (java.lang.reflect.Type) $stack26;
+
+        goto label08;
+
+     label07:
+        $stack27 = typeArg;
+
+     label08:
+        interfaceinvoke $stack28.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack21, $stack27);
+
+        i = i + 1;
+
+        goto label06;
+
+     label09:
+        $stack18 = virtualinvoke toClass.<java.lang.Object: boolean equals(java.lang.Object)>($stack10);
+
+        if $stack18 == 0 goto label10;
+
+        return typeVarAssigns;
+
+     label10:
+        $stack19 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type getClosestParentType(java.lang.Class,java.lang.Class)>($stack10, toClass);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>($stack19, toClass, typeVarAssigns);
+
+        return $stack20;
+    }
+
+    private static java.util.Map getTypeArguments(java.lang.Class, java.lang.Class, java.util.Map)
+    {
+        java.util.HashMap $stack16, $stack6;
+        java.lang.reflect.Type $stack8;
+        java.util.Map subtypeVarAssigns, $stack9;
+        java.lang.Class toClass, 'cls';
+        boolean $stack4, $stack5, $stack7, $stack13;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        toClass := @parameter1: java.lang.Class;
+
+        subtypeVarAssigns := @parameter2: java.util.Map;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>('cls', toClass);
+
+        if $stack4 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = virtualinvoke 'cls'.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack5 == 0 goto label3;
+
+        $stack13 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack13 == 0 goto label2;
+
+        $stack16 = new java.util.HashMap;
+
+        specialinvoke $stack16.<java.util.HashMap: void <init>()>();
+
+        return $stack16;
+
+     label2:
+        'cls' = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class primitiveToWrapper(java.lang.Class)>('cls');
+
+     label3:
+        if subtypeVarAssigns != null goto label4;
+
+        $stack6 = new java.util.HashMap;
+
+        specialinvoke $stack6.<java.util.HashMap: void <init>()>();
+
+        goto label5;
+
+     label4:
+        $stack6 = new java.util.HashMap;
+
+        specialinvoke $stack6.<java.util.HashMap: void <init>(java.util.Map)>(subtypeVarAssigns);
+
+     label5:
+        $stack7 = virtualinvoke toClass.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack7 == 0 goto label6;
+
+        return $stack6;
+
+     label6:
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type getClosestParentType(java.lang.Class,java.lang.Class)>('cls', toClass);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class,java.util.Map)>($stack8, toClass, $stack6);
+
+        return $stack9;
+    }
+
+    public static java.util.Map determineTypeArguments(java.lang.Class, java.lang.reflect.ParameterizedType)
+    {
+        java.lang.reflect.ParameterizedType superType, midParameterizedType;
+        java.lang.reflect.Type $stack10;
+        java.util.Map $stack13, $stack15, $stack16;
+        java.lang.Class $stack7, 'cls', $stack12, $stack14;
+        boolean $stack8, $stack9, $stack11;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        superType := @parameter1: java.lang.reflect.ParameterizedType;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(superType);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>('cls', $stack7);
+
+        if $stack8 != 0 goto label1;
+
+        return null;
+
+     label1:
+        $stack9 = virtualinvoke 'cls'.<java.lang.Object: boolean equals(java.lang.Object)>($stack7);
+
+        if $stack9 == 0 goto label2;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.ParameterizedType,java.lang.Class,java.util.Map)>(superType, $stack7, null);
+
+        return $stack16;
+
+     label2:
+        $stack10 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type getClosestParentType(java.lang.Class,java.lang.Class)>('cls', $stack7);
+
+        $stack11 = $stack10 instanceof java.lang.Class;
+
+        if $stack11 == 0 goto label3;
+
+        $stack14 = (java.lang.Class) $stack10;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map determineTypeArguments(java.lang.Class,java.lang.reflect.ParameterizedType)>($stack14, superType);
+
+        return $stack15;
+
+     label3:
+        midParameterizedType = (java.lang.reflect.ParameterizedType) $stack10;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(midParameterizedType);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map determineTypeArguments(java.lang.Class,java.lang.reflect.ParameterizedType)>($stack12, superType);
+
+        staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: void mapTypeVariablesToArguments(java.lang.Class,java.lang.reflect.ParameterizedType,java.util.Map)>('cls', midParameterizedType, $stack13);
+
+        return $stack13;
+    }
+
+    private static void mapTypeVariablesToArguments(java.lang.Class, java.lang.reflect.ParameterizedType, java.util.Map)
+    {
+        java.util.Map typeVarAssigns;
+        int i, $stack17;
+        boolean $stack11, $stack18, $stack21;
+        java.lang.reflect.TypeVariable typeVar, $stack22;
+        java.util.List $stack16;
+        java.lang.reflect.ParameterizedType parameterizedType, $stack25;
+        java.lang.reflect.Type $stack10, typeArg;
+        java.lang.reflect.TypeVariable[] $stack14, $stack15;
+        java.lang.reflect.Type[] $stack12;
+        java.lang.Class $stack13, 'cls';
+        java.lang.Object $stack23;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        parameterizedType := @parameter1: java.lang.reflect.ParameterizedType;
+
+        typeVarAssigns := @parameter2: java.util.Map;
+
+        $stack10 = interfaceinvoke parameterizedType.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type getOwnerType()>();
+
+        $stack11 = $stack10 instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack11 == 0 goto label1;
+
+        $stack25 = (java.lang.reflect.ParameterizedType) $stack10;
+
+        staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: void mapTypeVariablesToArguments(java.lang.Class,java.lang.reflect.ParameterizedType,java.util.Map)>('cls', $stack25, typeVarAssigns);
+
+     label1:
+        $stack12 = interfaceinvoke parameterizedType.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type[] getActualTypeArguments()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>(parameterizedType);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: java.lang.reflect.TypeVariable[] getTypeParameters()>();
+
+        $stack15 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.TypeVariable[] getTypeParameters()>();
+
+        $stack16 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack15);
+
+        i = 0;
+
+     label2:
+        $stack17 = lengthof $stack12;
+
+        if i >= $stack17 goto label4;
+
+        typeVar = $stack14[i];
+
+        typeArg = $stack12[i];
+
+        $stack18 = interfaceinvoke $stack16.<java.util.List: boolean contains(java.lang.Object)>(typeArg);
+
+        if $stack18 == 0 goto label3;
+
+        $stack21 = interfaceinvoke typeVarAssigns.<java.util.Map: boolean containsKey(java.lang.Object)>(typeVar);
+
+        if $stack21 == 0 goto label3;
+
+        $stack22 = (java.lang.reflect.TypeVariable) typeArg;
+
+        $stack23 = interfaceinvoke typeVarAssigns.<java.util.Map: java.lang.Object get(java.lang.Object)>(typeVar);
+
+        interfaceinvoke typeVarAssigns.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+     label3:
+        i = i + 1;
+
+        goto label2;
+
+     label4:
+        return;
+    }
+
+    private static java.lang.reflect.Type getClosestParentType(java.lang.Class, java.lang.Class)
+    {
+        java.lang.IllegalStateException $stack15;
+        int len$, i$;
+        java.lang.String $stack19;
+        boolean $stack9, $stack13, $stack14, $stack20, $stack23;
+        java.lang.reflect.ParameterizedType $stack24;
+        java.lang.reflect.Type $stack10, midType, genericInterface;
+        java.lang.reflect.Type[] $stack11;
+        java.lang.Class superClass, 'cls', midClass;
+        java.lang.StringBuilder $stack16, $stack17, $stack18;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        superClass := @parameter1: java.lang.Class;
+
+        $stack9 = virtualinvoke superClass.<java.lang.Class: boolean isInterface()>();
+
+        if $stack9 == 0 goto label7;
+
+        $stack11 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Type[] getGenericInterfaces()>();
+
+        genericInterface = null;
+
+        len$ = lengthof $stack11;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label6;
+
+        midType = $stack11[i$];
+
+        $stack13 = midType instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack13 == 0 goto label2;
+
+        $stack24 = (java.lang.reflect.ParameterizedType) midType;
+
+        midClass = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>($stack24);
+
+        goto label4;
+
+     label2:
+        $stack14 = midType instanceof java.lang.Class;
+
+        if $stack14 == 0 goto label3;
+
+        midClass = (java.lang.Class) midType;
+
+        goto label4;
+
+     label3:
+        $stack15 = new java.lang.IllegalStateException;
+
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unexpected generic interface type found: ");
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(midType);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack15.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack19);
+
+        throw $stack15;
+
+     label4:
+        $stack20 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.Class)>(midClass, superClass);
+
+        if $stack20 == 0 goto label5;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type)>(genericInterface, midClass);
+
+        if $stack23 == 0 goto label5;
+
+        genericInterface = midType;
+
+     label5:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label6:
+        if genericInterface == null goto label7;
+
+        return genericInterface;
+
+     label7:
+        $stack10 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Type getGenericSuperclass()>();
+
+        return $stack10;
+    }
+
+    public static boolean isInstance(java.lang.Object, java.lang.reflect.Type)
+    {
+        java.lang.reflect.Type type;
+        java.lang.Object value;
+        java.lang.Class $stack2, $stack5;
+        boolean $stack4, $stack6, $stack3;
+
+        value := @parameter0: java.lang.Object;
+
+        type := @parameter1: java.lang.reflect.Type;
+
+        if type != null goto label1;
+
+        return 0;
+
+     label1:
+        if value != null goto label4;
+
+        $stack4 = type instanceof java.lang.Class;
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = (java.lang.Class) type;
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack6 != 0 goto label3;
+
+     label2:
+        $stack3 = 1;
+
+        goto label5;
+
+     label3:
+        $stack3 = 0;
+
+        goto label5;
+
+     label4:
+        $stack2 = virtualinvoke value.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>($stack2, type, null);
+
+     label5:
+        return $stack3;
+    }
+
+    public static java.lang.reflect.Type[] normalizeUpperBounds(java.lang.reflect.Type[])
+    {
+        java.lang.Object[] $stack16;
+        java.util.HashSet $stack12;
+        int $stack11, $stack13, len$_1, $stack14, len$_2, i$_1, i$_2;
+        boolean $stack23, subtypeFound;
+        java.lang.reflect.Type type1, type2;
+        java.lang.reflect.Type[] bounds, $stack15, $stack17;
+
+        bounds := @parameter0: java.lang.reflect.Type[];
+
+        $stack11 = lengthof bounds;
+
+        if $stack11 >= 2 goto label1;
+
+        return bounds;
+
+     label1:
+        $stack12 = new java.util.HashSet;
+
+        $stack13 = lengthof bounds;
+
+        specialinvoke $stack12.<java.util.HashSet: void <init>(int)>($stack13);
+
+        len$_1 = lengthof bounds;
+
+        i$_1 = 0;
+
+     label2:
+        if i$_1 >= len$_1 goto label7;
+
+        type1 = bounds[i$_1];
+
+        subtypeFound = 0;
+
+        len$_2 = lengthof bounds;
+
+        i$_2 = 0;
+
+     label3:
+        if i$_2 >= len$_2 goto label5;
+
+        type2 = bounds[i$_2];
+
+        if type1 == type2 goto label4;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>(type2, type1, null);
+
+        if $stack23 == 0 goto label4;
+
+        subtypeFound = 1;
+
+        goto label5;
+
+     label4:
+        i$_2 = i$_2 + 1;
+
+        goto label3;
+
+     label5:
+        if subtypeFound != 0 goto label6;
+
+        interfaceinvoke $stack12.<java.util.Set: boolean add(java.lang.Object)>(type1);
+
+     label6:
+        i$_1 = i$_1 + 1;
+
+        goto label2;
+
+     label7:
+        $stack14 = interfaceinvoke $stack12.<java.util.Set: int size()>();
+
+        $stack15 = newarray (java.lang.reflect.Type)[$stack14];
+
+        $stack16 = interfaceinvoke $stack12.<java.util.Set: java.lang.Object[] toArray(java.lang.Object[])>($stack15);
+
+        $stack17 = (java.lang.reflect.Type[]) $stack16;
+
+        return $stack17;
+    }
+
+    public static java.lang.reflect.Type[] getImplicitBounds(java.lang.reflect.TypeVariable)
+    {
+        java.lang.reflect.TypeVariable typeVariable;
+        java.lang.reflect.Type[] $stack2, $stack4;
+        int $stack3;
+
+        typeVariable := @parameter0: java.lang.reflect.TypeVariable;
+
+        $stack2 = interfaceinvoke typeVariable.<java.lang.reflect.TypeVariable: java.lang.reflect.Type[] getBounds()>();
+
+        $stack3 = lengthof $stack2;
+
+        if $stack3 != 0 goto label1;
+
+        $stack4 = newarray (java.lang.reflect.Type)[1];
+
+        $stack4[0] = class "Ljava/lang/Object;";
+
+        goto label2;
+
+     label1:
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] normalizeUpperBounds(java.lang.reflect.Type[])>($stack2);
+
+     label2:
+        return $stack4;
+    }
+
+    public static java.lang.reflect.Type[] getImplicitUpperBounds(java.lang.reflect.WildcardType)
+    {
+        java.lang.reflect.WildcardType wildcardType;
+        java.lang.reflect.Type[] $stack2, $stack4;
+        int $stack3;
+
+        wildcardType := @parameter0: java.lang.reflect.WildcardType;
+
+        $stack2 = interfaceinvoke wildcardType.<java.lang.reflect.WildcardType: java.lang.reflect.Type[] getUpperBounds()>();
+
+        $stack3 = lengthof $stack2;
+
+        if $stack3 != 0 goto label1;
+
+        $stack4 = newarray (java.lang.reflect.Type)[1];
+
+        $stack4[0] = class "Ljava/lang/Object;";
+
+        goto label2;
+
+     label1:
+        $stack4 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] normalizeUpperBounds(java.lang.reflect.Type[])>($stack2);
+
+     label2:
+        return $stack4;
+    }
+
+    public static java.lang.reflect.Type[] getImplicitLowerBounds(java.lang.reflect.WildcardType)
+    {
+        java.lang.reflect.WildcardType wildcardType;
+        java.lang.reflect.Type[] $stack2, $stack4;
+        int $stack3;
+
+        wildcardType := @parameter0: java.lang.reflect.WildcardType;
+
+        $stack2 = interfaceinvoke wildcardType.<java.lang.reflect.WildcardType: java.lang.reflect.Type[] getLowerBounds()>();
+
+        $stack3 = lengthof $stack2;
+
+        if $stack3 != 0 goto label1;
+
+        $stack4 = newarray (java.lang.reflect.Type)[1];
+
+        $stack4[0] = null;
+
+        goto label2;
+
+     label1:
+        $stack4 = $stack2;
+
+     label2:
+        return $stack4;
+    }
+
+    public static boolean typesSatisfyVariables(java.util.Map)
+    {
+        java.util.Map typeVarAssigns;
+        int len$, i$_2;
+        boolean $stack11, $stack18;
+        java.util.Map$Entry entry;
+        java.util.Iterator $stack10;
+        java.lang.reflect.TypeVariable typeVar;
+        java.util.Set $stack9;
+        java.lang.reflect.Type type, bound, $stack17;
+        java.lang.reflect.Type[] $stack15;
+        java.lang.Object $stack12, $stack13, $stack14;
+
+        typeVarAssigns := @parameter0: java.util.Map;
+
+        $stack9 = interfaceinvoke typeVarAssigns.<java.util.Map: java.util.Set entrySet()>();
+
+        $stack10 = interfaceinvoke $stack9.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $stack11 = interfaceinvoke $stack10.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack11 == 0 goto label5;
+
+        $stack12 = interfaceinvoke $stack10.<java.util.Iterator: java.lang.Object next()>();
+
+        entry = (java.util.Map$Entry) $stack12;
+
+        $stack13 = interfaceinvoke entry.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        typeVar = (java.lang.reflect.TypeVariable) $stack13;
+
+        $stack14 = interfaceinvoke entry.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        type = (java.lang.reflect.Type) $stack14;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type[] getImplicitBounds(java.lang.reflect.TypeVariable)>(typeVar);
+
+        len$ = lengthof $stack15;
+
+        i$_2 = 0;
+
+     label2:
+        if i$_2 >= len$ goto label4;
+
+        bound = $stack15[i$_2];
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.reflect.Type substituteTypeVariables(java.lang.reflect.Type,java.util.Map)>(bound, typeVarAssigns);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: boolean isAssignable(java.lang.reflect.Type,java.lang.reflect.Type,java.util.Map)>(type, $stack17, typeVarAssigns);
+
+        if $stack18 != 0 goto label3;
+
+        return 0;
+
+     label3:
+        i$_2 = i$_2 + 1;
+
+        goto label2;
+
+     label4:
+        goto label1;
+
+     label5:
+        return 1;
+    }
+
+    private static java.lang.Class getRawType(java.lang.reflect.ParameterizedType)
+    {
+        java.lang.IllegalStateException $stack5;
+        java.lang.reflect.ParameterizedType parameterizedType;
+        java.lang.reflect.Type $stack2;
+        java.lang.Class $stack4;
+        java.lang.StringBuilder $stack6, $stack7, $stack8;
+        java.lang.String $stack9;
+        boolean $stack3;
+
+        parameterizedType := @parameter0: java.lang.reflect.ParameterizedType;
+
+        $stack2 = interfaceinvoke parameterizedType.<java.lang.reflect.ParameterizedType: java.lang.reflect.Type getRawType()>();
+
+        $stack3 = $stack2 instanceof java.lang.Class;
+
+        if $stack3 != 0 goto label1;
+
+        $stack5 = new java.lang.IllegalStateException;
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Wait... What!? Type of rawType: ");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack2);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack5;
+
+     label1:
+        $stack4 = (java.lang.Class) $stack2;
+
+        return $stack4;
+    }
+
+    public static java.lang.Class getRawType(java.lang.reflect.Type, java.lang.reflect.Type)
+    {
+        java.lang.reflect.GenericArrayType $stack15;
+        java.util.Map $stack24;
+        java.lang.String $stack14;
+        boolean $stack5, $stack6, $stack7, $stack8, $stack9, $stack22;
+        java.lang.reflect.GenericDeclaration $stack21;
+        java.lang.reflect.TypeVariable $stack20;
+        java.lang.IllegalArgumentException $stack10;
+        java.lang.reflect.ParameterizedType $stack27;
+        java.lang.reflect.Type type, $stack16, assigningType, typeArgument;
+        java.lang.StringBuilder $stack11, $stack12, $stack13;
+        java.lang.Class $stack17, $stack19, $stack23, $stack26, $stack28, $stack29;
+        java.lang.Object $stack18, $stack25;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        assigningType := @parameter1: java.lang.reflect.Type;
+
+        $stack5 = type instanceof java.lang.Class;
+
+        if $stack5 == 0 goto label1;
+
+        $stack29 = (java.lang.Class) type;
+
+        return $stack29;
+
+     label1:
+        $stack6 = type instanceof java.lang.reflect.ParameterizedType;
+
+        if $stack6 == 0 goto label2;
+
+        $stack27 = (java.lang.reflect.ParameterizedType) type;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.ParameterizedType)>($stack27);
+
+        return $stack28;
+
+     label2:
+        $stack7 = type instanceof java.lang.reflect.TypeVariable;
+
+        if $stack7 == 0 goto label7;
+
+        if assigningType != null goto label3;
+
+        return null;
+
+     label3:
+        $stack20 = (java.lang.reflect.TypeVariable) type;
+
+        $stack21 = interfaceinvoke $stack20.<java.lang.reflect.TypeVariable: java.lang.reflect.GenericDeclaration getGenericDeclaration()>();
+
+        $stack22 = $stack21 instanceof java.lang.Class;
+
+        if $stack22 != 0 goto label4;
+
+        return null;
+
+     label4:
+        $stack23 = (java.lang.Class) $stack21;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.util.Map getTypeArguments(java.lang.reflect.Type,java.lang.Class)>(assigningType, $stack23);
+
+        if $stack24 != null goto label5;
+
+        return null;
+
+     label5:
+        $stack25 = interfaceinvoke $stack24.<java.util.Map: java.lang.Object get(java.lang.Object)>(type);
+
+        typeArgument = (java.lang.reflect.Type) $stack25;
+
+        if typeArgument != null goto label6;
+
+        return null;
+
+     label6:
+        $stack26 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.Type,java.lang.reflect.Type)>(typeArgument, assigningType);
+
+        return $stack26;
+
+     label7:
+        $stack8 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack8 == 0 goto label8;
+
+        $stack15 = (java.lang.reflect.GenericArrayType) type;
+
+        $stack16 = interfaceinvoke $stack15.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.reflect.TypeUtils: java.lang.Class getRawType(java.lang.reflect.Type,java.lang.reflect.Type)>($stack16, assigningType);
+
+        $stack18 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int)>($stack17, 0);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.Object: java.lang.Class getClass()>();
+
+        return $stack19;
+
+     label8:
+        $stack9 = type instanceof java.lang.reflect.WildcardType;
+
+        if $stack9 == 0 goto label9;
+
+        return null;
+
+     label9:
+        $stack10 = new java.lang.IllegalArgumentException;
+
+        $stack11 = new java.lang.StringBuilder;
+
+        specialinvoke $stack11.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("unknown type: ");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(type);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack10.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack14);
+
+        throw $stack10;
+    }
+
+    public static boolean isArrayType(java.lang.reflect.Type)
+    {
+        java.lang.reflect.Type type;
+        java.lang.Class $stack4;
+        boolean $stack1, $stack2, $stack5, $stack3;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        $stack1 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = type instanceof java.lang.Class;
+
+        if $stack2 == 0 goto label2;
+
+        $stack4 = (java.lang.Class) type;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: boolean isArray()>();
+
+        if $stack5 == 0 goto label2;
+
+     label1:
+        $stack3 = 1;
+
+        goto label3;
+
+     label2:
+        $stack3 = 0;
+
+     label3:
+        return $stack3;
+    }
+
+    public static java.lang.reflect.Type getArrayComponentType(java.lang.reflect.Type)
+    {
+        java.lang.reflect.GenericArrayType $stack4;
+        java.lang.reflect.Type type, $stack5;
+        java.lang.Class clazz, $stack7;
+        boolean $stack2, $stack3, $stack6;
+
+        type := @parameter0: java.lang.reflect.Type;
+
+        $stack2 = type instanceof java.lang.Class;
+
+        if $stack2 == 0 goto label3;
+
+        clazz = (java.lang.Class) type;
+
+        $stack6 = virtualinvoke clazz.<java.lang.Class: boolean isArray()>();
+
+        if $stack6 == 0 goto label1;
+
+        $stack7 = virtualinvoke clazz.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        goto label2;
+
+     label1:
+        $stack7 = null;
+
+     label2:
+        return $stack7;
+
+     label3:
+        $stack3 = type instanceof java.lang.reflect.GenericArrayType;
+
+        if $stack3 == 0 goto label4;
+
+        $stack4 = (java.lang.reflect.GenericArrayType) type;
+
+        $stack5 = interfaceinvoke $stack4.<java.lang.reflect.GenericArrayType: java.lang.reflect.Type getGenericComponentType()>();
+
+        return $stack5;
+
+     label4:
+        return null;
+    }
+}

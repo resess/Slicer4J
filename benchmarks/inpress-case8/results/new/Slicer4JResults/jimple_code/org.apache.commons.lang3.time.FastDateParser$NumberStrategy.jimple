@@ -1,0 +1,103 @@
+class org.apache.commons.lang3.time.FastDateParser$NumberStrategy extends java.lang.Object implements org.apache.commons.lang3.time.FastDateParser$Strategy
+{
+    protected final int field;
+
+    void <init>(int)
+    {
+        int field;
+        org.apache.commons.lang3.time.FastDateParser$NumberStrategy this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$NumberStrategy;
+
+        field := @parameter0: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDateParser$NumberStrategy: int field> = field;
+
+        return;
+    }
+
+    public boolean isNumber()
+    {
+        org.apache.commons.lang3.time.FastDateParser$NumberStrategy this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$NumberStrategy;
+
+        return 1;
+    }
+
+    public boolean addRegex(org.apache.commons.lang3.time.FastDateParser, java.lang.StringBuilder)
+    {
+        org.apache.commons.lang3.time.FastDateParser$NumberStrategy this;
+        int $stack6;
+        java.lang.StringBuilder regex, $stack5, $stack7;
+        org.apache.commons.lang3.time.FastDateParser parser;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$NumberStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        regex := @parameter1: java.lang.StringBuilder;
+
+        $stack3 = virtualinvoke parser.<org.apache.commons.lang3.time.FastDateParser: boolean isNextNumber()>();
+
+        if $stack3 == 0 goto label1;
+
+        $stack5 = virtualinvoke regex.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("(\\p{IsNd}{");
+
+        $stack6 = virtualinvoke parser.<org.apache.commons.lang3.time.FastDateParser: int getFieldWidth()>();
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($stack6);
+
+        virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("}+)");
+
+        goto label2;
+
+     label1:
+        virtualinvoke regex.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("(\\p{IsNd}++)");
+
+     label2:
+        return 1;
+    }
+
+    public void setCalendar(org.apache.commons.lang3.time.FastDateParser, java.util.Calendar, java.lang.String)
+    {
+        java.util.Calendar cal;
+        org.apache.commons.lang3.time.FastDateParser$NumberStrategy this;
+        int $stack4, $stack5, $stack6;
+        java.lang.String value;
+        org.apache.commons.lang3.time.FastDateParser parser;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$NumberStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        cal := @parameter1: java.util.Calendar;
+
+        value := @parameter2: java.lang.String;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDateParser$NumberStrategy: int field>;
+
+        $stack5 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String)>(value);
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.time.FastDateParser$NumberStrategy: int modify(int)>($stack5);
+
+        virtualinvoke cal.<java.util.Calendar: void set(int,int)>($stack4, $stack6);
+
+        return;
+    }
+
+    public int modify(int)
+    {
+        int iValue;
+        org.apache.commons.lang3.time.FastDateParser$NumberStrategy this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$NumberStrategy;
+
+        iValue := @parameter0: int;
+
+        return iValue;
+    }
+}

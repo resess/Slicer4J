@@ -1,0 +1,91 @@
+class org.apache.commons.lang3.time.FormatCache$MultipartKey extends java.lang.Object
+{
+    private final java.lang.Object[] keys;
+    private int hashCode;
+
+    public transient void <init>(java.lang.Object[])
+    {
+        java.lang.Object[] keys;
+        org.apache.commons.lang3.time.FormatCache$MultipartKey this;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache$MultipartKey;
+
+        keys := @parameter0: java.lang.Object[];
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: java.lang.Object[] keys> = keys;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object[] $stack3, $stack4;
+        java.lang.Object obj;
+        org.apache.commons.lang3.time.FormatCache$MultipartKey this, $stack2;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache$MultipartKey;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: java.lang.Object[] keys>;
+
+        $stack2 = (org.apache.commons.lang3.time.FormatCache$MultipartKey) obj;
+
+        $stack3 = $stack2.<org.apache.commons.lang3.time.FormatCache$MultipartKey: java.lang.Object[] keys>;
+
+        $stack5 = staticinvoke <java.util.Arrays: boolean equals(java.lang.Object[],java.lang.Object[])>($stack4, $stack3);
+
+        return $stack5;
+    }
+
+    public int hashCode()
+    {
+        java.lang.Object[] arr$;
+        org.apache.commons.lang3.time.FormatCache$MultipartKey this;
+        int $stack6, $stack7, len$, $stack11, $stack12, rc, i$;
+        java.lang.Object key;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache$MultipartKey;
+
+        $stack6 = this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: int hashCode>;
+
+        if $stack6 != 0 goto label4;
+
+        rc = 0;
+
+        arr$ = this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: java.lang.Object[] keys>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label3;
+
+        key = arr$[i$];
+
+        if key == null goto label2;
+
+        $stack11 = rc * 7;
+
+        $stack12 = virtualinvoke key.<java.lang.Object: int hashCode()>();
+
+        rc = $stack11 + $stack12;
+
+     label2:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label3:
+        this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: int hashCode> = rc;
+
+     label4:
+        $stack7 = this.<org.apache.commons.lang3.time.FormatCache$MultipartKey: int hashCode>;
+
+        return $stack7;
+    }
+}

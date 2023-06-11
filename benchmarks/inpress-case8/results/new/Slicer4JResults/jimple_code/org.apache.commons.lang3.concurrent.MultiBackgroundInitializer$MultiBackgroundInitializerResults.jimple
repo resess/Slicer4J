@@ -1,0 +1,203 @@
+public class org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults extends java.lang.Object
+{
+    private final java.util.Map initializers;
+    private final java.util.Map resultObjects;
+    private final java.util.Map exceptions;
+
+    private void <init>(java.util.Map, java.util.Map, java.util.Map)
+    {
+        java.util.Map inits, results, excepts;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        inits := @parameter0: java.util.Map;
+
+        results := @parameter1: java.util.Map;
+
+        excepts := @parameter2: java.util.Map;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map initializers> = inits;
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map resultObjects> = results;
+
+        this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map exceptions> = excepts;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.concurrent.BackgroundInitializer getInitializer(java.lang.String)
+    {
+        java.lang.String name;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer $stack2;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        name := @parameter0: java.lang.String;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer checkName(java.lang.String)>(name);
+
+        return $stack2;
+    }
+
+    public java.lang.Object getResultObject(java.lang.String)
+    {
+        java.util.Map $stack3;
+        java.lang.Object $stack4;
+        java.lang.String name;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        name := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer checkName(java.lang.String)>(name);
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map resultObjects>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: java.lang.Object get(java.lang.Object)>(name);
+
+        return $stack4;
+    }
+
+    public boolean isException(java.lang.String)
+    {
+        java.util.Map $stack3;
+        java.lang.String name;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        name := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer checkName(java.lang.String)>(name);
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map exceptions>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: boolean containsKey(java.lang.Object)>(name);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.concurrent.ConcurrentException getException(java.lang.String)
+    {
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack5;
+        java.util.Map $stack3;
+        java.lang.Object $stack4;
+        java.lang.String name;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        name := @parameter0: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: org.apache.commons.lang3.concurrent.BackgroundInitializer checkName(java.lang.String)>(name);
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map exceptions>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: java.lang.Object get(java.lang.Object)>(name);
+
+        $stack5 = (org.apache.commons.lang3.concurrent.ConcurrentException) $stack4;
+
+        return $stack5;
+    }
+
+    public java.util.Set initializerNames()
+    {
+        java.util.Map $stack1;
+        java.util.Set $stack2, $stack3;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map initializers>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.Map: java.util.Set keySet()>();
+
+        $stack3 = staticinvoke <java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>($stack2);
+
+        return $stack3;
+    }
+
+    public boolean isSuccessful()
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+        java.util.Map $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        $stack1 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map exceptions>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.Map: boolean isEmpty()>();
+
+        return $stack2;
+    }
+
+    private org.apache.commons.lang3.concurrent.BackgroundInitializer checkName(java.lang.String)
+    {
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+        org.apache.commons.lang3.concurrent.BackgroundInitializer init;
+        java.util.Map $stack3;
+        java.lang.Object $stack4;
+        java.lang.StringBuilder $stack6, $stack7, $stack8;
+        java.lang.String name, $stack9;
+        java.util.NoSuchElementException $stack5;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        name := @parameter0: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: java.util.Map initializers>;
+
+        $stack4 = interfaceinvoke $stack3.<java.util.Map: java.lang.Object get(java.lang.Object)>(name);
+
+        init = (org.apache.commons.lang3.concurrent.BackgroundInitializer) $stack4;
+
+        if init != null goto label1;
+
+        $stack5 = new java.util.NoSuchElementException;
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No child initializer with name ");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(name);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack5.<java.util.NoSuchElementException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack5;
+
+     label1:
+        return init;
+    }
+
+    void <init>(java.util.Map, java.util.Map, java.util.Map, org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$1)
+    {
+        java.util.Map x0, x1, x2;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$1 x3;
+        org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults this;
+
+        this := @this: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults;
+
+        x0 := @parameter0: java.util.Map;
+
+        x1 := @parameter1: java.util.Map;
+
+        x2 := @parameter2: java.util.Map;
+
+        x3 := @parameter3: org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$1;
+
+        specialinvoke this.<org.apache.commons.lang3.concurrent.MultiBackgroundInitializer$MultiBackgroundInitializerResults: void <init>(java.util.Map,java.util.Map,java.util.Map)>(x0, x1, x2);
+
+        return;
+    }
+}

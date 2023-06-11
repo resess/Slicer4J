@@ -1,0 +1,1348 @@
+public class org.apache.commons.lang3.SerializationUtilsTest extends java.lang.Object
+{
+    static final java.lang.String CLASS_NOT_FOUND_MESSAGE;
+    protected static final java.lang.String SERIALIZE_IO_EXCEPTION_MESSAGE;
+    private java.lang.String iString;
+    private java.lang.Integer iInteger;
+    private java.util.HashMap iMap;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp()
+    {
+        java.util.HashMap $stack2, $stack4, $stack7;
+        java.lang.String $stack3;
+        java.lang.Integer $stack1, $stack6;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString> = "foo";
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger> = $stack1;
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap> = $stack2;
+
+        $stack4 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack3 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        virtualinvoke $stack4.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("FOO", $stack3);
+
+        $stack7 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack6 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        virtualinvoke $stack7.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>("BAR", $stack6);
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.SerializationUtils $stack2;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.SerializationUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.SerializationUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/SerializationUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/SerializationUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/SerializationUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testException()
+    {
+        java.lang.Throwable $stack8, $stack13, $stack17, $stack21;
+        java.lang.Exception $stack3;
+        org.apache.commons.lang3.SerializationException $stack4, $stack9, $stack14, $stack18;
+        java.lang.String $stack6, $stack11, $stack16, $stack20;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack3 = new java.lang.Exception;
+
+        specialinvoke $stack3.<java.lang.Exception: void <init>()>();
+
+        $stack4 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.SerializationException: void <init>()>();
+
+        $stack6 = virtualinvoke $stack4.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.SerializationException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack9 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String)>("Message");
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Message", $stack11);
+
+        $stack13 = virtualinvoke $stack9.<org.apache.commons.lang3.SerializationException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack13);
+
+        $stack14 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.Throwable)>($stack3);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("java.lang.Exception", $stack16);
+
+        $stack17 = virtualinvoke $stack14.<org.apache.commons.lang3.SerializationException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack17);
+
+        $stack18 = new org.apache.commons.lang3.SerializationException;
+
+        specialinvoke $stack18.<org.apache.commons.lang3.SerializationException: void <init>(java.lang.String,java.lang.Throwable)>("Message", $stack3);
+
+        $stack20 = virtualinvoke $stack18.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("Message", $stack20);
+
+        $stack21 = virtualinvoke $stack18.<org.apache.commons.lang3.SerializationException: java.lang.Throwable getCause()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack21);
+
+        return;
+    }
+
+    public void testSerializeStream() throws java.lang.Exception
+    {
+        byte[] $stack12, $stack13;
+        java.io.ByteArrayOutputStream $stack7, $stack9;
+        java.util.HashMap $stack8, $stack11;
+        long $stack16, $stack17, $stack21, $stack22;
+        byte $stack19, $stack20;
+        int $stack14, $stack15, $stack18, i;
+        java.io.ObjectOutputStream $stack10;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack7 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack7.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack8 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>($stack8, $stack7);
+
+        $stack9 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack9.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack10 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack10.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack9);
+
+        $stack11 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        virtualinvoke $stack10.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack11);
+
+        virtualinvoke $stack10.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack10.<java.io.ObjectOutputStream: void close()>();
+
+        $stack12 = virtualinvoke $stack7.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack13 = virtualinvoke $stack9.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack14 = lengthof $stack12;
+
+        $stack17 = (long) $stack14;
+
+        $stack15 = lengthof $stack13;
+
+        $stack16 = (long) $stack15;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack17, $stack16);
+
+        i = 0;
+
+     label1:
+        $stack18 = lengthof $stack13;
+
+        if i >= $stack18 goto label2;
+
+        $stack19 = $stack13[i];
+
+        $stack22 = (long) $stack19;
+
+        $stack20 = $stack12[i];
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack22, $stack21);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testSerializeStreamUnserializable() throws java.lang.Exception
+    {
+        java.io.ByteArrayOutputStream $stack3;
+        org.apache.commons.lang3.SerializationException $stack9;
+        java.lang.Object $stack4, $stack6;
+        java.util.HashMap $stack5, $stack8;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack3 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack3.<java.io.ByteArrayOutputStream: void <init>()>();
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack4 = new java.lang.Object;
+
+        specialinvoke $stack4.<java.lang.Object: void <init>()>();
+
+        $stack6 = new java.lang.Object;
+
+        specialinvoke $stack6.<java.lang.Object: void <init>()>();
+
+        virtualinvoke $stack5.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>($stack8, $stack3);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack9 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testSerializeStreamNullObj() throws java.lang.Exception
+    {
+        byte[] $stack10, $stack11;
+        java.io.ByteArrayOutputStream $stack7, $stack8;
+        long $stack14, $stack15, $stack19, $stack20;
+        byte $stack17, $stack18;
+        int $stack12, $stack13, $stack16, i;
+        java.io.ObjectOutputStream $stack9;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack7 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack7.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>(null, $stack7);
+
+        $stack8 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack8.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack9 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack9.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack8);
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>(null);
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void close()>();
+
+        $stack10 = virtualinvoke $stack7.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack11 = virtualinvoke $stack8.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack12 = lengthof $stack10;
+
+        $stack15 = (long) $stack12;
+
+        $stack13 = lengthof $stack11;
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack14);
+
+        i = 0;
+
+     label1:
+        $stack16 = lengthof $stack11;
+
+        if i >= $stack16 goto label2;
+
+        $stack17 = $stack11[i];
+
+        $stack20 = (long) $stack17;
+
+        $stack18 = $stack10[i];
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack20, $stack19);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testSerializeStreamObjNull() throws java.lang.Exception
+    {
+        java.util.HashMap $stack2;
+        java.lang.IllegalArgumentException $stack3;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>($stack2, null);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testSerializeStreamNullNull() throws java.lang.Exception
+    {
+        java.lang.IllegalArgumentException $stack2;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>(null, null);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack2 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testSerializeIOException() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.SerializationException $stack5;
+        java.util.HashMap $stack4;
+        org.apache.commons.lang3.SerializationUtilsTest$1 $stack3;
+        java.lang.String $stack7;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack3 = new org.apache.commons.lang3.SerializationUtilsTest$1;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.SerializationUtilsTest$1: void <init>(org.apache.commons.lang3.SerializationUtilsTest)>(this);
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: void serialize(java.io.Serializable,java.io.OutputStream)>($stack4, $stack3);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("java.io.IOException: Anonymous OutputStream I/O exception", $stack7);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testDeserializeStream() throws java.lang.Exception
+    {
+        byte[] $stack10;
+        java.io.ByteArrayOutputStream $stack6;
+        java.util.HashMap $stack8, $stack13, $stack22, $stack35;
+        java.lang.Integer $stack18, $stack20;
+        java.io.ByteArrayInputStream $stack9;
+        java.io.ObjectOutputStream $stack7;
+        java.lang.String $stack14, $stack16;
+        boolean $stack12, $stack33, $stack26, $stack23;
+        java.lang.Object $stack11, $stack15, $stack17, $stack19, $stack21;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack6 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack6.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack7 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack7.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        virtualinvoke $stack7.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack8);
+
+        virtualinvoke $stack7.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack7.<java.io.ObjectOutputStream: void close()>();
+
+        $stack9 = new java.io.ByteArrayInputStream;
+
+        $stack10 = virtualinvoke $stack6.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        specialinvoke $stack9.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack10);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack11);
+
+        $stack12 = $stack11 instanceof java.util.HashMap;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        if $stack11 == $stack13 goto label1;
+
+        $stack33 = 1;
+
+        goto label2;
+
+     label1:
+        $stack33 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack35 = (java.util.HashMap) $stack11;
+
+        $stack14 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack15 = virtualinvoke $stack35.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        $stack16 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack17 = virtualinvoke $stack35.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        if $stack16 == $stack17 goto label3;
+
+        $stack26 = 1;
+
+        goto label4;
+
+     label3:
+        $stack26 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $stack18 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack19 = virtualinvoke $stack35.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack20 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack21 = virtualinvoke $stack35.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        if $stack20 == $stack21 goto label5;
+
+        $stack23 = 1;
+
+        goto label6;
+
+     label5:
+        $stack23 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack22 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack35);
+
+        return;
+    }
+
+    public void testDeserializeClassCastException()
+    {
+        byte[] $stack4;
+        java.lang.Object $stack6, $stack7;
+        java.lang.Integer i;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>("Hello");
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Hello", $stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack4);
+
+        i = (java.lang.Integer) $stack7;
+
+        return;
+    }
+
+    public void testDeserializeStreamOfNull() throws java.lang.Exception
+    {
+        byte[] $stack8;
+        java.io.ByteArrayOutputStream $stack5;
+        java.io.ByteArrayInputStream $stack7;
+        java.io.ObjectOutputStream $stack6;
+        java.lang.Object $stack9;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack5 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack5.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack6 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack6.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack5);
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>(null);
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void close()>();
+
+        $stack7 = new java.io.ByteArrayInputStream;
+
+        $stack8 = virtualinvoke $stack5.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        specialinvoke $stack7.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack9);
+
+        return;
+    }
+
+    public void testDeserializeStreamNull() throws java.lang.Exception
+    {
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>(null);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testDeserializeStreamBadStream() throws java.lang.Exception
+    {
+        byte[] $stack3;
+        java.io.ByteArrayInputStream $stack2;
+        org.apache.commons.lang3.SerializationException $stack5;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack2 = new java.io.ByteArrayInputStream;
+
+        $stack3 = newarray (byte)[0];
+
+        specialinvoke $stack2.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack3);
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>($stack2);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack5 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testDeserializeStreamClassNotFound() throws java.lang.Exception
+    {
+        byte[] $stack9;
+        java.io.ByteArrayOutputStream $stack5;
+        org.apache.commons.lang3.ClassNotFoundSerialization $stack7;
+        java.io.ByteArrayInputStream $stack8;
+        org.apache.commons.lang3.SerializationException $stack11;
+        java.io.ObjectOutputStream $stack6;
+        java.lang.String $stack13;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack5 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack5.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack6 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack6.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack5);
+
+        $stack7 = new org.apache.commons.lang3.ClassNotFoundSerialization;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.ClassNotFoundSerialization: void <init>()>();
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack7);
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void close()>();
+
+        $stack8 = new java.io.ByteArrayInputStream;
+
+        $stack9 = virtualinvoke $stack5.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        specialinvoke $stack8.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack9);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(java.io.InputStream)>($stack8);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack11 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack11.<org.apache.commons.lang3.SerializationException: java.lang.String getMessage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("java.lang.ClassNotFoundException: ClassNotFoundSerialization.readObject fake exception", $stack13);
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testSerializeBytes() throws java.lang.Exception
+    {
+        byte[] $stack7, $stack11;
+        java.io.ByteArrayOutputStream $stack8;
+        java.util.HashMap $stack6, $stack10;
+        long $stack14, $stack15, $stack19, $stack20;
+        byte $stack17, $stack18;
+        int $stack12, $stack13, $stack16, i;
+        java.io.ObjectOutputStream $stack9;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack6 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>($stack6);
+
+        $stack8 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack8.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack9 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack9.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack8);
+
+        $stack10 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack10);
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack9.<java.io.ObjectOutputStream: void close()>();
+
+        $stack11 = virtualinvoke $stack8.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack12 = lengthof $stack7;
+
+        $stack15 = (long) $stack12;
+
+        $stack13 = lengthof $stack11;
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack15, $stack14);
+
+        i = 0;
+
+     label1:
+        $stack16 = lengthof $stack11;
+
+        if i >= $stack16 goto label2;
+
+        $stack17 = $stack11[i];
+
+        $stack20 = (long) $stack17;
+
+        $stack18 = $stack7[i];
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack20, $stack19);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testSerializeBytesUnserializable() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.SerializationException $stack8;
+        java.lang.Object $stack2, $stack4;
+        java.util.HashMap $stack3, $stack6;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack2 = new java.lang.Object;
+
+        specialinvoke $stack2.<java.lang.Object: void <init>()>();
+
+        $stack4 = new java.lang.Object;
+
+        specialinvoke $stack4.<java.lang.Object: void <init>()>();
+
+        virtualinvoke $stack3.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack2, $stack4);
+
+        $stack6 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>($stack6);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack8 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testSerializeBytesNull() throws java.lang.Exception
+    {
+        byte[] $stack6, $stack9;
+        java.io.ByteArrayOutputStream $stack7;
+        long $stack12, $stack13, $stack17, $stack18;
+        byte $stack15, $stack16;
+        int $stack10, $stack11, $stack14, i;
+        java.io.ObjectOutputStream $stack8;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.SerializationUtils: byte[] serialize(java.io.Serializable)>(null);
+
+        $stack7 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack7.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack8 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack8.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack7);
+
+        virtualinvoke $stack8.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>(null);
+
+        virtualinvoke $stack8.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack8.<java.io.ObjectOutputStream: void close()>();
+
+        $stack9 = virtualinvoke $stack7.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack10 = lengthof $stack6;
+
+        $stack13 = (long) $stack10;
+
+        $stack11 = lengthof $stack9;
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack13, $stack12);
+
+        i = 0;
+
+     label1:
+        $stack14 = lengthof $stack9;
+
+        if i >= $stack14 goto label2;
+
+        $stack15 = $stack9[i];
+
+        $stack18 = (long) $stack15;
+
+        $stack16 = $stack6[i];
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack18, $stack17);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public void testDeserializeBytes() throws java.lang.Exception
+    {
+        byte[] $stack8;
+        java.io.ByteArrayOutputStream $stack5;
+        java.util.HashMap $stack7, $stack11, $stack20, $stack33;
+        java.lang.Integer $stack16, $stack18;
+        java.io.ObjectOutputStream $stack6;
+        java.lang.String $stack12, $stack14;
+        boolean $stack10, $stack31, $stack24, $stack21;
+        java.lang.Object $stack9, $stack13, $stack15, $stack17, $stack19;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack5 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack5.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack6 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack6.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack7);
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack6.<java.io.ObjectOutputStream: void close()>();
+
+        $stack8 = virtualinvoke $stack5.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack9);
+
+        $stack10 = $stack9 instanceof java.util.HashMap;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        if $stack9 == $stack11 goto label1;
+
+        $stack31 = 1;
+
+        goto label2;
+
+     label1:
+        $stack31 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack33 = (java.util.HashMap) $stack9;
+
+        $stack12 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack13 = virtualinvoke $stack33.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack14 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack15 = virtualinvoke $stack33.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        if $stack14 == $stack15 goto label3;
+
+        $stack24 = 1;
+
+        goto label4;
+
+     label3:
+        $stack24 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack16 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack17 = virtualinvoke $stack33.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        $stack18 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack19 = virtualinvoke $stack33.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        if $stack18 == $stack19 goto label5;
+
+        $stack21 = 1;
+
+        goto label6;
+
+     label5:
+        $stack21 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack20 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack33);
+
+        return;
+    }
+
+    public void testDeserializeBytesOfNull() throws java.lang.Exception
+    {
+        byte[] $stack6;
+        java.io.ByteArrayOutputStream $stack4;
+        java.io.ObjectOutputStream $stack5;
+        java.lang.Object $stack7;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack4 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack4.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack5 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack5.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack4);
+
+        virtualinvoke $stack5.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>(null);
+
+        virtualinvoke $stack5.<java.io.ObjectOutputStream: void flush()>();
+
+        virtualinvoke $stack5.<java.io.ObjectOutputStream: void close()>();
+
+        $stack6 = virtualinvoke $stack4.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack7);
+
+        return;
+    }
+
+    public void testDeserializeBytesNull() throws java.lang.Exception
+    {
+        byte[] $stack2;
+        java.lang.IllegalArgumentException $stack4;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack2 = (byte[]) null;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack2);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+
+    public void testDeserializeBytesBadStream() throws java.lang.Exception
+    {
+        byte[] $stack2;
+        org.apache.commons.lang3.SerializationException $stack4;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack2 = newarray (byte)[0];
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.lang.Object deserialize(byte[])>($stack2);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack4 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testClone() throws java.lang.Exception
+    {
+        java.util.HashMap $stack3, $stack6, $stack15, $stack28;
+        java.lang.Integer $stack11, $stack13;
+        java.lang.String $stack7, $stack9;
+        boolean $stack5, $stack26, $stack19, $stack16;
+        java.io.Serializable $stack4;
+        java.lang.Object $stack8, $stack10, $stack12, $stack14;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack3 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack4);
+
+        $stack5 = $stack4 instanceof java.util.HashMap;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        if $stack4 == $stack6 goto label1;
+
+        $stack26 = 1;
+
+        goto label2;
+
+     label1:
+        $stack26 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $stack28 = (java.util.HashMap) $stack4;
+
+        $stack7 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack8 = virtualinvoke $stack28.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.String iString>;
+
+        $stack10 = virtualinvoke $stack28.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("FOO");
+
+        if $stack9 == $stack10 goto label3;
+
+        $stack19 = 1;
+
+        goto label4;
+
+     label3:
+        $stack19 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack11 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack12 = virtualinvoke $stack28.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack13 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.lang.Integer iInteger>;
+
+        $stack14 = virtualinvoke $stack28.<java.util.HashMap: java.lang.Object get(java.lang.Object)>("BAR");
+
+        if $stack13 == $stack14 goto label5;
+
+        $stack16 = 1;
+
+        goto label6;
+
+     label5:
+        $stack16 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack15 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack28);
+
+        return;
+    }
+
+    public void testCloneNull() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.SerializationUtilsTest this;
+        java.io.Serializable $stack2;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack2);
+
+        return;
+    }
+
+    public void testCloneUnserializable() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.SerializationException $stack8;
+        java.lang.Object $stack2, $stack4;
+        java.util.HashMap $stack3, $stack6;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        $stack2 = new java.lang.Object;
+
+        specialinvoke $stack2.<java.lang.Object: void <init>()>();
+
+        $stack4 = new java.lang.Object;
+
+        specialinvoke $stack4.<java.lang.Object: void <init>()>();
+
+        virtualinvoke $stack3.<java.util.HashMap: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack2, $stack4);
+
+        $stack6 = this.<org.apache.commons.lang3.SerializationUtilsTest: java.util.HashMap iMap>;
+
+        staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack6);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack8 := @caughtexception;
+
+        return;
+
+     label4:
+        staticinvoke <org.junit.Assert: void fail()>();
+
+        return;
+
+        catch org.apache.commons.lang3.SerializationException from label1 to label2 with label3;
+    }
+
+    public void testPrimitiveTypeClassSerialization()
+    {
+        int len$, i$;
+        java.lang.Class[] $stack7;
+        java.io.Serializable $stack17;
+        java.lang.Class $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, primitiveType, clone;
+        org.apache.commons.lang3.SerializationUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.SerializationUtilsTest;
+
+        $stack7 = newarray (java.lang.Class)[9];
+
+        $stack8 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack7[0] = $stack8;
+
+        $stack9 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack7[1] = $stack9;
+
+        $stack10 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack7[2] = $stack10;
+
+        $stack11 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack7[3] = $stack11;
+
+        $stack12 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack7[4] = $stack12;
+
+        $stack13 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack7[5] = $stack13;
+
+        $stack14 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack7[6] = $stack14;
+
+        $stack15 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack7[7] = $stack15;
+
+        $stack16 = <java.lang.Void: java.lang.Class TYPE>;
+
+        $stack7[8] = $stack16;
+
+        len$ = lengthof $stack7;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        primitiveType = $stack7[i$];
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>(primitiveType);
+
+        clone = (java.lang.Class) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(primitiveType, clone);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.SerializationUtilsTest: java.lang.String SERIALIZE_IO_EXCEPTION_MESSAGE> = "Anonymous OutputStream I/O exception";
+
+        <org.apache.commons.lang3.SerializationUtilsTest: java.lang.String CLASS_NOT_FOUND_MESSAGE> = "ClassNotFoundSerialization.readObject fake exception";
+
+        return;
+    }
+}

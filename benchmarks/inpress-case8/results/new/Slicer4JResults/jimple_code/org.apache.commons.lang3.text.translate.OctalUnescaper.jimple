@@ -1,0 +1,112 @@
+public class org.apache.commons.lang3.text.translate.OctalUnescaper extends org.apache.commons.lang3.text.translate.CharSequenceTranslator
+{
+    private static int OCTAL_MAX;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.OctalUnescaper this;
+
+        this := @this: org.apache.commons.lang3.text.translate.OctalUnescaper;
+
+        specialinvoke this.<org.apache.commons.lang3.text.translate.CharSequenceTranslator: void <init>()>();
+
+        return;
+    }
+
+    public int translate(java.lang.CharSequence, int, java.io.Writer) throws java.io.IOException
+    {
+        int index, $stack7, $stack8, $stack10, start, $stack13, $stack31, $stack32, end, $stack16, $stack17, $stack18, $i0, $i1;
+        java.lang.String $stack30, $stack15;
+        org.apache.commons.lang3.text.translate.OctalUnescaper this;
+        boolean $stack12, $stack20;
+        java.lang.CharSequence input, $stack29, $stack14;
+        char $stack6, $stack11, $stack19;
+        java.io.Writer out;
+
+        this := @this: org.apache.commons.lang3.text.translate.OctalUnescaper;
+
+        input := @parameter0: java.lang.CharSequence;
+
+        index := @parameter1: int;
+
+        out := @parameter2: java.io.Writer;
+
+        $stack6 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>(index);
+
+        $i0 = (int) $stack6;
+
+        if $i0 != 92 goto label3;
+
+        $stack7 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        $stack8 = $stack7 - 1;
+
+        if index >= $stack8 goto label3;
+
+        $stack10 = index + 1;
+
+        $stack11 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>($stack10);
+
+        $stack12 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack11);
+
+        if $stack12 == 0 goto label3;
+
+        start = index + 1;
+
+        end = index + 2;
+
+     label1:
+        $stack13 = interfaceinvoke input.<java.lang.CharSequence: int length()>();
+
+        if end >= $stack13 goto label2;
+
+        $stack19 = interfaceinvoke input.<java.lang.CharSequence: char charAt(int)>(end);
+
+        $stack20 = staticinvoke <java.lang.Character: boolean isDigit(char)>($stack19);
+
+        if $stack20 == 0 goto label2;
+
+        end = end + 1;
+
+        $stack29 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(start, end);
+
+        $stack30 = interfaceinvoke $stack29.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack31 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>($stack30, 10);
+
+        $stack32 = <org.apache.commons.lang3.text.translate.OctalUnescaper: int OCTAL_MAX>;
+
+        if $stack31 <= $stack32 goto label1;
+
+        $i1 = (int) -1;
+
+        end = end + $i1;
+
+        goto label2;
+
+     label2:
+        $stack14 = interfaceinvoke input.<java.lang.CharSequence: java.lang.CharSequence subSequence(int,int)>(start, end);
+
+        $stack15 = interfaceinvoke $stack14.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack16 = staticinvoke <java.lang.Integer: int parseInt(java.lang.String,int)>($stack15, 8);
+
+        virtualinvoke out.<java.io.Writer: void write(int)>($stack16);
+
+        $stack17 = 1 + end;
+
+        $stack18 = $stack17 - start;
+
+        return $stack18;
+
+     label3:
+        return 0;
+    }
+
+    static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.translate.OctalUnescaper: int OCTAL_MAX> = 377;
+
+        return;
+    }
+}

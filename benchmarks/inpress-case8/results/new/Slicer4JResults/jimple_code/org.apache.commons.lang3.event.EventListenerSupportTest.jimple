@@ -1,0 +1,512 @@
+public class org.apache.commons.lang3.event.EventListenerSupportTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testAddNullListener()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack2;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>(null);
+
+        return;
+    }
+
+    public void testRemoveNullListener()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack2;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupport: void removeListener(java.lang.Object)>(null);
+
+        return;
+    }
+
+    public void testEventDispatchOrder() throws java.beans.PropertyVetoException
+    {
+        java.util.Date $stack11;
+        long $stack17;
+        java.lang.Integer $stack14, $stack15;
+        java.util.ArrayList $stack6;
+        org.apache.commons.lang3.event.EventListenerSupport $stack5;
+        java.beans.VetoableChangeListener $stack7, $stack8, $stack12;
+        int $stack16;
+        java.lang.Object $stack9, $stack18, $stack19;
+        java.beans.PropertyChangeEvent $stack10;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        $stack6 = new java.util.ArrayList;
+
+        specialinvoke $stack6.<java.util.ArrayList: void <init>()>();
+
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupportTest: java.beans.VetoableChangeListener createListener(java.util.List)>($stack6);
+
+        $stack8 = specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupportTest: java.beans.VetoableChangeListener createListener(java.util.List)>($stack6);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>($stack7);
+
+        virtualinvoke $stack5.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>($stack8);
+
+        $stack9 = virtualinvoke $stack5.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack12 = (java.beans.VetoableChangeListener) $stack9;
+
+        $stack10 = new java.beans.PropertyChangeEvent;
+
+        $stack11 = new java.util.Date;
+
+        specialinvoke $stack11.<java.util.Date: void <init>()>();
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        specialinvoke $stack10.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>($stack11, "Day", $stack14, $stack15);
+
+        interfaceinvoke $stack12.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack10);
+
+        $stack16 = interfaceinvoke $stack6.<java.util.List: int size()>();
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack17, 2L);
+
+        $stack18 = interfaceinvoke $stack6.<java.util.List: java.lang.Object get(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack18, $stack7);
+
+        $stack19 = interfaceinvoke $stack6.<java.util.List: java.lang.Object get(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack19, $stack8);
+
+        return;
+    }
+
+    public void testCreateWithNonInterfaceParameter()
+    {
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/lang/String;");
+
+        return;
+    }
+
+    public void testCreateWithNullParameter()
+    {
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(null);
+
+        return;
+    }
+
+    public void testRemoveListenerDuringEvent() throws java.beans.PropertyVetoException
+    {
+        java.util.Date $stack8;
+        long $stack5, $stack14;
+        java.lang.Integer $stack11, $stack12;
+        org.apache.commons.lang3.event.EventListenerSupport $stack3;
+        java.beans.VetoableChangeListener $stack9;
+        int $stack4, $stack13, i;
+        java.lang.Object $stack6;
+        java.beans.PropertyChangeEvent $stack7;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        specialinvoke this.<org.apache.commons.lang3.event.EventListenerSupportTest: void addDeregisterListener(org.apache.commons.lang3.event.EventListenerSupport)>($stack3);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.event.EventListenerSupport: int getListenerCount()>();
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack5, 10L);
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack9 = (java.beans.VetoableChangeListener) $stack6;
+
+        $stack7 = new java.beans.PropertyChangeEvent;
+
+        $stack8 = new java.util.Date;
+
+        specialinvoke $stack8.<java.util.Date: void <init>()>();
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        specialinvoke $stack7.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>($stack8, "Day", $stack11, $stack12);
+
+        interfaceinvoke $stack9.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack7);
+
+        $stack13 = virtualinvoke $stack3.<org.apache.commons.lang3.event.EventListenerSupport: int getListenerCount()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack14, 0L);
+
+        return;
+    }
+
+    public void testGetListeners()
+    {
+        java.lang.Object[] $stack7, $stack13, $stack16, $stack22, $stack27, $stack31;
+        long $stack9, $stack19, $stack25, $stack30;
+        java.beans.VetoableChangeListener[] listeners, $stack17, $stack23, $stack28;
+        java.beans.VetoableChangeListener listener1, listener2;
+        int $stack8, $stack18, $stack24, $stack29;
+        org.apache.commons.lang3.event.EventListenerSupport $stack6;
+        java.lang.Class $stack11, $stack12;
+        java.lang.Object $stack14, $stack20;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        listeners = (java.beans.VetoableChangeListener[]) $stack7;
+
+        $stack8 = lengthof listeners;
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = virtualinvoke listeners.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack12 = virtualinvoke $stack11.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/beans/VetoableChangeListener;", $stack12);
+
+        $stack13 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(listeners, $stack13);
+
+        $stack14 = staticinvoke <org.easymock.EasyMock: java.lang.Object createNiceMock(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        listener1 = (java.beans.VetoableChangeListener) $stack14;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>(listener1);
+
+        $stack16 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        $stack17 = (java.beans.VetoableChangeListener[]) $stack16;
+
+        $stack18 = lengthof $stack17;
+
+        $stack19 = (long) $stack18;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack19);
+
+        $stack20 = staticinvoke <org.easymock.EasyMock: java.lang.Object createNiceMock(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        listener2 = (java.beans.VetoableChangeListener) $stack20;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>(listener2);
+
+        $stack22 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        $stack23 = (java.beans.VetoableChangeListener[]) $stack22;
+
+        $stack24 = lengthof $stack23;
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack25);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: void removeListener(java.lang.Object)>(listener1);
+
+        $stack27 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        $stack28 = (java.beans.VetoableChangeListener[]) $stack27;
+
+        $stack29 = lengthof $stack28;
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack30);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: void removeListener(java.lang.Object)>(listener2);
+
+        $stack31 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(listeners, $stack31);
+
+        return;
+    }
+
+    public void testSerialization() throws java.io.IOException, java.lang.ClassNotFoundException, java.beans.PropertyVetoException
+    {
+        byte[] $stack15;
+        java.lang.Object[] $stack17, $stack28, $stack31, $stack33;
+        java.io.ByteArrayOutputStream $stack11;
+        java.util.Date $stack24;
+        java.io.ObjectInputStream $stack13;
+        long $stack22, $stack36;
+        java.lang.Integer $stack26, $stack27;
+        java.io.ByteArrayInputStream $stack14;
+        java.beans.VetoableChangeListener[] listeners, $stack34;
+        java.beans.VetoableChangeListener listener, $stack30;
+        int $stack21, $stack35;
+        java.io.ObjectOutputStream $stack12;
+        java.beans.PropertyChangeEvent $stack23;
+        org.apache.commons.lang3.event.EventListenerSupport $stack8, deserializedListenerSupport;
+        org.apache.commons.lang3.event.EventListenerSupportTest$1 $stack9;
+        java.lang.Object $stack10, $stack16, $stack29;
+        java.lang.Class $stack19, $stack20;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        $stack9 = new org.apache.commons.lang3.event.EventListenerSupportTest$1;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.event.EventListenerSupportTest$1: void <init>(org.apache.commons.lang3.event.EventListenerSupportTest)>(this);
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>($stack9);
+
+        $stack10 = staticinvoke <org.easymock.EasyMock: java.lang.Object createNiceMock(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        virtualinvoke $stack8.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>($stack10);
+
+        $stack11 = new java.io.ByteArrayOutputStream;
+
+        specialinvoke $stack11.<java.io.ByteArrayOutputStream: void <init>()>();
+
+        $stack12 = new java.io.ObjectOutputStream;
+
+        specialinvoke $stack12.<java.io.ObjectOutputStream: void <init>(java.io.OutputStream)>($stack11);
+
+        virtualinvoke $stack12.<java.io.ObjectOutputStream: void writeObject(java.lang.Object)>($stack8);
+
+        virtualinvoke $stack12.<java.io.ObjectOutputStream: void close()>();
+
+        $stack13 = new java.io.ObjectInputStream;
+
+        $stack14 = new java.io.ByteArrayInputStream;
+
+        $stack15 = virtualinvoke $stack11.<java.io.ByteArrayOutputStream: byte[] toByteArray()>();
+
+        specialinvoke $stack14.<java.io.ByteArrayInputStream: void <init>(byte[])>($stack15);
+
+        specialinvoke $stack13.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>($stack14);
+
+        $stack16 = virtualinvoke $stack13.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        deserializedListenerSupport = (org.apache.commons.lang3.event.EventListenerSupport) $stack16;
+
+        $stack17 = virtualinvoke deserializedListenerSupport.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        listeners = (java.beans.VetoableChangeListener[]) $stack17;
+
+        $stack19 = virtualinvoke listeners.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack20 = virtualinvoke $stack19.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(class "Ljava/beans/VetoableChangeListener;", $stack20);
+
+        $stack21 = lengthof listeners;
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack22);
+
+        listener = listeners[0];
+
+        $stack23 = new java.beans.PropertyChangeEvent;
+
+        $stack24 = new java.util.Date;
+
+        specialinvoke $stack24.<java.util.Date: void <init>()>();
+
+        $stack26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack27 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        specialinvoke $stack23.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>($stack24, "Day", $stack26, $stack27);
+
+        interfaceinvoke listener.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack23);
+
+        $stack28 = newarray (java.lang.Object)[1];
+
+        $stack28[0] = listener;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack28);
+
+        $stack29 = virtualinvoke deserializedListenerSupport.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack30 = (java.beans.VetoableChangeListener) $stack29;
+
+        interfaceinvoke $stack30.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack23);
+
+        $stack31 = newarray (java.lang.Object)[1];
+
+        $stack31[0] = listener;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack31);
+
+        virtualinvoke deserializedListenerSupport.<org.apache.commons.lang3.event.EventListenerSupport: void removeListener(java.lang.Object)>(listener);
+
+        $stack33 = virtualinvoke deserializedListenerSupport.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object[] getListeners()>();
+
+        $stack34 = (java.beans.VetoableChangeListener[]) $stack33;
+
+        $stack35 = lengthof $stack34;
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack36);
+
+        return;
+    }
+
+    public void testSubclassInvocationHandling() throws java.beans.PropertyVetoException
+    {
+        java.lang.Object[] $stack17, $stack22;
+        java.util.Date $stack8;
+        java.lang.Integer $stack11, $stack12, $stack15, $stack16;
+        java.beans.VetoableChangeListener listener, $stack19, $stack21;
+        java.beans.PropertyChangeEvent $stack9, $stack13;
+        org.apache.commons.lang3.event.EventListenerSupportTest$2 $stack6;
+        java.lang.Object $stack7, $stack18, $stack20;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        $stack6 = new org.apache.commons.lang3.event.EventListenerSupportTest$2;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupportTest$2: void <init>(org.apache.commons.lang3.event.EventListenerSupportTest,java.lang.Class)>(this, class "Ljava/beans/VetoableChangeListener;");
+
+        $stack7 = staticinvoke <org.easymock.EasyMock: java.lang.Object createNiceMock(java.lang.Class)>(class "Ljava/beans/VetoableChangeListener;");
+
+        listener = (java.beans.VetoableChangeListener) $stack7;
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>(listener);
+
+        $stack8 = new java.util.Date;
+
+        specialinvoke $stack8.<java.util.Date: void <init>()>();
+
+        $stack9 = new java.beans.PropertyChangeEvent;
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        specialinvoke $stack9.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>($stack8, "Hour", $stack11, $stack12);
+
+        $stack13 = new java.beans.PropertyChangeEvent;
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        specialinvoke $stack13.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>($stack8, "Day", $stack15, $stack16);
+
+        interfaceinvoke listener.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack13);
+
+        $stack17 = newarray (java.lang.Object)[1];
+
+        $stack17[0] = listener;
+
+        staticinvoke <org.easymock.EasyMock: void replay(java.lang.Object[])>($stack17);
+
+        $stack18 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack19 = (java.beans.VetoableChangeListener) $stack18;
+
+        interfaceinvoke $stack19.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack9);
+
+        $stack20 = virtualinvoke $stack6.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack21 = (java.beans.VetoableChangeListener) $stack20;
+
+        interfaceinvoke $stack21.<java.beans.VetoableChangeListener: void vetoableChange(java.beans.PropertyChangeEvent)>($stack13);
+
+        $stack22 = newarray (java.lang.Object)[1];
+
+        $stack22[0] = listener;
+
+        staticinvoke <org.easymock.EasyMock: void verify(java.lang.Object[])>($stack22);
+
+        return;
+    }
+
+    private void addDeregisterListener(org.apache.commons.lang3.event.EventListenerSupport)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport listenerSupport;
+        org.apache.commons.lang3.event.EventListenerSupportTest$3 $stack2;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        listenerSupport := @parameter0: org.apache.commons.lang3.event.EventListenerSupport;
+
+        $stack2 = new org.apache.commons.lang3.event.EventListenerSupportTest$3;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupportTest$3: void <init>(org.apache.commons.lang3.event.EventListenerSupportTest,org.apache.commons.lang3.event.EventListenerSupport)>(this, listenerSupport);
+
+        virtualinvoke listenerSupport.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>($stack2);
+
+        return;
+    }
+
+    private java.beans.VetoableChangeListener createListener(java.util.List)
+    {
+        java.util.List calledListeners;
+        org.apache.commons.lang3.event.EventListenerSupportTest$4 $stack2;
+        org.apache.commons.lang3.event.EventListenerSupportTest this;
+
+        this := @this: org.apache.commons.lang3.event.EventListenerSupportTest;
+
+        calledListeners := @parameter0: java.util.List;
+
+        $stack2 = new org.apache.commons.lang3.event.EventListenerSupportTest$4;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupportTest$4: void <init>(org.apache.commons.lang3.event.EventListenerSupportTest,java.util.List)>(this, calledListeners);
+
+        return $stack2;
+    }
+}

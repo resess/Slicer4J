@@ -1,0 +1,113 @@
+class org.apache.commons.lang3.time.DateUtils$DateIterator extends java.lang.Object implements java.util.Iterator
+{
+    private final java.util.Calendar endFinal;
+    private final java.util.Calendar spot;
+
+    void <init>(java.util.Calendar, java.util.Calendar)
+    {
+        java.util.Calendar endFinal, startFinal, $stack3;
+        org.apache.commons.lang3.time.DateUtils$DateIterator this;
+        int $i0;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        startFinal := @parameter0: java.util.Calendar;
+
+        endFinal := @parameter1: java.util.Calendar;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar endFinal> = endFinal;
+
+        this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot> = startFinal;
+
+        $stack3 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot>;
+
+        $i0 = (int) -1;
+
+        virtualinvoke $stack3.<java.util.Calendar: void add(int,int)>(5, $i0);
+
+        return;
+    }
+
+    public boolean hasNext()
+    {
+        java.util.Calendar $stack1, $stack2;
+        org.apache.commons.lang3.time.DateUtils$DateIterator this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot>;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar endFinal>;
+
+        $stack3 = virtualinvoke $stack2.<java.util.Calendar: boolean before(java.lang.Object)>($stack1);
+
+        return $stack3;
+    }
+
+    public java.util.Calendar next()
+    {
+        java.util.Calendar $stack1, $stack2, $stack4, $stack5, $stack7;
+        org.apache.commons.lang3.time.DateUtils$DateIterator this;
+        java.lang.Object $stack6;
+        java.util.NoSuchElementException $stack8;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        $stack2 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot>;
+
+        $stack1 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar endFinal>;
+
+        $stack3 = virtualinvoke $stack2.<java.util.Calendar: boolean equals(java.lang.Object)>($stack1);
+
+        if $stack3 == 0 goto label1;
+
+        $stack8 = new java.util.NoSuchElementException;
+
+        specialinvoke $stack8.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $stack8;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot>;
+
+        virtualinvoke $stack4.<java.util.Calendar: void add(int,int)>(5, 1);
+
+        $stack5 = this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar spot>;
+
+        $stack6 = virtualinvoke $stack5.<java.util.Calendar: java.lang.Object clone()>();
+
+        $stack7 = (java.util.Calendar) $stack6;
+
+        return $stack7;
+    }
+
+    public void remove()
+    {
+        java.lang.UnsupportedOperationException $stack1;
+        org.apache.commons.lang3.time.DateUtils$DateIterator this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        $stack1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack1.<java.lang.UnsupportedOperationException: void <init>()>();
+
+        throw $stack1;
+    }
+
+    public volatile java.lang.Object next()
+    {
+        java.util.Calendar $stack1;
+        org.apache.commons.lang3.time.DateUtils$DateIterator this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.time.DateUtils$DateIterator: java.util.Calendar next()>();
+
+        return $stack1;
+    }
+}

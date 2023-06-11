@@ -1,0 +1,190 @@
+public class org.apache.commons.lang3.event.EventUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.event.EventUtils this;
+
+        this := @this: org.apache.commons.lang3.event.EventUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void addEventListener(java.lang.Object, java.lang.Class, java.lang.Object)
+    {
+        java.lang.NoSuchMethodException $stack30;
+        java.lang.IllegalAccessException $stack15;
+        java.lang.reflect.InvocationTargetException $stack11;
+        java.lang.StringBuilder $stack4, $stack5, $stack7, $stack17, $stack18, $stack21, $stack22, $stack24, $stack25, $stack27, $stack28, $stack32, $stack33, $stack36, $stack37, $stack39, $stack40, $stack42, $stack43;
+        java.lang.Throwable $stack14;
+        java.lang.Object[] $stack9;
+        java.lang.String $stack6, $stack8, $stack20, $stack23, $stack26, $stack29, $stack35, $stack38, $stack41, $stack44;
+        java.lang.RuntimeException $stack12;
+        java.lang.IllegalArgumentException $stack16, $stack31;
+        java.lang.Object eventSource, listener;
+        java.lang.Class listenerType, $stack19, $stack34;
+
+        eventSource := @parameter0: java.lang.Object;
+
+        listenerType := @parameter1: java.lang.Class;
+
+        listener := @parameter2: java.lang.Object;
+
+     label1:
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("add");
+
+        $stack6 = virtualinvoke listenerType.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack9 = newarray (java.lang.Object)[1];
+
+        $stack9[0] = listener;
+
+        staticinvoke <org.apache.commons.lang3.reflect.MethodUtils: java.lang.Object invokeMethod(java.lang.Object,java.lang.String,java.lang.Object[])>(eventSource, $stack8, $stack9);
+
+     label2:
+        goto label6;
+
+     label3:
+        $stack30 := @caughtexception;
+
+        $stack31 = new java.lang.IllegalArgumentException;
+
+        $stack32 = new java.lang.StringBuilder;
+
+        specialinvoke $stack32.<java.lang.StringBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Class ");
+
+        $stack34 = virtualinvoke eventSource.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack35 = virtualinvoke $stack34.<java.lang.Class: java.lang.String getName()>();
+
+        $stack36 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" does not have a public add");
+
+        $stack38 = virtualinvoke listenerType.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        $stack39 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" method which takes a parameter of type ");
+
+        $stack41 = virtualinvoke listenerType.<java.lang.Class: java.lang.String getName()>();
+
+        $stack42 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack41);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack31.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack44);
+
+        throw $stack31;
+
+     label4:
+        $stack15 := @caughtexception;
+
+        $stack16 = new java.lang.IllegalArgumentException;
+
+        $stack17 = new java.lang.StringBuilder;
+
+        specialinvoke $stack17.<java.lang.StringBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Class ");
+
+        $stack19 = virtualinvoke eventSource.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack20 = virtualinvoke $stack19.<java.lang.Class: java.lang.String getName()>();
+
+        $stack21 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack20);
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" does not have an accessible add");
+
+        $stack23 = virtualinvoke listenerType.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" method which takes a parameter of type ");
+
+        $stack26 = virtualinvoke listenerType.<java.lang.Class: java.lang.String getName()>();
+
+        $stack27 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(".");
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack16.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack29);
+
+        throw $stack16;
+
+     label5:
+        $stack11 := @caughtexception;
+
+        $stack12 = new java.lang.RuntimeException;
+
+        $stack14 = virtualinvoke $stack11.<java.lang.reflect.InvocationTargetException: java.lang.Throwable getCause()>();
+
+        specialinvoke $stack12.<java.lang.RuntimeException: void <init>(java.lang.String,java.lang.Throwable)>("Unable to add listener.", $stack14);
+
+        throw $stack12;
+
+     label6:
+        return;
+
+        catch java.lang.NoSuchMethodException from label1 to label2 with label3;
+        catch java.lang.IllegalAccessException from label1 to label2 with label4;
+        catch java.lang.reflect.InvocationTargetException from label1 to label2 with label5;
+    }
+
+    public static transient void bindEventsToMethod(java.lang.Object, java.lang.String, java.lang.Object, java.lang.Class, java.lang.String[])
+    {
+        java.lang.Class[] $stack8;
+        java.lang.String[] eventTypes;
+        java.lang.Class listenerType, $stack6;
+        java.lang.Object target, $stack10, $stack11, eventSource;
+        org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler $stack9;
+        java.lang.ClassLoader $stack7;
+        java.lang.String methodName;
+
+        target := @parameter0: java.lang.Object;
+
+        methodName := @parameter1: java.lang.String;
+
+        eventSource := @parameter2: java.lang.Object;
+
+        listenerType := @parameter3: java.lang.Class;
+
+        eventTypes := @parameter4: java.lang.String[];
+
+        $stack6 = virtualinvoke target.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        $stack8 = newarray (java.lang.Class)[1];
+
+        $stack8[0] = listenerType;
+
+        $stack9 = new org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.event.EventUtils$EventBindingInvocationHandler: void <init>(java.lang.Object,java.lang.String,java.lang.String[])>(target, methodName, eventTypes);
+
+        $stack10 = staticinvoke <java.lang.reflect.Proxy: java.lang.Object newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)>($stack7, $stack8, $stack9);
+
+        $stack11 = virtualinvoke listenerType.<java.lang.Class: java.lang.Object cast(java.lang.Object)>($stack10);
+
+        staticinvoke <org.apache.commons.lang3.event.EventUtils: void addEventListener(java.lang.Object,java.lang.Class,java.lang.Object)>(eventSource, listenerType, $stack11);
+
+        return;
+    }
+}

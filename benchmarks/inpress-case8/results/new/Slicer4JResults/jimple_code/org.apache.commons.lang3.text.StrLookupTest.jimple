@@ -1,0 +1,173 @@
+public class org.apache.commons.lang3.text.StrLookupTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrLookupTest this;
+
+        this := @this: org.apache.commons.lang3.text.StrLookupTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testNoneLookup()
+    {
+        org.apache.commons.lang3.text.StrLookupTest this;
+        org.apache.commons.lang3.text.StrLookup $stack2, $stack5, $stack8;
+        java.lang.String $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.text.StrLookupTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup noneLookup()>();
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup noneLookup()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup noneLookup()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("any");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        return;
+    }
+
+    public void testSystemProperiesLookup()
+    {
+        org.apache.commons.lang3.text.StrLookupTest this;
+        java.lang.NullPointerException $stack13;
+        java.lang.String $stack2, $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.text.StrLookup $stack3, $stack6, $stack9, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrLookupTest;
+
+        $stack2 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()>();
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("os.name");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()>();
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()>();
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("other");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack10);
+
+     label1:
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup systemPropertiesLookup()>();
+
+        virtualinvoke $stack11.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack13 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+    }
+
+    public void testMapLookup()
+    {
+        org.apache.commons.lang3.text.StrLookupTest this;
+        java.util.HashMap $stack2;
+        java.lang.Integer $stack5;
+        org.apache.commons.lang3.text.StrLookup $stack8, $stack11, $stack14, $stack17, $stack20;
+        java.lang.String $stack9, $stack12, $stack15, $stack18, $stack21;
+
+        this := @this: org.apache.commons.lang3.text.StrLookupTest;
+
+        $stack2 = new java.util.HashMap;
+
+        specialinvoke $stack2.<java.util.HashMap: void <init>()>();
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("key", "value");
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("number", $stack5);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>($stack2);
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("key");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("value", $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>($stack2);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("number");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("2", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>($stack2);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>($stack2);
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>($stack2);
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("other");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack21);
+
+        return;
+    }
+
+    public void testMapLookup_nullMap()
+    {
+        org.apache.commons.lang3.text.StrLookupTest this;
+        org.apache.commons.lang3.text.StrLookup $stack3, $stack6, $stack9;
+        java.lang.String $stack4, $stack7, $stack10;
+
+        this := @this: org.apache.commons.lang3.text.StrLookupTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(null);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(null);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack7);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.text.StrLookup: org.apache.commons.lang3.text.StrLookup mapLookup(java.util.Map)>(null);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.text.StrLookup: java.lang.String lookup(java.lang.String)>("any");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack10);
+
+        return;
+    }
+}

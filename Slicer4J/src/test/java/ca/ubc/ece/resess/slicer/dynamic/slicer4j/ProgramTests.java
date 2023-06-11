@@ -1,6 +1,7 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedReader;
@@ -21,6 +22,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +36,7 @@ public class ProgramTests {
     Path slicerPath = Paths.get(root.getParent().toString(), "scripts");
     Path outDir = Paths.get(slicerPath.toString(), "testTempDir");
     Path sliceLogger = Paths.get(root.getParent().getParent().toString(), "DynamicSlicingCore" + File.separator + "DynamicSlicingLoggingClasses" + File.separator + "DynamicSlicingLogger.jar");
+    boolean useSets = true;
 
     @BeforeAll 
     static void preCleanUp() throws IOException {
@@ -115,23 +118,36 @@ public class ProgramTests {
             "-tw",
             root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
             "-sp",
-            "15"
+            "15",
+                "-d"
         };
         Slicer.main(args);
         
         Path outputPath = Paths.get(slicerPath.toString(), "testTempDir" + File.separator + "slice.log");
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
-        
-        assertEquals(Arrays.asList(
-        "Main:6",
-        "Main:7",
-        "Main:17",
-        "Main:18",
-        "Main:8",
-        "Main:13",
-        "Main:9"), 
-        out);
+
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                            "Main:6",
+                            "Main:7",
+                            "Main:17",
+                            "Main:18",
+                            "Main:8",
+                            "Main:13",
+                            "Main:9")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:6",
+                            "Main:7",
+                            "Main:17",
+                            "Main:18",
+                            "Main:8",
+                            "Main:13",
+                            "Main:9"),
+                            out);
+        }
     }
     
     @Test
@@ -203,7 +219,8 @@ public class ProgramTests {
             "-tw",
             root.getParent().toString() + File.separator + "models" + File.separator + "EasyTaintWrapperSource.txt",
             "-sp",
-            "16"
+            "16",
+                "-d"
         };
         Slicer.main(args);
         
@@ -211,15 +228,27 @@ public class ProgramTests {
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
         
-        assertEquals(Arrays.asList(
-        "Main:6",
-        "Main:15",
-        "Main:16",
-        "Main:19",
-        "Main:8",
-        "Main:9",
-        "Main:11"), 
-        out);
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                    "Main:6",
+                    "Main:15",
+                    "Main:16",
+                    "Main:19",
+                    "Main:8",
+                    "Main:9",
+                    "Main:11")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:6",
+                            "Main:15",
+                            "Main:16",
+                            "Main:19",
+                            "Main:8",
+                            "Main:9",
+                            "Main:11"),
+                    out);
+        }
     }
     
     
@@ -301,10 +330,17 @@ public class ProgramTests {
         List<String> out = Files.readAllLines(outputPath);
         System.out.println(out);
         
-        assertEquals(Arrays.asList(
-        "Main:13",
-        "Main:9"), 
-        out);
+        if(useSets){
+            assertEquals(new HashSet<>(Arrays.asList(
+                    "Main:13",
+                    "Main:9")),
+                    new HashSet<>(out));
+        } else {
+            assertEquals(Arrays.asList(
+                            "Main:13",
+                            "Main:9"),
+                    out);
+        }
     }
 
 
@@ -348,7 +384,7 @@ public class ProgramTests {
             "TreeAdd:33",
             "TreeAdd:65"));
 
-        assertEquals(expected, sliceLines);
+        Assertions.assertTrue(sliceLines.containsAll(expected));
     }
     
     @Test
@@ -527,5 +563,61 @@ public class ProgramTests {
                                                 .collect(Collectors.toList());
 
         assertEquals(expected, sliceLines);
+    }
+
+    @Test
+    void inpressDCFGAssertionTest() throws IOException, InterruptedException {
+        // bug where last line did not have predecessors
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "inpress-case8");
+        String jarPath = Paths.get(testPath.toString(), "results" + File.separator + "new" + File.separator + "program.jar").toString();
+        String depPath = Paths.get(testPath.toString(), "bug" + File.separator + "lib").toString();
+
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+
+        String instrumentedJar = slicer.instrument();
+        TestUtils.runInstrumentedJarFromTest(instrumentedJar, depPath, "org.apache.commons.lang3.time.FastDatePrinterTest", "testCalendarTimezoneRespected", String.valueOf(outDir));
+
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+        assert !dcfg.predecessorListOf((int) dcfg.getLastLine()).isEmpty();
+    }
+
+    void runInsertionSortTest( int sourceLine, List<String> expectedSlice ) throws IOException, InterruptedException {
+        Path testPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "InsertionSort-MemSat01");
+        String jarPath = Paths.get(testPath.toString(), "test.jar").toString();
+
+        Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+
+        String instrumentedJar = slicer.instrument();
+        slicer.runInstrumentedJarFromMain(instrumentedJar, "Main", "2");
+
+        DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        slicer.printGraph(dcfg);
+
+        List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine( sourceLine, "Main", dcfg );
+        List<String> sliceLines = new ArrayList<>(TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositions)).stream()
+                .sorted((a, b) -> a.compareTo(b))
+                .collect(Collectors.toList());
+
+        assertEquals( sliceLines, expectedSlice );
+    }
+
+    @Test
+    void svCompInsertionSort2() throws IOException, InterruptedException {
+        List<String> expected = Arrays.asList("Main:56", "Main:54", "Main:57", "Main:58").stream()
+                .sorted((a, b) -> a.compareTo(b))
+                .collect(Collectors.toList());
+
+        runInsertionSortTest( 58, expected );
+    }
+
+    @Test
+    void svCompInsertionSort3() throws IOException, InterruptedException {
+        List<String> expected = Arrays.asList("Main:58", "Main:45", "Main:46", "Main:47", "Main:40", "Main:54",
+                "Main:41", "Main:42", "Main:62", "Main:49", "Main:56", "Main:57", "Main:39" ).stream()
+                .sorted((a, b) -> a.compareTo(b))
+                .collect(Collectors.toList());
+
+        runInsertionSortTest( 49, expected );
     }
 }

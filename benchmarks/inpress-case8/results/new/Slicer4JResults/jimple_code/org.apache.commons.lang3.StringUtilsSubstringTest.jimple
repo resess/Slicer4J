@@ -1,0 +1,973 @@
+public class org.apache.commons.lang3.StringUtilsSubstringTest extends java.lang.Object
+{
+    private static final java.lang.String FOO;
+    private static final java.lang.String BAR;
+    private static final java.lang.String BAZ;
+    private static final java.lang.String FOOBAR;
+    private static final java.lang.String SENTENCE;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testSubstring_StringInt()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>(null, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("", 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("foo bar baz", 80);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("foo bar baz", 8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("baz", $stack10);
+
+        $i0 = (int) -3;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("foo bar baz", $i0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("baz", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("foo bar baz", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo bar baz", $stack14);
+
+        $i1 = (int) -4;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", $i1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack16);
+
+        $i2 = (int) -3;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", $i2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack18);
+
+        $i3 = (int) -2;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", $i3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack20);
+
+        $i4 = (int) -1;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", $i4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("c", $stack28);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int)>("abc", 4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack32);
+
+        return;
+    }
+
+    public void testSubstring_StringIntInt()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>(null, 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>(null, 1, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("", 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("", 1, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $i0 = (int) -2;
+
+        $i1 = (int) -1;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("", $i0, $i1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", 8, 6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", 0, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack14);
+
+        $i2 = (int) -9;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", $i2, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("o", $stack16);
+
+        $i3 = (int) -8;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", 0, $i3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack18);
+
+        $i4 = (int) -9;
+
+        $i5 = (int) -8;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", $i4, $i5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("o", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", 0, 80);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo bar baz", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("foo bar baz", 2, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack24);
+
+        $i6 = (int) -2;
+
+        $i7 = (int) -1;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substring(java.lang.String,int,int)>("abc", $i6, $i7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack26);
+
+        return;
+    }
+
+    public void testLeft_String()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $i0, $i1, $i2;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $i0 = (int) -1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>(null, $i0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>(null, 0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>(null, 2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $i1 = (int) -1;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("", $i1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("", 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $i2 = (int) -1;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("foobar", $i2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("foobar", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("foobar", 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String left(java.lang.String,int)>("foobar", 80);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("foobar", $stack20);
+
+        return;
+    }
+
+    public void testRight_String()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $i0, $i1, $i2;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $i0 = (int) -1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>(null, $i0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>(null, 0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>(null, 2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $i1 = (int) -1;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("", $i1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("", 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $i2 = (int) -1;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("foobar", $i2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("foobar", 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("foobar", 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String right(java.lang.String,int)>("foobar", 80);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>("foobar", $stack20);
+
+        return;
+    }
+
+    public void testMid_String()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $i0 = (int) -1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>(null, $i0, 0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $i1 = (int) -1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>(null, 0, $i1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>(null, 3, 0);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>(null, 3, 2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $i2 = (int) -1;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("", 0, $i2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("", 0, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("", 0, 2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $i3 = (int) -1;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 3, $i3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 3, 0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 3, 1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("b", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 0, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 3, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 0, 80);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foobar", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 3, 80);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack28);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", 9, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack30);
+
+        $i4 = (int) -1;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String mid(java.lang.String,int,int)>("foobar", $i4, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack32);
+
+        return;
+    }
+
+    public void testSubstringBefore_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("fooXXbarXXbaz", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>(null, "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("foo", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("foot", "o");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("f", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("abcba", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("abc", "c");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ab", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBefore(java.lang.String,java.lang.String)>("abc", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack28);
+
+        return;
+    }
+
+    public void testSubstringAfter_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("fooXXbarXXbaz", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("barXXbaz", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>(null, "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("foot", "o");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("ot", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("abcba", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("cba", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("abc", "c");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("abc", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfter(java.lang.String,java.lang.String)>("abc", "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack28);
+
+        return;
+    }
+
+    public void testSubstringBeforeLast_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack34, $stack36;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("fooXXbarXXbaz", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fooXXbar", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>(null, "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("foo", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("foo", "o");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("fo", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("abc\r\n", "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc\r\n", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("abcdabc", "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("abcdabcd", "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abcdabc", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("abc", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack28);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("abc \n", "\n");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc ", $stack30);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("a", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack32);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("a", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack34);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBeforeLast(java.lang.String,java.lang.String)>("a", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack36);
+
+        return;
+    }
+
+    public void testSubstringAfterLast_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("fooXXbarXXbaz", "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("baz", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>(null, "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>(null, "XX");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("foo", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("foot", "o");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("t", $stack20);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack22);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("abcba", "b");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack24);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("abc", "c");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack26);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("", "d");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack28);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringAfterLast(java.lang.String,java.lang.String)>("abc", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack30);
+
+        return;
+    }
+
+    public void testSubstringBetween_StringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>(null, "tag");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("", "abc");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("    ", " ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("abc", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("abc", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("abc", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("abca", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("abcabca", "a");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bc", $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String)>("\nbar\n", "\n");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack20);
+
+        return;
+    }
+
+    public void testSubstringBetween_StringStringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String $stack2, $stack4, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>(null, "", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("", null, "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("", "", null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("", "", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("foo", "", "");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("foo", "", "]");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("foo", "[", "]");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("    ", " ", "  ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack16);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String substringBetween(java.lang.String,java.lang.String,java.lang.String)>("<foo>bar</foo>", "<foo>", "</foo>");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack18);
+
+        return;
+    }
+
+    public void testSubstringsBetween_StringStringString()
+    {
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        java.lang.String[] $stack2, $stack8, $stack13, $stack18, $stack22, $stack26, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37;
+        long $stack4, $stack10, $stack15, $stack20, $stack24, $stack28, $stack39;
+        int $stack3, $stack9, $stack14, $stack19, $stack23, $stack27, $stack38;
+        java.lang.String $stack5, $stack6, $stack7, $stack11, $stack12, $stack16, $stack17, $stack21, $stack25, $stack29;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], [three]", "[", "]");
+
+        $stack3 = lengthof $stack2;
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack4);
+
+        $stack5 = $stack2[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("one", $stack5);
+
+        $stack6 = $stack2[1];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("two", $stack6);
+
+        $stack7 = $stack2[2];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("three", $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], three", "[", "]");
+
+        $stack9 = lengthof $stack8;
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack10);
+
+        $stack11 = $stack8[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("one", $stack11);
+
+        $stack12 = $stack8[1];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("two", $stack12);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], three]", "[", "]");
+
+        $stack14 = lengthof $stack13;
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack15);
+
+        $stack16 = $stack13[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("one", $stack16);
+
+        $stack17 = $stack13[1];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("two", $stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], two], three]", "[", "]");
+
+        $stack19 = lengthof $stack18;
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack20);
+
+        $stack21 = $stack18[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("one", $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("one], two], [three]", "[", "]");
+
+        $stack23 = lengthof $stack22;
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack24);
+
+        $stack25 = $stack22[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("three", $stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("aabhellobabnonba", "ab", "ba");
+
+        $stack27 = lengthof $stack26;
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack28);
+
+        $stack29 = $stack26[0];
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("hello", $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("one, two, three", "[", "]");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack30);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one, two, three", "[", "]");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("one, two, three]", "[", "]");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack32);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], [three]", "[", null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack33);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], [three]", null, "]");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack34);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("[one], [two], [three]", "", "");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack35);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>(null, "[", "]");
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack36);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String[] substringsBetween(java.lang.String,java.lang.String,java.lang.String)>("", "[", "]");
+
+        $stack38 = lengthof $stack37;
+
+        $stack39 = (long) $stack38;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack39);
+
+        return;
+    }
+
+    public void testCountMatches_String()
+    {
+        long $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24;
+        org.apache.commons.lang3.StringUtilsSubstringTest this;
+        int $stack2, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23;
+
+        this := @this: org.apache.commons.lang3.StringUtilsSubstringTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>(null, null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("blah", null);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>(null, "DD");
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("x", "");
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack12);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("", "");
+
+        $stack15 = (long) $stack14;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("one long someone sentence of one", "one");
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack18);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("one long someone sentence of one", "two");
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack21);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.StringUtils: int countMatches(java.lang.CharSequence,java.lang.CharSequence)>("oooooooooooo", "ooo");
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack24);
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.StringUtilsSubstringTest: java.lang.String SENTENCE> = "foo bar baz";
+
+        <org.apache.commons.lang3.StringUtilsSubstringTest: java.lang.String FOOBAR> = "foobar";
+
+        <org.apache.commons.lang3.StringUtilsSubstringTest: java.lang.String BAZ> = "baz";
+
+        <org.apache.commons.lang3.StringUtilsSubstringTest: java.lang.String BAR> = "bar";
+
+        <org.apache.commons.lang3.StringUtilsSubstringTest: java.lang.String FOO> = "foo";
+
+        return;
+    }
+}

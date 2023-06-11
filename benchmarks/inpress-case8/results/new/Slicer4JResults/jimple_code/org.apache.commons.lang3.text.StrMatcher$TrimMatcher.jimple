@@ -1,0 +1,49 @@
+final class org.apache.commons.lang3.text.StrMatcher$TrimMatcher extends org.apache.commons.lang3.text.StrMatcher
+{
+
+    void <init>()
+    {
+        org.apache.commons.lang3.text.StrMatcher$TrimMatcher this;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$TrimMatcher;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrMatcher: void <init>()>();
+
+        return;
+    }
+
+    public int isMatch(char[], int, int, int)
+    {
+        char $stack5;
+        byte $stack6;
+        org.apache.commons.lang3.text.StrMatcher$TrimMatcher this;
+        int pos, bufferStart, bufferEnd, $i0;
+        char[] buffer;
+
+        this := @this: org.apache.commons.lang3.text.StrMatcher$TrimMatcher;
+
+        buffer := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        bufferStart := @parameter2: int;
+
+        bufferEnd := @parameter3: int;
+
+        $stack5 = buffer[pos];
+
+        $i0 = (int) $stack5;
+
+        if $i0 > 32 goto label1;
+
+        $stack6 = 1;
+
+        goto label2;
+
+     label1:
+        $stack6 = 0;
+
+     label2:
+        return $stack6;
+    }
+}

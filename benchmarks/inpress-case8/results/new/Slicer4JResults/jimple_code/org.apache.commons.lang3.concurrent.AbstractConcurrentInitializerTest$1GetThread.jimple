@@ -1,0 +1,75 @@
+class org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread extends java.lang.Thread
+{
+    java.lang.Object object;
+    final java.util.concurrent.CountDownLatch val$startLatch;
+    final org.apache.commons.lang3.concurrent.ConcurrentInitializer val$initializer;
+    final org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this$0;
+
+    void <init>(org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest, java.util.concurrent.CountDownLatch, org.apache.commons.lang3.concurrent.ConcurrentInitializer)
+    {
+        java.util.concurrent.CountDownLatch l2;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest l1;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread this;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer l3;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread;
+
+        l1 := @parameter0: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest;
+
+        l2 := @parameter1: java.util.concurrent.CountDownLatch;
+
+        l3 := @parameter2: org.apache.commons.lang3.concurrent.ConcurrentInitializer;
+
+        this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: java.util.concurrent.CountDownLatch val$startLatch> = l2;
+
+        this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: org.apache.commons.lang3.concurrent.ConcurrentInitializer val$initializer> = l3;
+
+        specialinvoke this.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        java.util.concurrent.CountDownLatch $stack2;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack5;
+        java.lang.InterruptedException $stack6;
+        java.lang.Object $stack4;
+        org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread this;
+        org.apache.commons.lang3.concurrent.ConcurrentInitializer $stack3;
+
+        this := @this: org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: java.util.concurrent.CountDownLatch val$startLatch>;
+
+        virtualinvoke $stack2.<java.util.concurrent.CountDownLatch: void await()>();
+
+        $stack3 = this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: org.apache.commons.lang3.concurrent.ConcurrentInitializer val$initializer>;
+
+        $stack4 = interfaceinvoke $stack3.<org.apache.commons.lang3.concurrent.ConcurrentInitializer: java.lang.Object get()>();
+
+        this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: java.lang.Object object> = $stack4;
+
+     label2:
+        goto label5;
+
+     label3:
+        $stack6 := @caughtexception;
+
+        goto label5;
+
+     label4:
+        $stack5 := @caughtexception;
+
+        this.<org.apache.commons.lang3.concurrent.AbstractConcurrentInitializerTest$1GetThread: java.lang.Object object> = $stack5;
+
+     label5:
+        return;
+
+        catch java.lang.InterruptedException from label1 to label2 with label3;
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label4;
+    }
+}

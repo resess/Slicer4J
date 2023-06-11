@@ -1,0 +1,607 @@
+public class org.apache.commons.lang3.text.WordUtils extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.WordUtils this;
+
+        this := @this: org.apache.commons.lang3.text.WordUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String wrap(java.lang.String, int)
+    {
+        int wrapLength;
+        java.lang.String str, $stack2;
+
+        str := @parameter0: java.lang.String;
+
+        wrapLength := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String wrap(java.lang.String,int,java.lang.String,boolean)>(str, wrapLength, null, 0);
+
+        return $stack2;
+    }
+
+    public static java.lang.String wrap(java.lang.String, int, java.lang.String, boolean)
+    {
+        int $stack8, $stack10, $stack16, $stack17, $stack18, $stack19, $stack28, wrapLength, offset, $stack11, $i0;
+        java.lang.String str, $stack12, $stack14, $stack20, $stack25, $stack29, $stack32, newLineStr;
+        boolean wrapLongWords;
+        char $stack15;
+        java.lang.StringBuilder $u0;
+
+        str := @parameter0: java.lang.String;
+
+        wrapLength := @parameter1: int;
+
+        newLineStr := @parameter2: java.lang.String;
+
+        wrapLongWords := @parameter3: boolean;
+
+        if str != null goto label01;
+
+        return null;
+
+     label01:
+        if newLineStr != null goto label02;
+
+        newLineStr = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+     label02:
+        if wrapLength >= 1 goto label03;
+
+        wrapLength = 1;
+
+     label03:
+        $stack8 = virtualinvoke str.<java.lang.String: int length()>();
+
+        offset = 0;
+
+        $u0 = new java.lang.StringBuilder;
+
+        $stack10 = $stack8 + 32;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>(int)>($stack10);
+
+     label04:
+        $stack11 = $stack8 - offset;
+
+        if $stack11 <= wrapLength goto label10;
+
+        $stack15 = virtualinvoke str.<java.lang.String: char charAt(int)>(offset);
+
+        $i0 = (int) $stack15;
+
+        if $i0 != 32 goto label05;
+
+        offset = offset + 1;
+
+        goto label04;
+
+     label05:
+        $stack16 = wrapLength + offset;
+
+        $stack17 = virtualinvoke str.<java.lang.String: int lastIndexOf(int,int)>(32, $stack16);
+
+        if $stack17 < offset goto label06;
+
+        $stack32 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(offset, $stack17);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack32);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(newLineStr);
+
+        offset = $stack17 + 1;
+
+        goto label09;
+
+     label06:
+        if wrapLongWords == 0 goto label07;
+
+        $stack28 = wrapLength + offset;
+
+        $stack29 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(offset, $stack28);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(newLineStr);
+
+        offset = offset + wrapLength;
+
+        goto label09;
+
+     label07:
+        $stack18 = wrapLength + offset;
+
+        $stack19 = virtualinvoke str.<java.lang.String: int indexOf(int,int)>(32, $stack18);
+
+        if $stack19 < 0 goto label08;
+
+        $stack25 = virtualinvoke str.<java.lang.String: java.lang.String substring(int,int)>(offset, $stack19);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(newLineStr);
+
+        offset = $stack19 + 1;
+
+        goto label09;
+
+     label08:
+        $stack20 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>(offset);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack20);
+
+        offset = $stack8;
+
+     label09:
+        goto label04;
+
+     label10:
+        $stack12 = virtualinvoke str.<java.lang.String: java.lang.String substring(int)>(offset);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack14;
+    }
+
+    public static java.lang.String capitalize(java.lang.String)
+    {
+        java.lang.String str, $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>(str, null);
+
+        return $stack1;
+    }
+
+    public static transient java.lang.String capitalize(java.lang.String, char[])
+    {
+        char ch, $stack14;
+        int $stack9, $stack16, i, $i0;
+        char[] delimiters, $stack8;
+        java.lang.String str, $u0;
+        boolean $stack7, $stack11, capitalizeNext;
+
+        str := @parameter0: java.lang.String;
+
+        delimiters := @parameter1: char[];
+
+        if delimiters != null goto label1;
+
+        $i0 = (int) -1;
+
+        $stack16 = $i0;
+
+        goto label2;
+
+     label1:
+        $stack16 = lengthof delimiters;
+
+     label2:
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack7 != 0 goto label3;
+
+        if $stack16 != 0 goto label4;
+
+     label3:
+        return str;
+
+     label4:
+        $stack8 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        capitalizeNext = 1;
+
+        i = 0;
+
+     label5:
+        $stack9 = lengthof $stack8;
+
+        if i >= $stack9 goto label8;
+
+        ch = $stack8[i];
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.WordUtils: boolean isDelimiter(char,char[])>(ch, delimiters);
+
+        if $stack11 == 0 goto label6;
+
+        capitalizeNext = 1;
+
+        goto label7;
+
+     label6:
+        if capitalizeNext == 0 goto label7;
+
+        $stack14 = staticinvoke <java.lang.Character: char toTitleCase(char)>(ch);
+
+        $stack8[i] = $stack14;
+
+        capitalizeNext = 0;
+
+     label7:
+        i = i + 1;
+
+        goto label5;
+
+     label8:
+        $u0 = new java.lang.String;
+
+        specialinvoke $u0.<java.lang.String: void <init>(char[])>($stack8);
+
+        return $u0;
+    }
+
+    public static java.lang.String capitalizeFully(java.lang.String)
+    {
+        java.lang.String str, $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalizeFully(java.lang.String,char[])>(str, null);
+
+        return $stack1;
+    }
+
+    public static transient java.lang.String capitalizeFully(java.lang.String, char[])
+    {
+        int $stack7, $i0;
+        char[] delimiters;
+        java.lang.String $stack4, $stack5, str;
+        boolean $stack3;
+
+        str := @parameter0: java.lang.String;
+
+        delimiters := @parameter1: char[];
+
+        if delimiters != null goto label1;
+
+        $i0 = (int) -1;
+
+        $stack7 = $i0;
+
+        goto label2;
+
+     label1:
+        $stack7 = lengthof delimiters;
+
+     label2:
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack3 != 0 goto label3;
+
+        if $stack7 != 0 goto label4;
+
+     label3:
+        return str;
+
+     label4:
+        $stack4 = virtualinvoke str.<java.lang.String: java.lang.String toLowerCase()>();
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String capitalize(java.lang.String,char[])>($stack4, delimiters);
+
+        return $stack5;
+    }
+
+    public static java.lang.String uncapitalize(java.lang.String)
+    {
+        java.lang.String str, $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String uncapitalize(java.lang.String,char[])>(str, null);
+
+        return $stack1;
+    }
+
+    public static transient java.lang.String uncapitalize(java.lang.String, char[])
+    {
+        char ch, $stack14;
+        int $stack9, $stack16, i, $i0;
+        char[] delimiters, $stack8;
+        java.lang.String str, $u0;
+        boolean $stack7, $stack11, uncapitalizeNext;
+
+        str := @parameter0: java.lang.String;
+
+        delimiters := @parameter1: char[];
+
+        if delimiters != null goto label1;
+
+        $i0 = (int) -1;
+
+        $stack16 = $i0;
+
+        goto label2;
+
+     label1:
+        $stack16 = lengthof delimiters;
+
+     label2:
+        $stack7 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack7 != 0 goto label3;
+
+        if $stack16 != 0 goto label4;
+
+     label3:
+        return str;
+
+     label4:
+        $stack8 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        uncapitalizeNext = 1;
+
+        i = 0;
+
+     label5:
+        $stack9 = lengthof $stack8;
+
+        if i >= $stack9 goto label8;
+
+        ch = $stack8[i];
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.WordUtils: boolean isDelimiter(char,char[])>(ch, delimiters);
+
+        if $stack11 == 0 goto label6;
+
+        uncapitalizeNext = 1;
+
+        goto label7;
+
+     label6:
+        if uncapitalizeNext == 0 goto label7;
+
+        $stack14 = staticinvoke <java.lang.Character: char toLowerCase(char)>(ch);
+
+        $stack8[i] = $stack14;
+
+        uncapitalizeNext = 0;
+
+     label7:
+        i = i + 1;
+
+        goto label5;
+
+     label8:
+        $u0 = new java.lang.String;
+
+        specialinvoke $u0.<java.lang.String: void <init>(char[])>($stack8);
+
+        return $u0;
+    }
+
+    public static java.lang.String swapCase(java.lang.String)
+    {
+        char ch, $stack15, $stack16, $stack17, $stack18;
+        int $stack7, i;
+        char[] $stack6;
+        java.lang.String str, $stack8;
+        boolean $stack5, $stack9, $stack10, $stack11, whitespace;
+
+        str := @parameter0: java.lang.String;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack5 == 0 goto label1;
+
+        return str;
+
+     label1:
+        $stack6 = virtualinvoke str.<java.lang.String: char[] toCharArray()>();
+
+        whitespace = 1;
+
+        i = 0;
+
+     label2:
+        $stack7 = lengthof $stack6;
+
+        if i >= $stack7 goto label8;
+
+        ch = $stack6[i];
+
+        $stack9 = staticinvoke <java.lang.Character: boolean isUpperCase(char)>(ch);
+
+        if $stack9 == 0 goto label3;
+
+        $stack18 = staticinvoke <java.lang.Character: char toLowerCase(char)>(ch);
+
+        $stack6[i] = $stack18;
+
+        whitespace = 0;
+
+        goto label7;
+
+     label3:
+        $stack10 = staticinvoke <java.lang.Character: boolean isTitleCase(char)>(ch);
+
+        if $stack10 == 0 goto label4;
+
+        $stack17 = staticinvoke <java.lang.Character: char toLowerCase(char)>(ch);
+
+        $stack6[i] = $stack17;
+
+        whitespace = 0;
+
+        goto label7;
+
+     label4:
+        $stack11 = staticinvoke <java.lang.Character: boolean isLowerCase(char)>(ch);
+
+        if $stack11 == 0 goto label6;
+
+        if whitespace == 0 goto label5;
+
+        $stack16 = staticinvoke <java.lang.Character: char toTitleCase(char)>(ch);
+
+        $stack6[i] = $stack16;
+
+        whitespace = 0;
+
+        goto label7;
+
+     label5:
+        $stack15 = staticinvoke <java.lang.Character: char toUpperCase(char)>(ch);
+
+        $stack6[i] = $stack15;
+
+        goto label7;
+
+     label6:
+        whitespace = staticinvoke <java.lang.Character: boolean isWhitespace(char)>(ch);
+
+     label7:
+        i = i + 1;
+
+        goto label2;
+
+     label8:
+        $stack8 = new java.lang.String;
+
+        specialinvoke $stack8.<java.lang.String: void <init>(char[])>($stack6);
+
+        return $stack8;
+    }
+
+    public static java.lang.String initials(java.lang.String)
+    {
+        java.lang.String str, $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.WordUtils: java.lang.String initials(java.lang.String,char[])>(str, null);
+
+        return $stack1;
+    }
+
+    public static transient java.lang.String initials(java.lang.String, char[])
+    {
+        char $stack13;
+        int $stack9, $stack10, $stack11, $stack17, $stack18, count, i;
+        char[] delimiters, $stack23;
+        java.lang.String str, $stack12;
+        boolean $stack8, $stack14, lastWasGap;
+
+        str := @parameter0: java.lang.String;
+
+        delimiters := @parameter1: char[];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack8 == 0 goto label1;
+
+        return str;
+
+     label1:
+        if delimiters == null goto label2;
+
+        $stack18 = lengthof delimiters;
+
+        if $stack18 != 0 goto label2;
+
+        return "";
+
+     label2:
+        $stack9 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack10 = $stack9 / 2;
+
+        $stack11 = $stack10 + 1;
+
+        $stack23 = newarray (char)[$stack11];
+
+        count = 0;
+
+        lastWasGap = 1;
+
+        i = 0;
+
+     label3:
+        if i >= $stack9 goto label6;
+
+        $stack13 = virtualinvoke str.<java.lang.String: char charAt(int)>(i);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.text.WordUtils: boolean isDelimiter(char,char[])>($stack13, delimiters);
+
+        if $stack14 == 0 goto label4;
+
+        lastWasGap = 1;
+
+        goto label5;
+
+     label4:
+        if lastWasGap == 0 goto label5;
+
+        $stack17 = count;
+
+        count = count + 1;
+
+        $stack23[$stack17] = $stack13;
+
+        lastWasGap = 0;
+
+     label5:
+        i = i + 1;
+
+        goto label3;
+
+     label6:
+        $stack12 = new java.lang.String;
+
+        specialinvoke $stack12.<java.lang.String: void <init>(char[],int,int)>($stack23, 0, count);
+
+        return $stack12;
+    }
+
+    private static boolean isDelimiter(char, char[])
+    {
+        char delimiter, ch;
+        int len$, i$, $i0, $i1;
+        char[] delimiters;
+        boolean $stack8;
+
+        ch := @parameter0: char;
+
+        delimiters := @parameter1: char[];
+
+        if delimiters != null goto label1;
+
+        $stack8 = staticinvoke <java.lang.Character: boolean isWhitespace(char)>(ch);
+
+        return $stack8;
+
+     label1:
+        len$ = lengthof delimiters;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label4;
+
+        delimiter = delimiters[i$];
+
+        $i0 = (int) ch;
+
+        $i1 = (int) delimiter;
+
+        if $i0 != $i1 goto label3;
+
+        return 1;
+
+     label3:
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label4:
+        return 0;
+    }
+}

@@ -1,0 +1,1859 @@
+public class org.apache.commons.lang3.ObjectUtilsTest extends java.lang.Object
+{
+    private static final java.lang.String FOO;
+    private static final java.lang.String BAR;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        org.apache.commons.lang3.ObjectUtils $stack2;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.ObjectUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.ObjectUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/ObjectUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/ObjectUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/ObjectUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void testIsNull()
+    {
+        java.lang.Object $stack4, $stack6;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object defaultIfNull(java.lang.Object,java.lang.Object)>(null, "bar");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("dflt was not returned when o was null", "bar", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object defaultIfNull(java.lang.Object,java.lang.Object)>("foo", "bar");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.String,java.lang.Object,java.lang.Object)>("dflt was returned when o was not null", "foo", $stack6);
+
+        return;
+    }
+
+    public void testFirstNonNull()
+    {
+        java.lang.Object[] $stack2, $stack13, $stack20, $stack22, $stack24, $stack27;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.String[] $stack5, $stack8, $stack10;
+        java.lang.Boolean $stack17, $stack18;
+        java.lang.String firstNonNullGenerics;
+        java.lang.Boolean[] $stack16;
+        java.lang.Object $stack4, $stack7, $stack9, $stack12, $stack15, $stack19, $stack21, $stack23, $stack26, $stack28;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = newarray (java.lang.Object)[2];
+
+        $stack2[0] = null;
+
+        $stack2[1] = null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        $stack5 = newarray (java.lang.String)[2];
+
+        $stack5[0] = null;
+
+        $stack5[1] = "";
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack7);
+
+        $stack8 = newarray (java.lang.String)[4];
+
+        $stack8[0] = null;
+
+        $stack8[1] = null;
+
+        $stack8[2] = "123";
+
+        $stack8[3] = "456";
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack8);
+
+        firstNonNullGenerics = (java.lang.String) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123", firstNonNullGenerics);
+
+        $stack10 = newarray (java.lang.String)[4];
+
+        $stack10[0] = "123";
+
+        $stack10[1] = null;
+
+        $stack10[2] = "456";
+
+        $stack10[3] = null;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("123", $stack12);
+
+        $stack13 = newarray (java.lang.Object)[0];
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack16 = newarray (java.lang.Boolean)[1];
+
+        $stack17 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack16[0] = $stack17;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack20 = newarray (java.lang.Object)[0];
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack21);
+
+        $stack22 = newarray (java.lang.Object)[2];
+
+        $stack22[0] = null;
+
+        $stack22[1] = null;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack23);
+
+        $stack24 = newarray (java.lang.Object)[1];
+
+        $stack24[0] = null;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack24);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack26);
+
+        $stack27 = (java.lang.Object[]) null;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object firstNonNull(java.lang.Object[])>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack28);
+
+        return;
+    }
+
+    public void testEquals()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        boolean $stack2, $stack4, $stack6, $stack8, $stack10, $stack17, $stack14, $stack11;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.equals(null, null) returned false", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>("foo", null);
+
+        if $stack4 != 0 goto label1;
+
+        $stack17 = 1;
+
+        goto label2;
+
+     label1:
+        $stack17 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.equals(\"foo\", null) returned true", $stack17);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>(null, "bar");
+
+        if $stack6 != 0 goto label3;
+
+        $stack14 = 1;
+
+        goto label4;
+
+     label3:
+        $stack14 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.equals(null, \"bar\") returned true", $stack14);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>("foo", "bar");
+
+        if $stack8 != 0 goto label5;
+
+        $stack11 = 1;
+
+        goto label6;
+
+     label5:
+        $stack11 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.equals(\"foo\", \"bar\") returned true", $stack11);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean equals(java.lang.Object,java.lang.Object)>("foo", "foo");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.equals(\"foo\", \"foo\") returned false", $stack10);
+
+        return;
+    }
+
+    public void testNotEqual()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        boolean $stack2, $stack4, $stack6, $stack8, $stack10;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>(null, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("ObjectUtils.notEqual(null, null) returned false", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>("foo", null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.notEqual(\"foo\", null) returned true", $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>(null, "bar");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.notEqual(null, \"bar\") returned true", $stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>("foo", "bar");
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("ObjectUtils.notEqual(\"foo\", \"bar\") returned true", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean notEqual(java.lang.Object,java.lang.Object)>("foo", "foo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(java.lang.String,boolean)>("ObjectUtils.notEqual(\"foo\", \"foo\") returned false", $stack10);
+
+        return;
+    }
+
+    public void testHashCode()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        long $stack3, $stack6, $stack8;
+        int $stack2, $stack5, $stack7;
+        java.lang.String $stack4;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCode(java.lang.Object)>(null);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack3);
+
+        $stack4 = "a";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.String: int hashCode()>();
+
+        $stack6 = (long) $stack5;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCode(java.lang.Object)>("a");
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack6, $stack8);
+
+        return;
+    }
+
+    public void testHashCodeMulti_multiple_emptyArray()
+    {
+        java.lang.Object[] array;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        int $stack3;
+        long $stack4;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        array = newarray (java.lang.Object)[0];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>(array);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack4);
+
+        return;
+    }
+
+    public void testHashCodeMulti_multiple_nullArray()
+    {
+        int $stack3;
+        long $stack4;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>(null);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack4);
+
+        return;
+    }
+
+    public void testHashCodeMulti_multiple_likeList()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.util.List $stack7, $stack15, $stack23, $stack31;
+        java.lang.Object[] $stack6, $stack9, $stack17, $stack25, $stack33;
+        long $stack10, $stack12, $stack18, $stack20, $stack26, $stack28, $stack34, $stack36;
+        java.lang.String[] $stack14, $stack22, $stack30;
+        java.util.ArrayList $stack5, $stack13, $stack21, $stack29;
+        int $stack8, $stack11, $stack16, $stack19, $stack24, $stack27, $stack32, $stack35;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack5 = new java.util.ArrayList;
+
+        $stack6 = newarray (java.lang.Object)[0];
+
+        $stack7 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack6);
+
+        specialinvoke $stack5.<java.util.ArrayList: void <init>(java.util.Collection)>($stack7);
+
+        $stack8 = interfaceinvoke $stack5.<java.util.List: int hashCode()>();
+
+        $stack10 = (long) $stack8;
+
+        $stack9 = newarray (java.lang.Object)[0];
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>($stack9);
+
+        $stack12 = (long) $stack11;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack10, $stack12);
+
+        $stack13 = new java.util.ArrayList;
+
+        $stack14 = newarray (java.lang.String)[1];
+
+        $stack14[0] = "a";
+
+        $stack15 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack14);
+
+        specialinvoke $stack13.<java.util.ArrayList: void <init>(java.util.Collection)>($stack15);
+
+        $stack16 = interfaceinvoke $stack13.<java.util.List: int hashCode()>();
+
+        $stack18 = (long) $stack16;
+
+        $stack17 = newarray (java.lang.Object)[1];
+
+        $stack17[0] = "a";
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>($stack17);
+
+        $stack20 = (long) $stack19;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack18, $stack20);
+
+        $stack21 = new java.util.ArrayList;
+
+        $stack22 = newarray (java.lang.String)[2];
+
+        $stack22[0] = "a";
+
+        $stack22[1] = "b";
+
+        $stack23 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack22);
+
+        specialinvoke $stack21.<java.util.ArrayList: void <init>(java.util.Collection)>($stack23);
+
+        $stack24 = interfaceinvoke $stack21.<java.util.List: int hashCode()>();
+
+        $stack26 = (long) $stack24;
+
+        $stack25 = newarray (java.lang.Object)[2];
+
+        $stack25[0] = "a";
+
+        $stack25[1] = "b";
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>($stack25);
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack26, $stack28);
+
+        $stack29 = new java.util.ArrayList;
+
+        $stack30 = newarray (java.lang.String)[3];
+
+        $stack30[0] = "a";
+
+        $stack30[1] = "b";
+
+        $stack30[2] = "c";
+
+        $stack31 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack30);
+
+        specialinvoke $stack29.<java.util.ArrayList: void <init>(java.util.Collection)>($stack31);
+
+        $stack32 = interfaceinvoke $stack29.<java.util.List: int hashCode()>();
+
+        $stack34 = (long) $stack32;
+
+        $stack33 = newarray (java.lang.Object)[3];
+
+        $stack33[0] = "a";
+
+        $stack33[1] = "b";
+
+        $stack33[2] = "c";
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int hashCodeMulti(java.lang.Object[])>($stack33);
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack34, $stack36);
+
+        return;
+    }
+
+    public void testIdentityToString()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Integer $stack14;
+        java.lang.NullPointerException $stack25, $stack26;
+        java.lang.StringBuffer $stack22, $stack24;
+        int $stack9, $stack17;
+        java.lang.String $stack6, $stack10, $stack12, $stack13, $stack18, $stack20, $stack21, $stack23;
+        java.lang.StringBuilder $stack7, $stack8, $stack11, $stack15, $stack16, $stack19;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String identityToString(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("java.lang.String@");
+
+        $stack9 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>("foo");
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack9);
+
+        $stack11 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String identityToString(java.lang.Object)>("foo");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack14 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(90);
+
+        $stack15 = new java.lang.StringBuilder;
+
+        specialinvoke $stack15.<java.lang.StringBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("java.lang.Integer@");
+
+        $stack17 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>($stack14);
+
+        $stack18 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack17);
+
+        $stack19 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String identityToString(java.lang.Object)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack21);
+
+        $stack22 = new java.lang.StringBuffer;
+
+        specialinvoke $stack22.<java.lang.StringBuffer: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: void identityToString(java.lang.StringBuffer,java.lang.Object)>($stack22, $stack14);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack23);
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: void identityToString(java.lang.StringBuffer,java.lang.Object)>(null, "tmp");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("NullPointerException expected");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack26 := @caughtexception;
+
+     label4:
+        $stack24 = new java.lang.StringBuffer;
+
+        specialinvoke $stack24.<java.lang.StringBuffer: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: void identityToString(java.lang.StringBuffer,java.lang.Object)>($stack24, null);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("NullPointerException expected");
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack25 := @caughtexception;
+
+     label7:
+        return;
+
+        catch java.lang.NullPointerException from label1 to label2 with label3;
+        catch java.lang.NullPointerException from label4 to label5 with label6;
+    }
+
+    public void testToString_Object()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Boolean $stack4, $stack6;
+        java.lang.String $stack3, $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("", $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Boolean: java.lang.String toString()>();
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack7);
+
+        return;
+    }
+
+    public void testToString_ObjectString()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Boolean $stack4, $stack6;
+        java.lang.String $stack3, $stack5, $stack7;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object,java.lang.String)>(null, "bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Boolean: java.lang.String toString()>();
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object,java.lang.String)>($stack6, "bar");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack7);
+
+        return;
+    }
+
+    public void testNull()
+    {
+        org.apache.commons.lang3.ObjectUtils$Null $stack1, $stack2, $stack4, $stack5;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        boolean $stack3;
+        java.io.Serializable $stack6;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = <org.apache.commons.lang3.ObjectUtils: org.apache.commons.lang3.ObjectUtils$Null NULL>;
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack1);
+
+        $stack2 = <org.apache.commons.lang3.ObjectUtils: org.apache.commons.lang3.ObjectUtils$Null NULL>;
+
+        $stack3 = $stack2 instanceof org.apache.commons.lang3.ObjectUtils$Null;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack5 = <org.apache.commons.lang3.ObjectUtils: org.apache.commons.lang3.ObjectUtils$Null NULL>;
+
+        $stack4 = <org.apache.commons.lang3.ObjectUtils: org.apache.commons.lang3.ObjectUtils$Null NULL>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        return;
+    }
+
+    public void testMax()
+    {
+        java.util.Date $stack7, $stack8, $stack12;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.String[] $stack13, $stack33;
+        java.util.Calendar $stack6;
+        int $stack10, $stack11;
+        java.util.Date[] $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31;
+        java.lang.Comparable $stack15, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack36;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack8 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack10 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(1);
+
+        $stack11 = $stack10 - 1;
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int)>(1, $stack11);
+
+        $stack12 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        staticinvoke <org.junit.Assert: void assertNotSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack16);
+
+        $stack17 = newarray (java.util.Date)[2];
+
+        $stack17[0] = null;
+
+        $stack17[1] = $stack7;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack18);
+
+        $stack19 = newarray (java.util.Date)[2];
+
+        $stack19[0] = $stack7;
+
+        $stack19[1] = null;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack20);
+
+        $stack21 = newarray (java.util.Date)[3];
+
+        $stack21[0] = null;
+
+        $stack21[1] = $stack7;
+
+        $stack21[2] = null;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack22);
+
+        $stack23 = newarray (java.util.Date)[2];
+
+        $stack23[0] = $stack7;
+
+        $stack23[1] = $stack8;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack24);
+
+        $stack25 = newarray (java.util.Date)[2];
+
+        $stack25[0] = $stack8;
+
+        $stack25[1] = $stack7;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack25);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack26);
+
+        $stack27 = newarray (java.util.Date)[2];
+
+        $stack27[0] = $stack7;
+
+        $stack27[1] = $stack12;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack28);
+
+        $stack29 = newarray (java.util.Date)[2];
+
+        $stack29[0] = $stack12;
+
+        $stack29[1] = $stack7;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack29);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack30);
+
+        $stack31 = newarray (java.util.Date)[4];
+
+        $stack31[0] = null;
+
+        $stack31[1] = $stack12;
+
+        $stack31[2] = null;
+
+        $stack31[3] = $stack7;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack32);
+
+        $stack33 = newarray (java.lang.String)[2];
+
+        $stack33[0] = null;
+
+        $stack33[1] = null;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable max(java.lang.Comparable[])>($stack33);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack36);
+
+        return;
+    }
+
+    public void testMin()
+    {
+        java.util.Date $stack7, $stack8, $stack12;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.String[] $stack13, $stack33;
+        java.util.Calendar $stack6;
+        int $stack10, $stack11;
+        java.util.Date[] $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31;
+        java.lang.Comparable $stack15, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack36;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack7 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack8 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack10 = virtualinvoke $stack6.<java.util.Calendar: int get(int)>(1);
+
+        $stack11 = $stack10 - 1;
+
+        virtualinvoke $stack6.<java.util.Calendar: void set(int,int)>(1, $stack11);
+
+        $stack12 = virtualinvoke $stack6.<java.util.Calendar: java.util.Date getTime()>();
+
+        staticinvoke <org.junit.Assert: void assertNotSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = null;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>(null);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack16);
+
+        $stack17 = newarray (java.util.Date)[2];
+
+        $stack17[0] = null;
+
+        $stack17[1] = $stack7;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack18);
+
+        $stack19 = newarray (java.util.Date)[2];
+
+        $stack19[0] = $stack7;
+
+        $stack19[1] = null;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack20);
+
+        $stack21 = newarray (java.util.Date)[3];
+
+        $stack21[0] = null;
+
+        $stack21[1] = $stack7;
+
+        $stack21[2] = null;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack21);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack22);
+
+        $stack23 = newarray (java.util.Date)[2];
+
+        $stack23[0] = $stack7;
+
+        $stack23[1] = $stack8;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack23);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack24);
+
+        $stack25 = newarray (java.util.Date)[2];
+
+        $stack25[0] = $stack8;
+
+        $stack25[1] = $stack7;
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack25);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack26);
+
+        $stack27 = newarray (java.util.Date)[2];
+
+        $stack27[0] = $stack7;
+
+        $stack27[1] = $stack12;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack27);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack28);
+
+        $stack29 = newarray (java.util.Date)[2];
+
+        $stack29[0] = $stack12;
+
+        $stack29[1] = $stack7;
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack29);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack30);
+
+        $stack31 = newarray (java.util.Date)[4];
+
+        $stack31[0] = null;
+
+        $stack31[1] = $stack7;
+
+        $stack31[2] = null;
+
+        $stack31[3] = $stack12;
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack32);
+
+        $stack33 = newarray (java.lang.String)[2];
+
+        $stack33[0] = null;
+
+        $stack33[1] = null;
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable min(java.lang.Comparable[])>($stack33);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack36);
+
+        return;
+    }
+
+    public void testCompare()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        long $stack9, $stack13, $stack17, $stack21, $stack25, $stack29, $stack33, $stack37;
+        java.lang.Integer $stack4, $stack5;
+        int $stack8, $stack12, $stack16, $stack20, $stack24, $stack28, $stack32, $stack36;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(2);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable)>(null, null);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Null Null false", 0L, $stack9);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>(null, null, 1);
+
+        $stack13 = (long) $stack12;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Null Null true", 0L, $stack13);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable)>(null, $stack4);
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Null one false", -1L, $stack17);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>(null, $stack4, 1);
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Null one true", 1L, $stack21);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable)>($stack4, null);
+
+        $stack25 = (long) $stack24;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("one Null false", 1L, $stack25);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>($stack4, null, 1);
+
+        $stack29 = (long) $stack28;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("one Null true", -1L, $stack29);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable)>($stack4, $stack5);
+
+        $stack33 = (long) $stack32;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("one two false", -1L, $stack33);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int compare(java.lang.Comparable,java.lang.Comparable,boolean)>($stack4, $stack5, 1);
+
+        $stack37 = (long) $stack36;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("one two true", -1L, $stack37);
+
+        return;
+    }
+
+    public void testMedian()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Integer $stack16, $stack19, $stack21, $stack23, $stack25, $stack28, $stack30, $stack32, $stack34, $stack36, $stack38, $stack41, $stack43, $stack45, $stack47;
+        java.lang.Integer[] $stack17, $stack26, $stack39;
+        java.lang.String[] $stack1, $stack4, $stack7, $stack10, $stack13;
+        java.lang.Comparable $stack3, $stack6, $stack9, $stack12, $stack15, $stack24, $stack37, $stack48;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = newarray (java.lang.String)[1];
+
+        $stack1[0] = "foo";
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack3);
+
+        $stack4 = newarray (java.lang.String)[2];
+
+        $stack4[0] = "foo";
+
+        $stack4[1] = "bar";
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("bar", $stack6);
+
+        $stack7 = newarray (java.lang.String)[3];
+
+        $stack7[0] = "foo";
+
+        $stack7[1] = "bar";
+
+        $stack7[2] = "baz";
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("baz", $stack9);
+
+        $stack10 = newarray (java.lang.String)[4];
+
+        $stack10[0] = "foo";
+
+        $stack10[1] = "bar";
+
+        $stack10[2] = "baz";
+
+        $stack10[3] = "blah";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("baz", $stack12);
+
+        $stack13 = newarray (java.lang.String)[5];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        $stack13[3] = "blah";
+
+        $stack13[4] = "wah";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("blah", $stack15);
+
+        $stack16 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack17 = newarray (java.lang.Integer)[3];
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack17[0] = $stack19;
+
+        $stack21 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack17[1] = $stack21;
+
+        $stack23 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack17[2] = $stack23;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack24);
+
+        $stack25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack26 = newarray (java.lang.Integer)[5];
+
+        $stack28 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack26[0] = $stack28;
+
+        $stack30 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack26[1] = $stack30;
+
+        $stack32 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack26[2] = $stack32;
+
+        $stack34 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack26[3] = $stack34;
+
+        $stack36 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack26[4] = $stack36;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack26);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack37);
+
+        $stack38 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack39 = newarray (java.lang.Integer)[4];
+
+        $stack41 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        $stack39[0] = $stack41;
+
+        $stack43 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack39[1] = $stack43;
+
+        $stack45 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack39[2] = $stack45;
+
+        $stack47 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack39[3] = $stack47;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack39);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack38, $stack48);
+
+        return;
+    }
+
+    public void testMedian_nullItems()
+    {
+        java.lang.String[] $stack1;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = (java.lang.String[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack1);
+
+        return;
+    }
+
+    public void testMedian_emptyItems()
+    {
+        java.lang.String[] $stack1;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = newarray (java.lang.String)[0];
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Comparable median(java.lang.Comparable[])>($stack1);
+
+        return;
+    }
+
+    public void testComparatorMedian()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.CharSequence[] $stack13, $stack15, $stack17, $stack19, $stack21;
+        org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator $stack7;
+        org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence $stack8, $stack9, $stack10, $stack11, $stack12;
+        java.lang.Object $stack14, $stack16, $stack18, $stack20, $stack22;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack7 = new org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator: void <init>()>();
+
+        $stack8 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("foo");
+
+        $stack9 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("bar");
+
+        $stack10 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack10.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("baz");
+
+        $stack11 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack11.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("blah");
+
+        $stack12 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("wah");
+
+        $stack13 = newarray (java.lang.CharSequence)[1];
+
+        $stack13[0] = $stack8;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack7, $stack13);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack14);
+
+        $stack15 = newarray (java.lang.CharSequence)[2];
+
+        $stack15[0] = $stack8;
+
+        $stack15[1] = $stack9;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack7, $stack15);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack16);
+
+        $stack17 = newarray (java.lang.CharSequence)[3];
+
+        $stack17[0] = $stack8;
+
+        $stack17[1] = $stack9;
+
+        $stack17[2] = $stack10;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack7, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack10, $stack18);
+
+        $stack19 = newarray (java.lang.CharSequence)[4];
+
+        $stack19[0] = $stack8;
+
+        $stack19[1] = $stack9;
+
+        $stack19[2] = $stack10;
+
+        $stack19[3] = $stack11;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack7, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack10, $stack20);
+
+        $stack21 = newarray (java.lang.CharSequence)[5];
+
+        $stack21[0] = $stack8;
+
+        $stack21[1] = $stack9;
+
+        $stack21[2] = $stack10;
+
+        $stack21[3] = $stack11;
+
+        $stack21[4] = $stack12;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack7, $stack21);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack22);
+
+        return;
+    }
+
+    public void testComparatorMedian_nullComparator()
+    {
+        java.lang.CharSequence[] $stack1;
+        org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence $stack2;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = newarray (java.lang.CharSequence)[1];
+
+        $stack2 = new org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.ObjectUtilsTest$NonComparableCharSequence: void <init>(java.lang.String)>("foo");
+
+        $stack1[0] = $stack2;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>(null, $stack1);
+
+        return;
+    }
+
+    public void testComparatorMedian_nullItems()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator $stack1;
+        java.lang.CharSequence[] $stack2;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator: void <init>()>();
+
+        $stack2 = (java.lang.CharSequence[]) null;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack1, $stack2);
+
+        return;
+    }
+
+    public void testComparatorMedian_emptyItems()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator $stack1;
+        java.lang.CharSequence[] $stack2;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = new org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.ObjectUtilsTest$CharSequenceComparator: void <init>()>();
+
+        $stack2 = newarray (java.lang.CharSequence)[0];
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object median(java.util.Comparator,java.lang.Object[])>($stack1, $stack2);
+
+        return;
+    }
+
+    public void testMode()
+    {
+        java.lang.Object[] $stack1, $stack3;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.String[] $stack5, $stack7, $stack9;
+        java.lang.Integer $stack12, $stack15, $stack17, $stack19;
+        java.lang.Object $stack2, $stack4, $stack6, $stack8, $stack11, $stack20;
+        java.io.Serializable[] $stack13;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = (java.lang.Object[]) null;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack2);
+
+        $stack3 = newarray (java.lang.Object)[0];
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack4);
+
+        $stack5 = newarray (java.lang.String)[3];
+
+        $stack5[0] = "foo";
+
+        $stack5[1] = "bar";
+
+        $stack5[2] = "baz";
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack6);
+
+        $stack7 = newarray (java.lang.String)[5];
+
+        $stack7[0] = "foo";
+
+        $stack7[1] = "bar";
+
+        $stack7[2] = "baz";
+
+        $stack7[3] = "foo";
+
+        $stack7[4] = "bar";
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack8);
+
+        $stack9 = newarray (java.lang.String)[4];
+
+        $stack9[0] = "foo";
+
+        $stack9[1] = "bar";
+
+        $stack9[2] = "baz";
+
+        $stack9[3] = "foo";
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("foo", $stack11);
+
+        $stack12 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack13 = newarray (java.io.Serializable)[6];
+
+        $stack13[0] = "foo";
+
+        $stack13[1] = "bar";
+
+        $stack13[2] = "baz";
+
+        $stack15 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack13[3] = $stack15;
+
+        $stack17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+
+        $stack13[4] = $stack17;
+
+        $stack19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack13[5] = $stack19;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object mode(java.lang.Object[])>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack20);
+
+        return;
+    }
+
+    public void testCloneOfCloneable()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Object $stack4, $stack6;
+        org.apache.commons.lang3.ObjectUtilsTest$CloneableString $stack3, stringClone;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = new org.apache.commons.lang3.ObjectUtilsTest$CloneableString;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.ObjectUtilsTest$CloneableString: void <init>(java.lang.String)>("apache");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>($stack3);
+
+        stringClone = (org.apache.commons.lang3.ObjectUtilsTest$CloneableString) $stack4;
+
+        $stack6 = virtualinvoke stringClone.<org.apache.commons.lang3.ObjectUtilsTest$CloneableString: java.lang.Object getValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("apache", $stack6);
+
+        return;
+    }
+
+    public void testCloneOfNotCloneable()
+    {
+        java.lang.Object $stack3;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = new java.lang.String;
+
+        specialinvoke $stack2.<java.lang.String: void <init>(java.lang.String)>("apache");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertNull(java.lang.Object)>($stack3);
+
+        return;
+    }
+
+    public void testCloneOfUncloneable() throws java.lang.Throwable
+    {
+        java.lang.Throwable $stack13;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        org.apache.commons.lang3.ObjectUtilsTest$UncloneableString $stack3;
+        java.lang.StringBuilder $stack5, $stack6, $stack9, $stack10;
+        java.lang.Class $stack7;
+        org.apache.commons.lang3.exception.CloneFailedException $stack12;
+        java.lang.String $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = new org.apache.commons.lang3.ObjectUtilsTest$UncloneableString;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.ObjectUtilsTest$UncloneableString: void <init>(java.lang.String)>("apache");
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>($stack3);
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Thrown ");
+
+        $stack7 = class "Lorg/apache/commons/lang3/exception/CloneFailedException;";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Class: java.lang.String getName()>();
+
+        $stack9 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" expected");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack11);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack12 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.exception.CloneFailedException: java.lang.Throwable getCause()>();
+
+        throw $stack13;
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.exception.CloneFailedException from label1 to label2 with label3;
+    }
+
+    public void testCloneOfStringArray()
+    {
+        java.lang.Object[] $stack4;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.String[] $stack1, $stack2;
+        java.lang.Object $stack3;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = newarray (java.lang.String)[1];
+
+        $stack1[0] = "string";
+
+        $stack2 = newarray (java.lang.String)[1];
+
+        $stack2[0] = "string";
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>($stack2);
+
+        $stack4 = (java.lang.Object[]) $stack3;
+
+        $stack5 = staticinvoke <java.util.Arrays: boolean deepEquals(java.lang.Object[],java.lang.Object[])>($stack1, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        return;
+    }
+
+    public void testCloneOfPrimitiveArray()
+    {
+        int[] $stack1, $stack2, $stack4;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Object $stack3;
+        boolean $stack5;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack1 = newarray (int)[1];
+
+        $stack1[0] = 1;
+
+        $stack2 = newarray (int)[1];
+
+        $stack2[0] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object clone(java.lang.Object)>($stack2);
+
+        $stack4 = (int[]) $stack3;
+
+        $stack5 = staticinvoke <java.util.Arrays: boolean equals(int[],int[])>($stack1, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        return;
+    }
+
+    public void testPossibleCloneOfCloneable()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        java.lang.Object $stack4, $stack6;
+        org.apache.commons.lang3.ObjectUtilsTest$CloneableString $stack3, stringClone;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = new org.apache.commons.lang3.ObjectUtilsTest$CloneableString;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.ObjectUtilsTest$CloneableString: void <init>(java.lang.String)>("apache");
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object cloneIfPossible(java.lang.Object)>($stack3);
+
+        stringClone = (org.apache.commons.lang3.ObjectUtilsTest$CloneableString) $stack4;
+
+        $stack6 = virtualinvoke stringClone.<org.apache.commons.lang3.ObjectUtilsTest$CloneableString: java.lang.Object getValue()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("apache", $stack6);
+
+        return;
+    }
+
+    public void testPossibleCloneOfNotCloneable()
+    {
+        java.lang.Object $stack3;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack2 = new java.lang.String;
+
+        specialinvoke $stack2.<java.lang.String: void <init>(java.lang.String)>("apache");
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object cloneIfPossible(java.lang.Object)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        return;
+    }
+
+    public void testPossibleCloneOfUncloneable() throws java.lang.Throwable
+    {
+        java.lang.Throwable $stack13;
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        org.apache.commons.lang3.ObjectUtilsTest$UncloneableString $stack3;
+        java.lang.StringBuilder $stack5, $stack6, $stack9, $stack10;
+        java.lang.Class $stack7;
+        org.apache.commons.lang3.exception.CloneFailedException $stack12;
+        java.lang.String $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack3 = new org.apache.commons.lang3.ObjectUtilsTest$UncloneableString;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.ObjectUtilsTest$UncloneableString: void <init>(java.lang.String)>("apache");
+
+     label1:
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object cloneIfPossible(java.lang.Object)>($stack3);
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Thrown ");
+
+        $stack7 = class "Lorg/apache/commons/lang3/exception/CloneFailedException;";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Class: java.lang.String getName()>();
+
+        $stack9 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" expected");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack11);
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack12 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.exception.CloneFailedException: java.lang.Throwable getCause()>();
+
+        throw $stack13;
+
+     label4:
+        return;
+
+        catch org.apache.commons.lang3.exception.CloneFailedException from label1 to label2 with label3;
+    }
+
+    public void testConstMethods()
+    {
+        org.apache.commons.lang3.ObjectUtilsTest this;
+        byte $stack21, $stack48, $stack49;
+        boolean $stack18, $stack47;
+        float $stack40, $stack56;
+        long $stack22, $stack26, $stack30, $stack34, $stack37, $stack54, MAGIC_LONG2, $stack59, $stack60, $stack61, $stack62, $stack63, $stack64;
+        short $stack29, $stack51, $stack52;
+        int $stack33, $stack53, $stack55, $i0, $i1;
+        java.lang.String MAGIC_STRING;
+        double $stack43, $stack57;
+        char $stack25, $stack50;
+        java.lang.IllegalArgumentException $stack69, $stack70, $stack73, $stack76;
+        java.lang.Object $stack46, $stack58;
+
+        this := @this: org.apache.commons.lang3.ObjectUtilsTest;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean CONST(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("CONST(boolean)", $stack18);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST(byte)>(3);
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("CONST(byte)", 3L, $stack22);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ObjectUtils: char CONST(char)>(3);
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("CONST(char)", 3L, $stack26);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.ObjectUtils: short CONST(short)>(3);
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("CONST(short)", 3L, $stack30);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int CONST(int)>(3);
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("CONST(int)", 3L, $stack34);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.ObjectUtils: long CONST(long)>(3L);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("CONST(long)", 3L, $stack37);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.ObjectUtils: float CONST(float)>(3.0F);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,float,float,float)>("CONST(float)", 3.0F, $stack40, 0.0F);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.ObjectUtils: double CONST(double)>(3.0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,double,double,double)>("CONST(double)", 3.0, $stack43, 0.0);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object CONST(java.lang.Object)>("abc");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("CONST(Object)", "abc", $stack46);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.ObjectUtils: boolean CONST(boolean)>(1);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST(byte)>(127);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST_BYTE(int)>(127);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.ObjectUtils: char CONST(char)>(97);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.ObjectUtils: short CONST(short)>(123);
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.ObjectUtils: short CONST_SHORT(int)>(127);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int CONST(int)>(123);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.ObjectUtils: long CONST(long)>(123L);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.ObjectUtils: int CONST(int)>(3);
+
+        MAGIC_LONG2 = (long) $stack55;
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.ObjectUtils: float CONST(float)>(1.0F);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.ObjectUtils: double CONST(double)>(1.0);
+
+        $stack58 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.Object CONST(java.lang.Object)>("abc");
+
+        MAGIC_STRING = (java.lang.String) $stack58;
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack59 = (long) $stack48;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(127L, $stack59);
+
+        $stack60 = (long) $stack49;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(127L, $stack60);
+
+        $stack61 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(97L, $stack61);
+
+        $stack62 = (long) $stack51;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(123L, $stack62);
+
+        $stack63 = (long) $stack52;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(127L, $stack63);
+
+        $stack64 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(123L, $stack64);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(123L, $stack54);
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, MAGIC_LONG2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(float,float,float)>(1.0F, $stack56, 0.0F);
+
+        staticinvoke <org.junit.Assert: void assertEquals(double,double,double)>(1.0, $stack57, 0.0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("abc", MAGIC_STRING);
+
+     label01:
+        $i0 = (int) -129;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST_BYTE(int)>($i0);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("CONST_BYTE(-129): IllegalArgumentException should have been thrown.");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack76 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST_BYTE(int)>(128);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("CONST_BYTE(128): IllegalArgumentException should have been thrown.");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack73 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: short CONST_SHORT(int)>(-32769);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("CONST_SHORT(-32769): IllegalArgumentException should have been thrown.");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack70 := @caughtexception;
+
+     label10:
+        $i1 = (int) 32768;
+
+        staticinvoke <org.apache.commons.lang3.ObjectUtils: byte CONST_BYTE(int)>($i1);
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("CONST_SHORT(32768): IllegalArgumentException should have been thrown.");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack69 := @caughtexception;
+
+     label13:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.ObjectUtilsTest: java.lang.String BAR> = "bar";
+
+        <org.apache.commons.lang3.ObjectUtilsTest: java.lang.String FOO> = "foo";
+
+        return;
+    }
+}

@@ -1,0 +1,5129 @@
+public class org.apache.commons.lang3.text.StrBuilder extends java.lang.Object implements java.lang.CharSequence, java.lang.Appendable, java.io.Serializable
+{
+    static final int CAPACITY;
+    private static final long serialVersionUID;
+    protected char[] buffer;
+    protected int size;
+    private java.lang.String newLine;
+    private java.lang.String nullText;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void <init>(int)>(32);
+
+        return;
+    }
+
+    public void <init>(int)
+    {
+        int initialCapacity;
+        char[] $stack2;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        initialCapacity := @parameter0: int;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        if initialCapacity > 0 goto label1;
+
+        initialCapacity = 32;
+
+     label1:
+        $stack2 = newarray (char)[initialCapacity];
+
+        this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer> = $stack2;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        int $stack2, $stack3;
+        char[] $stack4, $stack6;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        if str != null goto label1;
+
+        $stack6 = newarray (char)[32];
+
+        this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer> = $stack6;
+
+        goto label2;
+
+     label1:
+        $stack2 = virtualinvoke str.<java.lang.String: int length()>();
+
+        $stack3 = $stack2 + 32;
+
+        $stack4 = newarray (char)[$stack3];
+
+        this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer> = $stack4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(str);
+
+     label2:
+        return;
+    }
+
+    public java.lang.String getNewLineText()
+    {
+        java.lang.String $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String newLine>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder setNewLineText(java.lang.String)
+    {
+        java.lang.String newLine;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        newLine := @parameter0: java.lang.String;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String newLine> = newLine;
+
+        return this;
+    }
+
+    public java.lang.String getNullText()
+    {
+        java.lang.String $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder setNullText(java.lang.String)
+    {
+        int $stack2;
+        java.lang.String nullText;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        nullText := @parameter0: java.lang.String;
+
+        if nullText == null goto label1;
+
+        $stack2 = virtualinvoke nullText.<java.lang.String: int length()>();
+
+        if $stack2 != 0 goto label1;
+
+        nullText = null;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText> = nullText;
+
+        return this;
+    }
+
+    public int length()
+    {
+        int $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder setLength(int)
+    {
+        java.lang.StringIndexOutOfBoundsException $stack12;
+        int length, $stack5, $stack6, oldEnd, i;
+        char[] $stack9;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        length := @parameter0: int;
+
+        if length >= 0 goto label1;
+
+        $stack12 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack12.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(length);
+
+        throw $stack12;
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if length >= $stack5 goto label2;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = length;
+
+        goto label4;
+
+     label2:
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if length <= $stack6 goto label4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>(length);
+
+        oldEnd = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = length;
+
+        i = oldEnd;
+
+     label3:
+        if i >= length goto label4;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9[i] = 0;
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        return this;
+    }
+
+    public int capacity()
+    {
+        int $stack2;
+        char[] $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack2 = lengthof $stack1;
+
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)
+    {
+        int capacity, $stack4, $stack5, $stack7;
+        char[] $stack3, old, $stack6, $stack8;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        capacity := @parameter0: int;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack4 = lengthof $stack3;
+
+        if capacity <= $stack4 goto label1;
+
+        old = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = capacity * 2;
+
+        $stack6 = newarray (char)[$stack5];
+
+        this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer> = $stack6;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(old, 0, $stack8, 0, $stack7);
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder minimizeCapacity()
+    {
+        int $stack3, $stack4, $stack5, $stack7;
+        char[] $stack2, old, $stack6, $stack8;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack3 = lengthof $stack2;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if $stack3 <= $stack4 goto label1;
+
+        old = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack6 = newarray (char)[$stack5];
+
+        this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer> = $stack6;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(old, 0, $stack8, 0, $stack7);
+
+     label1:
+        return this;
+    }
+
+    public int size()
+    {
+        int $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        return $stack1;
+    }
+
+    public boolean isEmpty()
+    {
+        int $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder clear()
+    {
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = 0;
+
+        return this;
+    }
+
+    public char charAt(int)
+    {
+        int index, $stack3;
+        java.lang.StringIndexOutOfBoundsException $stack2;
+        char[] $stack4;
+        char $stack5;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        if index < 0 goto label1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if index < $stack3 goto label2;
+
+     label1:
+        $stack2 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack2.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(index);
+
+        throw $stack2;
+
+     label2:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = $stack4[index];
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder setCharAt(int, char)
+    {
+        int index, $stack4;
+        java.lang.StringIndexOutOfBoundsException $stack3;
+        char[] $stack5;
+        char ch;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        ch := @parameter1: char;
+
+        if index < 0 goto label1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if index < $stack4 goto label2;
+
+     label1:
+        $stack3 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack3.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(index);
+
+        throw $stack3;
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5[index] = ch;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteCharAt(int)
+    {
+        int index, $stack3, $stack4;
+        java.lang.StringIndexOutOfBoundsException $stack2;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        if index < 0 goto label1;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if index < $stack3 goto label2;
+
+     label1:
+        $stack2 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack2.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(index);
+
+        throw $stack2;
+
+     label2:
+        $stack4 = index + 1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>(index, $stack4, 1);
+
+        return this;
+    }
+
+    public char[] toCharArray()
+    {
+        int $stack2, $stack3, $stack4;
+        char[] chars, $stack5, $stack6;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack2 != 0 goto label1;
+
+        $stack6 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        return $stack6;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        chars = newarray (char)[$stack3];
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack5, 0, chars, 0, $stack4);
+
+        return chars;
+    }
+
+    public char[] toCharArray(int, int)
+    {
+        int startIndex, $stack5, len, endIndex;
+        char[] chars, $stack6, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int validateRange(int,int)>(startIndex, endIndex);
+
+        len = $stack5 - startIndex;
+
+        if len != 0 goto label1;
+
+        $stack7 = <org.apache.commons.lang3.ArrayUtils: char[] EMPTY_CHAR_ARRAY>;
+
+        return $stack7;
+
+     label1:
+        chars = newarray (char)[len];
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack6, startIndex, chars, 0, len);
+
+        return chars;
+    }
+
+    public char[] getChars(char[])
+    {
+        int $stack3, $stack5;
+        char[] destination, $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        destination := @parameter0: char[];
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if destination == null goto label1;
+
+        $stack5 = lengthof destination;
+
+        if $stack5 >= $stack3 goto label2;
+
+     label1:
+        destination = newarray (char)[$stack3];
+
+     label2:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack4, 0, destination, 0, $stack3);
+
+        return destination;
+    }
+
+    public void getChars(int, int, char[], int)
+    {
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack9, $stack11;
+        int startIndex, endIndex, $stack6, destinationIndex, $stack7;
+        char[] destination, $stack8;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        destination := @parameter2: char[];
+
+        destinationIndex := @parameter3: int;
+
+        if startIndex >= 0 goto label1;
+
+        $stack11 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack11.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(startIndex);
+
+        throw $stack11;
+
+     label1:
+        if endIndex < 0 goto label2;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if endIndex <= $stack6 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(endIndex);
+
+        throw $stack5;
+
+     label3:
+        if startIndex <= endIndex goto label4;
+
+        $stack9 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack9.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("end < start");
+
+        throw $stack9;
+
+     label4:
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = endIndex - startIndex;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack8, startIndex, destination, destinationIndex, $stack7);
+
+        return;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendNewLine()
+    {
+        java.lang.String $stack1, $stack2, $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String newLine>;
+
+        if $stack1 != null goto label1;
+
+        $stack4 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack4);
+
+        return this;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String newLine>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendNull()
+    {
+        java.lang.String $stack1, $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        if $stack1 != null goto label1;
+
+        return this;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)
+    {
+        java.lang.Object obj;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        obj := @parameter0: java.lang.Object;
+
+        if obj != null goto label1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack4;
+
+     label1:
+        $stack2 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence)
+    {
+        java.lang.CharSequence seq;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        if seq != null goto label1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack4;
+
+     label1:
+        $stack2 = interfaceinvoke seq.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence, int, int)
+    {
+        java.lang.CharSequence seq;
+        int startIndex, length;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        seq := @parameter0: java.lang.CharSequence;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if seq != null goto label1;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack6;
+
+     label1:
+        $stack4 = interfaceinvoke seq.<java.lang.CharSequence: java.lang.String toString()>();
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>($stack4, startIndex, length);
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.String)
+    {
+        int $stack4, $stack5, $stack6, $stack9, $stack10;
+        char[] $stack8;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        $stack12 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack12;
+
+     label1:
+        $stack4 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack4 <= 0 goto label2;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack6 = $stack5 + $stack4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(0, $stack4, $stack8, $stack5);
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack10 = $stack9 + $stack4;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack10;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.String, int, int)
+    {
+        int startIndex, $stack6, length, $stack8, $stack9, $stack10, $stack11, $stack14, $stack15, $stack16;
+        java.lang.String str;
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack7;
+        char[] $stack13;
+        org.apache.commons.lang3.text.StrBuilder this, $stack20;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if str != null goto label1;
+
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack20;
+
+     label1:
+        if startIndex < 0 goto label2;
+
+        $stack6 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if startIndex <= $stack6 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("startIndex must be valid");
+
+        throw $stack5;
+
+     label3:
+        if length < 0 goto label4;
+
+        $stack8 = startIndex + length;
+
+        $stack9 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack8 <= $stack9 goto label5;
+
+     label4:
+        $stack7 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack7.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("length must be valid");
+
+        throw $stack7;
+
+     label5:
+        if length <= 0 goto label6;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack11 = $stack10 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack11);
+
+        $stack14 = startIndex + length;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(startIndex, $stack14, $stack13, $stack10);
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack16 = $stack15 + length;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack16;
+
+     label6:
+        return this;
+    }
+
+    public transient org.apache.commons.lang3.text.StrBuilder append(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] objs;
+        java.lang.String format, $stack3;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        format := @parameter0: java.lang.String;
+
+        objs := @parameter1: java.lang.Object[];
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>(format, objs);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)
+    {
+        java.lang.StringBuffer str;
+        int $stack4, $stack5, $stack6, $stack9, $stack10;
+        char[] $stack8;
+        org.apache.commons.lang3.text.StrBuilder this, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.StringBuffer;
+
+        if str != null goto label1;
+
+        $stack12 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack12;
+
+     label1:
+        $stack4 = virtualinvoke str.<java.lang.StringBuffer: int length()>();
+
+        if $stack4 <= 0 goto label2;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack6 = $stack5 + $stack4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack6);
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<java.lang.StringBuffer: void getChars(int,int,char[],int)>(0, $stack4, $stack8, $stack5);
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack10 = $stack9 + $stack4;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack10;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer, int, int)
+    {
+        java.lang.StringBuffer str;
+        int startIndex, $stack6, length, $stack8, $stack9, $stack10, $stack11, $stack14, $stack15, $stack16;
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack7;
+        char[] $stack13;
+        org.apache.commons.lang3.text.StrBuilder this, $stack20;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.StringBuffer;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if str != null goto label1;
+
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack20;
+
+     label1:
+        if startIndex < 0 goto label2;
+
+        $stack6 = virtualinvoke str.<java.lang.StringBuffer: int length()>();
+
+        if startIndex <= $stack6 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("startIndex must be valid");
+
+        throw $stack5;
+
+     label3:
+        if length < 0 goto label4;
+
+        $stack8 = startIndex + length;
+
+        $stack9 = virtualinvoke str.<java.lang.StringBuffer: int length()>();
+
+        if $stack8 <= $stack9 goto label5;
+
+     label4:
+        $stack7 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack7.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("length must be valid");
+
+        throw $stack7;
+
+     label5:
+        if length <= 0 goto label6;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack11 = $stack10 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack11);
+
+        $stack14 = startIndex + length;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<java.lang.StringBuffer: void getChars(int,int,char[],int)>(startIndex, $stack14, $stack13, $stack10);
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack16 = $stack15 + length;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack16;
+
+     label6:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)
+    {
+        int $stack4, $stack5, $stack6, $stack10, $stack11;
+        char[] $stack8, $stack9;
+        org.apache.commons.lang3.text.StrBuilder str, this, $stack13;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        if str != null goto label1;
+
+        $stack13 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack13;
+
+     label1:
+        $stack4 = virtualinvoke str.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if $stack4 <= 0 goto label2;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack6 = $stack5 + $stack4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack6);
+
+        $stack9 = str.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack9, 0, $stack8, $stack5, $stack4);
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack11 = $stack10 + $stack4;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack11;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int startIndex, $stack6, length, $stack8, $stack9, $stack10, $stack11, $stack14, $stack15, $stack16;
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack7;
+        char[] $stack13;
+        org.apache.commons.lang3.text.StrBuilder str, this, $stack20;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if str != null goto label1;
+
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack20;
+
+     label1:
+        if startIndex < 0 goto label2;
+
+        $stack6 = virtualinvoke str.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if startIndex <= $stack6 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("startIndex must be valid");
+
+        throw $stack5;
+
+     label3:
+        if length < 0 goto label4;
+
+        $stack8 = startIndex + length;
+
+        $stack9 = virtualinvoke str.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        if $stack8 <= $stack9 goto label5;
+
+     label4:
+        $stack7 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack7.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("length must be valid");
+
+        throw $stack7;
+
+     label5:
+        if length <= 0 goto label6;
+
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack11 = $stack10 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack11);
+
+        $stack14 = startIndex + length;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<org.apache.commons.lang3.text.StrBuilder: void getChars(int,int,char[],int)>(startIndex, $stack14, $stack13, $stack10);
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack16 = $stack15 + length;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack16;
+
+     label6:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(char[])
+    {
+        int strLen, $stack4, $stack5, $stack8, $stack9;
+        char[] chars, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this, $stack11;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        chars := @parameter0: char[];
+
+        if chars != null goto label1;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack11;
+
+     label1:
+        strLen = lengthof chars;
+
+        if strLen <= 0 goto label2;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack5 = $stack4 + strLen;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack5);
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(chars, 0, $stack7, $stack4, strLen);
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 + strLen;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack9;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(char[], int, int)
+    {
+        int startIndex, length, $stack10, $stack16, $stack17, $stack18, $stack19, $stack22, $stack23;
+        java.lang.String $stack9, $stack15;
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack11;
+        char[] chars, $stack21;
+        java.lang.StringBuilder $stack6, $stack7, $stack8, $stack12, $stack13, $stack14;
+        org.apache.commons.lang3.text.StrBuilder this, $stack29;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        chars := @parameter0: char[];
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        if chars != null goto label1;
+
+        $stack29 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNull()>();
+
+        return $stack29;
+
+     label1:
+        if startIndex < 0 goto label2;
+
+        $stack10 = lengthof chars;
+
+        if startIndex <= $stack10 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid startIndex: ");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(length);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack5;
+
+     label3:
+        if length < 0 goto label4;
+
+        $stack17 = startIndex + length;
+
+        $stack16 = lengthof chars;
+
+        if $stack17 <= $stack16 goto label5;
+
+     label4:
+        $stack11 = new java.lang.StringIndexOutOfBoundsException;
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid length: ");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(length);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack11.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>($stack15);
+
+        throw $stack11;
+
+     label5:
+        if length <= 0 goto label6;
+
+        $stack18 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack19 = $stack18 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack19);
+
+        $stack21 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(chars, startIndex, $stack21, $stack18, length);
+
+        $stack22 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack23 = $stack22 + length;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack23;
+
+     label6:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(boolean)
+    {
+        boolean value;
+        org.apache.commons.lang3.text.StrBuilder this;
+        int $stack2, $stack3, $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack14, $stack15, $stack17, $stack18, $stack20, $stack21, $stack23, $stack24, $stack26, $stack27, $stack29, $stack30, $stack32, $stack33;
+        char[] $stack7, $stack10, $stack13, $stack16, $stack19, $stack25, $stack28, $stack31, $stack34;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: boolean;
+
+        if value == 0 goto label1;
+
+        $stack20 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack21 = $stack20 + 4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack21);
+
+        $stack25 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack23 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack24 = $stack23 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack24;
+
+        $stack25[$stack23] = 116;
+
+        $stack28 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack26 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack27 = $stack26 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack27;
+
+        $stack28[$stack26] = 114;
+
+        $stack31 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack29 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack30 = $stack29 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack30;
+
+        $stack31[$stack29] = 117;
+
+        $stack34 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack32 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack33 = $stack32 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack33;
+
+        $stack34[$stack32] = 101;
+
+        goto label2;
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = $stack2 + 5;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack3);
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack6 = $stack5 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack6;
+
+        $stack7[$stack5] = 102;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack9;
+
+        $stack10[$stack8] = 97;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack12 = $stack11 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack12;
+
+        $stack13[$stack11] = 108;
+
+        $stack16 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack14 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack15 = $stack14 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack15;
+
+        $stack16[$stack14] = 115;
+
+        $stack19 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack17 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack18 = $stack17 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack18;
+
+        $stack19[$stack17] = 101;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(char)
+    {
+        int $stack3, $stack4, $stack6, $stack7;
+        char[] $stack8;
+        char ch;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int length()>();
+
+        $stack4 = $stack3 + 1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack4);
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack7 = $stack6 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack7;
+
+        $stack8[$stack6] = ch;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(int)
+    {
+        int value;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: int;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>(value);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(long)
+    {
+        long value;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: long;
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>(value);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(float)
+    {
+        float value;
+        java.lang.String $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: float;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(float)>(value);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder append(double)
+    {
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+        double value;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: double;
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>(value);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(java.lang.Object)
+    {
+        java.lang.Object obj;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>(obj);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String)
+    {
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(str);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String, int, int)
+    {
+        int startIndex, length;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,int,int)>(str, startIndex, length);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack5;
+    }
+
+    public transient org.apache.commons.lang3.text.StrBuilder appendln(java.lang.String, java.lang.Object[])
+    {
+        java.lang.Object[] objs;
+        java.lang.String format;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        format := @parameter0: java.lang.String;
+
+        objs := @parameter1: java.lang.Object[];
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String,java.lang.Object[])>(format, objs);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(java.lang.StringBuffer)
+    {
+        java.lang.StringBuffer str;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.StringBuffer;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer)>(str);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(java.lang.StringBuffer, int, int)
+    {
+        java.lang.StringBuffer str;
+        int startIndex, length;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.StringBuffer;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.StringBuffer,int,int)>(str, startIndex, length);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(org.apache.commons.lang3.text.StrBuilder)
+    {
+        org.apache.commons.lang3.text.StrBuilder this, str, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder)>(str);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(org.apache.commons.lang3.text.StrBuilder, int, int)
+    {
+        int startIndex, length;
+        org.apache.commons.lang3.text.StrBuilder this, str, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(org.apache.commons.lang3.text.StrBuilder,int,int)>(str, startIndex, length);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(char[])
+    {
+        char[] chars;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        chars := @parameter0: char[];
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[])>(chars);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(char[], int, int)
+    {
+        int startIndex, length;
+        char[] chars;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        chars := @parameter0: char[];
+
+        startIndex := @parameter1: int;
+
+        length := @parameter2: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>(chars, startIndex, length);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(boolean)
+    {
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+        boolean value;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: boolean;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(boolean)>(value);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(char)
+    {
+        char ch;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(ch);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(int)
+    {
+        int value;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: int;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(int)>(value);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(long)
+    {
+        long value;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: long;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(long)>(value);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(float)
+    {
+        float value;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: float;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(float)>(value);
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendln(double)
+    {
+        org.apache.commons.lang3.text.StrBuilder this, $stack3, $stack4;
+        double value;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: double;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(double)>(value);
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendNewLine()>();
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Object[])
+    {
+        java.lang.Object[] array;
+        int $stack6, len$, i$;
+        java.lang.Object element;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        array := @parameter0: java.lang.Object[];
+
+        if array == null goto label2;
+
+        $stack6 = lengthof array;
+
+        if $stack6 <= 0 goto label2;
+
+        len$ = lengthof array;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        element = array[i$];
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>(element);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendAll(java.lang.Iterable)
+    {
+        java.util.Iterator $stack3;
+        java.lang.Object $stack6;
+        java.lang.Iterable iterable;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        iterable := @parameter0: java.lang.Iterable;
+
+        if iterable == null goto label2;
+
+        $stack3 = interfaceinvoke iterable.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $stack4 = interfaceinvoke $stack3.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack4 == 0 goto label2;
+
+        $stack6 = interfaceinvoke $stack3.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack6);
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendAll(java.util.Iterator)
+    {
+        java.util.Iterator it;
+        java.lang.Object $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        it := @parameter0: java.util.Iterator;
+
+        if it == null goto label2;
+
+     label1:
+        $stack2 = interfaceinvoke it.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack2 == 0 goto label2;
+
+        $stack4 = interfaceinvoke it.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack4);
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Object[], java.lang.String)
+    {
+        java.lang.Object[] array;
+        int $stack4, $stack9, i;
+        java.lang.Object $stack7, $stack11;
+        java.lang.String $stack6, separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        array := @parameter0: java.lang.Object[];
+
+        separator := @parameter1: java.lang.String;
+
+        if array == null goto label2;
+
+        $stack4 = lengthof array;
+
+        if $stack4 <= 0 goto label2;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object)>(separator);
+
+        $stack7 = array[0];
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack7);
+
+        i = 1;
+
+     label1:
+        $stack9 = lengthof array;
+
+        if i >= $stack9 goto label2;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack6);
+
+        $stack11 = array[i];
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack11);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.lang.Iterable, java.lang.String)
+    {
+        java.util.Iterator $stack5;
+        java.lang.Iterable iterable;
+        java.lang.Object $stack8;
+        java.lang.String $stack4, separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack10, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        iterable := @parameter0: java.lang.Iterable;
+
+        separator := @parameter1: java.lang.String;
+
+        if iterable == null goto label2;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object)>(separator);
+
+        $stack5 = interfaceinvoke iterable.<java.lang.Iterable: java.util.Iterator iterator()>();
+
+     label1:
+        $stack6 = interfaceinvoke $stack5.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack6 == 0 goto label2;
+
+        $stack8 = interfaceinvoke $stack5.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack8);
+
+        $stack10 = interfaceinvoke $stack5.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack10 == 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack4);
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendWithSeparators(java.util.Iterator, java.lang.String)
+    {
+        java.util.Iterator it;
+        java.lang.Object $stack6;
+        java.lang.String $stack3, separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack8, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        it := @parameter0: java.util.Iterator;
+
+        separator := @parameter1: java.lang.String;
+
+        if it == null goto label2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ObjectUtils: java.lang.String toString(java.lang.Object)>(separator);
+
+     label1:
+        $stack4 = interfaceinvoke it.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack4 == 0 goto label2;
+
+        $stack6 = interfaceinvoke it.<java.util.Iterator: java.lang.Object next()>();
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.Object)>($stack6);
+
+        $stack8 = interfaceinvoke it.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack8 == 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack3);
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String)
+    {
+        java.lang.String separator;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        separator := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String,java.lang.String)>(separator, null);
+
+        return $stack2;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String, java.lang.String)
+    {
+        java.lang.String standard, defaultIfEmpty, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        standard := @parameter0: java.lang.String;
+
+        defaultIfEmpty := @parameter1: java.lang.String;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: boolean isEmpty()>();
+
+        if $stack4 == 0 goto label1;
+
+        $stack7 = defaultIfEmpty;
+
+        goto label2;
+
+     label1:
+        $stack7 = standard;
+
+     label2:
+        if $stack7 == null goto label3;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>($stack7);
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(char)
+    {
+        int $stack2;
+        char separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        separator := @parameter0: char;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        if $stack2 <= 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(separator);
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(char, char)
+    {
+        int $stack3;
+        char defaultIfEmpty, standard;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        standard := @parameter0: char;
+
+        defaultIfEmpty := @parameter1: char;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        if $stack3 <= 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(standard);
+
+        goto label2;
+
+     label1:
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(defaultIfEmpty);
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(java.lang.String, int)
+    {
+        int loopIndex;
+        java.lang.String separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        separator := @parameter0: java.lang.String;
+
+        loopIndex := @parameter1: int;
+
+        if separator == null goto label1;
+
+        if loopIndex <= 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.String)>(separator);
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendSeparator(char, int)
+    {
+        int loopIndex;
+        char separator;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        separator := @parameter0: char;
+
+        loopIndex := @parameter1: int;
+
+        if loopIndex <= 0 goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(separator);
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendPadding(int, char)
+    {
+        char padChar;
+        int length, $stack4, $stack5, $stack8, $stack9, i;
+        char[] $stack10;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        length := @parameter0: int;
+
+        padChar := @parameter1: char;
+
+        if length < 0 goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = $stack4 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack5);
+
+        i = 0;
+
+     label1:
+        if i >= length goto label2;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack9;
+
+        $stack10[$stack8] = padChar;
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object, int, char)
+    {
+        int width, $stack8, $stack9, $stack12, padLen, $stack13, $stack14, $stack16, $stack17, $stack19, $stack20, $stack24, $stack26, i;
+        java.lang.String $stack11, str;
+        char padChar;
+        char[] $stack15, $stack21, $stack25;
+        java.lang.Object obj;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        obj := @parameter0: java.lang.Object;
+
+        width := @parameter1: int;
+
+        padChar := @parameter2: char;
+
+        if width <= 0 goto label8;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 + width;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack9);
+
+        if obj != null goto label1;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String getNullText()>();
+
+        goto label2;
+
+     label1:
+        $stack11 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+     label2:
+        str = $stack11;
+
+        if $stack11 != null goto label3;
+
+        str = "";
+
+     label3:
+        $stack12 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack12 < width goto label4;
+
+        $stack26 = $stack12 - width;
+
+        $stack25 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack24 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>($stack26, $stack12, $stack25, $stack24);
+
+        goto label7;
+
+     label4:
+        padLen = width - $stack12;
+
+        i = 0;
+
+     label5:
+        if i >= padLen goto label6;
+
+        $stack21 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack19 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack20 = $stack19 + i;
+
+        $stack21[$stack20] = padChar;
+
+        i = i + 1;
+
+        goto label5;
+
+     label6:
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack14 = $stack13 + padLen;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(0, $stack12, $stack15, $stack14);
+
+     label7:
+        $stack16 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack17 = $stack16 + width;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack17;
+
+     label8:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(int, int, char)
+    {
+        int value, width;
+        char padChar;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: int;
+
+        width := @parameter1: int;
+
+        padChar := @parameter2: char;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>(value);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadLeft(java.lang.Object,int,char)>($stack4, width, padChar);
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object, int, char)
+    {
+        int width, $stack8, $stack9, $stack12, padLen, $stack13, $stack15, $stack16, $stack18, $stack19, $stack20, $stack24, i;
+        java.lang.String $stack11, str;
+        char padChar;
+        char[] $stack14, $stack21, $stack25;
+        java.lang.Object obj;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        obj := @parameter0: java.lang.Object;
+
+        width := @parameter1: int;
+
+        padChar := @parameter2: char;
+
+        if width <= 0 goto label7;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 + width;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack9);
+
+        if obj != null goto label1;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String getNullText()>();
+
+        goto label2;
+
+     label1:
+        $stack11 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+     label2:
+        str = $stack11;
+
+        if $stack11 != null goto label3;
+
+        str = "";
+
+     label3:
+        $stack12 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack12 < width goto label4;
+
+        $stack25 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack24 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(0, width, $stack25, $stack24);
+
+        goto label6;
+
+     label4:
+        padLen = width - $stack12;
+
+        $stack14 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(0, $stack12, $stack14, $stack13);
+
+        i = 0;
+
+     label5:
+        if i >= padLen goto label6;
+
+        $stack21 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack18 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack19 = $stack18 + $stack12;
+
+        $stack20 = $stack19 + i;
+
+        $stack21[$stack20] = padChar;
+
+        i = i + 1;
+
+        goto label5;
+
+     label6:
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack16 = $stack15 + width;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack16;
+
+     label7:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(int, int, char)
+    {
+        int value, width;
+        char padChar;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        value := @parameter0: int;
+
+        width := @parameter1: int;
+
+        padChar := @parameter2: char;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>(value);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder appendFixedWidthPadRight(java.lang.Object,int,char)>($stack4, width, padChar);
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, java.lang.Object)
+    {
+        int index;
+        java.lang.Object obj;
+        java.lang.String $stack3, $stack5;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        obj := @parameter1: java.lang.Object;
+
+        if obj != null goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack5);
+
+        return $stack6;
+
+     label1:
+        $stack3 = virtualinvoke obj.<java.lang.Object: java.lang.String toString()>();
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, java.lang.String)
+    {
+        int index, $stack6, newSize, $stack8, $stack9, $stack10, $stack5;
+        char[] $stack11, $stack12, $stack13;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        str := @parameter1: java.lang.String;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: void validateIndex(int)>(index);
+
+        if str != null goto label1;
+
+        str = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+     label1:
+        if str != null goto label2;
+
+        $stack5 = 0;
+
+        goto label3;
+
+     label2:
+        $stack5 = virtualinvoke str.<java.lang.String: int length()>();
+
+     label3:
+        if $stack5 <= 0 goto label4;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        newSize = $stack6 + $stack5;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>(newSize);
+
+        $stack12 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack10 = index + $stack5;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack12, index, $stack11, $stack10, $stack9);
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = newSize;
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke str.<java.lang.String: void getChars(int,int,char[],int)>(0, $stack5, $stack13, index);
+
+     label4:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, char[])
+    {
+        int index, len, $stack4, $stack5, $stack7, $stack8, $stack9, $stack13, $stack14;
+        java.lang.String $stack16;
+        char[] chars, $stack10, $stack11, $stack12;
+        org.apache.commons.lang3.text.StrBuilder this, $stack17;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        chars := @parameter1: char[];
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: void validateIndex(int)>(index);
+
+        if chars != null goto label1;
+
+        $stack16 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        $stack17 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack16);
+
+        return $stack17;
+
+     label1:
+        len = lengthof chars;
+
+        if len <= 0 goto label2;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = $stack4 + len;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack5);
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = index + len;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack8 = $stack7 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack11, index, $stack10, $stack9, $stack8);
+
+        $stack12 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(chars, 0, $stack12, index, len);
+
+        $stack13 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack14 = $stack13 + len;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack14;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, char[], int, int)
+    {
+        int index, offset, $stack10, length, $stack16, $stack17, $stack18, $stack19, $stack21, $stack22, $stack23, $stack27, $stack28;
+        java.lang.String $stack9, $stack15, $stack34;
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack11;
+        char[] chars, $stack24, $stack25, $stack26;
+        java.lang.StringBuilder $stack6, $stack7, $stack8, $stack12, $stack13, $stack14;
+        org.apache.commons.lang3.text.StrBuilder this, $stack35;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        chars := @parameter1: char[];
+
+        offset := @parameter2: int;
+
+        length := @parameter3: int;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: void validateIndex(int)>(index);
+
+        if chars != null goto label1;
+
+        $stack34 = this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String nullText>;
+
+        $stack35 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack34);
+
+        return $stack35;
+
+     label1:
+        if offset < 0 goto label2;
+
+        $stack10 = lengthof chars;
+
+        if offset <= $stack10 goto label3;
+
+     label2:
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        $stack6 = new java.lang.StringBuilder;
+
+        specialinvoke $stack6.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid offset: ");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(offset);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack5;
+
+     label3:
+        if length < 0 goto label4;
+
+        $stack17 = offset + length;
+
+        $stack16 = lengthof chars;
+
+        if $stack17 <= $stack16 goto label5;
+
+     label4:
+        $stack11 = new java.lang.StringIndexOutOfBoundsException;
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>()>();
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Invalid length: ");
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(length);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack11.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>($stack15);
+
+        throw $stack11;
+
+     label5:
+        if length <= 0 goto label6;
+
+        $stack18 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack19 = $stack18 + length;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack19);
+
+        $stack25 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack24 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack23 = index + length;
+
+        $stack21 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack22 = $stack21 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack25, index, $stack24, $stack23, $stack22);
+
+        $stack26 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>(chars, offset, $stack26, index, length);
+
+        $stack27 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack28 = $stack27 + length;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack28;
+
+     label6:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, boolean)
+    {
+        boolean value;
+        org.apache.commons.lang3.text.StrBuilder this;
+        int $stack3, $stack4, $stack6, $stack7, $stack8, $stack20, $stack21, $stack22, $stack23, $stack25, $stack26, $stack27, $stack37, $stack38, index, index#2, index#3;
+        char[] $stack9, $stack10, $stack12, $stack14, $stack16, $stack18, $stack19, $stack28, $stack29, $stack31, $stack33, $stack35, $stack36;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: boolean;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: void validateIndex(int)>(index);
+
+        if value == 0 goto label1;
+
+        $stack22 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack23 = $stack22 + 4;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack23);
+
+        $stack29 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack28 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack27 = index + 4;
+
+        $stack25 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack26 = $stack25 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack29, index, $stack28, $stack27, $stack26);
+
+        $stack31 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#2 = index + 1;
+
+        $stack31[index] = 116;
+
+        $stack33 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#3 = index#2 + 1;
+
+        $stack33[index#2] = 114;
+
+        $stack35 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#2 = index#3 + 1;
+
+        $stack35[index#3] = 117;
+
+        $stack36 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack36[index#2] = 101;
+
+        $stack37 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack38 = $stack37 + 4;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack38;
+
+        goto label2;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack4 = $stack3 + 5;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack4);
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = index + 5;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack7 = $stack6 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack10, index, $stack9, $stack8, $stack7);
+
+        $stack12 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#3 = index + 1;
+
+        $stack12[index] = 102;
+
+        $stack14 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#2 = index#3 + 1;
+
+        $stack14[index#3] = 97;
+
+        $stack16 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#3 = index#2 + 1;
+
+        $stack16[index#2] = 108;
+
+        $stack18 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        index#2 = index#3 + 1;
+
+        $stack18[index#3] = 115;
+
+        $stack19 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack19[index#2] = 101;
+
+        $stack20 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack21 = $stack20 + 5;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack21;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, char)
+    {
+        char value;
+        int index, $stack3, $stack4, $stack6, $stack7, $stack8, $stack12, $stack13;
+        char[] $stack9, $stack10, $stack11;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: char;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: void validateIndex(int)>(index);
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack4 = $stack3 + 1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>($stack4);
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = index + 1;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack7 = $stack6 - index;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack10, index, $stack9, $stack8, $stack7);
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack11[index] = value;
+
+        $stack12 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack13 = $stack12 + 1;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack13;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, int)
+    {
+        int index, value;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: int;
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>(value);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, long)
+    {
+        int index;
+        long value;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: long;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String valueOf(long)>(value);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack4);
+
+        return $stack5;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, float)
+    {
+        int index;
+        float value;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: float;
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String valueOf(float)>(value);
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack3);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder insert(int, double)
+    {
+        int index;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this, $stack5;
+        double value;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        value := @parameter1: double;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String valueOf(double)>(value);
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder insert(int,java.lang.String)>(index, $stack4);
+
+        return $stack5;
+    }
+
+    private void deleteImpl(int, int, int)
+    {
+        int endIndex, startIndex, $stack4, $stack5, len, $stack8, $stack9;
+        char[] $stack6, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        len := @parameter2: int;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = $stack4 - endIndex;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack7, endIndex, $stack6, startIndex, $stack5);
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 - len;
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = $stack9;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder delete(int, int)
+    {
+        int startIndex, $stack4, len, endIndex;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int validateRange(int,int)>(startIndex, endIndex);
+
+        len = $stack4 - startIndex;
+
+        if len <= 0 goto label1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>(startIndex, $stack4, len);
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteAll(char)
+    {
+        char ch, $stack7, $stack12;
+        int $stack5, start, $stack10, $stack17, i, $i0, $i1, $i2, $i3;
+        char[] $stack6, $stack11;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        i = 0;
+
+     label1:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack5 goto label5;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = $stack6[i];
+
+        $i0 = (int) $stack7;
+
+        $i1 = (int) ch;
+
+        if $i0 != $i1 goto label4;
+
+        start = i;
+
+     label2:
+        i = i + 1;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack10 goto label3;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack12 = $stack11[i];
+
+        $i2 = (int) $stack12;
+
+        $i3 = (int) ch;
+
+        if $i2 == $i3 goto label2;
+
+        goto label3;
+
+     label3:
+        $stack17 = i - start;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>(start, i, $stack17);
+
+        i = i - $stack17;
+
+     label4:
+        i = i + 1;
+
+        goto label1;
+
+     label5:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteFirst(char)
+    {
+        char ch, $stack5;
+        int $stack3, $stack8, i, $i0, $i1;
+        char[] $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        i = 0;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack3 goto label3;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = $stack4[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) ch;
+
+        if $i0 != $i1 goto label2;
+
+        $stack8 = i + 1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>(i, $stack8, 1);
+
+        goto label3;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteAll(java.lang.String)
+    {
+        int len, $stack7, $stack4, index;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        $stack4 = 0;
+
+        goto label2;
+
+     label1:
+        $stack4 = virtualinvoke str.<java.lang.String: int length()>();
+
+     label2:
+        len = $stack4;
+
+        if $stack4 <= 0 goto label4;
+
+        index = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(str, 0);
+
+     label3:
+        if index < 0 goto label4;
+
+        $stack7 = index + len;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>(index, $stack7, len);
+
+        index = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(str, index);
+
+        goto label3;
+
+     label4:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteFirst(java.lang.String)
+    {
+        int $stack5, $stack7, $stack4;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        $stack4 = 0;
+
+        goto label2;
+
+     label1:
+        $stack4 = virtualinvoke str.<java.lang.String: int length()>();
+
+     label2:
+        if $stack4 <= 0 goto label3;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(str, 0);
+
+        if $stack5 < 0 goto label3;
+
+        $stack7 = $stack5 + $stack4;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void deleteImpl(int,int,int)>($stack5, $stack7, $stack4);
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteAll(org.apache.commons.lang3.text.StrMatcher)
+    {
+        int $stack2, $i0;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $i0 = (int) -1;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replace(org.apache.commons.lang3.text.StrMatcher,java.lang.String,int,int,int)>(matcher, null, 0, $stack2, $i0);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder deleteFirst(org.apache.commons.lang3.text.StrMatcher)
+    {
+        int $stack2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replace(org.apache.commons.lang3.text.StrMatcher,java.lang.String,int,int,int)>(matcher, null, 0, $stack2, 1);
+
+        return $stack3;
+    }
+
+    private void replaceImpl(int, int, int, java.lang.String, int)
+    {
+        int removeLen, $stack7, insertLen, $stack8, newSize, startIndex, endIndex, $stack11, $stack12, $stack13;
+        char[] $stack9, $stack14, $stack15;
+        java.lang.String insertStr;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        removeLen := @parameter2: int;
+
+        insertStr := @parameter3: java.lang.String;
+
+        insertLen := @parameter4: int;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack8 = $stack7 - removeLen;
+
+        newSize = $stack8 + insertLen;
+
+        if insertLen == removeLen goto label1;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder ensureCapacity(int)>(newSize);
+
+        $stack15 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack14 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack13 = startIndex + insertLen;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack12 = $stack11 - endIndex;
+
+        staticinvoke <java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>($stack15, endIndex, $stack14, $stack13, $stack12);
+
+        this.<org.apache.commons.lang3.text.StrBuilder: int size> = newSize;
+
+     label1:
+        if insertLen <= 0 goto label2;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        virtualinvoke insertStr.<java.lang.String: void getChars(int,int,char[],int)>(0, insertLen, $stack9, startIndex);
+
+     label2:
+        return;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replace(int, int, java.lang.String)
+    {
+        int startIndex, $stack5, $stack7, endIndex, $stack6;
+        java.lang.String replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        replaceStr := @parameter2: java.lang.String;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int validateRange(int,int)>(startIndex, endIndex);
+
+        if replaceStr != null goto label1;
+
+        $stack6 = 0;
+
+        goto label2;
+
+     label1:
+        $stack6 = virtualinvoke replaceStr.<java.lang.String: int length()>();
+
+     label2:
+        $stack7 = $stack5 - startIndex;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void replaceImpl(int,int,int,java.lang.String,int)>(startIndex, $stack5, $stack7, replaceStr, $stack6);
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceAll(char, char)
+    {
+        char search, replace, $stack7;
+        int $stack4, i, $i0, $i1, $i2, $i3;
+        char[] $stack6, $stack10;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        search := @parameter0: char;
+
+        replace := @parameter1: char;
+
+        $i0 = (int) search;
+
+        $i1 = (int) replace;
+
+        if $i0 == $i1 goto label3;
+
+        i = 0;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack4 goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = $stack6[i];
+
+        $i2 = (int) $stack7;
+
+        $i3 = (int) search;
+
+        if $i2 != $i3 goto label2;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack10[i] = replace;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceFirst(char, char)
+    {
+        char search, replace, $stack7;
+        int $stack4, i, $i0, $i1, $i2, $i3;
+        char[] $stack6, $stack10;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        search := @parameter0: char;
+
+        replace := @parameter1: char;
+
+        $i0 = (int) search;
+
+        $i1 = (int) replace;
+
+        if $i0 == $i1 goto label3;
+
+        i = 0;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack4 goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = $stack6[i];
+
+        $i2 = (int) $stack7;
+
+        $i3 = (int) search;
+
+        if $i2 != $i3 goto label2;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack10[i] = replace;
+
+        goto label3;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceAll(java.lang.String, java.lang.String)
+    {
+        int searchLen, replaceLen, $stack10, $stack11, $stack6, $stack7, index;
+        java.lang.String searchStr, replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        searchStr := @parameter0: java.lang.String;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        if searchStr != null goto label1;
+
+        $stack6 = 0;
+
+        goto label2;
+
+     label1:
+        $stack6 = virtualinvoke searchStr.<java.lang.String: int length()>();
+
+     label2:
+        searchLen = $stack6;
+
+        if $stack6 <= 0 goto label6;
+
+        if replaceStr != null goto label3;
+
+        $stack7 = 0;
+
+        goto label4;
+
+     label3:
+        $stack7 = virtualinvoke replaceStr.<java.lang.String: int length()>();
+
+     label4:
+        replaceLen = $stack7;
+
+        index = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(searchStr, 0);
+
+     label5:
+        if index < 0 goto label6;
+
+        $stack10 = index + searchLen;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void replaceImpl(int,int,int,java.lang.String,int)>(index, $stack10, searchLen, replaceStr, replaceLen);
+
+        $stack11 = index + replaceLen;
+
+        index = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(searchStr, $stack11);
+
+        goto label5;
+
+     label6:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceFirst(java.lang.String, java.lang.String)
+    {
+        int searchLen, $stack7, $stack10, $stack6, $stack9;
+        java.lang.String searchStr, replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        searchStr := @parameter0: java.lang.String;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        if searchStr != null goto label1;
+
+        $stack6 = 0;
+
+        goto label2;
+
+     label1:
+        $stack6 = virtualinvoke searchStr.<java.lang.String: int length()>();
+
+     label2:
+        searchLen = $stack6;
+
+        if $stack6 <= 0 goto label5;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(searchStr, 0);
+
+        if $stack7 < 0 goto label5;
+
+        if replaceStr != null goto label3;
+
+        $stack9 = 0;
+
+        goto label4;
+
+     label3:
+        $stack9 = virtualinvoke replaceStr.<java.lang.String: int length()>();
+
+     label4:
+        $stack10 = $stack7 + searchLen;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void replaceImpl(int,int,int,java.lang.String,int)>($stack7, $stack10, searchLen, replaceStr, $stack9);
+
+     label5:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceAll(org.apache.commons.lang3.text.StrMatcher, java.lang.String)
+    {
+        int $stack3, $i0;
+        java.lang.String replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $i0 = (int) -1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replace(org.apache.commons.lang3.text.StrMatcher,java.lang.String,int,int,int)>(matcher, replaceStr, 0, $stack3, $i0);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replaceFirst(org.apache.commons.lang3.text.StrMatcher, java.lang.String)
+    {
+        int $stack3;
+        java.lang.String replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replace(org.apache.commons.lang3.text.StrMatcher,java.lang.String,int,int,int)>(matcher, replaceStr, 0, $stack3, 1);
+
+        return $stack4;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder replace(org.apache.commons.lang3.text.StrMatcher, java.lang.String, int, int, int)
+    {
+        org.apache.commons.lang3.text.StrMatcher matcher;
+        int startIndex, $stack6, replaceCount, endIndex;
+        java.lang.String replaceStr;
+        org.apache.commons.lang3.text.StrBuilder this, $stack7;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        startIndex := @parameter2: int;
+
+        endIndex := @parameter3: int;
+
+        replaceCount := @parameter4: int;
+
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int validateRange(int,int)>(startIndex, endIndex);
+
+        $stack7 = specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder replaceImpl(org.apache.commons.lang3.text.StrMatcher,java.lang.String,int,int,int)>(matcher, replaceStr, startIndex, $stack6, replaceCount);
+
+        return $stack7;
+    }
+
+    private org.apache.commons.lang3.text.StrBuilder replaceImpl(org.apache.commons.lang3.text.StrMatcher, java.lang.String, int, int, int)
+    {
+        org.apache.commons.lang3.text.StrMatcher matcher;
+        int $stack10, replaceLen, 'from', $stack13, $stack16, $stack17, $stack18, 'to', replaceCount, $stack11, i, $i0;
+        java.lang.String replaceStr;
+        char[] $stack20;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        replaceStr := @parameter1: java.lang.String;
+
+        'from' := @parameter2: int;
+
+        'to' := @parameter3: int;
+
+        replaceCount := @parameter4: int;
+
+        if matcher == null goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack10 != 0 goto label2;
+
+     label1:
+        return this;
+
+     label2:
+        if replaceStr != null goto label3;
+
+        $stack11 = 0;
+
+        goto label4;
+
+     label3:
+        $stack11 = virtualinvoke replaceStr.<java.lang.String: int length()>();
+
+     label4:
+        replaceLen = $stack11;
+
+        $stack20 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        i = 'from';
+
+     label5:
+        if i >= 'to' goto label7;
+
+        if replaceCount == 0 goto label7;
+
+        $stack13 = virtualinvoke matcher.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>($stack20, i, 'from', 'to');
+
+        if $stack13 <= 0 goto label6;
+
+        $stack16 = i + $stack13;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrBuilder: void replaceImpl(int,int,int,java.lang.String,int)>(i, $stack16, $stack13, replaceStr, replaceLen);
+
+        $stack17 = 'to' - $stack13;
+
+        'to' = $stack17 + replaceLen;
+
+        $stack18 = i + replaceLen;
+
+        i = $stack18 - 1;
+
+        if replaceCount <= 0 goto label6;
+
+        $i0 = (int) -1;
+
+        replaceCount = replaceCount + $i0;
+
+     label6:
+        i = i + 1;
+
+        goto label5;
+
+     label7:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder reverse()
+    {
+        char swap, $stack9;
+        int $stack6, $stack7, half, $stack8, leftIdx, rightIdx, $i0;
+        char[] buf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack6 != 0 goto label1;
+
+        return this;
+
+     label1:
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        half = $stack7 / 2;
+
+        buf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        leftIdx = 0;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        rightIdx = $stack8 - 1;
+
+     label2:
+        if leftIdx >= half goto label3;
+
+        swap = buf[leftIdx];
+
+        $stack9 = buf[rightIdx];
+
+        buf[leftIdx] = $stack9;
+
+        buf[rightIdx] = swap;
+
+        leftIdx = leftIdx + 1;
+
+        $i0 = (int) -1;
+
+        rightIdx = rightIdx + $i0;
+
+        goto label2;
+
+     label3:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrBuilder trim()
+    {
+        char $stack12, $stack17;
+        int $stack4, $stack5, $stack8, $stack11, len, pos, $i0, $i1, $i2;
+        char[] buf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack4 != 0 goto label1;
+
+        return this;
+
+     label1:
+        len = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        buf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        pos = 0;
+
+     label2:
+        if pos >= len goto label3;
+
+        $stack17 = buf[pos];
+
+        $i0 = (int) $stack17;
+
+        if $i0 > 32 goto label3;
+
+        pos = pos + 1;
+
+        goto label2;
+
+     label3:
+        if pos >= len goto label4;
+
+        $stack11 = len - 1;
+
+        $stack12 = buf[$stack11];
+
+        $i1 = (int) $stack12;
+
+        if $i1 > 32 goto label4;
+
+        $i2 = (int) -1;
+
+        len = len + $i2;
+
+        goto label3;
+
+     label4:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if len >= $stack5 goto label5;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder delete(int,int)>(len, $stack8);
+
+     label5:
+        if pos <= 0 goto label6;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder delete(int,int)>(0, pos);
+
+     label6:
+        return this;
+    }
+
+    public boolean startsWith(java.lang.String)
+    {
+        char $stack7, $stack8;
+        int $stack4, $stack5, i, $i0, $i1;
+        char[] $stack6;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack4 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack4 != 0 goto label2;
+
+        return 1;
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack4 <= $stack5 goto label3;
+
+        return 0;
+
+     label3:
+        i = 0;
+
+     label4:
+        if i >= $stack4 goto label6;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = $stack6[i];
+
+        $stack8 = virtualinvoke str.<java.lang.String: char charAt(int)>(i);
+
+        $i0 = (int) $stack7;
+
+        $i1 = (int) $stack8;
+
+        if $i0 == $i1 goto label5;
+
+        return 0;
+
+     label5:
+        i = i + 1;
+
+        goto label4;
+
+     label6:
+        return 1;
+    }
+
+    public boolean endsWith(java.lang.String)
+    {
+        char $stack9, $stack10;
+        int $stack5, $stack6, $stack7, pos, i, $i0, $i1;
+        char[] $stack8;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        if str != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack5 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack5 != 0 goto label2;
+
+        return 1;
+
+     label2:
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack5 <= $stack6 goto label3;
+
+        return 0;
+
+     label3:
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        pos = $stack7 - $stack5;
+
+        i = 0;
+
+     label4:
+        if i >= $stack5 goto label6;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = $stack8[pos];
+
+        $stack10 = virtualinvoke str.<java.lang.String: char charAt(int)>(i);
+
+        $i0 = (int) $stack9;
+
+        $i1 = (int) $stack10;
+
+        if $i0 == $i1 goto label5;
+
+        return 0;
+
+     label5:
+        i = i + 1;
+
+        pos = pos + 1;
+
+        goto label4;
+
+     label6:
+        return 1;
+    }
+
+    public java.lang.CharSequence subSequence(int, int)
+    {
+        java.lang.StringIndexOutOfBoundsException $stack5, $stack7, $stack8;
+        int startIndex, endIndex, $stack3, $stack6;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        if startIndex >= 0 goto label1;
+
+        $stack8 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack8.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(startIndex);
+
+        throw $stack8;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if endIndex <= $stack3 goto label2;
+
+        $stack7 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack7.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(endIndex);
+
+        throw $stack7;
+
+     label2:
+        if startIndex <= endIndex goto label3;
+
+        $stack5 = new java.lang.StringIndexOutOfBoundsException;
+
+        $stack6 = endIndex - startIndex;
+
+        specialinvoke $stack5.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>($stack6);
+
+        throw $stack5;
+
+     label3:
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String substring(int,int)>(startIndex, endIndex);
+
+        return $stack4;
+    }
+
+    public java.lang.String substring(int)
+    {
+        int start, $stack2;
+        java.lang.String $stack3;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        start := @parameter0: int;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: java.lang.String substring(int,int)>(start, $stack2);
+
+        return $stack3;
+    }
+
+    public java.lang.String substring(int, int)
+    {
+        int startIndex, $stack3, $stack5, endIndex;
+        char[] $stack6;
+        java.lang.String $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int validateRange(int,int)>(startIndex, endIndex);
+
+        $stack4 = new java.lang.String;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack5 = $stack3 - startIndex;
+
+        specialinvoke $stack4.<java.lang.String: void <init>(char[],int,int)>($stack6, startIndex, $stack5);
+
+        return $stack4;
+    }
+
+    public java.lang.String leftString(int)
+    {
+        int length, $stack2, $stack6;
+        char[] $stack4, $stack7;
+        java.lang.String $stack3, $stack5;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        length := @parameter0: int;
+
+        if length > 0 goto label1;
+
+        return "";
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if length < $stack2 goto label2;
+
+        $stack5 = new java.lang.String;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        specialinvoke $stack5.<java.lang.String: void <init>(char[],int,int)>($stack7, 0, $stack6);
+
+        return $stack5;
+
+     label2:
+        $stack3 = new java.lang.String;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        specialinvoke $stack3.<java.lang.String: void <init>(char[],int,int)>($stack4, 0, length);
+
+        return $stack3;
+    }
+
+    public java.lang.String rightString(int)
+    {
+        int length, $stack2, $stack4, $stack5, $stack8;
+        char[] $stack6, $stack9;
+        java.lang.String $stack3, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        length := @parameter0: int;
+
+        if length > 0 goto label1;
+
+        return "";
+
+     label1:
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if length < $stack2 goto label2;
+
+        $stack7 = new java.lang.String;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        specialinvoke $stack7.<java.lang.String: void <init>(char[],int,int)>($stack9, 0, $stack8);
+
+        return $stack7;
+
+     label2:
+        $stack3 = new java.lang.String;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = $stack4 - length;
+
+        specialinvoke $stack3.<java.lang.String: void <init>(char[],int,int)>($stack6, $stack5, length);
+
+        return $stack3;
+    }
+
+    public java.lang.String midString(int, int)
+    {
+        int length, $stack3, $stack4, $stack5, $stack9, $stack10, index;
+        char[] $stack7, $stack11;
+        java.lang.String $stack6, $stack8;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        length := @parameter1: int;
+
+        if index >= 0 goto label1;
+
+        index = 0;
+
+     label1:
+        if length <= 0 goto label2;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if index < $stack3 goto label3;
+
+     label2:
+        return "";
+
+     label3:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack4 = index + length;
+
+        if $stack5 > $stack4 goto label4;
+
+        $stack8 = new java.lang.String;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack10 = $stack9 - index;
+
+        specialinvoke $stack8.<java.lang.String: void <init>(char[],int,int)>($stack11, index, $stack10);
+
+        return $stack8;
+
+     label4:
+        $stack6 = new java.lang.String;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        specialinvoke $stack6.<java.lang.String: void <init>(char[],int,int)>($stack7, index, length);
+
+        return $stack6;
+    }
+
+    public boolean contains(char)
+    {
+        char ch, $stack5;
+        int $stack4, i, $i0, $i1;
+        char[] thisBuf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        thisBuf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        i = 0;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack4 goto label3;
+
+        $stack5 = thisBuf[i];
+
+        $i0 = (int) $stack5;
+
+        $i1 = (int) ch;
+
+        if $i0 != $i1 goto label2;
+
+        return 1;
+
+     label2:
+        i = i + 1;
+
+        goto label1;
+
+     label3:
+        return 0;
+    }
+
+    public boolean contains(java.lang.String)
+    {
+        int $stack2;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(str, 0);
+
+        if $stack2 < 0 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public boolean contains(org.apache.commons.lang3.text.StrMatcher)
+    {
+        int $stack2;
+        org.apache.commons.lang3.text.StrBuilder this;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(org.apache.commons.lang3.text.StrMatcher,int)>(matcher, 0);
+
+        if $stack2 < 0 goto label1;
+
+        $stack3 = 1;
+
+        goto label2;
+
+     label1:
+        $stack3 = 0;
+
+     label2:
+        return $stack3;
+    }
+
+    public int indexOf(char)
+    {
+        int $stack2;
+        char ch;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(char,int)>(ch, 0);
+
+        return $stack2;
+    }
+
+    public int indexOf(char, int)
+    {
+        char ch, $stack7;
+        int $stack5, $stack6, startIndex, $stack10, i, $i0, $i1, $i2, $i3;
+        char[] thisBuf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        startIndex := @parameter1: int;
+
+        if startIndex >= 0 goto label1;
+
+        $stack10 = 0;
+
+        goto label2;
+
+     label1:
+        $stack10 = startIndex;
+
+     label2:
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack10 < $stack5 goto label3;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label3:
+        thisBuf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        i = $stack10;
+
+     label4:
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if i >= $stack6 goto label6;
+
+        $stack7 = thisBuf[i];
+
+        $i1 = (int) $stack7;
+
+        $i2 = (int) ch;
+
+        if $i1 != $i2 goto label5;
+
+        return i;
+
+     label5:
+        i = i + 1;
+
+        goto label4;
+
+     label6:
+        $i3 = (int) -1;
+
+        return $i3;
+    }
+
+    public int indexOf(java.lang.String)
+    {
+        int $stack2;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(java.lang.String,int)>(str, 0);
+
+        return $stack2;
+    }
+
+    public int indexOf(java.lang.String, int)
+    {
+        int $stack8, $stack9, $stack10, $stack11, $stack12, len, $stack14, $stack21, startIndex, $stack23, i, j, $i0, $i1, $i2, $i3, $i4;
+        java.lang.String str;
+        char $stack13, $stack15, $stack20;
+        char[] thisBuf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        startIndex := @parameter1: int;
+
+        if startIndex >= 0 goto label01;
+
+        $stack23 = 0;
+
+        goto label02;
+
+     label01:
+        $stack23 = startIndex;
+
+     label02:
+        if str == null goto label03;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack23 < $stack8 goto label04;
+
+     label03:
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label04:
+        $stack9 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack9 != 1 goto label05;
+
+        $stack20 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack21 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(char,int)>($stack20, $stack23);
+
+        return $stack21;
+
+     label05:
+        if $stack9 != 0 goto label06;
+
+        return $stack23;
+
+     label06:
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack9 <= $stack10 goto label07;
+
+        $i1 = (int) -1;
+
+        return $i1;
+
+     label07:
+        thisBuf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack11 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack12 = $stack11 - $stack9;
+
+        len = $stack12 + 1;
+
+        i = $stack23;
+
+     label08:
+        if i >= len goto label13;
+
+        j = 0;
+
+     label09:
+        if j >= $stack9 goto label11;
+
+        $stack13 = virtualinvoke str.<java.lang.String: char charAt(int)>(j);
+
+        $stack14 = i + j;
+
+        $stack15 = thisBuf[$stack14];
+
+        $i2 = (int) $stack13;
+
+        $i3 = (int) $stack15;
+
+        if $i2 == $i3 goto label10;
+
+        goto label12;
+
+     label10:
+        j = j + 1;
+
+        goto label09;
+
+     label11:
+        return i;
+
+     label12:
+        i = i + 1;
+
+        goto label08;
+
+     label13:
+        $i4 = (int) -1;
+
+        return $i4;
+    }
+
+    public int indexOf(org.apache.commons.lang3.text.StrMatcher)
+    {
+        int $stack2;
+        org.apache.commons.lang3.text.StrBuilder this;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int indexOf(org.apache.commons.lang3.text.StrMatcher,int)>(matcher, 0);
+
+        return $stack2;
+    }
+
+    public int indexOf(org.apache.commons.lang3.text.StrMatcher, int)
+    {
+        org.apache.commons.lang3.text.StrMatcher matcher;
+        int $stack6, len, $stack7, startIndex, $stack11, startIndex#3, i, $i0, $i1;
+        char[] buf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        startIndex := @parameter1: int;
+
+        if startIndex >= 0 goto label1;
+
+        $stack11 = 0;
+
+        goto label2;
+
+     label1:
+        $stack11 = startIndex;
+
+     label2:
+        startIndex#3 = $stack11;
+
+        if matcher == null goto label3;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack11 < $stack6 goto label4;
+
+     label3:
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label4:
+        len = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        buf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        i = $stack11;
+
+     label5:
+        if i >= len goto label7;
+
+        $stack7 = virtualinvoke matcher.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(buf, i, startIndex#3, len);
+
+        if $stack7 <= 0 goto label6;
+
+        return i;
+
+     label6:
+        i = i + 1;
+
+        goto label5;
+
+     label7:
+        $i1 = (int) -1;
+
+        return $i1;
+    }
+
+    public int lastIndexOf(char)
+    {
+        int $stack2, $stack3, $stack4;
+        char ch;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = $stack2 - 1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int lastIndexOf(char,int)>(ch, $stack3);
+
+        return $stack4;
+    }
+
+    public int lastIndexOf(char, int)
+    {
+        char ch, $stack6;
+        int $stack4, $stack8, startIndex, $stack9, i, $i0, $i1, $i2, $i3, $i4;
+        char[] $stack5;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        ch := @parameter0: char;
+
+        startIndex := @parameter1: int;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if startIndex < $stack4 goto label1;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack9 = $stack8 - 1;
+
+        goto label2;
+
+     label1:
+        $stack9 = startIndex;
+
+     label2:
+        if $stack9 >= 0 goto label3;
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label3:
+        i = $stack9;
+
+     label4:
+        if i < 0 goto label6;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack6 = $stack5[i];
+
+        $i1 = (int) $stack6;
+
+        $i2 = (int) ch;
+
+        if $i1 != $i2 goto label5;
+
+        return i;
+
+     label5:
+        $i3 = (int) -1;
+
+        i = i + $i3;
+
+        goto label4;
+
+     label6:
+        $i4 = (int) -1;
+
+        return $i4;
+    }
+
+    public int lastIndexOf(java.lang.String)
+    {
+        int $stack2, $stack3, $stack4;
+        java.lang.String str;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = $stack2 - 1;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int lastIndexOf(java.lang.String,int)>(str, $stack3);
+
+        return $stack4;
+    }
+
+    public int lastIndexOf(java.lang.String, int)
+    {
+        int $stack6, $stack7, $stack8, $stack10, $stack13, $stack20, $stack22, startIndex, $stack23, startIndex#3, i, j, $i0, $i1, $i2, $i3, $i4;
+        java.lang.String str;
+        char $stack12, $stack15, $stack19;
+        char[] $stack14;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        str := @parameter0: java.lang.String;
+
+        startIndex := @parameter1: int;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if startIndex < $stack6 goto label01;
+
+        $stack22 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack23 = $stack22 - 1;
+
+        goto label02;
+
+     label01:
+        $stack23 = startIndex;
+
+     label02:
+        startIndex#3 = $stack23;
+
+        if str == null goto label03;
+
+        if $stack23 >= 0 goto label04;
+
+     label03:
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label04:
+        $stack7 = virtualinvoke str.<java.lang.String: int length()>();
+
+        if $stack7 <= 0 goto label12;
+
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack7 > $stack8 goto label12;
+
+        if $stack7 != 1 goto label05;
+
+        $stack19 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int lastIndexOf(char,int)>($stack19, $stack23);
+
+        return $stack20;
+
+     label05:
+        $stack10 = $stack23 - $stack7;
+
+        i = $stack10 + 1;
+
+     label06:
+        if i < 0 goto label11;
+
+        j = 0;
+
+     label07:
+        if j >= $stack7 goto label09;
+
+        $stack12 = virtualinvoke str.<java.lang.String: char charAt(int)>(j);
+
+        $stack14 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack13 = i + j;
+
+        $stack15 = $stack14[$stack13];
+
+        $i1 = (int) $stack12;
+
+        $i2 = (int) $stack15;
+
+        if $i1 == $i2 goto label08;
+
+        goto label10;
+
+     label08:
+        j = j + 1;
+
+        goto label07;
+
+     label09:
+        return i;
+
+     label10:
+        $i3 = (int) -1;
+
+        i = i + $i3;
+
+        goto label06;
+
+     label11:
+        goto label13;
+
+     label12:
+        if $stack7 != 0 goto label13;
+
+        return startIndex#3;
+
+     label13:
+        $i4 = (int) -1;
+
+        return $i4;
+    }
+
+    public int lastIndexOf(org.apache.commons.lang3.text.StrMatcher)
+    {
+        int $stack2, $stack3;
+        org.apache.commons.lang3.text.StrBuilder this;
+        org.apache.commons.lang3.text.StrMatcher matcher;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: int lastIndexOf(org.apache.commons.lang3.text.StrMatcher,int)>(matcher, $stack2);
+
+        return $stack3;
+    }
+
+    public int lastIndexOf(org.apache.commons.lang3.text.StrMatcher, int)
+    {
+        org.apache.commons.lang3.text.StrMatcher matcher;
+        int $stack6, endIndex, $stack7, $stack10, startIndex, $stack11, i, $i0, $i1, $i2;
+        char[] buf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        matcher := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        startIndex := @parameter1: int;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if startIndex < $stack6 goto label1;
+
+        $stack10 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack11 = $stack10 - 1;
+
+        goto label2;
+
+     label1:
+        $stack11 = startIndex;
+
+     label2:
+        if matcher == null goto label3;
+
+        if $stack11 >= 0 goto label4;
+
+     label3:
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label4:
+        buf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        endIndex = $stack11 + 1;
+
+        i = $stack11;
+
+     label5:
+        if i < 0 goto label7;
+
+        $stack7 = virtualinvoke matcher.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(buf, i, 0, endIndex);
+
+        if $stack7 <= 0 goto label6;
+
+        return i;
+
+     label6:
+        $i1 = (int) -1;
+
+        i = i + $i1;
+
+        goto label5;
+
+     label7:
+        $i2 = (int) -1;
+
+        return $i2;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer asTokenizer()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = new org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer: void <init>(org.apache.commons.lang3.text.StrBuilder)>(this);
+
+        return $stack1;
+    }
+
+    public java.io.Reader asReader()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderReader $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = new org.apache.commons.lang3.text.StrBuilder$StrBuilderReader;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrBuilder$StrBuilderReader: void <init>(org.apache.commons.lang3.text.StrBuilder)>(this);
+
+        return $stack1;
+    }
+
+    public java.io.Writer asWriter()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderWriter $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = new org.apache.commons.lang3.text.StrBuilder$StrBuilderWriter;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.text.StrBuilder$StrBuilderWriter: void <init>(org.apache.commons.lang3.text.StrBuilder)>(this);
+
+        return $stack1;
+    }
+
+    public boolean equalsIgnoreCase(org.apache.commons.lang3.text.StrBuilder)
+    {
+        int $stack7, $stack8, $stack9, i, $i0, $i1, $i2, $i3, $i4;
+        char c1, c2, $stack11, $stack12;
+        char[] thisBuf, otherBuf;
+        org.apache.commons.lang3.text.StrBuilder this, other;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        other := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        if this != other goto label1;
+
+        return 1;
+
+     label1:
+        $stack8 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack7 = other.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack8 == $stack7 goto label2;
+
+        return 0;
+
+     label2:
+        thisBuf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        otherBuf = other.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack9 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        i = $stack9 - 1;
+
+     label3:
+        if i < 0 goto label5;
+
+        c1 = thisBuf[i];
+
+        c2 = otherBuf[i];
+
+        $i0 = (int) c1;
+
+        $i1 = (int) c2;
+
+        if $i0 == $i1 goto label4;
+
+        $stack11 = staticinvoke <java.lang.Character: char toUpperCase(char)>(c1);
+
+        $stack12 = staticinvoke <java.lang.Character: char toUpperCase(char)>(c2);
+
+        $i2 = (int) $stack11;
+
+        $i3 = (int) $stack12;
+
+        if $i2 == $i3 goto label4;
+
+        return 0;
+
+     label4:
+        $i4 = (int) -1;
+
+        i = i + $i4;
+
+        goto label3;
+
+     label5:
+        return 1;
+    }
+
+    public boolean equals(org.apache.commons.lang3.text.StrBuilder)
+    {
+        char $stack8, $stack9;
+        int $stack5, $stack6, $stack7, i, $i0, $i1, $i2;
+        char[] thisBuf, otherBuf;
+        org.apache.commons.lang3.text.StrBuilder this, other;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        other := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        if this != other goto label1;
+
+        return 1;
+
+     label1:
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = other.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if $stack6 == $stack5 goto label2;
+
+        return 0;
+
+     label2:
+        thisBuf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        otherBuf = other.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        i = $stack7 - 1;
+
+     label3:
+        if i < 0 goto label5;
+
+        $stack9 = thisBuf[i];
+
+        $stack8 = otherBuf[i];
+
+        $i0 = (int) $stack9;
+
+        $i1 = (int) $stack8;
+
+        if $i0 == $i1 goto label4;
+
+        return 0;
+
+     label4:
+        $i2 = (int) -1;
+
+        i = i + $i2;
+
+        goto label3;
+
+     label5:
+        return 1;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object obj;
+        org.apache.commons.lang3.text.StrBuilder this, $stack3;
+        boolean $stack2, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = obj instanceof org.apache.commons.lang3.text.StrBuilder;
+
+        if $stack2 == 0 goto label1;
+
+        $stack3 = (org.apache.commons.lang3.text.StrBuilder) obj;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: boolean equals(org.apache.commons.lang3.text.StrBuilder)>($stack3);
+
+        return $stack4;
+
+     label1:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        char $stack5;
+        int $stack4, $stack6, hash, i, $i0, $i1;
+        char[] buf;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        buf = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        hash = 0;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        i = $stack4 - 1;
+
+     label1:
+        if i < 0 goto label2;
+
+        $stack6 = 31 * hash;
+
+        $stack5 = buf[i];
+
+        $i0 = (int) $stack5;
+
+        hash = $stack6 + $i0;
+
+        $i1 = (int) -1;
+
+        i = i + $i1;
+
+        goto label1;
+
+     label2:
+        return hash;
+    }
+
+    public java.lang.String toString()
+    {
+        int $stack2;
+        char[] $stack3;
+        java.lang.String $stack1;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = new java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        specialinvoke $stack1.<java.lang.String: void <init>(char[],int,int)>($stack3, 0, $stack2);
+
+        return $stack1;
+    }
+
+    public java.lang.StringBuffer toStringBuffer()
+    {
+        java.lang.StringBuffer $stack1, $stack5;
+        int $stack2, $stack3;
+        char[] $stack4;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        $stack1 = new java.lang.StringBuffer;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        specialinvoke $stack1.<java.lang.StringBuffer: void <init>(int)>($stack2);
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        $stack5 = virtualinvoke $stack1.<java.lang.StringBuffer: java.lang.StringBuffer append(char[],int,int)>($stack4, 0, $stack3);
+
+        return $stack5;
+    }
+
+    protected int validateRange(int, int)
+    {
+        int startIndex, $stack3, endIndex;
+        java.lang.StringIndexOutOfBoundsException $stack4, $stack7;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        startIndex := @parameter0: int;
+
+        endIndex := @parameter1: int;
+
+        if startIndex >= 0 goto label1;
+
+        $stack7 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack7.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(startIndex);
+
+        throw $stack7;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if endIndex <= $stack3 goto label2;
+
+        endIndex = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+     label2:
+        if startIndex <= endIndex goto label3;
+
+        $stack4 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack4.<java.lang.StringIndexOutOfBoundsException: void <init>(java.lang.String)>("end < start");
+
+        throw $stack4;
+
+     label3:
+        return endIndex;
+    }
+
+    protected void validateIndex(int)
+    {
+        int index, $stack3;
+        java.lang.StringIndexOutOfBoundsException $stack2;
+        org.apache.commons.lang3.text.StrBuilder this;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        index := @parameter0: int;
+
+        if index < 0 goto label1;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder: int size>;
+
+        if index <= $stack3 goto label2;
+
+     label1:
+        $stack2 = new java.lang.StringIndexOutOfBoundsException;
+
+        specialinvoke $stack2.<java.lang.StringIndexOutOfBoundsException: void <init>(int)>(index);
+
+        throw $stack2;
+
+     label2:
+        return;
+    }
+
+    public volatile java.lang.Appendable append(char) throws java.io.IOException
+    {
+        char x0;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        x0 := @parameter0: char;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>(x0);
+
+        return $stack2;
+    }
+
+    public volatile java.lang.Appendable append(java.lang.CharSequence, int, int) throws java.io.IOException
+    {
+        java.lang.CharSequence x0;
+        int x1, x2;
+        org.apache.commons.lang3.text.StrBuilder this, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        x0 := @parameter0: java.lang.CharSequence;
+
+        x1 := @parameter1: int;
+
+        x2 := @parameter2: int;
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence,int,int)>(x0, x1, x2);
+
+        return $stack4;
+    }
+
+    public volatile java.lang.Appendable append(java.lang.CharSequence) throws java.io.IOException
+    {
+        java.lang.CharSequence x0;
+        org.apache.commons.lang3.text.StrBuilder this, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder;
+
+        x0 := @parameter0: java.lang.CharSequence;
+
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(java.lang.CharSequence)>(x0);
+
+        return $stack2;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.text.StrBuilder: long serialVersionUID> = 7628716375283629643L;
+
+        <org.apache.commons.lang3.text.StrBuilder: int CAPACITY> = 32;
+
+        return;
+    }
+}

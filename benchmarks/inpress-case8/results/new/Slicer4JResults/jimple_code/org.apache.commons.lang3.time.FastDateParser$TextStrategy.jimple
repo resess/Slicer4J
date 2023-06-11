@@ -1,0 +1,177 @@
+class org.apache.commons.lang3.time.FastDateParser$TextStrategy extends java.lang.Object implements org.apache.commons.lang3.time.FastDateParser$Strategy
+{
+    private final int field;
+    private final java.util.Map keyValues;
+
+    void <init>(int, java.util.Calendar, java.util.Locale)
+    {
+        java.util.Calendar definingCalendar;
+        org.apache.commons.lang3.time.FastDateParser$TextStrategy this;
+        java.util.Locale locale;
+        java.util.Map $stack4;
+        int field;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TextStrategy;
+
+        field := @parameter0: int;
+
+        definingCalendar := @parameter1: java.util.Calendar;
+
+        locale := @parameter2: java.util.Locale;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: int field> = field;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDateParser: java.util.Map access$100(int,java.util.Calendar,java.util.Locale)>(field, definingCalendar, locale);
+
+        this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: java.util.Map keyValues> = $stack4;
+
+        return;
+    }
+
+    public boolean isNumber()
+    {
+        org.apache.commons.lang3.time.FastDateParser$TextStrategy this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TextStrategy;
+
+        return 0;
+    }
+
+    public boolean addRegex(org.apache.commons.lang3.time.FastDateParser, java.lang.StringBuilder)
+    {
+        org.apache.commons.lang3.time.FastDateParser$TextStrategy this;
+        java.util.Iterator $stack8;
+        java.util.Set $stack7;
+        java.util.Map $stack6;
+        int $stack10, $stack11;
+        java.lang.StringBuilder regex, $stack13;
+        java.lang.Object $stack12;
+        java.lang.String textKeyValue;
+        org.apache.commons.lang3.time.FastDateParser parser;
+        boolean $stack9;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TextStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        regex := @parameter1: java.lang.StringBuilder;
+
+        virtualinvoke regex.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(40);
+
+        $stack6 = this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: java.util.Map keyValues>;
+
+        $stack7 = interfaceinvoke $stack6.<java.util.Map: java.util.Set keySet()>();
+
+        $stack8 = interfaceinvoke $stack7.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $stack9 = interfaceinvoke $stack8.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack9 == 0 goto label2;
+
+        $stack12 = interfaceinvoke $stack8.<java.util.Iterator: java.lang.Object next()>();
+
+        textKeyValue = (java.lang.String) $stack12;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.FastDateParser: java.lang.StringBuilder access$000(java.lang.StringBuilder,java.lang.String,boolean)>(regex, textKeyValue, 0);
+
+        virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(124);
+
+        goto label1;
+
+     label2:
+        $stack10 = virtualinvoke regex.<java.lang.StringBuilder: int length()>();
+
+        $stack11 = $stack10 - 1;
+
+        virtualinvoke regex.<java.lang.StringBuilder: void setCharAt(int,char)>($stack11, 41);
+
+        return 1;
+    }
+
+    public void setCalendar(org.apache.commons.lang3.time.FastDateParser, java.util.Calendar, java.lang.String)
+    {
+        java.lang.Integer iVal;
+        java.util.Calendar cal;
+        java.util.Map $stack8, $stack14;
+        int $stack10, $stack11, $stack18, $stack19;
+        java.lang.String value, $stack21, textKeyValue;
+        boolean $stack17;
+        org.apache.commons.lang3.time.FastDateParser$TextStrategy this;
+        java.util.Iterator $stack16;
+        java.util.Set $stack15;
+        java.lang.IllegalArgumentException $stack20;
+        java.lang.Object $stack9, $stack22;
+        java.lang.StringBuilder $stack12, $stack23;
+        org.apache.commons.lang3.time.FastDateParser parser;
+
+        this := @this: org.apache.commons.lang3.time.FastDateParser$TextStrategy;
+
+        parser := @parameter0: org.apache.commons.lang3.time.FastDateParser;
+
+        cal := @parameter1: java.util.Calendar;
+
+        value := @parameter2: java.lang.String;
+
+        $stack8 = this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: java.util.Map keyValues>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.Map: java.lang.Object get(java.lang.Object)>(value);
+
+        iVal = (java.lang.Integer) $stack9;
+
+        if iVal != null goto label3;
+
+        $stack12 = new java.lang.StringBuilder;
+
+        specialinvoke $stack12.<java.lang.StringBuilder: void <init>(java.lang.String)>(value);
+
+        virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" not in (");
+
+        $stack14 = this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: java.util.Map keyValues>;
+
+        $stack15 = interfaceinvoke $stack14.<java.util.Map: java.util.Set keySet()>();
+
+        $stack16 = interfaceinvoke $stack15.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $stack17 = interfaceinvoke $stack16.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack17 == 0 goto label2;
+
+        $stack22 = interfaceinvoke $stack16.<java.util.Iterator: java.lang.Object next()>();
+
+        textKeyValue = (java.lang.String) $stack22;
+
+        $stack23 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(textKeyValue);
+
+        virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(32);
+
+        goto label1;
+
+     label2:
+        $stack18 = virtualinvoke $stack12.<java.lang.StringBuilder: int length()>();
+
+        $stack19 = $stack18 - 1;
+
+        virtualinvoke $stack12.<java.lang.StringBuilder: void setCharAt(int,char)>($stack19, 41);
+
+        $stack20 = new java.lang.IllegalArgumentException;
+
+        $stack21 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack20.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack21);
+
+        throw $stack20;
+
+     label3:
+        $stack10 = this.<org.apache.commons.lang3.time.FastDateParser$TextStrategy: int field>;
+
+        $stack11 = virtualinvoke iVal.<java.lang.Integer: int intValue()>();
+
+        virtualinvoke cal.<java.util.Calendar: void set(int,int)>($stack10, $stack11);
+
+        return;
+    }
+}

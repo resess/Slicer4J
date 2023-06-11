@@ -1,0 +1,65 @@
+class org.apache.commons.lang3.LocaleUtils$SyncAvoid extends java.lang.Object
+{
+    private static final java.util.List AVAILABLE_LOCALE_LIST;
+    private static final java.util.Set AVAILABLE_LOCALE_SET;
+
+    void <init>()
+    {
+        org.apache.commons.lang3.LocaleUtils$SyncAvoid this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtils$SyncAvoid;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static java.util.List access$000()
+    {
+        java.util.List $stack0;
+
+        $stack0 = <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.List AVAILABLE_LOCALE_LIST>;
+
+        return $stack0;
+    }
+
+    static java.util.Set access$100()
+    {
+        java.util.Set $stack0;
+
+        $stack0 = <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.Set AVAILABLE_LOCALE_SET>;
+
+        return $stack0;
+    }
+
+    static void <clinit>()
+    {
+        java.util.HashSet $stack5;
+        java.util.Locale[] $stack2;
+        java.util.List $stack3, $stack4;
+        java.util.Set $stack6;
+        java.util.ArrayList $stack1;
+
+        $stack1 = new java.util.ArrayList;
+
+        $stack2 = staticinvoke <java.util.Locale: java.util.Locale[] getAvailableLocales()>();
+
+        $stack3 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack2);
+
+        specialinvoke $stack1.<java.util.ArrayList: void <init>(java.util.Collection)>($stack3);
+
+        $stack4 = staticinvoke <java.util.Collections: java.util.List unmodifiableList(java.util.List)>($stack1);
+
+        <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.List AVAILABLE_LOCALE_LIST> = $stack4;
+
+        $stack5 = new java.util.HashSet;
+
+        specialinvoke $stack5.<java.util.HashSet: void <init>(java.util.Collection)>($stack1);
+
+        $stack6 = staticinvoke <java.util.Collections: java.util.Set unmodifiableSet(java.util.Set)>($stack5);
+
+        <org.apache.commons.lang3.LocaleUtils$SyncAvoid: java.util.Set AVAILABLE_LOCALE_SET> = $stack6;
+
+        return;
+    }
+}

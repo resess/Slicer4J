@@ -1,0 +1,81 @@
+public class org.apache.commons.lang3.text.translate.UnicodeUnescaperTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.UnicodeUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaperTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testUPlus()
+    {
+        java.lang.String $stack6;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaper $stack3;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaperTest;
+
+        $stack3 = new org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: void <init>()>();
+
+        $stack6 = virtualinvoke $stack3.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\u+0047");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape Unicode characters with \'u+\' notation", "G", $stack6);
+
+        return;
+    }
+
+    public void testUuuuu()
+    {
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaper $stack4;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaperTest;
+
+        $stack4 = new org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: void <init>()>();
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\uuuuuuuu0047");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape Unicode characters with many \'u\' characters", "G", $stack5);
+
+        return;
+    }
+
+    public void testLessThanFour()
+    {
+        java.lang.IllegalArgumentException $stack6;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaper $stack4;
+        org.apache.commons.lang3.text.translate.UnicodeUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.UnicodeUnescaperTest;
+
+        $stack4 = new org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: void <init>()>();
+
+     label1:
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.UnicodeUnescaper: java.lang.String translate(java.lang.CharSequence)>("\\0047\\u006");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("A lack of digits in a Unicode escape sequence failed to throw an exception");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack6 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+}

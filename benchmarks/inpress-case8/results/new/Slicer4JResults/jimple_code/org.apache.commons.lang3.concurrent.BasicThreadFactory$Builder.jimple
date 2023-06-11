@@ -1,0 +1,232 @@
+public class org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder extends java.lang.Object implements org.apache.commons.lang3.builder.Builder
+{
+    private java.util.concurrent.ThreadFactory wrappedFactory;
+    private java.lang.Thread$UncaughtExceptionHandler exceptionHandler;
+    private java.lang.String namingPattern;
+    private java.lang.Integer priority;
+    private java.lang.Boolean daemonFlag;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder wrappedFactory(java.util.concurrent.ThreadFactory)
+    {
+        java.util.concurrent.ThreadFactory factory;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+        java.lang.NullPointerException $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        factory := @parameter0: java.util.concurrent.ThreadFactory;
+
+        if factory != null goto label1;
+
+        $stack2 = new java.lang.NullPointerException;
+
+        specialinvoke $stack2.<java.lang.NullPointerException: void <init>(java.lang.String)>("Wrapped ThreadFactory must not be null!");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.util.concurrent.ThreadFactory wrappedFactory> = factory;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder namingPattern(java.lang.String)
+    {
+        java.lang.String pattern;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+        java.lang.NullPointerException $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        pattern := @parameter0: java.lang.String;
+
+        if pattern != null goto label1;
+
+        $stack2 = new java.lang.NullPointerException;
+
+        specialinvoke $stack2.<java.lang.NullPointerException: void <init>(java.lang.String)>("Naming pattern must not be null!");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.String namingPattern> = pattern;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder daemon(boolean)
+    {
+        java.lang.Boolean $stack2;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+        boolean f;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        f := @parameter0: boolean;
+
+        $stack2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(f);
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Boolean daemonFlag> = $stack2;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder priority(int)
+    {
+        int prio;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+        java.lang.Integer $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        prio := @parameter0: int;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(prio);
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Integer priority> = $stack2;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder uncaughtExceptionHandler(java.lang.Thread$UncaughtExceptionHandler)
+    {
+        java.lang.Thread$UncaughtExceptionHandler handler;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+        java.lang.NullPointerException $stack2;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        handler := @parameter0: java.lang.Thread$UncaughtExceptionHandler;
+
+        if handler != null goto label1;
+
+        $stack2 = new java.lang.NullPointerException;
+
+        specialinvoke $stack2.<java.lang.NullPointerException: void <init>(java.lang.String)>("Uncaught exception handler must not be null!");
+
+        throw $stack2;
+
+     label1:
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Thread$UncaughtExceptionHandler exceptionHandler> = handler;
+
+        return this;
+    }
+
+    public void reset()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.util.concurrent.ThreadFactory wrappedFactory> = null;
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Thread$UncaughtExceptionHandler exceptionHandler> = null;
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.String namingPattern> = null;
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Integer priority> = null;
+
+        this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Boolean daemonFlag> = null;
+
+        return;
+    }
+
+    public org.apache.commons.lang3.concurrent.BasicThreadFactory build()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack2;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack2 = new org.apache.commons.lang3.concurrent.BasicThreadFactory;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.concurrent.BasicThreadFactory: void <init>(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder,org.apache.commons.lang3.concurrent.BasicThreadFactory$1)>(this, null);
+
+        virtualinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: void reset()>();
+
+        return $stack2;
+    }
+
+    public volatile java.lang.Object build()
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory $stack1;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder this;
+
+        this := @this: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: org.apache.commons.lang3.concurrent.BasicThreadFactory build()>();
+
+        return $stack1;
+    }
+
+    static java.util.concurrent.ThreadFactory access$000(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder)
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder x0;
+        java.util.concurrent.ThreadFactory $stack1;
+
+        x0 := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = x0.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.util.concurrent.ThreadFactory wrappedFactory>;
+
+        return $stack1;
+    }
+
+    static java.lang.String access$100(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder)
+    {
+        java.lang.String $stack1;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder x0;
+
+        x0 := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = x0.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.String namingPattern>;
+
+        return $stack1;
+    }
+
+    static java.lang.Integer access$200(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder)
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder x0;
+        java.lang.Integer $stack1;
+
+        x0 := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = x0.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Integer priority>;
+
+        return $stack1;
+    }
+
+    static java.lang.Boolean access$300(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder)
+    {
+        java.lang.Boolean $stack1;
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder x0;
+
+        x0 := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = x0.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Boolean daemonFlag>;
+
+        return $stack1;
+    }
+
+    static java.lang.Thread$UncaughtExceptionHandler access$400(org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder)
+    {
+        org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder x0;
+        java.lang.Thread$UncaughtExceptionHandler $stack1;
+
+        x0 := @parameter0: org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder;
+
+        $stack1 = x0.<org.apache.commons.lang3.concurrent.BasicThreadFactory$Builder: java.lang.Thread$UncaughtExceptionHandler exceptionHandler>;
+
+        return $stack1;
+    }
+}

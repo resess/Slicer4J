@@ -1,0 +1,1618 @@
+public class org.apache.commons.lang3.builder.MultiLineToStringStyleTest extends java.lang.Object
+{
+    private final java.lang.Integer base;
+    private final java.lang.String baseStr;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.Integer $stack1, $stack3, $stack8;
+        int $stack9;
+        java.lang.StringBuilder $stack2, $stack6, $stack7, $stack11;
+        java.lang.Class $stack4;
+        java.lang.String $stack5, $stack10, $stack12;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(5);
+
+        this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base> = $stack1;
+
+        $stack2 = new java.lang.StringBuilder;
+
+        specialinvoke $stack2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: java.lang.String getName()>();
+
+        $stack6 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("@");
+
+        $stack8 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        $stack9 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>($stack8);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack9);
+
+        $stack11 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr> = $stack12;
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        org.apache.commons.lang3.builder.ToStringStyle $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack1 = <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle MULTI_LINE_STYLE>;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringBuilder: void setDefaultStyle(org.apache.commons.lang3.builder.ToStringStyle)>($stack1);
+
+        return;
+    }
+
+    public void tearDown() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        org.apache.commons.lang3.builder.ToStringStyle $stack1;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack1 = <org.apache.commons.lang3.builder.ToStringStyle: org.apache.commons.lang3.builder.ToStringStyle DEFAULT_STYLE>;
+
+        staticinvoke <org.apache.commons.lang3.builder.ToStringBuilder: void setDefaultStyle(org.apache.commons.lang3.builder.ToStringStyle)>($stack1);
+
+        return;
+    }
+
+    public void testBlank()
+    {
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.Integer $stack10;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack9;
+        java.lang.StringBuilder $stack1, $stack3, $stack4, $stack6, $stack7;
+        java.lang.String $stack2, $stack5, $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack2);
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack9 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack10);
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack11);
+
+        return;
+    }
+
+    public void testAppendSuper()
+    {
+        java.lang.Integer $stack10, $stack31, $stack55, $stack80, $stack105;
+        java.lang.StringBuilder $stack1, $stack3, $stack4, $stack6, $stack7, $stack11, $stack12, $stack14, $stack15, $stack19, $stack21, $stack22, $stack24, $stack25, $stack27, $stack28, $stack32, $stack33, $stack35, $stack36, $stack38, $stack39, $stack43, $stack45, $stack46, $stack48, $stack49, $stack51, $stack52, $stack56, $stack57, $stack59, $stack60, $stack65, $stack67, $stack68, $stack70, $stack71, $stack73, $stack74, $stack76, $stack77, $stack81, $stack82, $stack84, $stack85, $stack87, $stack88, $stack93, $stack95, $stack96, $stack98, $stack99, $stack101, $stack102;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.String $stack2, $stack5, $stack8, $stack13, $stack16, $stack18, $stack20, $stack23, $stack26, $stack29, $stack34, $stack37, $stack40, $stack42, $stack44, $stack47, $stack50, $stack53, $stack58, $stack61, $stack64, $stack66, $stack69, $stack72, $stack75, $stack78, $stack83, $stack86, $stack89, $stack92, $stack94, $stack97, $stack100, $stack103, $stack108;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack9, $stack17, $stack30, $stack41, $stack54, $stack62, $stack63, $stack79, $stack90, $stack91, $stack104, $stack106, $stack107;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack2);
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack9 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack10 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack10);
+
+        $stack11 = new java.lang.StringBuilder;
+
+        specialinvoke $stack11.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Integer@8888[");
+
+        $stack13 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack14 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack13);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = virtualinvoke $stack9.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>($stack16);
+
+        $stack18 = virtualinvoke $stack17.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack18);
+
+        $stack19 = new java.lang.StringBuilder;
+
+        specialinvoke $stack19.<java.lang.StringBuilder: void <init>()>();
+
+        $stack20 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack21 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack20);
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack23 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack26 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack27 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack30 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack31 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack30.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack31);
+
+        $stack32 = new java.lang.StringBuilder;
+
+        specialinvoke $stack32.<java.lang.StringBuilder: void <init>()>();
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Integer@8888[");
+
+        $stack34 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack35 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack34);
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack37 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack38 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack37);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack41 = virtualinvoke $stack30.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>($stack40);
+
+        $stack42 = virtualinvoke $stack41.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack42);
+
+        $stack43 = new java.lang.StringBuilder;
+
+        specialinvoke $stack43.<java.lang.StringBuilder: void <init>()>();
+
+        $stack44 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack45 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack44);
+
+        $stack46 = virtualinvoke $stack45.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack47 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack48 = virtualinvoke $stack46.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack47);
+
+        $stack49 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=hello");
+
+        $stack50 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack51 = virtualinvoke $stack49.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack50);
+
+        $stack52 = virtualinvoke $stack51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack53 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack54 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack55 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack54.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack55);
+
+        $stack56 = new java.lang.StringBuilder;
+
+        specialinvoke $stack56.<java.lang.StringBuilder: void <init>()>();
+
+        $stack57 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Integer@8888[");
+
+        $stack58 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack59 = virtualinvoke $stack57.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack58);
+
+        $stack60 = virtualinvoke $stack59.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack61 = virtualinvoke $stack60.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack62 = virtualinvoke $stack54.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>($stack61);
+
+        $stack63 = virtualinvoke $stack62.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack64 = virtualinvoke $stack63.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack53, $stack64);
+
+        $stack65 = new java.lang.StringBuilder;
+
+        specialinvoke $stack65.<java.lang.StringBuilder: void <init>()>();
+
+        $stack66 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack67 = virtualinvoke $stack65.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack66);
+
+        $stack68 = virtualinvoke $stack67.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack69 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack70 = virtualinvoke $stack68.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack69);
+
+        $stack71 = virtualinvoke $stack70.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack72 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack73 = virtualinvoke $stack71.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack72);
+
+        $stack74 = virtualinvoke $stack73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=hello");
+
+        $stack75 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack76 = virtualinvoke $stack74.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack75);
+
+        $stack77 = virtualinvoke $stack76.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack78 = virtualinvoke $stack77.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack79 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack80 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack79.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack80);
+
+        $stack81 = new java.lang.StringBuilder;
+
+        specialinvoke $stack81.<java.lang.StringBuilder: void <init>()>();
+
+        $stack82 = virtualinvoke $stack81.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Integer@8888[");
+
+        $stack83 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack84 = virtualinvoke $stack82.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack83);
+
+        $stack85 = virtualinvoke $stack84.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack86 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack87 = virtualinvoke $stack85.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack86);
+
+        $stack88 = virtualinvoke $stack87.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack89 = virtualinvoke $stack88.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack90 = virtualinvoke $stack79.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>($stack89);
+
+        $stack91 = virtualinvoke $stack90.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack92 = virtualinvoke $stack91.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack78, $stack92);
+
+        $stack93 = new java.lang.StringBuilder;
+
+        specialinvoke $stack93.<java.lang.StringBuilder: void <init>()>();
+
+        $stack94 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack95 = virtualinvoke $stack93.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack94);
+
+        $stack96 = virtualinvoke $stack95.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack97 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack98 = virtualinvoke $stack96.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack97);
+
+        $stack99 = virtualinvoke $stack98.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=hello");
+
+        $stack100 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack101 = virtualinvoke $stack99.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack100);
+
+        $stack102 = virtualinvoke $stack101.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack103 = virtualinvoke $stack102.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack104 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack105 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack104.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack105);
+
+        $stack106 = virtualinvoke $stack104.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder appendSuper(java.lang.String)>(null);
+
+        $stack107 = virtualinvoke $stack106.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", "hello");
+
+        $stack108 = virtualinvoke $stack107.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack103, $stack108);
+
+        return;
+    }
+
+    public void testObject()
+    {
+        java.lang.Integer $stack3, $stack4, $stack17, $stack33, $stack48, $stack64, $stack82, $stack98, $stack113, $stack130, $stack147, $stack164, $stack181, $stack197;
+        java.lang.StringBuilder $stack5, $stack7, $stack8, $stack10, $stack11, $stack13, $stack14, $stack21, $stack23, $stack24, $stack26, $stack27, $stack29, $stack30, $stack36, $stack38, $stack39, $stack41, $stack42, $stack44, $stack45, $stack52, $stack54, $stack55, $stack57, $stack58, $stack60, $stack61, $stack67, $stack69, $stack70, $stack72, $stack73, $stack75, $stack76, $stack78, $stack79, $stack86, $stack88, $stack89, $stack91, $stack92, $stack94, $stack95, $stack101, $stack103, $stack104, $stack106, $stack107, $stack109, $stack110, $stack118, $stack120, $stack121, $stack123, $stack124, $stack126, $stack127, $stack135, $stack137, $stack138, $stack140, $stack141, $stack143, $stack144, $stack152, $stack154, $stack155, $stack157, $stack158, $stack160, $stack161, $stack169, $stack171, $stack172, $stack174, $stack175, $stack177, $stack178, $stack185, $stack187, $stack188, $stack190, $stack191, $stack193, $stack194;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.util.ArrayList $stack114, $stack131;
+        java.lang.String $stack6, $stack9, $stack12, $stack15, $stack20, $stack22, $stack25, $stack28, $stack31, $stack35, $stack37, $stack40, $stack43, $stack46, $stack51, $stack53, $stack56, $stack59, $stack62, $stack66, $stack68, $stack71, $stack74, $stack77, $stack80, $stack85, $stack87, $stack90, $stack93, $stack96, $stack100, $stack102, $stack105, $stack108, $stack111, $stack117, $stack119, $stack122, $stack125, $stack128, $stack134, $stack136, $stack139, $stack142, $stack145, $stack151, $stack153, $stack156, $stack159, $stack162, $stack168, $stack170, $stack173, $stack176, $stack179, $stack184, $stack186, $stack189, $stack192, $stack195, $stack200;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack16, $stack19, $stack32, $stack34, $stack47, $stack50, $stack63, $stack65, $stack81, $stack83, $stack84, $stack97, $stack99, $stack112, $stack116, $stack129, $stack133, $stack146, $stack150, $stack163, $stack167, $stack180, $stack183, $stack196, $stack199;
+        java.util.HashMap $stack148, $stack165;
+        java.lang.String[] $stack182, $stack198;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack9 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack12 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack16 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack17 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack17);
+
+        $stack19 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack20);
+
+        $stack21 = new java.lang.StringBuilder;
+
+        specialinvoke $stack21.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack25 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  3");
+
+        $stack28 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack29 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack28);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack33 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack32.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack33);
+
+        $stack34 = virtualinvoke $stack32.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack3);
+
+        $stack35 = virtualinvoke $stack34.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack35);
+
+        $stack36 = new java.lang.StringBuilder;
+
+        specialinvoke $stack36.<java.lang.StringBuilder: void <init>()>();
+
+        $stack37 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack38 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack37);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack40 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack41 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack40);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=<null>");
+
+        $stack43 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack44 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack43);
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack46 = virtualinvoke $stack45.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack47 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack48 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack47.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack48);
+
+        $stack50 = virtualinvoke $stack47.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", null);
+
+        $stack51 = virtualinvoke $stack50.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack46, $stack51);
+
+        $stack52 = new java.lang.StringBuilder;
+
+        specialinvoke $stack52.<java.lang.StringBuilder: void <init>()>();
+
+        $stack53 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack54 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack53);
+
+        $stack55 = virtualinvoke $stack54.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack56 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack57 = virtualinvoke $stack55.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack56);
+
+        $stack58 = virtualinvoke $stack57.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=3");
+
+        $stack59 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack60 = virtualinvoke $stack58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack59);
+
+        $stack61 = virtualinvoke $stack60.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack62 = virtualinvoke $stack61.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack63 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack64 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack63.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack64);
+
+        $stack65 = virtualinvoke $stack63.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", $stack3);
+
+        $stack66 = virtualinvoke $stack65.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack62, $stack66);
+
+        $stack67 = new java.lang.StringBuilder;
+
+        specialinvoke $stack67.<java.lang.StringBuilder: void <init>()>();
+
+        $stack68 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack69 = virtualinvoke $stack67.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack68);
+
+        $stack70 = virtualinvoke $stack69.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack71 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack72 = virtualinvoke $stack70.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack71);
+
+        $stack73 = virtualinvoke $stack72.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=3");
+
+        $stack74 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack75 = virtualinvoke $stack73.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack74);
+
+        $stack76 = virtualinvoke $stack75.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  b=4");
+
+        $stack77 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack78 = virtualinvoke $stack76.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack77);
+
+        $stack79 = virtualinvoke $stack78.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack80 = virtualinvoke $stack79.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack81 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack82 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack81.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack82);
+
+        $stack83 = virtualinvoke $stack81.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("a", $stack3);
+
+        $stack84 = virtualinvoke $stack83.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("b", $stack4);
+
+        $stack85 = virtualinvoke $stack84.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack80, $stack85);
+
+        $stack86 = new java.lang.StringBuilder;
+
+        specialinvoke $stack86.<java.lang.StringBuilder: void <init>()>();
+
+        $stack87 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack88 = virtualinvoke $stack86.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack87);
+
+        $stack89 = virtualinvoke $stack88.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack90 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack91 = virtualinvoke $stack89.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack90);
+
+        $stack92 = virtualinvoke $stack91.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=<Integer>");
+
+        $stack93 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack94 = virtualinvoke $stack92.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack93);
+
+        $stack95 = virtualinvoke $stack94.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack96 = virtualinvoke $stack95.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack97 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack98 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack97.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack98);
+
+        $stack99 = virtualinvoke $stack97.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack3, 0);
+
+        $stack100 = virtualinvoke $stack99.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack96, $stack100);
+
+        $stack101 = new java.lang.StringBuilder;
+
+        specialinvoke $stack101.<java.lang.StringBuilder: void <init>()>();
+
+        $stack102 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack103 = virtualinvoke $stack101.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack102);
+
+        $stack104 = virtualinvoke $stack103.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack105 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack106 = virtualinvoke $stack104.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack105);
+
+        $stack107 = virtualinvoke $stack106.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=<size=0>");
+
+        $stack108 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack109 = virtualinvoke $stack107.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack108);
+
+        $stack110 = virtualinvoke $stack109.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack111 = virtualinvoke $stack110.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack112 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack113 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack112.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack113);
+
+        $stack114 = new java.util.ArrayList;
+
+        specialinvoke $stack114.<java.util.ArrayList: void <init>()>();
+
+        $stack116 = virtualinvoke $stack112.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack114, 0);
+
+        $stack117 = virtualinvoke $stack116.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack111, $stack117);
+
+        $stack118 = new java.lang.StringBuilder;
+
+        specialinvoke $stack118.<java.lang.StringBuilder: void <init>()>();
+
+        $stack119 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack120 = virtualinvoke $stack118.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack119);
+
+        $stack121 = virtualinvoke $stack120.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack122 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack123 = virtualinvoke $stack121.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack122);
+
+        $stack124 = virtualinvoke $stack123.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=[]");
+
+        $stack125 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack126 = virtualinvoke $stack124.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack125);
+
+        $stack127 = virtualinvoke $stack126.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack128 = virtualinvoke $stack127.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack129 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack130 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack129.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack130);
+
+        $stack131 = new java.util.ArrayList;
+
+        specialinvoke $stack131.<java.util.ArrayList: void <init>()>();
+
+        $stack133 = virtualinvoke $stack129.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack131, 1);
+
+        $stack134 = virtualinvoke $stack133.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack128, $stack134);
+
+        $stack135 = new java.lang.StringBuilder;
+
+        specialinvoke $stack135.<java.lang.StringBuilder: void <init>()>();
+
+        $stack136 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack137 = virtualinvoke $stack135.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack136);
+
+        $stack138 = virtualinvoke $stack137.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack139 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack140 = virtualinvoke $stack138.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack139);
+
+        $stack141 = virtualinvoke $stack140.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=<size=0>");
+
+        $stack142 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack143 = virtualinvoke $stack141.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack142);
+
+        $stack144 = virtualinvoke $stack143.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack145 = virtualinvoke $stack144.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack146 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack147 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack146.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack147);
+
+        $stack148 = new java.util.HashMap;
+
+        specialinvoke $stack148.<java.util.HashMap: void <init>()>();
+
+        $stack150 = virtualinvoke $stack146.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack148, 0);
+
+        $stack151 = virtualinvoke $stack150.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack145, $stack151);
+
+        $stack152 = new java.lang.StringBuilder;
+
+        specialinvoke $stack152.<java.lang.StringBuilder: void <init>()>();
+
+        $stack153 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack154 = virtualinvoke $stack152.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack153);
+
+        $stack155 = virtualinvoke $stack154.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack156 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack157 = virtualinvoke $stack155.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack156);
+
+        $stack158 = virtualinvoke $stack157.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a={}");
+
+        $stack159 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack160 = virtualinvoke $stack158.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack159);
+
+        $stack161 = virtualinvoke $stack160.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack162 = virtualinvoke $stack161.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack163 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack164 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack163.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack164);
+
+        $stack165 = new java.util.HashMap;
+
+        specialinvoke $stack165.<java.util.HashMap: void <init>()>();
+
+        $stack167 = virtualinvoke $stack163.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack165, 1);
+
+        $stack168 = virtualinvoke $stack167.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack162, $stack168);
+
+        $stack169 = new java.lang.StringBuilder;
+
+        specialinvoke $stack169.<java.lang.StringBuilder: void <init>()>();
+
+        $stack170 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack171 = virtualinvoke $stack169.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack170);
+
+        $stack172 = virtualinvoke $stack171.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack173 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack174 = virtualinvoke $stack172.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack173);
+
+        $stack175 = virtualinvoke $stack174.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=<size=0>");
+
+        $stack176 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack177 = virtualinvoke $stack175.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack176);
+
+        $stack178 = virtualinvoke $stack177.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack179 = virtualinvoke $stack178.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack180 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack181 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack180.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack181);
+
+        $stack182 = newarray (java.lang.String)[0];
+
+        $stack183 = virtualinvoke $stack180.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack182, 0);
+
+        $stack184 = virtualinvoke $stack183.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack179, $stack184);
+
+        $stack185 = new java.lang.StringBuilder;
+
+        specialinvoke $stack185.<java.lang.StringBuilder: void <init>()>();
+
+        $stack186 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack187 = virtualinvoke $stack185.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack186);
+
+        $stack188 = virtualinvoke $stack187.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack189 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack190 = virtualinvoke $stack188.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack189);
+
+        $stack191 = virtualinvoke $stack190.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a={}");
+
+        $stack192 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack193 = virtualinvoke $stack191.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack192);
+
+        $stack194 = virtualinvoke $stack193.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack195 = virtualinvoke $stack194.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack196 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack197 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack196.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack197);
+
+        $stack198 = newarray (java.lang.String)[0];
+
+        $stack199 = virtualinvoke $stack196.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object,boolean)>("a", $stack198, 1);
+
+        $stack200 = virtualinvoke $stack199.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack195, $stack200);
+
+        return;
+    }
+
+    public void testPerson()
+    {
+        org.apache.commons.lang3.builder.ToStringStyleTest$Person $stack3;
+        boolean $stack34;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack29, $stack31, $stack33, $stack35;
+        java.lang.StringBuilder $stack4, $stack7, $stack8, $stack11, $stack13, $stack14, $stack15, $stack17, $stack18, $stack20, $stack21, $stack23, $stack24, $stack26, $stack27;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        int $stack9, $stack32;
+        java.lang.String $stack6, $stack10, $stack12, $stack16, $stack19, $stack22, $stack25, $stack28, $stack30, $stack36;
+        java.lang.Class $stack5;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack3 = new org.apache.commons.lang3.builder.ToStringStyleTest$Person;
+
+        specialinvoke $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: void <init>()>();
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: java.lang.String name> = "Jane Doe";
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: int age> = 25;
+
+        $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: boolean smoker> = 1;
+
+        $stack4 = new java.lang.StringBuilder;
+
+        specialinvoke $stack4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $stack3.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Class: java.lang.String getName()>();
+
+        $stack7 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("@");
+
+        $stack9 = staticinvoke <java.lang.System: int identityHashCode(java.lang.Object)>($stack3);
+
+        $stack10 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($stack9);
+
+        $stack11 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack16 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack17 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack16);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  name=Jane Doe");
+
+        $stack19 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack20 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack19);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  age=25");
+
+        $stack22 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  smoker=true");
+
+        $stack25 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack29 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack3);
+
+        $stack30 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: java.lang.String name>;
+
+        $stack31 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,java.lang.Object)>("name", $stack30);
+
+        $stack32 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: int age>;
+
+        $stack33 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,int)>("age", $stack32);
+
+        $stack34 = $stack3.<org.apache.commons.lang3.builder.ToStringStyleTest$Person: boolean smoker>;
+
+        $stack35 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,boolean)>("smoker", $stack34);
+
+        $stack36 = virtualinvoke $stack35.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack36);
+
+        return;
+    }
+
+    public void testLong()
+    {
+        java.lang.Integer $stack13, $stack28, $stack46;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack12, $stack14, $stack27, $stack29, $stack45, $stack47, $stack48;
+        java.lang.StringBuilder $stack1, $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack16, $stack18, $stack19, $stack21, $stack22, $stack24, $stack25, $stack31, $stack33, $stack34, $stack36, $stack37, $stack39, $stack40, $stack42, $stack43;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.String $stack2, $stack5, $stack8, $stack11, $stack15, $stack17, $stack20, $stack23, $stack26, $stack30, $stack32, $stack35, $stack38, $stack41, $stack44, $stack49;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack1 = new java.lang.StringBuilder;
+
+        specialinvoke $stack1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack3 = virtualinvoke $stack1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack2);
+
+        $stack4 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack5 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack6 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack5);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  3");
+
+        $stack8 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack12 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack13 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack12.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack13);
+
+        $stack14 = virtualinvoke $stack12.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long)>(3L);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack15);
+
+        $stack16 = new java.lang.StringBuilder;
+
+        specialinvoke $stack16.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack18 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack20 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack21 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack20);
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=3");
+
+        $stack23 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack24 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack27 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack28 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack27.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack28);
+
+        $stack29 = virtualinvoke $stack27.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("a", 3L);
+
+        $stack30 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack30);
+
+        $stack31 = new java.lang.StringBuilder;
+
+        specialinvoke $stack31.<java.lang.StringBuilder: void <init>()>();
+
+        $stack32 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack33 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack32);
+
+        $stack34 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack35 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack36 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack35);
+
+        $stack37 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  a=3");
+
+        $stack38 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack39 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  b=4");
+
+        $stack41 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack42 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack41);
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack45 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack46 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack45.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack46);
+
+        $stack47 = virtualinvoke $stack45.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("a", 3L);
+
+        $stack48 = virtualinvoke $stack47.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.String,long)>("b", 4L);
+
+        $stack49 = virtualinvoke $stack48.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack49);
+
+        return;
+    }
+
+    public void testObjectArray()
+    {
+        java.lang.Integer $stack3, $stack17, $stack32, $stack47, $stack62;
+        java.lang.StringBuilder $stack5, $stack7, $stack8, $stack10, $stack11, $stack13, $stack14, $stack20, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29, $stack35, $stack37, $stack38, $stack40, $stack41, $stack43, $stack44, $stack50, $stack52, $stack53, $stack55, $stack56, $stack58, $stack59;
+        java.lang.Object[] $stack2;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.String $stack6, $stack9, $stack12, $stack15, $stack19, $stack21, $stack24, $stack27, $stack30, $stack34, $stack36, $stack39, $stack42, $stack45, $stack49, $stack51, $stack54, $stack57, $stack60, $stack64;
+        int[] $stack4;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack16, $stack18, $stack31, $stack33, $stack46, $stack48, $stack61, $stack63;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack2 = newarray (java.lang.Object)[3];
+
+        $stack2[0] = null;
+
+        $stack3 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        $stack2[1] = $stack3;
+
+        $stack4 = newarray (int)[2];
+
+        $stack4[0] = 3;
+
+        $stack4[1] = 6;
+
+        $stack2[2] = $stack4;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack9 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {<null>,5,{3,6}}");
+
+        $stack12 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack16 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack17 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack17);
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>($stack2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack19);
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack22 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack21);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack24 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {<null>,5,{3,6}}");
+
+        $stack27 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack31 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack32 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack32);
+
+        $stack33 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack34 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack34);
+
+        $stack35 = new java.lang.StringBuilder;
+
+        specialinvoke $stack35.<java.lang.StringBuilder: void <init>()>();
+
+        $stack36 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack37 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack36);
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack39 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack40 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack39);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack42 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack43 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack42);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack46 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack47 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack46.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack47);
+
+        $stack48 = virtualinvoke $stack46.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>(null);
+
+        $stack49 = virtualinvoke $stack48.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack49);
+
+        $stack50 = new java.lang.StringBuilder;
+
+        specialinvoke $stack50.<java.lang.StringBuilder: void <init>()>();
+
+        $stack51 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack52 = virtualinvoke $stack50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack51);
+
+        $stack53 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack54 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack55 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack54);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack57 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack58 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack57);
+
+        $stack59 = virtualinvoke $stack58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack60 = virtualinvoke $stack59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack61 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack62 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack61.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack62);
+
+        $stack63 = virtualinvoke $stack61.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack64 = virtualinvoke $stack63.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack60, $stack64);
+
+        return;
+    }
+
+    public void testLongArray()
+    {
+        java.lang.Integer $stack15, $stack30, $stack45, $stack60;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack14, $stack16, $stack29, $stack31, $stack44, $stack46, $stack59, $stack61;
+        java.lang.StringBuilder $stack3, $stack5, $stack6, $stack8, $stack9, $stack11, $stack12, $stack18, $stack20, $stack21, $stack23, $stack24, $stack26, $stack27, $stack33, $stack35, $stack36, $stack38, $stack39, $stack41, $stack42, $stack48, $stack50, $stack51, $stack53, $stack54, $stack56, $stack57;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        long[] $stack2;
+        java.lang.String $stack4, $stack7, $stack10, $stack13, $stack17, $stack19, $stack22, $stack25, $stack28, $stack32, $stack34, $stack37, $stack40, $stack43, $stack47, $stack49, $stack52, $stack55, $stack58, $stack62;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack2 = newarray (long)[4];
+
+        $stack2[0] = 1L;
+
+        $stack2[1] = 2L;
+
+        $stack2[2] = -3L;
+
+        $stack2[3] = 4L;
+
+        $stack3 = new java.lang.StringBuilder;
+
+        specialinvoke $stack3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack4 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack5 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack7 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {1,2,-3,4}");
+
+        $stack10 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack11 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack14 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack15 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack15);
+
+        $stack16 = virtualinvoke $stack14.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long[])>($stack2);
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack17);
+
+        $stack18 = new java.lang.StringBuilder;
+
+        specialinvoke $stack18.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack20 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack19);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack22 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack23 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {1,2,-3,4}");
+
+        $stack25 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack28 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack29 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack30 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack29.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack30);
+
+        $stack31 = virtualinvoke $stack29.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack32 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack32);
+
+        $stack33 = new java.lang.StringBuilder;
+
+        specialinvoke $stack33.<java.lang.StringBuilder: void <init>()>();
+
+        $stack34 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack35 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack34);
+
+        $stack36 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack37 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack38 = virtualinvoke $stack36.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack37);
+
+        $stack39 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack40 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack41 = virtualinvoke $stack39.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack40);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack43 = virtualinvoke $stack42.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack44 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack45 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack44.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack45);
+
+        $stack46 = virtualinvoke $stack44.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(long[])>(null);
+
+        $stack47 = virtualinvoke $stack46.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack43, $stack47);
+
+        $stack48 = new java.lang.StringBuilder;
+
+        specialinvoke $stack48.<java.lang.StringBuilder: void <init>()>();
+
+        $stack49 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack50 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack49);
+
+        $stack51 = virtualinvoke $stack50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack52 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack53 = virtualinvoke $stack51.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack52);
+
+        $stack54 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack55 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack56 = virtualinvoke $stack54.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack55);
+
+        $stack57 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack58 = virtualinvoke $stack57.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack59 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack60 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack59.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack60);
+
+        $stack61 = virtualinvoke $stack59.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(null);
+
+        $stack62 = virtualinvoke $stack61.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack58, $stack62);
+
+        return;
+    }
+
+    public void testLongArrayArray()
+    {
+        java.lang.Integer $stack17, $stack32, $stack47, $stack62;
+        java.lang.StringBuilder $stack5, $stack7, $stack8, $stack10, $stack11, $stack13, $stack14, $stack20, $stack22, $stack23, $stack25, $stack26, $stack28, $stack29, $stack35, $stack37, $stack38, $stack40, $stack41, $stack43, $stack44, $stack50, $stack52, $stack53, $stack55, $stack56, $stack58, $stack59;
+        org.apache.commons.lang3.builder.MultiLineToStringStyleTest this;
+        java.lang.String $stack6, $stack9, $stack12, $stack15, $stack19, $stack21, $stack24, $stack27, $stack30, $stack34, $stack36, $stack39, $stack42, $stack45, $stack49, $stack51, $stack54, $stack57, $stack60, $stack64;
+        long[][] $stack2, array;
+        org.apache.commons.lang3.builder.ToStringBuilder $stack16, $stack18, $stack31, $stack33, $stack46, $stack48, $stack61, $stack63;
+        long[] $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.MultiLineToStringStyleTest;
+
+        $stack2 = newarray (long[])[3];
+
+        $stack3 = newarray (long)[2];
+
+        $stack3[0] = 1L;
+
+        $stack3[1] = 2L;
+
+        $stack2[0] = $stack3;
+
+        $stack2[1] = null;
+
+        $stack4 = newarray (long)[1];
+
+        $stack4[0] = 5L;
+
+        $stack2[2] = $stack4;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack7 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack9 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack10 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack9);
+
+        $stack11 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {{1,2},<null>,{5}}");
+
+        $stack12 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack13 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack16 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack17 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack17);
+
+        $stack18 = virtualinvoke $stack16.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>($stack2);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack15, $stack19);
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack21 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack22 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack21);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack24 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack25 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  {{1,2},<null>,{5}}");
+
+        $stack27 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack28 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack27);
+
+        $stack29 = virtualinvoke $stack28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack31 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack32 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack32);
+
+        $stack33 = virtualinvoke $stack31.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>($stack2);
+
+        $stack34 = virtualinvoke $stack33.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack34);
+
+        array = (long[][]) null;
+
+        $stack35 = new java.lang.StringBuilder;
+
+        specialinvoke $stack35.<java.lang.StringBuilder: void <init>()>();
+
+        $stack36 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack37 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack36);
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack39 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack40 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack39);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack42 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack43 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack42);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack45 = virtualinvoke $stack44.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack46 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack47 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack46.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack47);
+
+        $stack48 = virtualinvoke $stack46.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object[])>(array);
+
+        $stack49 = virtualinvoke $stack48.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack45, $stack49);
+
+        $stack50 = new java.lang.StringBuilder;
+
+        specialinvoke $stack50.<java.lang.StringBuilder: void <init>()>();
+
+        $stack51 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.String baseStr>;
+
+        $stack52 = virtualinvoke $stack50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack51);
+
+        $stack53 = virtualinvoke $stack52.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack54 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack55 = virtualinvoke $stack53.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack54);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  <null>");
+
+        $stack57 = <org.apache.commons.lang3.SystemUtils: java.lang.String LINE_SEPARATOR>;
+
+        $stack58 = virtualinvoke $stack56.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack57);
+
+        $stack59 = virtualinvoke $stack58.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("]");
+
+        $stack60 = virtualinvoke $stack59.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack61 = new org.apache.commons.lang3.builder.ToStringBuilder;
+
+        $stack62 = this.<org.apache.commons.lang3.builder.MultiLineToStringStyleTest: java.lang.Integer base>;
+
+        specialinvoke $stack61.<org.apache.commons.lang3.builder.ToStringBuilder: void <init>(java.lang.Object)>($stack62);
+
+        $stack63 = virtualinvoke $stack61.<org.apache.commons.lang3.builder.ToStringBuilder: org.apache.commons.lang3.builder.ToStringBuilder append(java.lang.Object)>(array);
+
+        $stack64 = virtualinvoke $stack63.<org.apache.commons.lang3.builder.ToStringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack60, $stack64);
+
+        return;
+    }
+}

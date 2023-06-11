@@ -1,0 +1,471 @@
+public class org.apache.commons.lang3.CharUtilsPerfRun extends java.lang.Object
+{
+    static final java.lang.String VERSION;
+    static final int WARM_UP;
+    static final int COUNT;
+    static final char[] CHAR_SAMPLES;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] args;
+        org.apache.commons.lang3.CharUtilsPerfRun $stack1;
+
+        args := @parameter0: java.lang.String[];
+
+        $stack1 = new org.apache.commons.lang3.CharUtilsPerfRun;
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharUtilsPerfRun: void <init>()>();
+
+        specialinvoke $stack1.<org.apache.commons.lang3.CharUtilsPerfRun: void run()>();
+
+        return;
+    }
+
+    private void printSysInfo()
+    {
+        java.util.Date $stack6;
+        java.lang.StringBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack13, $stack15, $stack16, $stack18, $stack20, $stack23, $stack24, $stack26, $stack27, $stack29, $stack31, $stack34, $stack35, $stack37, $stack38, $stack40, $stack41, $stack43;
+        java.util.Calendar $stack5;
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        java.lang.String $stack8, $stack11, $stack14, $stack17, $stack19, $stack22, $stack25, $stack28, $stack30, $stack33, $stack36, $stack39, $stack42, $stack44;
+        java.io.PrintStream $stack1, $stack3, $stack10, $stack21, $stack32;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        $stack1 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $stack1.<java.io.PrintStream: void println(java.lang.String)>("$Id$");
+
+        $stack3 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack2 = new java.lang.StringBuilder;
+
+        specialinvoke $stack2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack4 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Now: ");
+
+        $stack5 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        $stack6 = virtualinvoke $stack5.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack7 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack6);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack3.<java.io.PrintStream: void println(java.lang.String)>($stack8);
+
+        $stack10 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack9 = new java.lang.StringBuilder;
+
+        specialinvoke $stack9.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.vendor");
+
+        $stack12 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack11);
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack14 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.runtime.name");
+
+        $stack15 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack17 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.runtime.version");
+
+        $stack18 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack10.<java.io.PrintStream: void println(java.lang.String)>($stack19);
+
+        $stack21 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack20 = new java.lang.StringBuilder;
+
+        specialinvoke $stack20.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.vm.vendor");
+
+        $stack23 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack22);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack25 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.vm.name");
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack28 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("java.vm.version");
+
+        $stack29 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack28);
+
+        $stack30 = virtualinvoke $stack29.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack21.<java.io.PrintStream: void println(java.lang.String)>($stack30);
+
+        $stack32 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack31 = new java.lang.StringBuilder;
+
+        specialinvoke $stack31.<java.lang.StringBuilder: void <init>()>();
+
+        $stack33 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.name");
+
+        $stack34 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack33);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack36 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.version");
+
+        $stack37 = virtualinvoke $stack35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack36);
+
+        $stack38 = virtualinvoke $stack37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack39 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("os.arch");
+
+        $stack40 = virtualinvoke $stack38.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack39);
+
+        $stack41 = virtualinvoke $stack40.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack42 = staticinvoke <java.lang.System: java.lang.String getProperty(java.lang.String)>("sun.cpu.isalist");
+
+        $stack43 = virtualinvoke $stack41.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack42);
+
+        $stack44 = virtualinvoke $stack43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack32.<java.io.PrintStream: void println(java.lang.String)>($stack44);
+
+        return;
+    }
+
+    private void run()
+    {
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        long $stack3, $stack5, $stack8, $stack11;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: void printSysInfo()>();
+
+        $stack3 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: void printlnTotal(java.lang.String,long)>("Do nohting", $stack3);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_CharUtils_isAsciiNumeric(int)>(100);
+
+        $stack5 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_CharUtils_isAsciiNumeric(int)>(5000);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: void printlnTotal(java.lang.String,long)>("run_CharUtils_isAsciiNumeric", $stack5);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_inlined_CharUtils_isAsciiNumeric(int)>(100);
+
+        $stack8 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_inlined_CharUtils_isAsciiNumeric(int)>(5000);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: void printlnTotal(java.lang.String,long)>("run_inlined_CharUtils_isAsciiNumeric", $stack8);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_CharSet(int)>(100);
+
+        $stack11 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: int run_CharSet(int)>(5000);
+
+        specialinvoke this.<org.apache.commons.lang3.CharUtilsPerfRun: void printlnTotal(java.lang.String,long)>("run_CharSet", $stack11);
+
+        return;
+    }
+
+    private int run_CharSet(int)
+    {
+        char ch;
+        org.apache.commons.lang3.CharSet $stack11;
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        int loopCount, len$, $stack16, t, i, i$;
+        char[] arr$;
+        boolean $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        loopCount := @parameter0: int;
+
+        t = 0;
+
+        i = 0;
+
+     label1:
+        if i >= loopCount goto label6;
+
+        arr$ = <org.apache.commons.lang3.CharUtilsPerfRun: char[] CHAR_SAMPLES>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label5;
+
+        ch = arr$[i$];
+
+        $stack11 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_NUMERIC>;
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.CharSet: boolean contains(char)>(ch);
+
+        $stack16 = t;
+
+        if $stack12 == 0 goto label3;
+
+        $stack15 = 1;
+
+        goto label4;
+
+     label3:
+        $stack15 = 0;
+
+     label4:
+        t = $stack16 + $stack15;
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label5:
+        i = i + 1;
+
+        goto label1;
+
+     label6:
+        return t;
+    }
+
+    private int run_CharUtils_isAsciiNumeric(int)
+    {
+        char ch;
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        int loopCount, len$, $stack15, t, i, i$;
+        char[] arr$;
+        boolean $stack11, $stack14;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        loopCount := @parameter0: int;
+
+        t = 0;
+
+        i = 0;
+
+     label1:
+        if i >= loopCount goto label6;
+
+        arr$ = <org.apache.commons.lang3.CharUtilsPerfRun: char[] CHAR_SAMPLES>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label5;
+
+        ch = arr$[i$];
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.CharUtils: boolean isAsciiNumeric(char)>(ch);
+
+        $stack15 = t;
+
+        if $stack11 == 0 goto label3;
+
+        $stack14 = 1;
+
+        goto label4;
+
+     label3:
+        $stack14 = 0;
+
+     label4:
+        t = $stack15 + $stack14;
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label5:
+        i = i + 1;
+
+        goto label1;
+
+     label6:
+        return t;
+    }
+
+    private int run_inlined_CharUtils_isAsciiNumeric(int)
+    {
+        char ch;
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        int loopCount, len$, $stack14, t, i, i$, $i0, $i1;
+        char[] arr$;
+        boolean $stack16, $stack13;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        loopCount := @parameter0: int;
+
+        t = 0;
+
+        i = 0;
+
+     label1:
+        if i >= loopCount goto label8;
+
+        arr$ = <org.apache.commons.lang3.CharUtilsPerfRun: char[] CHAR_SAMPLES>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label7;
+
+        ch = arr$[i$];
+
+        $i0 = (int) ch;
+
+        if $i0 < 48 goto label3;
+
+        $i1 = (int) ch;
+
+        if $i1 > 57 goto label3;
+
+        $stack16 = 1;
+
+        goto label4;
+
+     label3:
+        $stack16 = 0;
+
+     label4:
+        $stack14 = t;
+
+        if $stack16 == 0 goto label5;
+
+        $stack13 = 1;
+
+        goto label6;
+
+     label5:
+        $stack13 = 0;
+
+     label6:
+        t = $stack14 + $stack13;
+
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label7:
+        i = i + 1;
+
+        goto label1;
+
+     label8:
+        return t;
+    }
+
+    private void printlnTotal(java.lang.String, long)
+    {
+        java.io.PrintStream $stack8;
+        long $stack6, start, total;
+        java.text.NumberFormat $stack11;
+        org.apache.commons.lang3.CharUtilsPerfRun this;
+        java.lang.StringBuilder $stack7, $stack9, $stack10, $stack13, $stack14;
+        java.lang.String prefix, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.CharUtilsPerfRun;
+
+        prefix := @parameter0: java.lang.String;
+
+        start := @parameter1: long;
+
+        $stack6 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        total = $stack6 - start;
+
+        $stack8 = <java.lang.System: java.io.PrintStream out>;
+
+        $stack7 = new java.lang.StringBuilder;
+
+        specialinvoke $stack7.<java.lang.StringBuilder: void <init>()>();
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(prefix);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(": ");
+
+        $stack11 = staticinvoke <java.text.NumberFormat: java.text.NumberFormat getInstance()>();
+
+        $stack12 = virtualinvoke $stack11.<java.text.NumberFormat: java.lang.String format(long)>(total);
+
+        $stack13 = virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack12);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" milliseconds.");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $stack8.<java.io.PrintStream: void println(java.lang.String)>($stack15);
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        int $stack3, $i0, $i1;
+        char[] $stack1, $stack2;
+        char i;
+
+        <org.apache.commons.lang3.CharUtilsPerfRun: int COUNT> = 5000;
+
+        <org.apache.commons.lang3.CharUtilsPerfRun: int WARM_UP> = 100;
+
+        <org.apache.commons.lang3.CharUtilsPerfRun: java.lang.String VERSION> = "$Id$";
+
+        $i0 = (int) 65535;
+
+        $stack1 = newarray (char)[$i0];
+
+        <org.apache.commons.lang3.CharUtilsPerfRun: char[] CHAR_SAMPLES> = $stack1;
+
+        i = 0;
+
+     label1:
+        $i1 = (int) 65535;
+
+        if i >= $i1 goto label2;
+
+        $stack2 = <org.apache.commons.lang3.CharUtilsPerfRun: char[] CHAR_SAMPLES>;
+
+        $stack2[i] = i;
+
+        $stack3 = i + 1;
+
+        i = (char) $stack3;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

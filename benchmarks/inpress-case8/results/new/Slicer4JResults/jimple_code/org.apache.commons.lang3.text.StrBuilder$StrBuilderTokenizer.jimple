@@ -1,0 +1,78 @@
+class org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer extends org.apache.commons.lang3.text.StrTokenizer
+{
+    final org.apache.commons.lang3.text.StrBuilder this$0;
+
+    void <init>(org.apache.commons.lang3.text.StrBuilder)
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer this;
+        org.apache.commons.lang3.text.StrBuilder l1;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer;
+
+        l1 := @parameter0: org.apache.commons.lang3.text.StrBuilder;
+
+        this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer: org.apache.commons.lang3.text.StrBuilder this$0> = l1;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>()>();
+
+        return;
+    }
+
+    protected java.util.List tokenize(char[], int, int)
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer this;
+        java.util.List $stack4, $stack10;
+        int offset, count, $stack9;
+        char[] chars, $stack7;
+        org.apache.commons.lang3.text.StrBuilder $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer;
+
+        chars := @parameter0: char[];
+
+        offset := @parameter1: int;
+
+        count := @parameter2: int;
+
+        if chars != null goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack7 = $stack5.<org.apache.commons.lang3.text.StrBuilder: char[] buffer>;
+
+        $stack6 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        $stack10 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.util.List tokenize(char[],int,int)>($stack7, 0, $stack9);
+
+        return $stack10;
+
+     label1:
+        $stack4 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.util.List tokenize(char[],int,int)>(chars, offset, count);
+
+        return $stack4;
+    }
+
+    public java.lang.String getContent()
+    {
+        org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer this;
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.text.StrBuilder $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer;
+
+        $stack2 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String getContent()>();
+
+        if $stack2 != null goto label1;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrBuilder$StrBuilderTokenizer: org.apache.commons.lang3.text.StrBuilder this$0>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.text.StrBuilder: java.lang.String toString()>();
+
+        return $stack4;
+
+     label1:
+        return $stack2;
+    }
+}

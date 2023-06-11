@@ -1,0 +1,1777 @@
+public class org.apache.commons.lang3.CharSetTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharSetTest this;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testClass()
+    {
+        org.apache.commons.lang3.CharSetTest this;
+        int $stack2, $stack5;
+        java.lang.Class $stack1, $stack4;
+        boolean $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack1 = class "Lorg/apache/commons/lang3/CharSet;";
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Class: int getModifiers()>();
+
+        $stack3 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack3);
+
+        $stack4 = class "Lorg/apache/commons/lang3/CharSet;";
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Class: int getModifiers()>();
+
+        $stack6 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void testGetInstance()
+    {
+        java.lang.String[] $stack1, $stack5, $stack8, $stack11, $stack14, $stack17, $stack20;
+        org.apache.commons.lang3.CharSet $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack15, $stack16, $stack18, $stack19, $stack21, $stack22;
+        org.apache.commons.lang3.CharSetTest this;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY>;
+
+        $stack1 = newarray (java.lang.String)[1];
+
+        $stack1[0] = null;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack6 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY>;
+
+        $stack5 = newarray (java.lang.String)[1];
+
+        $stack5[0] = "";
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        $stack9 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA>;
+
+        $stack8 = newarray (java.lang.String)[1];
+
+        $stack8[0] = "a-zA-Z";
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack12 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA>;
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "A-Za-z";
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack15 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_LOWER>;
+
+        $stack14 = newarray (java.lang.String)[1];
+
+        $stack14[0] = "a-z";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        $stack18 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_UPPER>;
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "A-Z";
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack17);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack18, $stack19);
+
+        $stack21 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_NUMERIC>;
+
+        $stack20 = newarray (java.lang.String)[1];
+
+        $stack20[0] = "0-9";
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack20);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        return;
+    }
+
+    public void testGetInstance_Stringarray()
+    {
+        java.lang.String[] $stack1, $stack4, $stack8, $stack12;
+        org.apache.commons.lang3.CharSet $stack3, $stack6, $stack10, $stack14;
+        org.apache.commons.lang3.CharSetTest this;
+        java.lang.String $stack7, $stack11, $stack15;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack1 = (java.lang.String[]) null;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = newarray (java.lang.String)[0];
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack4);
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[]", $stack7);
+
+        $stack8 = newarray (java.lang.String)[1];
+
+        $stack8[0] = null;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack8);
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[]", $stack11);
+
+        $stack12 = newarray (java.lang.String)[1];
+
+        $stack12[0] = "a-e";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack12);
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[a-e]", $stack15);
+
+        return;
+    }
+
+    public void testConstructor_String_simple()
+    {
+        org.apache.commons.lang3.CharRange $stack25, $stack35, $stack45, $stack55;
+        org.apache.commons.lang3.CharSet $stack5, $stack12, $stack19, $stack29, $stack39, $stack49;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack6, $stack13, $stack20, $stack30, $stack40, $stack50;
+        java.lang.String[] $stack3, $stack11, $stack18, $stack28, $stack38, $stack48;
+        long $stack10, $stack17, $stack24, $stack34, $stack44, $stack54;
+        int $stack9, $stack16, $stack23, $stack33, $stack43, $stack53;
+        java.lang.String $stack8, $stack15, $stack22, $stack27, $stack32, $stack37, $stack42, $stack47, $stack52, $stack57;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = null;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack8 = virtualinvoke $stack5.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[]", $stack8);
+
+        $stack9 = lengthof $stack6;
+
+        $stack10 = (long) $stack9;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack10);
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack11);
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack15 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[]", $stack15);
+
+        $stack16 = lengthof $stack13;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack17);
+
+        $stack18 = newarray (java.lang.String)[1];
+
+        $stack18[0] = "a";
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack22 = virtualinvoke $stack19.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[a]", $stack22);
+
+        $stack23 = lengthof $stack20;
+
+        $stack24 = (long) $stack23;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack24);
+
+        $stack25 = $stack20[0];
+
+        $stack27 = virtualinvoke $stack25.<org.apache.commons.lang3.CharRange: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a", $stack27);
+
+        $stack28 = newarray (java.lang.String)[1];
+
+        $stack28[0] = "^a";
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack28);
+
+        $stack30 = virtualinvoke $stack29.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack32 = virtualinvoke $stack29.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[^a]", $stack32);
+
+        $stack33 = lengthof $stack30;
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack34);
+
+        $stack35 = $stack30[0];
+
+        $stack37 = virtualinvoke $stack35.<org.apache.commons.lang3.CharRange: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("^a", $stack37);
+
+        $stack38 = newarray (java.lang.String)[1];
+
+        $stack38[0] = "a-e";
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack42 = virtualinvoke $stack39.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[a-e]", $stack42);
+
+        $stack43 = lengthof $stack40;
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack44);
+
+        $stack45 = $stack40[0];
+
+        $stack47 = virtualinvoke $stack45.<org.apache.commons.lang3.CharRange: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("a-e", $stack47);
+
+        $stack48 = newarray (java.lang.String)[1];
+
+        $stack48[0] = "^a-e";
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack48);
+
+        $stack50 = virtualinvoke $stack49.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack52 = virtualinvoke $stack49.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[^a-e]", $stack52);
+
+        $stack53 = lengthof $stack50;
+
+        $stack54 = (long) $stack53;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack54);
+
+        $stack55 = $stack50[0];
+
+        $stack57 = virtualinvoke $stack55.<org.apache.commons.lang3.CharRange: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("^a-e", $stack57);
+
+        return;
+    }
+
+    public void testConstructor_String_combo()
+    {
+        org.apache.commons.lang3.CharRange $stack8, $stack10, $stack12, $stack19, $stack21, $stack28, $stack30, $stack37, $stack39, $stack46, $stack48, $stack50, $stack52;
+        org.apache.commons.lang3.CharSet $stack4, $stack15, $stack24, $stack33, $stack42;
+        boolean $stack9, $stack11, $stack13, $stack20, $stack22, $stack29, $stack31, $stack38, $stack40, $stack47, $stack49, $stack51, $stack53;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack5, $stack16, $stack25, $stack34, $stack43;
+        java.lang.String[] $stack3, $stack14, $stack23, $stack32, $stack41;
+        long $stack7, $stack18, $stack27, $stack36, $stack45;
+        int $stack6, $stack17, $stack26, $stack35, $stack44;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "abc";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack6 = lengthof $stack5;
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(98);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = newarray (java.lang.String)[1];
+
+        $stack14[0] = "a-ce-f";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack17 = lengthof $stack16;
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 99);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(101, 102);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack21);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = newarray (java.lang.String)[1];
+
+        $stack23[0] = "ae-f";
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack23);
+
+        $stack25 = virtualinvoke $stack24.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack26 = lengthof $stack25;
+
+        $stack27 = (long) $stack26;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack27);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack25, $stack28);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(101, 102);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack25, $stack30);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack32 = newarray (java.lang.String)[1];
+
+        $stack32[0] = "e-fa";
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack32);
+
+        $stack34 = virtualinvoke $stack33.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack35 = lengthof $stack34;
+
+        $stack36 = (long) $stack35;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack36);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack34, $stack37);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack38);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(101, 102);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack34, $stack39);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack40);
+
+        $stack41 = newarray (java.lang.String)[1];
+
+        $stack41[0] = "ae-fm-pz";
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack41);
+
+        $stack43 = virtualinvoke $stack42.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack44 = lengthof $stack43;
+
+        $stack45 = (long) $stack44;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack45);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack43, $stack46);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack47);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(101, 102);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack43, $stack48);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack49);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(109, 112);
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack43, $stack50);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack51);
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(122);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack43, $stack52);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack53);
+
+        return;
+    }
+
+    public void testConstructor_String_comboNegated()
+    {
+        org.apache.commons.lang3.CharRange $stack8, $stack10, $stack12, $stack19, $stack21, $stack23, $stack30, $stack32, $stack34, $stack36, $stack43, $stack45, $stack52, $stack54, $stack56;
+        org.apache.commons.lang3.CharSet $stack4, $stack15, $stack26, $stack39, $stack48;
+        boolean $stack9, $stack11, $stack13, $stack20, $stack22, $stack24, $stack31, $stack33, $stack35, $stack37, $stack44, $stack46, $stack53, $stack55, $stack57;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack5, $stack16, $stack27, $stack40, $stack49;
+        java.lang.String[] $stack3, $stack14, $stack25, $stack38, $stack47;
+        long $stack7, $stack18, $stack29, $stack42, $stack51;
+        int $stack6, $stack17, $stack28, $stack41, $stack50;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "^abc";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack6 = lengthof $stack5;
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(97);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(98);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = newarray (java.lang.String)[1];
+
+        $stack14[0] = "b^ac";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack17 = lengthof $stack16;
+
+        $stack18 = (long) $stack17;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(98);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(97);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack21);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack23);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = newarray (java.lang.String)[1];
+
+        $stack25[0] = "db^ac";
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack28 = lengthof $stack27;
+
+        $stack29 = (long) $stack28;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(4L, $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(100);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack27, $stack30);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(98);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack27, $stack32);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(97);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack27, $stack34);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack27, $stack36);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        $stack38 = newarray (java.lang.String)[1];
+
+        $stack38[0] = "^b^a";
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack38);
+
+        $stack40 = virtualinvoke $stack39.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack41 = lengthof $stack40;
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack42);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(98);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack40, $stack43);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack44);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(97);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack40, $stack45);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack46);
+
+        $stack47 = newarray (java.lang.String)[1];
+
+        $stack47[0] = "b^a-c^z";
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack47);
+
+        $stack49 = virtualinvoke $stack48.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack50 = lengthof $stack49;
+
+        $stack51 = (long) $stack50;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(3L, $stack51);
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(97, 99);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack49, $stack52);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack53);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(122);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack49, $stack54);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack55);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(98);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack49, $stack56);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack57);
+
+        return;
+    }
+
+    public void testConstructor_String_oddDash()
+    {
+        org.apache.commons.lang3.CharRange $stack8, $stack15, $stack22, $stack29, $stack36, $stack38, $stack45, $stack47, $stack54, $stack61;
+        org.apache.commons.lang3.CharSet $stack4, $stack11, $stack18, $stack25, $stack32, $stack41, $stack50, $stack57;
+        boolean $stack9, $stack16, $stack23, $stack30, $stack37, $stack39, $stack46, $stack48, $stack55, $stack62;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack5, $stack12, $stack19, $stack26, $stack33, $stack42, $stack51, $stack58;
+        java.lang.String[] $stack3, $stack10, $stack17, $stack24, $stack31, $stack40, $stack49, $stack56;
+        long $stack7, $stack14, $stack21, $stack28, $stack35, $stack44, $stack53, $stack60;
+        int $stack6, $stack13, $stack20, $stack27, $stack34, $stack43, $stack52, $stack59;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "-";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack6 = lengthof $stack5;
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = newarray (java.lang.String)[1];
+
+        $stack10[0] = "--";
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack13 = lengthof $stack12;
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack12, $stack15);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "---";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack20 = lengthof $stack19;
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack19, $stack22);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack24 = newarray (java.lang.String)[1];
+
+        $stack24[0] = "----";
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack27 = lengthof $stack26;
+
+        $stack28 = (long) $stack27;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack26, $stack29);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = newarray (java.lang.String)[1];
+
+        $stack31[0] = "-a";
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack31);
+
+        $stack33 = virtualinvoke $stack32.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack34 = lengthof $stack33;
+
+        $stack35 = (long) $stack34;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack35);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack33, $stack36);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack33, $stack38);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack39);
+
+        $stack40 = newarray (java.lang.String)[1];
+
+        $stack40[0] = "a-";
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack40);
+
+        $stack42 = virtualinvoke $stack41.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack43 = lengthof $stack42;
+
+        $stack44 = (long) $stack43;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack44);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack42, $stack45);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack46);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack42, $stack47);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack48);
+
+        $stack49 = newarray (java.lang.String)[1];
+
+        $stack49[0] = "a--";
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack49);
+
+        $stack51 = virtualinvoke $stack50.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack52 = lengthof $stack51;
+
+        $stack53 = (long) $stack52;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack53);
+
+        $stack54 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 45);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack51, $stack54);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack55);
+
+        $stack56 = newarray (java.lang.String)[1];
+
+        $stack56[0] = "--a";
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack56);
+
+        $stack58 = virtualinvoke $stack57.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack59 = lengthof $stack58;
+
+        $stack60 = (long) $stack59;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack60);
+
+        $stack61 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(45, 97);
+
+        $stack62 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack58, $stack61);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack62);
+
+        return;
+    }
+
+    public void testConstructor_String_oddNegate()
+    {
+        org.apache.commons.lang3.CharSet $stack4, $stack11, $stack18, $stack27, $stack34, $stack43, $stack52, $stack59, $stack66, $stack75;
+        org.apache.commons.lang3.CharSetTest this;
+        long $stack7, $stack14, $stack21, $stack30, $stack37, $stack46, $stack55, $stack62, $stack69, $stack78;
+        org.apache.commons.lang3.CharRange $stack8, $stack15, $stack22, $stack24, $stack31, $stack38, $stack40, $stack47, $stack49, $stack56, $stack63, $stack70, $stack72, $stack79, $stack81;
+        boolean $stack9, $stack16, $stack23, $stack25, $stack32, $stack39, $stack41, $stack48, $stack50, $stack57, $stack64, $stack71, $stack73, $stack80, $stack82;
+        org.apache.commons.lang3.CharRange[] $stack5, $stack12, $stack19, $stack28, $stack35, $stack44, $stack53, $stack60, $stack67, $stack76;
+        java.lang.String[] $stack3, $stack10, $stack17, $stack26, $stack33, $stack42, $stack51, $stack58, $stack65, $stack74;
+        int $stack6, $stack13, $stack20, $stack29, $stack36, $stack45, $stack54, $stack61, $stack68, $stack77;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "^";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack6 = lengthof $stack5;
+
+        $stack7 = (long) $stack6;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(94);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = newarray (java.lang.String)[1];
+
+        $stack10[0] = "^^";
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack10);
+
+        $stack12 = virtualinvoke $stack11.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack13 = lengthof $stack12;
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(94);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack12, $stack15);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "^^^";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack17);
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack20 = lengthof $stack19;
+
+        $stack21 = (long) $stack20;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(94);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack19, $stack22);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(94);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack19, $stack24);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack26 = newarray (java.lang.String)[1];
+
+        $stack26[0] = "^^^^";
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack26);
+
+        $stack28 = virtualinvoke $stack27.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack29 = lengthof $stack28;
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack30);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(94);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack28, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = newarray (java.lang.String)[1];
+
+        $stack33[0] = "a^";
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack33);
+
+        $stack35 = virtualinvoke $stack34.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack36 = lengthof $stack35;
+
+        $stack37 = (long) $stack36;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack37);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(97);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack35, $stack38);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack39);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(94);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack35, $stack40);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack41);
+
+        $stack42 = newarray (java.lang.String)[1];
+
+        $stack42[0] = "^a-";
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack42);
+
+        $stack44 = virtualinvoke $stack43.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack45 = lengthof $stack44;
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack46);
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(97);
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack44, $stack47);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack48);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack50 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack44, $stack49);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack50);
+
+        $stack51 = newarray (java.lang.String)[1];
+
+        $stack51[0] = "^^-c";
+
+        $stack52 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack51);
+
+        $stack53 = virtualinvoke $stack52.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack54 = lengthof $stack53;
+
+        $stack55 = (long) $stack54;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack55);
+
+        $stack56 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(94, 99);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack53, $stack56);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack57);
+
+        $stack58 = newarray (java.lang.String)[1];
+
+        $stack58[0] = "^c-^";
+
+        $stack59 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack58);
+
+        $stack60 = virtualinvoke $stack59.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack61 = lengthof $stack60;
+
+        $stack62 = (long) $stack61;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack62);
+
+        $stack63 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(99, 94);
+
+        $stack64 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack60, $stack63);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack64);
+
+        $stack65 = newarray (java.lang.String)[1];
+
+        $stack65[0] = "^c-^d";
+
+        $stack66 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack65);
+
+        $stack67 = virtualinvoke $stack66.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack68 = lengthof $stack67;
+
+        $stack69 = (long) $stack68;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack69);
+
+        $stack70 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(99, 94);
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack67, $stack70);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack71);
+
+        $stack72 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(100);
+
+        $stack73 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack67, $stack72);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack73);
+
+        $stack74 = newarray (java.lang.String)[1];
+
+        $stack74[0] = "^^-";
+
+        $stack75 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack74);
+
+        $stack76 = virtualinvoke $stack75.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack77 = lengthof $stack76;
+
+        $stack78 = (long) $stack77;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack78);
+
+        $stack79 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNot(char)>(94);
+
+        $stack80 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack76, $stack79);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack80);
+
+        $stack81 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(45);
+
+        $stack82 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack76, $stack81);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack82);
+
+        return;
+    }
+
+    public void testConstructor_String_oddCombinations()
+    {
+        org.apache.commons.lang3.CharRange $stack6, $stack8, $stack17, $stack19, $stack27, $stack29, $stack39, $stack48;
+        org.apache.commons.lang3.CharSet $stack4, $stack15, $stack25, $stack37, $stack46;
+        boolean $stack7, $stack9, $stack10, $stack11, $stack12, $stack13, $stack18, $stack20, $stack21, $stack22, $stack23, $stack28, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack40, $stack41, $stack42, $stack43, $stack44, $stack49, $stack50, $stack51, $stack52, $stack53;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack5, $stack16, $stack26, $stack38, $stack47;
+        java.lang.String[] $stack3, $stack14, $stack24, $stack36, $stack45;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack3 = newarray (java.lang.String)[1];
+
+        $stack3[0] = "a-^c";
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 94);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack5, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: boolean contains(char)>(94);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: boolean contains(char)>(95);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = virtualinvoke $stack4.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = newarray (java.lang.String)[1];
+
+        $stack14[0] = "^a-^c";
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(97, 94);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange is(char)>(99);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack16, $stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: boolean contains(char)>(94);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = virtualinvoke $stack15.<org.apache.commons.lang3.CharSet: boolean contains(char)>(95);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack23);
+
+        $stack24 = newarray (java.lang.String)[1];
+
+        $stack24[0] = "a- ^-- ";
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack24);
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 32);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack26, $stack27);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isNotIn(char,char)>(45, 32);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack26, $stack29);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: boolean contains(char)>(35);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack32 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: boolean contains(char)>(94);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack34 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: boolean contains(char)>(42);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack34);
+
+        $stack35 = virtualinvoke $stack25.<org.apache.commons.lang3.CharSet: boolean contains(char)>(65);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        $stack36 = newarray (java.lang.String)[1];
+
+        $stack36[0] = "^-b";
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack36);
+
+        $stack38 = virtualinvoke $stack37.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(94, 98);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack38, $stack39);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack40);
+
+        $stack41 = virtualinvoke $stack37.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack41);
+
+        $stack42 = virtualinvoke $stack37.<org.apache.commons.lang3.CharSet: boolean contains(char)>(95);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack42);
+
+        $stack43 = virtualinvoke $stack37.<org.apache.commons.lang3.CharSet: boolean contains(char)>(65);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack43);
+
+        $stack44 = virtualinvoke $stack37.<org.apache.commons.lang3.CharSet: boolean contains(char)>(94);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack44);
+
+        $stack45 = newarray (java.lang.String)[1];
+
+        $stack45[0] = "b-^";
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack45);
+
+        $stack47 = virtualinvoke $stack46.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(94, 98);
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack47, $stack48);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack49);
+
+        $stack50 = virtualinvoke $stack46.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack50);
+
+        $stack51 = virtualinvoke $stack46.<org.apache.commons.lang3.CharSet: boolean contains(char)>(94);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack51);
+
+        $stack52 = virtualinvoke $stack46.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack52);
+
+        $stack53 = virtualinvoke $stack46.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack53);
+
+        return;
+    }
+
+    public void testEquals_Object()
+    {
+        java.lang.String[] $stack7, $stack9, $stack11, $stack13, $stack15, $stack17;
+        org.apache.commons.lang3.CharSet $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+        boolean $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31;
+        org.apache.commons.lang3.CharSetTest this;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack7 = newarray (java.lang.String)[1];
+
+        $stack7[0] = "abc";
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack7);
+
+        $stack9 = newarray (java.lang.String)[1];
+
+        $stack9[0] = "abc";
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack9);
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "a-c";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack11);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = "a-c";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack13);
+
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "^a-c";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack15);
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "^a-c";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack17);
+
+        $stack19 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack19);
+
+        $stack20 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack23);
+
+        $stack24 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack24);
+
+        $stack25 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack26 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $stack27 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        $stack28 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack28);
+
+        $stack29 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack29);
+
+        $stack30 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean equals(java.lang.Object)>($stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        return;
+    }
+
+    public void testHashCode()
+    {
+        org.apache.commons.lang3.CharSet $stack8, $stack10, $stack12, $stack14, $stack16, $stack18;
+        org.apache.commons.lang3.CharSetTest this;
+        java.lang.String[] $stack7, $stack9, $stack11, $stack13, $stack15, $stack17;
+        long $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack34, $stack36, $stack38, $stack40, $stack42;
+        int $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack33, $stack35, $stack37, $stack39, $stack41;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack7 = newarray (java.lang.String)[1];
+
+        $stack7[0] = "abc";
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack7);
+
+        $stack9 = newarray (java.lang.String)[1];
+
+        $stack9[0] = "abc";
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack9);
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "a-c";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack11);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = "a-c";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack13);
+
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "^a-c";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack15);
+
+        $stack17 = newarray (java.lang.String)[1];
+
+        $stack17[0] = "^a-c";
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack17);
+
+        $stack19 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack20 = (long) $stack19;
+
+        $stack21 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack22 = (long) $stack21;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack20, $stack22);
+
+        $stack23 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack24 = (long) $stack23;
+
+        $stack25 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack26 = (long) $stack25;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack24, $stack26);
+
+        $stack27 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack28 = (long) $stack27;
+
+        $stack29 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack30 = (long) $stack29;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack28, $stack30);
+
+        $stack31 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack32 = (long) $stack31;
+
+        $stack33 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack34 = (long) $stack33;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack32, $stack34);
+
+        $stack35 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack36 = (long) $stack35;
+
+        $stack37 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack38 = (long) $stack37;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack36, $stack38);
+
+        $stack39 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack40 = (long) $stack39;
+
+        $stack41 = virtualinvoke $stack18.<org.apache.commons.lang3.CharSet: int hashCode()>();
+
+        $stack42 = (long) $stack41;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack40, $stack42);
+
+        return;
+    }
+
+    public void testContains_Char()
+    {
+        org.apache.commons.lang3.CharSet $stack8, $stack10, $stack12, $stack14, $stack16;
+        boolean $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37, $stack38, $stack39, $stack40, $stack41;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack42;
+        java.lang.String[] $stack7, $stack9, $stack11, $stack13, $stack15;
+        long $stack46;
+        int $stack45;
+        java.lang.String $stack44;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack7 = newarray (java.lang.String)[1];
+
+        $stack7[0] = "b-d";
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack7);
+
+        $stack9 = newarray (java.lang.String)[1];
+
+        $stack9[0] = "d-b";
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack9);
+
+        $stack11 = newarray (java.lang.String)[1];
+
+        $stack11[0] = "bcd";
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack11);
+
+        $stack13 = newarray (java.lang.String)[1];
+
+        $stack13[0] = "bd";
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack13);
+
+        $stack15 = newarray (java.lang.String)[1];
+
+        $stack15[0] = "^b-d";
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack15);
+
+        $stack17 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>(100);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = virtualinvoke $stack8.<org.apache.commons.lang3.CharSet: boolean contains(char)>(101);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack21);
+
+        $stack22 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack22);
+
+        $stack23 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack24 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean contains(char)>(100);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack26 = virtualinvoke $stack12.<org.apache.commons.lang3.CharSet: boolean contains(char)>(101);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack26);
+
+        $stack27 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack27);
+
+        $stack28 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack29);
+
+        $stack30 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: boolean contains(char)>(100);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: boolean contains(char)>(101);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack31);
+
+        $stack32 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack33);
+
+        $stack34 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack34);
+
+        $stack35 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean contains(char)>(100);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack35);
+
+        $stack36 = virtualinvoke $stack16.<org.apache.commons.lang3.CharSet: boolean contains(char)>(101);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack36);
+
+        $stack37 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(97);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack37);
+
+        $stack38 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(98);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack38);
+
+        $stack39 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(99);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack39);
+
+        $stack40 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(100);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack40);
+
+        $stack41 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: boolean contains(char)>(101);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack41);
+
+        $stack42 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack44 = virtualinvoke $stack10.<org.apache.commons.lang3.CharSet: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("[b-d]", $stack44);
+
+        $stack45 = lengthof $stack42;
+
+        $stack46 = (long) $stack45;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack46);
+
+        return;
+    }
+
+    public void testSerialization()
+    {
+        java.lang.String[] $stack2, $stack5, $stack8;
+        java.io.Serializable $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.CharSet $stack3, $stack6, $stack9;
+        org.apache.commons.lang3.CharSetTest this;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack2 = newarray (java.lang.String)[1];
+
+        $stack2[0] = "a";
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack5 = newarray (java.lang.String)[1];
+
+        $stack5[0] = "a-e";
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack5);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        $stack8 = newarray (java.lang.String)[1];
+
+        $stack8[0] = "be-f^a-z";
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet getInstance(java.lang.String[])>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.SerializationUtils: java.io.Serializable clone(java.io.Serializable)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        return;
+    }
+
+    public void testStatics()
+    {
+        org.apache.commons.lang3.CharRange $stack10, $stack12, $stack18, $stack24, $stack30;
+        long $stack5, $stack9, $stack17, $stack23, $stack29;
+        org.apache.commons.lang3.CharSet $stack2, $stack6, $stack14, $stack20, $stack26;
+        int $stack4, $stack8, $stack16, $stack22, $stack28;
+        boolean $stack11, $stack13, $stack19, $stack25, $stack31;
+        org.apache.commons.lang3.CharSetTest this;
+        org.apache.commons.lang3.CharRange[] $stack3, $stack7, $stack15, $stack21, $stack27;
+
+        this := @this: org.apache.commons.lang3.CharSetTest;
+
+        $stack2 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet EMPTY>;
+
+        $stack3 = virtualinvoke $stack2.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack4 = lengthof $stack3;
+
+        $stack5 = (long) $stack4;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack5);
+
+        $stack6 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA>;
+
+        $stack7 = virtualinvoke $stack6.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack8 = lengthof $stack7;
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(2L, $stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 122);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack7, $stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(65, 90);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack7, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        $stack14 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_LOWER>;
+
+        $stack15 = virtualinvoke $stack14.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack16 = lengthof $stack15;
+
+        $stack17 = (long) $stack16;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(97, 122);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack15, $stack18);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_ALPHA_UPPER>;
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack22 = lengthof $stack21;
+
+        $stack23 = (long) $stack22;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(65, 90);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack21, $stack24);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack26 = <org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharSet ASCII_NUMERIC>;
+
+        $stack27 = virtualinvoke $stack26.<org.apache.commons.lang3.CharSet: org.apache.commons.lang3.CharRange[] getCharRanges()>();
+
+        $stack28 = lengthof $stack27;
+
+        $stack29 = (long) $stack28;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.CharRange: org.apache.commons.lang3.CharRange isIn(char,char)>(48, 57);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean contains(java.lang.Object[],java.lang.Object)>($stack27, $stack30);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        return;
+    }
+}

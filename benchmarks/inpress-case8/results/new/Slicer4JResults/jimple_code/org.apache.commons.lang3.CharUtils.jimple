@@ -1,0 +1,697 @@
+public class org.apache.commons.lang3.CharUtils extends java.lang.Object
+{
+    private static final java.lang.String[] CHAR_STRING_ARRAY;
+    public static final char LF;
+    public static final char CR;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.CharUtils this;
+
+        this := @this: org.apache.commons.lang3.CharUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.Character toCharacterObject(char)
+    {
+        char ch;
+        java.lang.Character $stack1;
+
+        ch := @parameter0: char;
+
+        $stack1 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>(ch);
+
+        return $stack1;
+    }
+
+    public static java.lang.Character toCharacterObject(java.lang.String)
+    {
+        java.lang.Character $stack3;
+        char $stack2;
+        java.lang.String str;
+        boolean $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack1 == 0 goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        $stack3 = staticinvoke <java.lang.Character: java.lang.Character valueOf(char)>($stack2);
+
+        return $stack3;
+    }
+
+    public static char toChar(java.lang.Character)
+    {
+        char $stack1;
+        java.lang.Character ch;
+        java.lang.IllegalArgumentException $stack2;
+
+        ch := @parameter0: java.lang.Character;
+
+        if ch != null goto label1;
+
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The Character must not be null");
+
+        throw $stack2;
+
+     label1:
+        $stack1 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        return $stack1;
+    }
+
+    public static char toChar(java.lang.Character, char)
+    {
+        char $stack2, defaultValue;
+        java.lang.Character ch;
+
+        ch := @parameter0: java.lang.Character;
+
+        defaultValue := @parameter1: char;
+
+        if ch != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack2 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        return $stack2;
+    }
+
+    public static char toChar(java.lang.String)
+    {
+        char $stack2;
+        java.lang.String str;
+        java.lang.IllegalArgumentException $stack3;
+        boolean $stack1;
+
+        str := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack1 == 0 goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The String must not be empty");
+
+        throw $stack3;
+
+     label1:
+        $stack2 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        return $stack2;
+    }
+
+    public static char toChar(java.lang.String, char)
+    {
+        char $stack3, defaultValue;
+        java.lang.String str;
+        boolean $stack2;
+
+        str := @parameter0: java.lang.String;
+
+        defaultValue := @parameter1: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(str);
+
+        if $stack2 == 0 goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack3 = virtualinvoke str.<java.lang.String: char charAt(int)>(0);
+
+        return $stack3;
+    }
+
+    public static int toIntValue(char)
+    {
+        char ch;
+        java.lang.IllegalArgumentException $u1;
+        int $stack2, $i0;
+        java.lang.StringBuilder $stack5, $stack6, $stack7, $u0;
+        java.lang.String $stack8;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.CharUtils: boolean isAsciiNumeric(char)>(ch);
+
+        if $stack1 != 0 goto label1;
+
+        $u1 = new java.lang.IllegalArgumentException;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack5 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The character ");
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(ch);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not in the range \'0\' - \'9\'");
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u1.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack8);
+
+        throw $u1;
+
+     label1:
+        $i0 = (int) ch;
+
+        $stack2 = $i0 - 48;
+
+        return $stack2;
+    }
+
+    public static int toIntValue(char, int)
+    {
+        int $stack3, defaultValue, $i0;
+        char ch;
+        boolean $stack2;
+
+        ch := @parameter0: char;
+
+        defaultValue := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharUtils: boolean isAsciiNumeric(char)>(ch);
+
+        if $stack2 != 0 goto label1;
+
+        return defaultValue;
+
+     label1:
+        $i0 = (int) ch;
+
+        $stack3 = $i0 - 48;
+
+        return $stack3;
+    }
+
+    public static int toIntValue(java.lang.Character)
+    {
+        java.lang.Character ch;
+        int $stack2;
+        char $stack1;
+        java.lang.IllegalArgumentException $stack3;
+
+        ch := @parameter0: java.lang.Character;
+
+        if ch != null goto label1;
+
+        $stack3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The character must not be null");
+
+        throw $stack3;
+
+     label1:
+        $stack1 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharUtils: int toIntValue(char)>($stack1);
+
+        return $stack2;
+    }
+
+    public static int toIntValue(java.lang.Character, int)
+    {
+        java.lang.Character ch;
+        int defaultValue, $stack3;
+        char $stack2;
+
+        ch := @parameter0: java.lang.Character;
+
+        defaultValue := @parameter1: int;
+
+        if ch != null goto label1;
+
+        return defaultValue;
+
+     label1:
+        $stack2 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.CharUtils: int toIntValue(char,int)>($stack2, defaultValue);
+
+        return $stack3;
+    }
+
+    public static java.lang.String toString(char)
+    {
+        int $i0, $i1;
+        char[] $stack2;
+        char ch;
+        java.lang.String[] $stack3;
+        java.lang.String $stack4, $u0;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 >= 128 goto label1;
+
+        $stack3 = <org.apache.commons.lang3.CharUtils: java.lang.String[] CHAR_STRING_ARRAY>;
+
+        $i1 = (int) ch;
+
+        $stack4 = $stack3[$i1];
+
+        return $stack4;
+
+     label1:
+        $u0 = new java.lang.String;
+
+        $stack2 = newarray (char)[1];
+
+        $stack2[0] = ch;
+
+        specialinvoke $u0.<java.lang.String: void <init>(char[])>($stack2);
+
+        return $u0;
+    }
+
+    public static java.lang.String toString(java.lang.Character)
+    {
+        char $stack1;
+        java.lang.String $stack2;
+        java.lang.Character ch;
+
+        ch := @parameter0: java.lang.Character;
+
+        if ch != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharUtils: java.lang.String toString(char)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String unicodeEscaped(char)
+    {
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6;
+        java.lang.String $stack3, $stack5, $stack8, $stack10, $stack13, $stack15, $stack18, $stack20;
+        char ch;
+        java.lang.StringBuilder $stack2, $stack4, $stack7, $stack9, $stack12, $stack14, $stack17, $stack19, $u0, $u1, $u2, $u3;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 >= 16 goto label1;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack17 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u000");
+
+        $i1 = (int) ch;
+
+        $stack18 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i1);
+
+        $stack19 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack18);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack20;
+
+     label1:
+        $i2 = (int) ch;
+
+        if $i2 >= 256 goto label2;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack12 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u00");
+
+        $i3 = (int) ch;
+
+        $stack13 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i3);
+
+        $stack14 = virtualinvoke $stack12.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack13);
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack15;
+
+     label2:
+        $i4 = (int) ch;
+
+        if $i4 >= 4096 goto label3;
+
+        $u2 = new java.lang.StringBuilder;
+
+        specialinvoke $u2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke $u2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u0");
+
+        $i5 = (int) ch;
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i5);
+
+        $stack9 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack8);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack10;
+
+     label3:
+        $u3 = new java.lang.StringBuilder;
+
+        specialinvoke $u3.<java.lang.StringBuilder: void <init>()>();
+
+        $stack2 = virtualinvoke $u3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("\\u");
+
+        $i6 = (int) ch;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.String toHexString(int)>($i6);
+
+        $stack4 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack3);
+
+        $stack5 = virtualinvoke $stack4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack5;
+    }
+
+    public static java.lang.String unicodeEscaped(java.lang.Character)
+    {
+        char $stack1;
+        java.lang.String $stack2;
+        java.lang.Character ch;
+
+        ch := @parameter0: java.lang.Character;
+
+        if ch != null goto label1;
+
+        return null;
+
+     label1:
+        $stack1 = virtualinvoke ch.<java.lang.Character: char charValue()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.CharUtils: java.lang.String unicodeEscaped(char)>($stack1);
+
+        return $stack2;
+    }
+
+    public static boolean isAscii(char)
+    {
+        int $i0;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 >= 128 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static boolean isAsciiPrintable(char)
+    {
+        int $i0, $i1;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 32 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 >= 127 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static boolean isAsciiControl(char)
+    {
+        int $i0, $i1;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 32 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 != 127 goto label2;
+
+     label1:
+        $stack1 = 1;
+
+        goto label3;
+
+     label2:
+        $stack1 = 0;
+
+     label3:
+        return $stack1;
+    }
+
+    public static boolean isAsciiAlpha(char)
+    {
+        int $i0, $i1, $i2, $i3;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 65 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 <= 90 goto label2;
+
+     label1:
+        $i2 = (int) ch;
+
+        if $i2 < 97 goto label3;
+
+        $i3 = (int) ch;
+
+        if $i3 > 122 goto label3;
+
+     label2:
+        $stack1 = 1;
+
+        goto label4;
+
+     label3:
+        $stack1 = 0;
+
+     label4:
+        return $stack1;
+    }
+
+    public static boolean isAsciiAlphaUpper(char)
+    {
+        int $i0, $i1;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 65 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 > 90 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static boolean isAsciiAlphaLower(char)
+    {
+        int $i0, $i1;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 97 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 > 122 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static boolean isAsciiNumeric(char)
+    {
+        int $i0, $i1;
+        char ch;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 48 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 > 57 goto label1;
+
+        $stack1 = 1;
+
+        goto label2;
+
+     label1:
+        $stack1 = 0;
+
+     label2:
+        return $stack1;
+    }
+
+    public static boolean isAsciiAlphanumeric(char)
+    {
+        char ch;
+        int $i0, $i1, $i2, $i3, $i4, $i5;
+        boolean $stack1;
+
+        ch := @parameter0: char;
+
+        $i0 = (int) ch;
+
+        if $i0 < 65 goto label1;
+
+        $i1 = (int) ch;
+
+        if $i1 <= 90 goto label3;
+
+     label1:
+        $i2 = (int) ch;
+
+        if $i2 < 97 goto label2;
+
+        $i3 = (int) ch;
+
+        if $i3 <= 122 goto label3;
+
+     label2:
+        $i4 = (int) ch;
+
+        if $i4 < 48 goto label4;
+
+        $i5 = (int) ch;
+
+        if $i5 > 57 goto label4;
+
+     label3:
+        $stack1 = 1;
+
+        goto label5;
+
+     label4:
+        $stack1 = 0;
+
+     label5:
+        return $stack1;
+    }
+
+    static void <clinit>()
+    {
+        int $stack3, $stack6;
+        java.lang.String[] $stack1, $stack2, $stack4;
+        char c;
+        java.lang.String $stack5;
+
+        <org.apache.commons.lang3.CharUtils: char CR> = 13;
+
+        <org.apache.commons.lang3.CharUtils: char LF> = 10;
+
+        $stack1 = newarray (java.lang.String)[128];
+
+        <org.apache.commons.lang3.CharUtils: java.lang.String[] CHAR_STRING_ARRAY> = $stack1;
+
+        c = 0;
+
+     label1:
+        $stack2 = <org.apache.commons.lang3.CharUtils: java.lang.String[] CHAR_STRING_ARRAY>;
+
+        $stack3 = lengthof $stack2;
+
+        if c >= $stack3 goto label2;
+
+        $stack4 = <org.apache.commons.lang3.CharUtils: java.lang.String[] CHAR_STRING_ARRAY>;
+
+        $stack5 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(c);
+
+        $stack4[c] = $stack5;
+
+        $stack6 = c + 1;
+
+        c = (char) $stack6;
+
+        goto label1;
+
+     label2:
+        return;
+    }
+}

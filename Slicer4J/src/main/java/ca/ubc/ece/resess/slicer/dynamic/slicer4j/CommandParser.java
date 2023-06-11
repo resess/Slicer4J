@@ -34,6 +34,7 @@ public class CommandParser {
         options.addOption("f", "framework", true, "Path to folder with extra framework methods"); // path of extra framework methods
         options.addOption("d", "debug", false, "Enable debug"); // data
         options.addOption("once", "once", false, "Slice one step only"); // data
+        options.addOption("noprint", "noprint", false, "Dont print slices"); // data
     }
 
 
@@ -68,6 +69,9 @@ public class CommandParser {
             }
             if (cmd.hasOption("d")) {
                 parsed.put("debug", "True");
+            }
+            if (cmd.hasOption("noprint")) {
+                parsed.put("noprint", "True");
             }
         } catch (ParseException e) {
             HelpFormatter formatter = new HelpFormatter();

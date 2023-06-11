@@ -1,0 +1,336 @@
+public class org.apache.commons.lang3.mutable.MutableBoolean extends java.lang.Object implements org.apache.commons.lang3.mutable.Mutable, java.io.Serializable, java.lang.Comparable
+{
+    private static final long serialVersionUID;
+    private boolean value;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(boolean)
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        value := @parameter0: boolean;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value> = value;
+
+        return;
+    }
+
+    public void <init>(java.lang.Boolean)
+    {
+        java.lang.Boolean value;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        value := @parameter0: java.lang.Boolean;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack2 = virtualinvoke value.<java.lang.Boolean: boolean booleanValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value> = $stack2;
+
+        return;
+    }
+
+    public java.lang.Boolean getValue()
+    {
+        java.lang.Boolean $stack2;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        $stack2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack1);
+
+        return $stack2;
+    }
+
+    public void setValue(boolean)
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean value;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        value := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value> = value;
+
+        return;
+    }
+
+    public void setValue(java.lang.Boolean)
+    {
+        java.lang.Boolean value;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        value := @parameter0: java.lang.Boolean;
+
+        $stack2 = virtualinvoke value.<java.lang.Boolean: boolean booleanValue()>();
+
+        this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value> = $stack2;
+
+        return;
+    }
+
+    public boolean isTrue()
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        if $stack1 != 1 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public boolean isFalse()
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        if $stack1 != 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public boolean booleanValue()
+    {
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        return $stack1;
+    }
+
+    public java.lang.Boolean toBoolean()
+    {
+        java.lang.Boolean $stack2;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean booleanValue()>();
+
+        $stack2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack1);
+
+        return $stack2;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        java.lang.Object obj;
+        org.apache.commons.lang3.mutable.MutableBoolean this, $stack3;
+        boolean $stack2, $stack4, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        obj := @parameter0: java.lang.Object;
+
+        $stack2 = obj instanceof org.apache.commons.lang3.mutable.MutableBoolean;
+
+        if $stack2 == 0 goto label3;
+
+        $stack4 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        $stack3 = (org.apache.commons.lang3.mutable.MutableBoolean) obj;
+
+        $stack5 = virtualinvoke $stack3.<org.apache.commons.lang3.mutable.MutableBoolean: boolean booleanValue()>();
+
+        if $stack4 != $stack5 goto label1;
+
+        $stack6 = 1;
+
+        goto label2;
+
+     label1:
+        $stack6 = 0;
+
+     label2:
+        return $stack6;
+
+     label3:
+        return 0;
+    }
+
+    public int hashCode()
+    {
+        int $stack3;
+        java.lang.Boolean $stack2, $stack4;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        if $stack1 == 0 goto label1;
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = virtualinvoke $stack4.<java.lang.Boolean: int hashCode()>();
+
+        goto label2;
+
+     label1:
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Boolean: int hashCode()>();
+
+     label2:
+        return $stack3;
+    }
+
+    public int compareTo(org.apache.commons.lang3.mutable.MutableBoolean)
+    {
+        byte $stack5;
+        org.apache.commons.lang3.mutable.MutableBoolean other, this;
+        boolean anotherVal, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        other := @parameter0: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        anotherVal = other.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        $stack3 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        if $stack3 != anotherVal goto label1;
+
+        $stack5 = 0;
+
+        goto label3;
+
+     label1:
+        $stack4 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        if $stack4 == 0 goto label2;
+
+        $stack5 = 1;
+
+        goto label3;
+
+     label2:
+        $stack5 = -1;
+
+     label3:
+        return $stack5;
+    }
+
+    public java.lang.String toString()
+    {
+        java.lang.String $stack2;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = this.<org.apache.commons.lang3.mutable.MutableBoolean: boolean value>;
+
+        $stack2 = staticinvoke <java.lang.String: java.lang.String valueOf(boolean)>($stack1);
+
+        return $stack2;
+    }
+
+    public volatile void setValue(java.lang.Object)
+    {
+        java.lang.Boolean $stack2;
+        java.lang.Object x0;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.Boolean) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.mutable.MutableBoolean: void setValue(java.lang.Boolean)>($stack2);
+
+        return;
+    }
+
+    public volatile java.lang.Object getValue()
+    {
+        java.lang.Boolean $stack1;
+        org.apache.commons.lang3.mutable.MutableBoolean this;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableBoolean: java.lang.Boolean getValue()>();
+
+        return $stack1;
+    }
+
+    public volatile int compareTo(java.lang.Object)
+    {
+        int $stack3;
+        java.lang.Object x0;
+        org.apache.commons.lang3.mutable.MutableBoolean this, $stack2;
+
+        this := @this: org.apache.commons.lang3.mutable.MutableBoolean;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (org.apache.commons.lang3.mutable.MutableBoolean) x0;
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.mutable.MutableBoolean: int compareTo(org.apache.commons.lang3.mutable.MutableBoolean)>($stack2);
+
+        return $stack3;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.mutable.MutableBoolean: long serialVersionUID> = -4830728138360036487L;
+
+        return;
+    }
+}

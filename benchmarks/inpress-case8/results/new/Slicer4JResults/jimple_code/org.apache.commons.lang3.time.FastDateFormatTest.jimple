@@ -1,0 +1,915 @@
+public class org.apache.commons.lang3.time.FastDateFormatTest extends java.lang.Object
+{
+    private static final int NTHREADS;
+    private static final int NROUNDS;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void test_getInstance()
+    {
+        org.apache.commons.lang3.time.FastDateFormat $stack3, $stack4;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        return;
+    }
+
+    public void test_getInstance_String()
+    {
+        java.util.TimeZone $stack9, $stack10, $stack11, $stack12;
+        org.apache.commons.lang3.time.FastDateFormat $stack4, $stack5, $stack6;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        java.lang.String $stack8;
+        boolean $stack13;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM/DD/yyyy");
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM-DD-yyyy");
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM-DD-yyyy");
+
+        if $stack4 == $stack5 goto label1;
+
+        $stack13 = 1;
+
+        goto label2;
+
+     label1:
+        $stack13 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String getPattern()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("MM/DD/yyyy", $stack8);
+
+        $stack9 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack10 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack12 = virtualinvoke $stack5.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        return;
+    }
+
+    public void test_getInstance_String_TimeZone()
+    {
+        java.lang.Throwable $stack46;
+        java.util.Locale $stack10, $stack12;
+        boolean $stack38, $stack35, $stack32;
+        java.util.TimeZone $stack11, $stack13, $stack15, $stack19, $stack22, $stack25, $stack28, $stack29, $stack30, $stack31;
+        org.apache.commons.lang3.time.FastDateFormat $stack16, $stack17, $stack20, $stack23, $stack26, $stack27;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack10 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack11 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+     label01:
+        $stack12 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack12);
+
+        $stack13 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack13);
+
+        $stack15 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("Atlantic/Reykjavik");
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone)>("MM/DD/yyyy", $stack15);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM/DD/yyyy");
+
+        $stack19 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone)>("MM/DD/yyyy", $stack19);
+
+        $stack22 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone)>("MM/DD/yyyy", $stack22);
+
+        $stack25 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone)>("MM-DD-yyyy", $stack25);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM-DD-yyyy");
+
+        if $stack16 == $stack17 goto label02;
+
+        $stack38 = 1;
+
+        goto label03;
+
+     label02:
+        $stack38 = 0;
+
+     label03:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack38);
+
+        $stack28 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("Atlantic/Reykjavik");
+
+        $stack29 = virtualinvoke $stack16.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack29);
+
+        $stack30 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack31 = virtualinvoke $stack17.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack31);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack20, $stack23);
+
+        if $stack20 == $stack26 goto label04;
+
+        $stack35 = 1;
+
+        goto label05;
+
+     label04:
+        $stack35 = 0;
+
+     label05:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        if $stack23 == $stack27 goto label06;
+
+        $stack32 = 1;
+
+        goto label07;
+
+     label06:
+        $stack32 = 0;
+
+     label07:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+     label08:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack10);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack11);
+
+        goto label11;
+
+     label09:
+        $stack46 := @caughtexception;
+
+     label10:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack10);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack11);
+
+        throw $stack46;
+
+     label11:
+        return;
+
+        catch java.lang.Throwable from label01 to label08 with label09;
+        catch java.lang.Throwable from label09 to label10 with label09;
+    }
+
+    public void test_getInstance_String_Locale()
+    {
+        java.lang.Throwable $stack20;
+        org.apache.commons.lang3.time.FastDateFormat $stack9, $stack10, $stack12;
+        java.util.Locale $stack6, $stack7, $stack8, $stack11, $stack13, $stack14;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        boolean $stack15;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack6 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+     label1:
+        $stack7 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack7);
+
+        $stack8 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.Locale)>("MM/DD/yyyy", $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("MM/DD/yyyy");
+
+        $stack11 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.Locale)>("MM/DD/yyyy", $stack11);
+
+        if $stack9 == $stack10 goto label2;
+
+        $stack15 = 1;
+
+        goto label3;
+
+     label2:
+        $stack15 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack9, $stack12);
+
+        $stack13 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack14 = virtualinvoke $stack9.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+     label4:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        goto label7;
+
+     label5:
+        $stack20 := @caughtexception;
+
+     label6:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        throw $stack20;
+
+     label7:
+        return;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public void test_changeDefault_Locale_DateInstance()
+    {
+        java.lang.Throwable $stack24;
+        java.util.Locale $stack6, $stack7, $stack8, $stack11, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18;
+        boolean $stack21, $stack19;
+        org.apache.commons.lang3.time.FastDateFormat $stack9, $stack10, $stack12;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack6 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+     label1:
+        $stack7 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack7);
+
+        $stack8 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.Locale)>(0, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int)>(0);
+
+        $stack11 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int)>(0);
+
+        $stack13 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack14 = virtualinvoke $stack9.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = <java.util.Locale: java.util.Locale US>;
+
+        $stack16 = virtualinvoke $stack10.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        $stack17 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack18 = virtualinvoke $stack12.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack18);
+
+        if $stack9 == $stack10 goto label2;
+
+        $stack21 = 1;
+
+        goto label3;
+
+     label2:
+        $stack21 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        if $stack10 == $stack12 goto label4;
+
+        $stack19 = 1;
+
+        goto label5;
+
+     label4:
+        $stack19 = 0;
+
+     label5:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+     label6:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        goto label9;
+
+     label7:
+        $stack24 := @caughtexception;
+
+     label8:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        throw $stack24;
+
+     label9:
+        return;
+
+        catch java.lang.Throwable from label1 to label6 with label7;
+        catch java.lang.Throwable from label7 to label8 with label7;
+    }
+
+    public void test_changeDefault_Locale_DateTimeInstance()
+    {
+        java.lang.Throwable $stack24;
+        java.util.Locale $stack6, $stack7, $stack8, $stack11, $stack13, $stack14, $stack15, $stack16, $stack17, $stack18;
+        boolean $stack21, $stack19;
+        org.apache.commons.lang3.time.FastDateFormat $stack9, $stack10, $stack12;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack6 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+     label1:
+        $stack7 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack7);
+
+        $stack8 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(0, 0, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int)>(0, 0);
+
+        $stack11 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack11);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int)>(0, 0);
+
+        $stack13 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack14 = virtualinvoke $stack9.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack13, $stack14);
+
+        $stack15 = <java.util.Locale: java.util.Locale US>;
+
+        $stack16 = virtualinvoke $stack10.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack15, $stack16);
+
+        $stack17 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack18 = virtualinvoke $stack12.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack17, $stack18);
+
+        if $stack9 == $stack10 goto label2;
+
+        $stack21 = 1;
+
+        goto label3;
+
+     label2:
+        $stack21 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        if $stack10 == $stack12 goto label4;
+
+        $stack19 = 1;
+
+        goto label5;
+
+     label4:
+        $stack19 = 0;
+
+     label5:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+     label6:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        goto label9;
+
+     label7:
+        $stack24 := @caughtexception;
+
+     label8:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack6);
+
+        throw $stack24;
+
+     label9:
+        return;
+
+        catch java.lang.Throwable from label1 to label6 with label7;
+        catch java.lang.Throwable from label7 to label8 with label7;
+    }
+
+    public void test_getInstance_String_TimeZone_Locale()
+    {
+        java.lang.Throwable $stack43;
+        java.util.Locale $stack7, $stack9, $stack13, $stack15, $stack19, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32;
+        boolean $stack33;
+        java.util.TimeZone $stack8, $stack10, $stack12, $stack18, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26;
+        org.apache.commons.lang3.time.FastDateFormat $stack14, $stack16, $stack20;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack7 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack8 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+     label1:
+        $stack9 = <java.util.Locale: java.util.Locale US>;
+
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack9);
+
+        $stack10 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack10);
+
+        $stack12 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("Atlantic/Reykjavik");
+
+        $stack13 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>("MM/DD/yyyy", $stack12, $stack13);
+
+        $stack15 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.Locale)>("MM/DD/yyyy", $stack15);
+
+        $stack18 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack19 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>("MM/DD/yyyy", $stack18, $stack19);
+
+        if $stack14 == $stack16 goto label2;
+
+        $stack33 = 1;
+
+        goto label3;
+
+     label2:
+        $stack33 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack21 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("Atlantic/Reykjavik");
+
+        $stack22 = virtualinvoke $stack14.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack21, $stack22);
+
+        $stack23 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack24 = virtualinvoke $stack16.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack24);
+
+        $stack25 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack26 = virtualinvoke $stack20.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack25, $stack26);
+
+        $stack27 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack28 = virtualinvoke $stack14.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack27, $stack28);
+
+        $stack29 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack30 = virtualinvoke $stack16.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack30);
+
+        $stack31 = <java.util.Locale: java.util.Locale GERMANY>;
+
+        $stack32 = virtualinvoke $stack20.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack31, $stack32);
+
+     label4:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack7);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack8);
+
+        goto label7;
+
+     label5:
+        $stack43 := @caughtexception;
+
+     label6:
+        staticinvoke <java.util.Locale: void setDefault(java.util.Locale)>($stack7);
+
+        staticinvoke <java.util.TimeZone: void setDefault(java.util.TimeZone)>($stack8);
+
+        throw $stack43;
+
+     label7:
+        return;
+
+        catch java.lang.Throwable from label1 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+
+    public void testCheckDefaults()
+    {
+        java.util.TimeZone $stack11, $stack12;
+        java.text.SimpleDateFormat $stack6;
+        org.apache.commons.lang3.time.FastDateFormat $stack4, $stack5;
+        java.util.Locale $stack9, $stack10;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        java.lang.String $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance()>();
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int)>(3, 3);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack4);
+
+        $stack6 = new java.text.SimpleDateFormat;
+
+        specialinvoke $stack6.<java.text.SimpleDateFormat: void <init>()>();
+
+        $stack7 = virtualinvoke $stack6.<java.text.SimpleDateFormat: java.lang.String toPattern()>();
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDateFormat: java.lang.String getPattern()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        $stack9 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack10 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDateFormat: java.util.Locale getLocale()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack10);
+
+        $stack11 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack12 = virtualinvoke $stack4.<org.apache.commons.lang3.time.FastDateFormat: java.util.TimeZone getTimeZone()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        return;
+    }
+
+    public void testCheckDifferingStyles()
+    {
+        org.apache.commons.lang3.time.FastDateFormat $stack6, $stack8, $stack10, $stack12;
+        java.util.Locale $stack5, $stack7, $stack9, $stack11;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        boolean $stack13, $stack14, $stack15, $stack16, $stack17, $stack18;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack5 = <java.util.Locale: java.util.Locale US>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(3, 3, $stack5);
+
+        $stack7 = <java.util.Locale: java.util.Locale US>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(3, 1, $stack7);
+
+        $stack9 = <java.util.Locale: java.util.Locale US>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(1, 3, $stack9);
+
+        $stack11 = <java.util.Locale: java.util.Locale US>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(1, 1, $stack11);
+
+        $stack13 = virtualinvoke $stack6.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack13);
+
+        $stack14 = virtualinvoke $stack6.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack15 = virtualinvoke $stack6.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        $stack16 = virtualinvoke $stack8.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack16);
+
+        $stack17 = virtualinvoke $stack8.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack17);
+
+        $stack18 = virtualinvoke $stack10.<org.apache.commons.lang3.time.FastDateFormat: boolean equals(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack18);
+
+        return;
+    }
+
+    public void testDateDefaults()
+    {
+        java.util.TimeZone $stack4, $stack8, $stack11, $stack16;
+        org.apache.commons.lang3.time.FastDateFormat $stack2, $stack6, $stack9, $stack13, $stack14, $stack18;
+        java.util.Locale $stack1, $stack5, $stack12, $stack17;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack1 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.Locale)>(1, $stack1);
+
+        $stack4 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack5 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack4, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack6);
+
+        $stack8 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.TimeZone)>(1, $stack8);
+
+        $stack11 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack12 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack11, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int)>(1);
+
+        $stack16 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack17 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack18);
+
+        return;
+    }
+
+    public void testTimeDefaults()
+    {
+        java.util.TimeZone $stack4, $stack8, $stack11, $stack16;
+        org.apache.commons.lang3.time.FastDateFormat $stack2, $stack6, $stack9, $stack13, $stack14, $stack18;
+        java.util.Locale $stack1, $stack5, $stack12, $stack17;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack1 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int,java.util.Locale)>(1, $stack1);
+
+        $stack4 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack5 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack4, $stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack6);
+
+        $stack8 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int,java.util.TimeZone)>(1, $stack8);
+
+        $stack11 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack12 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack11, $stack12);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack9, $stack13);
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int)>(1);
+
+        $stack16 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack17 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getTimeInstance(int,java.util.TimeZone,java.util.Locale)>(1, $stack16, $stack17);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack18);
+
+        return;
+    }
+
+    public void testTimeDateDefaults()
+    {
+        java.util.TimeZone $stack5, $stack10, $stack14, $stack20;
+        org.apache.commons.lang3.time.FastDateFormat $stack2, $stack7, $stack11, $stack16, $stack17, $stack22;
+        java.util.Locale $stack1, $stack6, $stack15, $stack21;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack1 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.Locale)>(1, 2, $stack1);
+
+        $stack5 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack6 = <java.util.Locale: java.util.Locale CANADA>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.TimeZone,java.util.Locale)>(1, 2, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack2, $stack7);
+
+        $stack10 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.TimeZone)>(1, 2, $stack10);
+
+        $stack14 = staticinvoke <java.util.TimeZone: java.util.TimeZone getTimeZone(java.lang.String)>("America/New_York");
+
+        $stack15 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.TimeZone,java.util.Locale)>(1, 2, $stack14, $stack15);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int)>(1, 2);
+
+        $stack20 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack21 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getDateTimeInstance(int,int,java.util.TimeZone,java.util.Locale)>(1, 2, $stack20, $stack21);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack17, $stack22);
+
+        return;
+    }
+
+    public void testParseSync() throws java.lang.InterruptedException
+    {
+        java.io.PrintStream $stack19;
+        long $stack10, $stack12;
+        org.apache.commons.lang3.time.FastDateFormat $stack8, $stack11;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        org.apache.commons.lang3.time.FastDateFormatTest$1 $stack9;
+        java.lang.StringBuilder $stack13, $stack14, $stack15, $stack16, $stack17;
+        java.lang.String $stack18;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ss.SSS Z");
+
+        $stack9 = new org.apache.commons.lang3.time.FastDateFormatTest$1;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.time.FastDateFormatTest$1: void <init>(org.apache.commons.lang3.time.FastDateFormatTest,java.lang.String)>(this, "yyyy-MM-dd\'T\'HH:mm:ss.SSS Z");
+
+        $stack10 = specialinvoke this.<org.apache.commons.lang3.time.FastDateFormatTest: long measureTime(java.text.Format,java.text.Format)>($stack8, $stack9);
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.FastDateFormat: org.apache.commons.lang3.time.FastDateFormat getInstance(java.lang.String)>("yyyy-MM-dd\'T\'HH:mm:ss.SSS Z");
+
+        $stack12 = specialinvoke this.<org.apache.commons.lang3.time.FastDateFormatTest: long measureTime(java.text.Format,java.text.Format)>($stack8, $stack11);
+
+        $stack13 = new java.lang.StringBuilder;
+
+        specialinvoke $stack13.<java.lang.StringBuilder: void <init>()>();
+
+        $stack14 = virtualinvoke $stack13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(">>FastDateFormatTest: FastDateParser:");
+
+        $stack15 = virtualinvoke $stack14.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($stack12);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("  SimpleDateFormat:");
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(long)>($stack10);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack19 = <java.lang.System: java.io.PrintStream out>;
+
+        virtualinvoke $stack19.<java.io.PrintStream: void println(java.lang.String)>($stack18);
+
+        return;
+    }
+
+    private long measureTime(java.text.Format, java.text.Format) throws java.lang.InterruptedException
+    {
+        java.text.Format formatter, parser;
+        long $stack14, $stack15;
+        java.util.concurrent.TimeUnit $stack10;
+        java.util.concurrent.atomic.AtomicLong $stack9;
+        java.util.concurrent.atomic.AtomicInteger $stack8;
+        org.apache.commons.lang3.time.FastDateFormatTest this;
+        org.apache.commons.lang3.time.FastDateFormatTest$2 $stack19;
+        int $stack13, i;
+        java.util.concurrent.ExecutorService $stack7;
+        boolean $stack11;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        formatter := @parameter0: java.text.Format;
+
+        parser := @parameter1: java.text.Format;
+
+        $stack7 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newFixedThreadPool(int)>(10);
+
+        $stack8 = new java.util.concurrent.atomic.AtomicInteger;
+
+        specialinvoke $stack8.<java.util.concurrent.atomic.AtomicInteger: void <init>(int)>(0);
+
+        $stack9 = new java.util.concurrent.atomic.AtomicLong;
+
+        specialinvoke $stack9.<java.util.concurrent.atomic.AtomicLong: void <init>(long)>(0L);
+
+        i = 0;
+
+     label1:
+        if i >= 10 goto label2;
+
+        $stack19 = new org.apache.commons.lang3.time.FastDateFormatTest$2;
+
+        specialinvoke $stack19.<org.apache.commons.lang3.time.FastDateFormatTest$2: void <init>(org.apache.commons.lang3.time.FastDateFormatTest,java.text.Format,java.text.Format,java.util.concurrent.atomic.AtomicLong,java.util.concurrent.atomic.AtomicInteger)>(this, formatter, parser, $stack9, $stack8);
+
+        interfaceinvoke $stack7.<java.util.concurrent.ExecutorService: java.util.concurrent.Future submit(java.lang.Runnable)>($stack19);
+
+        i = i + 1;
+
+        goto label1;
+
+     label2:
+        interfaceinvoke $stack7.<java.util.concurrent.ExecutorService: void shutdown()>();
+
+        $stack10 = <java.util.concurrent.TimeUnit: java.util.concurrent.TimeUnit SECONDS>;
+
+        $stack11 = interfaceinvoke $stack7.<java.util.concurrent.ExecutorService: boolean awaitTermination(long,java.util.concurrent.TimeUnit)>(20L, $stack10);
+
+        if $stack11 != 0 goto label3;
+
+        interfaceinvoke $stack7.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("did not complete tasks");
+
+     label3:
+        $stack13 = virtualinvoke $stack8.<java.util.concurrent.atomic.AtomicInteger: int get()>();
+
+        $stack14 = (long) $stack13;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack14);
+
+        $stack15 = virtualinvoke $stack9.<java.util.concurrent.atomic.AtomicLong: long get()>();
+
+        return $stack15;
+    }
+
+    public static void <clinit>()
+    {
+        <org.apache.commons.lang3.time.FastDateFormatTest: int NROUNDS> = 10000;
+
+        <org.apache.commons.lang3.time.FastDateFormatTest: int NTHREADS> = 10;
+
+        return;
+    }
+}

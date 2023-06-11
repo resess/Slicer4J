@@ -1,0 +1,118 @@
+class org.apache.commons.lang3.time.FastDateFormatTest$2 extends java.lang.Object implements java.lang.Runnable
+{
+    final java.text.Format val$formatter;
+    final java.text.Format val$parser;
+    final java.util.concurrent.atomic.AtomicLong val$totalElapsed;
+    final java.util.concurrent.atomic.AtomicInteger val$failures;
+    final org.apache.commons.lang3.time.FastDateFormatTest this$0;
+
+    void <init>(org.apache.commons.lang3.time.FastDateFormatTest, java.text.Format, java.text.Format, java.util.concurrent.atomic.AtomicLong, java.util.concurrent.atomic.AtomicInteger)
+    {
+        java.util.concurrent.atomic.AtomicLong l4;
+        java.text.Format l2, l3;
+        java.util.concurrent.atomic.AtomicInteger l5;
+        org.apache.commons.lang3.time.FastDateFormatTest l1;
+        org.apache.commons.lang3.time.FastDateFormatTest$2 this;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest$2;
+
+        l1 := @parameter0: org.apache.commons.lang3.time.FastDateFormatTest;
+
+        l2 := @parameter1: java.text.Format;
+
+        l3 := @parameter2: java.text.Format;
+
+        l4 := @parameter3: java.util.concurrent.atomic.AtomicLong;
+
+        l5 := @parameter4: java.util.concurrent.atomic.AtomicInteger;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$2: org.apache.commons.lang3.time.FastDateFormatTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.text.Format val$formatter> = l2;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.text.Format val$parser> = l3;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.util.concurrent.atomic.AtomicLong val$totalElapsed> = l4;
+
+        this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.util.concurrent.atomic.AtomicInteger val$failures> = l5;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        java.text.Format $stack8, $stack11;
+        java.util.Date $stack7;
+        long $stack10, $stack14, $stack15;
+        java.lang.Exception $stack22;
+        java.util.concurrent.atomic.AtomicLong $stack13;
+        java.util.concurrent.atomic.AtomicInteger $stack20, $stack23;
+        org.apache.commons.lang3.time.FastDateFormatTest$2 this;
+        int i;
+        java.lang.Object $stack12;
+        java.lang.String $stack9;
+        boolean $stack17;
+
+        this := @this: org.apache.commons.lang3.time.FastDateFormatTest$2;
+
+        i = 0;
+
+     label1:
+        if i >= 10000 goto label6;
+
+     label2:
+        $stack7 = new java.util.Date;
+
+        specialinvoke $stack7.<java.util.Date: void <init>()>();
+
+        $stack8 = this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.text.Format val$formatter>;
+
+        $stack9 = virtualinvoke $stack8.<java.text.Format: java.lang.String format(java.lang.Object)>($stack7);
+
+        $stack10 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $stack11 = this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.text.Format val$parser>;
+
+        $stack12 = virtualinvoke $stack11.<java.text.Format: java.lang.Object parseObject(java.lang.String)>($stack9);
+
+        $stack13 = this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.util.concurrent.atomic.AtomicLong val$totalElapsed>;
+
+        $stack14 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $stack15 = $stack14 - $stack10;
+
+        virtualinvoke $stack13.<java.util.concurrent.atomic.AtomicLong: long addAndGet(long)>($stack15);
+
+        $stack17 = virtualinvoke $stack7.<java.util.Date: boolean equals(java.lang.Object)>($stack12);
+
+        if $stack17 != 0 goto label3;
+
+        $stack20 = this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.util.concurrent.atomic.AtomicInteger val$failures>;
+
+        virtualinvoke $stack20.<java.util.concurrent.atomic.AtomicInteger: int incrementAndGet()>();
+
+     label3:
+        goto label5;
+
+     label4:
+        $stack22 := @caughtexception;
+
+        $stack23 = this.<org.apache.commons.lang3.time.FastDateFormatTest$2: java.util.concurrent.atomic.AtomicInteger val$failures>;
+
+        virtualinvoke $stack23.<java.util.concurrent.atomic.AtomicInteger: int incrementAndGet()>();
+
+        virtualinvoke $stack22.<java.lang.Exception: void printStackTrace()>();
+
+     label5:
+        i = i + 1;
+
+        goto label1;
+
+     label6:
+        return;
+
+        catch java.lang.Exception from label2 to label3 with label4;
+    }
+}

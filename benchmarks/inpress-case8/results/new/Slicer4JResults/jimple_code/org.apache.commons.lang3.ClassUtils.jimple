@@ -1,0 +1,1956 @@
+public class org.apache.commons.lang3.ClassUtils extends java.lang.Object
+{
+    public static final char PACKAGE_SEPARATOR_CHAR;
+    public static final java.lang.String PACKAGE_SEPARATOR;
+    public static final char INNER_CLASS_SEPARATOR_CHAR;
+    public static final java.lang.String INNER_CLASS_SEPARATOR;
+    private static final java.util.Map primitiveWrapperMap;
+    private static final java.util.Map wrapperPrimitiveMap;
+    private static final java.util.Map abbreviationMap;
+    private static final java.util.Map reverseAbbreviationMap;
+
+    private static void addAbbreviation(java.lang.String, java.lang.String)
+    {
+        java.util.Map $stack2, $stack4;
+        java.lang.String primitive, abbreviation;
+
+        primitive := @parameter0: java.lang.String;
+
+        abbreviation := @parameter1: java.lang.String;
+
+        $stack2 = <org.apache.commons.lang3.ClassUtils: java.util.Map abbreviationMap>;
+
+        interfaceinvoke $stack2.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(primitive, abbreviation);
+
+        $stack4 = <org.apache.commons.lang3.ClassUtils: java.util.Map reverseAbbreviationMap>;
+
+        interfaceinvoke $stack4.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(abbreviation, primitive);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.ClassUtils this;
+
+        this := @this: org.apache.commons.lang3.ClassUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.lang.String getShortClassName(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, valueIfNull;
+
+        object := @parameter0: java.lang.Object;
+
+        valueIfNull := @parameter1: java.lang.String;
+
+        if object != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortClassName(java.lang.Class)>($stack2);
+
+        return $stack3;
+    }
+
+    public static java.lang.String getShortClassName(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.lang.String $stack1, $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return "";
+
+     label1:
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortClassName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String getShortClassName(java.lang.String)
+    {
+        java.util.Map $stack29, $stack8;
+        int $stack10, $stack12, $stack13, $stack38, $stack39, $stack42, $stack43, $stack11, $i0, $i1, $i2, $i3, $i4;
+        java.lang.String $stack14, $stack18, $stack23, className, out;
+        boolean $stack5, $stack7, $stack9;
+        char $stack35, $stack36, $stack40;
+        java.lang.StringBuilder $stack16, $stack17, $u0, $u1;
+        java.lang.Object $stack30;
+
+        className := @parameter0: java.lang.String;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(className);
+
+        if $stack5 == 0 goto label1;
+
+        return "";
+
+     label1:
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack7 = virtualinvoke className.<java.lang.String: boolean startsWith(java.lang.String)>("[");
+
+        if $stack7 == 0 goto label4;
+
+     label2:
+        $stack35 = virtualinvoke className.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack35;
+
+        if $i0 != 91 goto label3;
+
+        className = virtualinvoke className.<java.lang.String: java.lang.String substring(int)>(1);
+
+        virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[]");
+
+        goto label2;
+
+     label3:
+        $stack36 = virtualinvoke className.<java.lang.String: char charAt(int)>(0);
+
+        $i1 = (int) $stack36;
+
+        if $i1 != 76 goto label4;
+
+        $stack38 = virtualinvoke className.<java.lang.String: int length()>();
+
+        $stack39 = $stack38 - 1;
+
+        $stack40 = virtualinvoke className.<java.lang.String: char charAt(int)>($stack39);
+
+        $i2 = (int) $stack40;
+
+        if $i2 != 59 goto label4;
+
+        $stack42 = virtualinvoke className.<java.lang.String: int length()>();
+
+        $stack43 = $stack42 - 1;
+
+        className = virtualinvoke className.<java.lang.String: java.lang.String substring(int,int)>(1, $stack43);
+
+     label4:
+        $stack8 = <org.apache.commons.lang3.ClassUtils: java.util.Map reverseAbbreviationMap>;
+
+        $stack9 = interfaceinvoke $stack8.<java.util.Map: boolean containsKey(java.lang.Object)>(className);
+
+        if $stack9 == 0 goto label5;
+
+        $stack29 = <org.apache.commons.lang3.ClassUtils: java.util.Map reverseAbbreviationMap>;
+
+        $stack30 = interfaceinvoke $stack29.<java.util.Map: java.lang.Object get(java.lang.Object)>(className);
+
+        className = (java.lang.String) $stack30;
+
+     label5:
+        $stack10 = virtualinvoke className.<java.lang.String: int lastIndexOf(int)>(46);
+
+        $stack23 = className;
+
+        $i3 = (int) -1;
+
+        if $stack10 != $i3 goto label6;
+
+        $stack11 = 0;
+
+        goto label7;
+
+     label6:
+        $stack11 = $stack10 + 1;
+
+     label7:
+        $stack12 = virtualinvoke $stack23.<java.lang.String: int indexOf(int,int)>(36, $stack11);
+
+        $stack13 = $stack10 + 1;
+
+        $stack14 = virtualinvoke className.<java.lang.String: java.lang.String substring(int)>($stack13);
+
+        out = $stack14;
+
+        $i4 = (int) -1;
+
+        if $stack12 == $i4 goto label8;
+
+        out = virtualinvoke $stack14.<java.lang.String: java.lang.String replace(char,char)>(36, 46);
+
+     label8:
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack16 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(out);
+
+        $stack17 = virtualinvoke $stack16.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($u0);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack18;
+    }
+
+    public static java.lang.String getSimpleName(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.lang.String $stack1;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return "";
+
+     label1:
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getSimpleName()>();
+
+        return $stack1;
+    }
+
+    public static java.lang.String getSimpleName(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, valueIfNull;
+
+        object := @parameter0: java.lang.Object;
+
+        valueIfNull := @parameter1: java.lang.String;
+
+        if object != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getSimpleName(java.lang.Class)>($stack2);
+
+        return $stack3;
+    }
+
+    public static java.lang.String getPackageName(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, valueIfNull;
+
+        object := @parameter0: java.lang.Object;
+
+        valueIfNull := @parameter1: java.lang.String;
+
+        if object != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getPackageName(java.lang.Class)>($stack2);
+
+        return $stack3;
+    }
+
+    public static java.lang.String getPackageName(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.lang.String $stack1, $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return "";
+
+     label1:
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getPackageName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String getPackageName(java.lang.String)
+    {
+        char $stack3, $stack4, $stack9;
+        int $stack7, $stack8, $stack5, $i0, $i1, $i2, $i3;
+        java.lang.String $stack6, className;
+        boolean $stack2;
+
+        className := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(className);
+
+        if $stack2 == 0 goto label1;
+
+        return "";
+
+     label1:
+        $stack3 = virtualinvoke className.<java.lang.String: char charAt(int)>(0);
+
+        $i0 = (int) $stack3;
+
+        if $i0 != 91 goto label2;
+
+        className = virtualinvoke className.<java.lang.String: java.lang.String substring(int)>(1);
+
+        goto label1;
+
+     label2:
+        $stack4 = virtualinvoke className.<java.lang.String: char charAt(int)>(0);
+
+        $i1 = (int) $stack4;
+
+        if $i1 != 76 goto label3;
+
+        $stack7 = virtualinvoke className.<java.lang.String: int length()>();
+
+        $stack8 = $stack7 - 1;
+
+        $stack9 = virtualinvoke className.<java.lang.String: char charAt(int)>($stack8);
+
+        $i2 = (int) $stack9;
+
+        if $i2 != 59 goto label3;
+
+        className = virtualinvoke className.<java.lang.String: java.lang.String substring(int)>(1);
+
+     label3:
+        $stack5 = virtualinvoke className.<java.lang.String: int lastIndexOf(int)>(46);
+
+        $i3 = (int) -1;
+
+        if $stack5 != $i3 goto label4;
+
+        return "";
+
+     label4:
+        $stack6 = virtualinvoke className.<java.lang.String: java.lang.String substring(int,int)>(0, $stack5);
+
+        return $stack6;
+    }
+
+    public static java.util.List getAllSuperclasses(java.lang.Class)
+    {
+        java.lang.Class 'cls', superclass;
+        java.util.ArrayList $stack3;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>()>();
+
+        superclass = virtualinvoke 'cls'.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+     label2:
+        if superclass == null goto label3;
+
+        interfaceinvoke $stack3.<java.util.List: boolean add(java.lang.Object)>(superclass);
+
+        superclass = virtualinvoke superclass.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        goto label2;
+
+     label3:
+        return $stack3;
+    }
+
+    public static java.util.List getAllInterfaces(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.util.LinkedHashSet $stack2;
+        java.util.ArrayList $stack3;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = new java.util.LinkedHashSet;
+
+        specialinvoke $stack2.<java.util.LinkedHashSet: void <init>()>();
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void getAllInterfaces(java.lang.Class,java.util.HashSet)>('cls', $stack2);
+
+        $stack3 = new java.util.ArrayList;
+
+        specialinvoke $stack3.<java.util.ArrayList: void <init>(java.util.Collection)>($stack2);
+
+        return $stack3;
+    }
+
+    private static void getAllInterfaces(java.lang.Class, java.util.HashSet)
+    {
+        java.util.HashSet interfacesFound;
+        int len$, i$;
+        java.lang.Class[] $stack7;
+        java.lang.Class i, 'cls';
+        boolean $stack10;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        interfacesFound := @parameter1: java.util.HashSet;
+
+     label1:
+        if 'cls' == null goto label5;
+
+        $stack7 = virtualinvoke 'cls'.<java.lang.Class: java.lang.Class[] getInterfaces()>();
+
+        len$ = lengthof $stack7;
+
+        i$ = 0;
+
+     label2:
+        if i$ >= len$ goto label4;
+
+        i = $stack7[i$];
+
+        $stack10 = virtualinvoke interfacesFound.<java.util.HashSet: boolean add(java.lang.Object)>(i);
+
+        if $stack10 == 0 goto label3;
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void getAllInterfaces(java.lang.Class,java.util.HashSet)>(i, interfacesFound);
+
+     label3:
+        i$ = i$ + 1;
+
+        goto label2;
+
+     label4:
+        'cls' = virtualinvoke 'cls'.<java.lang.Class: java.lang.Class getSuperclass()>();
+
+        goto label1;
+
+     label5:
+        return;
+    }
+
+    public static java.util.List convertClassNamesToClasses(java.util.List)
+    {
+        java.util.Iterator $stack7;
+        java.lang.Exception $stack13;
+        java.util.ArrayList $stack5;
+        java.util.List classNames;
+        int $stack6;
+        java.lang.Object $stack9;
+        java.lang.Class $stack10;
+        java.lang.String className;
+        boolean $stack8;
+
+        classNames := @parameter0: java.util.List;
+
+        if classNames != null goto label1;
+
+        return null;
+
+     label1:
+        $stack5 = new java.util.ArrayList;
+
+        $stack6 = interfaceinvoke classNames.<java.util.List: int size()>();
+
+        specialinvoke $stack5.<java.util.ArrayList: void <init>(int)>($stack6);
+
+        $stack7 = interfaceinvoke classNames.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $stack8 = interfaceinvoke $stack7.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack8 == 0 goto label7;
+
+        $stack9 = interfaceinvoke $stack7.<java.util.Iterator: java.lang.Object next()>();
+
+        className = (java.lang.String) $stack9;
+
+     label3:
+        $stack10 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>(className);
+
+        interfaceinvoke $stack5.<java.util.List: boolean add(java.lang.Object)>($stack10);
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack13 := @caughtexception;
+
+        interfaceinvoke $stack5.<java.util.List: boolean add(java.lang.Object)>(null);
+
+     label6:
+        goto label2;
+
+     label7:
+        return $stack5;
+
+        catch java.lang.Exception from label3 to label4 with label5;
+    }
+
+    public static java.util.List convertClassesToClassNames(java.util.List)
+    {
+        java.util.Iterator $stack6;
+        java.util.ArrayList $stack4;
+        java.util.List classes;
+        int $stack5;
+        java.lang.Object $stack8;
+        java.lang.Class 'cls';
+        java.lang.String $stack9;
+        boolean $stack7;
+
+        classes := @parameter0: java.util.List;
+
+        if classes != null goto label1;
+
+        return null;
+
+     label1:
+        $stack4 = new java.util.ArrayList;
+
+        $stack5 = interfaceinvoke classes.<java.util.List: int size()>();
+
+        specialinvoke $stack4.<java.util.ArrayList: void <init>(int)>($stack5);
+
+        $stack6 = interfaceinvoke classes.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $stack7 = interfaceinvoke $stack6.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack7 == 0 goto label5;
+
+        $stack8 = interfaceinvoke $stack6.<java.util.Iterator: java.lang.Object next()>();
+
+        'cls' = (java.lang.Class) $stack8;
+
+        if 'cls' != null goto label3;
+
+        interfaceinvoke $stack4.<java.util.List: boolean add(java.lang.Object)>(null);
+
+        goto label4;
+
+     label3:
+        $stack9 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        interfaceinvoke $stack4.<java.util.List: boolean add(java.lang.Object)>($stack9);
+
+     label4:
+        goto label2;
+
+     label5:
+        return $stack4;
+    }
+
+    public static transient boolean isAssignable(java.lang.Class[], java.lang.Class[])
+    {
+        org.apache.commons.lang3.JavaVersion $stack2;
+        java.lang.Class[] classArray, toClassArray;
+        boolean $stack3, $stack4;
+
+        classArray := @parameter0: java.lang.Class[];
+
+        toClassArray := @parameter1: java.lang.Class[];
+
+        $stack2 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_5>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class[],java.lang.Class[],boolean)>(classArray, toClassArray, $stack3);
+
+        return $stack4;
+    }
+
+    public static boolean isAssignable(java.lang.Class[], java.lang.Class[], boolean)
+    {
+        java.lang.Class[] classArray, toClassArray;
+        int i, $stack5;
+        java.lang.Class $stack6, $stack7;
+        boolean $stack4, autoboxing, $stack8;
+
+        classArray := @parameter0: java.lang.Class[];
+
+        toClassArray := @parameter1: java.lang.Class[];
+
+        autoboxing := @parameter2: boolean;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ArrayUtils: boolean isSameLength(java.lang.Object[],java.lang.Object[])>(classArray, toClassArray);
+
+        if $stack4 != 0 goto label1;
+
+        return 0;
+
+     label1:
+        if classArray != null goto label2;
+
+        classArray = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+     label2:
+        if toClassArray != null goto label3;
+
+        toClassArray = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+     label3:
+        i = 0;
+
+     label4:
+        $stack5 = lengthof classArray;
+
+        if i >= $stack5 goto label6;
+
+        $stack7 = classArray[i];
+
+        $stack6 = toClassArray[i];
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class,java.lang.Class,boolean)>($stack7, $stack6, autoboxing);
+
+        if $stack8 != 0 goto label5;
+
+        return 0;
+
+     label5:
+        i = i + 1;
+
+        goto label4;
+
+     label6:
+        return 1;
+    }
+
+    public static boolean isPrimitiveOrWrapper(java.lang.Class)
+    {
+        java.lang.Class type;
+        boolean $stack1, $stack2, $stack3;
+
+        type := @parameter0: java.lang.Class;
+
+        if type != null goto label1;
+
+        return 0;
+
+     label1:
+        $stack1 = virtualinvoke type.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack1 != 0 goto label2;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isPrimitiveWrapper(java.lang.Class)>(type);
+
+        if $stack2 == 0 goto label3;
+
+     label2:
+        $stack3 = 1;
+
+        goto label4;
+
+     label3:
+        $stack3 = 0;
+
+     label4:
+        return $stack3;
+    }
+
+    public static boolean isPrimitiveWrapper(java.lang.Class)
+    {
+        java.lang.Class type;
+        java.util.Map $stack1;
+        boolean $stack2;
+
+        type := @parameter0: java.lang.Class;
+
+        $stack1 = <org.apache.commons.lang3.ClassUtils: java.util.Map wrapperPrimitiveMap>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.Map: boolean containsKey(java.lang.Object)>(type);
+
+        return $stack2;
+    }
+
+    public static boolean isAssignable(java.lang.Class, java.lang.Class)
+    {
+        org.apache.commons.lang3.JavaVersion $stack2;
+        java.lang.Class 'cls', toClass;
+        boolean $stack3, $stack4;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        toClass := @parameter1: java.lang.Class;
+
+        $stack2 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_5>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ClassUtils: boolean isAssignable(java.lang.Class,java.lang.Class,boolean)>('cls', toClass, $stack3);
+
+        return $stack4;
+    }
+
+    public static boolean isAssignable(java.lang.Class, java.lang.Class, boolean)
+    {
+        boolean autoboxing, $stack4, $stack5, $stack6, $stack8, $stack10, $stack12, $stack14, $stack16, $stack18, $stack20, $stack22, $stack24, $stack26, $stack28, $stack30, $stack32, $stack35, $stack37, $stack39, $stack41, $stack44, $stack46, $stack48, $stack50, $stack53, $stack55, $stack57, $stack60, $stack62, $stack64, $stack66, $stack70, $stack72, $stack75, $stack76, $stack67, $stack3, $stack65, $stack58, $stack51, $stack42, $stack33;
+        java.lang.Class toClass, $stack7, $stack9, $stack11, $stack13, $stack15, $stack17, $stack19, $stack21, $stack23, $stack25, $stack27, $stack29, $stack31, $stack34, $stack36, $stack38, $stack40, $stack43, $stack45, $stack47, $stack49, $stack52, $stack54, $stack56, $stack59, $stack61, $stack63, $stack71, $stack74, 'cls';
+
+        'cls' := @parameter0: java.lang.Class;
+
+        toClass := @parameter1: java.lang.Class;
+
+        autoboxing := @parameter2: boolean;
+
+        if toClass != null goto label01;
+
+        return 0;
+
+     label01:
+        if 'cls' != null goto label04;
+
+        $stack75 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack75 != 0 goto label02;
+
+        $stack76 = 1;
+
+        goto label03;
+
+     label02:
+        $stack76 = 0;
+
+     label03:
+        return $stack76;
+
+     label04:
+        if autoboxing == 0 goto label06;
+
+        $stack66 = virtualinvoke 'cls'.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack66 == 0 goto label05;
+
+        $stack72 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack72 != 0 goto label05;
+
+        $stack74 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class primitiveToWrapper(java.lang.Class)>('cls');
+
+        'cls' = $stack74;
+
+        if $stack74 != null goto label05;
+
+        return 0;
+
+     label05:
+        $stack67 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack67 == 0 goto label06;
+
+        $stack70 = virtualinvoke 'cls'.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack70 != 0 goto label06;
+
+        $stack71 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class wrapperToPrimitive(java.lang.Class)>('cls');
+
+        'cls' = $stack71;
+
+        if $stack71 != null goto label06;
+
+        return 0;
+
+     label06:
+        $stack3 = virtualinvoke 'cls'.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack3 == 0 goto label07;
+
+        return 1;
+
+     label07:
+        $stack4 = virtualinvoke 'cls'.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack4 == 0 goto label32;
+
+        $stack6 = virtualinvoke toClass.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack6 != 0 goto label08;
+
+        return 0;
+
+     label08:
+        $stack7 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack8 == 0 goto label12;
+
+        $stack59 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack60 = virtualinvoke $stack59.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack60 != 0 goto label09;
+
+        $stack61 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack62 = virtualinvoke $stack61.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack62 != 0 goto label09;
+
+        $stack63 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack64 = virtualinvoke $stack63.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack64 == 0 goto label10;
+
+     label09:
+        $stack65 = 1;
+
+        goto label11;
+
+     label10:
+        $stack65 = 0;
+
+     label11:
+        return $stack65;
+
+     label12:
+        $stack9 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack10 = virtualinvoke $stack9.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack10 == 0 goto label16;
+
+        $stack54 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack55 = virtualinvoke $stack54.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack55 != 0 goto label13;
+
+        $stack56 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack57 = virtualinvoke $stack56.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack57 == 0 goto label14;
+
+     label13:
+        $stack58 = 1;
+
+        goto label15;
+
+     label14:
+        $stack58 = 0;
+
+     label15:
+        return $stack58;
+
+     label16:
+        $stack11 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        $stack12 = virtualinvoke $stack11.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack12 == 0 goto label17;
+
+        return 0;
+
+     label17:
+        $stack13 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack14 == 0 goto label18;
+
+        return 0;
+
+     label18:
+        $stack15 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack16 = virtualinvoke $stack15.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack16 == 0 goto label19;
+
+        $stack52 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack53 = virtualinvoke $stack52.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        return $stack53;
+
+     label19:
+        $stack17 = <java.lang.Character: java.lang.Class TYPE>;
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack18 == 0 goto label23;
+
+        $stack43 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack44 = virtualinvoke $stack43.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack44 != 0 goto label20;
+
+        $stack45 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack46 = virtualinvoke $stack45.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack46 != 0 goto label20;
+
+        $stack47 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack48 = virtualinvoke $stack47.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack48 != 0 goto label20;
+
+        $stack49 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack50 = virtualinvoke $stack49.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack50 == 0 goto label21;
+
+     label20:
+        $stack51 = 1;
+
+        goto label22;
+
+     label21:
+        $stack51 = 0;
+
+     label22:
+        return $stack51;
+
+     label23:
+        $stack19 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack20 = virtualinvoke $stack19.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack20 == 0 goto label27;
+
+        $stack34 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack35 = virtualinvoke $stack34.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack35 != 0 goto label24;
+
+        $stack36 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack37 = virtualinvoke $stack36.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack37 != 0 goto label24;
+
+        $stack38 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack39 = virtualinvoke $stack38.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack39 != 0 goto label24;
+
+        $stack40 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack41 = virtualinvoke $stack40.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack41 == 0 goto label25;
+
+     label24:
+        $stack42 = 1;
+
+        goto label26;
+
+     label25:
+        $stack42 = 0;
+
+     label26:
+        return $stack42;
+
+     label27:
+        $stack21 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        $stack22 = virtualinvoke $stack21.<java.lang.Object: boolean equals(java.lang.Object)>('cls');
+
+        if $stack22 == 0 goto label31;
+
+        $stack23 = <java.lang.Short: java.lang.Class TYPE>;
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack24 != 0 goto label28;
+
+        $stack25 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        $stack26 = virtualinvoke $stack25.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack26 != 0 goto label28;
+
+        $stack27 = <java.lang.Long: java.lang.Class TYPE>;
+
+        $stack28 = virtualinvoke $stack27.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack28 != 0 goto label28;
+
+        $stack29 = <java.lang.Float: java.lang.Class TYPE>;
+
+        $stack30 = virtualinvoke $stack29.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack30 != 0 goto label28;
+
+        $stack31 = <java.lang.Double: java.lang.Class TYPE>;
+
+        $stack32 = virtualinvoke $stack31.<java.lang.Object: boolean equals(java.lang.Object)>(toClass);
+
+        if $stack32 == 0 goto label29;
+
+     label28:
+        $stack33 = 1;
+
+        goto label30;
+
+     label29:
+        $stack33 = 0;
+
+     label30:
+        return $stack33;
+
+     label31:
+        return 0;
+
+     label32:
+        $stack5 = virtualinvoke toClass.<java.lang.Class: boolean isAssignableFrom(java.lang.Class)>('cls');
+
+        return $stack5;
+    }
+
+    public static java.lang.Class primitiveToWrapper(java.lang.Class)
+    {
+        java.util.Map $stack4;
+        java.lang.Class 'cls', convertedClass;
+        java.lang.Object $stack5;
+        boolean $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        convertedClass = 'cls';
+
+        if 'cls' == null goto label1;
+
+        $stack2 = virtualinvoke 'cls'.<java.lang.Class: boolean isPrimitive()>();
+
+        if $stack2 == 0 goto label1;
+
+        $stack4 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack5 = interfaceinvoke $stack4.<java.util.Map: java.lang.Object get(java.lang.Object)>('cls');
+
+        convertedClass = (java.lang.Class) $stack5;
+
+     label1:
+        return convertedClass;
+    }
+
+    public static transient java.lang.Class[] primitivesToWrappers(java.lang.Class[])
+    {
+        java.lang.Class[] classes, convertedClasses;
+        int $stack3, $stack4, $stack5, i;
+        java.lang.Class $stack6, $stack7;
+
+        classes := @parameter0: java.lang.Class[];
+
+        if classes != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = lengthof classes;
+
+        if $stack3 != 0 goto label2;
+
+        return classes;
+
+     label2:
+        $stack4 = lengthof classes;
+
+        convertedClasses = newarray (java.lang.Class)[$stack4];
+
+        i = 0;
+
+     label3:
+        $stack5 = lengthof classes;
+
+        if i >= $stack5 goto label4;
+
+        $stack6 = classes[i];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class primitiveToWrapper(java.lang.Class)>($stack6);
+
+        convertedClasses[i] = $stack7;
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        return convertedClasses;
+    }
+
+    public static java.lang.Class wrapperToPrimitive(java.lang.Class)
+    {
+        java.util.Map $stack1;
+        java.lang.Class 'cls', $stack3;
+        java.lang.Object $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        $stack1 = <org.apache.commons.lang3.ClassUtils: java.util.Map wrapperPrimitiveMap>;
+
+        $stack2 = interfaceinvoke $stack1.<java.util.Map: java.lang.Object get(java.lang.Object)>('cls');
+
+        $stack3 = (java.lang.Class) $stack2;
+
+        return $stack3;
+    }
+
+    public static transient java.lang.Class[] wrappersToPrimitives(java.lang.Class[])
+    {
+        java.lang.Class[] classes, convertedClasses;
+        int $stack3, $stack4, $stack5, i;
+        java.lang.Class $stack6, $stack7;
+
+        classes := @parameter0: java.lang.Class[];
+
+        if classes != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = lengthof classes;
+
+        if $stack3 != 0 goto label2;
+
+        return classes;
+
+     label2:
+        $stack4 = lengthof classes;
+
+        convertedClasses = newarray (java.lang.Class)[$stack4];
+
+        i = 0;
+
+     label3:
+        $stack5 = lengthof classes;
+
+        if i >= $stack5 goto label4;
+
+        $stack6 = classes[i];
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class wrapperToPrimitive(java.lang.Class)>($stack6);
+
+        convertedClasses[i] = $stack7;
+
+        i = i + 1;
+
+        goto label3;
+
+     label4:
+        return convertedClasses;
+    }
+
+    public static boolean isInnerClass(java.lang.Class)
+    {
+        java.lang.Class 'cls', $stack1;
+        boolean $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' == null goto label1;
+
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.Class getEnclosingClass()>();
+
+        if $stack1 == null goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public static java.lang.Class getClass(java.lang.ClassLoader, java.lang.String, boolean) throws java.lang.ClassNotFoundException
+    {
+        java.util.Map $stack6, $stack12;
+        int $stack22, $stack28, $i0;
+        java.lang.String className, $stack8, $stack14, $stack16, $stack25, $stack29, $stack31;
+        boolean $stack7, initialize;
+        java.lang.StringBuilder $stack11, $stack15, $stack26, $stack27, $stack30, $u0, $u1;
+        java.lang.Object $stack13;
+        java.lang.Class $stack17, $stack32, clazz;
+        java.lang.ClassNotFoundException $stack20, $stack21;
+        java.lang.ClassLoader classLoader;
+
+        classLoader := @parameter0: java.lang.ClassLoader;
+
+        className := @parameter1: java.lang.String;
+
+        initialize := @parameter2: boolean;
+
+     label1:
+        $stack6 = <org.apache.commons.lang3.ClassUtils: java.util.Map abbreviationMap>;
+
+        $stack7 = interfaceinvoke $stack6.<java.util.Map: boolean containsKey(java.lang.Object)>(className);
+
+        if $stack7 == 0 goto label2;
+
+        $u0 = new java.lang.StringBuilder;
+
+        specialinvoke $u0.<java.lang.StringBuilder: void <init>()>();
+
+        $stack11 = virtualinvoke $u0.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        $stack12 = <org.apache.commons.lang3.ClassUtils: java.util.Map abbreviationMap>;
+
+        $stack13 = interfaceinvoke $stack12.<java.util.Map: java.lang.Object get(java.lang.Object)>(className);
+
+        $stack14 = (java.lang.String) $stack13;
+
+        $stack15 = virtualinvoke $stack11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack14);
+
+        $stack16 = virtualinvoke $stack15.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack17 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String,boolean,java.lang.ClassLoader)>($stack16, initialize, classLoader);
+
+        clazz = virtualinvoke $stack17.<java.lang.Class: java.lang.Class getComponentType()>();
+
+        goto label3;
+
+     label2:
+        $stack8 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String toCanonicalName(java.lang.String)>(className);
+
+        clazz = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String,boolean,java.lang.ClassLoader)>($stack8, initialize, classLoader);
+
+     label3:
+        return clazz;
+
+     label4:
+        $stack21 := @caughtexception;
+
+        $stack22 = virtualinvoke className.<java.lang.String: int lastIndexOf(int)>(46);
+
+        $i0 = (int) -1;
+
+        if $stack22 == $i0 goto label8;
+
+     label5:
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack25 = virtualinvoke className.<java.lang.String: java.lang.String substring(int,int)>(0, $stack22);
+
+        $stack26 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.StringBuilder append(char)>(36);
+
+        $stack28 = $stack22 + 1;
+
+        $stack29 = virtualinvoke className.<java.lang.String: java.lang.String substring(int)>($stack28);
+
+        $stack30 = virtualinvoke $stack27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack29);
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class getClass(java.lang.ClassLoader,java.lang.String,boolean)>(classLoader, $stack31, initialize);
+
+     label6:
+        return $stack32;
+
+     label7:
+        $stack20 := @caughtexception;
+
+     label8:
+        throw $stack21;
+
+        catch java.lang.ClassNotFoundException from label1 to label3 with label4;
+        catch java.lang.ClassNotFoundException from label5 to label6 with label7;
+    }
+
+    public static java.lang.Class getClass(java.lang.ClassLoader, java.lang.String) throws java.lang.ClassNotFoundException
+    {
+        java.lang.Class $stack2;
+        java.lang.ClassLoader classLoader;
+        java.lang.String className;
+
+        classLoader := @parameter0: java.lang.ClassLoader;
+
+        className := @parameter1: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class getClass(java.lang.ClassLoader,java.lang.String,boolean)>(classLoader, className, 1);
+
+        return $stack2;
+    }
+
+    public static java.lang.Class getClass(java.lang.String) throws java.lang.ClassNotFoundException
+    {
+        java.lang.Class $stack1;
+        java.lang.String className;
+
+        className := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class getClass(java.lang.String,boolean)>(className, 1);
+
+        return $stack1;
+    }
+
+    public static java.lang.Class getClass(java.lang.String, boolean) throws java.lang.ClassNotFoundException
+    {
+        java.lang.Thread $stack4;
+        java.lang.Class $stack6, $stack7;
+        java.lang.ClassLoader $stack5, $stack8;
+        java.lang.String className;
+        boolean initialize;
+
+        className := @parameter0: java.lang.String;
+
+        initialize := @parameter1: boolean;
+
+        $stack4 = staticinvoke <java.lang.Thread: java.lang.Thread currentThread()>();
+
+        $stack5 = virtualinvoke $stack4.<java.lang.Thread: java.lang.ClassLoader getContextClassLoader()>();
+
+        if $stack5 != null goto label1;
+
+        $stack7 = class "Lorg/apache/commons/lang3/ClassUtils;";
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Class: java.lang.ClassLoader getClassLoader()>();
+
+        goto label2;
+
+     label1:
+        $stack8 = $stack5;
+
+     label2:
+        $stack6 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.Class getClass(java.lang.ClassLoader,java.lang.String,boolean)>($stack8, className, initialize);
+
+        return $stack6;
+    }
+
+    public static transient java.lang.reflect.Method getPublicMethod(java.lang.Class, java.lang.String, java.lang.Class[]) throws java.lang.SecurityException, java.lang.NoSuchMethodException
+    {
+        java.lang.NoSuchMethodException $stack20, $stack36;
+        java.util.ArrayList $stack13;
+        int $stack11, $stack29, $stack33;
+        java.lang.String methodName, $stack25, $stack27;
+        java.lang.reflect.Method $stack9, $stack31;
+        boolean $stack12, $stack30, $stack34, $stack19;
+        java.util.Iterator $stack18;
+        java.lang.Class[] parameterTypes;
+        java.util.List $stack14, $stack16;
+        java.lang.Class 'cls', $stack10, candidateClass, $stack32;
+        java.lang.StringBuilder $stack21, $stack22, $stack23, $stack24, $stack26;
+        java.lang.Object $stack28;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        methodName := @parameter1: java.lang.String;
+
+        parameterTypes := @parameter2: java.lang.Class[];
+
+        $stack9 = virtualinvoke 'cls'.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>(methodName, parameterTypes);
+
+        $stack10 = virtualinvoke $stack9.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        if $stack12 == 0 goto label1;
+
+        return $stack9;
+
+     label1:
+        $stack13 = new java.util.ArrayList;
+
+        specialinvoke $stack13.<java.util.ArrayList: void <init>()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.util.List getAllInterfaces(java.lang.Class)>('cls');
+
+        interfaceinvoke $stack13.<java.util.List: boolean addAll(java.util.Collection)>($stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.util.List getAllSuperclasses(java.lang.Class)>('cls');
+
+        interfaceinvoke $stack13.<java.util.List: boolean addAll(java.util.Collection)>($stack16);
+
+        $stack18 = interfaceinvoke $stack13.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $stack19 = interfaceinvoke $stack18.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack19 == 0 goto label8;
+
+        $stack28 = interfaceinvoke $stack18.<java.util.Iterator: java.lang.Object next()>();
+
+        candidateClass = (java.lang.Class) $stack28;
+
+        $stack29 = virtualinvoke candidateClass.<java.lang.Class: int getModifiers()>();
+
+        $stack30 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack29);
+
+        if $stack30 != 0 goto label3;
+
+        goto label2;
+
+     label3:
+        $stack31 = virtualinvoke candidateClass.<java.lang.Class: java.lang.reflect.Method getMethod(java.lang.String,java.lang.Class[])>(methodName, parameterTypes);
+
+     label4:
+        goto label6;
+
+     label5:
+        $stack36 := @caughtexception;
+
+        goto label2;
+
+     label6:
+        $stack32 = virtualinvoke $stack31.<java.lang.reflect.Method: java.lang.Class getDeclaringClass()>();
+
+        $stack33 = virtualinvoke $stack32.<java.lang.Class: int getModifiers()>();
+
+        $stack34 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack33);
+
+        if $stack34 == 0 goto label7;
+
+        return $stack31;
+
+     label7:
+        goto label2;
+
+     label8:
+        $stack20 = new java.lang.NoSuchMethodException;
+
+        $stack21 = new java.lang.StringBuilder;
+
+        specialinvoke $stack21.<java.lang.StringBuilder: void <init>()>();
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Can\'t find a public method for ");
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(methodName);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" ");
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.ArrayUtils: java.lang.String toString(java.lang.Object)>(parameterTypes);
+
+        $stack26 = virtualinvoke $stack24.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($stack25);
+
+        $stack27 = virtualinvoke $stack26.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack20.<java.lang.NoSuchMethodException: void <init>(java.lang.String)>($stack27);
+
+        throw $stack20;
+
+        catch java.lang.NoSuchMethodException from label3 to label4 with label5;
+    }
+
+    private static java.lang.String toCanonicalName(java.lang.String)
+    {
+        java.lang.NullPointerException $stack23;
+        java.util.Map $stack7;
+        int $stack17, $stack18;
+        java.lang.StringBuilder $stack5, $stack9, $stack10;
+        java.lang.Object $stack8;
+        java.lang.String $stack3, abbreviation, className, className#2;
+        boolean $stack4, $stack6;
+
+        className := @parameter0: java.lang.String;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String deleteWhitespace(java.lang.String)>(className);
+
+        className#2 = $stack3;
+
+        if $stack3 != null goto label1;
+
+        $stack23 = new java.lang.NullPointerException;
+
+        specialinvoke $stack23.<java.lang.NullPointerException: void <init>(java.lang.String)>("className must not be null.");
+
+        throw $stack23;
+
+     label1:
+        $stack4 = virtualinvoke $stack3.<java.lang.String: boolean endsWith(java.lang.String)>("[]");
+
+        if $stack4 == 0 goto label6;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+     label2:
+        $stack6 = virtualinvoke className#2.<java.lang.String: boolean endsWith(java.lang.String)>("[]");
+
+        if $stack6 == 0 goto label3;
+
+        $stack17 = virtualinvoke className#2.<java.lang.String: int length()>();
+
+        $stack18 = $stack17 - 2;
+
+        className#2 = virtualinvoke className#2.<java.lang.String: java.lang.String substring(int,int)>(0, $stack18);
+
+        virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[");
+
+        goto label2;
+
+     label3:
+        $stack7 = <org.apache.commons.lang3.ClassUtils: java.util.Map abbreviationMap>;
+
+        $stack8 = interfaceinvoke $stack7.<java.util.Map: java.lang.Object get(java.lang.Object)>(className#2);
+
+        abbreviation = (java.lang.String) $stack8;
+
+        if abbreviation == null goto label4;
+
+        virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(abbreviation);
+
+        goto label5;
+
+     label4:
+        $stack9 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("L");
+
+        $stack10 = virtualinvoke $stack9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(className#2);
+
+        virtualinvoke $stack10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(";");
+
+     label5:
+        className#2 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label6:
+        return className#2;
+    }
+
+    public static transient java.lang.Class[] toClass(java.lang.Object[])
+    {
+        java.lang.Object[] array;
+        java.lang.Class[] classes, $stack13;
+        int $stack3, $stack4, $stack5, $stack11, i;
+        java.lang.Object $stack6, $stack7;
+        java.lang.Class $stack8;
+
+        array := @parameter0: java.lang.Object[];
+
+        if array != null goto label1;
+
+        return null;
+
+     label1:
+        $stack3 = lengthof array;
+
+        if $stack3 != 0 goto label2;
+
+        $stack13 = <org.apache.commons.lang3.ArrayUtils: java.lang.Class[] EMPTY_CLASS_ARRAY>;
+
+        return $stack13;
+
+     label2:
+        $stack4 = lengthof array;
+
+        classes = newarray (java.lang.Class)[$stack4];
+
+        i = 0;
+
+     label3:
+        $stack5 = lengthof array;
+
+        if i >= $stack5 goto label6;
+
+        $stack11 = i;
+
+        $stack6 = array[i];
+
+        if $stack6 != null goto label4;
+
+        $stack8 = null;
+
+        goto label5;
+
+     label4:
+        $stack7 = array[i];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.Object: java.lang.Class getClass()>();
+
+     label5:
+        classes[$stack11] = $stack8;
+
+        i = i + 1;
+
+        goto label3;
+
+     label6:
+        return classes;
+    }
+
+    public static java.lang.String getShortCanonicalName(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, $stack4, valueIfNull;
+
+        object := @parameter0: java.lang.Object;
+
+        valueIfNull := @parameter1: java.lang.String;
+
+        if object != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortCanonicalName(java.lang.String)>($stack3);
+
+        return $stack4;
+    }
+
+    public static java.lang.String getShortCanonicalName(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.lang.String $stack1, $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return "";
+
+     label1:
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortCanonicalName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String getShortCanonicalName(java.lang.String)
+    {
+        java.lang.String canonicalName, $stack1, $stack2;
+
+        canonicalName := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getCanonicalName(java.lang.String)>(canonicalName);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getShortClassName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String getPackageCanonicalName(java.lang.Object, java.lang.String)
+    {
+        java.lang.Object object;
+        java.lang.Class $stack2;
+        java.lang.String $stack3, $stack4, valueIfNull;
+
+        object := @parameter0: java.lang.Object;
+
+        valueIfNull := @parameter1: java.lang.String;
+
+        if object != null goto label1;
+
+        return valueIfNull;
+
+     label1:
+        $stack2 = virtualinvoke object.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.Class: java.lang.String getName()>();
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getPackageCanonicalName(java.lang.String)>($stack3);
+
+        return $stack4;
+    }
+
+    public static java.lang.String getPackageCanonicalName(java.lang.Class)
+    {
+        java.lang.Class 'cls';
+        java.lang.String $stack1, $stack2;
+
+        'cls' := @parameter0: java.lang.Class;
+
+        if 'cls' != null goto label1;
+
+        return "";
+
+     label1:
+        $stack1 = virtualinvoke 'cls'.<java.lang.Class: java.lang.String getName()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getPackageCanonicalName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    public static java.lang.String getPackageCanonicalName(java.lang.String)
+    {
+        java.lang.String canonicalName, $stack1, $stack2;
+
+        canonicalName := @parameter0: java.lang.String;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getCanonicalName(java.lang.String)>(canonicalName);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.ClassUtils: java.lang.String getPackageName(java.lang.String)>($stack1);
+
+        return $stack2;
+    }
+
+    private static java.lang.String getCanonicalName(java.lang.String)
+    {
+        java.util.Map $stack13;
+        int $stack7, $stack22, dim, $stack20, i;
+        java.lang.String $stack4, $stack9, $stack14, $stack23, className, className#2;
+        boolean $stack5, $stack6, $stack19;
+        java.lang.Object $stack15;
+        java.lang.StringBuilder $stack8;
+
+        className := @parameter0: java.lang.String;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.StringUtils: java.lang.String deleteWhitespace(java.lang.String)>(className);
+
+        className#2 = $stack4;
+
+        if $stack4 != null goto label01;
+
+        return null;
+
+     label01:
+        dim = 0;
+
+     label02:
+        $stack5 = virtualinvoke className#2.<java.lang.String: boolean startsWith(java.lang.String)>("[");
+
+        if $stack5 == 0 goto label03;
+
+        dim = dim + 1;
+
+        className#2 = virtualinvoke className#2.<java.lang.String: java.lang.String substring(int)>(1);
+
+        goto label02;
+
+     label03:
+        if dim >= 1 goto label04;
+
+        return className#2;
+
+     label04:
+        $stack6 = virtualinvoke className#2.<java.lang.String: boolean startsWith(java.lang.String)>("L");
+
+        if $stack6 == 0 goto label07;
+
+        $stack23 = className#2;
+
+        $stack19 = virtualinvoke className#2.<java.lang.String: boolean endsWith(java.lang.String)>(";");
+
+        if $stack19 == 0 goto label05;
+
+        $stack22 = virtualinvoke className#2.<java.lang.String: int length()>();
+
+        $stack20 = $stack22 - 1;
+
+        goto label06;
+
+     label05:
+        $stack20 = virtualinvoke className#2.<java.lang.String: int length()>();
+
+     label06:
+        className#2 = virtualinvoke $stack23.<java.lang.String: java.lang.String substring(int,int)>(1, $stack20);
+
+        goto label08;
+
+     label07:
+        $stack7 = virtualinvoke className#2.<java.lang.String: int length()>();
+
+        if $stack7 <= 0 goto label08;
+
+        $stack13 = <org.apache.commons.lang3.ClassUtils: java.util.Map reverseAbbreviationMap>;
+
+        $stack14 = virtualinvoke className#2.<java.lang.String: java.lang.String substring(int,int)>(0, 1);
+
+        $stack15 = interfaceinvoke $stack13.<java.util.Map: java.lang.Object get(java.lang.Object)>($stack14);
+
+        className#2 = (java.lang.String) $stack15;
+
+     label08:
+        $stack8 = new java.lang.StringBuilder;
+
+        specialinvoke $stack8.<java.lang.StringBuilder: void <init>(java.lang.String)>(className#2);
+
+        i = 0;
+
+     label09:
+        if i >= dim goto label10;
+
+        virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("[]");
+
+        i = i + 1;
+
+        goto label09;
+
+     label10:
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack9;
+    }
+
+    static void <clinit>()
+    {
+        java.util.Map $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28, $stack32, $stack35, $stack42, $stack46;
+        boolean $stack38, $stack44;
+        java.util.Set $stack36;
+        java.util.HashMap $stack5, $stack34, $stack39, $stack40;
+        java.lang.String $stack3, $stack4;
+        java.util.Iterator $stack37;
+        java.lang.Class $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack31, primitiveClass, wrapperClass;
+        java.lang.Object $stack41, $stack43;
+
+        <org.apache.commons.lang3.ClassUtils: char INNER_CLASS_SEPARATOR_CHAR> = 36;
+
+        <org.apache.commons.lang3.ClassUtils: char PACKAGE_SEPARATOR_CHAR> = 46;
+
+        $stack3 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(46);
+
+        <org.apache.commons.lang3.ClassUtils: java.lang.String PACKAGE_SEPARATOR> = $stack3;
+
+        $stack4 = staticinvoke <java.lang.String: java.lang.String valueOf(char)>(36);
+
+        <org.apache.commons.lang3.ClassUtils: java.lang.String INNER_CLASS_SEPARATOR> = $stack4;
+
+        $stack5 = new java.util.HashMap;
+
+        specialinvoke $stack5.<java.util.HashMap: void <init>()>();
+
+        <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap> = $stack5;
+
+        $stack7 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack6 = <java.lang.Boolean: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack7.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack6, class "Ljava/lang/Boolean;");
+
+        $stack10 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack9 = <java.lang.Byte: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack10.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack9, class "Ljava/lang/Byte;");
+
+        $stack13 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack12 = <java.lang.Character: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack13.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack12, class "Ljava/lang/Character;");
+
+        $stack16 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack15 = <java.lang.Short: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack16.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack15, class "Ljava/lang/Short;");
+
+        $stack19 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack18 = <java.lang.Integer: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack19.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack18, class "Ljava/lang/Integer;");
+
+        $stack22 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack21 = <java.lang.Long: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack22.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack21, class "Ljava/lang/Long;");
+
+        $stack25 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack24 = <java.lang.Double: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack25.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack24, class "Ljava/lang/Double;");
+
+        $stack28 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack27 = <java.lang.Float: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack28.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack27, class "Ljava/lang/Float;");
+
+        $stack32 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack31 = <java.lang.Void: java.lang.Class TYPE>;
+
+        $stack30 = <java.lang.Void: java.lang.Class TYPE>;
+
+        interfaceinvoke $stack32.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($stack31, $stack30);
+
+        $stack34 = new java.util.HashMap;
+
+        specialinvoke $stack34.<java.util.HashMap: void <init>()>();
+
+        <org.apache.commons.lang3.ClassUtils: java.util.Map wrapperPrimitiveMap> = $stack34;
+
+        $stack35 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack36 = interfaceinvoke $stack35.<java.util.Map: java.util.Set keySet()>();
+
+        $stack37 = interfaceinvoke $stack36.<java.util.Set: java.util.Iterator iterator()>();
+
+     label1:
+        $stack38 = interfaceinvoke $stack37.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack38 == 0 goto label3;
+
+        $stack41 = interfaceinvoke $stack37.<java.util.Iterator: java.lang.Object next()>();
+
+        primitiveClass = (java.lang.Class) $stack41;
+
+        $stack42 = <org.apache.commons.lang3.ClassUtils: java.util.Map primitiveWrapperMap>;
+
+        $stack43 = interfaceinvoke $stack42.<java.util.Map: java.lang.Object get(java.lang.Object)>(primitiveClass);
+
+        wrapperClass = (java.lang.Class) $stack43;
+
+        $stack44 = virtualinvoke primitiveClass.<java.lang.Object: boolean equals(java.lang.Object)>(wrapperClass);
+
+        if $stack44 != 0 goto label2;
+
+        $stack46 = <org.apache.commons.lang3.ClassUtils: java.util.Map wrapperPrimitiveMap>;
+
+        interfaceinvoke $stack46.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>(wrapperClass, primitiveClass);
+
+     label2:
+        goto label1;
+
+     label3:
+        $stack39 = new java.util.HashMap;
+
+        specialinvoke $stack39.<java.util.HashMap: void <init>()>();
+
+        <org.apache.commons.lang3.ClassUtils: java.util.Map abbreviationMap> = $stack39;
+
+        $stack40 = new java.util.HashMap;
+
+        specialinvoke $stack40.<java.util.HashMap: void <init>()>();
+
+        <org.apache.commons.lang3.ClassUtils: java.util.Map reverseAbbreviationMap> = $stack40;
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("int", "I");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("boolean", "Z");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("float", "F");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("long", "J");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("short", "S");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("byte", "B");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("double", "D");
+
+        staticinvoke <org.apache.commons.lang3.ClassUtils: void addAbbreviation(java.lang.String,java.lang.String)>("char", "C");
+
+        return;
+    }
+}

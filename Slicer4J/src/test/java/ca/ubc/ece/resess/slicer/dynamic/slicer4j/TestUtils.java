@@ -1,16 +1,10 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Set;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.*;
 
 import ca.ubc.ece.resess.slicer.dynamic.core.graph.DynamicControlFlowGraph;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.DynamicSlice;
@@ -19,6 +13,9 @@ import ca.ubc.ece.resess.slicer.dynamic.core.statements.StatementInstance;
 
 
 public class TestUtils {
+    static Path root = Paths.get(".").normalize().toAbsolutePath();
+    static Path junitRunnerPath = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "SingleJUnitTestRunner.jar");
+    static Path junitJar = Paths.get(root.getParent().toString(), "benchmarks" + File.separator + "junit-4.8.2.jar");
     protected static Slicer setupSlicing(Path root, String jarPath, Path outDir, Path sliceLogger) {
         Slicer slicer = new Slicer();
         slicer.setPathJar(jarPath);
@@ -33,6 +30,7 @@ public class TestUtils {
     
     protected static Map<StatementInstance, String> sliceAndGetDirectDepdendeincesMap(Slicer slicer, DynamicControlFlowGraph dcfg, Integer tracePositionToSliceFrom) {
         StatementInstance stmt = dcfg.mapNoUnits(tracePositionToSliceFrom);
+        slicer.setDebug(true);
         DynamicSlice dynamicSlice = slicer.directStatementDependency(stmt, true, false);
         Map<StatementInstance, String> sliceDeps = dynamicSlice.getSliceDependenciesAsMap();
         System.out.println(sliceDeps);
@@ -45,6 +43,31 @@ public class TestUtils {
         Set<String> sliceLines = dynamicSlice.getSliceAsSourceLineNumbers();
         System.out.println(sliceLines);
         return sliceLines;
+    }
+
+    protected static Set<String> sliceAndGetSourceLines(Slicer slicer, DynamicControlFlowGraph dcfg, List<Integer> tracePositions) {
+        List<StatementInstance> stmts = dcfg.mapNoUnits(tracePositions);
+        DynamicSlice dynamicSlice = slicer.slice(dcfg, true, false, false, false, stmts, new HashSet<>(), slicer.getWorkingSet());
+        Set<String> sliceLines = dynamicSlice.getSliceAsSourceLineNumbers();
+        System.out.println(sliceLines);
+        return sliceLines;
+    }
+
+    public static void runInstrumentedJarFromTest(String pathToJar, String dependencyPath, String testClass, String testMethod, String outDir) throws IOException, InterruptedException {
+        String cmd = "java -Xmx8g -cp \"" + junitRunnerPath + ":" + junitJar + ":" + pathToJar + ":" + dependencyPath + "/*\" SingleJUnitTestRunner " +
+                testClass + "#" + testMethod;
+        ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", cmd + "| grep \"SLICING\"");
+        Process p = pb.start();
+        p.waitFor();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"));
+        String readline;
+        while ((readline = reader.readLine()) != null) {
+            writer.write(readline);
+            writer.write("\n");
+        }
+        writer.close();
+        reader.close();
     }
 
     protected static void buildJar(Path testPath) throws IOException, InterruptedException {
@@ -78,5 +101,14 @@ public class TestUtils {
             .forEach(File::delete);
         }
     }
-    
+
+    static List<Integer> getTracePositionFromSourceLine(int sourceLineNo, String javaSourceFile, DynamicControlFlowGraph dcfg) {
+        List<Integer> ret = new ArrayList<>();
+        for( StatementInstance stmt : dcfg.getTraceList() ){
+            if( stmt.getJavaSourceLineNo() == sourceLineNo && stmt.getJavaSourceFile().equals( javaSourceFile ) ){
+                ret.add( stmt.getLineNo() );
+            }
+        }
+        return ret;
+    }
 }

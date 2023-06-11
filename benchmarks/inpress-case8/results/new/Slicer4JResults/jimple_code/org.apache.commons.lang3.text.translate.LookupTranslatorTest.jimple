@@ -1,0 +1,58 @@
+public class org.apache.commons.lang3.text.translate.LookupTranslatorTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.LookupTranslatorTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.LookupTranslatorTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testBasicLookup() throws java.io.IOException
+    {
+        org.apache.commons.lang3.text.translate.LookupTranslatorTest this;
+        java.lang.CharSequence[][] $stack5;
+        java.io.StringWriter $stack7;
+        long $stack9;
+        java.lang.CharSequence[] $stack6;
+        org.apache.commons.lang3.text.translate.LookupTranslator $stack4;
+        int $stack8;
+        java.lang.String $stack12;
+
+        this := @this: org.apache.commons.lang3.text.translate.LookupTranslatorTest;
+
+        $stack4 = new org.apache.commons.lang3.text.translate.LookupTranslator;
+
+        $stack5 = newarray (java.lang.CharSequence[])[1];
+
+        $stack6 = newarray (java.lang.CharSequence)[2];
+
+        $stack6[0] = "one";
+
+        $stack6[1] = "two";
+
+        $stack5[0] = $stack6;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.translate.LookupTranslator: void <init>(java.lang.CharSequence[][])>($stack5);
+
+        $stack7 = new java.io.StringWriter;
+
+        specialinvoke $stack7.<java.io.StringWriter: void <init>()>();
+
+        $stack8 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.LookupTranslator: int translate(java.lang.CharSequence,int,java.io.Writer)>("one", 0, $stack7);
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,long,long)>("Incorrect codepoint consumption", 3L, $stack9);
+
+        $stack12 = virtualinvoke $stack7.<java.io.StringWriter: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Incorrect value", "two", $stack12);
+
+        return;
+    }
+}

@@ -1,0 +1,99 @@
+public class org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource extends java.lang.Object
+{
+    private org.apache.commons.lang3.event.EventListenerSupport listeners;
+    private java.lang.String property;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack1;
+        org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource this;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.event.EventListenerSupport: org.apache.commons.lang3.event.EventListenerSupport create(java.lang.Class)>(class "Ljava/beans/PropertyChangeListener;");
+
+        this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: org.apache.commons.lang3.event.EventListenerSupport listeners> = $stack1;
+
+        return;
+    }
+
+    public void setProperty(java.lang.String)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack3;
+        org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource this;
+        java.beans.PropertyChangeListener $stack6;
+        java.lang.Object $stack4;
+        java.lang.String oldValue, property;
+        java.beans.PropertyChangeEvent $stack5;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource;
+
+        property := @parameter0: java.lang.String;
+
+        oldValue = this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: java.lang.String property>;
+
+        this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: java.lang.String property> = property;
+
+        $stack3 = this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: org.apache.commons.lang3.event.EventListenerSupport listeners>;
+
+        $stack4 = virtualinvoke $stack3.<org.apache.commons.lang3.event.EventListenerSupport: java.lang.Object fire()>();
+
+        $stack6 = (java.beans.PropertyChangeListener) $stack4;
+
+        $stack5 = new java.beans.PropertyChangeEvent;
+
+        specialinvoke $stack5.<java.beans.PropertyChangeEvent: void <init>(java.lang.Object,java.lang.String,java.lang.Object,java.lang.Object)>(this, "property", oldValue, property);
+
+        interfaceinvoke $stack6.<java.beans.PropertyChangeListener: void propertyChange(java.beans.PropertyChangeEvent)>($stack5);
+
+        return;
+    }
+
+    protected void addVetoableChangeListener(java.beans.VetoableChangeListener)
+    {
+        org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource this;
+        java.beans.VetoableChangeListener listener;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource;
+
+        listener := @parameter0: java.beans.VetoableChangeListener;
+
+        return;
+    }
+
+    public void addPropertyChangeListener(java.beans.PropertyChangeListener)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack2;
+        org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource this;
+        java.beans.PropertyChangeListener listener;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource;
+
+        listener := @parameter0: java.beans.PropertyChangeListener;
+
+        $stack2 = this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: org.apache.commons.lang3.event.EventListenerSupport listeners>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupport: void addListener(java.lang.Object)>(listener);
+
+        return;
+    }
+
+    public void removePropertyChangeListener(java.beans.PropertyChangeListener)
+    {
+        org.apache.commons.lang3.event.EventListenerSupport $stack2;
+        org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource this;
+        java.beans.PropertyChangeListener listener;
+
+        this := @this: org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource;
+
+        listener := @parameter0: java.beans.PropertyChangeListener;
+
+        $stack2 = this.<org.apache.commons.lang3.event.EventUtilsTest$PropertyChangeSource: org.apache.commons.lang3.event.EventListenerSupport listeners>;
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.event.EventListenerSupport: void removeListener(java.lang.Object)>(listener);
+
+        return;
+    }
+}

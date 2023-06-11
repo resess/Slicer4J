@@ -1,0 +1,93 @@
+class org.apache.commons.lang3.time.FastDatePrinter$TextField extends java.lang.Object implements org.apache.commons.lang3.time.FastDatePrinter$Rule
+{
+    private final int mField;
+    private final java.lang.String[] mValues;
+
+    void <init>(int, java.lang.String[])
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TextField this;
+        int field;
+        java.lang.String[] values;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        field := @parameter0: int;
+
+        values := @parameter1: java.lang.String[];
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: int mField> = field;
+
+        this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: java.lang.String[] mValues> = values;
+
+        return;
+    }
+
+    public int estimateLength()
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TextField this;
+        java.lang.String[] $stack4, $stack5;
+        int $stack7, max, i, $i0;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        max = 0;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: java.lang.String[] mValues>;
+
+        i = lengthof $stack4;
+
+     label1:
+        $i0 = (int) -1;
+
+        i = i + $i0;
+
+        if i < 0 goto label3;
+
+        $stack5 = this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: java.lang.String[] mValues>;
+
+        $stack6 = $stack5[i];
+
+        $stack7 = virtualinvoke $stack6.<java.lang.String: int length()>();
+
+        if $stack7 <= max goto label2;
+
+        max = $stack7;
+
+     label2:
+        goto label1;
+
+     label3:
+        return max;
+    }
+
+    public void appendTo(java.lang.StringBuffer, java.util.Calendar)
+    {
+        org.apache.commons.lang3.time.FastDatePrinter$TextField this;
+        java.util.Calendar calendar;
+        java.lang.StringBuffer buffer;
+        int $stack3, $stack5;
+        java.lang.String[] $stack4;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.time.FastDatePrinter$TextField;
+
+        buffer := @parameter0: java.lang.StringBuffer;
+
+        calendar := @parameter1: java.util.Calendar;
+
+        $stack4 = this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: java.lang.String[] mValues>;
+
+        $stack3 = this.<org.apache.commons.lang3.time.FastDatePrinter$TextField: int mField>;
+
+        $stack5 = virtualinvoke calendar.<java.util.Calendar: int get(int)>($stack3);
+
+        $stack6 = $stack4[$stack5];
+
+        virtualinvoke buffer.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>($stack6);
+
+        return;
+    }
+}

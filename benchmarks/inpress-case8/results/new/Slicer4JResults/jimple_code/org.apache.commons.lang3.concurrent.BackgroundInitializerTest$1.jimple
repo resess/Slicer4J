@@ -1,0 +1,118 @@
+class org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1 extends java.lang.Thread
+{
+    final org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl val$init;
+    final java.util.concurrent.atomic.AtomicReference val$iex;
+    final java.util.concurrent.CountDownLatch val$latch1;
+    final org.apache.commons.lang3.concurrent.BackgroundInitializerTest this$0;
+
+    void <init>(org.apache.commons.lang3.concurrent.BackgroundInitializerTest, org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl, java.util.concurrent.atomic.AtomicReference, java.util.concurrent.CountDownLatch)
+    {
+        java.util.concurrent.CountDownLatch l4;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl l2;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1 this;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest l1;
+        java.util.concurrent.atomic.AtomicReference l3;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1;
+
+        l1 := @parameter0: org.apache.commons.lang3.concurrent.BackgroundInitializerTest;
+
+        l2 := @parameter1: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl;
+
+        l3 := @parameter2: java.util.concurrent.atomic.AtomicReference;
+
+        l4 := @parameter3: java.util.concurrent.CountDownLatch;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: org.apache.commons.lang3.concurrent.BackgroundInitializerTest this$0> = l1;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl val$init> = l2;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.atomic.AtomicReference val$iex> = l3;
+
+        this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.CountDownLatch val$latch1> = l4;
+
+        specialinvoke this.<java.lang.Thread: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        java.lang.Throwable $stack8, $stack13, $stack19;
+        java.util.concurrent.atomic.AtomicReference $stack18;
+        java.util.concurrent.CountDownLatch $stack7, $stack11, $stack17;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl $stack3;
+        org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1 this;
+        org.apache.commons.lang3.concurrent.ConcurrentException $stack12;
+        java.lang.InterruptedException $stack20;
+        boolean $stack6, $stack10, $stack14, $stack16;
+
+        this := @this: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1;
+
+     label1:
+        $stack3 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl val$init>;
+
+        virtualinvoke $stack3.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$BackgroundInitializerTestImpl: java.lang.Object get()>();
+
+     label2:
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: boolean isInterrupted()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Thread not interrupted", $stack6);
+
+        $stack7 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.CountDownLatch val$latch1>;
+
+        virtualinvoke $stack7.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+        goto label7;
+
+     label3:
+        $stack12 := @caughtexception;
+
+        $stack13 = virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        $stack14 = $stack13 instanceof java.lang.InterruptedException;
+
+        if $stack14 == 0 goto label4;
+
+        $stack18 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.atomic.AtomicReference val$iex>;
+
+        $stack19 = virtualinvoke $stack12.<org.apache.commons.lang3.concurrent.ConcurrentException: java.lang.Throwable getCause()>();
+
+        $stack20 = (java.lang.InterruptedException) $stack19;
+
+        virtualinvoke $stack18.<java.util.concurrent.atomic.AtomicReference: void set(java.lang.Object)>($stack20);
+
+     label4:
+        $stack16 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: boolean isInterrupted()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Thread not interrupted", $stack16);
+
+        $stack17 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.CountDownLatch val$latch1>;
+
+        virtualinvoke $stack17.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+        goto label7;
+
+     label5:
+        $stack8 := @caughtexception;
+
+     label6:
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: boolean isInterrupted()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("Thread not interrupted", $stack10);
+
+        $stack11 = this.<org.apache.commons.lang3.concurrent.BackgroundInitializerTest$1: java.util.concurrent.CountDownLatch val$latch1>;
+
+        virtualinvoke $stack11.<java.util.concurrent.CountDownLatch: void countDown()>();
+
+        throw $stack8;
+
+     label7:
+        return;
+
+        catch org.apache.commons.lang3.concurrent.ConcurrentException from label1 to label2 with label3;
+        catch java.lang.Throwable from label1 to label2 with label5;
+        catch java.lang.Throwable from label3 to label4 with label5;
+        catch java.lang.Throwable from label5 to label6 with label5;
+    }
+}

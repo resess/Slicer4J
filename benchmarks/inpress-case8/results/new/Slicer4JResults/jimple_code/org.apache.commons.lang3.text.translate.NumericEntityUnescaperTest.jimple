@@ -1,0 +1,132 @@
+public class org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testSupplementaryUnescaping()
+    {
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper $stack5;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[] $stack6;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest this;
+        java.lang.String $stack7;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest;
+
+        $stack5 = new org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
+
+        $stack6 = newarray (org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION)[0];
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: void <init>(org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[])>($stack6);
+
+        $stack7 = virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("&#68642;");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to unescape numeric entities supplementary characters", "\ud803\udc22", $stack7);
+
+        return;
+    }
+
+    public void testOutOfBounds()
+    {
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper $stack2;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[] $stack3;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest this;
+        java.lang.String $stack6, $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest;
+
+        $stack2 = new org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
+
+        $stack3 = newarray (org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION)[0];
+
+        specialinvoke $stack2.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: void <init>(org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[])>($stack3);
+
+        $stack6 = virtualinvoke $stack2.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to ignore when last character is &", "Test &", $stack6);
+
+        $stack9 = virtualinvoke $stack2.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to ignore when last character is &", "Test &#", $stack9);
+
+        $stack12 = virtualinvoke $stack2.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#x");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to ignore when last character is &", "Test &#x", $stack12);
+
+        $stack15 = virtualinvoke $stack2.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#X");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to ignore when last character is &", "Test &#X", $stack15);
+
+        return;
+    }
+
+    public void testUnfinishedEntity()
+    {
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[] $stack7, $stack11, $stack14;
+        java.lang.IllegalArgumentException $stack17;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper $stack6, $stack10, $stack13;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION $stack8, $stack15;
+        org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest this;
+        java.lang.String $stack9, $stack12;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest;
+
+        $stack6 = new org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
+
+        $stack7 = newarray (org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION)[1];
+
+        $stack8 = <org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION: org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION semiColonOptional>;
+
+        $stack7[0] = $stack8;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: void <init>(org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[])>($stack7);
+
+        $stack9 = virtualinvoke $stack6.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#x30 not test");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to support unfinished entities (i.e. missing semi-colon)", "Test 0 not test", $stack9);
+
+        $stack10 = new org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
+
+        $stack11 = newarray (org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION)[0];
+
+        specialinvoke $stack10.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: void <init>(org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[])>($stack11);
+
+        $stack12 = virtualinvoke $stack10.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#x30 not test");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to ignore unfinished entities (i.e. missing semi-colon)", "Test &#x30 not test", $stack12);
+
+        $stack13 = new org.apache.commons.lang3.text.translate.NumericEntityUnescaper;
+
+        $stack14 = newarray (org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION)[1];
+
+        $stack15 = <org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION: org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION errorIfNoSemiColon>;
+
+        $stack14[0] = $stack15;
+
+        specialinvoke $stack13.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: void <init>(org.apache.commons.lang3.text.translate.NumericEntityUnescaper$OPTION[])>($stack14);
+
+     label1:
+        virtualinvoke $stack13.<org.apache.commons.lang3.text.translate.NumericEntityUnescaper: java.lang.String translate(java.lang.CharSequence)>("Test &#x30 not test");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("IllegalArgumentException expected");
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack17 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.IllegalArgumentException from label1 to label2 with label3;
+    }
+}

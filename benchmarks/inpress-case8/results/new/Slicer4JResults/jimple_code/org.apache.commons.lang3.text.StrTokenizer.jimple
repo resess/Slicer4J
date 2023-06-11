@@ -1,0 +1,1785 @@
+public class org.apache.commons.lang3.text.StrTokenizer extends java.lang.Object implements java.util.ListIterator, java.lang.Cloneable
+{
+    private static final org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE;
+    private static final org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE;
+    private char[] chars;
+    private java.lang.String[] tokens;
+    private int tokenPos;
+    private org.apache.commons.lang3.text.StrMatcher delimMatcher;
+    private org.apache.commons.lang3.text.StrMatcher quoteMatcher;
+    private org.apache.commons.lang3.text.StrMatcher ignoredMatcher;
+    private org.apache.commons.lang3.text.StrMatcher trimmerMatcher;
+    private boolean emptyAsNull;
+    private boolean ignoreEmptyTokens;
+
+    private static org.apache.commons.lang3.text.StrTokenizer getCSVClone()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack0, $stack2;
+        java.lang.Object $stack1;
+
+        $stack0 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        $stack1 = virtualinvoke $stack0.<org.apache.commons.lang3.text.StrTokenizer: java.lang.Object clone()>();
+
+        $stack2 = (org.apache.commons.lang3.text.StrTokenizer) $stack1;
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getCSVInstance()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack0;
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVClone()>();
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getCSVInstance(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        java.lang.String input;
+
+        input := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVClone()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)>(input);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getCSVInstance(char[])
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        char[] input;
+
+        input := @parameter0: char[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getCSVClone()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>(input);
+
+        return $stack2;
+    }
+
+    private static org.apache.commons.lang3.text.StrTokenizer getTSVClone()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack0, $stack2;
+        java.lang.Object $stack1;
+
+        $stack0 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        $stack1 = virtualinvoke $stack0.<org.apache.commons.lang3.text.StrTokenizer: java.lang.Object clone()>();
+
+        $stack2 = (org.apache.commons.lang3.text.StrTokenizer) $stack1;
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getTSVInstance()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack0;
+
+        $stack0 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVClone()>();
+
+        return $stack0;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getTSVInstance(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        java.lang.String input;
+
+        input := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVClone()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)>(input);
+
+        return $stack2;
+    }
+
+    public static org.apache.commons.lang3.text.StrTokenizer getTSVInstance(char[])
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack2;
+        char[] input;
+
+        input := @parameter0: char[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer getTSVClone()>();
+
+        virtualinvoke $stack2.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset(char[])>(input);
+
+        return $stack2;
+    }
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack1, $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher> = $stack1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher quoteMatcher> = $stack2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher ignoredMatcher> = $stack3;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher trimmerMatcher> = $stack4;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean emptyAsNull> = 0;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean ignoreEmptyTokens> = 1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = null;
+
+        return;
+    }
+
+    public void <init>(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] $stack6;
+        java.lang.String input;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher> = $stack2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher quoteMatcher> = $stack3;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher ignoredMatcher> = $stack4;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher trimmerMatcher> = $stack5;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean emptyAsNull> = 0;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean ignoreEmptyTokens> = 1;
+
+        if input == null goto label1;
+
+        $stack6 = virtualinvoke input.<java.lang.String: char[] toCharArray()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = $stack6;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = null;
+
+     label2:
+        return;
+    }
+
+    public void <init>(java.lang.String, char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char delim;
+        java.lang.String input;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        delim := @parameter1: char;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(delim);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String input, delim;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        delim := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterString(java.lang.String)>(delim);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String input;
+        org.apache.commons.lang3.text.StrMatcher delim;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        delim := @parameter1: org.apache.commons.lang3.text.StrMatcher;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String)>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>(delim);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, char, char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char delim, quote;
+        java.lang.String input;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        delim := @parameter1: char;
+
+        quote := @parameter2: char;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,char)>(input, delim);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(quote);
+
+        return;
+    }
+
+    public void <init>(java.lang.String, org.apache.commons.lang3.text.StrMatcher, org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String input;
+        org.apache.commons.lang3.text.StrMatcher delim, quote;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        delim := @parameter1: org.apache.commons.lang3.text.StrMatcher;
+
+        quote := @parameter2: org.apache.commons.lang3.text.StrMatcher;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(java.lang.String,org.apache.commons.lang3.text.StrMatcher)>(input, delim);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>(quote);
+
+        return;
+    }
+
+    public void <init>(char[])
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input, $stack6;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack3, $stack4, $stack5;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher splitMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher> = $stack2;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher quoteMatcher> = $stack3;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher ignoredMatcher> = $stack4;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher trimmerMatcher> = $stack5;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean emptyAsNull> = 0;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean ignoreEmptyTokens> = 1;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] clone(char[])>(input);
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = $stack6;
+
+        return;
+    }
+
+    public void <init>(char[], char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input;
+        char delim;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        delim := @parameter1: char;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)>(delim);
+
+        return;
+    }
+
+    public void <init>(char[], java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input;
+        java.lang.String delim;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        delim := @parameter1: java.lang.String;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterString(java.lang.String)>(delim);
+
+        return;
+    }
+
+    public void <init>(char[], org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input;
+        org.apache.commons.lang3.text.StrMatcher delim;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        delim := @parameter1: org.apache.commons.lang3.text.StrMatcher;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[])>(input);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>(delim);
+
+        return;
+    }
+
+    public void <init>(char[], char, char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input;
+        char delim, quote;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        delim := @parameter1: char;
+
+        quote := @parameter2: char;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],char)>(input, delim);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)>(quote);
+
+        return;
+    }
+
+    public void <init>(char[], org.apache.commons.lang3.text.StrMatcher, org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input;
+        org.apache.commons.lang3.text.StrMatcher delim, quote;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        delim := @parameter1: org.apache.commons.lang3.text.StrMatcher;
+
+        quote := @parameter2: org.apache.commons.lang3.text.StrMatcher;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void <init>(char[],org.apache.commons.lang3.text.StrMatcher)>(input, delim);
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>(quote);
+
+        return;
+    }
+
+    public int size()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack2;
+        java.lang.String[] $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void checkTokenized()>();
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack2 = lengthof $stack1;
+
+        return $stack2;
+    }
+
+    public java.lang.String nextToken()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack2, $stack3;
+        java.lang.String[] $stack4;
+        java.lang.String $stack5;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        if $stack1 == 0 goto label1;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack3 = $stack2 + 1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos> = $stack3;
+
+        $stack5 = $stack4[$stack2];
+
+        return $stack5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String previousToken()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack2, $stack3;
+        java.lang.String[] $stack4;
+        java.lang.String $stack5;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        if $stack1 == 0 goto label1;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack3 = $stack2 - 1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos> = $stack3;
+
+        $stack5 = $stack4[$stack3];
+
+        return $stack5;
+
+     label1:
+        return null;
+    }
+
+    public java.lang.String[] getTokenArray()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String[] $stack1, $stack3;
+        java.lang.Object $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void checkTokenized()>();
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack2 = virtualinvoke $stack1.<java.lang.Object: java.lang.Object clone()>();
+
+        $stack3 = (java.lang.String[]) $stack2;
+
+        return $stack3;
+    }
+
+    public java.util.List getTokenList()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String[] $stack7, arr$;
+        java.util.ArrayList $stack6;
+        int $stack8, len$, i$;
+        java.lang.String element;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void checkTokenized()>();
+
+        $stack6 = new java.util.ArrayList;
+
+        $stack7 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack8 = lengthof $stack7;
+
+        specialinvoke $stack6.<java.util.ArrayList: void <init>(int)>($stack8);
+
+        arr$ = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        len$ = lengthof arr$;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label2;
+
+        element = arr$[i$];
+
+        interfaceinvoke $stack6.<java.util.List: boolean add(java.lang.Object)>(element);
+
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label2:
+        return $stack6;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer reset()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos> = 0;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens> = null;
+
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer reset(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] $stack3;
+        java.lang.String input;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: java.lang.String;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        if input == null goto label1;
+
+        $stack3 = virtualinvoke input.<java.lang.String: char[] toCharArray()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = $stack3;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = null;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer reset(char[])
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] input, $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        input := @parameter0: char[];
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.ArrayUtils: char[] clone(char[])>(input);
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = $stack3;
+
+        return this;
+    }
+
+    public boolean hasNext()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack2, $stack3;
+        java.lang.String[] $stack1;
+        boolean $stack4;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void checkTokenized()>();
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack2 = lengthof $stack1;
+
+        if $stack3 >= $stack2 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public java.lang.String next()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack3, $stack4;
+        java.lang.String[] $stack5;
+        java.lang.String $stack6;
+        java.util.NoSuchElementException $stack2;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean hasNext()>();
+
+        if $stack1 == 0 goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack4 = $stack3 + 1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos> = $stack4;
+
+        $stack6 = $stack5[$stack3];
+
+        return $stack6;
+
+     label1:
+        $stack2 = new java.util.NoSuchElementException;
+
+        specialinvoke $stack2.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $stack2;
+    }
+
+    public int nextIndex()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        return $stack1;
+    }
+
+    public boolean hasPrevious()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack1;
+        boolean $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void checkTokenized()>();
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        if $stack1 <= 0 goto label1;
+
+        $stack2 = 1;
+
+        goto label2;
+
+     label1:
+        $stack2 = 0;
+
+     label2:
+        return $stack2;
+    }
+
+    public java.lang.String previous()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack3, $stack4;
+        java.lang.String[] $stack5;
+        java.lang.String $stack6;
+        java.util.NoSuchElementException $stack2;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean hasPrevious()>();
+
+        if $stack1 == 0 goto label1;
+
+        $stack5 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack4 = $stack3 - 1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos> = $stack4;
+
+        $stack6 = $stack5[$stack4];
+
+        return $stack6;
+
+     label1:
+        $stack2 = new java.util.NoSuchElementException;
+
+        specialinvoke $stack2.<java.util.NoSuchElementException: void <init>()>();
+
+        throw $stack2;
+    }
+
+    public int previousIndex()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        int $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: int tokenPos>;
+
+        $stack2 = $stack1 - 1;
+
+        return $stack2;
+    }
+
+    public void remove()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.UnsupportedOperationException $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack1.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("remove() is unsupported");
+
+        throw $stack1;
+    }
+
+    public void set(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.UnsupportedOperationException $stack2;
+        java.lang.String obj;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        obj := @parameter0: java.lang.String;
+
+        $stack2 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack2.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("set() is unsupported");
+
+        throw $stack2;
+    }
+
+    public void add(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.UnsupportedOperationException $stack2;
+        java.lang.String obj;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        obj := @parameter0: java.lang.String;
+
+        $stack2 = new java.lang.UnsupportedOperationException;
+
+        specialinvoke $stack2.<java.lang.UnsupportedOperationException: void <init>(java.lang.String)>("add() is unsupported");
+
+        throw $stack2;
+    }
+
+    private void checkTokenized()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.Object[] $stack10, $stack15;
+        java.lang.String[] $stack2, $stack9, $stack11, $stack14, $stack16;
+        int $stack5, $stack8, $stack13;
+        java.util.List $stack7, $stack12;
+        char[] $stack3, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack2 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        if $stack2 != null goto label2;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        if $stack3 != null goto label1;
+
+        $stack12 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.util.List tokenize(char[],int,int)>(null, 0, 0);
+
+        $stack13 = interfaceinvoke $stack12.<java.util.List: int size()>();
+
+        $stack14 = newarray (java.lang.String)[$stack13];
+
+        $stack15 = interfaceinvoke $stack12.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack14);
+
+        $stack16 = (java.lang.String[]) $stack15;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens> = $stack16;
+
+        goto label2;
+
+     label1:
+        $stack6 = this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        $stack4 = this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        $stack5 = lengthof $stack4;
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.util.List tokenize(char[],int,int)>($stack6, 0, $stack5);
+
+        $stack8 = interfaceinvoke $stack7.<java.util.List: int size()>();
+
+        $stack9 = newarray (java.lang.String)[$stack8];
+
+        $stack10 = interfaceinvoke $stack7.<java.util.List: java.lang.Object[] toArray(java.lang.Object[])>($stack9);
+
+        $stack11 = (java.lang.String[]) $stack10;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens> = $stack11;
+
+     label2:
+        return;
+    }
+
+    protected java.util.List tokenize(char[], int, int)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.util.ArrayList $stack9;
+        java.util.List $stack7;
+        int count, offset, $stack11, pos;
+        char[] chars;
+        org.apache.commons.lang3.text.StrBuilder $stack8;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        chars := @parameter0: char[];
+
+        offset := @parameter1: int;
+
+        count := @parameter2: int;
+
+        if chars == null goto label1;
+
+        if count != 0 goto label2;
+
+     label1:
+        $stack7 = staticinvoke <java.util.Collections: java.util.List emptyList()>();
+
+        return $stack7;
+
+     label2:
+        $stack8 = new org.apache.commons.lang3.text.StrBuilder;
+
+        specialinvoke $stack8.<org.apache.commons.lang3.text.StrBuilder: void <init>()>();
+
+        $stack9 = new java.util.ArrayList;
+
+        specialinvoke $stack9.<java.util.ArrayList: void <init>()>();
+
+        pos = offset;
+
+     label3:
+        if pos < 0 goto label4;
+
+        if pos >= count goto label4;
+
+        $stack11 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: int readNextToken(char[],int,int,org.apache.commons.lang3.text.StrBuilder,java.util.List)>(chars, pos, count, $stack8, $stack9);
+
+        pos = $stack11;
+
+        if $stack11 < count goto label3;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void addToken(java.util.List,java.lang.String)>($stack9, "");
+
+        goto label3;
+
+     label4:
+        return $stack9;
+    }
+
+    private void addToken(java.util.List, java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.util.List list;
+        java.lang.String tok;
+        boolean $stack3, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        list := @parameter0: java.util.List;
+
+        tok := @parameter1: java.lang.String;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.StringUtils: boolean isEmpty(java.lang.CharSequence)>(tok);
+
+        if $stack3 == 0 goto label2;
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean isIgnoreEmptyTokens()>();
+
+        if $stack5 == 0 goto label1;
+
+        return;
+
+     label1:
+        $stack6 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean isEmptyTokenAsNull()>();
+
+        if $stack6 == 0 goto label2;
+
+        tok = null;
+
+     label2:
+        interfaceinvoke list.<java.util.List: boolean add(java.lang.Object)>(tok);
+
+        return;
+    }
+
+    private int readNextToken(char[], int, int, org.apache.commons.lang3.text.StrBuilder, java.util.List)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack8, $stack10, $stack16, $stack18, $stack23, $stack25;
+        int len, $stack9, $stack11, $stack12, $stack13, $stack14, $stack15, $stack17, $stack19, $stack20, $stack24, $stack26, start, $i0;
+        java.util.List tokens;
+        char[] chars;
+        org.apache.commons.lang3.text.StrBuilder workArea;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        chars := @parameter0: char[];
+
+        start := @parameter1: int;
+
+        len := @parameter2: int;
+
+        workArea := @parameter3: org.apache.commons.lang3.text.StrBuilder;
+
+        tokens := @parameter4: java.util.List;
+
+     label1:
+        if start >= len goto label3;
+
+        $stack16 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getIgnoredMatcher()>();
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        $stack18 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getTrimmerMatcher()>();
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        $stack20 = staticinvoke <java.lang.Math: int max(int,int)>($stack17, $stack19);
+
+        if $stack20 == 0 goto label3;
+
+        $stack23 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack24 = virtualinvoke $stack23.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        if $stack24 > 0 goto label3;
+
+        $stack25 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getQuoteMatcher()>();
+
+        $stack26 = virtualinvoke $stack25.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        if $stack26 <= 0 goto label2;
+
+        goto label3;
+
+     label2:
+        start = start + $stack20;
+
+        goto label1;
+
+     label3:
+        if start < len goto label4;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void addToken(java.util.List,java.lang.String)>(tokens, "");
+
+        $i0 = (int) -1;
+
+        return $i0;
+
+     label4:
+        $stack8 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack9 = virtualinvoke $stack8.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        if $stack9 <= 0 goto label5;
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void addToken(java.util.List,java.lang.String)>(tokens, "");
+
+        $stack15 = start + $stack9;
+
+        return $stack15;
+
+     label5:
+        $stack10 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getQuoteMatcher()>();
+
+        $stack11 = virtualinvoke $stack10.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, start, start, len);
+
+        if $stack11 <= 0 goto label6;
+
+        $stack13 = start + $stack11;
+
+        $stack14 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: int readWithQuotes(char[],int,int,org.apache.commons.lang3.text.StrBuilder,java.util.List,int,int)>(chars, $stack13, len, workArea, tokens, start, $stack11);
+
+        return $stack14;
+
+     label6:
+        $stack12 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: int readWithQuotes(char[],int,int,org.apache.commons.lang3.text.StrBuilder,java.util.List,int,int)>(chars, start, len, workArea, tokens, 0, 0);
+
+        return $stack12;
+    }
+
+    private int readWithQuotes(char[], int, int, org.apache.commons.lang3.text.StrBuilder, java.util.List, int, int)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack16, $stack18, $stack20;
+        int start, quoteLen, len, $stack17, $stack19, $stack21, $stack22, quoteStart, $stack37, $stack39, $stack43, $stack46, pos, trimStart, $i0;
+        java.lang.String $stack15, $stack36;
+        boolean $stack29, $stack38, $stack44, $stack48, quoting;
+        char $stack23, $stack40;
+        java.util.List tokens;
+        char[] chars;
+        org.apache.commons.lang3.text.StrBuilder workArea;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        chars := @parameter0: char[];
+
+        start := @parameter1: int;
+
+        len := @parameter2: int;
+
+        workArea := @parameter3: org.apache.commons.lang3.text.StrBuilder;
+
+        tokens := @parameter4: java.util.List;
+
+        quoteStart := @parameter5: int;
+
+        quoteLen := @parameter6: int;
+
+        virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder clear()>();
+
+        pos = start;
+
+        if quoteLen <= 0 goto label01;
+
+        $stack48 = 1;
+
+        goto label02;
+
+     label01:
+        $stack48 = 0;
+
+     label02:
+        quoting = $stack48;
+
+        trimStart = 0;
+
+     label03:
+        if pos >= len goto label11;
+
+        if quoting == 0 goto label06;
+
+        $stack38 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean isQuote(char[],int,int,int,int)>(chars, pos, len, quoteStart, quoteLen);
+
+        if $stack38 == 0 goto label05;
+
+        $stack43 = pos + quoteLen;
+
+        $stack44 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean isQuote(char[],int,int,int,int)>(chars, $stack43, len, quoteStart, quoteLen);
+
+        if $stack44 == 0 goto label04;
+
+        virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>(chars, pos, quoteLen);
+
+        $stack46 = quoteLen * 2;
+
+        pos = pos + $stack46;
+
+        trimStart = virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        goto label03;
+
+     label04:
+        quoting = 0;
+
+        pos = pos + quoteLen;
+
+        goto label03;
+
+     label05:
+        $stack39 = pos;
+
+        pos = pos + 1;
+
+        $stack40 = chars[$stack39];
+
+        virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>($stack40);
+
+        trimStart = virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        goto label03;
+
+     label06:
+        $stack16 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()>();
+
+        $stack17 = virtualinvoke $stack16.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, start, len);
+
+        if $stack17 <= 0 goto label07;
+
+        $stack36 = virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: java.lang.String substring(int,int)>(0, trimStart);
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void addToken(java.util.List,java.lang.String)>(tokens, $stack36);
+
+        $stack37 = pos + $stack17;
+
+        return $stack37;
+
+     label07:
+        if quoteLen <= 0 goto label08;
+
+        $stack29 = specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: boolean isQuote(char[],int,int,int,int)>(chars, pos, len, quoteStart, quoteLen);
+
+        if $stack29 == 0 goto label08;
+
+        quoting = 1;
+
+        pos = pos + quoteLen;
+
+        goto label03;
+
+     label08:
+        $stack18 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getIgnoredMatcher()>();
+
+        $stack19 = virtualinvoke $stack18.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, start, len);
+
+        if $stack19 <= 0 goto label09;
+
+        pos = pos + $stack19;
+
+        goto label03;
+
+     label09:
+        $stack20 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher getTrimmerMatcher()>();
+
+        $stack21 = virtualinvoke $stack20.<org.apache.commons.lang3.text.StrMatcher: int isMatch(char[],int,int,int)>(chars, pos, start, len);
+
+        if $stack21 <= 0 goto label10;
+
+        virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char[],int,int)>(chars, pos, $stack21);
+
+        pos = pos + $stack21;
+
+        goto label03;
+
+     label10:
+        $stack22 = pos;
+
+        pos = pos + 1;
+
+        $stack23 = chars[$stack22];
+
+        virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: org.apache.commons.lang3.text.StrBuilder append(char)>($stack23);
+
+        trimStart = virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: int size()>();
+
+        goto label03;
+
+     label11:
+        $stack15 = virtualinvoke workArea.<org.apache.commons.lang3.text.StrBuilder: java.lang.String substring(int,int)>(0, trimStart);
+
+        specialinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void addToken(java.util.List,java.lang.String)>(tokens, $stack15);
+
+        $i0 = (int) -1;
+
+        return $i0;
+    }
+
+    private boolean isQuote(char[], int, int, int, int)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char $stack10, $stack11;
+        int quoteLen, pos, len, $stack7, $stack8, quoteStart, $stack9, i, $i0, $i1;
+        char[] chars;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        chars := @parameter0: char[];
+
+        pos := @parameter1: int;
+
+        len := @parameter2: int;
+
+        quoteStart := @parameter3: int;
+
+        quoteLen := @parameter4: int;
+
+        i = 0;
+
+     label1:
+        if i >= quoteLen goto label4;
+
+        $stack7 = pos + i;
+
+        if $stack7 >= len goto label2;
+
+        $stack8 = pos + i;
+
+        $stack11 = chars[$stack8];
+
+        $stack9 = quoteStart + i;
+
+        $stack10 = chars[$stack9];
+
+        $i0 = (int) $stack11;
+
+        $i1 = (int) $stack10;
+
+        if $i0 == $i1 goto label3;
+
+     label2:
+        return 0;
+
+     label3:
+        i = i + 1;
+
+        goto label1;
+
+     label4:
+        return 1;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getDelimiterMatcher()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher delim, $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        delim := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if delim != null goto label1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher> = $stack2;
+
+        goto label2;
+
+     label1:
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher delimMatcher> = delim;
+
+     label2:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setDelimiterChar(char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this, $stack3;
+        char delim;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        delim := @parameter0: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(delim);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setDelimiterString(java.lang.String)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this, $stack3;
+        java.lang.String delim;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        delim := @parameter0: java.lang.String;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher stringMatcher(java.lang.String)>(delim);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getQuoteMatcher()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher quoteMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher quote;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        quote := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if quote == null goto label1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher quoteMatcher> = quote;
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setQuoteChar(char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this, $stack3;
+        char quote;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        quote := @parameter0: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(quote);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getIgnoredMatcher()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher ignoredMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher ignored;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        ignored := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if ignored == null goto label1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher ignoredMatcher> = ignored;
+
+     label1:
+        return this;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setIgnoredChar(char)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this, $stack3;
+        char ignored;
+        org.apache.commons.lang3.text.StrMatcher $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        ignored := @parameter0: char;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher charMatcher(char)>(ignored);
+
+        $stack3 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        return $stack3;
+    }
+
+    public org.apache.commons.lang3.text.StrMatcher getTrimmerMatcher()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher trimmerMatcher>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        org.apache.commons.lang3.text.StrMatcher trimmer;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        trimmer := @parameter0: org.apache.commons.lang3.text.StrMatcher;
+
+        if trimmer == null goto label1;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrMatcher trimmerMatcher> = trimmer;
+
+     label1:
+        return this;
+    }
+
+    public boolean isEmptyTokenAsNull()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: boolean emptyAsNull>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        boolean emptyAsNull;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        emptyAsNull := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean emptyAsNull> = emptyAsNull;
+
+        return this;
+    }
+
+    public boolean isIgnoreEmptyTokens()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        boolean $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: boolean ignoreEmptyTokens>;
+
+        return $stack1;
+    }
+
+    public org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        boolean ignoreEmptyTokens;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        ignoreEmptyTokens := @parameter0: boolean;
+
+        this.<org.apache.commons.lang3.text.StrTokenizer: boolean ignoreEmptyTokens> = ignoreEmptyTokens;
+
+        return this;
+    }
+
+    public java.lang.String getContent()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        char[] $stack1, $stack3;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        if $stack1 != null goto label1;
+
+        return null;
+
+     label1:
+        $stack2 = new java.lang.String;
+
+        $stack3 = this.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        specialinvoke $stack2.<java.lang.String: void <init>(char[])>($stack3);
+
+        return $stack2;
+    }
+
+    public java.lang.Object clone()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.Object $stack2;
+        java.lang.CloneNotSupportedException $stack3;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+     label1:
+        $stack2 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.Object cloneReset()>();
+
+     label2:
+        return $stack2;
+
+     label3:
+        $stack3 := @caughtexception;
+
+        return null;
+
+        catch java.lang.CloneNotSupportedException from label1 to label2 with label3;
+    }
+
+    java.lang.Object cloneReset() throws java.lang.CloneNotSupportedException
+    {
+        org.apache.commons.lang3.text.StrTokenizer this, cloned;
+        char[] $stack3, $stack5, $stack7;
+        java.lang.Object $stack2, $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack2 = specialinvoke this.<java.lang.Object: java.lang.Object clone()>();
+
+        cloned = (org.apache.commons.lang3.text.StrTokenizer) $stack2;
+
+        $stack3 = cloned.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        if $stack3 == null goto label1;
+
+        $stack5 = cloned.<org.apache.commons.lang3.text.StrTokenizer: char[] chars>;
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Object: java.lang.Object clone()>();
+
+        $stack7 = (char[]) $stack6;
+
+        cloned.<org.apache.commons.lang3.text.StrTokenizer: char[] chars> = $stack7;
+
+     label1:
+        virtualinvoke cloned.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer reset()>();
+
+        return cloned;
+    }
+
+    public java.lang.String toString()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.util.List $stack4;
+        java.lang.String[] $stack1;
+        java.lang.StringBuilder $stack2, $stack3, $stack5;
+        java.lang.String $stack6;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String[] tokens>;
+
+        if $stack1 != null goto label1;
+
+        return "StrTokenizer[not tokenized yet]";
+
+     label1:
+        $stack2 = new java.lang.StringBuilder;
+
+        specialinvoke $stack2.<java.lang.StringBuilder: void <init>()>();
+
+        $stack3 = virtualinvoke $stack2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("StrTokenizer");
+
+        $stack4 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.util.List getTokenList()>();
+
+        $stack5 = virtualinvoke $stack3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack4);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $stack6;
+    }
+
+    public volatile void add(java.lang.Object)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.Object x0;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.String) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void add(java.lang.String)>($stack2);
+
+        return;
+    }
+
+    public volatile void set(java.lang.Object)
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.Object x0;
+        java.lang.String $stack2;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        x0 := @parameter0: java.lang.Object;
+
+        $stack2 = (java.lang.String) x0;
+
+        virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: void set(java.lang.String)>($stack2);
+
+        return;
+    }
+
+    public volatile java.lang.Object previous()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String previous()>();
+
+        return $stack1;
+    }
+
+    public volatile java.lang.Object next()
+    {
+        org.apache.commons.lang3.text.StrTokenizer this;
+        java.lang.String $stack1;
+
+        this := @this: org.apache.commons.lang3.text.StrTokenizer;
+
+        $stack1 = virtualinvoke this.<org.apache.commons.lang3.text.StrTokenizer: java.lang.String next()>();
+
+        return $stack1;
+    }
+
+    static void <clinit>()
+    {
+        org.apache.commons.lang3.text.StrTokenizer $stack0, $stack1, $stack4, $stack7, $stack10, $stack13, $stack15, $stack17, $stack18, $stack21, $stack24, $stack27, $stack30, $stack32;
+        org.apache.commons.lang3.text.StrMatcher $stack2, $stack5, $stack8, $stack11, $stack19, $stack22, $stack25, $stack28;
+
+        $stack0 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack0.<org.apache.commons.lang3.text.StrTokenizer: void <init>()>();
+
+        <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE> = $stack0;
+
+        $stack1 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher commaMatcher()>();
+
+        virtualinvoke $stack1.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack2);
+
+        $stack4 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        virtualinvoke $stack4.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack5);
+
+        $stack7 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack7.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack8);
+
+        $stack10 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack10.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack11);
+
+        $stack13 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        virtualinvoke $stack13.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(0);
+
+        $stack15 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer CSV_TOKENIZER_PROTOTYPE>;
+
+        virtualinvoke $stack15.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        $stack17 = new org.apache.commons.lang3.text.StrTokenizer;
+
+        specialinvoke $stack17.<org.apache.commons.lang3.text.StrTokenizer: void <init>()>();
+
+        <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE> = $stack17;
+
+        $stack18 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher tabMatcher()>();
+
+        virtualinvoke $stack18.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setDelimiterMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack19);
+
+        $stack21 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher doubleQuoteMatcher()>();
+
+        virtualinvoke $stack21.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setQuoteMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack22);
+
+        $stack24 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher noneMatcher()>();
+
+        virtualinvoke $stack24.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoredMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack25);
+
+        $stack27 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.text.StrMatcher: org.apache.commons.lang3.text.StrMatcher trimMatcher()>();
+
+        virtualinvoke $stack27.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setTrimmerMatcher(org.apache.commons.lang3.text.StrMatcher)>($stack28);
+
+        $stack30 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        virtualinvoke $stack30.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setEmptyTokenAsNull(boolean)>(0);
+
+        $stack32 = <org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer TSV_TOKENIZER_PROTOTYPE>;
+
+        virtualinvoke $stack32.<org.apache.commons.lang3.text.StrTokenizer: org.apache.commons.lang3.text.StrTokenizer setIgnoreEmptyTokens(boolean)>(0);
+
+        return;
+    }
+}

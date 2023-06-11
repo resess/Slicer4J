@@ -1,0 +1,287 @@
+abstract class org.apache.commons.lang3.time.FormatCache extends java.lang.Object
+{
+    static final int NONE;
+    private final java.util.concurrent.ConcurrentMap cInstanceCache;
+    private static final java.util.concurrent.ConcurrentMap cDateTimeInstanceCache;
+
+    void <init>()
+    {
+        java.util.concurrent.ConcurrentHashMap $stack1;
+        org.apache.commons.lang3.time.FormatCache this;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        $stack1 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack1.<java.util.concurrent.ConcurrentHashMap: void <init>(int)>(7);
+
+        this.<org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cInstanceCache> = $stack1;
+
+        return;
+    }
+
+    public java.text.Format getInstance()
+    {
+        org.apache.commons.lang3.time.FormatCache this;
+        java.text.Format $stack5;
+        java.util.TimeZone $stack3;
+        java.util.Locale $stack4;
+        java.lang.Integer $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(3);
+
+        $stack3 = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+        $stack4 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        $stack5 = virtualinvoke this.<org.apache.commons.lang3.time.FormatCache: java.text.Format getDateTimeInstance(java.lang.Integer,java.lang.Integer,java.util.TimeZone,java.util.Locale)>($stack1, $stack2, $stack3, $stack4);
+
+        return $stack5;
+    }
+
+    public java.text.Format getInstance(java.lang.String, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache this;
+        java.lang.Object[] $stack8;
+        java.text.Format $stack11, previousValue, $stack25, format;
+        java.util.TimeZone timeZone;
+        java.lang.NullPointerException $stack29;
+        org.apache.commons.lang3.time.FormatCache$MultipartKey $stack7;
+        java.util.concurrent.ConcurrentMap $stack9, $stack12;
+        java.util.Locale locale;
+        java.lang.Object $stack10, $stack13;
+        java.lang.String pattern;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache;
+
+        pattern := @parameter0: java.lang.String;
+
+        timeZone := @parameter1: java.util.TimeZone;
+
+        locale := @parameter2: java.util.Locale;
+
+        if pattern != null goto label1;
+
+        $stack29 = new java.lang.NullPointerException;
+
+        specialinvoke $stack29.<java.lang.NullPointerException: void <init>(java.lang.String)>("pattern must not be null");
+
+        throw $stack29;
+
+     label1:
+        if timeZone != null goto label2;
+
+        timeZone = staticinvoke <java.util.TimeZone: java.util.TimeZone getDefault()>();
+
+     label2:
+        if locale != null goto label3;
+
+        locale = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+     label3:
+        $stack7 = new org.apache.commons.lang3.time.FormatCache$MultipartKey;
+
+        $stack8 = newarray (java.lang.Object)[3];
+
+        $stack8[0] = pattern;
+
+        $stack8[1] = timeZone;
+
+        $stack8[2] = locale;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.time.FormatCache$MultipartKey: void <init>(java.lang.Object[])>($stack8);
+
+        $stack9 = this.<org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cInstanceCache>;
+
+        $stack10 = interfaceinvoke $stack9.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>($stack7);
+
+        $stack25 = (java.text.Format) $stack10;
+
+        format = $stack25;
+
+        if $stack25 != null goto label4;
+
+        $stack11 = virtualinvoke this.<org.apache.commons.lang3.time.FormatCache: java.text.Format createInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>(pattern, timeZone, locale);
+
+        format = $stack11;
+
+        $stack12 = this.<org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cInstanceCache>;
+
+        $stack13 = interfaceinvoke $stack12.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>($stack7, $stack11);
+
+        previousValue = (java.text.Format) $stack13;
+
+        if previousValue == null goto label4;
+
+        format = previousValue;
+
+     label4:
+        return format;
+    }
+
+    protected abstract java.text.Format createInstance(java.lang.String, java.util.TimeZone, java.util.Locale);
+
+    public java.text.Format getDateTimeInstance(java.lang.Integer, java.lang.Integer, java.util.TimeZone, java.util.Locale)
+    {
+        org.apache.commons.lang3.time.FormatCache this;
+        java.text.Format $stack7;
+        java.util.TimeZone timeZone;
+        java.util.Locale locale;
+        java.lang.String $stack6;
+        java.lang.Integer dateStyle, timeStyle;
+
+        this := @this: org.apache.commons.lang3.time.FormatCache;
+
+        dateStyle := @parameter0: java.lang.Integer;
+
+        timeStyle := @parameter1: java.lang.Integer;
+
+        timeZone := @parameter2: java.util.TimeZone;
+
+        locale := @parameter3: java.util.Locale;
+
+        if locale != null goto label1;
+
+        locale = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+     label1:
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.FormatCache: java.lang.String getPatternForStyle(java.lang.Integer,java.lang.Integer,java.util.Locale)>(dateStyle, timeStyle, locale);
+
+        $stack7 = virtualinvoke this.<org.apache.commons.lang3.time.FormatCache: java.text.Format getInstance(java.lang.String,java.util.TimeZone,java.util.Locale)>($stack6, timeZone, locale);
+
+        return $stack7;
+    }
+
+    public static java.lang.String getPatternForStyle(java.lang.Integer, java.lang.Integer, java.util.Locale)
+    {
+        java.lang.Object[] $stack8;
+        java.text.SimpleDateFormat $stack14;
+        java.lang.Integer dateStyle, timeStyle;
+        java.lang.ClassCastException $stack28;
+        org.apache.commons.lang3.time.FormatCache$MultipartKey $stack7;
+        java.util.concurrent.ConcurrentMap $stack9, $stack16;
+        java.util.Locale locale;
+        int $stack11, $stack12, $stack19, $stack26;
+        java.lang.String $stack33, pattern, $stack15, $stack24;
+        java.text.DateFormat formatter;
+        java.lang.IllegalArgumentException $stack29;
+        java.lang.Object $stack10, $stack17;
+        java.lang.StringBuilder $stack30, $stack31, $stack32;
+
+        dateStyle := @parameter0: java.lang.Integer;
+
+        timeStyle := @parameter1: java.lang.Integer;
+
+        locale := @parameter2: java.util.Locale;
+
+        $stack7 = new org.apache.commons.lang3.time.FormatCache$MultipartKey;
+
+        $stack8 = newarray (java.lang.Object)[3];
+
+        $stack8[0] = dateStyle;
+
+        $stack8[1] = timeStyle;
+
+        $stack8[2] = locale;
+
+        specialinvoke $stack7.<org.apache.commons.lang3.time.FormatCache$MultipartKey: void <init>(java.lang.Object[])>($stack8);
+
+        $stack9 = <org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cDateTimeInstanceCache>;
+
+        $stack10 = interfaceinvoke $stack9.<java.util.concurrent.ConcurrentMap: java.lang.Object get(java.lang.Object)>($stack7);
+
+        pattern = (java.lang.String) $stack10;
+
+        if pattern != null goto label7;
+
+     label1:
+        if dateStyle != null goto label2;
+
+        $stack26 = virtualinvoke timeStyle.<java.lang.Integer: int intValue()>();
+
+        formatter = staticinvoke <java.text.DateFormat: java.text.DateFormat getTimeInstance(int,java.util.Locale)>($stack26, locale);
+
+        goto label4;
+
+     label2:
+        if timeStyle != null goto label3;
+
+        $stack19 = virtualinvoke dateStyle.<java.lang.Integer: int intValue()>();
+
+        formatter = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateInstance(int,java.util.Locale)>($stack19, locale);
+
+        goto label4;
+
+     label3:
+        $stack11 = virtualinvoke dateStyle.<java.lang.Integer: int intValue()>();
+
+        $stack12 = virtualinvoke timeStyle.<java.lang.Integer: int intValue()>();
+
+        formatter = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateTimeInstance(int,int,java.util.Locale)>($stack11, $stack12, locale);
+
+     label4:
+        $stack14 = (java.text.SimpleDateFormat) formatter;
+
+        $stack15 = virtualinvoke $stack14.<java.text.SimpleDateFormat: java.lang.String toPattern()>();
+
+        pattern = $stack15;
+
+        $stack16 = <org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cDateTimeInstanceCache>;
+
+        $stack17 = interfaceinvoke $stack16.<java.util.concurrent.ConcurrentMap: java.lang.Object putIfAbsent(java.lang.Object,java.lang.Object)>($stack7, $stack15);
+
+        $stack24 = (java.lang.String) $stack17;
+
+        if $stack24 == null goto label5;
+
+        pattern = $stack24;
+
+     label5:
+        goto label7;
+
+     label6:
+        $stack28 := @caughtexception;
+
+        $stack29 = new java.lang.IllegalArgumentException;
+
+        $stack30 = new java.lang.StringBuilder;
+
+        specialinvoke $stack30.<java.lang.StringBuilder: void <init>()>();
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("No date time pattern for locale: ");
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(locale);
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack29.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack33);
+
+        throw $stack29;
+
+     label7:
+        return pattern;
+
+        catch java.lang.ClassCastException from label1 to label5 with label6;
+    }
+
+    static void <clinit>()
+    {
+        java.util.concurrent.ConcurrentHashMap $stack0;
+
+        <org.apache.commons.lang3.time.FormatCache: int NONE> = -1;
+
+        $stack0 = new java.util.concurrent.ConcurrentHashMap;
+
+        specialinvoke $stack0.<java.util.concurrent.ConcurrentHashMap: void <init>(int)>(7);
+
+        <org.apache.commons.lang3.time.FormatCache: java.util.concurrent.ConcurrentMap cDateTimeInstanceCache> = $stack0;
+
+        return;
+    }
+}

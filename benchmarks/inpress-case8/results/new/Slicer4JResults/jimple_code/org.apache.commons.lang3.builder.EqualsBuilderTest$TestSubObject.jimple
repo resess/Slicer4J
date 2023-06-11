@@ -1,0 +1,131 @@
+class org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject extends org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject
+{
+    private int b;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(0);
+
+        return;
+    }
+
+    public void <init>(int, int)
+    {
+        int a, b;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        a := @parameter0: int;
+
+        b := @parameter1: int;
+
+        specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: void <init>(int)>(a);
+
+        this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b> = b;
+
+        return;
+    }
+
+    public boolean equals(java.lang.Object)
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this, rhs;
+        int $stack6, $stack7;
+        java.lang.Object o;
+        java.lang.Class $stack3, $stack4;
+        boolean $stack5, $stack8;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        o := @parameter0: java.lang.Object;
+
+        if o != null goto label1;
+
+        return 0;
+
+     label1:
+        if o != this goto label2;
+
+        return 1;
+
+     label2:
+        $stack3 = virtualinvoke o.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack4 = virtualinvoke this.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $stack3 == $stack4 goto label3;
+
+        return 0;
+
+     label3:
+        rhs = (org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject) o;
+
+        $stack5 = specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: boolean equals(java.lang.Object)>(o);
+
+        if $stack5 == 0 goto label4;
+
+        $stack7 = this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b>;
+
+        $stack6 = rhs.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b>;
+
+        if $stack7 != $stack6 goto label4;
+
+        $stack8 = 1;
+
+        goto label5;
+
+     label4:
+        $stack8 = 0;
+
+     label5:
+        return $stack8;
+    }
+
+    public int hashCode()
+    {
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this;
+        int $stack1, $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b>;
+
+        $stack2 = $stack1 * 17;
+
+        $stack3 = specialinvoke this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestObject: int hashCode()>();
+
+        $stack4 = $stack2 + $stack3;
+
+        return $stack4;
+    }
+
+    public void setB(int)
+    {
+        int b;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        b := @parameter0: int;
+
+        this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b> = b;
+
+        return;
+    }
+
+    public int getB()
+    {
+        int $stack1;
+        org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject this;
+
+        this := @this: org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject;
+
+        $stack1 = this.<org.apache.commons.lang3.builder.EqualsBuilderTest$TestSubObject: int b>;
+
+        return $stack1;
+    }
+}

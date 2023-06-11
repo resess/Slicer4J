@@ -1,0 +1,3301 @@
+public class org.apache.commons.lang3.BooleanUtilsTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        org.apache.commons.lang3.BooleanUtils $stack2;
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        java.lang.reflect.Constructor[] $stack4;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.BooleanUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.BooleanUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/BooleanUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/BooleanUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/BooleanUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    public void test_negate_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean negate(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack2);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean negate(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack4, $stack5);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean negate(java.lang.Boolean)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack7, $stack8);
+
+        return;
+    }
+
+    public void test_isTrue_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3;
+        boolean $stack2, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isTrue(java.lang.Boolean)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isTrue(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isTrue(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void test_isNotTrue_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3;
+        boolean $stack2, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotTrue(java.lang.Boolean)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotTrue(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotTrue(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        return;
+    }
+
+    public void test_isFalse_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3;
+        boolean $stack2, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isFalse(java.lang.Boolean)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isFalse(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isFalse(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void test_isNotFalse_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3;
+        boolean $stack2, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotFalse(java.lang.Boolean)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotFalse(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean isNotFalse(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        return;
+    }
+
+    public void test_toBoolean_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3;
+        boolean $stack2, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Boolean)>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Boolean)>($stack3);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        return;
+    }
+
+    public void test_toBooleanDefaultIfNull_Boolean_boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack3, $stack5, $stack7;
+        boolean $stack2, $stack4, $stack6, $stack8, $stack10, $stack12;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>($stack1, 1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>($stack3, 0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack4);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>($stack5, 1);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>($stack7, 0);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>(null, 1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBooleanDefaultIfNull(java.lang.Boolean,boolean)>(null, 0);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void test_toBoolean_int()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $i0;
+        boolean $stack1, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $i0 = (int) -1;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int)>($i0);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        return;
+    }
+
+    public void test_toBooleanObject_int()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $i0;
+        java.lang.Boolean $stack1, $stack2, $stack3, $stack4, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $i0 = (int) -1;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int)>($i0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        return;
+    }
+
+    public void test_toBooleanObject_Integer()
+    {
+        java.lang.Integer $stack2, $stack5, $stack8;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $i0;
+        java.lang.Boolean $stack1, $stack3, $stack4, $stack6, $stack7, $stack9, $stack12;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $i0 = (int) -1;
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack7, $stack9);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack12);
+
+        return;
+    }
+
+    public void test_toBoolean_int_int_int()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack1, $stack2;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int,int,int)>(6, 6, 7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int,int,int)>(7, 6, 7);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        return;
+    }
+
+    public void test_toBoolean_int_int_int_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(int,int,int)>(8, 6, 7);
+
+        return;
+    }
+
+    public void test_toBoolean_Integer_Integer_Integer()
+    {
+        java.lang.Integer $stack3, $stack4, $stack9, $stack11;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack6, $stack8, $stack10, $stack12;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, null, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack6);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack3, null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack9, $stack3, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack11, $stack3, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack12);
+
+        return;
+    }
+
+    public void test_toBoolean_Integer_Integer_Integer_nullValue()
+    {
+        java.lang.Integer $stack2, $stack3;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack2, $stack3);
+
+        return;
+    }
+
+    public void test_toBoolean_Integer_Integer_Integer_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Integer $stack1, $stack2, $stack3;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack1, $stack2, $stack3);
+
+        return;
+    }
+
+    public void test_toBooleanObject_int_int_int()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack1, $stack2, $stack3, $stack4, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int,int,int,int)>(6, 6, 7, 8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack2);
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int,int,int,int)>(7, 6, 7, 8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int,int,int,int)>(8, 6, 7, 8);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack6);
+
+        return;
+    }
+
+    public void test_toBooleanObject_int_int_int_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(int,int,int,int)>(9, 6, 7, 8);
+
+        return;
+    }
+
+    public void test_toBooleanObject_Integer_Integer_Integer_Integer()
+    {
+        java.lang.Integer $stack4, $stack5, $stack6, $stack17, $stack20, $stack23;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack8, $stack9, $stack11, $stack12, $stack15, $stack16, $stack18, $stack19, $stack21, $stack24;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, null, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack4, null, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack11, $stack12);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack4, $stack5, null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        $stack16 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack17, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack18);
+
+        $stack19 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack20 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack20, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack19, $stack21);
+
+        $stack23 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack23, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack24);
+
+        return;
+    }
+
+    public void test_toBooleanObject_Integer_Integer_Integer_Integer_nullValue()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Integer $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack2, $stack3, $stack4);
+
+        return;
+    }
+
+    public void test_toBooleanObject_Integer_Integer_Integer_Integer_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Integer $stack1, $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(9);
+
+        $stack2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack1, $stack2, $stack3, $stack4);
+
+        return;
+    }
+
+    public void test_toInteger_boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $stack2, $stack5;
+        long $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(boolean)>(1);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(boolean)>(0);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(0L, $stack6);
+
+        return;
+    }
+
+    public void test_toIntegerObject_boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Integer $stack1, $stack2, $stack3, $stack4;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack2);
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack4);
+
+        return;
+    }
+
+    public void test_toIntegerObject_Boolean()
+    {
+        java.lang.Integer $stack1, $stack3, $stack4, $stack6, $stack9;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack5;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean)>($stack2);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack1, $stack3);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        return;
+    }
+
+    public void test_toInteger_boolean_int_int()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $stack2, $stack5;
+        long $stack3, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(boolean,int,int)>(1, 6, 7);
+
+        $stack3 = (long) $stack2;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(boolean,int,int)>(0, 6, 7);
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack6);
+
+        return;
+    }
+
+    public void test_toInteger_Boolean_int_int_int()
+    {
+        long $stack4, $stack8, $stack11;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        int $stack3, $stack7, $stack10;
+        java.lang.Boolean $stack1, $stack5;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(java.lang.Boolean,int,int,int)>($stack1, 6, 7, 8);
+
+        $stack4 = (long) $stack3;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(6L, $stack4);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(java.lang.Boolean,int,int,int)>($stack5, 6, 7, 8);
+
+        $stack8 = (long) $stack7;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(7L, $stack8);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: int toInteger(java.lang.Boolean,int,int,int)>(null, 6, 7, 8);
+
+        $stack11 = (long) $stack10;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(8L, $stack11);
+
+        return;
+    }
+
+    public void test_toIntegerObject_boolean_Integer_Integer()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Integer $stack3, $stack4, $stack5, $stack6;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(boolean,java.lang.Integer,java.lang.Integer)>(1, $stack3, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack3, $stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(boolean,java.lang.Integer,java.lang.Integer)>(0, $stack3, $stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack6);
+
+        return;
+    }
+
+    public void test_toIntegerObject_Boolean_Integer_Integer_Integer()
+    {
+        java.lang.Integer $stack4, $stack5, $stack6, $stack8, $stack10, $stack12, $stack15;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack7, $stack9;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+
+        $stack5 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+
+        $stack6 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack7, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack4, $stack8);
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean,java.lang.Integer,java.lang.Integer,java.lang.Integer)>($stack9, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack10);
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack4, $stack5, $stack6);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack12);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Integer toIntegerObject(java.lang.Boolean,java.lang.Integer,java.lang.Integer,java.lang.Integer)>(null, $stack4, $stack5, null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        return;
+    }
+
+    public void test_toBooleanObject_String()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack3, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $stack44, $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack51, $stack53, $stack55, $stack57;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack5);
+
+        $stack6 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("false");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("no");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack9);
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("off");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("FALSE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("NO");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack14, $stack15);
+
+        $stack16 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("OFF");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack16, $stack17);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("oof");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack19);
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("true");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack20, $stack21);
+
+        $stack22 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("yes");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack22, $stack23);
+
+        $stack24 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("on");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack24, $stack25);
+
+        $stack26 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("TRUE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack26, $stack27);
+
+        $stack28 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("ON");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack28, $stack29);
+
+        $stack30 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("YES");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack30, $stack31);
+
+        $stack32 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("TruE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack32, $stack33);
+
+        $stack34 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("TruE");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack34, $stack35);
+
+        $stack36 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack36, $stack37);
+
+        $stack38 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("Y");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack38, $stack39);
+
+        $stack40 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("t");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack40, $stack41);
+
+        $stack42 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("T");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack42, $stack43);
+
+        $stack44 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("f");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack44, $stack45);
+
+        $stack46 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack47 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("F");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack46, $stack47);
+
+        $stack48 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack49 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("n");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack48, $stack49);
+
+        $stack50 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack51 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("N");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack50, $stack51);
+
+        $stack53 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("z");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack53);
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("ab");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack55);
+
+        $stack57 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String)>("yoo");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack57);
+
+        return;
+    }
+
+    public void test_toBooleanObject_String_String_String_String()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack5, $stack6, $stack9, $stack10, $stack11, $stack12, $stack13, $stack15;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(null, null, "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack2, $stack3);
+
+        $stack5 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(null, "Y", null, "U");
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(null, "Y", "N", null);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>(null, $stack9);
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("Y", "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack11);
+
+        $stack12 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("N", "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("U", "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack15);
+
+        return;
+    }
+
+    public void test_toBooleanObject_String_String_String_String_nullValue()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>(null, "Y", "N", "U");
+
+        return;
+    }
+
+    public void test_toBooleanObject_String_String_String_String_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("X", "Y", "N", "U");
+
+        return;
+    }
+
+    public void test_toBoolean_String()
+    {
+        boolean $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8, $stack9, $stack10, $stack14, $stack15, $stack16, $stack17, $stack18, $stack19, $stack20, $stack21, $stack22, $stack23, $stack24, $stack25, $stack26, $stack27, $stack28, $stack29, $stack30, $stack31, $stack32, $stack33, $stack34, $stack35, $stack36, $stack37, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $stack44, $stack45, $stack46;
+        java.lang.StringBuffer $stack11, $stack12;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.String $stack13;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack2);
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack3);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("off");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("oof");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack5);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yep");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack6);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("trux");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack7);
+
+        $stack8 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("false");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack8);
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("a");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("true");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack10);
+
+        $stack11 = new java.lang.StringBuffer;
+
+        specialinvoke $stack11.<java.lang.StringBuffer: void <init>(java.lang.String)>("tr");
+
+        $stack12 = virtualinvoke $stack11.<java.lang.StringBuffer: java.lang.StringBuffer append(java.lang.String)>("ue");
+
+        $stack13 = virtualinvoke $stack12.<java.lang.StringBuffer: java.lang.String toString()>();
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack14);
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("truE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack15);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("trUe");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("trUE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("tRue");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack18);
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("tRuE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack19);
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("tRUe");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack20);
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("tRUE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        $stack22 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TRUE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack22);
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TRUe");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack23);
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TRuE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack24);
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TRue");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack25);
+
+        $stack26 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TrUE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack26);
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TrUe");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack27);
+
+        $stack28 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("TruE");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack28);
+
+        $stack29 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("True");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack29);
+
+        $stack30 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("on");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack30);
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("oN");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack31);
+
+        $stack32 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("On");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack32);
+
+        $stack33 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("ON");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yes");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack34);
+
+        $stack35 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yeS");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack35);
+
+        $stack36 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yEs");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack36);
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yES");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack37);
+
+        $stack38 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("Yes");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack38);
+
+        $stack39 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("YeS");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack39);
+
+        $stack40 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("YEs");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack40);
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("YES");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack41);
+
+        $stack42 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yes?");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack42);
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("tru");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack43);
+
+        $stack44 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("no");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack44);
+
+        $stack45 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("off");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack45);
+
+        $stack46 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String)>("yoo");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack46);
+
+        return;
+    }
+
+    public void test_toBoolean_String_String_String()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.String $stack6, $stack8, $stack11, $stack13, $stack18, $stack20;
+        boolean $stack2, $stack4, $stack5, $stack9, $stack10, $stack14, $stack16, $stack17, $stack21;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>(null, null, "N");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>(null, "Y", null);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack4);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("Y", "Y", "N");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack5);
+
+        $stack6 = new java.lang.String;
+
+        specialinvoke $stack6.<java.lang.String: void <init>(java.lang.String)>("Y");
+
+        $stack8 = new java.lang.String;
+
+        specialinvoke $stack8.<java.lang.String: void <init>(java.lang.String)>("N");
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("Y", $stack6, $stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("N", "Y", "N");
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack10);
+
+        $stack11 = new java.lang.String;
+
+        specialinvoke $stack11.<java.lang.String: void <init>(java.lang.String)>("Y");
+
+        $stack13 = new java.lang.String;
+
+        specialinvoke $stack13.<java.lang.String: void <init>(java.lang.String)>("N");
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("N", $stack11, $stack13);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack14);
+
+        $stack16 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>(null, null, null);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack16);
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("Y", "Y", "Y");
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack17);
+
+        $stack18 = new java.lang.String;
+
+        specialinvoke $stack18.<java.lang.String: void <init>(java.lang.String)>("Y");
+
+        $stack20 = new java.lang.String;
+
+        specialinvoke $stack20.<java.lang.String: void <init>(java.lang.String)>("Y");
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("Y", $stack18, $stack20);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack21);
+
+        return;
+    }
+
+    public void test_toBoolean_String_String_String_nullValue()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>(null, "Y", "N");
+
+        return;
+    }
+
+    public void test_toBoolean_String_String_String_noMatch()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean toBoolean(java.lang.String,java.lang.String,java.lang.String)>("X", "Y", "N");
+
+        return;
+    }
+
+    public void test_toStringTrueFalse_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack4, $stack7;
+        java.lang.String $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringTrueFalse(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringTrueFalse(java.lang.Boolean)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("true", $stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringTrueFalse(java.lang.Boolean)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("false", $stack9);
+
+        return;
+    }
+
+    public void test_toStringOnOff_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack4, $stack7;
+        java.lang.String $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringOnOff(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringOnOff(java.lang.Boolean)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("on", $stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringOnOff(java.lang.Boolean)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("off", $stack9);
+
+        return;
+    }
+
+    public void test_toStringYesNo_Boolean()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack4, $stack7;
+        java.lang.String $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringYesNo(java.lang.Boolean)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringYesNo(java.lang.Boolean)>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("yes", $stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringYesNo(java.lang.Boolean)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("no", $stack9);
+
+        return;
+    }
+
+    public void test_toString_Boolean_String_String_String()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack4, $stack7;
+        java.lang.String $stack3, $stack6, $stack9;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>(null, "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("U", $stack3);
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>($stack4, "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Y", $stack6);
+
+        $stack7 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(java.lang.Boolean,java.lang.String,java.lang.String,java.lang.String)>($stack7, "Y", "N", "U");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("N", $stack9);
+
+        return;
+    }
+
+    public void test_toStringTrueFalse_boolean()
+    {
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringTrueFalse(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("true", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringTrueFalse(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("false", $stack4);
+
+        return;
+    }
+
+    public void test_toStringOnOff_boolean()
+    {
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringOnOff(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("on", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringOnOff(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("off", $stack4);
+
+        return;
+    }
+
+    public void test_toStringYesNo_boolean()
+    {
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringYesNo(boolean)>(1);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("yes", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toStringYesNo(boolean)>(0);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("no", $stack4);
+
+        return;
+    }
+
+    public void test_toString_boolean_String_String_String()
+    {
+        java.lang.String $stack2, $stack4;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(boolean,java.lang.String,java.lang.String)>(1, "Y", "N");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("Y", $stack2);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.String toString(boolean,java.lang.String,java.lang.String)>(0, "Y", "N");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("N", $stack4);
+
+        return;
+    }
+
+    public void testXor_primitive_nullInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testXor_primitive_emptyInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testXor_primitive_validInput_2items()
+    {
+        boolean[] $stack1, $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack24, $stack13;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[2];
+
+        $stack1[0] = 1;
+
+        $stack1[1] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack1);
+
+        if $stack3 != 0 goto label1;
+
+        $stack24 = 1;
+
+        goto label2;
+
+     label1:
+        $stack24 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true)", $stack24);
+
+        $stack4 = newarray (boolean)[2];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack4);
+
+        if $stack6 != 0 goto label3;
+
+        $stack13 = 1;
+
+        goto label4;
+
+     label3:
+        $stack13 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack13);
+
+        $stack7 = newarray (boolean)[2];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false)", $stack9);
+
+        $stack10 = newarray (boolean)[2];
+
+        $stack10[0] = 0;
+
+        $stack10[1] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true)", $stack12);
+
+        return;
+    }
+
+    public void testXor_primitive_validInput_3items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack50, $stack42, $stack34, $stack26, $stack25;
+        boolean[] $stack1, $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[3];
+
+        $stack1[0] = 0;
+
+        $stack1[1] = 0;
+
+        $stack1[2] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, false, true)", $stack3);
+
+        $stack4 = newarray (boolean)[3];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 1;
+
+        $stack4[2] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, false)", $stack6);
+
+        $stack7 = newarray (boolean)[3];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack7[2] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, false)", $stack9);
+
+        $stack10 = newarray (boolean)[3];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 1;
+
+        $stack10[2] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack10);
+
+        if $stack12 != 0 goto label01;
+
+        $stack50 = 1;
+
+        goto label02;
+
+     label01:
+        $stack50 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, true)", $stack50);
+
+        $stack13 = newarray (boolean)[3];
+
+        $stack13[0] = 0;
+
+        $stack13[1] = 0;
+
+        $stack13[2] = 0;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack13);
+
+        if $stack15 != 0 goto label03;
+
+        $stack42 = 1;
+
+        goto label04;
+
+     label03:
+        $stack42 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack42);
+
+        $stack16 = newarray (boolean)[3];
+
+        $stack16[0] = 1;
+
+        $stack16[1] = 1;
+
+        $stack16[2] = 0;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack16);
+
+        if $stack18 != 0 goto label05;
+
+        $stack34 = 1;
+
+        goto label06;
+
+     label05:
+        $stack34 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, false)", $stack34);
+
+        $stack19 = newarray (boolean)[3];
+
+        $stack19[0] = 1;
+
+        $stack19[1] = 0;
+
+        $stack19[2] = 1;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack19);
+
+        if $stack21 != 0 goto label07;
+
+        $stack26 = 1;
+
+        goto label08;
+
+     label07:
+        $stack26 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, true)", $stack26);
+
+        $stack22 = newarray (boolean)[3];
+
+        $stack22[0] = 0;
+
+        $stack22[1] = 1;
+
+        $stack22[2] = 1;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean xor(boolean[])>($stack22);
+
+        if $stack24 != 0 goto label09;
+
+        $stack25 = 1;
+
+        goto label10;
+
+     label09:
+        $stack25 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, true)", $stack25);
+
+        return;
+    }
+
+    public void testXor_object_nullInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (java.lang.Boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testXor_object_emptyInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testXor_object_nullElementInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[1];
+
+        $stack1[0] = null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testXor_object_validInput_2items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack5, $stack8, $stack9, $stack11, $stack14, $stack15, $stack17, $stack20, $stack21, $stack23;
+        boolean $stack6, $stack12, $stack18, $stack24, $stack32, $stack25;
+        java.lang.Boolean[] $stack1, $stack7, $stack13, $stack19;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[2];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[1] = $stack3;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack1);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack6 != 0 goto label1;
+
+        $stack32 = 1;
+
+        goto label2;
+
+     label1:
+        $stack32 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true)", $stack32);
+
+        $stack7 = newarray (java.lang.Boolean)[2];
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[0] = $stack8;
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[1] = $stack9;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack7);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack12 != 0 goto label3;
+
+        $stack25 = 1;
+
+        goto label4;
+
+     label3:
+        $stack25 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack25);
+
+        $stack13 = newarray (java.lang.Boolean)[2];
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack13[0] = $stack14;
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack13[1] = $stack15;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack13);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false)", $stack18);
+
+        $stack19 = newarray (java.lang.Boolean)[2];
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack19[0] = $stack20;
+
+        $stack21 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack19[1] = $stack21;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack19);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true)", $stack24);
+
+        return;
+    }
+
+    public void testXor_object_validInput_3items()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28, $stack35, $stack42, $stack49, $stack56, $stack73, $stack68, $stack63, $stack58, $stack57;
+        java.lang.Boolean[] $stack1, $stack8, $stack15, $stack22, $stack29, $stack36, $stack43, $stack50;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack4, $stack6, $stack9, $stack10, $stack11, $stack13, $stack16, $stack17, $stack18, $stack20, $stack23, $stack24, $stack25, $stack27, $stack30, $stack31, $stack32, $stack34, $stack37, $stack38, $stack39, $stack41, $stack44, $stack45, $stack46, $stack48, $stack51, $stack52, $stack53, $stack55;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[3];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[1] = $stack3;
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[2] = $stack4;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack1);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, false, true)", $stack7);
+
+        $stack8 = newarray (java.lang.Boolean)[3];
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[0] = $stack9;
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack8[1] = $stack10;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[2] = $stack11;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack8);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, false)", $stack14);
+
+        $stack15 = newarray (java.lang.Boolean)[3];
+
+        $stack16 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack15[0] = $stack16;
+
+        $stack17 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[1] = $stack17;
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[2] = $stack18;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack15);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, false)", $stack21);
+
+        $stack22 = newarray (java.lang.Boolean)[3];
+
+        $stack23 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[0] = $stack23;
+
+        $stack24 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[1] = $stack24;
+
+        $stack25 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[2] = $stack25;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack22);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack28 != 0 goto label01;
+
+        $stack73 = 1;
+
+        goto label02;
+
+     label01:
+        $stack73 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, true)", $stack73);
+
+        $stack29 = newarray (java.lang.Boolean)[3];
+
+        $stack30 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[0] = $stack30;
+
+        $stack31 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[1] = $stack31;
+
+        $stack32 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[2] = $stack32;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack29);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack35 != 0 goto label03;
+
+        $stack68 = 1;
+
+        goto label04;
+
+     label03:
+        $stack68 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack68);
+
+        $stack36 = newarray (java.lang.Boolean)[3];
+
+        $stack37 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[0] = $stack37;
+
+        $stack38 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[1] = $stack38;
+
+        $stack39 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack36[2] = $stack39;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack36);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack42 != 0 goto label05;
+
+        $stack63 = 1;
+
+        goto label06;
+
+     label05:
+        $stack63 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, false)", $stack63);
+
+        $stack43 = newarray (java.lang.Boolean)[3];
+
+        $stack44 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[0] = $stack44;
+
+        $stack45 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack43[1] = $stack45;
+
+        $stack46 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[2] = $stack46;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack43);
+
+        $stack49 = virtualinvoke $stack48.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack49 != 0 goto label07;
+
+        $stack58 = 1;
+
+        goto label08;
+
+     label07:
+        $stack58 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, true)", $stack58);
+
+        $stack50 = newarray (java.lang.Boolean)[3];
+
+        $stack51 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack50[0] = $stack51;
+
+        $stack52 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[1] = $stack52;
+
+        $stack53 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[2] = $stack53;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean xor(java.lang.Boolean[])>($stack50);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack56 != 0 goto label09;
+
+        $stack57 = 1;
+
+        goto label10;
+
+     label09:
+        $stack57 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, true)", $stack57);
+
+        return;
+    }
+
+    public void testAnd_primitive_nullInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testAnd_primitive_emptyInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testAnd_primitive_validInput_2items()
+    {
+        boolean[] $stack1, $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack20, $stack14, $stack13;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[2];
+
+        $stack1[0] = 1;
+
+        $stack1[1] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true)", $stack3);
+
+        $stack4 = newarray (boolean)[2];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack4);
+
+        if $stack6 != 0 goto label1;
+
+        $stack20 = 1;
+
+        goto label2;
+
+     label1:
+        $stack20 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack20);
+
+        $stack7 = newarray (boolean)[2];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack7);
+
+        if $stack9 != 0 goto label3;
+
+        $stack14 = 1;
+
+        goto label4;
+
+     label3:
+        $stack14 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false)", $stack14);
+
+        $stack10 = newarray (boolean)[2];
+
+        $stack10[0] = 0;
+
+        $stack10[1] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack10);
+
+        if $stack12 != 0 goto label5;
+
+        $stack13 = 1;
+
+        goto label6;
+
+     label5:
+        $stack13 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true)", $stack13);
+
+        return;
+    }
+
+    public void testAnd_primitive_validInput_3items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack73, $stack65, $stack50, $stack42, $stack34, $stack26, $stack25;
+        boolean[] $stack1, $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[3];
+
+        $stack1[0] = 0;
+
+        $stack1[1] = 0;
+
+        $stack1[2] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack1);
+
+        if $stack3 != 0 goto label01;
+
+        $stack73 = 1;
+
+        goto label02;
+
+     label01:
+        $stack73 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false, true)", $stack73);
+
+        $stack4 = newarray (boolean)[3];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 1;
+
+        $stack4[2] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack4);
+
+        if $stack6 != 0 goto label03;
+
+        $stack65 = 1;
+
+        goto label04;
+
+     label03:
+        $stack65 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true, false)", $stack65);
+
+        $stack7 = newarray (boolean)[3];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack7[2] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack7);
+
+        if $stack9 != 0 goto label05;
+
+        $stack50 = 1;
+
+        goto label06;
+
+     label05:
+        $stack50 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, false)", $stack50);
+
+        $stack10 = newarray (boolean)[3];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 1;
+
+        $stack10[2] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, true)", $stack12);
+
+        $stack13 = newarray (boolean)[3];
+
+        $stack13[0] = 0;
+
+        $stack13[1] = 0;
+
+        $stack13[2] = 0;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack13);
+
+        if $stack15 != 0 goto label07;
+
+        $stack42 = 1;
+
+        goto label08;
+
+     label07:
+        $stack42 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack42);
+
+        $stack16 = newarray (boolean)[3];
+
+        $stack16[0] = 1;
+
+        $stack16[1] = 1;
+
+        $stack16[2] = 0;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack16);
+
+        if $stack18 != 0 goto label09;
+
+        $stack34 = 1;
+
+        goto label10;
+
+     label09:
+        $stack34 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, false)", $stack34);
+
+        $stack19 = newarray (boolean)[3];
+
+        $stack19[0] = 1;
+
+        $stack19[1] = 0;
+
+        $stack19[2] = 1;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack19);
+
+        if $stack21 != 0 goto label11;
+
+        $stack26 = 1;
+
+        goto label12;
+
+     label11:
+        $stack26 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, true)", $stack26);
+
+        $stack22 = newarray (boolean)[3];
+
+        $stack22[0] = 0;
+
+        $stack22[1] = 1;
+
+        $stack22[2] = 1;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean and(boolean[])>($stack22);
+
+        if $stack24 != 0 goto label13;
+
+        $stack25 = 1;
+
+        goto label14;
+
+     label13:
+        $stack25 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true, true)", $stack25);
+
+        return;
+    }
+
+    public void testAnd_object_nullInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (java.lang.Boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testAnd_object_emptyInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testAnd_object_nullElementInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[1];
+
+        $stack1[0] = null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testAnd_object_validInput_2items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack5, $stack8, $stack9, $stack11, $stack14, $stack15, $stack17, $stack20, $stack21, $stack23;
+        boolean $stack6, $stack12, $stack18, $stack24, $stack30, $stack26, $stack25;
+        java.lang.Boolean[] $stack1, $stack7, $stack13, $stack19;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[2];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[1] = $stack3;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack1);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true)", $stack6);
+
+        $stack7 = newarray (java.lang.Boolean)[2];
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[0] = $stack8;
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[1] = $stack9;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack7);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack12 != 0 goto label1;
+
+        $stack30 = 1;
+
+        goto label2;
+
+     label1:
+        $stack30 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack30);
+
+        $stack13 = newarray (java.lang.Boolean)[2];
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack13[0] = $stack14;
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack13[1] = $stack15;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack13);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack18 != 0 goto label3;
+
+        $stack26 = 1;
+
+        goto label4;
+
+     label3:
+        $stack26 = 0;
+
+     label4:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false)", $stack26);
+
+        $stack19 = newarray (java.lang.Boolean)[2];
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack19[0] = $stack20;
+
+        $stack21 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack19[1] = $stack21;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack19);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack24 != 0 goto label5;
+
+        $stack25 = 1;
+
+        goto label6;
+
+     label5:
+        $stack25 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true)", $stack25);
+
+        return;
+    }
+
+    public void testAnd_object_validInput_3items()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28, $stack35, $stack42, $stack49, $stack56, $stack87, $stack82, $stack73, $stack68, $stack63, $stack58, $stack57;
+        java.lang.Boolean[] $stack1, $stack8, $stack15, $stack22, $stack29, $stack36, $stack43, $stack50;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack4, $stack6, $stack9, $stack10, $stack11, $stack13, $stack16, $stack17, $stack18, $stack20, $stack23, $stack24, $stack25, $stack27, $stack30, $stack31, $stack32, $stack34, $stack37, $stack38, $stack39, $stack41, $stack44, $stack45, $stack46, $stack48, $stack51, $stack52, $stack53, $stack55;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[3];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[1] = $stack3;
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[2] = $stack4;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack1);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack7 != 0 goto label01;
+
+        $stack87 = 1;
+
+        goto label02;
+
+     label01:
+        $stack87 = 0;
+
+     label02:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false, true)", $stack87);
+
+        $stack8 = newarray (java.lang.Boolean)[3];
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[0] = $stack9;
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack8[1] = $stack10;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[2] = $stack11;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack8);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack14 != 0 goto label03;
+
+        $stack82 = 1;
+
+        goto label04;
+
+     label03:
+        $stack82 = 0;
+
+     label04:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true, false)", $stack82);
+
+        $stack15 = newarray (java.lang.Boolean)[3];
+
+        $stack16 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack15[0] = $stack16;
+
+        $stack17 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[1] = $stack17;
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[2] = $stack18;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack15);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack21 != 0 goto label05;
+
+        $stack73 = 1;
+
+        goto label06;
+
+     label05:
+        $stack73 = 0;
+
+     label06:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, false)", $stack73);
+
+        $stack22 = newarray (java.lang.Boolean)[3];
+
+        $stack23 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[0] = $stack23;
+
+        $stack24 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[1] = $stack24;
+
+        $stack25 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[2] = $stack25;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack22);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, true)", $stack28);
+
+        $stack29 = newarray (java.lang.Boolean)[3];
+
+        $stack30 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[0] = $stack30;
+
+        $stack31 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[1] = $stack31;
+
+        $stack32 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[2] = $stack32;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack29);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack35 != 0 goto label07;
+
+        $stack68 = 1;
+
+        goto label08;
+
+     label07:
+        $stack68 = 0;
+
+     label08:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack68);
+
+        $stack36 = newarray (java.lang.Boolean)[3];
+
+        $stack37 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[0] = $stack37;
+
+        $stack38 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[1] = $stack38;
+
+        $stack39 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack36[2] = $stack39;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack36);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack42 != 0 goto label09;
+
+        $stack63 = 1;
+
+        goto label10;
+
+     label09:
+        $stack63 = 0;
+
+     label10:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, true, false)", $stack63);
+
+        $stack43 = newarray (java.lang.Boolean)[3];
+
+        $stack44 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[0] = $stack44;
+
+        $stack45 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack43[1] = $stack45;
+
+        $stack46 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[2] = $stack46;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack43);
+
+        $stack49 = virtualinvoke $stack48.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack49 != 0 goto label11;
+
+        $stack58 = 1;
+
+        goto label12;
+
+     label11:
+        $stack58 = 0;
+
+     label12:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (true, false, true)", $stack58);
+
+        $stack50 = newarray (java.lang.Boolean)[3];
+
+        $stack51 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack50[0] = $stack51;
+
+        $stack52 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[1] = $stack52;
+
+        $stack53 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[2] = $stack53;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean and(java.lang.Boolean[])>($stack50);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack56 != 0 goto label13;
+
+        $stack57 = 1;
+
+        goto label14;
+
+     label13:
+        $stack57 = 0;
+
+     label14:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, true, true)", $stack57);
+
+        return;
+    }
+
+    public void testOr_primitive_nullInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testOr_primitive_emptyInput()
+    {
+        boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testOr_primitive_validInput_2items()
+    {
+        boolean[] $stack1, $stack4, $stack7, $stack10;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack13;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[2];
+
+        $stack1[0] = 1;
+
+        $stack1[1] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true)", $stack3);
+
+        $stack4 = newarray (boolean)[2];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack4);
+
+        if $stack6 != 0 goto label1;
+
+        $stack13 = 1;
+
+        goto label2;
+
+     label1:
+        $stack13 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack13);
+
+        $stack7 = newarray (boolean)[2];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false)", $stack9);
+
+        $stack10 = newarray (boolean)[2];
+
+        $stack10[0] = 0;
+
+        $stack10[1] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true)", $stack12);
+
+        return;
+    }
+
+    public void testOr_primitive_validInput_3items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        boolean $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack25;
+        boolean[] $stack1, $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (boolean)[3];
+
+        $stack1[0] = 0;
+
+        $stack1[1] = 0;
+
+        $stack1[2] = 1;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack1);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, false, true)", $stack3);
+
+        $stack4 = newarray (boolean)[3];
+
+        $stack4[0] = 0;
+
+        $stack4[1] = 1;
+
+        $stack4[2] = 0;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack4);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, false)", $stack6);
+
+        $stack7 = newarray (boolean)[3];
+
+        $stack7[0] = 1;
+
+        $stack7[1] = 0;
+
+        $stack7[2] = 0;
+
+        $stack9 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, false)", $stack9);
+
+        $stack10 = newarray (boolean)[3];
+
+        $stack10[0] = 1;
+
+        $stack10[1] = 1;
+
+        $stack10[2] = 1;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, true)", $stack12);
+
+        $stack13 = newarray (boolean)[3];
+
+        $stack13[0] = 0;
+
+        $stack13[1] = 0;
+
+        $stack13[2] = 0;
+
+        $stack15 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack13);
+
+        if $stack15 != 0 goto label1;
+
+        $stack25 = 1;
+
+        goto label2;
+
+     label1:
+        $stack25 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack25);
+
+        $stack16 = newarray (boolean)[3];
+
+        $stack16[0] = 1;
+
+        $stack16[1] = 1;
+
+        $stack16[2] = 0;
+
+        $stack18 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack16);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, false)", $stack18);
+
+        $stack19 = newarray (boolean)[3];
+
+        $stack19[0] = 1;
+
+        $stack19[1] = 0;
+
+        $stack19[2] = 1;
+
+        $stack21 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, true)", $stack21);
+
+        $stack22 = newarray (boolean)[3];
+
+        $stack22[0] = 0;
+
+        $stack22[1] = 1;
+
+        $stack22[2] = 1;
+
+        $stack24 = staticinvoke <org.apache.commons.lang3.BooleanUtils: boolean or(boolean[])>($stack22);
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, true)", $stack24);
+
+        return;
+    }
+
+    public void testOr_object_nullInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = (java.lang.Boolean[]) null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testOr_object_emptyInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[0];
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testOr_object_nullElementInput()
+    {
+        java.lang.Boolean[] $stack1;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[1];
+
+        $stack1[0] = null;
+
+        staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack1);
+
+        return;
+    }
+
+    public void testOr_object_validInput_2items()
+    {
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack5, $stack8, $stack9, $stack11, $stack14, $stack15, $stack17, $stack20, $stack21, $stack23;
+        boolean $stack6, $stack12, $stack18, $stack24, $stack25;
+        java.lang.Boolean[] $stack1, $stack7, $stack13, $stack19;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[2];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[1] = $stack3;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack1);
+
+        $stack6 = virtualinvoke $stack5.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true)", $stack6);
+
+        $stack7 = newarray (java.lang.Boolean)[2];
+
+        $stack8 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[0] = $stack8;
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack7[1] = $stack9;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack7);
+
+        $stack12 = virtualinvoke $stack11.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack12 != 0 goto label1;
+
+        $stack25 = 1;
+
+        goto label2;
+
+     label1:
+        $stack25 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack25);
+
+        $stack13 = newarray (java.lang.Boolean)[2];
+
+        $stack14 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack13[0] = $stack14;
+
+        $stack15 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack13[1] = $stack15;
+
+        $stack17 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack13);
+
+        $stack18 = virtualinvoke $stack17.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false)", $stack18);
+
+        $stack19 = newarray (java.lang.Boolean)[2];
+
+        $stack20 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack19[0] = $stack20;
+
+        $stack21 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack19[1] = $stack21;
+
+        $stack23 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack19);
+
+        $stack24 = virtualinvoke $stack23.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true)", $stack24);
+
+        return;
+    }
+
+    public void testOr_object_validInput_3items()
+    {
+        boolean $stack7, $stack14, $stack21, $stack28, $stack35, $stack42, $stack49, $stack56, $stack57;
+        java.lang.Boolean[] $stack1, $stack8, $stack15, $stack22, $stack29, $stack36, $stack43, $stack50;
+        org.apache.commons.lang3.BooleanUtilsTest this;
+        java.lang.Boolean $stack2, $stack3, $stack4, $stack6, $stack9, $stack10, $stack11, $stack13, $stack16, $stack17, $stack18, $stack20, $stack23, $stack24, $stack25, $stack27, $stack30, $stack31, $stack32, $stack34, $stack37, $stack38, $stack39, $stack41, $stack44, $stack45, $stack46, $stack48, $stack51, $stack52, $stack53, $stack55;
+
+        this := @this: org.apache.commons.lang3.BooleanUtilsTest;
+
+        $stack1 = newarray (java.lang.Boolean)[3];
+
+        $stack2 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[0] = $stack2;
+
+        $stack3 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack1[1] = $stack3;
+
+        $stack4 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack1[2] = $stack4;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack1);
+
+        $stack7 = virtualinvoke $stack6.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, false, true)", $stack7);
+
+        $stack8 = newarray (java.lang.Boolean)[3];
+
+        $stack9 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[0] = $stack9;
+
+        $stack10 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack8[1] = $stack10;
+
+        $stack11 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack8[2] = $stack11;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack8);
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, false)", $stack14);
+
+        $stack15 = newarray (java.lang.Boolean)[3];
+
+        $stack16 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack15[0] = $stack16;
+
+        $stack17 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[1] = $stack17;
+
+        $stack18 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack15[2] = $stack18;
+
+        $stack20 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack15);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, false)", $stack21);
+
+        $stack22 = newarray (java.lang.Boolean)[3];
+
+        $stack23 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[0] = $stack23;
+
+        $stack24 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[1] = $stack24;
+
+        $stack25 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack22[2] = $stack25;
+
+        $stack27 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack22);
+
+        $stack28 = virtualinvoke $stack27.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, true)", $stack28);
+
+        $stack29 = newarray (java.lang.Boolean)[3];
+
+        $stack30 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[0] = $stack30;
+
+        $stack31 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[1] = $stack31;
+
+        $stack32 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack29[2] = $stack32;
+
+        $stack34 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack29);
+
+        $stack35 = virtualinvoke $stack34.<java.lang.Boolean: boolean booleanValue()>();
+
+        if $stack35 != 0 goto label1;
+
+        $stack57 = 1;
+
+        goto label2;
+
+     label1:
+        $stack57 = 0;
+
+     label2:
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("True result for (false, false)", $stack57);
+
+        $stack36 = newarray (java.lang.Boolean)[3];
+
+        $stack37 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[0] = $stack37;
+
+        $stack38 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack36[1] = $stack38;
+
+        $stack39 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack36[2] = $stack39;
+
+        $stack41 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack36);
+
+        $stack42 = virtualinvoke $stack41.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, true, false)", $stack42);
+
+        $stack43 = newarray (java.lang.Boolean)[3];
+
+        $stack44 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[0] = $stack44;
+
+        $stack45 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack43[1] = $stack45;
+
+        $stack46 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack43[2] = $stack46;
+
+        $stack48 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack43);
+
+        $stack49 = virtualinvoke $stack48.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (true, false, true)", $stack49);
+
+        $stack50 = newarray (java.lang.Boolean)[3];
+
+        $stack51 = <java.lang.Boolean: java.lang.Boolean FALSE>;
+
+        $stack50[0] = $stack51;
+
+        $stack52 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[1] = $stack52;
+
+        $stack53 = <java.lang.Boolean: java.lang.Boolean TRUE>;
+
+        $stack50[2] = $stack53;
+
+        $stack55 = staticinvoke <org.apache.commons.lang3.BooleanUtils: java.lang.Boolean or(java.lang.Boolean[])>($stack50);
+
+        $stack56 = virtualinvoke $stack55.<java.lang.Boolean: boolean booleanValue()>();
+
+        staticinvoke <org.junit.Assert: void assertTrue(java.lang.String,boolean)>("False result for (false, true, true)", $stack56);
+
+        return;
+    }
+}

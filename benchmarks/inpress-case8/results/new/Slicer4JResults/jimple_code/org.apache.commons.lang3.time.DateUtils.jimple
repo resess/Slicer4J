@@ -1,0 +1,2376 @@
+public class org.apache.commons.lang3.time.DateUtils extends java.lang.Object
+{
+    public static final long MILLIS_PER_SECOND;
+    public static final long MILLIS_PER_MINUTE;
+    public static final long MILLIS_PER_HOUR;
+    public static final long MILLIS_PER_DAY;
+    public static final int SEMI_MONTH;
+    private static final int[][] fields;
+    public static final int RANGE_WEEK_SUNDAY;
+    public static final int RANGE_WEEK_MONDAY;
+    public static final int RANGE_WEEK_RELATIVE;
+    public static final int RANGE_WEEK_CENTER;
+    public static final int RANGE_MONTH_SUNDAY;
+    public static final int RANGE_MONTH_MONDAY;
+    private static final int MODIFY_TRUNCATE;
+    private static final int MODIFY_ROUND;
+    private static final int MODIFY_CEILING;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.time.DateUtils this;
+
+        this := @this: org.apache.commons.lang3.time.DateUtils;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean isSameDay(java.util.Date, java.util.Date)
+    {
+        java.util.Calendar $stack5, $stack6;
+        java.util.Date date1, date2;
+        java.lang.IllegalArgumentException $stack4;
+        boolean $stack7;
+
+        date1 := @parameter0: java.util.Date;
+
+        date2 := @parameter1: java.util.Date;
+
+        if date1 == null goto label1;
+
+        if date2 != null goto label2;
+
+     label1:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack4;
+
+     label2:
+        $stack5 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack5.<java.util.Calendar: void setTime(java.util.Date)>(date1);
+
+        $stack6 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack6.<java.util.Calendar: void setTime(java.util.Date)>(date2);
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DateUtils: boolean isSameDay(java.util.Calendar,java.util.Calendar)>($stack5, $stack6);
+
+        return $stack7;
+    }
+
+    public static boolean isSameDay(java.util.Calendar, java.util.Calendar)
+    {
+        java.lang.IllegalArgumentException $stack2;
+        java.util.Calendar cal1, cal2;
+        int $stack3, $stack4, $stack5, $stack6, $stack8, $stack9;
+        boolean $stack7;
+
+        cal1 := @parameter0: java.util.Calendar;
+
+        cal2 := @parameter1: java.util.Calendar;
+
+        if cal1 == null goto label1;
+
+        if cal2 != null goto label2;
+
+     label1:
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack2;
+
+     label2:
+        $stack3 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(0);
+
+        $stack4 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(0);
+
+        if $stack3 != $stack4 goto label3;
+
+        $stack5 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(1);
+
+        $stack6 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(1);
+
+        if $stack5 != $stack6 goto label3;
+
+        $stack8 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(6);
+
+        $stack9 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(6);
+
+        if $stack8 != $stack9 goto label3;
+
+        $stack7 = 1;
+
+        goto label4;
+
+     label3:
+        $stack7 = 0;
+
+     label4:
+        return $stack7;
+    }
+
+    public static boolean isSameInstant(java.util.Date, java.util.Date)
+    {
+        byte $stack5;
+        java.util.Date date1, date2;
+        long $stack3, $stack4;
+        java.lang.IllegalArgumentException $stack2;
+        boolean $stack6;
+
+        date1 := @parameter0: java.util.Date;
+
+        date2 := @parameter1: java.util.Date;
+
+        if date1 == null goto label1;
+
+        if date2 != null goto label2;
+
+     label1:
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack2;
+
+     label2:
+        $stack3 = virtualinvoke date1.<java.util.Date: long getTime()>();
+
+        $stack4 = virtualinvoke date2.<java.util.Date: long getTime()>();
+
+        $stack5 = $stack3 cmp $stack4;
+
+        if $stack5 != 0 goto label3;
+
+        $stack6 = 1;
+
+        goto label4;
+
+     label3:
+        $stack6 = 0;
+
+     label4:
+        return $stack6;
+    }
+
+    public static boolean isSameInstant(java.util.Calendar, java.util.Calendar)
+    {
+        java.util.Date $stack3, $stack5;
+        long $stack4, $stack6;
+        java.lang.IllegalArgumentException $stack2;
+        java.util.Calendar cal1, cal2;
+        byte $stack7;
+        boolean $stack8;
+
+        cal1 := @parameter0: java.util.Calendar;
+
+        cal2 := @parameter1: java.util.Calendar;
+
+        if cal1 == null goto label1;
+
+        if cal2 != null goto label2;
+
+     label1:
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack2;
+
+     label2:
+        $stack3 = virtualinvoke cal1.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack4 = virtualinvoke $stack3.<java.util.Date: long getTime()>();
+
+        $stack5 = virtualinvoke cal2.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack6 = virtualinvoke $stack5.<java.util.Date: long getTime()>();
+
+        $stack7 = $stack4 cmp $stack6;
+
+        if $stack7 != 0 goto label3;
+
+        $stack8 = 1;
+
+        goto label4;
+
+     label3:
+        $stack8 = 0;
+
+     label4:
+        return $stack8;
+    }
+
+    public static boolean isSameLocalTime(java.util.Calendar, java.util.Calendar)
+    {
+        java.util.Calendar cal1, cal2;
+        int $stack3, $stack4, $stack5, $stack6, $stack8, $stack9, $stack10, $stack11, $stack12, $stack13, $stack14, $stack15, $stack16, $stack17;
+        boolean $stack7;
+        java.lang.IllegalArgumentException $stack2;
+        java.lang.Class $stack18, $stack19;
+
+        cal1 := @parameter0: java.util.Calendar;
+
+        cal2 := @parameter1: java.util.Calendar;
+
+        if cal1 == null goto label1;
+
+        if cal2 != null goto label2;
+
+     label1:
+        $stack2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack2;
+
+     label2:
+        $stack3 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(14);
+
+        $stack4 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(14);
+
+        if $stack3 != $stack4 goto label3;
+
+        $stack5 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(13);
+
+        $stack6 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(13);
+
+        if $stack5 != $stack6 goto label3;
+
+        $stack8 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(12);
+
+        $stack9 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(12);
+
+        if $stack8 != $stack9 goto label3;
+
+        $stack10 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(11);
+
+        $stack11 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(11);
+
+        if $stack10 != $stack11 goto label3;
+
+        $stack12 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(6);
+
+        $stack13 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(6);
+
+        if $stack12 != $stack13 goto label3;
+
+        $stack14 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(1);
+
+        $stack15 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(1);
+
+        if $stack14 != $stack15 goto label3;
+
+        $stack16 = virtualinvoke cal1.<java.util.Calendar: int get(int)>(0);
+
+        $stack17 = virtualinvoke cal2.<java.util.Calendar: int get(int)>(0);
+
+        if $stack16 != $stack17 goto label3;
+
+        $stack18 = virtualinvoke cal1.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack19 = virtualinvoke cal2.<java.lang.Object: java.lang.Class getClass()>();
+
+        if $stack18 != $stack19 goto label3;
+
+        $stack7 = 1;
+
+        goto label4;
+
+     label3:
+        $stack7 = 0;
+
+     label4:
+        return $stack7;
+    }
+
+    public static transient java.util.Date parseDate(java.lang.String, java.lang.String[]) throws java.text.ParseException
+    {
+        java.lang.String[] parsePatterns;
+        java.lang.String str;
+        java.util.Date $stack2;
+
+        str := @parameter0: java.lang.String;
+
+        parsePatterns := @parameter1: java.lang.String[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date parseDate(java.lang.String,java.util.Locale,java.lang.String[])>(str, null, parsePatterns);
+
+        return $stack2;
+    }
+
+    public static transient java.util.Date parseDate(java.lang.String, java.util.Locale, java.lang.String[]) throws java.text.ParseException
+    {
+        java.util.Locale locale;
+        java.util.Date $stack3;
+        java.lang.String[] parsePatterns;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        parsePatterns := @parameter2: java.lang.String[];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date parseDateWithLeniency(java.lang.String,java.util.Locale,java.lang.String[],boolean)>(str, locale, parsePatterns, 1);
+
+        return $stack3;
+    }
+
+    public static transient java.util.Date parseDateStrictly(java.lang.String, java.lang.String[]) throws java.text.ParseException
+    {
+        java.lang.String[] parsePatterns;
+        java.lang.String str;
+        java.util.Date $stack2;
+
+        str := @parameter0: java.lang.String;
+
+        parsePatterns := @parameter1: java.lang.String[];
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date parseDateStrictly(java.lang.String,java.util.Locale,java.lang.String[])>(str, null, parsePatterns);
+
+        return $stack2;
+    }
+
+    public static transient java.util.Date parseDateStrictly(java.lang.String, java.util.Locale, java.lang.String[]) throws java.text.ParseException
+    {
+        java.util.Date $stack3;
+        java.util.Locale locale;
+        java.lang.String[] parsePatterns;
+        java.lang.String str;
+
+        str := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        parsePatterns := @parameter2: java.lang.String[];
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date parseDateWithLeniency(java.lang.String,java.util.Locale,java.lang.String[],boolean)>(str, null, parsePatterns, 0);
+
+        return $stack3;
+    }
+
+    private static java.util.Date parseDateWithLeniency(java.lang.String, java.util.Locale, java.lang.String[], boolean) throws java.text.ParseException
+    {
+        java.util.Date $stack23;
+        java.text.ParsePosition $u3;
+        java.text.SimpleDateFormat parser, $u1, $u2;
+        java.lang.String[] parsePatterns;
+        java.util.Locale locale;
+        int $stack26, $stack27, $stack34, $stack35, $stack50, i$, $i0;
+        java.lang.String str, $stack20, parsePattern, pattern, str2;
+        java.text.ParseException $u5;
+        boolean lenient, $stack21, $stack22;
+        java.lang.IllegalArgumentException $u0;
+        java.lang.StringBuilder $stack18, $stack19, $u4;
+
+        str := @parameter0: java.lang.String;
+
+        locale := @parameter1: java.util.Locale;
+
+        parsePatterns := @parameter2: java.lang.String[];
+
+        lenient := @parameter3: boolean;
+
+        if str == null goto label1;
+
+        if parsePatterns != null goto label2;
+
+     label1:
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Date and Patterns must not be null");
+
+        throw $u0;
+
+     label2:
+        if locale != null goto label3;
+
+        $u1 = new java.text.SimpleDateFormat;
+
+        specialinvoke $u1.<java.text.SimpleDateFormat: void <init>()>();
+
+        parser = $u1;
+
+        goto label4;
+
+     label3:
+        $u2 = new java.text.SimpleDateFormat;
+
+        specialinvoke $u2.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>("", locale);
+
+        parser = $u2;
+
+     label4:
+        virtualinvoke parser.<java.text.SimpleDateFormat: void setLenient(boolean)>(lenient);
+
+        $u3 = new java.text.ParsePosition;
+
+        specialinvoke $u3.<java.text.ParsePosition: void <init>(int)>(0);
+
+        $stack50 = lengthof parsePatterns;
+
+        i$ = 0;
+
+     label5:
+        if i$ >= $stack50 goto label9;
+
+        parsePattern = parsePatterns[i$];
+
+        pattern = parsePattern;
+
+        $stack21 = virtualinvoke parsePattern.<java.lang.String: boolean endsWith(java.lang.String)>("ZZ");
+
+        if $stack21 == 0 goto label6;
+
+        $stack34 = virtualinvoke parsePattern.<java.lang.String: int length()>();
+
+        $stack35 = $stack34 - 1;
+
+        pattern = virtualinvoke parsePattern.<java.lang.String: java.lang.String substring(int,int)>(0, $stack35);
+
+     label6:
+        virtualinvoke parser.<java.text.SimpleDateFormat: void applyPattern(java.lang.String)>(pattern);
+
+        virtualinvoke $u3.<java.text.ParsePosition: void setIndex(int)>(0);
+
+        str2 = str;
+
+        $stack22 = virtualinvoke parsePattern.<java.lang.String: boolean endsWith(java.lang.String)>("ZZ");
+
+        if $stack22 == 0 goto label7;
+
+        str2 = virtualinvoke str.<java.lang.String: java.lang.String replaceAll(java.lang.String,java.lang.String)>("([-+][0-9][0-9]):([0-9][0-9])$", "$1$2");
+
+     label7:
+        $stack23 = virtualinvoke parser.<java.text.SimpleDateFormat: java.util.Date parse(java.lang.String,java.text.ParsePosition)>(str2, $u3);
+
+        if $stack23 == null goto label8;
+
+        $stack26 = virtualinvoke $u3.<java.text.ParsePosition: int getIndex()>();
+
+        $stack27 = virtualinvoke str2.<java.lang.String: int length()>();
+
+        if $stack26 != $stack27 goto label8;
+
+        return $stack23;
+
+     label8:
+        i$ = i$ + 1;
+
+        goto label5;
+
+     label9:
+        $u5 = new java.text.ParseException;
+
+        $u4 = new java.lang.StringBuilder;
+
+        specialinvoke $u4.<java.lang.StringBuilder: void <init>()>();
+
+        $stack18 = virtualinvoke $u4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Unable to parse the date: ");
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(str);
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i0 = (int) -1;
+
+        specialinvoke $u5.<java.text.ParseException: void <init>(java.lang.String,int)>($stack20, $i0);
+
+        throw $u5;
+    }
+
+    public static java.util.Date addYears(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 1, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addMonths(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 2, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addWeeks(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 3, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addDays(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 5, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addHours(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 11, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addMinutes(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 12, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addSeconds(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 13, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date addMilliseconds(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date add(java.util.Date,int,int)>(date, 14, amount);
+
+        return $stack2;
+    }
+
+    private static java.util.Date add(java.util.Date, int, int)
+    {
+        java.util.Calendar $stack4;
+        java.util.Date date, $stack5;
+        int calendarField, amount;
+        java.lang.IllegalArgumentException $stack6;
+
+        date := @parameter0: java.util.Date;
+
+        calendarField := @parameter1: int;
+
+        amount := @parameter2: int;
+
+        if date != null goto label1;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack6;
+
+     label1:
+        $stack4 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack4.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        virtualinvoke $stack4.<java.util.Calendar: void add(int,int)>(calendarField, amount);
+
+        $stack5 = virtualinvoke $stack4.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack5;
+    }
+
+    public static java.util.Date setYears(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 1, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setMonths(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 2, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setDays(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 5, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setHours(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 11, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setMinutes(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 12, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setSeconds(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 13, amount);
+
+        return $stack2;
+    }
+
+    public static java.util.Date setMilliseconds(java.util.Date, int)
+    {
+        int amount;
+        java.util.Date date, $stack2;
+
+        date := @parameter0: java.util.Date;
+
+        amount := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date set(java.util.Date,int,int)>(date, 14, amount);
+
+        return $stack2;
+    }
+
+    private static java.util.Date set(java.util.Date, int, int)
+    {
+        java.util.Calendar $stack4;
+        java.util.Date date, $stack5;
+        int calendarField, amount;
+        java.lang.IllegalArgumentException $stack6;
+
+        date := @parameter0: java.util.Date;
+
+        calendarField := @parameter1: int;
+
+        amount := @parameter2: int;
+
+        if date != null goto label1;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack6;
+
+     label1:
+        $stack4 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack4.<java.util.Calendar: void setLenient(boolean)>(0);
+
+        virtualinvoke $stack4.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        virtualinvoke $stack4.<java.util.Calendar: void set(int,int)>(calendarField, amount);
+
+        $stack5 = virtualinvoke $stack4.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack5;
+    }
+
+    public static java.util.Calendar toCalendar(java.util.Date)
+    {
+        java.util.Calendar $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        $stack2 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack2.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        return $stack2;
+    }
+
+    public static java.util.Date round(java.util.Date, int)
+    {
+        java.util.Calendar $stack3;
+        java.util.Date date, $stack4;
+        int field;
+        java.lang.IllegalArgumentException $stack5;
+
+        date := @parameter0: java.util.Date;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack5;
+
+     label1:
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack3.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>($stack3, field, 1);
+
+        $stack4 = virtualinvoke $stack3.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack4;
+    }
+
+    public static java.util.Calendar round(java.util.Calendar, int)
+    {
+        java.util.Calendar date, rounded;
+        int field;
+        java.lang.Object $stack3;
+        java.lang.IllegalArgumentException $stack4;
+
+        date := @parameter0: java.util.Calendar;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack4;
+
+     label1:
+        $stack3 = virtualinvoke date.<java.util.Calendar: java.lang.Object clone()>();
+
+        rounded = (java.util.Calendar) $stack3;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>(rounded, field, 1);
+
+        return rounded;
+    }
+
+    public static java.util.Date round(java.lang.Object, int)
+    {
+        java.util.Date $stack11, $stack12, $stack13;
+        java.lang.IllegalArgumentException $stack14;
+        java.lang.ClassCastException $stack4;
+        java.util.Calendar $stack9, $stack10;
+        int field;
+        java.lang.Object date;
+        java.lang.StringBuilder $stack5, $stack6, $stack7;
+        java.lang.String $stack8;
+        boolean $stack2, $stack3;
+
+        date := @parameter0: java.lang.Object;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack14 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack14;
+
+     label1:
+        $stack2 = date instanceof java.util.Date;
+
+        if $stack2 == 0 goto label2;
+
+        $stack12 = (java.util.Date) date;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date round(java.util.Date,int)>($stack12, field);
+
+        return $stack13;
+
+     label2:
+        $stack3 = date instanceof java.util.Calendar;
+
+        if $stack3 == 0 goto label3;
+
+        $stack9 = (java.util.Calendar) date;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar round(java.util.Calendar,int)>($stack9, field);
+
+        $stack11 = virtualinvoke $stack10.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack11;
+
+     label3:
+        $stack4 = new java.lang.ClassCastException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not round ");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(date);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.ClassCastException: void <init>(java.lang.String)>($stack8);
+
+        throw $stack4;
+    }
+
+    public static java.util.Date truncate(java.util.Date, int)
+    {
+        java.util.Calendar $stack3;
+        java.util.Date date, $stack4;
+        int field;
+        java.lang.IllegalArgumentException $stack5;
+
+        date := @parameter0: java.util.Date;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack5;
+
+     label1:
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack3.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>($stack3, field, 0);
+
+        $stack4 = virtualinvoke $stack3.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack4;
+    }
+
+    public static java.util.Calendar truncate(java.util.Calendar, int)
+    {
+        java.util.Calendar date, truncated;
+        int field;
+        java.lang.Object $stack3;
+        java.lang.IllegalArgumentException $stack4;
+
+        date := @parameter0: java.util.Calendar;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack4;
+
+     label1:
+        $stack3 = virtualinvoke date.<java.util.Calendar: java.lang.Object clone()>();
+
+        truncated = (java.util.Calendar) $stack3;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>(truncated, field, 0);
+
+        return truncated;
+    }
+
+    public static java.util.Date truncate(java.lang.Object, int)
+    {
+        java.util.Date $stack11, $stack12, $stack13;
+        java.lang.IllegalArgumentException $stack14;
+        java.lang.ClassCastException $stack4;
+        java.util.Calendar $stack9, $stack10;
+        int field;
+        java.lang.Object date;
+        java.lang.StringBuilder $stack5, $stack6, $stack7;
+        java.lang.String $stack8;
+        boolean $stack2, $stack3;
+
+        date := @parameter0: java.lang.Object;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack14 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack14.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack14;
+
+     label1:
+        $stack2 = date instanceof java.util.Date;
+
+        if $stack2 == 0 goto label2;
+
+        $stack12 = (java.util.Date) date;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>($stack12, field);
+
+        return $stack13;
+
+     label2:
+        $stack3 = date instanceof java.util.Calendar;
+
+        if $stack3 == 0 goto label3;
+
+        $stack9 = (java.util.Calendar) date;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>($stack9, field);
+
+        $stack11 = virtualinvoke $stack10.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack11;
+
+     label3:
+        $stack4 = new java.lang.ClassCastException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not truncate ");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(date);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.ClassCastException: void <init>(java.lang.String)>($stack8);
+
+        throw $stack4;
+    }
+
+    public static java.util.Date ceiling(java.util.Date, int)
+    {
+        java.util.Calendar $stack3;
+        java.util.Date date, $stack4;
+        int field;
+        java.lang.IllegalArgumentException $stack5;
+
+        date := @parameter0: java.util.Date;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack5;
+
+     label1:
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack3.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>($stack3, field, 2);
+
+        $stack4 = virtualinvoke $stack3.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack4;
+    }
+
+    public static java.util.Calendar ceiling(java.util.Calendar, int)
+    {
+        java.util.Calendar date, ceiled;
+        int field;
+        java.lang.Object $stack3;
+        java.lang.IllegalArgumentException $stack4;
+
+        date := @parameter0: java.util.Calendar;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack4;
+
+     label1:
+        $stack3 = virtualinvoke date.<java.util.Calendar: java.lang.Object clone()>();
+
+        ceiled = (java.util.Calendar) $stack3;
+
+        staticinvoke <org.apache.commons.lang3.time.DateUtils: void modify(java.util.Calendar,int,int)>(ceiled, field, 2);
+
+        return ceiled;
+    }
+
+    public static java.util.Date ceiling(java.lang.Object, int)
+    {
+        java.util.Date $stack12, $stack13, $stack14;
+        java.lang.ClassCastException $stack4;
+        java.util.Calendar $stack10, $stack11;
+        int field;
+        java.lang.String $stack9;
+        boolean $stack2, $stack3;
+        java.lang.IllegalArgumentException $stack15;
+        java.lang.Object date;
+        java.lang.StringBuilder $stack5, $stack6, $stack8;
+        java.lang.Class $stack7;
+
+        date := @parameter0: java.lang.Object;
+
+        field := @parameter1: int;
+
+        if date != null goto label1;
+
+        $stack15 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack15.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack15;
+
+     label1:
+        $stack2 = date instanceof java.util.Date;
+
+        if $stack2 == 0 goto label2;
+
+        $stack13 = (java.util.Date) date;
+
+        $stack14 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date ceiling(java.util.Date,int)>($stack13, field);
+
+        return $stack14;
+
+     label2:
+        $stack3 = date instanceof java.util.Calendar;
+
+        if $stack3 == 0 goto label3;
+
+        $stack10 = (java.util.Calendar) date;
+
+        $stack11 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar ceiling(java.util.Calendar,int)>($stack10, field);
+
+        $stack12 = virtualinvoke $stack11.<java.util.Calendar: java.util.Date getTime()>();
+
+        return $stack12;
+
+     label3:
+        $stack4 = new java.lang.ClassCastException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not find ceiling of for type: ");
+
+        $stack7 = virtualinvoke date.<java.lang.Object: java.lang.Class getClass()>();
+
+        $stack8 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($stack7);
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.ClassCastException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack4;
+    }
+
+    private static void modify(java.util.Calendar, int, int)
+    {
+        int[][] $stack71;
+        java.util.Date $stack20;
+        byte $stack27;
+        int[] aField;
+        java.lang.ArithmeticException $u0;
+        boolean done, roundUp, len$_2#30, $stack53, $stack59, $stack50, done#2_2;
+        java.lang.StringBuilder $stack30, $stack31, $stack32, $u1;
+        long $stack21, $stack23, $stack75, $stack76, $stack86, $stack87, time, $stack26;
+        java.util.Calendar val;
+        int $stack19, field, $stack22, modType, $stack24, $stack25, $stack34, $stack37, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $stack44, $stack45, $stack46, $stack47, $stack48, $stack51, $stack57, $stack58, $stack65, $stack66, $stack67, $stack73, i$_1, len$_2, i$_2, element, arr$_2, $i0, $i1, $i2, $i3;
+        java.lang.String $stack33;
+        java.lang.IllegalArgumentException $u2;
+
+        val := @parameter0: java.util.Calendar;
+
+        field := @parameter1: int;
+
+        modType := @parameter2: int;
+
+        $stack19 = virtualinvoke val.<java.util.Calendar: int get(int)>(1);
+
+        if $stack19 <= 280000000 goto label01;
+
+        $u0 = new java.lang.ArithmeticException;
+
+        specialinvoke $u0.<java.lang.ArithmeticException: void <init>(java.lang.String)>("Calendar value too large for accurate calculations");
+
+        throw $u0;
+
+     label01:
+        if field != 14 goto label02;
+
+        return;
+
+     label02:
+        $stack20 = virtualinvoke val.<java.util.Calendar: java.util.Date getTime()>();
+
+        $stack21 = virtualinvoke $stack20.<java.util.Date: long getTime()>();
+
+        time = $stack21;
+
+        done = 0;
+
+        done#2_2 = 0;
+
+        done = 0;
+
+        $stack22 = virtualinvoke val.<java.util.Calendar: int get(int)>(14);
+
+        if 0 == modType goto label03;
+
+        if $stack22 >= 500 goto label04;
+
+     label03:
+        $stack23 = (long) $stack22;
+
+        time = $stack21 - $stack23;
+
+     label04:
+        if field != 13 goto label05;
+
+        done = 1;
+
+        done#2_2 = 1;
+
+        done = 1;
+
+     label05:
+        $stack24 = virtualinvoke val.<java.util.Calendar: int get(int)>(13);
+
+        if done != 0 goto label07;
+
+        if 0 == modType goto label06;
+
+        if $stack24 >= 30 goto label07;
+
+     label06:
+        $stack86 = (long) $stack24;
+
+        $stack87 = $stack86 * 1000L;
+
+        time = time - $stack87;
+
+     label07:
+        if field != 12 goto label08;
+
+        done = 1;
+
+        done#2_2 = 1;
+
+     label08:
+        $stack25 = virtualinvoke val.<java.util.Calendar: int get(int)>(12);
+
+        if done#2_2 != 0 goto label10;
+
+        if 0 == modType goto label09;
+
+        if $stack25 >= 30 goto label10;
+
+     label09:
+        $stack75 = (long) $stack25;
+
+        $stack76 = $stack75 * 60000L;
+
+        time = time - $stack76;
+
+     label10:
+        $stack26 = virtualinvoke $stack20.<java.util.Date: long getTime()>();
+
+        $stack27 = $stack26 cmp time;
+
+        if $stack27 == 0 goto label11;
+
+        virtualinvoke $stack20.<java.util.Date: void setTime(long)>(time);
+
+        virtualinvoke val.<java.util.Calendar: void setTime(java.util.Date)>($stack20);
+
+     label11:
+        roundUp = 0;
+
+        $stack71 = <org.apache.commons.lang3.time.DateUtils: int[][] fields>;
+
+        $stack73 = lengthof $stack71;
+
+        i$_1 = 0;
+
+     label12:
+        if i$_1 >= $stack73 goto label35;
+
+        aField = $stack71[i$_1];
+
+        len$_2 = lengthof aField;
+
+        i$_2 = 0;
+
+     label13:
+        if i$_2 >= len$_2 goto label21;
+
+        element = aField[i$_2];
+
+        if element != field goto label20;
+
+        if modType == 2 goto label14;
+
+        if modType != 1 goto label19;
+
+        if roundUp == 0 goto label19;
+
+     label14:
+        if field != 1001 goto label16;
+
+        $stack67 = virtualinvoke val.<java.util.Calendar: int get(int)>(5);
+
+        if $stack67 != 1 goto label15;
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(5, 15);
+
+        goto label19;
+
+     label15:
+        $i0 = (int) -15;
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(5, $i0);
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(2, 1);
+
+        goto label19;
+
+     label16:
+        if field != 9 goto label18;
+
+        $stack66 = virtualinvoke val.<java.util.Calendar: int get(int)>(11);
+
+        if $stack66 != 0 goto label17;
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(11, 12);
+
+        goto label19;
+
+     label17:
+        $i1 = (int) -12;
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(11, $i1);
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>(5, 1);
+
+        goto label19;
+
+     label18:
+        $stack65 = aField[0];
+
+        virtualinvoke val.<java.util.Calendar: void add(int,int)>($stack65, 1);
+
+     label19:
+        return;
+
+     label20:
+        i$_2 = i$_2 + 1;
+
+        goto label13;
+
+     label21:
+        arr$_2 = 0;
+
+        len$_2#30 = 0;
+
+        lookupswitch(field)
+        {
+            case 9: goto label26;
+            case 1001: goto label22;
+            default: goto label30;
+        };
+
+     label22:
+        $stack34 = aField[0];
+
+        if $stack34 != 5 goto label30;
+
+        $stack51 = virtualinvoke val.<java.util.Calendar: int get(int)>(5);
+
+        arr$_2 = $stack51 - 1;
+
+        if arr$_2 < 15 goto label23;
+
+        $i2 = (int) -15;
+
+        arr$_2 = arr$_2 + $i2;
+
+     label23:
+        if arr$_2 <= 7 goto label24;
+
+        $stack53 = 1;
+
+        goto label25;
+
+     label24:
+        $stack53 = 0;
+
+     label25:
+        roundUp = $stack53;
+
+        len$_2#30 = 1;
+
+        goto label30;
+
+     label26:
+        $stack57 = aField[0];
+
+        if $stack57 != 11 goto label30;
+
+        $stack58 = virtualinvoke val.<java.util.Calendar: int get(int)>(11);
+
+        arr$_2 = $stack58;
+
+        if $stack58 < 12 goto label27;
+
+        $i3 = (int) -12;
+
+        arr$_2 = $stack58 + $i3;
+
+     label27:
+        if arr$_2 < 6 goto label28;
+
+        $stack59 = 1;
+
+        goto label29;
+
+     label28:
+        $stack59 = 0;
+
+     label29:
+        roundUp = $stack59;
+
+        len$_2#30 = 1;
+
+     label30:
+        if len$_2#30 != 0 goto label33;
+
+        $stack41 = aField[0];
+
+        $stack42 = virtualinvoke val.<java.util.Calendar: int getActualMinimum(int)>($stack41);
+
+        $stack43 = aField[0];
+
+        $stack44 = virtualinvoke val.<java.util.Calendar: int getActualMaximum(int)>($stack43);
+
+        $stack45 = aField[0];
+
+        $stack46 = virtualinvoke val.<java.util.Calendar: int get(int)>($stack45);
+
+        arr$_2 = $stack46 - $stack42;
+
+        $stack47 = $stack44 - $stack42;
+
+        $stack48 = $stack47 / 2;
+
+        if arr$_2 <= $stack48 goto label31;
+
+        $stack50 = 1;
+
+        goto label32;
+
+     label31:
+        $stack50 = 0;
+
+     label32:
+        roundUp = $stack50;
+
+     label33:
+        if arr$_2 == 0 goto label34;
+
+        $stack38 = aField[0];
+
+        $stack37 = aField[0];
+
+        $stack39 = virtualinvoke val.<java.util.Calendar: int get(int)>($stack37);
+
+        $stack40 = $stack39 - arr$_2;
+
+        virtualinvoke val.<java.util.Calendar: void set(int,int)>($stack38, $stack40);
+
+     label34:
+        i$_1 = i$_1 + 1;
+
+        goto label12;
+
+     label35:
+        $u2 = new java.lang.IllegalArgumentException;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack30 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The field ");
+
+        $stack31 = virtualinvoke $stack30.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(field);
+
+        $stack32 = virtualinvoke $stack31.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not supported");
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack33);
+
+        throw $u2;
+    }
+
+    public static java.util.Iterator iterator(java.util.Date, int)
+    {
+        java.util.Calendar $stack3;
+        java.util.Iterator $stack4;
+        java.util.Date focus;
+        int rangeStyle;
+        java.lang.IllegalArgumentException $stack5;
+
+        focus := @parameter0: java.util.Date;
+
+        rangeStyle := @parameter1: int;
+
+        if focus != null goto label1;
+
+        $stack5 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack5.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack5;
+
+     label1:
+        $stack3 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack3.<java.util.Calendar: void setTime(java.util.Date)>(focus);
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Iterator iterator(java.util.Calendar,int)>($stack3, rangeStyle);
+
+        return $stack4;
+    }
+
+    public static java.util.Iterator iterator(java.util.Calendar, int)
+    {
+        java.util.Calendar focus, $stack6, start, end;
+        int rangeStyle, $stack9, $stack27, $stack28, $stack29, startCutoff, endCutoff, $stack8, $i0, $i1, $i2, $i3;
+        java.lang.String $stack35;
+        java.lang.IllegalArgumentException $u0, $u2;
+        org.apache.commons.lang3.time.DateUtils$DateIterator $u3;
+        java.lang.Object $stack7;
+        java.lang.StringBuilder $stack32, $stack33, $stack34, $u1;
+
+        focus := @parameter0: java.util.Calendar;
+
+        rangeStyle := @parameter1: int;
+
+        if focus != null goto label01;
+
+        $u0 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $u0.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $u0;
+
+     label01:
+        startCutoff = 1;
+
+        endCutoff = 7;
+
+        tableswitch(rangeStyle)
+        {
+            case 1: goto label03;
+            case 2: goto label03;
+            case 3: goto label03;
+            case 4: goto label03;
+            case 5: goto label02;
+            case 6: goto label02;
+            default: goto label09;
+        };
+
+     label02:
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>(focus, 2);
+
+        start = $stack6;
+
+        $stack7 = virtualinvoke $stack6.<java.util.Calendar: java.lang.Object clone()>();
+
+        end = (java.util.Calendar) $stack7;
+
+        virtualinvoke end.<java.util.Calendar: void add(int,int)>(2, 1);
+
+        $i0 = (int) -1;
+
+        virtualinvoke end.<java.util.Calendar: void add(int,int)>(5, $i0);
+
+        if rangeStyle != 6 goto label10;
+
+        startCutoff = 2;
+
+        endCutoff = 1;
+
+        goto label10;
+
+     label03:
+        start = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>(focus, 5);
+
+        end = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>(focus, 5);
+
+        tableswitch(rangeStyle)
+        {
+            case 1: goto label04;
+            case 2: goto label05;
+            case 3: goto label06;
+            case 4: goto label07;
+            default: goto label08;
+        };
+
+     label04:
+        goto label08;
+
+     label05:
+        startCutoff = 2;
+
+        endCutoff = 1;
+
+        goto label08;
+
+     label06:
+        $stack29 = virtualinvoke focus.<java.util.Calendar: int get(int)>(7);
+
+        startCutoff = $stack29;
+
+        endCutoff = $stack29 - 1;
+
+        goto label08;
+
+     label07:
+        $stack27 = virtualinvoke focus.<java.util.Calendar: int get(int)>(7);
+
+        startCutoff = $stack27 - 3;
+
+        $stack28 = virtualinvoke focus.<java.util.Calendar: int get(int)>(7);
+
+        endCutoff = $stack28 + 3;
+
+     label08:
+        goto label10;
+
+     label09:
+        $u2 = new java.lang.IllegalArgumentException;
+
+        $u1 = new java.lang.StringBuilder;
+
+        specialinvoke $u1.<java.lang.StringBuilder: void <init>()>();
+
+        $stack32 = virtualinvoke $u1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The range style ");
+
+        $stack33 = virtualinvoke $stack32.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(rangeStyle);
+
+        $stack34 = virtualinvoke $stack33.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not valid.");
+
+        $stack35 = virtualinvoke $stack34.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $u2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack35);
+
+        throw $u2;
+
+     label10:
+        if startCutoff >= 1 goto label11;
+
+        startCutoff = startCutoff + 7;
+
+     label11:
+        if startCutoff <= 7 goto label12;
+
+        $i1 = (int) -7;
+
+        startCutoff = startCutoff + $i1;
+
+     label12:
+        if endCutoff >= 1 goto label13;
+
+        endCutoff = endCutoff + 7;
+
+     label13:
+        if endCutoff <= 7 goto label14;
+
+        $i2 = (int) -7;
+
+        endCutoff = endCutoff + $i2;
+
+     label14:
+        $stack8 = virtualinvoke start.<java.util.Calendar: int get(int)>(7);
+
+        if $stack8 == startCutoff goto label15;
+
+        $i3 = (int) -1;
+
+        virtualinvoke start.<java.util.Calendar: void add(int,int)>(5, $i3);
+
+        goto label14;
+
+     label15:
+        $stack9 = virtualinvoke end.<java.util.Calendar: int get(int)>(7);
+
+        if $stack9 == endCutoff goto label16;
+
+        virtualinvoke end.<java.util.Calendar: void add(int,int)>(5, 1);
+
+        goto label15;
+
+     label16:
+        $u3 = new org.apache.commons.lang3.time.DateUtils$DateIterator;
+
+        specialinvoke $u3.<org.apache.commons.lang3.time.DateUtils$DateIterator: void <init>(java.util.Calendar,java.util.Calendar)>(start, end);
+
+        return $u3;
+    }
+
+    public static java.util.Iterator iterator(java.lang.Object, int)
+    {
+        java.util.Iterator $stack10, $stack12;
+        java.util.Date $stack11;
+        java.lang.IllegalArgumentException $stack13;
+        java.lang.ClassCastException $stack4;
+        java.util.Calendar $stack9;
+        int rangeStyle;
+        java.lang.Object focus;
+        java.lang.StringBuilder $stack5, $stack6, $stack7;
+        java.lang.String $stack8;
+        boolean $stack2, $stack3;
+
+        focus := @parameter0: java.lang.Object;
+
+        rangeStyle := @parameter1: int;
+
+        if focus != null goto label1;
+
+        $stack13 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack13.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack13;
+
+     label1:
+        $stack2 = focus instanceof java.util.Date;
+
+        if $stack2 == 0 goto label2;
+
+        $stack11 = (java.util.Date) focus;
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Iterator iterator(java.util.Date,int)>($stack11, rangeStyle);
+
+        return $stack12;
+
+     label2:
+        $stack3 = focus instanceof java.util.Calendar;
+
+        if $stack3 == 0 goto label3;
+
+        $stack9 = (java.util.Calendar) focus;
+
+        $stack10 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Iterator iterator(java.util.Calendar,int)>($stack9, rangeStyle);
+
+        return $stack10;
+
+     label3:
+        $stack4 = new java.lang.ClassCastException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Could not iterate based on ");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>(focus);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.ClassCastException: void <init>(java.lang.String)>($stack8);
+
+        throw $stack4;
+    }
+
+    public static long getFragmentInMilliseconds(java.util.Date, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Date,int,int)>(date, fragment, 14);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInSeconds(java.util.Date, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Date,int,int)>(date, fragment, 13);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInMinutes(java.util.Date, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Date,int,int)>(date, fragment, 12);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInHours(java.util.Date, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Date,int,int)>(date, fragment, 11);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInDays(java.util.Date, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Date date;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Date,int,int)>(date, fragment, 6);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInMilliseconds(java.util.Calendar, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Calendar calendar;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>(calendar, fragment, 14);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInSeconds(java.util.Calendar, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Calendar calendar;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>(calendar, fragment, 13);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInMinutes(java.util.Calendar, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Calendar calendar;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>(calendar, fragment, 12);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInHours(java.util.Calendar, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Calendar calendar;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>(calendar, fragment, 11);
+
+        return $stack2;
+    }
+
+    public static long getFragmentInDays(java.util.Calendar, int)
+    {
+        int fragment;
+        long $stack2;
+        java.util.Calendar calendar;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>(calendar, fragment, 6);
+
+        return $stack2;
+    }
+
+    private static long getFragment(java.util.Date, int, int)
+    {
+        java.util.Calendar $stack4;
+        java.util.Date date;
+        int fragment, unit;
+        long $stack5;
+        java.lang.IllegalArgumentException $stack6;
+
+        date := @parameter0: java.util.Date;
+
+        fragment := @parameter1: int;
+
+        unit := @parameter2: int;
+
+        if date != null goto label1;
+
+        $stack6 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack6.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack6;
+
+     label1:
+        $stack4 = staticinvoke <java.util.Calendar: java.util.Calendar getInstance()>();
+
+        virtualinvoke $stack4.<java.util.Calendar: void setTime(java.util.Date)>(date);
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getFragment(java.util.Calendar,int,int)>($stack4, fragment, unit);
+
+        return $stack5;
+    }
+
+    private static long getFragment(java.util.Calendar, int, int)
+    {
+        java.lang.StringBuilder $stack48, $stack49, $stack50, $stack51;
+        long $stack7, $stack9, $stack10, $stack11, $stack28, $stack29, $stack30, $stack38, $stack39, $stack40, $stack54, $stack55, $stack56, result, $stack18, $stack19, $stack20, $stack14, $stack15;
+        java.util.Calendar calendar;
+        int unit, fragment, $stack8, $stack27, $stack37, $stack53, $stack17, $stack12, $stack13;
+        java.lang.String $stack52;
+        java.lang.IllegalArgumentException $stack47, $stack58;
+
+        calendar := @parameter0: java.util.Calendar;
+
+        fragment := @parameter1: int;
+
+        unit := @parameter2: int;
+
+        if calendar != null goto label01;
+
+        $stack58 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $stack58.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The date must not be null");
+
+        throw $stack58;
+
+     label01:
+        $stack7 = staticinvoke <org.apache.commons.lang3.time.DateUtils: long getMillisPerUnit(int)>(unit);
+
+        result = 0L;
+
+        lookupswitch(fragment)
+        {
+            case 1: goto label02;
+            case 2: goto label03;
+            default: goto label04;
+        };
+
+     label02:
+        $stack53 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(6);
+
+        $stack54 = (long) $stack53;
+
+        $stack55 = $stack54 * 86400000L;
+
+        $stack56 = $stack55 / $stack7;
+
+        result = 0L + $stack56;
+
+        goto label04;
+
+     label03:
+        $stack8 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(5);
+
+        $stack9 = (long) $stack8;
+
+        $stack10 = $stack9 * 86400000L;
+
+        $stack11 = $stack10 / $stack7;
+
+        result = 0L + $stack11;
+
+     label04:
+        tableswitch(fragment)
+        {
+            case 1: goto label05;
+            case 2: goto label05;
+            case 3: goto label10;
+            case 4: goto label10;
+            case 5: goto label05;
+            case 6: goto label05;
+            case 7: goto label10;
+            case 8: goto label10;
+            case 9: goto label10;
+            case 10: goto label10;
+            case 11: goto label06;
+            case 12: goto label07;
+            case 13: goto label08;
+            case 14: goto label09;
+            default: goto label10;
+        };
+
+     label05:
+        $stack37 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(11);
+
+        $stack38 = (long) $stack37;
+
+        $stack39 = $stack38 * 3600000L;
+
+        $stack40 = $stack39 / $stack7;
+
+        result = result + $stack40;
+
+     label06:
+        $stack27 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(12);
+
+        $stack28 = (long) $stack27;
+
+        $stack29 = $stack28 * 60000L;
+
+        $stack30 = $stack29 / $stack7;
+
+        result = result + $stack30;
+
+     label07:
+        $stack17 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(13);
+
+        $stack18 = (long) $stack17;
+
+        $stack19 = $stack18 * 1000L;
+
+        $stack20 = $stack19 / $stack7;
+
+        result = result + $stack20;
+
+     label08:
+        $stack12 = virtualinvoke calendar.<java.util.Calendar: int get(int)>(14);
+
+        $stack13 = $stack12 * 1;
+
+        $stack14 = (long) $stack13;
+
+        $stack15 = $stack14 / $stack7;
+
+        result = result + $stack15;
+
+        goto label11;
+
+     label09:
+        goto label11;
+
+     label10:
+        $stack47 = new java.lang.IllegalArgumentException;
+
+        $stack48 = new java.lang.StringBuilder;
+
+        specialinvoke $stack48.<java.lang.StringBuilder: void <init>()>();
+
+        $stack49 = virtualinvoke $stack48.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The fragment ");
+
+        $stack50 = virtualinvoke $stack49.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(fragment);
+
+        $stack51 = virtualinvoke $stack50.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" is not supported");
+
+        $stack52 = virtualinvoke $stack51.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack47.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack52);
+
+        throw $stack47;
+
+     label11:
+        return result;
+    }
+
+    public static boolean truncatedEquals(java.util.Calendar, java.util.Calendar, int)
+    {
+        java.util.Calendar cal1, cal2;
+        int field, $stack3;
+        boolean $stack4;
+
+        cal1 := @parameter0: java.util.Calendar;
+
+        cal2 := @parameter1: java.util.Calendar;
+
+        field := @parameter2: int;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: int truncatedCompareTo(java.util.Calendar,java.util.Calendar,int)>(cal1, cal2, field);
+
+        if $stack3 != 0 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public static boolean truncatedEquals(java.util.Date, java.util.Date, int)
+    {
+        java.util.Date date1, date2;
+        int field, $stack3;
+        boolean $stack4;
+
+        date1 := @parameter0: java.util.Date;
+
+        date2 := @parameter1: java.util.Date;
+
+        field := @parameter2: int;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.time.DateUtils: int truncatedCompareTo(java.util.Date,java.util.Date,int)>(date1, date2, field);
+
+        if $stack3 != 0 goto label1;
+
+        $stack4 = 1;
+
+        goto label2;
+
+     label1:
+        $stack4 = 0;
+
+     label2:
+        return $stack4;
+    }
+
+    public static int truncatedCompareTo(java.util.Calendar, java.util.Calendar, int)
+    {
+        java.util.Calendar cal1, $stack5, cal2, $stack6;
+        int field, $stack7;
+
+        cal1 := @parameter0: java.util.Calendar;
+
+        cal2 := @parameter1: java.util.Calendar;
+
+        field := @parameter2: int;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>(cal1, field);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Calendar truncate(java.util.Calendar,int)>(cal2, field);
+
+        $stack7 = virtualinvoke $stack5.<java.util.Calendar: int compareTo(java.util.Calendar)>($stack6);
+
+        return $stack7;
+    }
+
+    public static int truncatedCompareTo(java.util.Date, java.util.Date, int)
+    {
+        java.util.Date date1, $stack5, date2, $stack6;
+        int field, $stack7;
+
+        date1 := @parameter0: java.util.Date;
+
+        date2 := @parameter1: java.util.Date;
+
+        field := @parameter2: int;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>(date1, field);
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.time.DateUtils: java.util.Date truncate(java.util.Date,int)>(date2, field);
+
+        $stack7 = virtualinvoke $stack5.<java.util.Date: int compareTo(java.util.Date)>($stack6);
+
+        return $stack7;
+    }
+
+    private static long getMillisPerUnit(int)
+    {
+        long result;
+        java.lang.IllegalArgumentException $stack4;
+        int unit;
+        java.lang.StringBuilder $stack5, $stack6, $stack7, $stack8;
+        java.lang.String $stack9;
+
+        unit := @parameter0: int;
+
+        tableswitch(unit)
+        {
+            case 5: goto label1;
+            case 6: goto label1;
+            case 7: goto label6;
+            case 8: goto label6;
+            case 9: goto label6;
+            case 10: goto label6;
+            case 11: goto label2;
+            case 12: goto label3;
+            case 13: goto label4;
+            case 14: goto label5;
+            default: goto label6;
+        };
+
+     label1:
+        result = 86400000L;
+
+        goto label7;
+
+     label2:
+        result = 3600000L;
+
+        goto label7;
+
+     label3:
+        result = 60000L;
+
+        goto label7;
+
+     label4:
+        result = 1000L;
+
+        goto label7;
+
+     label5:
+        result = 1L;
+
+        goto label7;
+
+     label6:
+        $stack4 = new java.lang.IllegalArgumentException;
+
+        $stack5 = new java.lang.StringBuilder;
+
+        specialinvoke $stack5.<java.lang.StringBuilder: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("The unit ");
+
+        $stack7 = virtualinvoke $stack6.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(unit);
+
+        $stack8 = virtualinvoke $stack7.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" cannot be represented is milleseconds");
+
+        $stack9 = virtualinvoke $stack8.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $stack4.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($stack9);
+
+        throw $stack4;
+
+     label7:
+        return result;
+    }
+
+    static void <clinit>()
+    {
+        int[][] $stack0;
+        int[] $stack1, $stack2, $stack3, $stack4, $stack5, $stack6, $stack7, $stack8;
+
+        <org.apache.commons.lang3.time.DateUtils: int MODIFY_CEILING> = 2;
+
+        <org.apache.commons.lang3.time.DateUtils: int MODIFY_ROUND> = 1;
+
+        <org.apache.commons.lang3.time.DateUtils: int MODIFY_TRUNCATE> = 0;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_MONTH_MONDAY> = 6;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_MONTH_SUNDAY> = 5;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_WEEK_CENTER> = 4;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_WEEK_RELATIVE> = 3;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_WEEK_MONDAY> = 2;
+
+        <org.apache.commons.lang3.time.DateUtils: int RANGE_WEEK_SUNDAY> = 1;
+
+        <org.apache.commons.lang3.time.DateUtils: int SEMI_MONTH> = 1001;
+
+        <org.apache.commons.lang3.time.DateUtils: long MILLIS_PER_DAY> = 86400000L;
+
+        <org.apache.commons.lang3.time.DateUtils: long MILLIS_PER_HOUR> = 3600000L;
+
+        <org.apache.commons.lang3.time.DateUtils: long MILLIS_PER_MINUTE> = 60000L;
+
+        <org.apache.commons.lang3.time.DateUtils: long MILLIS_PER_SECOND> = 1000L;
+
+        $stack0 = newarray (int[])[8];
+
+        $stack1 = newarray (int)[1];
+
+        $stack1[0] = 14;
+
+        $stack0[0] = $stack1;
+
+        $stack2 = newarray (int)[1];
+
+        $stack2[0] = 13;
+
+        $stack0[1] = $stack2;
+
+        $stack3 = newarray (int)[1];
+
+        $stack3[0] = 12;
+
+        $stack0[2] = $stack3;
+
+        $stack4 = newarray (int)[2];
+
+        $stack4[0] = 11;
+
+        $stack4[1] = 10;
+
+        $stack0[3] = $stack4;
+
+        $stack5 = newarray (int)[3];
+
+        $stack5[0] = 5;
+
+        $stack5[1] = 5;
+
+        $stack5[2] = 9;
+
+        $stack0[4] = $stack5;
+
+        $stack6 = newarray (int)[2];
+
+        $stack6[0] = 2;
+
+        $stack6[1] = 1001;
+
+        $stack0[5] = $stack6;
+
+        $stack7 = newarray (int)[1];
+
+        $stack7[0] = 1;
+
+        $stack0[6] = $stack7;
+
+        $stack8 = newarray (int)[1];
+
+        $stack8[0] = 0;
+
+        $stack0[7] = $stack8;
+
+        <org.apache.commons.lang3.time.DateUtils: int[][] fields> = $stack0;
+
+        return;
+    }
+}

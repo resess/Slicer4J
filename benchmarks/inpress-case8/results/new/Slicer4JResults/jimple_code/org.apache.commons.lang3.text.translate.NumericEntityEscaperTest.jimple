@@ -1,0 +1,84 @@
+public class org.apache.commons.lang3.text.translate.NumericEntityEscaperTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.translate.NumericEntityEscaperTest this;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityEscaperTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testBelow()
+    {
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaperTest this;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.NumericEntityEscaper: org.apache.commons.lang3.text.translate.NumericEntityEscaper below(int)>(70);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.NumericEntityEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape numeric entities via the below method", "&#65;&#68;FGZ", $stack5);
+
+        return;
+    }
+
+    public void testBetween()
+    {
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaperTest this;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.NumericEntityEscaper: org.apache.commons.lang3.text.translate.NumericEntityEscaper between(int,int)>(70, 76);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.NumericEntityEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape numeric entities via the between method", "AD&#70;&#71;Z", $stack5);
+
+        return;
+    }
+
+    public void testAbove()
+    {
+        java.lang.String $stack5;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaperTest this;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaper $stack4;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityEscaperTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.text.translate.NumericEntityEscaper: org.apache.commons.lang3.text.translate.NumericEntityEscaper above(int)>(70);
+
+        $stack5 = virtualinvoke $stack4.<org.apache.commons.lang3.text.translate.NumericEntityEscaper: java.lang.String translate(java.lang.CharSequence)>("ADFGZ");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape numeric entities via the above method", "ADF&#71;&#90;", $stack5);
+
+        return;
+    }
+
+    public void testSupplementary()
+    {
+        java.lang.String $stack6;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaperTest this;
+        org.apache.commons.lang3.text.translate.NumericEntityEscaper $stack5;
+
+        this := @this: org.apache.commons.lang3.text.translate.NumericEntityEscaperTest;
+
+        $stack5 = new org.apache.commons.lang3.text.translate.NumericEntityEscaper;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.translate.NumericEntityEscaper: void <init>()>();
+
+        $stack6 = virtualinvoke $stack5.<org.apache.commons.lang3.text.translate.NumericEntityEscaper: java.lang.String translate(java.lang.CharSequence)>("\ud803\udc22");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Failed to escape numeric entities supplementary characters", "&#68642;", $stack6);
+
+        return;
+    }
+}

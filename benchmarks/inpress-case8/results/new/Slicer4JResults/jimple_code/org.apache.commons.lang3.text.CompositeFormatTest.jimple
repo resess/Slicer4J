@@ -1,0 +1,101 @@
+public class org.apache.commons.lang3.text.CompositeFormatTest extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.text.CompositeFormatTest this;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormatTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void testCompositeFormat()
+    {
+        org.apache.commons.lang3.text.CompositeFormatTest this;
+        java.text.Format $stack12, $stack14;
+        org.apache.commons.lang3.text.CompositeFormatTest$2 $stack5;
+        java.lang.StringBuffer $stack9;
+        org.apache.commons.lang3.text.CompositeFormatTest$1 $stack4;
+        java.lang.Object $stack8;
+        org.apache.commons.lang3.text.CompositeFormat $stack6;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormatTest;
+
+        $stack4 = new org.apache.commons.lang3.text.CompositeFormatTest$1;
+
+        specialinvoke $stack4.<org.apache.commons.lang3.text.CompositeFormatTest$1: void <init>(org.apache.commons.lang3.text.CompositeFormatTest)>(this);
+
+        $stack5 = new org.apache.commons.lang3.text.CompositeFormatTest$2;
+
+        specialinvoke $stack5.<org.apache.commons.lang3.text.CompositeFormatTest$2: void <init>(org.apache.commons.lang3.text.CompositeFormatTest)>(this);
+
+        $stack6 = new org.apache.commons.lang3.text.CompositeFormat;
+
+        specialinvoke $stack6.<org.apache.commons.lang3.text.CompositeFormat: void <init>(java.text.Format,java.text.Format)>($stack4, $stack5);
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.CompositeFormat: java.lang.Object parseObject(java.lang.String,java.text.ParsePosition)>("", null);
+
+        $stack8 = new java.lang.Object;
+
+        specialinvoke $stack8.<java.lang.Object: void <init>()>();
+
+        $stack9 = new java.lang.StringBuffer;
+
+        specialinvoke $stack9.<java.lang.StringBuffer: void <init>()>();
+
+        virtualinvoke $stack6.<org.apache.commons.lang3.text.CompositeFormat: java.lang.StringBuffer format(java.lang.Object,java.lang.StringBuffer,java.text.FieldPosition)>($stack8, $stack9, null);
+
+        $stack12 = virtualinvoke $stack6.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format getParser()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Parser get method incorrectly implemented", $stack4, $stack12);
+
+        $stack14 = virtualinvoke $stack6.<org.apache.commons.lang3.text.CompositeFormat: java.text.Format getFormatter()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.String,java.lang.Object,java.lang.Object)>("Formatter get method incorrectly implemented", $stack5, $stack14);
+
+        return;
+    }
+
+    public void testUsage() throws java.lang.Exception
+    {
+        org.apache.commons.lang3.text.CompositeFormatTest this;
+        java.text.SimpleDateFormat $stack5, $stack7;
+        java.util.Locale $stack6, $stack8;
+        java.lang.Object $stack10;
+        java.lang.String $stack11, $stack12;
+        org.apache.commons.lang3.text.CompositeFormat $stack9;
+
+        this := @this: org.apache.commons.lang3.text.CompositeFormatTest;
+
+        $stack5 = new java.text.SimpleDateFormat;
+
+        $stack6 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        specialinvoke $stack5.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>("MMddyyyy", $stack6);
+
+        $stack7 = new java.text.SimpleDateFormat;
+
+        $stack8 = <java.util.Locale: java.util.Locale ENGLISH>;
+
+        specialinvoke $stack7.<java.text.SimpleDateFormat: void <init>(java.lang.String,java.util.Locale)>("MMMM d, yyyy", $stack8);
+
+        $stack9 = new org.apache.commons.lang3.text.CompositeFormat;
+
+        specialinvoke $stack9.<org.apache.commons.lang3.text.CompositeFormat: void <init>(java.text.Format,java.text.Format)>($stack5, $stack7);
+
+        $stack10 = virtualinvoke $stack9.<org.apache.commons.lang3.text.CompositeFormat: java.lang.Object parseObject(java.lang.String)>("01032005");
+
+        $stack11 = virtualinvoke $stack9.<org.apache.commons.lang3.text.CompositeFormat: java.lang.String format(java.lang.Object)>($stack10);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("January 3, 2005", $stack11);
+
+        $stack12 = virtualinvoke $stack9.<org.apache.commons.lang3.text.CompositeFormat: java.lang.String reformat(java.lang.String)>("01032005");
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>("January 3, 2005", $stack12);
+
+        return;
+    }
+}

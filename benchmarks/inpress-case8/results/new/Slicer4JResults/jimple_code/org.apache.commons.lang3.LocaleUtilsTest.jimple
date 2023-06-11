@@ -1,0 +1,1380 @@
+public class org.apache.commons.lang3.LocaleUtilsTest extends java.lang.Object
+{
+    private static final java.util.Locale LOCALE_EN;
+    private static final java.util.Locale LOCALE_EN_US;
+    private static final java.util.Locale LOCALE_EN_US_ZZZZ;
+    private static final java.util.Locale LOCALE_FR;
+    private static final java.util.Locale LOCALE_FR_CA;
+    private static final java.util.Locale LOCALE_QQ;
+    private static final java.util.Locale LOCALE_QQ_ZZ;
+
+    public void <init>()
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setUp() throws java.lang.Exception
+    {
+        java.util.Locale $stack1;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack1 = staticinvoke <java.util.Locale: java.util.Locale getDefault()>();
+
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack1);
+
+        return;
+    }
+
+    public void testConstructor()
+    {
+        long $stack6;
+        java.lang.reflect.Constructor $stack7;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.lang.reflect.Constructor[] $stack4;
+        org.apache.commons.lang3.LocaleUtils $stack2;
+        int $stack5, $stack8, $stack11, $stack14;
+        java.lang.Class $stack3, $stack10, $stack13;
+        boolean $stack9, $stack12, $stack15;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack2 = new org.apache.commons.lang3.LocaleUtils;
+
+        specialinvoke $stack2.<org.apache.commons.lang3.LocaleUtils: void <init>()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack2);
+
+        $stack3 = class "Lorg/apache/commons/lang3/LocaleUtils;";
+
+        $stack4 = virtualinvoke $stack3.<java.lang.Class: java.lang.reflect.Constructor[] getDeclaredConstructors()>();
+
+        $stack5 = lengthof $stack4;
+
+        $stack6 = (long) $stack5;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>(1L, $stack6);
+
+        $stack7 = $stack4[0];
+
+        $stack8 = virtualinvoke $stack7.<java.lang.reflect.Constructor: int getModifiers()>();
+
+        $stack9 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack8);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        $stack10 = class "Lorg/apache/commons/lang3/LocaleUtils;";
+
+        $stack11 = virtualinvoke $stack10.<java.lang.Class: int getModifiers()>();
+
+        $stack12 = staticinvoke <java.lang.reflect.Modifier: boolean isPublic(int)>($stack11);
+
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack13 = class "Lorg/apache/commons/lang3/LocaleUtils;";
+
+        $stack14 = virtualinvoke $stack13.<java.lang.Class: int getModifiers()>();
+
+        $stack15 = staticinvoke <java.lang.reflect.Modifier: boolean isFinal(int)>($stack14);
+
+        staticinvoke <org.junit.Assert: void assertFalse(boolean)>($stack15);
+
+        return;
+    }
+
+    private void assertValidToLocale(java.lang.String)
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale $stack3;
+        java.lang.String language, $stack4, $stack5, $stack6, $stack7, $stack10;
+        boolean $stack8, $stack11, $stack12, $stack9;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        language := @parameter0: java.lang.String;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>(language);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("valid locale", $stack3);
+
+        $stack4 = virtualinvoke $stack3.<java.util.Locale: java.lang.String getLanguage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(language, $stack4);
+
+        $stack5 = virtualinvoke $stack3.<java.util.Locale: java.lang.String getCountry()>();
+
+        if $stack5 == null goto label1;
+
+        $stack10 = virtualinvoke $stack3.<java.util.Locale: java.lang.String getCountry()>();
+
+        $stack11 = virtualinvoke $stack10.<java.lang.String: boolean isEmpty()>();
+
+        if $stack11 == 0 goto label2;
+
+     label1:
+        $stack12 = 1;
+
+        goto label3;
+
+     label2:
+        $stack12 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack12);
+
+        $stack6 = virtualinvoke $stack3.<java.util.Locale: java.lang.String getVariant()>();
+
+        if $stack6 == null goto label4;
+
+        $stack7 = virtualinvoke $stack3.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack8 = virtualinvoke $stack7.<java.lang.String: boolean isEmpty()>();
+
+        if $stack8 == 0 goto label5;
+
+     label4:
+        $stack9 = 1;
+
+        goto label6;
+
+     label5:
+        $stack9 = 0;
+
+     label6:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack9);
+
+        return;
+    }
+
+    private void assertValidToLocale(java.lang.String, java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale $stack5;
+        java.lang.String localeString, language, $stack6, country, $stack7, $stack8, $stack9;
+        boolean $stack10, $stack11;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        localeString := @parameter0: java.lang.String;
+
+        language := @parameter1: java.lang.String;
+
+        country := @parameter2: java.lang.String;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>(localeString);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("valid locale", $stack5);
+
+        $stack6 = virtualinvoke $stack5.<java.util.Locale: java.lang.String getLanguage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(language, $stack6);
+
+        $stack7 = virtualinvoke $stack5.<java.util.Locale: java.lang.String getCountry()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(country, $stack7);
+
+        $stack8 = virtualinvoke $stack5.<java.util.Locale: java.lang.String getVariant()>();
+
+        if $stack8 == null goto label1;
+
+        $stack9 = virtualinvoke $stack5.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack10 = virtualinvoke $stack9.<java.lang.String: boolean isEmpty()>();
+
+        if $stack10 == 0 goto label2;
+
+     label1:
+        $stack11 = 1;
+
+        goto label3;
+
+     label2:
+        $stack11 = 0;
+
+     label3:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack11);
+
+        return;
+    }
+
+    private void assertValidToLocale(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale $stack6;
+        java.lang.String localeString, language, $stack7, country, $stack8, variant, $stack9;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        localeString := @parameter0: java.lang.String;
+
+        language := @parameter1: java.lang.String;
+
+        country := @parameter2: java.lang.String;
+
+        variant := @parameter3: java.lang.String;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>(localeString);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.String,java.lang.Object)>("valid locale", $stack6);
+
+        $stack7 = virtualinvoke $stack6.<java.util.Locale: java.lang.String getLanguage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(language, $stack7);
+
+        $stack8 = virtualinvoke $stack6.<java.util.Locale: java.lang.String getCountry()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(country, $stack8);
+
+        $stack9 = virtualinvoke $stack6.<java.util.Locale: java.lang.String getVariant()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(variant, $stack9);
+
+        return;
+    }
+
+    public void testToLocale_1Part()
+    {
+        java.lang.IllegalArgumentException $stack12, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale $stack4;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack4 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>(null);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(null, $stack4);
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String)>("us");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String)>("fr");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String)>("de");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String)>("zh");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String)>("qq");
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("Us");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail if not lowercase");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack28 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("US");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail if not lowercase");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack25 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("uS");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail if not lowercase");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack22 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("u#");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail if not lowercase");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack19 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("u");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Must be 2 chars if less than 5");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack16 := @caughtexception;
+
+     label16:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("uuu");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Must be 2 chars if less than 5");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack13 := @caughtexception;
+
+     label19:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("uu_U");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Must be 2 chars if less than 5");
+
+     label20:
+        goto label22;
+
+     label21:
+        $stack12 := @caughtexception;
+
+     label22:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+        catch java.lang.IllegalArgumentException from label19 to label20 with label21;
+    }
+
+    public void testToLocale_2Part()
+    {
+        java.lang.IllegalArgumentException $stack8, $stack9, $stack12, $stack15, $stack18, $stack21;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String)>("us_EN", "us", "EN");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String)>("us_ZH", "us", "ZH");
+
+     label01:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us-EN");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail as not underscore");
+
+     label02:
+        goto label04;
+
+     label03:
+        $stack21 := @caughtexception;
+
+     label04:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us_En");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail second part not uppercase");
+
+     label05:
+        goto label07;
+
+     label06:
+        $stack18 := @caughtexception;
+
+     label07:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us_en");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail second part not uppercase");
+
+     label08:
+        goto label10;
+
+     label09:
+        $stack15 := @caughtexception;
+
+     label10:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us_eN");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail second part not uppercase");
+
+     label11:
+        goto label13;
+
+     label12:
+        $stack12 := @caughtexception;
+
+     label13:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("uS_EN");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail first part not lowercase");
+
+     label14:
+        goto label16;
+
+     label15:
+        $stack9 := @caughtexception;
+
+     label16:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us_E3");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail second part not uppercase");
+
+     label17:
+        goto label19;
+
+     label18:
+        $stack8 := @caughtexception;
+
+     label19:
+        return;
+
+        catch java.lang.IllegalArgumentException from label01 to label02 with label03;
+        catch java.lang.IllegalArgumentException from label04 to label05 with label06;
+        catch java.lang.IllegalArgumentException from label07 to label08 with label09;
+        catch java.lang.IllegalArgumentException from label10 to label11 with label12;
+        catch java.lang.IllegalArgumentException from label13 to label14 with label15;
+        catch java.lang.IllegalArgumentException from label16 to label17 with label18;
+    }
+
+    public void testToLocale_3Part()
+    {
+        org.apache.commons.lang3.JavaVersion $stack2;
+        java.lang.IllegalArgumentException $stack8, $stack9;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        boolean $stack3;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("us_EN_A", "us", "EN", "A");
+
+        $stack2 = <org.apache.commons.lang3.JavaVersion: org.apache.commons.lang3.JavaVersion JAVA_1_4>;
+
+        $stack3 = staticinvoke <org.apache.commons.lang3.SystemUtils: boolean isJavaVersionAtLeast(org.apache.commons.lang3.JavaVersion)>($stack2);
+
+        if $stack3 == 0 goto label1;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("us_EN_a", "us", "EN", "a");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("us_EN_SFsafdFDsdfF", "us", "EN", "SFsafdFDsdfF");
+
+        goto label2;
+
+     label1:
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("us_EN_a", "us", "EN", "A");
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("us_EN_SFsafdFDsdfF", "us", "EN", "SFSAFDFDSDFF");
+
+     label2:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("us_EN-a");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Should fail as not underscore");
+
+     label3:
+        goto label5;
+
+     label4:
+        $stack9 := @caughtexception;
+
+     label5:
+        staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Locale toLocale(java.lang.String)>("uu_UU_");
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>("Must be 3, 5 or 7+ in length");
+
+     label6:
+        goto label8;
+
+     label7:
+        $stack8 := @caughtexception;
+
+     label8:
+        return;
+
+        catch java.lang.IllegalArgumentException from label2 to label3 with label4;
+        catch java.lang.IllegalArgumentException from label5 to label6 with label7;
+    }
+
+    private void assertLocaleLookupList(java.util.Locale, java.util.Locale, java.util.Locale[])
+    {
+        java.util.Locale[] expected;
+        long $stack7, $stack9;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.List $stack10, $stack5;
+        java.util.Locale defaultLocale, locale;
+        int $stack6, $stack8;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        locale := @parameter0: java.util.Locale;
+
+        defaultLocale := @parameter1: java.util.Locale;
+
+        expected := @parameter2: java.util.Locale[];
+
+        if defaultLocale != null goto label1;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List localeLookupList(java.util.Locale)>(locale);
+
+        goto label2;
+
+     label1:
+        $stack5 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List localeLookupList(java.util.Locale,java.util.Locale)>(locale, defaultLocale);
+
+     label2:
+        $stack6 = lengthof expected;
+
+        $stack7 = (long) $stack6;
+
+        $stack8 = interfaceinvoke $stack5.<java.util.List: int size()>();
+
+        $stack9 = (long) $stack8;
+
+        staticinvoke <org.junit.Assert: void assertEquals(long,long)>($stack7, $stack9);
+
+        $stack10 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>(expected);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack5);
+
+        staticinvoke <org.apache.commons.lang3.LocaleUtilsTest: void assertUnmodifiableCollection(java.util.Collection)>($stack5);
+
+        return;
+    }
+
+    public void testLocaleLookupList_Locale()
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale $stack3, $stack4, $stack6, $stack7, $stack9, $stack10, $stack12, $stack13, $stack14, $stack16, $stack17, $stack18, $stack19;
+        java.util.Locale[] $stack1, $stack2, $stack5, $stack8, $stack11, $stack15;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack1 = newarray (java.util.Locale)[0];
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>(null, null, $stack1);
+
+        $stack4 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack2 = newarray (java.util.Locale)[1];
+
+        $stack3 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack2[0] = $stack3;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack4, null, $stack2);
+
+        $stack7 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack5 = newarray (java.util.Locale)[1];
+
+        $stack6 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack5[0] = $stack6;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack7, null, $stack5);
+
+        $stack10 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack8 = newarray (java.util.Locale)[1];
+
+        $stack9 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack8[0] = $stack9;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack10, null, $stack8);
+
+        $stack14 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack11 = newarray (java.util.Locale)[2];
+
+        $stack12 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack11[0] = $stack12;
+
+        $stack13 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack11[1] = $stack13;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack14, null, $stack11);
+
+        $stack19 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack15 = newarray (java.util.Locale)[3];
+
+        $stack16 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack15[0] = $stack16;
+
+        $stack17 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack15[1] = $stack17;
+
+        $stack18 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack15[2] = $stack18;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack19, null, $stack15);
+
+        return;
+    }
+
+    public void testLocaleLookupList_LocaleLocale()
+    {
+        java.util.Locale $stack2, $stack3, $stack4, $stack6, $stack7, $stack8, $stack10, $stack11, $stack12, $stack13, $stack15, $stack16, $stack17, $stack18, $stack19, $stack21, $stack22, $stack23, $stack24, $stack25, $stack27, $stack28, $stack29, $stack30, $stack32, $stack33, $stack34, $stack35, $stack36, $stack38, $stack39, $stack40, $stack41, $stack42, $stack43, $stack45, $stack46, $stack47, $stack48, $stack49, $stack50, $stack52, $stack53, $stack54, $stack55, $stack56;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale[] $stack1, $stack5, $stack9, $stack14, $stack20, $stack26, $stack31, $stack37, $stack44, $stack51;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack4 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack3 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack1 = newarray (java.util.Locale)[1];
+
+        $stack2 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack1[0] = $stack2;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack4, $stack3, $stack1);
+
+        $stack8 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack7 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack5 = newarray (java.util.Locale)[1];
+
+        $stack6 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack5[0] = $stack6;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack8, $stack7, $stack5);
+
+        $stack13 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack12 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack9 = newarray (java.util.Locale)[2];
+
+        $stack10 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack9[0] = $stack10;
+
+        $stack11 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack9[1] = $stack11;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack13, $stack12, $stack9);
+
+        $stack19 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack18 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack14 = newarray (java.util.Locale)[3];
+
+        $stack15 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack14[0] = $stack15;
+
+        $stack16 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack14[1] = $stack16;
+
+        $stack17 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack14[2] = $stack17;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack19, $stack18, $stack14);
+
+        $stack25 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack24 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack20 = newarray (java.util.Locale)[3];
+
+        $stack21 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack20[0] = $stack21;
+
+        $stack22 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack20[1] = $stack22;
+
+        $stack23 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack20[2] = $stack23;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack25, $stack24, $stack20);
+
+        $stack30 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack26 = newarray (java.util.Locale)[3];
+
+        $stack27 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack26[0] = $stack27;
+
+        $stack28 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack26[1] = $stack28;
+
+        $stack29 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack26[2] = $stack29;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack30, null, $stack26);
+
+        $stack36 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack35 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack31 = newarray (java.util.Locale)[3];
+
+        $stack32 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack31[0] = $stack32;
+
+        $stack33 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack31[1] = $stack33;
+
+        $stack34 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack31[2] = $stack34;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack36, $stack35, $stack31);
+
+        $stack43 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack42 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack37 = newarray (java.util.Locale)[4];
+
+        $stack38 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack37[0] = $stack38;
+
+        $stack39 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack37[1] = $stack39;
+
+        $stack40 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack37[2] = $stack40;
+
+        $stack41 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack37[3] = $stack41;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack43, $stack42, $stack37);
+
+        $stack50 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack49 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack44 = newarray (java.util.Locale)[4];
+
+        $stack45 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack44[0] = $stack45;
+
+        $stack46 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack44[1] = $stack46;
+
+        $stack47 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack44[2] = $stack47;
+
+        $stack48 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack44[3] = $stack48;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack50, $stack49, $stack44);
+
+        $stack56 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR_CA>;
+
+        $stack55 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack51 = newarray (java.util.Locale)[3];
+
+        $stack52 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR_CA>;
+
+        $stack51[0] = $stack52;
+
+        $stack53 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR>;
+
+        $stack51[1] = $stack53;
+
+        $stack54 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack51[2] = $stack54;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLocaleLookupList(java.util.Locale,java.util.Locale,java.util.Locale[])>($stack56, $stack55, $stack51);
+
+        return;
+    }
+
+    public void testAvailableLocaleList()
+    {
+        java.util.Locale[] $stack7;
+        java.util.List $stack5, $stack6, $stack8;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack5 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List availableLocaleList()>();
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List availableLocaleList()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack5);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack5, $stack6);
+
+        staticinvoke <org.apache.commons.lang3.LocaleUtilsTest: void assertUnmodifiableCollection(java.util.Collection)>($stack5);
+
+        $stack7 = staticinvoke <java.util.Locale: java.util.Locale[] getAvailableLocales()>();
+
+        $stack8 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack8, $stack5);
+
+        return;
+    }
+
+    public void testAvailableLocaleSet()
+    {
+        java.util.HashSet $stack10;
+        java.util.Locale[] $stack8;
+        java.util.List $stack9;
+        java.util.Set $stack6, $stack7;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack6 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Set availableLocaleSet()>();
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Set availableLocaleSet()>();
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack6);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack6, $stack7);
+
+        staticinvoke <org.apache.commons.lang3.LocaleUtilsTest: void assertUnmodifiableCollection(java.util.Collection)>($stack6);
+
+        $stack8 = staticinvoke <java.util.Locale: java.util.Locale[] getAvailableLocales()>();
+
+        $stack9 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($stack8);
+
+        $stack10 = new java.util.HashSet;
+
+        specialinvoke $stack10.<java.util.HashSet: void <init>(java.util.Collection)>($stack9);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack10, $stack6);
+
+        return;
+    }
+
+    public void testIsAvailableLocale()
+    {
+        java.util.Locale $stack3, $stack6, $stack9, $stack12, $stack15, $stack18, $stack21, $stack24, $stack27, $stack30, $stack33, $stack36, $stack39, $stack42;
+        boolean $stack4, $stack7, $stack10, $stack13, $stack16, $stack19, $stack22, $stack25, $stack28, $stack31, $stack34, $stack37, $stack40, $stack43;
+        java.util.Set $stack2;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.lang.Boolean $stack5, $stack8, $stack11, $stack14, $stack17, $stack20, $stack23, $stack26, $stack29, $stack32, $stack35, $stack38, $stack41, $stack44;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack2 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.Set availableLocaleSet()>();
+
+        $stack3 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack4 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack3);
+
+        $stack5 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack4);
+
+        $stack6 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN>;
+
+        $stack7 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack6);
+
+        $stack8 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack7);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack5, $stack8);
+
+        $stack9 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack10 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack9);
+
+        $stack11 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack10);
+
+        $stack12 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US>;
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack12);
+
+        $stack14 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack13);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack11, $stack14);
+
+        $stack15 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack16 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack15);
+
+        $stack17 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack16);
+
+        $stack18 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ>;
+
+        $stack19 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack18);
+
+        $stack20 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack19);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack17, $stack20);
+
+        $stack21 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR>;
+
+        $stack22 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack21);
+
+        $stack23 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack22);
+
+        $stack24 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR>;
+
+        $stack25 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack24);
+
+        $stack26 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack25);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack23, $stack26);
+
+        $stack27 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR_CA>;
+
+        $stack28 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack27);
+
+        $stack29 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack28);
+
+        $stack30 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR_CA>;
+
+        $stack31 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack30);
+
+        $stack32 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack31);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack29, $stack32);
+
+        $stack33 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack34 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack33);
+
+        $stack35 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack34);
+
+        $stack36 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ>;
+
+        $stack37 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack36);
+
+        $stack38 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack37);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack35, $stack38);
+
+        $stack39 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack40 = interfaceinvoke $stack2.<java.util.Set: boolean contains(java.lang.Object)>($stack39);
+
+        $stack41 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack40);
+
+        $stack42 = <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ>;
+
+        $stack43 = staticinvoke <org.apache.commons.lang3.LocaleUtils: boolean isAvailableLocale(java.util.Locale)>($stack42);
+
+        $stack44 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($stack43);
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>($stack41, $stack44);
+
+        return;
+    }
+
+    private void assertLanguageByCountry(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] languages;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale locale;
+        int len$, i$;
+        java.lang.String country, language, $stack23, $stack25, $stack26, $stack27, $stack31;
+        boolean $stack15, $stack28, $stack32, found, $stack33;
+        java.util.Iterator $stack14;
+        java.util.List $stack12, $stack13;
+        java.lang.StringBuilder $stack18, $stack19, $stack20, $stack21, $stack22;
+        java.lang.Object $stack24;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        country := @parameter0: java.lang.String;
+
+        languages := @parameter1: java.lang.String[];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List languagesByCountry(java.lang.String)>(country);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List languagesByCountry(java.lang.String)>(country);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        len$ = lengthof languages;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label9;
+
+        language = languages[i$];
+
+        $stack14 = interfaceinvoke $stack12.<java.util.List: java.util.Iterator iterator()>();
+
+        found = 0;
+
+     label2:
+        $stack15 = interfaceinvoke $stack14.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack15 == 0 goto label7;
+
+        $stack24 = interfaceinvoke $stack14.<java.util.Iterator: java.lang.Object next()>();
+
+        locale = (java.util.Locale) $stack24;
+
+        $stack25 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        if $stack25 == null goto label3;
+
+        $stack31 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack32 = virtualinvoke $stack31.<java.lang.String: boolean isEmpty()>();
+
+        if $stack32 == 0 goto label4;
+
+     label3:
+        $stack33 = 1;
+
+        goto label5;
+
+     label4:
+        $stack33 = 0;
+
+     label5:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack26 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(country, $stack26);
+
+        $stack27 = virtualinvoke locale.<java.util.Locale: java.lang.String getLanguage()>();
+
+        $stack28 = virtualinvoke language.<java.lang.String: boolean equals(java.lang.Object)>($stack27);
+
+        if $stack28 == 0 goto label6;
+
+        found = 1;
+
+        goto label7;
+
+     label6:
+        goto label2;
+
+     label7:
+        if found != 0 goto label8;
+
+        $stack18 = new java.lang.StringBuilder;
+
+        specialinvoke $stack18.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cound not find language: ");
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(language);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" for country: ");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(country);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack23);
+
+     label8:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label9:
+        staticinvoke <org.apache.commons.lang3.LocaleUtilsTest: void assertUnmodifiableCollection(java.util.Collection)>($stack12);
+
+        return;
+    }
+
+    public void testLanguagesByCountry()
+    {
+        java.lang.String[] $stack1, $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack1 = newarray (java.lang.String)[0];
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLanguageByCountry(java.lang.String,java.lang.String[])>(null, $stack1);
+
+        $stack2 = newarray (java.lang.String)[1];
+
+        $stack2[0] = "en";
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLanguageByCountry(java.lang.String,java.lang.String[])>("GB", $stack2);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLanguageByCountry(java.lang.String,java.lang.String[])>("ZZ", $stack3);
+
+        $stack4 = newarray (java.lang.String)[3];
+
+        $stack4[0] = "fr";
+
+        $stack4[1] = "de";
+
+        $stack4[2] = "it";
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertLanguageByCountry(java.lang.String,java.lang.String[])>("CH", $stack4);
+
+        return;
+    }
+
+    private void assertCountriesByLanguage(java.lang.String, java.lang.String[])
+    {
+        java.lang.String[] countries;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+        java.util.Locale locale;
+        int len$, i$;
+        java.lang.String language, countrie, $stack23, $stack25, $stack26, $stack27, $stack31;
+        boolean $stack15, $stack28, $stack32, found, $stack33;
+        java.util.Iterator $stack14;
+        java.util.List $stack12, $stack13;
+        java.lang.StringBuilder $stack18, $stack19, $stack20, $stack21, $stack22;
+        java.lang.Object $stack24;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        language := @parameter0: java.lang.String;
+
+        countries := @parameter1: java.lang.String[];
+
+        $stack12 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List countriesByLanguage(java.lang.String)>(language);
+
+        $stack13 = staticinvoke <org.apache.commons.lang3.LocaleUtils: java.util.List countriesByLanguage(java.lang.String)>(language);
+
+        staticinvoke <org.junit.Assert: void assertNotNull(java.lang.Object)>($stack12);
+
+        staticinvoke <org.junit.Assert: void assertSame(java.lang.Object,java.lang.Object)>($stack12, $stack13);
+
+        len$ = lengthof countries;
+
+        i$ = 0;
+
+     label1:
+        if i$ >= len$ goto label9;
+
+        countrie = countries[i$];
+
+        $stack14 = interfaceinvoke $stack12.<java.util.List: java.util.Iterator iterator()>();
+
+        found = 0;
+
+     label2:
+        $stack15 = interfaceinvoke $stack14.<java.util.Iterator: boolean hasNext()>();
+
+        if $stack15 == 0 goto label7;
+
+        $stack24 = interfaceinvoke $stack14.<java.util.Iterator: java.lang.Object next()>();
+
+        locale = (java.util.Locale) $stack24;
+
+        $stack25 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        if $stack25 == null goto label3;
+
+        $stack31 = virtualinvoke locale.<java.util.Locale: java.lang.String getVariant()>();
+
+        $stack32 = virtualinvoke $stack31.<java.lang.String: boolean isEmpty()>();
+
+        if $stack32 == 0 goto label4;
+
+     label3:
+        $stack33 = 1;
+
+        goto label5;
+
+     label4:
+        $stack33 = 0;
+
+     label5:
+        staticinvoke <org.junit.Assert: void assertTrue(boolean)>($stack33);
+
+        $stack26 = virtualinvoke locale.<java.util.Locale: java.lang.String getLanguage()>();
+
+        staticinvoke <org.junit.Assert: void assertEquals(java.lang.Object,java.lang.Object)>(language, $stack26);
+
+        $stack27 = virtualinvoke locale.<java.util.Locale: java.lang.String getCountry()>();
+
+        $stack28 = virtualinvoke countrie.<java.lang.String: boolean equals(java.lang.Object)>($stack27);
+
+        if $stack28 == 0 goto label6;
+
+        found = 1;
+
+        goto label7;
+
+     label6:
+        goto label2;
+
+     label7:
+        if found != 0 goto label8;
+
+        $stack18 = new java.lang.StringBuilder;
+
+        specialinvoke $stack18.<java.lang.StringBuilder: void <init>()>();
+
+        $stack19 = virtualinvoke $stack18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Cound not find language: ");
+
+        $stack20 = virtualinvoke $stack19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(countrie);
+
+        $stack21 = virtualinvoke $stack20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" for country: ");
+
+        $stack22 = virtualinvoke $stack21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(language);
+
+        $stack23 = virtualinvoke $stack22.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <org.junit.Assert: void fail(java.lang.String)>($stack23);
+
+     label8:
+        i$ = i$ + 1;
+
+        goto label1;
+
+     label9:
+        staticinvoke <org.apache.commons.lang3.LocaleUtilsTest: void assertUnmodifiableCollection(java.util.Collection)>($stack12);
+
+        return;
+    }
+
+    public void testCountriesByLanguage()
+    {
+        java.lang.String[] $stack1, $stack2, $stack3, $stack4;
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        $stack1 = newarray (java.lang.String)[0];
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertCountriesByLanguage(java.lang.String,java.lang.String[])>(null, $stack1);
+
+        $stack2 = newarray (java.lang.String)[4];
+
+        $stack2[0] = "DE";
+
+        $stack2[1] = "CH";
+
+        $stack2[2] = "AT";
+
+        $stack2[3] = "LU";
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertCountriesByLanguage(java.lang.String,java.lang.String[])>("de", $stack2);
+
+        $stack3 = newarray (java.lang.String)[0];
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertCountriesByLanguage(java.lang.String,java.lang.String[])>("zz", $stack3);
+
+        $stack4 = newarray (java.lang.String)[2];
+
+        $stack4[0] = "IT";
+
+        $stack4[1] = "CH";
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertCountriesByLanguage(java.lang.String,java.lang.String[])>("it", $stack4);
+
+        return;
+    }
+
+    private static void assertUnmodifiableCollection(java.util.Collection)
+    {
+        java.lang.UnsupportedOperationException $stack3;
+        java.util.Collection coll;
+
+        coll := @parameter0: java.util.Collection;
+
+     label1:
+        interfaceinvoke coll.<java.util.Collection: boolean add(java.lang.Object)>(null);
+
+        staticinvoke <org.junit.Assert: void fail()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $stack3 := @caughtexception;
+
+     label4:
+        return;
+
+        catch java.lang.UnsupportedOperationException from label1 to label2 with label3;
+    }
+
+    public void testLang328()
+    {
+        org.apache.commons.lang3.LocaleUtilsTest this;
+
+        this := @this: org.apache.commons.lang3.LocaleUtilsTest;
+
+        specialinvoke this.<org.apache.commons.lang3.LocaleUtilsTest: void assertValidToLocale(java.lang.String,java.lang.String,java.lang.String,java.lang.String)>("fr__POSIX", "fr", "", "POSIX");
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.Locale $stack0, $stack1, $stack2, $stack3, $stack4, $stack5, $stack6;
+
+        $stack0 = new java.util.Locale;
+
+        specialinvoke $stack0.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("en", "");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN> = $stack0;
+
+        $stack1 = new java.util.Locale;
+
+        specialinvoke $stack1.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("en", "US");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US> = $stack1;
+
+        $stack2 = new java.util.Locale;
+
+        specialinvoke $stack2.<java.util.Locale: void <init>(java.lang.String,java.lang.String,java.lang.String)>("en", "US", "ZZZZ");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_EN_US_ZZZZ> = $stack2;
+
+        $stack3 = new java.util.Locale;
+
+        specialinvoke $stack3.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("fr", "");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR> = $stack3;
+
+        $stack4 = new java.util.Locale;
+
+        specialinvoke $stack4.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("fr", "CA");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_FR_CA> = $stack4;
+
+        $stack5 = new java.util.Locale;
+
+        specialinvoke $stack5.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("qq", "");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ> = $stack5;
+
+        $stack6 = new java.util.Locale;
+
+        specialinvoke $stack6.<java.util.Locale: void <init>(java.lang.String,java.lang.String)>("qq", "ZZ");
+
+        <org.apache.commons.lang3.LocaleUtilsTest: java.util.Locale LOCALE_QQ_ZZ> = $stack6;
+
+        return;
+    }
+}
