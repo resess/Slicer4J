@@ -44,8 +44,8 @@ public class SliceJava extends SliceMethod {
             if(si == null){
                 continue;
             }
-            System.out.println("next slice: " + si);
-            System.out.println("cur size: " + workingSet.getDynamicSlice().size());
+            AnalysisLogger.log(true, "Next slice: {}", si);
+            AnalysisLogger.log(true, "Current slice size: {}", workingSet.getDynamicSlice().size());
             slice(si, variables);
         }
 
@@ -54,13 +54,11 @@ public class SliceJava extends SliceMethod {
         return dynamicSlice.traceOrder();
     }
 
-    static HashSet<StatementInstance> seenDefs = new HashSet<>();
     @Override
     public StatementSet getDataDependence(SlicingWorkingSet workingSet, Pair<StatementInstance, AccessPath> p,
             StatementInstance stmt, AccessPath var, LazyStatementMap lazyChunk, StatementSet def, AliasSet usedVars) {
         if (var.getField().equals("")) {
             def = localReachingDefLazyCached(stmt, var, lazyChunk, usedVars, frameworkModel);
-            //def = localReachingDefLazy(stmt, var, lazyChunk, usedVars, frameworkModel);
             AnalysisLogger.log(Constants.DEBUG, "Local def {}", def);
         } else if (var.isStaticField()) {
             AnalysisLogger.log(Constants.DEBUG, "Getting static heap def of {}-{}", var, var.getClassPath());
@@ -72,7 +70,6 @@ public class SliceJava extends SliceMethod {
             }
         } else {
             AnalysisLogger.log(Constants.DEBUG, "Getting dynamic heap def of {}", var);
-            //def = (new DynamicHeapAnalysis(icdg, analysisCache, workingSet)).reachingDefinitions(stmt, var);
             def = (new DynamicHeapAnalysis(icdg, analysisCache, workingSet)).reachingDefinitionsNew(stmt, var);
             AnalysisLogger.log(Constants.DEBUG, "Dynamic heap def of {} is {}", var, def);
         }

@@ -363,10 +363,10 @@ public class Slicer {
         DynamicSlice dynamicSlice = slicer.slice(icdg, frameworkModel, dataFlowsOnly, controlFlowOnly, sliceOnce, stmts, accessPaths, slicer.getWorkingSet());
         slicer.dynamicPrint = new LinkedHashSet<>();
         if(!noprint){
-            //SlicePrinter.printSlices(dynamicSlice);
+            SlicePrinter.printSlices(dynamicSlice);
         }
-        //SlicePrinter.printSliceGraph(dynamicSlice);
-        //SlicePrinter.printDotGraph(slicer.outDir, dynamicSlice);
+        SlicePrinter.printSliceGraph(dynamicSlice);
+        SlicePrinter.printDotGraph(slicer.outDir, dynamicSlice);
         SlicePrinter.printSliceLines(slicer.outDir, dynamicSlice);
         SlicePrinter.printRawSlice(slicer.outDir, dynamicSlice);
         SlicePrinter.printSliceWithDependencies(slicer.outDir, dynamicSlice, slicer.backwardSlicePositions);
@@ -416,11 +416,6 @@ public class Slicer {
             + ":PRED:"+preds
             + ":SUCC:"+nexts
             + ":TID:"+statementInstance.getThreadID();
-           // listToPrint.add(statementInstance.toString()
-           // + ":PRED:"+preds
-           // + ":SUCC:"+nexts
-           // + ":TID:"+statementInstance.getThreadID());
-            //printList(Collections.singletonList(toPrint), outFile);
             try {
                 writer.write(toPrint);
                 writer.write("\n");

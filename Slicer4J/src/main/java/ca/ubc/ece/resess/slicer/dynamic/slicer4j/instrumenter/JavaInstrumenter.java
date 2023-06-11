@@ -19,7 +19,6 @@ import org.apache.commons.io.FileUtils;
 
 import soot.Body;
 import soot.BodyTransformer;
-import soot.JastAddJ.Opt;
 import soot.PackManager;
 import soot.PatchingChain;
 import soot.Scene;
@@ -29,19 +28,12 @@ import soot.SootMethod;
 import soot.Transform;
 import soot.Trap;
 import soot.Unit;
-import soot.jimple.AssignStmt;
-import soot.jimple.IfStmt;
-import soot.jimple.InvokeStmt;
 import soot.jimple.ReturnStmt;
 import soot.jimple.ReturnVoidStmt;
-import soot.jimple.SpecialInvokeExpr;
 import soot.options.Options;
 import soot.util.Chain;
-import soot.jimple.GotoStmt;
 import soot.jimple.IdentityStmt;
 import soot.jimple.ThrowStmt;
-import soot.jimple.InvokeExpr;
-import soot.jimple.Stmt;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -68,6 +60,7 @@ public class JavaInstrumenter extends Instrumenter {
     InstrumentationCounter globalLineCounter = new InstrumentationCounter();
     Chain<SootClass> libClasses = null;
     String jarName;
+    private Set<String> instrumentedClasses = new HashSet<>();
 
     public JavaInstrumenter(String jarName) {
         // this.threadMethods.addAll(tc.values());
@@ -134,6 +127,7 @@ public class JavaInstrumenter extends Instrumenter {
                     return;
                 }
 
+                instrumetedClasses.add(cls.getName());
 
                 Long methodSize = 0L;
                 SootMethod mtd = b.getMethod();
@@ -252,6 +246,24 @@ public class JavaInstrumenter extends Instrumenter {
         Scene.v().loadNecessaryClasses();
         AnalysisLogger.log(true, "Running packs ... ");
         PackManager.v().runPacks();
+
+
+        AnalysisLogger.log(true, "Writing names of instrumented classes ... ");
+        File classesFile = new File(new File(jarName).getParentFile().getAbsolutePath() + "/instr-classes.txt");
+        try {
+            classesFile.delete();
+            StringBuilder instrClasses = new StringBuilder();
+            List<String> orderedClasses = new ArrayList<>(instrumentedClasses);
+            orderedClasses.sort((a, b) -> a.compareTo(b));
+            for (String className : orderedClasses) {
+                instrClasses.append(className);
+                instrClasses.append("\n");
+            }
+            FileUtils.writeStringToFile(classesFile, instrClasses.toString(), "UTF-8", true);
+        } catch (IOException e) {
+            throw new Error("Failed to write instrumented file");
+        }
+
         AnalysisLogger.log(true, "Writing output ... ");
         PackManager.v().writeOutput();
         AnalysisLogger.log(true, "Output written ... ");

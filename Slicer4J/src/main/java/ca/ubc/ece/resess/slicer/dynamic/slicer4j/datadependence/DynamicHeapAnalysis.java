@@ -3,8 +3,6 @@ package ca.ubc.ece.resess.slicer.dynamic.slicer4j.datadependence;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AliasSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.slicer.SlicingWorkingSet;
 import ca.ubc.ece.resess.slicer.dynamic.core.statements.*;
-import org.apache.commons.lang3.tuple.Triple;
-import org.hamcrest.Condition;
 import soot.Local;
 import soot.Value;
 import ca.ubc.ece.resess.slicer.dynamic.core.accesspath.AccessPath;
@@ -22,9 +20,7 @@ import soot.jimple.InstanceInvokeExpr;
 import soot.jimple.InvokeExpr;
 import soot.jimple.Stmt;
 import soot.toolkits.scalar.Pair;
-import soot.util.Cons;
 
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import java.util.*;
 
 public class DynamicHeapAnalysis {
@@ -149,13 +145,13 @@ public class DynamicHeapAnalysis {
         StatementInstance possibleIu = null;
         while (pos <= icdg.getLastLine()) {
             possibleIu = icdg.mapNoUnits(pos);
-            //AnalysisLogger.log(Constants.DEBUG, "Precomp for {}", possibleIu);
+            AnalysisLogger.log(Constants.DEBUG, "Precomp for {}", possibleIu);
             AliasSet usedVars = getAp(possibleIu);
             if (possibleIu == null || possibleIu.getMethod().getDeclaringClass().getName().startsWith(Constants.ANDROID_LIBS) || usedVars == null) {
                 pos++;
                 continue;
             }
-            //AnalysisLogger.log(Constants.DEBUG, "# used vars = {}", usedVars.size());
+            AnalysisLogger.log(Constants.DEBUG, "# used vars = {}", usedVars.size());
             for(AccessPath usedVar : usedVars){
                 Long fieldId = possibleIu.getFieldId();
                 String fieldName = usedVar.getField();
@@ -163,11 +159,10 @@ public class DynamicHeapAnalysis {
                     continue;
                 }
                 Pair<Long, String> cur = new Pair<>(fieldId, fieldName);
-                //AnalysisLogger.log(Constants.DEBUG, "field pair = {}", cur);
                 StatementList defs = foundDefs.getOrDefault(cur, new StatementList());
                 StatementInstance def = matchFieldAddress(possibleIu, possibleIu, fieldId, fieldName);
                 if(def != null){
-                    //AnalysisLogger.log(Constants.DEBUG, "found def = {}", def);
+                    AnalysisLogger.log(Constants.DEBUG, "found def = {}", def);
                     defs.add(def);
                 }
                 foundDefs.put(cur, defs);
@@ -219,7 +214,6 @@ public class DynamicHeapAnalysis {
     private StatementInstance matchReferenceVaraibleDefintion(StatementInstance si, StatementInstance possibleIu,
             String fieldName, StatementInstance def, Value left, Value right) {
         String usedField = ((FieldRef) right).getField().getName();
-        //StatementMap chunk = traversal.getForwardChunk(possibleIu.getLineNo());
         LazyStatementMap chunk = traversal.getForwardLazyChunk(possibleIu.getLineNo());
         if(!usedField.equals(fieldName)){
             return null;
