@@ -16,7 +16,7 @@ benchmarks_input = {
     "javaslicer-bench1-intra-procedural" : ("target/javaslicer-bench1-intra-procedural-1.0.0.jar", "Bench 2 ", "Bench", 8),
     "javaslicer-bench2-inter-procedural" : ("target/javaslicer-bench2-inter-procedural-1.0.0.jar", "Bench 2 4 ", "Bench", 8),
     "javaslicer-bench3-exceptions" : ("target/javaslicer-bench3-exceptions-1.0.0.jar", "Bench ", "Bench", 29),
-    "slicer4j-bench1-multiple-threads": ("target/slicer4j-bench1-multiple-threads-1.0.0.jar", "Bench ", "Bench", 14), 
+    "slicer4j-bench1-multiple-threads": ("target/slicer4j-bench1-multiple-threads-1.0.0.jar", "Bench ", "Bench", 14),
     "slicer4j-bench2-native-framework": ("target/slicer4j-bench2-native-framework-1.0.0.jar", "Bench 0 4", "Bench", 9),
     "slicer4j-bench3-java-9-constructs": ("target/slicer4j-bench3-java-9-constructs-1.0.0.jar", "Bench 3 4", "Bench", 9),
     "slicer4j-bench4-instrumentation-classes": ("target/slicer4j-bench4-instrumentation-classes-1.0.0.jar", "Bench 22 ", "Bench", 10),
@@ -25,8 +25,8 @@ benchmarks_input = {
 
 defects4j_benchmarks = {
     "JacksonDatabind_3b": ("target/jackson-databind-2.4.1-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.databind.deser.TestArrayDeserialization", "com.fasterxml.jackson.databind.ObjectMapper", "3062", "_readMapAndClose", "JacksonDatabind_3b/target/test-classes/:JacksonDatabind_3b/target/dependency/*"),
-    "Gson_4b": ("gson/target/gson-2.6-SNAPSHOT.jar", "junit.textui.TestRunner com.google.gson.stream.JsonReaderTest", "com.google.gson.stream.JsonReader", "1422", "checkLenient", "Gson_4b/gson/target/test-classes/:Gson_4b/gson/target/dependency/*"), 
-    "JacksonCore_4b": ("target/jackson-core-2.5.0-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.core.util.TestTextBuffer", "com.fasterxml.jackson.core.util.TextBuffer", "587", "expandCurrentSegment", "JacksonCore_4b/target/test-classes/:JacksonCore_4b/target/dependency/*"), 
+    "Gson_4b": ("gson/target/gson-2.6-SNAPSHOT.jar", "junit.textui.TestRunner com.google.gson.stream.JsonReaderTest", "com.google.gson.stream.JsonReader", "1422", "checkLenient", "Gson_4b/gson/target/test-classes/:Gson_4b/gson/target/dependency/*"),
+    "JacksonCore_4b": ("target/jackson-core-2.5.0-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.core.util.TestTextBuffer", "com.fasterxml.jackson.core.util.TextBuffer", "587", "expandCurrentSegment", "JacksonCore_4b/target/test-classes/:JacksonCore_4b/target/dependency/*"),
 }
 
 def count_lines_slice_slicer4j(trace):
@@ -77,11 +77,14 @@ def count_lines_slice_javaslicer(trace):
 def build_jar(project):
     cwd = os.getcwd()
     os.chdir(f"{project}")
-    cmd = f"mvn clean package > /dev/null 2>&1"
+    print(f"Building {project}")
+    cmd = f"mvn clean"
     os.system(cmd)
-    cmd = f"mvn -Dmaven.test.skip=true package > /dev/null 2>&1"
+    cmd = f"mvn -Dmaven.test.skip=true package"
     os.system(cmd)
-    cmd = "mvn dependency:copy-dependencies > /dev/null 2>&1"
+    cmd = f"mvn test-compile"
+    os.system(cmd)
+    cmd = "mvn dependency:copy-dependencies"
     os.system(cmd)
     os.chdir(cwd)
 
@@ -106,13 +109,14 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
     if os.path.isdir(out_dir):
         os.system(f"rm -r {out_dir}")
     os.mkdir(out_dir)
-    instr_cmd = f"java -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m i -j {jar_name} -o {out_dir}/ -sl {out_dir}/static-log.log -lc {dynamic_slicing_core}/DynamicSlicingLoggingClasses/DynamicSlicingLogger.jar > /dev/null 2>&1"
+    instr_cmd = f"java -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -m i -j {jar_name} -o {out_dir}/ -sl {out_dir}/static-log.log -lc {dynamic_slicing_core}/DynamicSlicingLoggingClasses/DynamicSlicingLogger.jar"
     os.system(instr_cmd)
     instr_time = time.time()
     print(f"Instrumentation time (s): {instr_time-start_instr}")
     instrumented_jar = os.path.basename(jar_name).replace(".jar", "_i.jar")
     cmd = f"java -cp \"{out_dir}/{instrumented_jar}:{extra_libs}\" {project_arg} | grep \"SLICING\" > {out_dir}/trace.log"
-    # print(cmd)
+    print(f"Running instrumented jar with the following command:")
+    print(cmd)
     os.system(cmd)
     trace = list()
     with open(f"{out_dir}/trace.log", 'r') as f:
@@ -137,11 +141,13 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
         line = sc.split(", ")[0]
     else:
         print(f"looking for LINENO:{slice_line}:FILE:{sc_file}")
+        print(f"Looking in {out_dir}/trace.log_icdg.log")
         with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
             for l in f:
                 if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
+    print(f"Slice criterion found: {sc}")
     slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j-jar-with-dependencies.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -j {jar_name} -m s -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/../models/summariesManual -tw {slicer4j_dir}/../models/EasyTaintWrapperSource.txt -sp {line} -d > {out_dir}/{slice_file}_{line}.log 2>&1"
     os.system(slice_cmd)
     slice_time = time.time()

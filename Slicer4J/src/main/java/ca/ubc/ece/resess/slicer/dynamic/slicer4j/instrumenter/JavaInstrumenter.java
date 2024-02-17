@@ -253,7 +253,10 @@ public class JavaInstrumenter extends Instrumenter {
         try {
             classesFile.delete();
             StringBuilder instrClasses = new StringBuilder();
-            List<String> orderedClasses = new ArrayList<>(instrumentedClasses);
+            List<String> orderedClasses = new ArrayList<>();
+            for (String className : instrumentedClasses) {
+                orderedClasses.add(className);
+            }
             orderedClasses.sort((a, b) -> a.compareTo(b));
             for (String className : orderedClasses) {
                 instrClasses.append(className);
