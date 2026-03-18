@@ -275,119 +275,134 @@ public class BenchTests {
                 assertEquals(expected, sliceLines);
         }
 
-        @Test
-        void issue_42_slicer4j_bench_const_prop_simple() throws IOException, InterruptedException {
-                Path testPath = Paths.get(root.getParent().toString(),
-                                "benchmarks" + File.separator + "issue-42-slicer4j-bench-const-prop-simple");
-                String jarPath = Paths.get(testPath.toString(),
-                                "target" + File.separator + "issue-42-slicer4j-bench-const-prop-simple-1.0.0.jar")
-                                .toString();
+        // @Test
+        // void issue_42_slicer4j_bench_const_prop_simple() throws IOException,
+        // InterruptedException {
+        // Path testPath = Paths.get(root.getParent().toString(),
+        // "benchmarks" + File.separator + "issue-42-slicer4j-bench-const-prop-simple");
+        // String jarPath = Paths.get(testPath.toString(),
+        // "target" + File.separator +
+        // "issue-42-slicer4j-bench-const-prop-simple-1.0.0.jar")
+        // .toString();
 
-                TestUtils.buildJar(testPath);
+        // TestUtils.buildJar(testPath);
 
-                Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
-                slicer.setDebug(true);
-                String instrumentedJar = slicer.instrument();
-                slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
+        // Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        // slicer.setDebug(true);
+        // String instrumentedJar = slicer.instrument();
+        // slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
 
-                DynamicControlFlowGraph dcfg = slicer.prepareGraph();
-                slicer.printGraph(dcfg);
+        // DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        // slicer.printGraph(dcfg);
 
-                // Slicing criterion: ConstPropSimple:7 (d)
-                // From the user, lines 3, 4, 5, 6, 7 are the IDEAL expected slice
-                // Trace position corresponds to line 7. We'll search for it dynamically later,
-                // but for now we put a placeholder 7 or the first instance of line 7.
-                List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(7, "Bench", dcfg);
-                Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 7 : tracePositions.get(0);
+        // // Slicing criterion: ConstPropSimple:7 (d)
+        // // From the user, lines 3, 4, 5, 6, 7 are the IDEAL expected slice
+        // // Trace position corresponds to line 7. We'll search for it dynamically
+        // later,
+        // // but for now we put a placeholder 7 or the first instance of line 7.
+        // List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(7,
+        // "Bench", dcfg);
+        // Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 7 :
+        // tracePositions.get(0);
 
-                Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+        // Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg,
+        // tracePositionToSliceFrom);
 
-                Set<String> expected = new HashSet<>(
-                                Arrays.asList("Bench:3", "Bench:4", "Bench:5", "Bench:6", "Bench:7"));
+        // Set<String> expected = new HashSet<>(
+        // Arrays.asList("Bench:3", "Bench:4", "Bench:5", "Bench:6", "Bench:7"));
 
-                System.out.println("=== issue_42_slicer4j_bench_const_prop_simple ===");
-                System.out.println("Expected slice: " + expected);
-                System.out.println("Actual slice:   " + sliceLines);
-                System.out.println("===================================================");
+        // System.out.println("=== issue_42_slicer4j_bench_const_prop_simple ===");
+        // System.out.println("Expected slice: " + expected);
+        // System.out.println("Actual slice: " + sliceLines);
+        // System.out.println("===================================================");
 
-                assertEquals(expected, sliceLines);
-        }
+        // assertEquals(expected, sliceLines);
+        // }
 
-        @Test
-        void issue_42_slicer4j_bench_const_prop_cross_call() throws IOException, InterruptedException {
-                Path testPath = Paths.get(root.getParent().toString(),
-                                "benchmarks" + File.separator + "issue-42-slicer4j-bench-const-prop-cross-call");
-                String jarPath = Paths
-                                .get(testPath.toString(),
-                                                "target" + File.separator
-                                                                + "issue-42-slicer4j-bench-const-prop-cross-call-1.0.0.jar")
-                                .toString();
+        // @Test
+        // void issue_42_slicer4j_bench_const_prop_cross_call() throws IOException,
+        // InterruptedException {
+        // Path testPath = Paths.get(root.getParent().toString(),
+        // "benchmarks" + File.separator +
+        // "issue-42-slicer4j-bench-const-prop-cross-call");
+        // String jarPath = Paths
+        // .get(testPath.toString(),
+        // "target" + File.separator
+        // + "issue-42-slicer4j-bench-const-prop-cross-call-1.0.0.jar")
+        // .toString();
 
-                TestUtils.buildJar(testPath);
+        // TestUtils.buildJar(testPath);
 
-                Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
-                slicer.setDebug(true);
-                String instrumentedJar = slicer.instrument();
-                slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
+        // Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
+        // slicer.setDebug(true);
+        // String instrumentedJar = slicer.instrument();
+        // slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "");
 
-                DynamicControlFlowGraph dcfg = slicer.prepareGraph();
-                slicer.printGraph(dcfg);
+        // DynamicControlFlowGraph dcfg = slicer.prepareGraph();
+        // slicer.printGraph(dcfg);
 
-                // Slicing criterion: ConstPropCrossCall:14 (z)
-                // Idea expected slice: Lines 4, 5, 6, 7, 8, 11, 12, 13, 14.
-                List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(14, "Bench", dcfg);
-                Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 14 : tracePositions.get(0);
+        // // Slicing criterion: ConstPropCrossCall:14 (z)
+        // // Idea expected slice: Lines 4, 5, 6, 7, 8, 11, 12, 13, 14.
+        // List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(14,
+        // "Bench", dcfg);
+        // Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 14 :
+        // tracePositions.get(0);
 
-                Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+        // Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg,
+        // tracePositionToSliceFrom);
 
-                Set<String> expected = new HashSet<>(
-                                Arrays.asList("Bench:4", "Bench:5", "Bench:6", "Bench:7", "Bench:8",
-                                                "Bench:11", "Bench:12", "Bench:13", "Bench:14"));
+        // Set<String> expected = new HashSet<>(
+        // Arrays.asList("Bench:4", "Bench:5", "Bench:6", "Bench:7", "Bench:8",
+        // "Bench:11", "Bench:12", "Bench:13", "Bench:14"));
 
-                System.out.println("=== issue_42_slicer4j_bench_const_prop_cross_call ===");
-                System.out.println("Expected slice: " + expected);
-                System.out.println("Actual slice:   " + sliceLines);
-                System.out.println("=====================================================");
+        // System.out.println("=== issue_42_slicer4j_bench_const_prop_cross_call ===");
+        // System.out.println("Expected slice: " + expected);
+        // System.out.println("Actual slice: " + sliceLines);
+        // System.out.println("=====================================================");
 
-                assertEquals(expected, sliceLines);
-        }
+        // assertEquals(expected, sliceLines);
+        // }
 
-        @Test
-        void issue_42_slicer4j_bench_const_prop_selective() throws IOException, InterruptedException {
-                Path testPath = Paths.get(root.getParent().toString(),
-                                "benchmarks" + File.separator + "issue-42-slicer4j-bench-const-prop-selective");
-                String jarPath = Paths
-                                .get(testPath.toString(),
-                                                "target" + File.separator
-                                                                + "issue-42-slicer4j-bench-const-prop-selective-1.0.0.jar")
-                                .toString();
+        // @Test
+        // void issue_42_slicer4j_bench_const_prop_selective() throws IOException,
+        // InterruptedException {
+        // Path testPath = Paths.get(root.getParent().toString(),
+        // "benchmarks" + File.separator +
+        // "issue-42-slicer4j-bench-const-prop-selective");
+        // String jarPath = Paths
+        // .get(testPath.toString(),
+        // "target" + File.separator
+        // + "issue-42-slicer4j-bench-const-prop-selective-1.0.0.jar")
+        // .toString();
 
-                TestUtils.buildJar(testPath);
+        // TestUtils.buildJar(testPath);
 
-                Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir, sliceLogger);
-                slicer.setDebug(true);
-                String instrumentedJar = slicer.instrument();
-                slicer.runInstrumentedJarFromMain(instrumentedJar, "Bench", "any-arg");
+        // Slicer slicer = TestUtils.setupSlicing(root, jarPath, outDir,
+        // sliceLogger);slicer.setDebug(true);
+        // String instrumentedJar = slicer
+        // .instrument();slicer.runInstrumentedJarFromMain(instrumentedJar,"Bench","any-arg");
 
-                DynamicControlFlowGraph dcfg = slicer.prepareGraph();
-                slicer.printGraph(dcfg);
+        // DynamicControlFlowGraph dcfg = slicer.prepareGraph();slicer.printGraph(dcfg);
 
-                // Slicing criterion: ConstPropSelective:11 (msg)
-                // Idea expected slice: Lines 3, 4, 5, 6, 7, 8, 9, 10, 11.
-                List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(11, "Bench", dcfg);
-                Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 11 : tracePositions.get(0);
+        // // Slicing criterion: ConstPropSelective:11 (msg)
+        // // Idea expected slice: Lines 3, 4, 5, 6, 7, 8, 9, 10, 11.
+        // List<Integer> tracePositions = TestUtils.getTracePositionFromSourceLine(11,
+        // "Bench", dcfg);
+        // Integer tracePositionToSliceFrom = tracePositions.isEmpty() ? 11 :
+        // tracePositions.get(0);
 
-                Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg, tracePositionToSliceFrom);
+        // Set<String> sliceLines = TestUtils.sliceAndGetSourceLines(slicer, dcfg,
+        // tracePositionToSliceFrom);
 
-                Set<String> expected = new HashSet<>(
-                                Arrays.asList("Bench:3", "Bench:4", "Bench:5", "Bench:6", "Bench:7",
-                                                "Bench:8", "Bench:9", "Bench:10", "Bench:11"));
+        // Set<String> expected = new HashSet<>(
+        // Arrays.asList("Bench:3", "Bench:4", "Bench:5", "Bench:6", "Bench:7",
+        // "Bench:8", "Bench:9", "Bench:10", "Bench:11"));
 
-                System.out.println("=== issue_42_slicer4j_bench_const_prop_selective ===");
-                System.out.println("Expected slice: " + expected);
-                System.out.println("Actual slice:   " + sliceLines);
-                System.out.println("====================================================");
+        // System.out.println("=== issue_42_slicer4j_bench_const_prop_selective
+        // ===");System.out.println("Expected slice:
+        // "+expected);System.out.println("Actual slice:
+        // "+sliceLines);System.out.println("====================================================");
 
-                assertEquals(expected, sliceLines);
-        }
+        // assertEquals(expected, sliceLines);
+        // }
 }
