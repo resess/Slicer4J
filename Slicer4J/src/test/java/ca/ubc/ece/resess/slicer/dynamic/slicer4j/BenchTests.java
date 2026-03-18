@@ -275,6 +275,8 @@ public class BenchTests {
                 assertEquals(expected, sliceLines);
         }
 
+        // This issue is not fixable. Please see #Issue 42 for an explanation of why
+        // this test is commented out
         // @Test
         // void issue_42_slicer4j_bench_const_prop_simple() throws IOException,
         // InterruptedException {
