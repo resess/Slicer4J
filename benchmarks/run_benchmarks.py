@@ -144,7 +144,9 @@ def run_slicer4j(project, jar_name, project_arg, extra_libs, sc_file, slice_line
         print(f"Looking in {out_dir}/trace.log_icdg.log")
         with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
             for l in f:
-                if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
+                if "goto [" in l:
+                    pass
+                elif f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
     print(f"Slice criterion found: {sc}")
