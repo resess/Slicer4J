@@ -1,10 +1,12 @@
 package ca.ubc.ece.resess.slicer.dynamic.slicer4j.instrumenter;
 
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -325,7 +327,18 @@ public class JavaInstrumenter extends Instrumenter {
                         jarOptions = "uf";
                     }
 
-                    Process p = Runtime.getRuntime().exec("jar " + jarOptions + " " + jarName + " " + clazzFile, null, new File(Slicer.SOOT_OUTPUT_STRING));
+                    List<String> cmd = new ArrayList<>();
+                    cmd.add("jar");
+                    cmd.add(jarOptions);
+                    cmd.add(jarName);
+                    cmd.addAll(instrumentedClasses.subList(i, minIndex));
+                    ProcessBuilder pb = new ProcessBuilder(cmd);
+                    pb.directory(new File(Slicer.SOOT_OUTPUT_STRING));
+                    pb.redirectErrorStream(true);
+                    Process p = pb.start();
+                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+                        while (reader.readLine() != null) {}
+                    }
                     p.waitFor();
                     // String output = IOUtils.toString(p.getInputStream());
                     // String errorOutput = IOUtils.toString(p.getErrorStream());

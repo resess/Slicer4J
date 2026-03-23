@@ -200,16 +200,15 @@ public class Slicer {
     public void runInstrumentedJarFromMain(String pathToJar, String mainClass, String mainArguments) throws IOException, InterruptedException {
         ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", "java -Xmx8g -cp " + pathToJar + " " + mainClass + " " + mainArguments+ " | grep \"SLICING\"");
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
     }
 
     public static void main(String [] args) {

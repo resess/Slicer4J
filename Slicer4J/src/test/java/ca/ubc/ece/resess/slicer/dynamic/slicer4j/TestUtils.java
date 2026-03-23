@@ -58,37 +58,30 @@ public class TestUtils {
                 testClass + "#" + testMethod;
         ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", cmd + "| grep \"SLICING\"");
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
     }
 
     protected static void buildJar(Path testPath) throws IOException, InterruptedException {
-        Process p = null;
         ProcessBuilder pb = new ProcessBuilder("mvn", "clean", "package");
         pb.directory(testPath.toFile());
-        p = pb.start();
+        pb.redirectErrorStream(true);
+        Process p = pb.start();
+        
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                System.out.println(readline);
+            }
+        }
         p.waitFor();
-        System.out.println("Out stream: ");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            System.out.println(readline);
-        }
-        reader.close();
-        System.out.println("Error stream: ");
-        reader = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-        while ((readline = reader.readLine()) != null) {
-            System.out.println(readline);
-        }
-        reader.close();
     }
     
     protected static void cleanWorkingDirectory() throws IOException {

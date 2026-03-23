@@ -71,17 +71,15 @@ public class ProgramTests {
                 + "test1-issue-1.0.0_i.jar Main | grep \"SLICING\"");
         System.out.println(pb.command());
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
 
         args = new String[] {
                 "-m",
@@ -173,17 +171,15 @@ public class ProgramTests {
                 + "test2-issue-1.0.0_i.jar Main something | grep \"SLICING\"");
         System.out.println(pb.command());
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
 
         args = new String[] {
                 "-m",
@@ -275,17 +271,15 @@ public class ProgramTests {
                 + "test1-issue-1.0.0_i.jar Main | grep \"SLICING\"");
         System.out.println(pb.command());
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir.toString() + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
 
         args = new String[] {
                 "-m",
