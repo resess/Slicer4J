@@ -22,7 +22,7 @@ public class TestSimpleModule extends BaseMapTest
     /* Helper classes; simple beans and their handlers
     /**********************************************************
      */
-    
+
     /**
      * Trivial bean that requires custom serializer and deserializer
      */
@@ -30,7 +30,7 @@ public class TestSimpleModule extends BaseMapTest
     {
         protected String str;
         protected int num;
-        
+
         public CustomBean(String s, int i) {
             str = s;
             num = i;
@@ -38,7 +38,7 @@ public class TestSimpleModule extends BaseMapTest
     }
 
     static enum SimpleEnum { A, B; }
-    
+
     // Extend SerializerBase to get access to declared handledType
     static class CustomBeanSerializer extends StdSerializer<CustomBean>
     {
@@ -57,7 +57,7 @@ public class TestSimpleModule extends BaseMapTest
             return null;
         }
     }
-    
+
     static class CustomBeanDeserializer extends JsonDeserializer<CustomBean>
     {
         @Override
@@ -105,7 +105,7 @@ public class TestSimpleModule extends BaseMapTest
     interface Base {
         public String getText();
     }
-    
+
     static class Impl1 implements Base {
         @Override
         public String getText() { return "1"; }
@@ -119,7 +119,7 @@ public class TestSimpleModule extends BaseMapTest
     static class BaseSerializer extends StdScalarSerializer<Base>
     {
         public BaseSerializer() { super(Base.class); }
-        
+
         @Override
         public void serialize(Base value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
             jgen.writeString("Base:"+value.getText());
@@ -134,7 +134,7 @@ public class TestSimpleModule extends BaseMapTest
 
     @JsonPropertyOrder({"c", "a", "b"})
     static class MixInForOrder { }
-    
+
     protected static class MySimpleSerializers extends SimpleSerializers { }
     protected static class MySimpleDeserializers extends SimpleDeserializers { }
 
@@ -151,7 +151,7 @@ public class TestSimpleModule extends BaseMapTest
         }
     }
 
-    protected static class ContextVerifierModule extends Module
+    protected static class ContextVerifierModule extends com.fasterxml.jackson.databind.Module
     {
         @Override
         public String getModuleName() { return "x"; }
@@ -169,7 +169,7 @@ public class TestSimpleModule extends BaseMapTest
             assertNotNull(m);
         }
     }
-    
+
     /*
     /**********************************************************
     /* Unit tests; first, verifying need for custom handlers
@@ -199,13 +199,13 @@ public class TestSimpleModule extends BaseMapTest
             verifyException(e, "No suitable constructor found");
         }
     }
-    
+
     /*
     /**********************************************************
     /* Unit tests; simple serializers
     /**********************************************************
      */
-    
+
     public void testSimpleBeanSerializer() throws Exception
     {
         ObjectMapper mapper = new ObjectMapper();
@@ -234,13 +234,13 @@ public class TestSimpleModule extends BaseMapTest
         assertEquals(quote("Base:1"), mapper.writeValueAsString(new Impl1()));
         assertEquals(quote("Base:2"), mapper.writeValueAsString(new Impl2()));
     }
-    
+
     /*
     /**********************************************************
     /* Unit tests; simple deserializers
     /**********************************************************
      */
-    
+
     public void testSimpleBeanDeserializer() throws Exception
     {
         ObjectMapper mapper = new ObjectMapper();
@@ -261,7 +261,7 @@ public class TestSimpleModule extends BaseMapTest
         SimpleEnum result = mapper.readValue(quote("a"), SimpleEnum.class);
         assertSame(SimpleEnum.A, result);
     }
- 
+
     // Simple verification of [JACKSON-455]
     public void testMultipleModules() throws Exception
     {
@@ -293,7 +293,7 @@ public class TestSimpleModule extends BaseMapTest
     /* Unit tests; other
     /**********************************************************
      */
-    
+
     // [JACKSON-644]: ability to register mix-ins
     public void testMixIns() throws Exception
     {
@@ -311,7 +311,7 @@ public class TestSimpleModule extends BaseMapTest
     // [JACKSON-686]
     public void testAccessToMapper() throws Exception
     {
-        ContextVerifierModule module = new ContextVerifierModule();        
+        ContextVerifierModule module = new ContextVerifierModule();
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(module);
     }

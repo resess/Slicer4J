@@ -16,7 +16,7 @@ benchmarks_input = {
     "javaslicer-bench1-intra-procedural" : ("target/javaslicer-bench1-intra-procedural-1.0.0.jar", "Bench 2 ", "Bench", 8),
     "javaslicer-bench2-inter-procedural" : ("target/javaslicer-bench2-inter-procedural-1.0.0.jar", "Bench 2 4 ", "Bench", 8),
     "javaslicer-bench3-exceptions" : ("target/javaslicer-bench3-exceptions-1.0.0.jar", "Bench ", "Bench", 29),
-    "slicer4j-bench1-multiple-threads": ("target/slicer4j-bench1-multiple-threads-1.0.0.jar", "Bench ", "Bench", 14), 
+    "slicer4j-bench1-multiple-threads": ("target/slicer4j-bench1-multiple-threads-1.0.0.jar", "Bench ", "Bench", 14),
     "slicer4j-bench2-native-framework": ("target/slicer4j-bench2-native-framework-1.0.0.jar", "Bench 0 4", "Bench", 9),
     "slicer4j-bench3-java-9-constructs": ("target/slicer4j-bench3-java-9-constructs-1.0.0.jar", "Bench 3 4", "Bench", 9),
     "slicer4j-bench4-instrumentation-classes": ("target/slicer4j-bench4-instrumentation-classes-1.0.0.jar", "Bench 22 ", "Bench", 10),
@@ -25,8 +25,8 @@ benchmarks_input = {
 
 defects4j_benchmarks = {
     "JacksonDatabind_3b": ("target/jackson-databind-2.4.1-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.databind.deser.TestArrayDeserialization", "com.fasterxml.jackson.databind.ObjectMapper", "3062", "_readMapAndClose", "JacksonDatabind_3b/target/test-classes/:JacksonDatabind_3b/target/dependency/*"),
-    "Gson_4b": ("gson/target/gson-2.6-SNAPSHOT.jar", "junit.textui.TestRunner com.google.gson.stream.JsonReaderTest", "com.google.gson.stream.JsonReader", "1422", "checkLenient", "Gson_4b/gson/target/test-classes/:Gson_4b/gson/target/dependency/*"), 
-    "JacksonCore_4b": ("target/jackson-core-2.5.0-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.core.util.TestTextBuffer", "com.fasterxml.jackson.core.util.TextBuffer", "587", "expandCurrentSegment", "JacksonCore_4b/target/test-classes/:JacksonCore_4b/target/dependency/*"), 
+    "Gson_4b": ("gson/target/gson-2.6-SNAPSHOT.jar", "junit.textui.TestRunner com.google.gson.stream.JsonReaderTest", "com.google.gson.stream.JsonReader", "1422", "checkLenient", "Gson_4b/gson/target/test-classes/:Gson_4b/gson/target/dependency/*"),
+    "JacksonCore_4b": ("target/jackson-core-2.5.0-SNAPSHOT.jar", "org.junit.runner.JUnitCore com.fasterxml.jackson.core.util.TestTextBuffer", "com.fasterxml.jackson.core.util.TextBuffer", "587", "expandCurrentSegment", "JacksonCore_4b/target/test-classes/:JacksonCore_4b/target/dependency/*"),
 }
 
 analysis = open("js-vs-slc4j.csv","w")
@@ -141,7 +141,9 @@ def run_slicer4jold(project, jar_name, project_arg, extra_libs, sc_file, slice_l
         print(f"looking for LINENO:{slice_line}:FILE:{sc_file}")
         with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
             for l in f:
-                if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
+                if "goto [" in l:
+                    pass
+                elif f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
     slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j_old.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -j {jar_name} -m s -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/../models/summariesManual -tw {slicer4j_dir}/../models/EasyTaintWrapperSource.txt -sp {line} > {out_dir}/{slice_file}_{line}.log 2>&1"
@@ -198,7 +200,9 @@ def run_slicer4jnew(project, jar_name, project_arg, extra_libs, sc_file, slice_l
         print(f"looking for LINENO:{slice_line}:FILE:{sc_file}")
         with open(f"{out_dir}/trace.log_icdg.log", 'r') as f:
             for l in f:
-                if f"LINENO:{slice_line}:FILE:{sc_file}" in l:
+                if "goto [" in l:
+                    pass
+                elif f"LINENO:{slice_line}:FILE:{sc_file}" in l:
                     sc = l.rstrip()
         line = sc.split(", ")[0]
     slice_cmd = f"java -Xmx8g -cp \"{slicer4j_dir}/target/slicer4j_new.jar:{slicer4j_dir}/target/lib/*\" ca.ubc.ece.resess.slicer.dynamic.slicer4j.Slicer -j {jar_name} -m s -t {out_dir}/trace.log -o {out_dir}/ -sl {out_dir}/static-log.log -sd {slicer4j_dir}/../models/summariesManual -tw {slicer4j_dir}/../models/EasyTaintWrapperSource.txt -sp {line} -noprint > {out_dir}/{slice_file}_{line}.log 2>&1"

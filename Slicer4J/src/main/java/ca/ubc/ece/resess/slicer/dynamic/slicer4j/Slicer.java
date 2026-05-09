@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import com.google.common.base.Optional;
 
@@ -200,16 +201,15 @@ public class Slicer {
     public void runInstrumentedJarFromMain(String pathToJar, String mainClass, String mainArguments) throws IOException, InterruptedException {
         ProcessBuilder pb = new ProcessBuilder("/bin/sh", "-c", "java -Xmx8g -cp " + pathToJar + " " + mainClass + " " + mainArguments+ " | grep \"SLICING\"");
         Process p = pb.start();
-        p.waitFor();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"));
-        String readline;
-        while ((readline = reader.readLine()) != null) {
-            writer.write(readline);
-            writer.write("\n");
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+             BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDir + File.separator + "trace.log"))) {
+            String readline;
+            while ((readline = reader.readLine()) != null) {
+                writer.write(readline);
+                writer.write("\n");
+            }
         }
-        writer.close();
-        reader.close();
+        p.waitFor();
     }
 
     public static void main(String [] args) {
@@ -332,7 +332,35 @@ public class Slicer {
         for (Integer backSlicePos: slicer.backwardSlicePositions) {
             stmts.add(icdg.mapNoUnits(backSlicePos));
         }
-        
+
+        // Function-level slicing (--function-slice): expand the slicing criterion
+        // from a single source line to all trace statements within the containing
+        // method, producing a method-grained backward slice.
+        boolean functionSlice = commands.containsKey("fs");
+        if (functionSlice) {
+            Set<String> targetMethods = new HashSet<>();
+            for (StatementInstance stmt : stmts) {
+                if (stmt != null) {
+                    targetMethods.add(stmt.getMethod().getSignature());
+                }
+            }
+            List<Integer> expandedPositions = new ArrayList<>();
+            for (StatementInstance si : icdg.getTraceList()) {
+                if (si != null && targetMethods.contains(si.getMethod().getSignature())) {
+                    expandedPositions.add(si.getLineNo());
+                }
+            }
+            AnalysisLogger.log(true, "Function-level slice: expanded from {} to {} trace positions across method(s) {}",
+                slicer.backwardSlicePositions.size(), expandedPositions.size(), targetMethods);
+            slicer.setBackwardSlicePositions(
+                expandedPositions.stream().map(String::valueOf).collect(Collectors.joining("-")));
+            slicer.setVariableString("*");
+            stmts.clear();
+            for (Integer backSlicePos : slicer.backwardSlicePositions) {
+                stmts.add(icdg.mapNoUnits(backSlicePos));
+            }
+        }
+
         List<String> variables = new ArrayList<>();
         if (!slicer.variableString.equals("*")) {
             String[] split = slicer.variableString.split("-");
@@ -374,6 +402,13 @@ public class Slicer {
         LocalDateTime now = LocalDateTime.now();
         String resultFileName = slicer.outDir + File.separator + "result_" +mode+"_"+ dtf.format(now) + ".csv";
         SlicePrinter.printToCSV(resultFileName, dynamicSlice);
+
+        // Function-level slicing output: method-grouped slice and human-readable report
+        if (functionSlice) {
+            SlicePrettyPrinter.printFunctionSlice(slicer.outDir, dynamicSlice);
+            SlicePrettyPrinter.printPrettySlice(slicer.outDir, dynamicSlice, slicer.backwardSlicePositions, stmts);
+            SlicePrettyPrinter.printFunctionDotGraph(slicer.outDir, dynamicSlice);
+        }
 
         AnalysisLogger.log(true, "Slice size: {}", dynamicSlice.size());
         terminate(slicer.outDir, mode, startTime);

@@ -4,9 +4,9 @@
 [![Tests](https://github.com/resess/Slicer4J/actions/workflows/maven_test.yml/badge.svg)](https://github.com/resess/Slicer4J/actions/workflows/maven_test.yml)
 <img align="right" src="img/slicer4j_logo.png" alt="drawing" width="250"/>
 
-This repository hosts Slicer4J, an accurate, low-overhead dynamic slicer for Java programs. 
-Slicer4J automatically generates a backward dynamic slice from a user selected executed statement and variables used in the statement (slicing criterion). 
-Slicer4J relies on soot which currently supports instrumenting programs compiled with up to Java 9. 
+This repository hosts Slicer4J, an accurate, low-overhead dynamic slicer for Java programs.
+Slicer4J automatically generates a backward dynamic slice from a user selected executed statement and variables used in the statement (slicing criterion).
+Slicer4J relies on soot which currently supports instrumenting programs compiled with up to Java 9.
 Contributions to this repo are most welcome!
 
 
@@ -41,7 +41,7 @@ Khaled Ahmed, Mieszko Lis, and Julia Rubin. [Slicer4J: A Dynamic Slicer for Java
 * Clone the dynamic slicing core: https://github.com/resess/DynamicSlicingCore
 
 
-* Requires Java Runtime Environment version 8. 
+* Requires Java Runtime Environment version 8.
 
 ---
 ---
@@ -84,7 +84,7 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### Slicer4J Mandatory Command Line Parameters: 
+### Slicer4J Mandatory Command Line Parameters:
 
 
 <table class="tg">
@@ -118,7 +118,7 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### Slicer4J Optional Command Line Parameters: 
+### Slicer4J Optional Command Line Parameters:
 
 
 <table class="tg">
@@ -168,9 +168,9 @@ In that case, you can [change maximum heap size](https://docs.oracle.com/cd/E217
 
 ---
 
-### User-defined method models: 
+### User-defined method models:
 
-The following is an example for defining your own method models. 
+The following is an example for defining your own method models.
 
 For the methods in this class:
 ```Java
@@ -233,7 +233,7 @@ For fields, we specify the signature of the field in `AccessPath` and its type i
 
 You can view the output of Slicer4J in 3 different formats: [Source Map](#Source-Map), [Raw Slice](#Raw-Slice), and [#Graph](Graph).
 
-Let's see the output of slicing the `SliceMe` program (found under `benchmarks/SliceMe`): 
+Let's see the output of slicing the `SliceMe` program (found under `benchmarks/SliceMe`):
 
 ```Java
  1. public class SliceMe {
@@ -278,8 +278,10 @@ In this example, we slice from line 9 in the `SliceMe.java` file: `System.out.pr
 
 ### Source Map:
 This output is only generated if the JAR is compiled with debug information.
-Slicer4J outputs a list of `files-name: source-code-line-number` for each statement that compose the slice. 
+Slicer4J outputs a list of `files-name: source-code-line-number` for each statement that compose the slice.
 This output is stored in the output folder in a file called `slice.log`
+
+> **Note:** For programs using **lambdas** or containing **synthetic classes** (e.g., Compiler-generated inner classes), the line number will appear as `-1`. This indicates that the entry corresponds to a synthetic instruction with no direct source code origin, though the underlying data dependency is correctly tracked.
 
 For the example, `slice.log` contains:
 ```
@@ -287,7 +289,7 @@ SliceMe:4
 SliceMe:7
 SliceMe:9
 ```
-Which indicates that the slice is: 
+Which indicates that the slice is:
 ```Java
  4.        if (args.length > 0){
  7.            parsed = null;
@@ -318,7 +320,7 @@ Here we see that all statements are within the same thread (thread #1), and we s
 ---
 ### Graph:
 
-Slicer4J outputs a [dot graph](https://graphviz.org/doc/info/lang.html)  whose nodes are statements in the slice and edges are data and control dependencies between the statements. 
+Slicer4J outputs a [dot graph](https://graphviz.org/doc/info/lang.html)  whose nodes are statements in the slice and edges are data and control dependencies between the statements.
 
 This output is stored in the output folder in a file called `slice-graph.pdf`
 
@@ -329,7 +331,7 @@ For the example, `slice-graph.pdf` contents is shown here:
 
 Here we see the control dependencies (dashed edges) and data flow-dependencies (solid edges) between the Jimple statements from the raw slice.
 
-For example, `$stack3 = lengthof parsed` is data-flow dependent on `parsed = null` through the variable `parsed`, which is written on the edge. 
+For example, `$stack3 = lengthof parsed` is data-flow dependent on `parsed = null` through the variable `parsed`, which is written on the edge.
 Also, `parsed = null` is control dependent on `if $stack2 <= 0 goto parsed = null`.
 
 ---

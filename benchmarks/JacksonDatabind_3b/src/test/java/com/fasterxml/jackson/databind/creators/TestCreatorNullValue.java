@@ -51,7 +51,7 @@ public class TestCreatorNullValue extends BaseMapTest
         }
     }
 
-    private static class TestModule extends Module
+    private static class TestModule extends com.fasterxml.jackson.databind.Module
     {
         @Override
         public String getModuleName() {
@@ -74,7 +74,7 @@ public class TestCreatorNullValue extends BaseMapTest
     /* Unit tests
     /**********************************************************
      */
-    
+
     public void testUsesDeserializersNullValue() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new TestModule());
