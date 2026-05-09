@@ -35,6 +35,16 @@ public class CommandParser {
         options.addOption("d", "debug", false, "Enable debug"); // data
         options.addOption("once", "once", false, "Slice one step only"); // data
         options.addOption("noprint", "noprint", false, "Dont print slices"); // data
+
+        /**
+         * Function-level slicing support.
+         *
+         * <p>Adds {@code --function-slice} option that changes slicing granularity
+         * from line-level to method-level. When enabled, the slicing criterion
+         * is expanded from a single source line to all trace statements within
+         * the containing method, producing a method-grained backward slice.
+         */
+        options.addOption("fs", "function-slice", false, "Perform function-level slicing instead of line-level");
     }
 
 
@@ -72,6 +82,9 @@ public class CommandParser {
             }
             if (cmd.hasOption("noprint")) {
                 parsed.put("noprint", "True");
+            }
+            if (cmd.hasOption("fs")) {
+                parsed.put("fs", "True");
             }
         } catch (ParseException e) {
             HelpFormatter formatter = new HelpFormatter();

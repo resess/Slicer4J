@@ -37,6 +37,7 @@ def main():
 
     test_class = options["test_class"]
     test_method = options["test_method"]
+    test_classes_dir = options["test_classes_dir"]
     main_class_args = options["main_class_args"]
     framework_models = options["framework_models"]
 
@@ -49,6 +50,8 @@ def main():
         extra_options += "-ctrl "
     if options["once"]:
         extra_options += "-once "
+    if options["function_slice"]:
+        extra_options += "-fs "
     if options["data_only"] and options["ctrl_only"]:
         print("Conflicting arguments: data-only and control-only!")
         return
@@ -60,7 +63,7 @@ def main():
 
     instrumented_jar = instrument(jar_file=jar_file, out_dir=out_dir)
     print(f"Instrumented jar is at: {instrumented_jar}", flush=True)
-    run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_class_args)
+    run(instrumented_jar, dependencies, out_dir, test_class, test_method, test_classes_dir, main_class_args)
     log_file, slice_graph = dynamic_slice(jar_file=jar_file, out_dir=out_dir, backward_criterion=backward_criterion, variables=options['variables'],
                                           extra_options=extra_options)
 
@@ -68,6 +71,9 @@ def main():
     print(f"Raw slice: {out_dir}/raw-slice.log")
     print(f"Slice graph: {slice_graph}")
     print(f"Slice with dependencies: {out_dir}/slice-dependencies.log")
+    if options["function_slice"]:
+        print(f"Function-level slice: {out_dir}/slice-function.log")
+        print(f"Pretty-print report: {out_dir}/slice-pretty.log")
 
 
 def instrument(jar_file: str, out_dir: str) -> str:
@@ -79,10 +85,11 @@ def instrument(jar_file: str, out_dir: str) -> str:
     return out_dir + os.sep + instrumented_jar
 
 
-def run(instrumented_jar, dependencies, out_dir, test_class, test_method, main_class_args):
+def run(instrumented_jar, dependencies, out_dir, test_class, test_method, test_classes_dir, main_class_args):
     print("Running the instrumented JAR", flush=True)
     if main_class_args is None:
-        cmd = f"java -Xmx8g -cp \"{script_dir}/SingleJUnitTestRunner.jar:{script_dir}/junit-4.8.2.jar:{instrumented_jar}:{dependencies}/*\" SingleJUnitTestRunner {test_class}#{test_method} > {out_dir}/trace_full.log"
+        tcd_part = f":{test_classes_dir}" if test_classes_dir else ""
+        cmd = f"java -Xmx8g -cp \"{script_dir}/SingleJUnitTestRunner.jar:{script_dir}/junit-4.8.2.jar:{instrumented_jar}{tcd_part}:{dependencies}/*\" SingleJUnitTestRunner {test_class}#{test_method} > {out_dir}/trace_full.log"
     else:
         if main_class_args.startswith("\"") and main_class_args.endswith("\""):
             main_class_args = main_class_args[1:-1]
@@ -166,12 +173,20 @@ def parse():
                         help="Main class to run with arguments", metavar="name", required=False)
     parser.add_argument("-dep", "--dependencies", dest="dependencies",
                         help="JAR dependencies", metavar="path", required=False)
+    parser.add_argument("-tcd", "--test-classes-dir", dest="test_classes_dir",
+                        help="Directory containing compiled test classes", metavar="path", required=False)
+
+    # Function-level slicing support: expands slicing criterion from a single
+    # source line to all trace statements within the containing method.
+    parser.add_argument("-fs", "--function-slice", dest="function_slice",
+                        help="Perform function-level slicing instead of line-level", action='store_true', required=False)
     args = parser.parse_args()
     return {
         "jar_file": args.jar_file, "out_dir": args.out_dir, "backward_criterion": args.backward_criterion,
         "variables": args.variables, "data_only": args.data_only, "ctrl_only": args.ctrl_only,
         "test_class": args.test_class, "test_method": args.test_method, "main_class_args": args.main_class_args,
-        "dependencies": args.dependencies, "framework_models": args.framework_models, "debug": args.debug, "once": args.once
+        "dependencies": args.dependencies, "framework_models": args.framework_models, "debug": args.debug, "once": args.once,
+        "test_classes_dir": args.test_classes_dir, "function_slice": args.function_slice
     }
 
 
